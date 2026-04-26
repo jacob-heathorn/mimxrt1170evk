@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::key_manager__puf {
 
-
 // PUF Control Register
 struct CTRL_fields_ {
-
   enum class eZEROIZE : std::uint32_t {
     // No Zeroize operation in progress
     eUNSET = 0,
@@ -53,6 +51,7 @@ struct CTRL_fields_ {
     // Get Key operation in progress
     eSET = 1,
   };
+
   // Begin Zeroize operation for PUF and go to Error state
   using ZEROIZE = ftl::mmio::Field<1, 0, eZEROIZE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Begin Enroll operation
@@ -94,10 +93,8 @@ struct CTRL : ftl::mmio::Register<
   using GETKEY = CTRL_fields_::GETKEY;
 };
 
-
 // PUF Key Index Register
 struct KEYINDEX_fields_ {
-
   enum class eKEYIDX : std::uint32_t {
     // USE INDEX0
     eINDEX0 = 0,
@@ -132,6 +129,7 @@ struct KEYINDEX_fields_ {
     // USE INDEX15
     eINDEX15 = 15,
   };
+
   // PUF Key Index
   using KEYIDX = ftl::mmio::Field<4, 0, eKEYIDX, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct KEYINDEX_fields_
@@ -147,10 +145,8 @@ struct KEYINDEX : ftl::mmio::Register<
   using KEYIDX = KEYINDEX_fields_::KEYIDX;
 };
 
-
 // PUF Key Size Register
 struct KEYSIZE_fields_ {
-
   enum class eKEYSIZE : std::uint32_t {
     // Key Size is 512 Bytes and KC Size is 532 Bytes
     eSIZE64 = 0,
@@ -281,6 +277,7 @@ struct KEYSIZE_fields_ {
     // Key Size is 504 Bytes and KC Size is 532 Bytes
     eSIZE63 = 63,
   };
+
   // PUF Key Size
   using KEYSIZE = ftl::mmio::Field<6, 0, eKEYSIZE, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct KEYSIZE_fields_
@@ -293,13 +290,11 @@ struct KEYSIZE : ftl::mmio::Register<
     KEYSIZE_fields_::KEYSIZE,
     ftl::mmio::Reserved<26, 6>> {
   using eKEYSIZE = KEYSIZE_fields_::eKEYSIZE;
-  using value_ = KEYSIZE_fields_::KEYSIZE;
+  using VALUE = KEYSIZE_fields_::KEYSIZE;
 };
-
 
 // PUF Status Register
 struct STAT_fields_ {
-
   enum class eBUSY : std::uint32_t {
     // IDLE
     eIDLE = 0,
@@ -348,6 +343,7 @@ struct STAT_fields_ {
     // Next part of Activation Code/Key Code is available in CODEOUTPUT register
     eAVAILABLE = 1,
   };
+
   // puf_busy
   using BUSY = ftl::mmio::Field<1, 0, eBUSY, ftl::mmio::RO, ftl::mmio::Normal>;
   // puf_ok
@@ -394,10 +390,8 @@ struct STAT : ftl::mmio::Register<
   using CODEOUTAVAIL = STAT_fields_::CODEOUTAVAIL;
 };
 
-
 // PUF Allow Register
 struct ALLOW_fields_ {
-
   enum class eALLOWENROLL : std::uint32_t {
     // Specified operation is not currently allowed
     eNOALLOW = 0,
@@ -425,6 +419,7 @@ struct ALLOW_fields_ {
     // Specified operation is allowed
     eALLOW = 1,
   };
+
   // Allow Enroll operation
   using ALLOWENROLL = ftl::mmio::Field<1, 0, eALLOWENROLL, ftl::mmio::RO, ftl::mmio::Normal>;
   // Allow Start operation
@@ -455,7 +450,6 @@ struct ALLOW : ftl::mmio::Register<
   using ALLOWGETKEY = ALLOW_fields_::ALLOWGETKEY;
 };
 
-
 // PUF Key Input Register
 struct KEYINPUT_fields_ {
   // Key input data
@@ -470,7 +464,6 @@ struct KEYINPUT : ftl::mmio::Register<
     KEYINPUT_fields_::KEYIN> {
   using KEYIN = KEYINPUT_fields_::KEYIN;
 };
-
 
 // PUF Code Input Register
 struct CODEINPUT_fields_ {
@@ -487,7 +480,6 @@ struct CODEINPUT : ftl::mmio::Register<
   using CODEIN = CODEINPUT_fields_::CODEIN;
 };
 
-
 // PUF Code Output Register
 struct CODEOUTPUT_fields_ {
   // AC/KC output data
@@ -502,7 +494,6 @@ struct CODEOUTPUT : ftl::mmio::Register<
     CODEOUTPUT_fields_::CODEOUT> {
   using CODEOUT = CODEOUTPUT_fields_::CODEOUT;
 };
-
 
 // PUF Key Output Index Register
 struct KEYOUTINDEX_fields_ {
@@ -519,7 +510,6 @@ struct KEYOUTINDEX : ftl::mmio::Register<
   using KEYOUTIDX = KEYOUTINDEX_fields_::KEYOUTIDX;
 };
 
-
 // PUF Key Output Register
 struct KEYOUTPUT_fields_ {
   // Key output data from a Get Key operation
@@ -535,16 +525,15 @@ struct KEYOUTPUT : ftl::mmio::Register<
   using KEYOUT = KEYOUTPUT_fields_::KEYOUT;
 };
 
-
 // PUF Interface Status Register
 struct IFSTAT_fields_ {
-
   enum class eERROR : std::uint32_t {
     // NOERROR
     eNOERROR = 0,
     // ERROR
     eERROR = 1,
   };
+
   // APB error has occurred
   using ERROR = ftl::mmio::Field<1, 0, eERROR, ftl::mmio::RW, ftl::mmio::OneToClear>;
 };  // struct IFSTAT_fields_
@@ -560,7 +549,6 @@ struct IFSTAT : ftl::mmio::Register<
   using ERROR = IFSTAT_fields_::ERROR;
 };
 
-
 // PUF Version Register
 struct VERSION_fields_ {
   // Version of PUF
@@ -573,13 +561,11 @@ struct VERSION : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VERSION_fields_::VERSION> {
-  using value_ = VERSION_fields_::VERSION;
+  using VALUE = VERSION_fields_::VERSION;
 };
-
 
 // PUF Interrupt Enable
 struct INTEN_fields_ {
-
   enum class eREADYEN : std::uint32_t {
     // PUF ready interrupt disabled
     eDISABLE = 0,
@@ -628,6 +614,7 @@ struct INTEN_fields_ {
     // AC/KC available interrupt enabled
     eENABLE = 1,
   };
+
   // PUF Ready Interrupt Enable
   using READYEN = ftl::mmio::Field<1, 0, eREADYEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // PUF_OK Interrupt Enable
@@ -674,10 +661,8 @@ struct INTEN : ftl::mmio::Register<
   using CODEOUTAVAILEN = INTEN_fields_::CODEOUTAVAILEN;
 };
 
-
 // PUF Interrupt Status
 struct INTSTAT_fields_ {
-
   enum class eREADY : std::uint32_t {
     // Indicates that last operation not finished
     eNOT_FINISHED = 0,
@@ -726,6 +711,7 @@ struct INTSTAT_fields_ {
     // Next part of AC/KC is available
     eAVAILABLE = 1,
   };
+
   // PUF_FINISH Interrupt Status
   using READY = ftl::mmio::Field<1, 0, eREADY, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // PUF_OK Interrupt Status
@@ -772,10 +758,8 @@ struct INTSTAT : ftl::mmio::Register<
   using CODEOUTAVAIL = INTSTAT_fields_::CODEOUTAVAIL;
 };
 
-
 // PUF Power Control Of RAM
 struct PWRCTRL_fields_ {
-
   enum class eRAM_ON : std::uint32_t {
     // PUF RAM is in sleep mode (PUF operation disabled)
     eSLEEP = 0,
@@ -796,6 +780,7 @@ struct PWRCTRL_fields_ {
     // Do not reset the PUF RAM (normal PUF operation enabled)
     eDO_NOT_RESET = 1,
   };
+
   // PUF RAM on
   using RAM_ON = ftl::mmio::Field<1, 0, eRAM_ON, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clock disable
@@ -826,10 +811,8 @@ struct PWRCTRL : ftl::mmio::Register<
   using RAM_PSW = PWRCTRL_fields_::RAM_PSW;
 };
 
-
 // PUF Configuration Register
 struct CFG_fields_ {
-
   enum class ePUF_BLOCK_SET_KEY : std::uint32_t {
     // Enable the Set Key state
     eENABLE = 0,
@@ -843,6 +826,7 @@ struct CFG_fields_ {
     // Disable the Enrollment state
     eDISABLE = 1,
   };
+
   // PUF Block Set Key Disable
   using PUF_BLOCK_SET_KEY = ftl::mmio::Field<1, 0, ePUF_BLOCK_SET_KEY, ftl::mmio::RW, ftl::mmio::Normal>;
   // PUF Block Enroll Disable
@@ -863,10 +847,8 @@ struct CFG : ftl::mmio::Register<
   using PUF_BLOCK_ENROLL = CFG_fields_::PUF_BLOCK_ENROLL;
 };
 
-
 // PUF Key Manager Lock
 struct KEYLOCK_fields_ {
-
   enum class eLOCK0 : std::uint32_t {
     // SNVS Key block locked
     eLOCKED_00 = 0,
@@ -888,6 +870,7 @@ struct KEYLOCK_fields_ {
     // OTFAD Key block locked
     eLOCKED_11 = 3,
   };
+
   // Lock Block 0
   using LOCK0 = ftl::mmio::Field<2, 0, eLOCK0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock Block 1
@@ -908,10 +891,8 @@ struct KEYLOCK : ftl::mmio::Register<
   using LOCK1 = KEYLOCK_fields_::LOCK1;
 };
 
-
 // PUF Key Manager Enable
 struct KEYENABLE_fields_ {
-
   enum class eENABLE0 : std::uint32_t {
     // Key block 0 disabled
     eDISABLED_00 = 0,
@@ -933,6 +914,7 @@ struct KEYENABLE_fields_ {
     // Key block 1 disabled
     eDISABLED_11 = 3,
   };
+
   // Enable Block 0
   using ENABLE0 = ftl::mmio::Field<2, 0, eENABLE0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable Block 1
@@ -953,10 +935,8 @@ struct KEYENABLE : ftl::mmio::Register<
   using ENABLE1 = KEYENABLE_fields_::ENABLE1;
 };
 
-
 // PUF Key Manager Reset
 struct KEYRESET_fields_ {
-
   enum class eRESET0 : std::uint32_t {
     // Do not reset key block 0
     eNORESET_00 = 0,
@@ -978,6 +958,7 @@ struct KEYRESET_fields_ {
     // Do not reset key block 1
     eNORESET_11 = 3,
   };
+
   // Reset Block 0
   using RESET0 = ftl::mmio::Field<2, 0, eRESET0, ftl::mmio::WO, ftl::mmio::Normal>;
   // Reset Block 1
@@ -997,7 +978,6 @@ struct KEYRESET : ftl::mmio::Register<
   using RESET0 = KEYRESET_fields_::RESET0;
   using RESET1 = KEYRESET_fields_::RESET1;
 };
-
 
 // PUF Index Block Key Output
 struct IDXBLK_fields_ {
@@ -1074,7 +1054,6 @@ struct IDXBLK : ftl::mmio::Register<
   using IDXBLK15 = IDXBLK_fields_::IDXBLK15;
 };
 
-
 // PUF Index Block Key Output
 struct IDXBLK_DP_fields_ {
   // idxblk_dp0
@@ -1150,7 +1129,6 @@ struct IDXBLK_DP : ftl::mmio::Register<
   using IDXBLK_DP15 = IDXBLK_DP_fields_::IDXBLK_DP15;
 };
 
-
 // PUF Key Block 0 Mask Enable
 struct KEYMASK0_fields_ {
   // KEYMASK0
@@ -1166,7 +1144,6 @@ struct KEYMASK0 : ftl::mmio::Register<
   using KEYMASK = KEYMASK0_fields_::KEYMASK;
 };
 
-
 // PUF Key Block 1 Mask Enable
 struct KEYMASK1_fields_ {
   // KEYMASK1
@@ -1181,7 +1158,6 @@ struct KEYMASK1 : ftl::mmio::Register<
     KEYMASK1_fields_::KEYMASK> {
   using KEYMASK = KEYMASK1_fields_::KEYMASK;
 };
-
 
 // PUF Index Block Setting Status Register
 struct IDXBLK_STATUS_fields_ {
@@ -1257,7 +1233,6 @@ struct IDXBLK_STATUS : ftl::mmio::Register<
   using IDXBLK_STATUS14 = IDXBLK_STATUS_fields_::IDXBLK_STATUS14;
   using IDXBLK_STATUS15 = IDXBLK_STATUS_fields_::IDXBLK_STATUS15;
 };
-
 
 // PUF Key Manager Shift Status
 struct IDXBLK_SHIFT_fields_ {

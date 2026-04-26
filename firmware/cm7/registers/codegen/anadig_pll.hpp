@@ -991,7 +991,7 @@ struct PLL_AUDIO_DIV_SELECT : ftl::mmio::Register<
     ftl::mmio::RW,
     PLL_AUDIO_DIV_SELECT_fields_::PLL_AUDIO_DIV_SELECT,
     ftl::mmio::Reserved<25, 7>> {
-  using value_ = PLL_AUDIO_DIV_SELECT_fields_::PLL_AUDIO_DIV_SELECT;
+  using VALUE = PLL_AUDIO_DIV_SELECT_fields_::PLL_AUDIO_DIV_SELECT;
 };
 
 // PLL_VIDEO_CTRL_REGISTER

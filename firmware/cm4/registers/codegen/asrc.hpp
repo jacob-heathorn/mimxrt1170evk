@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::asrc {
 
-
 // ASRC Control Register
 struct ASRCTR_fields_ {
-
   enum class eASRCEN : std::uint32_t {
     // operation of ASRC disabled
     edisabled = 0,
@@ -109,6 +107,7 @@ struct ASRCTR_fields_ {
     // Pair C automatically updates its pre-processing and post-processing options
     eauto_select = 1,
   };
+
   // ASRCEN
   using ASRCEN = ftl::mmio::Field<1, 0, eASRCEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // ASREA
@@ -191,10 +190,8 @@ struct ASRCTR : ftl::mmio::Register<
   using ATSC = ASRCTR_fields_::ATSC;
 };
 
-
 // ASRC Interrupt Enable Register
 struct ASRIER_fields_ {
-
   enum class eADIEA : std::uint32_t {
     // interrupt disabled
     edisabled = 0,
@@ -250,6 +247,7 @@ struct ASRIER_fields_ {
     // interrupt enabled
     eenabled = 1,
   };
+
   // ADIEA
   using ADIEA = ftl::mmio::Field<1, 0, eADIEA, ftl::mmio::RW, ftl::mmio::Normal>;
   // ADIEB
@@ -300,10 +298,8 @@ struct ASRIER : ftl::mmio::Register<
   using AFPWE = ASRIER_fields_::AFPWE;
 };
 
-
 // ASRC Channel Number Configuration Register
 struct ASRCNCR_fields_ {
-
   enum class eANCA : std::uint32_t {
     // 0 channels in A (Pair A is disabled)
     ezero_chan = 0,
@@ -408,6 +404,7 @@ struct ASRCNCR_fields_ {
     // Should not be used.
     enot_used_15 = 15,
   };
+
   // ANCA
   using ANCA = ftl::mmio::Field<4, 0, eANCA, ftl::mmio::RW, ftl::mmio::Normal>;
   // ANCB
@@ -433,10 +430,8 @@ struct ASRCNCR : ftl::mmio::Register<
   using ANCC = ASRCNCR_fields_::ANCC;
 };
 
-
 // ASRC Filter Configuration Status Register
 struct ASRCFG_fields_ {
-
   enum class ePREMODA : std::uint32_t {
     // Select Upsampling-by-2
     eupsamp_2 = 0,
@@ -538,6 +533,7 @@ struct ASRCFG_fields_ {
     // Initialization for Conversion Pair C served
     einit_served = 1,
   };
+
   // PREMODA
   using PREMODA = ftl::mmio::Field<2, 6, ePREMODA, ftl::mmio::RW, ftl::mmio::Normal>;
   // POSTMODA
@@ -609,10 +605,8 @@ struct ASRCFG : ftl::mmio::Register<
   using INIRQC = ASRCFG_fields_::INIRQC;
 };
 
-
 // ASRC Clock Source Register
 struct ASRCSR_fields_ {
-
   enum class eAICSA : std::uint32_t {
     // bit clock 0
     ebitclk0 = 0,
@@ -822,6 +816,7 @@ struct ASRCSR_fields_ {
     // clock disabled, connected to zero
     eclk_disabled = 15,
   };
+
   // AICSA
   using AICSA = ftl::mmio::Field<4, 0, eAICSA, ftl::mmio::RW, ftl::mmio::Normal>;
   // AICSB
@@ -861,7 +856,6 @@ struct ASRCSR : ftl::mmio::Register<
   using AOCSB = ASRCSR_fields_::AOCSB;
   using AOCSC = ASRCSR_fields_::AOCSC;
 };
-
 
 // ASRC Clock Divider Register 1
 struct ASRCDR1_fields_ {
@@ -907,7 +901,6 @@ struct ASRCDR1 : ftl::mmio::Register<
   using AOCDB = ASRCDR1_fields_::AOCDB;
 };
 
-
 // ASRC Clock Divider Register 2
 struct ASRCDR2_fields_ {
   // AICPC
@@ -936,10 +929,8 @@ struct ASRCDR2 : ftl::mmio::Register<
   using AOCDC = ASRCDR2_fields_::AOCDC;
 };
 
-
 // ASRC Status Register
 struct ASRSTR_fields_ {
-
   enum class eAIDEA : std::uint32_t {
     // The threshold has been met and no data input A interrupt is generated
     ethresh_met = 0,
@@ -1093,6 +1084,7 @@ struct ASRSTR_fields_ {
     // New DSL counter information is stored in the internal ASRC FIFO
     edslcnt_stored = 1,
   };
+
   // AIDEA
   using AIDEA = ftl::mmio::Field<1, 0, eAIDEA, ftl::mmio::RO, ftl::mmio::Normal>;
   // AIDEB
@@ -1213,7 +1205,6 @@ struct ASRSTR : ftl::mmio::Register<
   using DSLCNT = ASRSTR_fields_::DSLCNT;
 };
 
-
 // ASRC Parameter Register n
 struct ASRPM_fields_ {
   // PARAMETER_VALUE
@@ -1231,7 +1222,6 @@ struct ASRPM : ftl::mmio::Register<
   static_assert(Index < 5u, "ASRPM: Index out of range");
   using PARAMETER_VALUE = ASRPM_fields_::PARAMETER_VALUE;
 };
-
 
 // ASRC Task Queue FIFO Register 1
 struct ASRTFR1_fields_ {
@@ -1253,7 +1243,6 @@ struct ASRTFR1 : ftl::mmio::Register<
   using TF_BASE = ASRTFR1_fields_::TF_BASE;
   using TF_FILL = ASRTFR1_fields_::TF_FILL;
 };
-
 
 // ASRC Channel Counter Register
 struct ASRCCR_fields_ {
@@ -1291,7 +1280,6 @@ struct ASRCCR : ftl::mmio::Register<
   using ACOC = ASRCCR_fields_::ACOC;
 };
 
-
 // ASRC Data Input Register for Pair x
 struct ASRDIA_fields_ {
   // DATA
@@ -1307,7 +1295,6 @@ struct ASRDIA : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using DATA = ASRDIA_fields_::DATA;
 };
-
 
 // ASRC Data Output Register for Pair x
 struct ASRDOA_fields_ {
@@ -1325,7 +1312,6 @@ struct ASRDOA : ftl::mmio::Register<
   using DATA = ASRDOA_fields_::DATA;
 };
 
-
 // ASRC Data Input Register for Pair x
 struct ASRDIB_fields_ {
   // DATA
@@ -1341,7 +1327,6 @@ struct ASRDIB : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using DATA = ASRDIB_fields_::DATA;
 };
-
 
 // ASRC Data Output Register for Pair x
 struct ASRDOB_fields_ {
@@ -1359,7 +1344,6 @@ struct ASRDOB : ftl::mmio::Register<
   using DATA = ASRDOB_fields_::DATA;
 };
 
-
 // ASRC Data Input Register for Pair x
 struct ASRDIC_fields_ {
   // DATA
@@ -1375,7 +1359,6 @@ struct ASRDIC : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using DATA = ASRDIC_fields_::DATA;
 };
-
 
 // ASRC Data Output Register for Pair x
 struct ASRDOC_fields_ {
@@ -1393,7 +1376,6 @@ struct ASRDOC : ftl::mmio::Register<
   using DATA = ASRDOC_fields_::DATA;
 };
 
-
 // ASRC Ideal Ratio for Pair A-High Part
 struct ASRIDRHA_fields_ {
   // IDRATIOA_H
@@ -1409,7 +1391,6 @@ struct ASRIDRHA : ftl::mmio::Register<
     ftl::mmio::Reserved<24, 8>> {
   using IDRATIOA_H = ASRIDRHA_fields_::IDRATIOA_H;
 };
-
 
 // ASRC Ideal Ratio for Pair A -Low Part
 struct ASRIDRLA_fields_ {
@@ -1427,7 +1408,6 @@ struct ASRIDRLA : ftl::mmio::Register<
   using IDRATIOA_L = ASRIDRLA_fields_::IDRATIOA_L;
 };
 
-
 // ASRC Ideal Ratio for Pair B-High Part
 struct ASRIDRHB_fields_ {
   // IDRATIOB_H
@@ -1443,7 +1423,6 @@ struct ASRIDRHB : ftl::mmio::Register<
     ftl::mmio::Reserved<24, 8>> {
   using IDRATIOB_H = ASRIDRHB_fields_::IDRATIOB_H;
 };
-
 
 // ASRC Ideal Ratio for Pair B-Low Part
 struct ASRIDRLB_fields_ {
@@ -1461,7 +1440,6 @@ struct ASRIDRLB : ftl::mmio::Register<
   using IDRATIOB_L = ASRIDRLB_fields_::IDRATIOB_L;
 };
 
-
 // ASRC Ideal Ratio for Pair C-High Part
 struct ASRIDRHC_fields_ {
   // IDRATIOC_H
@@ -1477,7 +1455,6 @@ struct ASRIDRHC : ftl::mmio::Register<
     ftl::mmio::Reserved<24, 8>> {
   using IDRATIOC_H = ASRIDRHC_fields_::IDRATIOC_H;
 };
-
 
 // ASRC Ideal Ratio for Pair C-Low Part
 struct ASRIDRLC_fields_ {
@@ -1495,7 +1472,6 @@ struct ASRIDRLC : ftl::mmio::Register<
   using IDRATIOC_L = ASRIDRLC_fields_::IDRATIOC_L;
 };
 
-
 // ASRC 76 kHz Period in terms of ASRC processing clock
 struct ASR76K_fields_ {
   // ASR76K
@@ -1509,9 +1485,8 @@ struct ASR76K : ftl::mmio::Register<
     ftl::mmio::RW,
     ASR76K_fields_::ASR76K,
     ftl::mmio::Reserved<15, 17>> {
-  using value_ = ASR76K_fields_::ASR76K;
+  using VALUE = ASR76K_fields_::ASR76K;
 };
-
 
 // ASRC 56 kHz Period in terms of ASRC processing clock
 struct ASR56K_fields_ {
@@ -1526,13 +1501,11 @@ struct ASR56K : ftl::mmio::Register<
     ftl::mmio::RW,
     ASR56K_fields_::ASR56K,
     ftl::mmio::Reserved<15, 17>> {
-  using value_ = ASR56K_fields_::ASR56K;
+  using VALUE = ASR56K_fields_::ASR56K;
 };
-
 
 // ASRC Misc Control Register for Pair A
 struct ASRMCRA_fields_ {
-
   enum class eRSYNOFA : std::uint32_t {
     // Do not touch ASRCCR[ACOA]
     eno_resync = 0,
@@ -1574,6 +1547,7 @@ struct ASRMCRA_fields_ {
     // Don't zeroize the buffer
     edo_not_zero_buf = 1,
   };
+
   // INFIFO_THRESHOLDA
   using INFIFO_THRESHOLDA = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // RSYNOFA
@@ -1624,10 +1598,8 @@ struct ASRMCRA : ftl::mmio::Register<
   using ZEROBUFA = ASRMCRA_fields_::ZEROBUFA;
 };
 
-
 // ASRC FIFO Status Register for Pair A
 struct ASRFSTA_fields_ {
-
   enum class eIAEA : std::uint32_t {
     // Input FIFO is not near empty for Pair A
     enot_near_empty = 0,
@@ -1641,6 +1613,7 @@ struct ASRFSTA_fields_ {
     // Output FIFO is near full for Pair A
     enear_full = 1,
   };
+
   // INFIFO_FILLA
   using INFIFO_FILLA = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // IAEA
@@ -1671,10 +1644,8 @@ struct ASRFSTA : ftl::mmio::Register<
   using OAFA = ASRFSTA_fields_::OAFA;
 };
 
-
 // ASRC Misc Control Register for Pair B
 struct ASRMCRB_fields_ {
-
   enum class eRSYNOFB : std::uint32_t {
     // Do not touch ASRCCR[ACOB]
     eno_resync = 0,
@@ -1716,6 +1687,7 @@ struct ASRMCRB_fields_ {
     // Don't zeroize the buffer
     edo_not_zero_buf = 1,
   };
+
   // INFIFO_THRESHOLDB
   using INFIFO_THRESHOLDB = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // RSYNOFB
@@ -1766,10 +1738,8 @@ struct ASRMCRB : ftl::mmio::Register<
   using ZEROBUFB = ASRMCRB_fields_::ZEROBUFB;
 };
 
-
 // ASRC FIFO Status Register for Pair B
 struct ASRFSTB_fields_ {
-
   enum class eIAEB : std::uint32_t {
     // Input FIFO is not near empty for Pair B
     enot_near_empty = 0,
@@ -1783,6 +1753,7 @@ struct ASRFSTB_fields_ {
     // Output FIFO is near full for Pair B
     enear_full = 1,
   };
+
   // INFIFO_FILLB
   using INFIFO_FILLB = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // IAEB
@@ -1813,10 +1784,8 @@ struct ASRFSTB : ftl::mmio::Register<
   using OAFB = ASRFSTB_fields_::OAFB;
 };
 
-
 // ASRC Misc Control Register for Pair C
 struct ASRMCRC_fields_ {
-
   enum class eRSYNOFC : std::uint32_t {
     // Do not touch ASRCCR[ACOC]
     eno_resync = 0,
@@ -1858,6 +1827,7 @@ struct ASRMCRC_fields_ {
     // Don't zeroize the buffer
     edo_not_zero_buf = 1,
   };
+
   // INFIFO_THRESHOLDC
   using INFIFO_THRESHOLDC = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // RSYNOFC
@@ -1908,10 +1878,8 @@ struct ASRMCRC : ftl::mmio::Register<
   using ZEROBUFC = ASRMCRC_fields_::ZEROBUFC;
 };
 
-
 // ASRC FIFO Status Register for Pair C
 struct ASRFSTC_fields_ {
-
   enum class eIAEC : std::uint32_t {
     // Input FIFO is not near empty for Pair C
     enot_near_empty = 0,
@@ -1925,6 +1893,7 @@ struct ASRFSTC_fields_ {
     // Output FIFO is near full for Pair C
     enear_full = 1,
   };
+
   // INFIFO_FILLC
   using INFIFO_FILLC = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // IAEC
@@ -1955,10 +1924,8 @@ struct ASRFSTC : ftl::mmio::Register<
   using OAFC = ASRFSTC_fields_::OAFC;
 };
 
-
 // ASRC Misc Control Register 1 for Pair X
 struct ASRMCR1_fields_ {
-
   enum class eOW16 : std::uint32_t {
     // 24-bit output data.
     eout_24bit = 0,
@@ -1995,6 +1962,7 @@ struct ASRMCR1_fields_ {
     // 8-bit audio data.
     eaudiodata_8bit = 2,
   };
+
   // OW16
   using OW16 = ftl::mmio::Field<1, 0, eOW16, ftl::mmio::RW, ftl::mmio::Normal>;
   // OSGN

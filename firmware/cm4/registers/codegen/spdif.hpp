@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::spdif {
 
-
 // SPDIF Configuration Register
 struct SCR_fields_ {
-
   enum class eUSrc_Sel : std::uint32_t {
     // No embedded U channel
     enone = 0,
@@ -113,6 +111,7 @@ struct SCR_fields_ {
     // Always read zero from Rx data register
     ealways_zero = 1,
   };
+
   // USrc_Sel
   using USrc_Sel = ftl::mmio::Field<2, 0, eUSrc_Sel, ftl::mmio::RW, ftl::mmio::Normal>;
   // TxSel
@@ -200,16 +199,15 @@ struct SCR : ftl::mmio::Register<
   using RxFIFO_Ctrl = SCR_fields_::RxFIFO_Ctrl;
 };
 
-
 // CDText Control Register
 struct SRCD_fields_ {
-
   enum class eUSyncMode : std::uint32_t {
     // Non-CD data
     enon_cddata = 0,
     // CD user channel subcode
     ecduser_chsubcode = 1,
   };
+
   // USyncMode
   using USyncMode = ftl::mmio::Field<1, 1, eUSyncMode, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct SRCD_fields_
@@ -226,10 +224,8 @@ struct SRCD : ftl::mmio::Register<
   using USyncMode = SRCD_fields_::USyncMode;
 };
 
-
 // PhaseConfig Register
 struct SRPC_fields_ {
-
   enum class eGainSel : std::uint32_t {
     // 24*(2**10)
     egainsel_0b000 = 0,
@@ -261,6 +257,7 @@ struct SRPC_fields_ {
     // SPDIF_EXT_CLK
     eclksrc_0b1000 = 8,
   };
+
   // GainSel
   using GainSel = ftl::mmio::Field<3, 3, eGainSel, ftl::mmio::RW, ftl::mmio::Normal>;
   // LOCK
@@ -285,7 +282,6 @@ struct SRPC : ftl::mmio::Register<
   using LOCK = SRPC_fields_::LOCK;
   using ClkSrc_Sel = SRPC_fields_::ClkSrc_Sel;
 };
-
 
 // InterruptEn Register
 struct SIE_fields_ {
@@ -372,7 +368,6 @@ struct SIE : ftl::mmio::Register<
   using Lock = SIE_fields_::Lock;
 };
 
-
 // InterruptClear Register
 struct SIC_fields_ {
   // LockLoss
@@ -443,7 +438,6 @@ struct SIC : ftl::mmio::Register<
   using TxUnOv = SIC_fields_::TxUnOv;
   using Lock = SIC_fields_::Lock;
 };
-
 
 // InterruptStat Register
 struct SIS_fields_ {
@@ -530,7 +524,6 @@ struct SIS : ftl::mmio::Register<
   using Lock = SIS_fields_::Lock;
 };
 
-
 // SPDIFRxLeft Register
 struct SRL_fields_ {
   // RxDataLeft
@@ -546,7 +539,6 @@ struct SRL : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using RxDataLeft = SRL_fields_::RxDataLeft;
 };
-
 
 // SPDIFRxRight Register
 struct SRR_fields_ {
@@ -564,7 +556,6 @@ struct SRR : ftl::mmio::Register<
   using RxDataRight = SRR_fields_::RxDataRight;
 };
 
-
 // SPDIFRxCChannel_h Register
 struct SRCSH_fields_ {
   // RxCChannel_h
@@ -580,7 +571,6 @@ struct SRCSH : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using RxCChannel_h = SRCSH_fields_::RxCChannel_h;
 };
-
 
 // SPDIFRxCChannel_l Register
 struct SRCSL_fields_ {
@@ -598,7 +588,6 @@ struct SRCSL : ftl::mmio::Register<
   using RxCChannel_l = SRCSL_fields_::RxCChannel_l;
 };
 
-
 // UchannelRx Register
 struct SRU_fields_ {
   // RxUChannel
@@ -614,7 +603,6 @@ struct SRU : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using RxUChannel = SRU_fields_::RxUChannel;
 };
-
 
 // QchannelRx Register
 struct SRQ_fields_ {
@@ -632,7 +620,6 @@ struct SRQ : ftl::mmio::Register<
   using RxQChannel = SRQ_fields_::RxQChannel;
 };
 
-
 // SPDIFTxLeft Register
 struct STL_fields_ {
   // TxDataLeft
@@ -648,7 +635,6 @@ struct STL : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using TxDataLeft = STL_fields_::TxDataLeft;
 };
-
 
 // SPDIFTxRight Register
 struct STR_fields_ {
@@ -666,7 +652,6 @@ struct STR : ftl::mmio::Register<
   using TxDataRight = STR_fields_::TxDataRight;
 };
 
-
 // SPDIFTxCChannelCons_h Register
 struct STCSCH_fields_ {
   // TxCChannelCons_h
@@ -682,7 +667,6 @@ struct STCSCH : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using TxCChannelCons_h = STCSCH_fields_::TxCChannelCons_h;
 };
-
 
 // SPDIFTxCChannelCons_l Register
 struct STCSCL_fields_ {
@@ -700,7 +684,6 @@ struct STCSCL : ftl::mmio::Register<
   using TxCChannelCons_l = STCSCL_fields_::TxCChannelCons_l;
 };
 
-
 // FreqMeas Register
 struct SRFM_fields_ {
   // FreqMeas
@@ -717,10 +700,8 @@ struct SRFM : ftl::mmio::Register<
   using FreqMeas = SRFM_fields_::FreqMeas;
 };
 
-
 // SPDIFTxClk Register
 struct STC_fields_ {
-
   enum class eTxClk_DF : std::uint32_t {
     // divider factor is 1
     ediv1 = 0,
@@ -756,6 +737,7 @@ struct STC_fields_ {
     // divider factor is 512
     ediv512 = 511,
   };
+
   // TxClk_DF
   using TxClk_DF = ftl::mmio::Field<7, 0, eTxClk_DF, ftl::mmio::RW, ftl::mmio::Normal>;
   // tx_all_clk_en

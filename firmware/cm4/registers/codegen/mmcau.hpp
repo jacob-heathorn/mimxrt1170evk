@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::mmcau {
 
-
 // Status Register
 struct CASR_fields_ {
-
   enum class eIC : std::uint32_t {
     // No illegal commands issued.
     eIC_0 = 0,
@@ -32,6 +30,7 @@ struct CASR_fields_ {
     // Second version, added support for SHA-256 algorithm (This is the value on this device).
     eVER_2 = 2,
   };
+
   // Illegal Command
   using IC = ftl::mmio::Field<1, 0, eIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // DES Parity Error
@@ -57,7 +56,6 @@ struct CASR : ftl::mmio::Register<
   using VER = CASR_fields_::VER;
 };
 
-
 // Accumulator
 struct CAA_fields_ {
   // Accumulator
@@ -72,7 +70,6 @@ struct CAA : ftl::mmio::Register<
     CAA_fields_::ACC> {
   using ACC = CAA_fields_::ACC;
 };
-
 
 // General Purpose Register
 struct CA_fields_ {

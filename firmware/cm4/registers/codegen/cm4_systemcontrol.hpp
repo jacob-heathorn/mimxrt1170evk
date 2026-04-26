@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::cm4_systemcontrol {
 
-
 // Auxiliary Control Register,
 struct SCB_ACTLR_fields_ {
   // Disables interruption of multi-cycle instructions.
@@ -32,7 +31,6 @@ struct SCB_ACTLR : ftl::mmio::Register<
   using DISDEFWBUF = SCB_ACTLR_fields_::DISDEFWBUF;
   using DISFOLD = SCB_ACTLR_fields_::DISFOLD;
 };
-
 
 // CPUID Base Register
 struct SCB_CPUID_fields_ {
@@ -62,10 +60,8 @@ struct SCB_CPUID : ftl::mmio::Register<
   using IMPLEMENTER = SCB_CPUID_fields_::IMPLEMENTER;
 };
 
-
 // Interrupt Control and State Register
 struct SCB_ICSR_fields_ {
-
   enum class eRETTOBASE : std::uint32_t {
     // there are preempted active exceptions to execute
     eRETTOBASE_0 = 0,
@@ -114,6 +110,7 @@ struct SCB_ICSR_fields_ {
     // write: changes NMI exception state to pending; read: NMI exception is pending
     eNMIPENDSET_1 = 1,
   };
+
   // Active exception number
   using VECTACTIVE = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // no description available
@@ -174,7 +171,6 @@ struct SCB_ICSR : ftl::mmio::Register<
   using NMIPENDSET = SCB_ICSR_fields_::NMIPENDSET;
 };
 
-
 // Vector Table Offset Register
 struct SCB_VTOR_fields_ {
   // Vector table base offset
@@ -191,10 +187,8 @@ struct SCB_VTOR : ftl::mmio::Register<
   using TBLOFF = SCB_VTOR_fields_::TBLOFF;
 };
 
-
 // Application Interrupt and Reset Control Register
 struct SCB_AIRCR_fields_ {
-
   enum class eSYSRESETREQ : std::uint32_t {
     // no system reset request
     eSYSRESETREQ_0 = 0,
@@ -208,6 +202,7 @@ struct SCB_AIRCR_fields_ {
     // Big-endian
     eENDIANNESS_1 = 1,
   };
+
   // no description available
   using VECTRESET = ftl::mmio::Field<1, 0, bool, ftl::mmio::WO, ftl::mmio::Normal>;
   // no description available
@@ -245,10 +240,8 @@ struct SCB_AIRCR : ftl::mmio::Register<
   using VECTKEY = SCB_AIRCR_fields_::VECTKEY;
 };
 
-
 // System Control Register
 struct SCB_SCR_fields_ {
-
   enum class eSLEEPONEXIT : std::uint32_t {
     // o not sleep when returning to Thread mode
     eSLEEPONEXIT_0 = 0,
@@ -269,6 +262,7 @@ struct SCB_SCR_fields_ {
     // enabled events and all interrupts, including disabled interrupts, can wakeup the processor
     eSEVONPEND_1 = 1,
   };
+
   // no description available
   using SLEEPONEXIT = ftl::mmio::Field<1, 1, eSLEEPONEXIT, ftl::mmio::RW, ftl::mmio::Normal>;
   // no description available
@@ -296,10 +290,8 @@ struct SCB_SCR : ftl::mmio::Register<
   using SEVONPEND = SCB_SCR_fields_::SEVONPEND;
 };
 
-
 // Configuration and Control Register
 struct SCB_CCR_fields_ {
-
   enum class eNONBASETHRDENA : std::uint32_t {
     // processor can enter Thread mode only when no exception is active
     eNONBASETHRDENA_0 = 0,
@@ -341,6 +333,7 @@ struct SCB_CCR_fields_ {
     // 8-byte aligned
     eSTKALIGN_1 = 1,
   };
+
   // no description available
   using NONBASETHRDENA = ftl::mmio::Field<1, 0, eNONBASETHRDENA, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enables unprivileged software access to the STIR
@@ -383,7 +376,6 @@ struct SCB_CCR : ftl::mmio::Register<
   using STKALIGN = SCB_CCR_fields_::STKALIGN;
 };
 
-
 // System Handler Priority Register 1
 struct SCB_SHPR1_fields_ {
   // Priority of system handler 4, MemManage
@@ -408,7 +400,6 @@ struct SCB_SHPR1 : ftl::mmio::Register<
   using PRI_6 = SCB_SHPR1_fields_::PRI_6;
 };
 
-
 // System Handler Priority Register 2
 struct SCB_SHPR2_fields_ {
   // Priority of system handler 11, SVCall
@@ -424,7 +415,6 @@ struct SCB_SHPR2 : ftl::mmio::Register<
     SCB_SHPR2_fields_::PRI_11> {
   using PRI_11 = SCB_SHPR2_fields_::PRI_11;
 };
-
 
 // System Handler Priority Register 3
 struct SCB_SHPR3_fields_ {
@@ -446,10 +436,8 @@ struct SCB_SHPR3 : ftl::mmio::Register<
   using PRI_15 = SCB_SHPR3_fields_::PRI_15;
 };
 
-
 // System Handler Control and State Register
 struct SCB_SHCSR_fields_ {
-
   enum class eMEMFAULTACT : std::uint32_t {
     // exception is not active
     eMEMFAULTACT_0 = 0,
@@ -547,6 +535,7 @@ struct SCB_SHCSR_fields_ {
     // enable the exception
     eUSGFAULTENA_1 = 1,
   };
+
   // no description available
   using MEMFAULTACT = ftl::mmio::Field<1, 0, eMEMFAULTACT, ftl::mmio::RW, ftl::mmio::Normal>;
   // no description available
@@ -630,10 +619,8 @@ struct SCB_SHCSR : ftl::mmio::Register<
   using USGFAULTENA = SCB_SHCSR_fields_::USGFAULTENA;
 };
 
-
 // Configurable Fault Status Registers
 struct SCB_CFSR_fields_ {
-
   enum class eIACCVIOL : std::uint32_t {
     // no instruction access violation fault
     eIACCVIOL_0 = 0,
@@ -766,6 +753,7 @@ struct SCB_CFSR_fields_ {
     // the processor has executed an SDIV or UDIV instruction with a divisor of 0
     eDIVBYZERO_1 = 1,
   };
+
   // no description available
   using IACCVIOL = ftl::mmio::Field<1, 0, eIACCVIOL, ftl::mmio::RW, ftl::mmio::Normal>;
   // no description available
@@ -875,10 +863,8 @@ struct SCB_CFSR : ftl::mmio::Register<
   using DIVBYZERO = SCB_CFSR_fields_::DIVBYZERO;
 };
 
-
 // HardFault Status register
 struct SCB_HFSR_fields_ {
-
   enum class eVECTTBL : std::uint32_t {
     // no BusFault on vector table read
     eVECTTBL_0 = 0,
@@ -892,6 +878,7 @@ struct SCB_HFSR_fields_ {
     // forced HardFault
     eFORCED_1 = 1,
   };
+
   // no description available
   using VECTTBL = ftl::mmio::Field<1, 1, eVECTTBL, ftl::mmio::RW, ftl::mmio::Normal>;
   // no description available
@@ -917,10 +904,8 @@ struct SCB_HFSR : ftl::mmio::Register<
   using DEBUGEVT = SCB_HFSR_fields_::DEBUGEVT;
 };
 
-
 // Debug Fault Status Register
 struct SCB_DFSR_fields_ {
-
   enum class eHALTED : std::uint32_t {
     // No active halt request debug event
     eHALTED_0 = 0,
@@ -955,6 +940,7 @@ struct SCB_DFSR_fields_ {
     // EDBGRQ debug event
     eEXTERNAL_1 = 1,
   };
+
   // no description available
   using HALTED = ftl::mmio::Field<1, 0, eHALTED, ftl::mmio::RW, ftl::mmio::Normal>;
   // no description available
@@ -990,7 +976,6 @@ struct SCB_DFSR : ftl::mmio::Register<
   using EXTERNAL = SCB_DFSR_fields_::EXTERNAL;
 };
 
-
 // MemManage Address Register
 struct SCB_MMFAR_fields_ {
   // Address of MemManage fault location
@@ -1005,7 +990,6 @@ struct SCB_MMFAR : ftl::mmio::Register<
     SCB_MMFAR_fields_::ADDRESS> {
   using ADDRESS = SCB_MMFAR_fields_::ADDRESS;
 };
-
 
 // BusFault Address Register
 struct SCB_BFAR_fields_ {
@@ -1022,7 +1006,6 @@ struct SCB_BFAR : ftl::mmio::Register<
   using ADDRESS = SCB_BFAR_fields_::ADDRESS;
 };
 
-
 // Auxiliary Fault Status Register
 struct SCB_AFSR_fields_ {
   // Latched version of the AUXFAULT inputs
@@ -1038,10 +1021,8 @@ struct SCB_AFSR : ftl::mmio::Register<
   using AUXFAULT = SCB_AFSR_fields_::AUXFAULT;
 };
 
-
 // Coprocessor Access Control Register
 struct SCB_CPACR_fields_ {
-
   enum class eCP10 : std::uint32_t {
     // Access denied. Any attempted access generates a NOCP UsageFault
     eCP10_0 = 0,
@@ -1059,6 +1040,7 @@ struct SCB_CPACR_fields_ {
     // Full access.
     eCP11_3 = 3,
   };
+
   // Access privileges for coprocessor 10.
   using CP10 = ftl::mmio::Field<2, 20, eCP10, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access privileges for coprocessor 11.
@@ -1080,10 +1062,8 @@ struct SCB_CPACR : ftl::mmio::Register<
   using CP11 = SCB_CPACR_fields_::CP11;
 };
 
-
 // Floating-point Context Control Register
 struct SCB_FPCCR_fields_ {
-
   enum class eLSPACT : std::uint32_t {
     // Lazy state preservation is not active.
     eLSPACT_0 = 0,
@@ -1146,6 +1126,7 @@ struct SCB_FPCCR_fields_ {
     // Enable CONTROL2 setting on execution of a floating-point instruction.
     eASPEN_1 = 1,
   };
+
   // Lazy state preservation.
   using LSPACT = ftl::mmio::Field<1, 0, eLSPACT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Privilege level when the floating-point stack frame was allocated.
@@ -1203,7 +1184,6 @@ struct SCB_FPCCR : ftl::mmio::Register<
   using ASPEN = SCB_FPCCR_fields_::ASPEN;
 };
 
-
 // Floating-point Context Address Register
 struct SCB_FPCAR_fields_ {
   // The location of the unpopulated floating-point register space allocated on an exception stack frame.
@@ -1220,10 +1200,8 @@ struct SCB_FPCAR : ftl::mmio::Register<
   using ADDRESS = SCB_FPCAR_fields_::ADDRESS;
 };
 
-
 // Floating-point Default Status Control Register
 struct SCB_FPDSCR_fields_ {
-
   enum class eRMode : std::uint32_t {
     // Round to Nearest (RN) mode
     eRMode_0 = 0,
@@ -1255,6 +1233,7 @@ struct SCB_FPDSCR_fields_ {
     // Alternative half-precision format selected.
     eAHP_1 = 1,
   };
+
   // Default value for FPSCR.RMode (Rounding Mode control field).
   using RMode = ftl::mmio::Field<2, 22, eRMode, ftl::mmio::RW, ftl::mmio::Normal>;
   // Default value for FPSCR.FZ (Flush-to-zero mode control bit).

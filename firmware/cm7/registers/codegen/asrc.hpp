@@ -1485,7 +1485,7 @@ struct ASR76K : ftl::mmio::Register<
     ftl::mmio::RW,
     ASR76K_fields_::ASR76K,
     ftl::mmio::Reserved<15, 17>> {
-  using value_ = ASR76K_fields_::ASR76K;
+  using VALUE = ASR76K_fields_::ASR76K;
 };
 
 // ASRC 56 kHz Period in terms of ASRC processing clock
@@ -1501,7 +1501,7 @@ struct ASR56K : ftl::mmio::Register<
     ftl::mmio::RW,
     ASR56K_fields_::ASR56K,
     ftl::mmio::Reserved<15, 17>> {
-  using value_ = ASR56K_fields_::ASR56K;
+  using VALUE = ASR56K_fields_::ASR56K;
 };
 
 // ASRC Misc Control Register for Pair A

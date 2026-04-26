@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::mcm {
 
-
 // SoC-defined platform revision
 struct MCM_PLREV_fields_ {
   // The PLREV[15:0] field is specified by an platform input signal to define a software-visible revision number.
@@ -24,14 +23,13 @@ struct MCM_PLREV : ftl::mmio::Register<
   using PLREV = MCM_PLREV_fields_::PLREV;
 };
 
-
 // Processor core type
 struct MCM_PCT_fields_ {
-
   enum class ePCT : std::uint32_t {
     // ARM Cortex M4
     ePCT_44096 = 44096,
   };
+
   // This MCM design supports the ARM Cortex M4 core. The following value identifies this core complex.
   using PCT = ftl::mmio::Field<16, 0, ePCT, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct MCM_PCT_fields_
@@ -45,7 +43,6 @@ struct MCM_PCT : ftl::mmio::Register<
   using ePCT = MCM_PCT_fields_::ePCT;
   using PCT = MCM_PCT_fields_::PCT;
 };
-
 
 // Memory configuration
 struct MCM_MEMCFG_fields_ {
@@ -69,16 +66,15 @@ struct MCM_MEMCFG : ftl::mmio::Register<
   using TCRAMLSZ = MCM_MEMCFG_fields_::TCRAMLSZ;
 };
 
-
 // Crossbar Switch (AXBS) Slave Configuration
 struct MCM_PLASC_fields_ {
-
   enum class eASC : std::uint32_t {
     // A bus slave connection to AXBS input port n is absent
     eASC_0 = 0,
     // A bus slave connection to AXBS input port n is present
     eASC_1 = 1,
   };
+
   // Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
   using ASC = ftl::mmio::Field<8, 0, eASC, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct MCM_PLASC_fields_
@@ -94,16 +90,15 @@ struct MCM_PLASC : ftl::mmio::Register<
   using ASC = MCM_PLASC_fields_::ASC;
 };
 
-
 // Crossbar Switch (AXBS) Master Configuration
 struct MCM_PLAMC_fields_ {
-
   enum class eAMC : std::uint32_t {
     // A bus master connection to AXBS input port n is absent
     eAMC_0 = 0,
     // A bus master connection to AXBS input port n is present
     eAMC_1 = 1,
   };
+
   // Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
   using AMC = ftl::mmio::Field<8, 0, eAMC, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct MCM_PLAMC_fields_
@@ -119,10 +114,8 @@ struct MCM_PLAMC : ftl::mmio::Register<
   using AMC = MCM_PLAMC_fields_::AMC;
 };
 
-
 // Control Register
 struct MCM_CR_fields_ {
-
   enum class eCBRR : std::uint32_t {
     // Fixed-priority arbitration
     eCBRR_0 = 0,
@@ -151,6 +144,7 @@ struct MCM_CR_fields_ {
     // Fixed priority. Backdoor has highest, processor has lowest
     eCTCMAP_3 = 3,
   };
+
   // Status bits
   using STATUS = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Crossbar round-robin arbitration enable
@@ -190,10 +184,8 @@ struct MCM_CR : ftl::mmio::Register<
   using CTCMWP = MCM_CR_fields_::CTCMWP;
 };
 
-
 // Interrupt Status and Control Register
 struct MCM_ISCR_fields_ {
-
   enum class eCWBER : std::uint32_t {
     // No error
     eCWBER_0 = 0,
@@ -291,6 +283,7 @@ struct MCM_ISCR_fields_ {
     // Enable interrupt
     eFIDCE_1 = 1,
   };
+
   // Cache write buffer error status
   using CWBER = ftl::mmio::Field<1, 4, eCWBER, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FPU invalid operation interrupt status
@@ -376,7 +369,6 @@ struct MCM_ISCR : ftl::mmio::Register<
   using FIDCE = MCM_ISCR_fields_::FIDCE;
 };
 
-
 // Fault address register
 struct MCM_FADR_fields_ {
   // Fault address
@@ -392,10 +384,8 @@ struct MCM_FADR : ftl::mmio::Register<
   using ADDRESS = MCM_FADR_fields_::ADDRESS;
 };
 
-
 // Fault attributes register
 struct MCM_FATR_fields_ {
-
   enum class eBEDA : std::uint32_t {
     // Instruction
     eBEDA_0 = 0,
@@ -432,6 +422,7 @@ struct MCM_FATR_fields_ {
     // Bus error overrun occurred. The FADR and FDR registers and the other FATR bits are not updated to reflect this new bus error.
     eBEOVR_1 = 1,
   };
+
   // Bus error access type
   using BEDA = ftl::mmio::Field<1, 0, eBEDA, ftl::mmio::RO, ftl::mmio::Normal>;
   // Bus error privilege level
@@ -473,7 +464,6 @@ struct MCM_FATR : ftl::mmio::Register<
   using BEOVR = MCM_FATR_fields_::BEOVR;
 };
 
-
 // Fault data register
 struct MCM_FDR_fields_ {
   // Fault data
@@ -489,10 +479,8 @@ struct MCM_FDR : ftl::mmio::Register<
   using DATA = MCM_FDR_fields_::DATA;
 };
 
-
 // Local Memory Descriptor Register
 struct LMDR_fields_ {
-
   enum class eMT : std::uint32_t {
     // code TCM
     eMT_0 = 0,
@@ -575,6 +563,7 @@ struct LMDR_fields_ {
     // LMEMn is present.
     eV_1 = 1,
   };
+
   // Control Field 0
   using CF0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control Field 1 - for Cache Parity control functions
@@ -631,10 +620,8 @@ struct LMDR : ftl::mmio::Register<
   using V = LMDR_fields_::V;
 };
 
-
 // LMEM Parity & ECC Control Register
 struct MCM_LMPECR_fields_ {
-
   enum class eERNCR : std::uint32_t {
     // reporting enabled
     eERNCR_0 = 0,
@@ -676,6 +663,7 @@ struct MCM_LMPECR_fields_ {
     // disabled
     eECPI_1 = 1,
   };
+
   // Enable RAM ECC Non-correctable Reporting
   using ERNCR = ftl::mmio::Field<1, 0, eERNCR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable RAM Non-correctable ECC Interrupt
@@ -718,7 +706,6 @@ struct MCM_LMPECR : ftl::mmio::Register<
   using ECPI = MCM_LMPECR_fields_::ECPI;
 };
 
-
 // LMEM Parity & ECC Interrupt Register
 struct MCM_LMPEIR_fields_ {
   // ENCn = ECC Non-correctable Error n
@@ -751,7 +738,6 @@ struct MCM_LMPEIR : ftl::mmio::Register<
   using V = MCM_LMPEIR_fields_::V;
 };
 
-
 // LMEM Fault Address Register
 struct MCM_LMFAR_fields_ {
   // ECC Fault Address
@@ -766,7 +752,6 @@ struct MCM_LMFAR : ftl::mmio::Register<
     MCM_LMFAR_fields_::EFADD> {
   using EFADD = MCM_LMFAR_fields_::EFADD;
 };
-
 
 // LMEM Fault Attribute Register
 struct MCM_LMFATR_fields_ {
@@ -805,7 +790,6 @@ struct MCM_LMFATR : ftl::mmio::Register<
   using OVR = MCM_LMFATR_fields_::OVR;
 };
 
-
 // LMEM Fault Data High Register
 struct MCM_LMFDHR_fields_ {
   // Parity or ECC Fault Data High
@@ -820,7 +804,6 @@ struct MCM_LMFDHR : ftl::mmio::Register<
     MCM_LMFDHR_fields_::PEFDH> {
   using PEFDH = MCM_LMFDHR_fields_::PEFDH;
 };
-
 
 // LMEM Fault Data Low Register
 struct MCM_LMFDLR_fields_ {

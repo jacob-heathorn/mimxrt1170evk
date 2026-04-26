@@ -8,16 +8,15 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::mipi_csi2rx {
 
-
 // Lane Configuration Register
 struct CFG_NUM_LANES_fields_ {
-
   enum class eCFG_NUM_LANES : std::uint32_t {
     // 1 Lane
     eONE_LANE = 0,
     // 2 Lane
     eTWO_LANE = 1,
   };
+
   // This field is used to set the number of active lanes for receiving data.
   using CFG_NUM_LANES = ftl::mmio::Field<2, 0, eCFG_NUM_LANES, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CFG_NUM_LANES_fields_
@@ -30,9 +29,8 @@ struct CFG_NUM_LANES : ftl::mmio::Register<
     CFG_NUM_LANES_fields_::CFG_NUM_LANES,
     ftl::mmio::Reserved<30, 2>> {
   using eCFG_NUM_LANES = CFG_NUM_LANES_fields_::eCFG_NUM_LANES;
-  using value_ = CFG_NUM_LANES_fields_::CFG_NUM_LANES;
+  using VALUE = CFG_NUM_LANES_fields_::CFG_NUM_LANES;
 };
-
 
 // Disable Data Lane Register
 struct CFG_DISABLE_DATA_LANES_fields_ {
@@ -47,9 +45,8 @@ struct CFG_DISABLE_DATA_LANES : ftl::mmio::Register<
     ftl::mmio::RW,
     CFG_DISABLE_DATA_LANES_fields_::CFG_DISABLE_DATA_LANES,
     ftl::mmio::Reserved<28, 4>> {
-  using value_ = CFG_DISABLE_DATA_LANES_fields_::CFG_DISABLE_DATA_LANES;
+  using VALUE = CFG_DISABLE_DATA_LANES_fields_::CFG_DISABLE_DATA_LANES;
 };
-
 
 // ECC and CRC Error Status Register
 struct BIT_ERR_fields_ {
@@ -64,9 +61,8 @@ struct BIT_ERR : ftl::mmio::Register<
     ftl::mmio::RO,
     BIT_ERR_fields_::BIT_ERR,
     ftl::mmio::Reserved<22, 10>> {
-  using value_ = BIT_ERR_fields_::BIT_ERR;
+  using VALUE = BIT_ERR_fields_::BIT_ERR;
 };
-
 
 // IRQ Status Register
 struct IRQ_STATUS_fields_ {
@@ -81,9 +77,8 @@ struct IRQ_STATUS : ftl::mmio::Register<
     ftl::mmio::RO,
     IRQ_STATUS_fields_::IRQ_STATUS,
     ftl::mmio::Reserved<23, 9>> {
-  using value_ = IRQ_STATUS_fields_::IRQ_STATUS;
+  using VALUE = IRQ_STATUS_fields_::IRQ_STATUS;
 };
-
 
 // IRQ Mask Setting Register
 struct IRQ_MASK_fields_ {
@@ -98,9 +93,8 @@ struct IRQ_MASK : ftl::mmio::Register<
     ftl::mmio::RW,
     IRQ_MASK_fields_::IRQ_MASK,
     ftl::mmio::Reserved<23, 9>> {
-  using value_ = IRQ_MASK_fields_::IRQ_MASK;
+  using VALUE = IRQ_MASK_fields_::IRQ_MASK;
 };
-
 
 // Ultra Low Power State (ULPS) Status Register
 struct ULPS_STATUS_fields_ {
@@ -118,7 +112,6 @@ struct ULPS_STATUS : ftl::mmio::Register<
   using STATUS = ULPS_STATUS_fields_::STATUS;
 };
 
-
 // ERRSotHS Status Register
 struct PPI_ERRSOT_HS_fields_ {
   // This field indicates PPI ErrSotHS captured status from D-PHY
@@ -134,7 +127,6 @@ struct PPI_ERRSOT_HS : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 4>> {
   using STATUS = PPI_ERRSOT_HS_fields_::STATUS;
 };
-
 
 // ErrSotSync HS Status Register
 struct PPI_ERRSOTSYNC_HS_fields_ {
@@ -152,7 +144,6 @@ struct PPI_ERRSOTSYNC_HS : ftl::mmio::Register<
   using STATUS = PPI_ERRSOTSYNC_HS_fields_::STATUS;
 };
 
-
 // ErrEsc Status Register
 struct PPI_ERRESC_fields_ {
   // This field indicates PPI ErrEsc captured status from D-PHY
@@ -168,7 +159,6 @@ struct PPI_ERRESC : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 4>> {
   using STATUS = PPI_ERRESC_fields_::STATUS;
 };
-
 
 // ErrSyncEsc Status Register
 struct PPI_ERRSYNCESC_fields_ {
@@ -186,7 +176,6 @@ struct PPI_ERRSYNCESC : ftl::mmio::Register<
   using STATUS = PPI_ERRSYNCESC_fields_::STATUS;
 };
 
-
 // ErrControl Status Register
 struct PPI_ERRCONTROL_fields_ {
   // This field indicates PPI ErrControl captured status from D-PHY
@@ -202,7 +191,6 @@ struct PPI_ERRCONTROL : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 4>> {
   using STATUS = PPI_ERRCONTROL_fields_::STATUS;
 };
-
 
 // Disable Payload 0 Register
 struct CFG_DISABLE_PAYLOAD_0_fields_ {
@@ -258,7 +246,6 @@ struct CFG_DISABLE_PAYLOAD_0 : ftl::mmio::Register<
   using DIS_PAYLOAD_RGB666 = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB666;
   using DIS_PAYLOAD_RGB888 = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB888;
 };
-
 
 // Disable Payload 1 Register
 struct CFG_DISABLE_PAYLOAD_1_fields_ {

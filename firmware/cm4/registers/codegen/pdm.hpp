@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::pdm {
 
-
 // PDM Control register 1
 struct CTRL_1_fields_ {
-
   enum class eERREN : std::uint32_t {
     // Error Interrupts disabled
     edisabled = 0,
@@ -62,6 +60,7 @@ struct CTRL_1_fields_ {
     // Disable/Low Leakage Mode
     elow_leakage = 1,
   };
+
   // Channel 0 Enable
   using CH0EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel 1 Enable
@@ -143,10 +142,8 @@ struct CTRL_1 : ftl::mmio::Register<
   using MDIS = CTRL_1_fields_::MDIS;
 };
 
-
 // PDM Control register 2
 struct CTRL_2_fields_ {
-
   enum class eQSEL : std::uint32_t {
     // Medium quality mode
     emq_mode = 0,
@@ -161,6 +158,7 @@ struct CTRL_2_fields_ {
     // Low quality mode
     elq_mode = 7,
   };
+
   // Clock Divider
   using CLKDIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // CIC Decimation Rate
@@ -186,10 +184,8 @@ struct CTRL_2 : ftl::mmio::Register<
   using QSEL = CTRL_2_fields_::QSEL;
 };
 
-
 // PDM Status register
 struct STAT_fields_ {
-
   enum class eCH0F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
@@ -266,6 +262,7 @@ struct STAT_fields_ {
     // PDM is running
     erunning = 1,
   };
+
   // Channel 0 Output Data Flag
   using CH0F = ftl::mmio::Field<1, 0, eCH0F, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Channel 1 Output Data Flag
@@ -331,7 +328,6 @@ struct STAT : ftl::mmio::Register<
   using BSY_FIL = STAT_fields_::BSY_FIL;
 };
 
-
 // PDM FIFO Control register
 struct FIFO_CTRL_fields_ {
   // FIFO Watermark Control
@@ -348,10 +344,8 @@ struct FIFO_CTRL : ftl::mmio::Register<
   using FIFOWMK = FIFO_CTRL_fields_::FIFOWMK;
 };
 
-
 // PDM FIFO Status register
 struct FIFO_STAT_fields_ {
-
   enum class eFIFOOVF0 : std::uint32_t {
     // No exception by FIFO overflow
     eno_exception = 0,
@@ -463,6 +457,7 @@ struct FIFO_STAT_fields_ {
     // Exception by FIFO underflow
     eexception = 1,
   };
+
   // FIFO Overflow Exception flag for Channel 0
   using FIFOOVF0 = ftl::mmio::Field<1, 0, eFIFOOVF0, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Overflow Exception flag for Channel 1
@@ -553,7 +548,6 @@ struct FIFO_STAT : ftl::mmio::Register<
   using FIFOUND7 = FIFO_STAT_fields_::FIFOUND7;
 };
 
-
 // PDM Output Result Register
 struct DATACH_fields_ {
   // Channel n Data
@@ -571,10 +565,8 @@ struct DATACH : ftl::mmio::Register<
   using DATA = DATACH_fields_::DATA;
 };
 
-
 // PDM DC Remover Control register
 struct DC_CTRL_fields_ {
-
   enum class eDCCONFIG0 : std::uint32_t {
     // DC Remover cut-off at 21Hz
     edc_rem_21Hz = 0,
@@ -662,6 +654,7 @@ struct DC_CTRL_fields_ {
     // DC Remover is bypassed
     edc_rem_bypass = 3,
   };
+
   // Channel 0 DC Remover Configuration
   using DCCONFIG0 = ftl::mmio::Field<2, 0, eDCCONFIG0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel 1 DC Remover Configuration
@@ -712,7 +705,6 @@ struct DC_CTRL : ftl::mmio::Register<
   using DCCONFIG7 = DC_CTRL_fields_::DCCONFIG7;
 };
 
-
 // PDM Range Control register
 struct RANGE_CTRL_fields_ {
   // Channel 0 Range Adjustment
@@ -756,10 +748,8 @@ struct RANGE_CTRL : ftl::mmio::Register<
   using RANGEADJ7 = RANGE_CTRL_fields_::RANGEADJ7;
 };
 
-
 // PDM Range Status register
 struct RANGE_STAT_fields_ {
-
   enum class eRANGEOVF0 : std::uint32_t {
     // No exception by range overflow
     eno_exception = 0,
@@ -871,6 +861,7 @@ struct RANGE_STAT_fields_ {
     // Exception by range underflow
     eexception = 1,
   };
+
   // Channel 0 Range Overflow Error Flag
   using RANGEOVF0 = ftl::mmio::Field<1, 0, eRANGEOVF0, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Channel 1 Range Overflow Error Flag
@@ -962,10 +953,8 @@ struct RANGE_STAT : ftl::mmio::Register<
   using RANGEUNF7 = RANGE_STAT_fields_::RANGEUNF7;
 };
 
-
 // Voice Activity Detector 0 Control register
 struct VAD0_CTRL_1_fields_ {
-
   enum class eVADEN : std::uint32_t {
     // The HWVAD is disabled
     edisabled = 0,
@@ -993,6 +982,7 @@ struct VAD0_CTRL_1_fields_ {
     // Filters are initialized.
     efilt_init = 1,
   };
+
   // Voice Activity Detector Enable
   using VADEN = ftl::mmio::Field<1, 0, eVADEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Voice Activity Detector Reset
@@ -1042,10 +1032,8 @@ struct VAD0_CTRL_1 : ftl::mmio::Register<
   using VADCHSEL = VAD0_CTRL_1_fields_::VADCHSEL;
 };
 
-
 // Voice Activity Detector 0 Control register
 struct VAD0_CTRL_2_fields_ {
-
   enum class eVADHPF : std::uint32_t {
     // Filter bypassed.
     efilt_bypass = 0,
@@ -1077,6 +1065,7 @@ struct VAD0_CTRL_2_fields_ {
     // Frame energy calculus disabled.
     edisabled = 1,
   };
+
   // Voice Activity Detector High-Pass Filter
   using VADHPF = ftl::mmio::Field<2, 0, eVADHPF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Voice Activity Detector Input Gain
@@ -1118,10 +1107,8 @@ struct VAD0_CTRL_2 : ftl::mmio::Register<
   using VADFRENDIS = VAD0_CTRL_2_fields_::VADFRENDIS;
 };
 
-
 // Voice Activity Detector 0 Status register
 struct VAD0_STAT_fields_ {
-
   enum class eVADIF : std::uint32_t {
     // Voice activity not detected
     eno_detect = 0,
@@ -1149,6 +1136,7 @@ struct VAD0_STAT_fields_ {
     // HWVAD is being initialized.
     einit = 1,
   };
+
   // Voice Activity Detector Interrupt Flag
   using VADIF = ftl::mmio::Field<1, 0, eVADIF, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Voice Activity Detector Event Flag
@@ -1180,10 +1168,8 @@ struct VAD0_STAT : ftl::mmio::Register<
   using VADINITF = VAD0_STAT_fields_::VADINITF;
 };
 
-
 // Voice Activity Detector 0 Signal Configuration
 struct VAD0_SCONFIG_fields_ {
-
   enum class eVADSMAXEN : std::uint32_t {
     // Maximum block is bypassed.
     ebypassed = 0,
@@ -1197,6 +1183,7 @@ struct VAD0_SCONFIG_fields_ {
     // Signal filter is enabled.
     eenabled = 1,
   };
+
   // Voice Activity Detector Signal Gain
   using VADSGAIN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Voice Activity Detector Signal Maximum Enable
@@ -1221,10 +1208,8 @@ struct VAD0_SCONFIG : ftl::mmio::Register<
   using VADSFILEN = VAD0_SCONFIG_fields_::VADSFILEN;
 };
 
-
 // Voice Activity Detector 0 Noise Configuration
 struct VAD0_NCONFIG_fields_ {
-
   enum class eVADNOREN : std::uint32_t {
     // Noise input is not decimated.
     enot_decimated = 0,
@@ -1252,6 +1237,7 @@ struct VAD0_NCONFIG_fields_ {
     // Noise filter is enabled/disabled based on voice activity information.
     enf_cond_en = 1,
   };
+
   // Voice Activity Detector Noise Gain
   using VADNGAIN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Voice Activity Detector Noise Filter Adjustment
@@ -1291,7 +1277,6 @@ struct VAD0_NCONFIG : ftl::mmio::Register<
   using VADNFILAUTO = VAD0_NCONFIG_fields_::VADNFILAUTO;
 };
 
-
 // Voice Activity Detector 0 Noise Data
 struct VAD0_NDATA_fields_ {
   // Voice Activity Detector Noise Data
@@ -1308,10 +1293,8 @@ struct VAD0_NDATA : ftl::mmio::Register<
   using VADNDATA = VAD0_NDATA_fields_::VADNDATA;
 };
 
-
 // Voice Activity Detector 0 Zero-Crossing Detector
 struct VAD0_ZCD_fields_ {
-
   enum class eVADZCDEN : std::uint32_t {
     // The ZCD is disabled
     edisabled = 0,
@@ -1332,6 +1315,7 @@ struct VAD0_ZCD_fields_ {
     // The ZCD result is AND'ed with the energy-based detection.
     eanded = 1,
   };
+
   // Zero-Crossing Detector Enable
   using VADZCDEN = ftl::mmio::Field<1, 0, eVADZCDEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Zero-Crossing Detector Automatic Threshold

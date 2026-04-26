@@ -22,7 +22,7 @@ struct GPR : ftl::mmio::Register<
     ftl::mmio::RW,
     GPR_fields_::GPR> {
   static_assert(Index < 32u, "GPR: Index out of range");
-  using value_ = GPR_fields_::GPR;
+  using VALUE = GPR_fields_::GPR;
 };
 
 // GPR32 General Purpose Register

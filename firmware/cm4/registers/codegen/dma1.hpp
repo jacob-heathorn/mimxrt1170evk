@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::dma1 {
 
-
 // Control
 struct CR_fields_ {
-
   enum class eEDBG : std::uint32_t {
     // When the chip is in Debug mode, the eDMA continues to operate.
     eDISABLED = 0,
@@ -81,6 +79,7 @@ struct CR_fields_ {
     // eDMA is executing a channel
     eACTIVE = 1,
   };
+
   // Enable Debug
   using EDBG = ftl::mmio::Field<1, 1, eEDBG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable Round Robin Channel Arbitration
@@ -156,10 +155,8 @@ struct CR : ftl::mmio::Register<
   using ACTIVE = CR_fields_::ACTIVE;
 };
 
-
 // Error Status
 struct ES_fields_ {
-
   enum class eDBE : std::uint32_t {
     // No destination bus error.
     eNO_ERROR = 0,
@@ -243,6 +240,7 @@ struct ES_fields_ {
     // At least one ERR field has a value of 1, indicating a valid error exists that has not been cleared
     eERROR = 1,
   };
+
   // Destination Bus Error
   using DBE = ftl::mmio::Field<1, 0, eDBE, ftl::mmio::RO, ftl::mmio::Normal>;
   // Source Bus Error
@@ -318,10 +316,8 @@ struct ES : ftl::mmio::Register<
   using VLD = ES_fields_::VLD;
 };
 
-
 // Enable Request
 struct ERQ_fields_ {
-
   enum class eERQ0 : std::uint32_t {
     // The DMA request signal for channel 0 is disabled
     eDISABLE = 0,
@@ -545,6 +541,7 @@ struct ERQ_fields_ {
     // The DMA request signal for channel 31 is enabled
     eENABLE = 1,
   };
+
   // Enable DMA Request 0
   using ERQ0 = ftl::mmio::Field<1, 0, eERQ0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable DMA Request 1
@@ -714,10 +711,8 @@ struct ERQ : ftl::mmio::Register<
   using ERQ31 = ERQ_fields_::ERQ31;
 };
 
-
 // Enable Error Interrupt
 struct EEI_fields_ {
-
   enum class eEEI0 : std::uint32_t {
     // An error on channel 0 does not generate an error interrupt
     eNO_INTERRUPT = 0,
@@ -941,6 +936,7 @@ struct EEI_fields_ {
     // An error on channel 31 generates an error interrupt request
     eINTERRUPT = 1,
   };
+
   // Enable Error Interrupt 0
   using EEI0 = ftl::mmio::Field<1, 0, eEEI0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable Error Interrupt 1
@@ -1110,10 +1106,8 @@ struct EEI : ftl::mmio::Register<
   using EEI31 = EEI_fields_::EEI31;
 };
 
-
 // Clear Enable Error Interrupt
 struct CEEI_fields_ {
-
   enum class eCAEE : std::uint32_t {
     // Write 0 only to the EEI field specified in the CEEI field
     eCLEAR_EEI = 0,
@@ -1127,6 +1121,7 @@ struct CEEI_fields_ {
     // No operation, ignore the other fields in this register
     eNO_OPS = 1,
   };
+
   // Clear Enable Error Interrupt
   using CEEI = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clear All Enable Error Interrupts
@@ -1146,15 +1141,13 @@ struct CEEI : ftl::mmio::Register<
     CEEI_fields_::NOP> {
   using eCAEE = CEEI_fields_::eCAEE;
   using eNOP = CEEI_fields_::eNOP;
-  using value_ = CEEI_fields_::CEEI;
+  using VALUE = CEEI_fields_::CEEI;
   using CAEE = CEEI_fields_::CAEE;
   using NOP = CEEI_fields_::NOP;
 };
 
-
 // Set Enable Error Interrupt
 struct SEEI_fields_ {
-
   enum class eSAEE : std::uint32_t {
     // Write 1 only to the EEI field specified in the SEEI field
     eSET_EEI = 0,
@@ -1168,6 +1161,7 @@ struct SEEI_fields_ {
     // No operation, ignore the other fields in this register
     eNO_OPS = 1,
   };
+
   // Set Enable Error Interrupt
   using SEEI = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Set All Enable Error Interrupts
@@ -1187,15 +1181,13 @@ struct SEEI : ftl::mmio::Register<
     SEEI_fields_::NOP> {
   using eSAEE = SEEI_fields_::eSAEE;
   using eNOP = SEEI_fields_::eNOP;
-  using value_ = SEEI_fields_::SEEI;
+  using VALUE = SEEI_fields_::SEEI;
   using SAEE = SEEI_fields_::SAEE;
   using NOP = SEEI_fields_::NOP;
 };
 
-
 // Clear Enable Request
 struct CERQ_fields_ {
-
   enum class eCAER : std::uint32_t {
     // Write 0 to only the ERQ field specified in the CERQ field
     eCLEAR_ERQ = 0,
@@ -1209,6 +1201,7 @@ struct CERQ_fields_ {
     // No operation, ignore the other fields in this register
     eNO_OPS = 1,
   };
+
   // Clear Enable Request
   using CERQ = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clear All Enable Requests
@@ -1228,15 +1221,13 @@ struct CERQ : ftl::mmio::Register<
     CERQ_fields_::NOP> {
   using eCAER = CERQ_fields_::eCAER;
   using eNOP = CERQ_fields_::eNOP;
-  using value_ = CERQ_fields_::CERQ;
+  using VALUE = CERQ_fields_::CERQ;
   using CAER = CERQ_fields_::CAER;
   using NOP = CERQ_fields_::NOP;
 };
 
-
 // Set Enable Request
 struct SERQ_fields_ {
-
   enum class eSAER : std::uint32_t {
     // Write 1 to only the ERQ field specified in the SERQ field
     eSET_ERQ = 0,
@@ -1250,6 +1241,7 @@ struct SERQ_fields_ {
     // No operation, ignore the other fields in this register
     eNO_OPS = 1,
   };
+
   // Set Enable Request
   using SERQ = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Set All Enable Requests
@@ -1269,15 +1261,13 @@ struct SERQ : ftl::mmio::Register<
     SERQ_fields_::NOP> {
   using eSAER = SERQ_fields_::eSAER;
   using eNOP = SERQ_fields_::eNOP;
-  using value_ = SERQ_fields_::SERQ;
+  using VALUE = SERQ_fields_::SERQ;
   using SAER = SERQ_fields_::SAER;
   using NOP = SERQ_fields_::NOP;
 };
 
-
 // Clear DONE Status Bit
 struct CDNE_fields_ {
-
   enum class eCADN : std::uint32_t {
     // Writes 0 to only the TCDn_CSR[DONE] field specified in the CDNE field
     eCLEAR_DONE = 0,
@@ -1291,6 +1281,7 @@ struct CDNE_fields_ {
     // No operation; all other fields in this register are ignored.
     eNO_OPS = 1,
   };
+
   // Clear DONE field
   using CDNE = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clears All DONE fields
@@ -1310,15 +1301,13 @@ struct CDNE : ftl::mmio::Register<
     CDNE_fields_::NOP> {
   using eCADN = CDNE_fields_::eCADN;
   using eNOP = CDNE_fields_::eNOP;
-  using value_ = CDNE_fields_::CDNE;
+  using VALUE = CDNE_fields_::CDNE;
   using CADN = CDNE_fields_::CADN;
   using NOP = CDNE_fields_::NOP;
 };
 
-
 // Set START Bit
 struct SSRT_fields_ {
-
   enum class eSAST : std::uint32_t {
     // Write 1 to only the TCDn_CSR[START] field specified in the SSRT field
     eSET_START = 0,
@@ -1332,6 +1321,7 @@ struct SSRT_fields_ {
     // No operation; all other fields in this register are ignored.
     eNO_OPS = 1,
   };
+
   // Set START field
   using SSRT = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Set All START fields (activates all channels)
@@ -1351,15 +1341,13 @@ struct SSRT : ftl::mmio::Register<
     SSRT_fields_::NOP> {
   using eSAST = SSRT_fields_::eSAST;
   using eNOP = SSRT_fields_::eNOP;
-  using value_ = SSRT_fields_::SSRT;
+  using VALUE = SSRT_fields_::SSRT;
   using SAST = SSRT_fields_::SAST;
   using NOP = SSRT_fields_::NOP;
 };
 
-
 // Clear Error
 struct CERR_fields_ {
-
   enum class eCAEI : std::uint32_t {
     // Write 0 to only the ERR field specified in the CERR field
     eCLEAR_ERR = 0,
@@ -1373,6 +1361,7 @@ struct CERR_fields_ {
     // No operation; all other fields in this register are ignored.
     eNO_OPS = 1,
   };
+
   // Clear Error Indicator
   using CERR = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clear All Error Indicators
@@ -1392,15 +1381,13 @@ struct CERR : ftl::mmio::Register<
     CERR_fields_::NOP> {
   using eCAEI = CERR_fields_::eCAEI;
   using eNOP = CERR_fields_::eNOP;
-  using value_ = CERR_fields_::CERR;
+  using VALUE = CERR_fields_::CERR;
   using CAEI = CERR_fields_::CAEI;
   using NOP = CERR_fields_::NOP;
 };
 
-
 // Clear Interrupt Request
 struct CINT_fields_ {
-
   enum class eCAIR : std::uint32_t {
     // Clear only the INT field specified in the CINT field
     eCLEAR_INT = 0,
@@ -1414,6 +1401,7 @@ struct CINT_fields_ {
     // No operation; all other fields in this register are ignored.
     eNO_OPS = 1,
   };
+
   // Clear Interrupt Request
   using CINT = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clear All Interrupt Requests
@@ -1433,15 +1421,13 @@ struct CINT : ftl::mmio::Register<
     CINT_fields_::NOP> {
   using eCAIR = CINT_fields_::eCAIR;
   using eNOP = CINT_fields_::eNOP;
-  using value_ = CINT_fields_::CINT;
+  using VALUE = CINT_fields_::CINT;
   using CAIR = CINT_fields_::CAIR;
   using NOP = CINT_fields_::NOP;
 };
 
-
 // Interrupt Request
 struct INT_fields_ {
-
   enum class eINT0 : std::uint32_t {
     // The interrupt request for channel 0 is cleared
     eNOT_ACTIVE = 0,
@@ -1665,6 +1651,7 @@ struct INT_fields_ {
     // The interrupt request for channel 31 is active
     eACTIVE = 1,
   };
+
   // Interrupt Request 0
   using INT0 = ftl::mmio::Field<1, 0, eINT0, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Interrupt Request 1
@@ -1834,10 +1821,8 @@ struct INT : ftl::mmio::Register<
   using INT31 = INT_fields_::INT31;
 };
 
-
 // Error
 struct ERR_fields_ {
-
   enum class eERR0 : std::uint32_t {
     // No error in this channel has occurred
     eNO_ERR = 0,
@@ -2061,6 +2046,7 @@ struct ERR_fields_ {
     // An error in this channel has occurred
     eERR = 1,
   };
+
   // Error In Channel 0
   using ERR0 = ftl::mmio::Field<1, 0, eERR0, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Error In Channel 1
@@ -2230,10 +2216,8 @@ struct ERR : ftl::mmio::Register<
   using ERR31 = ERR_fields_::ERR31;
 };
 
-
 // Hardware Request Status
 struct HRS_fields_ {
-
   enum class eHRS0 : std::uint32_t {
     // A hardware service request for channel 0 is not present
     eNO_HWRQST = 0,
@@ -2457,6 +2441,7 @@ struct HRS_fields_ {
     // A hardware service request for channel 31 is present
     eHWRQST = 1,
   };
+
   // Hardware Request Status Channel 0
   using HRS0 = ftl::mmio::Field<1, 0, eHRS0, ftl::mmio::RO, ftl::mmio::Normal>;
   // Hardware Request Status Channel 1
@@ -2626,10 +2611,8 @@ struct HRS : ftl::mmio::Register<
   using HRS31 = HRS_fields_::HRS31;
 };
 
-
 // Enable Asynchronous Request in Stop
 struct EARS_fields_ {
-
   enum class eEDREQ_0 : std::uint32_t {
     // Disable asynchronous DMA request for channel 0
     eDISABLE = 0,
@@ -2853,6 +2836,7 @@ struct EARS_fields_ {
     // Enable asynchronous DMA request for channel 31
     eENABLE = 1,
   };
+
   // Enable asynchronous DMA request in stop mode for channel 0.
   using EDREQ_0 = ftl::mmio::Field<1, 0, eEDREQ_0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable asynchronous DMA request in stop mode for channel 1.
@@ -3022,10 +3006,8 @@ struct EARS : ftl::mmio::Register<
   using EDREQ_31 = EARS_fields_::EDREQ_31;
 };
 
-
 // Channel Priority
 struct DCHPRI3_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3039,6 +3021,7 @@ struct DCHPRI3_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3066,10 +3049,8 @@ struct DCHPRI3 : ftl::mmio::Register<
   using ECP = DCHPRI3_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI2_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3083,6 +3064,7 @@ struct DCHPRI2_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3110,10 +3092,8 @@ struct DCHPRI2 : ftl::mmio::Register<
   using ECP = DCHPRI2_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI1_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3127,6 +3107,7 @@ struct DCHPRI1_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3154,10 +3135,8 @@ struct DCHPRI1 : ftl::mmio::Register<
   using ECP = DCHPRI1_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI0_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3171,6 +3150,7 @@ struct DCHPRI0_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3198,10 +3178,8 @@ struct DCHPRI0 : ftl::mmio::Register<
   using ECP = DCHPRI0_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI7_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3215,6 +3193,7 @@ struct DCHPRI7_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3242,10 +3221,8 @@ struct DCHPRI7 : ftl::mmio::Register<
   using ECP = DCHPRI7_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI6_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3259,6 +3236,7 @@ struct DCHPRI6_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3286,10 +3264,8 @@ struct DCHPRI6 : ftl::mmio::Register<
   using ECP = DCHPRI6_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI5_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3303,6 +3279,7 @@ struct DCHPRI5_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3330,10 +3307,8 @@ struct DCHPRI5 : ftl::mmio::Register<
   using ECP = DCHPRI5_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI4_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3347,6 +3322,7 @@ struct DCHPRI4_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3374,10 +3350,8 @@ struct DCHPRI4 : ftl::mmio::Register<
   using ECP = DCHPRI4_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI11_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3391,6 +3365,7 @@ struct DCHPRI11_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3418,10 +3393,8 @@ struct DCHPRI11 : ftl::mmio::Register<
   using ECP = DCHPRI11_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI10_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3435,6 +3408,7 @@ struct DCHPRI10_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3462,10 +3436,8 @@ struct DCHPRI10 : ftl::mmio::Register<
   using ECP = DCHPRI10_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI9_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3479,6 +3451,7 @@ struct DCHPRI9_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3506,10 +3479,8 @@ struct DCHPRI9 : ftl::mmio::Register<
   using ECP = DCHPRI9_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI8_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3523,6 +3494,7 @@ struct DCHPRI8_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3550,10 +3522,8 @@ struct DCHPRI8 : ftl::mmio::Register<
   using ECP = DCHPRI8_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI15_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3567,6 +3537,7 @@ struct DCHPRI15_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3594,10 +3565,8 @@ struct DCHPRI15 : ftl::mmio::Register<
   using ECP = DCHPRI15_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI14_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3611,6 +3580,7 @@ struct DCHPRI14_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3638,10 +3608,8 @@ struct DCHPRI14 : ftl::mmio::Register<
   using ECP = DCHPRI14_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI13_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3655,6 +3623,7 @@ struct DCHPRI13_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3682,10 +3651,8 @@ struct DCHPRI13 : ftl::mmio::Register<
   using ECP = DCHPRI13_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI12_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3699,6 +3666,7 @@ struct DCHPRI12_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3726,10 +3694,8 @@ struct DCHPRI12 : ftl::mmio::Register<
   using ECP = DCHPRI12_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI19_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3743,6 +3709,7 @@ struct DCHPRI19_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3770,10 +3737,8 @@ struct DCHPRI19 : ftl::mmio::Register<
   using ECP = DCHPRI19_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI18_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3787,6 +3752,7 @@ struct DCHPRI18_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3814,10 +3780,8 @@ struct DCHPRI18 : ftl::mmio::Register<
   using ECP = DCHPRI18_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI17_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3831,6 +3795,7 @@ struct DCHPRI17_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3858,10 +3823,8 @@ struct DCHPRI17 : ftl::mmio::Register<
   using ECP = DCHPRI17_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI16_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3875,6 +3838,7 @@ struct DCHPRI16_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3902,10 +3866,8 @@ struct DCHPRI16 : ftl::mmio::Register<
   using ECP = DCHPRI16_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI23_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3919,6 +3881,7 @@ struct DCHPRI23_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3946,10 +3909,8 @@ struct DCHPRI23 : ftl::mmio::Register<
   using ECP = DCHPRI23_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI22_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -3963,6 +3924,7 @@ struct DCHPRI22_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -3990,10 +3952,8 @@ struct DCHPRI22 : ftl::mmio::Register<
   using ECP = DCHPRI22_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI21_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4007,6 +3967,7 @@ struct DCHPRI21_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4034,10 +3995,8 @@ struct DCHPRI21 : ftl::mmio::Register<
   using ECP = DCHPRI21_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI20_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4051,6 +4010,7 @@ struct DCHPRI20_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4078,10 +4038,8 @@ struct DCHPRI20 : ftl::mmio::Register<
   using ECP = DCHPRI20_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI27_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4095,6 +4053,7 @@ struct DCHPRI27_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4122,10 +4081,8 @@ struct DCHPRI27 : ftl::mmio::Register<
   using ECP = DCHPRI27_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI26_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4139,6 +4096,7 @@ struct DCHPRI26_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4166,10 +4124,8 @@ struct DCHPRI26 : ftl::mmio::Register<
   using ECP = DCHPRI26_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI25_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4183,6 +4139,7 @@ struct DCHPRI25_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4210,10 +4167,8 @@ struct DCHPRI25 : ftl::mmio::Register<
   using ECP = DCHPRI25_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI24_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4227,6 +4182,7 @@ struct DCHPRI24_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4254,10 +4210,8 @@ struct DCHPRI24 : ftl::mmio::Register<
   using ECP = DCHPRI24_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI31_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4271,6 +4225,7 @@ struct DCHPRI31_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4298,10 +4253,8 @@ struct DCHPRI31 : ftl::mmio::Register<
   using ECP = DCHPRI31_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI30_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4315,6 +4268,7 @@ struct DCHPRI30_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4342,10 +4296,8 @@ struct DCHPRI30 : ftl::mmio::Register<
   using ECP = DCHPRI30_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI29_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4359,6 +4311,7 @@ struct DCHPRI29_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4386,10 +4339,8 @@ struct DCHPRI29 : ftl::mmio::Register<
   using ECP = DCHPRI29_fields_::ECP;
 };
 
-
 // Channel Priority
 struct DCHPRI28_fields_ {
-
   enum class eDPA : std::uint32_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
@@ -4403,6 +4354,7 @@ struct DCHPRI28_fields_ {
     // Channel n can be temporarily suspended by the service request of a higher priority channel
     eENABLED = 1,
   };
+
   // Channel n Arbitration Priority
   using CHPRI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Channel n Current Group Priority
@@ -4430,7 +4382,6 @@ struct DCHPRI28 : ftl::mmio::Register<
   using ECP = DCHPRI28_fields_::ECP;
 };
 
-
 // TCD Source Address
 struct TCD_SADDR_fields_ {
   // Source Address
@@ -4447,7 +4398,6 @@ struct TCD_SADDR : ftl::mmio::Register<
   static_assert(ClusterIndex < 32u, "TCD_SADDR: ClusterIndex out of range");
   using SADDR = TCD_SADDR_fields_::SADDR;
 };
-
 
 // TCD Signed Source Address Offset
 struct TCD_SOFF_fields_ {
@@ -4466,10 +4416,8 @@ struct TCD_SOFF : ftl::mmio::Register<
   using SOFF = TCD_SOFF_fields_::SOFF;
 };
 
-
 // TCD Transfer Attributes
 struct TCD_ATTR_fields_ {
-
   enum class eSSIZE : std::uint32_t {
     // 8-bit
     eEIGHT = 0,
@@ -4505,6 +4453,7 @@ struct TCD_ATTR_fields_ {
     // Value defines address range used to set up circular data queue
     eENABLED_9 = 9,
   };
+
   // Destination data transfer size
   using DSIZE = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Destination Address Modulo
@@ -4534,7 +4483,6 @@ struct TCD_ATTR : ftl::mmio::Register<
   using SMOD = TCD_ATTR_fields_::SMOD;
 };
 
-
 // TCD Last Source Address Adjustment
 struct TCD_SLAST_fields_ {
   // Last Source Address Adjustment
@@ -4551,7 +4499,6 @@ struct TCD_SLAST : ftl::mmio::Register<
   static_assert(ClusterIndex < 32u, "TCD_SLAST: ClusterIndex out of range");
   using SLAST = TCD_SLAST_fields_::SLAST;
 };
-
 
 // TCD Destination Address
 struct TCD_DADDR_fields_ {
@@ -4570,7 +4517,6 @@ struct TCD_DADDR : ftl::mmio::Register<
   using DADDR = TCD_DADDR_fields_::DADDR;
 };
 
-
 // TCD Signed Destination Address Offset
 struct TCD_DOFF_fields_ {
   // Destination Address Signed Offset
@@ -4587,7 +4533,6 @@ struct TCD_DOFF : ftl::mmio::Register<
   static_assert(ClusterIndex < 32u, "TCD_DOFF: ClusterIndex out of range");
   using DOFF = TCD_DOFF_fields_::DOFF;
 };
-
 
 // TCD Last Destination Address Adjustment/Scatter Gather Address
 struct TCD_DLASTSGA_fields_ {
@@ -4606,10 +4551,8 @@ struct TCD_DLASTSGA : ftl::mmio::Register<
   using DLASTSGA = TCD_DLASTSGA_fields_::DLASTSGA;
 };
 
-
 // TCD Control and Status
 struct TCD_CSR_fields_ {
-
   enum class eSTART : std::uint32_t {
     // Channel is not explicitly started
     eNO_START = 0,
@@ -4660,6 +4603,7 @@ struct TCD_CSR_fields_ {
     // eDMA engine stalls for 8 cycles after each R/W
     eSTALL8 = 3,
   };
+
   // Channel Start
   using START = ftl::mmio::Field<1, 0, eSTART, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable an interrupt when major iteration count completes.
@@ -4719,7 +4663,6 @@ struct TCD_CSR : ftl::mmio::Register<
   using BWC = TCD_CSR_fields_::BWC;
 };
 
-
 // TCD Minor Byte Count (Minor Loop Mapping Disabled)
 struct TCD_NBYTES_MLNO_fields_ {
   // Minor Byte Transfer Count
@@ -4737,10 +4680,8 @@ struct TCD_NBYTES_MLNO : ftl::mmio::Register<
   using NBYTES = TCD_NBYTES_MLNO_fields_::NBYTES;
 };
 
-
 // TCD Signed Minor Loop Offset (Minor Loop Mapping Enabled and Offset Disabled)
 struct TCD_NBYTES_MLOFFNO_fields_ {
-
   enum class eDMLOE : std::uint32_t {
     // The minor loop offset is not applied to the DADDR
     eDISABLED = 0,
@@ -4754,6 +4695,7 @@ struct TCD_NBYTES_MLOFFNO_fields_ {
     // The minor loop offset is applied to the SADDR
     eENABLED = 1,
   };
+
   // Minor Byte Transfer Count
   using NBYTES = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Destination Minor Loop Offset Enable
@@ -4779,10 +4721,8 @@ struct TCD_NBYTES_MLOFFNO : ftl::mmio::Register<
   using SMLOE = TCD_NBYTES_MLOFFNO_fields_::SMLOE;
 };
 
-
 // TCD Signed Minor Loop Offset (Minor Loop Mapping and Offset Enabled)
 struct TCD_NBYTES_MLOFFYES_fields_ {
-
   enum class eDMLOE : std::uint32_t {
     // The minor loop offset is not applied to the DADDR
     eDISABLED = 0,
@@ -4796,6 +4736,7 @@ struct TCD_NBYTES_MLOFFYES_fields_ {
     // The minor loop offset is applied to the SADDR
     eENABLED = 1,
   };
+
   // Minor Byte Transfer Count
   using NBYTES = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // If SMLOE = 1 or DMLOE = 1, this field represents a sign-extended offset applied to the source or destination address to form the next-state value after the minor loop completes.
@@ -4825,16 +4766,15 @@ struct TCD_NBYTES_MLOFFYES : ftl::mmio::Register<
   using SMLOE = TCD_NBYTES_MLOFFYES_fields_::SMLOE;
 };
 
-
 // TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
 struct TCD_CITER_ELINKNO_fields_ {
-
   enum class eELINK : std::uint32_t {
     // Channel-to-channel linking is disabled
     eDISABLED = 0,
     // Channel-to-channel linking is enabled
     eENABLED = 1,
   };
+
   // Current Major Iteration Count
   using CITER = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable channel-to-channel linking on minor-loop complete
@@ -4855,16 +4795,15 @@ struct TCD_CITER_ELINKNO : ftl::mmio::Register<
   using ELINK = TCD_CITER_ELINKNO_fields_::ELINK;
 };
 
-
 // TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
 struct TCD_CITER_ELINKYES_fields_ {
-
   enum class eELINK : std::uint32_t {
     // Channel-to-channel linking is disabled
     eDISABLED = 0,
     // Channel-to-channel linking is enabled
     eENABLED = 1,
   };
+
   // Current Major Iteration Count
   using CITER = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Minor Loop Link Channel Number
@@ -4890,16 +4829,15 @@ struct TCD_CITER_ELINKYES : ftl::mmio::Register<
   using ELINK = TCD_CITER_ELINKYES_fields_::ELINK;
 };
 
-
 // TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
 struct TCD_BITER_ELINKNO_fields_ {
-
   enum class eELINK : std::uint32_t {
     // Channel-to-channel linking is disabled
     eDISABLED = 0,
     // Channel-to-channel linking is enabled
     eENABLED = 1,
   };
+
   // Starting Major Iteration Count
   using BITER = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enables channel-to-channel linking on minor loop complete
@@ -4920,16 +4858,15 @@ struct TCD_BITER_ELINKNO : ftl::mmio::Register<
   using ELINK = TCD_BITER_ELINKNO_fields_::ELINK;
 };
 
-
 // TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
 struct TCD_BITER_ELINKYES_fields_ {
-
   enum class eELINK : std::uint32_t {
     // Channel-to-channel linking is disabled
     eDISABLED = 0,
     // Channel-to-channel linking is enabled
     eENABLED = 1,
   };
+
   // Starting major iteration count
   using BITER = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Link Channel Number

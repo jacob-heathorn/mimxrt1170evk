@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::cm4_mpu {
 
-
 // The MPU Type Register indicates how many regions the MPU support. Software can use it to
 // determine if the processor implements an MPU.
 struct TYPE_fields_ {
@@ -35,10 +34,8 @@ struct TYPE : ftl::mmio::Register<
   using IREGION = TYPE_fields_::IREGION;
 };
 
-
 // MPU Control Register.
 struct CTRL_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // The MPU is disabled.
     eMPU_DISABLE = 0,
@@ -59,6 +56,7 @@ struct CTRL_fields_ {
     // Enables the default memory map as a background region for privileged access. The background region acts as region number -1. All memory regions configured in the MPU take priority over the default memory map.
     eDISABLE = 1,
   };
+
   // Enables the MPU.
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Controls whether handlers executing with priority less than 0 access memory with the MPU enabled or with the MPU disabled.
@@ -84,7 +82,6 @@ struct CTRL : ftl::mmio::Register<
   using PRIVDEFENA = CTRL_fields_::PRIVDEFENA;
 };
 
-
 // MPU Region Number Register.
 struct RNR_fields_ {
   // Indicates the memory region accessed by MPU_RBAR and MPU_RASR.
@@ -101,16 +98,15 @@ struct RNR : ftl::mmio::Register<
   using REGION = RNR_fields_::REGION;
 };
 
-
 // MPU Region Base Address Register.
 struct RBAR_fields_ {
-
   enum class eVALID : std::uint32_t {
     // Apply the base address update to the region specified by MPU_RNR.REGION. The REGION field value is ignored.
     eIGNORE_RBAR_REGION = 0,
     // Update MPU_RNR.REGION to the value obtained by zero extending the REGION value specified in this write, and apply the base address update to this region.
     eUSE_RBAR_REGION = 1,
   };
+
   // On writes, can specify the number of the region to update. On reads, returns bits[3:0] of MPU_RNR.
   using REGION = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // On writes, indicates whether the region to update is specified by MPU_RNR.REGION, or by the REGION value specified in this write. When using the REGION value specified by this write, MPU_RNR.REGION is updated to this value.
@@ -133,10 +129,8 @@ struct RBAR : ftl::mmio::Register<
   using ADDR = RBAR_fields_::ADDR;
 };
 
-
 // MPU Region Attribute and Size Register.
 struct RASR_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // When the MPU is enabled, this region is disabled.
     eDISABLED = 0,
@@ -174,6 +168,7 @@ struct RASR_fields_ {
     // Execution of an instruction fetched from this region not permitted.
     eEXECUTE_NEVER = 1,
   };
+
   // Enables this region.
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates the region size. The region size, in bytes, is 2**(SIZE+1). SIZE field values less than 4 are reserved, because the smallest supported region size is 32 bytes.
@@ -227,16 +222,15 @@ struct RASR : ftl::mmio::Register<
   using XN = RASR_fields_::XN;
 };
 
-
 // MPU Region Base Address Register.
 struct RBAR_A1_fields_ {
-
   enum class eVALID : std::uint32_t {
     // Apply the base address update to the region specified by MPU_RNR.REGION. The REGION field value is ignored.
     eIGNORE_RBAR_REGION = 0,
     // Update MPU_RNR.REGION to the value obtained by zero extending the REGION value specified in this write, and apply the base address update to this region.
     eUSE_RBAR_REGION = 1,
   };
+
   // On writes, can specify the number of the region to update. On reads, returns bits[3:0] of MPU_RNR.
   using REGION = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // On writes, indicates whether the region to update is specified by MPU_RNR.REGION, or by the REGION value specified in this write. When using the REGION value specified by this write, MPU_RNR.REGION is updated to this value.
@@ -259,10 +253,8 @@ struct RBAR_A1 : ftl::mmio::Register<
   using ADDR = RBAR_A1_fields_::ADDR;
 };
 
-
 // MPU Region Attribute and Size Register.
 struct RASR_A1_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // When the MPU is enabled, this region is disabled.
     eDISABLED = 0,
@@ -300,6 +292,7 @@ struct RASR_A1_fields_ {
     // Execution of an instruction fetched from this region not permitted.
     eEXECUTE_NEVER = 1,
   };
+
   // Enables this region.
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates the region size. The region size, in bytes, is 2**(SIZE+1). SIZE field values less than 4 are reserved, because the smallest supported region size is 32 bytes.
@@ -353,16 +346,15 @@ struct RASR_A1 : ftl::mmio::Register<
   using XN = RASR_A1_fields_::XN;
 };
 
-
 // MPU Region Base Address Register.
 struct RBAR_A2_fields_ {
-
   enum class eVALID : std::uint32_t {
     // Apply the base address update to the region specified by MPU_RNR.REGION. The REGION field value is ignored.
     eIGNORE_RBAR_REGION = 0,
     // Update MPU_RNR.REGION to the value obtained by zero extending the REGION value specified in this write, and apply the base address update to this region.
     eUSE_RBAR_REGION = 1,
   };
+
   // On writes, can specify the number of the region to update. On reads, returns bits[3:0] of MPU_RNR.
   using REGION = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // On writes, indicates whether the region to update is specified by MPU_RNR.REGION, or by the REGION value specified in this write. When using the REGION value specified by this write, MPU_RNR.REGION is updated to this value.
@@ -385,10 +377,8 @@ struct RBAR_A2 : ftl::mmio::Register<
   using ADDR = RBAR_A2_fields_::ADDR;
 };
 
-
 // MPU Region Attribute and Size Register.
 struct RASR_A2_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // When the MPU is enabled, this region is disabled.
     eDISABLED = 0,
@@ -426,6 +416,7 @@ struct RASR_A2_fields_ {
     // Execution of an instruction fetched from this region not permitted.
     eEXECUTE_NEVER = 1,
   };
+
   // Enables this region.
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates the region size. The region size, in bytes, is 2**(SIZE+1). SIZE field values less than 4 are reserved, because the smallest supported region size is 32 bytes.
@@ -479,16 +470,15 @@ struct RASR_A2 : ftl::mmio::Register<
   using XN = RASR_A2_fields_::XN;
 };
 
-
 // MPU Region Base Address Register.
 struct RBAR_A3_fields_ {
-
   enum class eVALID : std::uint32_t {
     // Apply the base address update to the region specified by MPU_RNR.REGION. The REGION field value is ignored.
     eIGNORE_RBAR_REGION = 0,
     // Update MPU_RNR.REGION to the value obtained by zero extending the REGION value specified in this write, and apply the base address update to this region.
     eUSE_RBAR_REGION = 1,
   };
+
   // On writes, can specify the number of the region to update. On reads, returns bits[3:0] of MPU_RNR.
   using REGION = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // On writes, indicates whether the region to update is specified by MPU_RNR.REGION, or by the REGION value specified in this write. When using the REGION value specified by this write, MPU_RNR.REGION is updated to this value.
@@ -511,10 +501,8 @@ struct RBAR_A3 : ftl::mmio::Register<
   using ADDR = RBAR_A3_fields_::ADDR;
 };
 
-
 // MPU Region Attribute and Size Register.
 struct RASR_A3_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // When the MPU is enabled, this region is disabled.
     eDISABLED = 0,
@@ -552,6 +540,7 @@ struct RASR_A3_fields_ {
     // Execution of an instruction fetched from this region not permitted.
     eEXECUTE_NEVER = 1,
   };
+
   // Enables this region.
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates the region size. The region size, in bytes, is 2**(SIZE+1). SIZE field values less than 4 are reserved, because the smallest supported region size is 32 bytes.

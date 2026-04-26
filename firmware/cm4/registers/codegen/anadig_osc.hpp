@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::anadig_osc {
 
-
 // 48MHz RCOSC Control Register
 struct OSC_48M_CTRL_fields_ {
-
   enum class eTEN : std::uint32_t {
     // Power down
     ePD = 0,
@@ -39,6 +37,7 @@ struct OSC_48M_CTRL_fields_ {
     // GPC mode (Setpoint)
     eGPC = 1,
   };
+
   // 48MHz RCOSC Enable
   using TEN = ftl::mmio::Field<1, 1, eTEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // RCOSC_48M_DIV2 Enable
@@ -71,10 +70,8 @@ struct OSC_48M_CTRL : ftl::mmio::Register<
   using RC_48M_CONTROL_MODE = OSC_48M_CTRL_fields_::RC_48M_CONTROL_MODE;
 };
 
-
 // 24MHz OSC Control Register
 struct OSC_24M_CTRL_fields_ {
-
   enum class eBYPASS_EN : std::uint32_t {
     // Disable
     eDISABLE = 0,
@@ -123,6 +120,7 @@ struct OSC_24M_CTRL_fields_ {
     // GPC mode (Setpoint)
     eGPC = 1,
   };
+
   // 24MHz OSC Bypass Clock
   using BYPASS_CLK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // 24MHz OSC Bypass Enable
@@ -173,7 +171,6 @@ struct OSC_24M_CTRL : ftl::mmio::Register<
   using OSC_24M_CONTROL_MODE = OSC_24M_CTRL_fields_::OSC_24M_CONTROL_MODE;
 };
 
-
 // 400MHz RCOSC Control0 Register
 struct OSC_400M_CTRL0_fields_ {
   // 400MHz OSC AI BUSY
@@ -190,10 +187,8 @@ struct OSC_400M_CTRL0 : ftl::mmio::Register<
   using OSC400M_AI_BUSY = OSC_400M_CTRL0_fields_::OSC400M_AI_BUSY;
 };
 
-
 // 400MHz RCOSC Control1 Register
 struct OSC_400M_CTRL1_fields_ {
-
   enum class ePWD : std::uint32_t {
     // No Power down
     ePD = 0,
@@ -214,6 +209,7 @@ struct OSC_400M_CTRL1_fields_ {
     // GPC mode (Setpoint)
     eGPC = 1,
   };
+
   // Power down control for 400MHz RCOSC
   using PWD = ftl::mmio::Field<1, 0, ePWD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clock gate control for 400MHz RCOSC
@@ -239,10 +235,8 @@ struct OSC_400M_CTRL1 : ftl::mmio::Register<
   using RC_400M_CONTROL_MODE = OSC_400M_CTRL1_fields_::RC_400M_CONTROL_MODE;
 };
 
-
 // 400MHz RCOSC Control2 Register
 struct OSC_400M_CTRL2_fields_ {
-
   enum class eENABLE_CLK : std::uint32_t {
     // Clock is disabled before entering GPC mode
     eDISABLE = 0,
@@ -256,6 +250,7 @@ struct OSC_400M_CTRL2_fields_ {
     // Bypass the tuning logic and use the programmed OSC_TUNE_VAL to run the oscillator
     eBYPASS = 1,
   };
+
   // Clock enable
   using ENABLE_CLK = ftl::mmio::Field<1, 0, eENABLE_CLK, ftl::mmio::RW, ftl::mmio::Normal>;
   // Bypass tuning logic
@@ -281,10 +276,8 @@ struct OSC_400M_CTRL2 : ftl::mmio::Register<
   using OSC_TUNE_VAL = OSC_400M_CTRL2_fields_::OSC_TUNE_VAL;
 };
 
-
 // 16MHz RCOSC Control Register
 struct OSC_16M_CTRL_fields_ {
-
   enum class eEN_IRC4M16M : std::uint32_t {
     // Disable
     eDISABLE = 0,
@@ -312,6 +305,7 @@ struct OSC_16M_CTRL_fields_ {
     // GPC mode (Setpoint)
     eGPC = 1,
   };
+
   // Enable Clock Output
   using EN_IRC4M16M = ftl::mmio::Field<1, 1, eEN_IRC4M16M, ftl::mmio::RW, ftl::mmio::Normal>;
   // Power Save Enable

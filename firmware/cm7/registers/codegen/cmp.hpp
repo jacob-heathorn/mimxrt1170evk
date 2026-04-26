@@ -56,7 +56,7 @@ struct Cmp {
       0x00000000u,
       ftl::mmio::RO,
       typename PARAM_fields_::PARAM> {
-    using value_ = typename PARAM_fields_::PARAM;
+    using VALUE = typename PARAM_fields_::PARAM;
   };
 
   // CMP Control Register 0

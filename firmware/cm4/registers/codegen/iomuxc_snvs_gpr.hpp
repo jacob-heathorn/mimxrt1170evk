@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::iomuxc_snvs_gpr {
 
-
 // GPR0 General Purpose Register
 struct GPR_fields_ {
   // General purpose bits
@@ -23,9 +22,8 @@ struct GPR : ftl::mmio::Register<
     ftl::mmio::RW,
     GPR_fields_::GPR> {
   static_assert(Index < 32u, "GPR: Index out of range");
-  using value_ = GPR_fields_::GPR;
+  using VALUE = GPR_fields_::GPR;
 };
-
 
 // GPR32 General Purpose Register
 struct GPR32_fields_ {
@@ -47,10 +45,8 @@ struct GPR32 : ftl::mmio::Register<
   using LOCK = GPR32_fields_::LOCK;
 };
 
-
 // GPR33 General Purpose Register
 struct GPR33_fields_ {
-
   enum class eDCDC_STATUS_CAPT_CLR : std::uint32_t {
     // No change
     eOVER = 0,
@@ -99,6 +95,7 @@ struct GPR33_fields_ {
     // 32K oscillator is stable into normal operation
     eSTABLE = 1,
   };
+
   // DCDC captured status clear
   using DCDC_STATUS_CAPT_CLR = ftl::mmio::Field<1, 1, eDCDC_STATUS_CAPT_CLR, ftl::mmio::RW, ftl::mmio::Normal>;
   // SNVS LDO_SNVS_ANA bypass enable
@@ -146,10 +143,8 @@ struct GPR33 : ftl::mmio::Register<
   using SNVS_XTAL_CLK_OK = GPR33_fields_::SNVS_XTAL_CLK_OK;
 };
 
-
 // GPR34 General Purpose Register
 struct GPR34_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access is not blocked
     eOVER1 = 0,
@@ -199,6 +194,7 @@ struct GPR34_fields_ {
     // The trimming codes are used from SNVS_OSC_CAP_TRIM (osc32k's load capacitor)
     eNO = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // SNVS core voltage detect trim select
@@ -253,10 +249,8 @@ struct GPR34 : ftl::mmio::Register<
   using SNVS_OSC_CAP_TRIM = GPR34_fields_::SNVS_OSC_CAP_TRIM;
 };
 
-
 // GPR35 General Purpose Register
 struct GPR35_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access is not blocked
     eOVER1 = 0,
@@ -299,6 +293,7 @@ struct GPR35_fields_ {
     // Add -5 to the Trim
     eNO1 = 3,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // SNVS voltage detect trim select
@@ -343,10 +338,8 @@ struct GPR35 : ftl::mmio::Register<
   using SNVS_TEMP_DET_OFFSET_LOW = GPR35_fields_::SNVS_TEMP_DET_OFFSET_LOW;
 };
 
-
 // GPR36 General Purpose Register
 struct GPR36_fields_ {
-
   enum class eSNVSDIG_SNVS1P8_ISO_EN : std::uint32_t {
     // Enable SRAM access (It should be cleared after LDO_SNVS_DIG and SNVS SRAM peripheral power is back)
     eDIS = 0,
@@ -395,6 +388,7 @@ struct GPR36_fields_ {
     // Switch off SNVS SRAM power for peripheral and array
     eDISABLE = 1,
   };
+
   // SNVS RAM isolation enable bit
   using SNVSDIG_SNVS1P8_ISO_EN = ftl::mmio::Field<1, 23, eSNVSDIG_SNVS1P8_ISO_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // SNVS SRAM power-down enable bit
@@ -441,16 +435,15 @@ struct GPR36 : ftl::mmio::Register<
   using SNVS_SRAM_PSWSMALL = GPR36_fields_::SNVS_SRAM_PSWSMALL;
 };
 
-
 // GPR37 General Purpose Register
 struct GPR37_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access is not blocked
     eOVER1 = 0,
     // Write access is blocked
     eNO1 = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // SNVS tamper detect pin pull enable bit

@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::snvs {
 
-
 // SNVS_HP Lock Register
 struct HPLR_fields_ {
-
   enum class eZMK_WSL : std::uint32_t {
     // Write access is allowed
     eWRITE_ALLOWED = 0,
@@ -137,6 +135,7 @@ struct HPLR_fields_ {
     // Write access is not allowed.
     eWRITE_ACCESS_NOT_ALLOWED = 1,
   };
+
   // Zeroizable Master Key Write Soft Lock When set, prevents any writes (software and hardware) to the ZMK registers and the ZMK_HWP, ZMK_VAL, and ZMK_ECC_EN fields of the LPMKCR
   using ZMK_WSL = ftl::mmio::Field<1, 0, eZMK_WSL, ftl::mmio::RW, ftl::mmio::Normal>;
   // Zeroizable Master Key Read Soft Lock When set, prevents any software reads to the ZMK Registers and ZMK_ECC_VALUE field of the LPMKCR
@@ -239,10 +238,8 @@ struct HPLR : ftl::mmio::Register<
   using AT5_SL = HPLR_fields_::AT5_SL;
 };
 
-
 // SNVS_HP Command Register
 struct HPCOMR_fields_ {
-
   enum class eSSM_ST_DIS : std::uint32_t {
     // Secure to Trusted State transition is enabled
     eENABLED = 0,
@@ -305,6 +302,7 @@ struct HPCOMR_fields_ {
     // Clear the HAC
     eCLEAR_HAC = 1,
   };
+
   // SSM State Transition Transition state of the system security monitor
   using SSM_ST = ftl::mmio::Field<1, 0, bool, ftl::mmio::WO, ftl::mmio::Normal>;
   // SSM Secure to Trusted State Transition Disable When set, disables the SSM transition from secure to trusted state
@@ -388,10 +386,8 @@ struct HPCOMR : ftl::mmio::Register<
   using NPSWA_EN = HPCOMR_fields_::NPSWA_EN;
 };
 
-
 // SNVS_HP Control Register
 struct HPCR_fields_ {
-
   enum class eRTC_EN : std::uint32_t {
     // RTC is disabled
     eDISABLED = 0,
@@ -487,6 +483,7 @@ struct HPCR_fields_ {
     // Synchronize the HP Time Counter to the LP Time Counter
     eSYNC_TIME = 1,
   };
+
   // HP Real Time Counter Enable
   using RTC_EN = ftl::mmio::Field<1, 0, eRTC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // HP Time Alarm Enable When set, the time alarm interrupt is generated if the value in the HP Time Alarm Registers is equal to the value of the HP Real Time Counter
@@ -548,10 +545,8 @@ struct HPCR : ftl::mmio::Register<
   using BTN_MASK = HPCR_fields_::BTN_MASK;
 };
 
-
 // SNVS_HP Security Interrupt Control Register
 struct HPSICR_fields_ {
-
   enum class eCAAM_EN : std::uint32_t {
     // CAAM Security Violation Interrupt is Disabled
     eDISABLED = 0,
@@ -593,6 +588,7 @@ struct HPSICR_fields_ {
     // LP Security Violation Interrupt is Enabled
     eENABLED = 1,
   };
+
   // CAAM Security Violation Interrupt Enable Setting this bit to 1 enables generation of the security interrupt to the host processor upon detection of the CAAM Security Violation security violation
   using CAAM_EN = ftl::mmio::Field<1, 0, eCAAM_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // JTAG Active Interrupt Enable Setting this bit to 1 enables generation of the security interrupt to the host processor upon detection of the JTAG Active security violation
@@ -634,10 +630,8 @@ struct HPSICR : ftl::mmio::Register<
   using LPSVI_EN = HPSICR_fields_::LPSVI_EN;
 };
 
-
 // SNVS_HP Security Violation Control Register
 struct HPSVCR_fields_ {
-
   enum class eCAAM_CFG : std::uint32_t {
     // CAAM Security Violation is a non-fatal violation
     eNON_FATAL = 0,
@@ -683,6 +677,7 @@ struct HPSVCR_fields_ {
     // LP security violation is a fatal violation
     eFATAL = 2,
   };
+
   // CAAM Security Violation Security Violation Configuration This field configures the CAAM Security Violation Security Violation Input
   using CAAM_CFG = ftl::mmio::Field<1, 0, eCAAM_CFG, ftl::mmio::RW, ftl::mmio::Normal>;
   // JTAG Active Security Violation Configuration This field configures the JTAG Active Security Violation Input
@@ -724,10 +719,8 @@ struct HPSVCR : ftl::mmio::Register<
   using LPSV_CFG = HPSVCR_fields_::LPSV_CFG;
 };
 
-
 // SNVS_HP Status Register
 struct HPSR_fields_ {
-
   enum class eHPTA : std::uint32_t {
     // No time alarm interrupt occurred.
     eNOREPORT = 0,
@@ -785,6 +778,7 @@ struct HPSR_fields_ {
     // The ZMK is zero.
     eZMK_IS_ZERO = 1,
   };
+
   // HP Time Alarm Indicates that the HP Time Alarm has occurred since this bit was last cleared.
   using HPTA = ftl::mmio::Field<1, 0, eHPTA, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Periodic Interrupt Indicates that periodic interrupt has occurred since this bit was last cleared.
@@ -844,10 +838,8 @@ struct HPSR : ftl::mmio::Register<
   using ZMK_ZERO = HPSR_fields_::ZMK_ZERO;
 };
 
-
 // SNVS_HP Security Violation Status Register
 struct HPSVSR_fields_ {
-
   enum class eCAAM : std::uint32_t {
     // No CAAM Security Violation security violation was detected.
     eNOREPORT = 0,
@@ -889,6 +881,7 @@ struct HPSVSR_fields_ {
     // ZMK ECC Failure was detected.
     eREPORTED = 1,
   };
+
   // CAAM Security Violation security violation was detected.
   using CAAM = ftl::mmio::Field<1, 0, eCAAM, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // JTAG Active security violation was detected.
@@ -952,7 +945,6 @@ struct HPSVSR : ftl::mmio::Register<
   using LP_SEC_VIO = HPSVSR_fields_::LP_SEC_VIO;
 };
 
-
 // SNVS_HP High Assurance Counter IV Register
 struct HPHACIVR_fields_ {
   // High Assurance Counter Initial Value This register is used to set the starting count value to the high assurance counter
@@ -968,7 +960,6 @@ struct HPHACIVR : ftl::mmio::Register<
   using HAC_COUNTER_IV = HPHACIVR_fields_::HAC_COUNTER_IV;
 };
 
-
 // SNVS_HP High Assurance Counter Register
 struct HPHACR_fields_ {
   // High Assurance Counter When the HAC_EN bit is set and the SSM is in the soft fail state, this counter starts to count down with the system clock
@@ -983,7 +974,6 @@ struct HPHACR : ftl::mmio::Register<
     HPHACR_fields_::HAC_COUNTER> {
   using HAC_COUNTER = HPHACR_fields_::HAC_COUNTER;
 };
-
 
 // SNVS_HP Real Time Counter MSB Register
 struct HPRTCMR_fields_ {
@@ -1001,7 +991,6 @@ struct HPRTCMR : ftl::mmio::Register<
   using RTC = HPRTCMR_fields_::RTC;
 };
 
-
 // SNVS_HP Real Time Counter LSB Register
 struct HPRTCLR_fields_ {
   // HP Real Time Counter least-significant 32 bits
@@ -1016,7 +1005,6 @@ struct HPRTCLR : ftl::mmio::Register<
     HPRTCLR_fields_::RTC> {
   using RTC = HPRTCLR_fields_::RTC;
 };
-
 
 // SNVS_HP Time Alarm MSB Register
 struct HPTAMR_fields_ {
@@ -1034,7 +1022,6 @@ struct HPTAMR : ftl::mmio::Register<
   using HPTA_MS = HPTAMR_fields_::HPTA_MS;
 };
 
-
 // SNVS_HP Time Alarm LSB Register
 struct HPTALR_fields_ {
   // HP Time Alarm, 32 least-significant bits
@@ -1050,10 +1037,8 @@ struct HPTALR : ftl::mmio::Register<
   using HPTA_LS = HPTALR_fields_::HPTA_LS;
 };
 
-
 // SNVS_LP Lock Register
 struct LPLR_fields_ {
-
   enum class eZMK_WHL : std::uint32_t {
     // Write access is allowed.
     eWRITE_ACCESS_ALLOWED = 0,
@@ -1158,6 +1143,7 @@ struct LPLR_fields_ {
     // Write access is not allowed.
     eWRITE_ACCESS_NOT_ALLOWED = 1,
   };
+
   // Zeroizable Master Key Write Hard Lock When set, prevents any writes (software and hardware) to the ZMK registers and ZMK_HWP, ZMK_VAL, and ZMK_ECC_EN fields of the LPMKCR
   using ZMK_WHL = ftl::mmio::Field<1, 0, eZMK_WHL, ftl::mmio::RW, ftl::mmio::Normal>;
   // Zeroizable Master Key Read Hard Lock When set, prevents any software reads to the ZMK registers and ZMK_ECC_VALUE field of the LPMKCR
@@ -1244,10 +1230,8 @@ struct LPLR : ftl::mmio::Register<
   using AT5_HL = LPLR_fields_::AT5_HL;
 };
 
-
 // SNVS_LP Control Register
 struct LPCR_fields_ {
-
   enum class eSRTC_ENV : std::uint32_t {
     // SRTC is disabled or invalid.
     eDISABLED = 0,
@@ -1315,6 +1299,7 @@ struct LPCR_fields_ {
     // -1 counts per each 32768 ticks of the counter clock
     eSUB_1_PER_32768_TICKS = 31,
   };
+
   // Secure Real Time Counter Enabled and Valid When set, the SRTC becomes operational
   using SRTC_ENV = ftl::mmio::Field<1, 0, eSRTC_ENV, ftl::mmio::RW, ftl::mmio::Normal>;
   // LP Time Alarm Enable When set, the SNVS functional interrupt is asserted if the LP Time Alarm Register is equal to the 32 MSBs of the secure real time counter
@@ -1399,10 +1384,8 @@ struct LPCR : ftl::mmio::Register<
   using GPR_Z_DIS = LPCR_fields_::GPR_Z_DIS;
 };
 
-
 // SNVS_LP Master Key Control Register
 struct LPMKCR_fields_ {
-
   enum class eMASTER_KEY_SEL : std::uint32_t {
     // Select one time programmable master key.
     eSELECT_OTPMK = 0,
@@ -1432,6 +1415,7 @@ struct LPMKCR_fields_ {
     // ZMK ECC check is enabled.
     eENABLED = 1,
   };
+
   // Master Key Select These bits select the SNVS Master Key output when Master Key Select bits are enabled by MKS_EN bit in the HPCOMR
   using MASTER_KEY_SEL = ftl::mmio::Field<2, 0, eMASTER_KEY_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
   // Zeroizable Master Key hardware Programming mode When set, only the hardware key programming mechanism can set the ZMK and software cannot read it
@@ -1467,10 +1451,8 @@ struct LPMKCR : ftl::mmio::Register<
   using ZMK_ECC_VALUE = LPMKCR_fields_::ZMK_ECC_VALUE;
 };
 
-
 // SNVS_LP Security Violation Control Register
 struct LPSVCR_fields_ {
-
   enum class eCAAM_EN : std::uint32_t {
     // CAAM Security Violation is disabled in the LP domain.
     eDISABLED = 0,
@@ -1505,6 +1487,7 @@ struct LPSVCR_fields_ {
     // OCOTP attack error is enabled in the LP domain.
     eENABLED = 1,
   };
+
   // CAAM Security Violation Enable This bit enables CAAM Security Violation Input
   using CAAM_EN = ftl::mmio::Field<1, 0, eCAAM_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // JTAG Active Enable This bit enables JTAG Active Input
@@ -1541,10 +1524,8 @@ struct LPSVCR : ftl::mmio::Register<
   using OCOTP_EN = LPSVCR_fields_::OCOTP_EN;
 };
 
-
 // SNVS_LP Tamper Glitch Filters Configuration Register
 struct LPTGFCR_fields_ {
-
   enum class eWMTGF_EN : std::uint32_t {
     // Wire-mesh tamper glitch filter is bypassed.
     eBYPASSED = 0,
@@ -1565,6 +1546,7 @@ struct LPTGFCR_fields_ {
     // External tamper glitch filter 2 is enabled.
     eENABLED = 1,
   };
+
   // Wire-Mesh Tamper Glitch Filter Configures the length of the digital glitch filter for the wire-mesh tamper 1 and 2 pins between 1 and 63 SRTC clock cycles
   using WMTGF = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Wire-Mesh Tamper Glitch Filter Enable When set, enables the wire-mesh tamper glitch filter
@@ -1603,10 +1585,8 @@ struct LPTGFCR : ftl::mmio::Register<
   using ETGF2_EN = LPTGFCR_fields_::ETGF2_EN;
 };
 
-
 // SNVS_LP Tamper Detect Configuration Register
 struct LPTDCR_fields_ {
-
   enum class eSRTCR_EN : std::uint32_t {
     // SRTC rollover is disabled.
     eDISABLED = 0,
@@ -1690,6 +1670,7 @@ struct LPTDCR_fields_ {
     // Normal SRTC clock oscillator bypassed. Alternate clock can drive the SRTC clock source.
     eBYPASSED = 1,
   };
+
   // SRTC Rollover Enable When set, an SRTC rollover event generates an LP security violation.
   using SRTCR_EN = ftl::mmio::Field<1, 1, eSRTCR_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // MC Rollover Enable When set, an MC Rollover event generates an LP security violation.
@@ -1786,10 +1767,8 @@ struct LPTDCR : ftl::mmio::Register<
   using OSCB = LPTDCR_fields_::OSCB;
 };
 
-
 // SNVS_LP Status Register
 struct LPSR_fields_ {
-
   enum class eLPTA : std::uint32_t {
     // No time alarm interrupt occurred.
     eNOREPORT = 0,
@@ -1901,6 +1880,7 @@ struct LPSR_fields_ {
     // LP section was programmed in secure or trusted state.
     eWAS_PRGRMD_IN_SECURE_OR_TRUSTED_STATE = 1,
   };
+
   // LP Time Alarm
   using LPTA = ftl::mmio::Field<1, 0, eLPTA, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Secure Real Time Counter Rollover
@@ -1992,7 +1972,6 @@ struct LPSR : ftl::mmio::Register<
   using LPS = LPSR_fields_::LPS;
 };
 
-
 // SNVS_LP Secure Real Time Counter MSB Register
 struct LPSRTCMR_fields_ {
   // LP Secure Real Time Counter The most-significant 15 bits of the SRTC
@@ -2009,7 +1988,6 @@ struct LPSRTCMR : ftl::mmio::Register<
   using SRTC = LPSRTCMR_fields_::SRTC;
 };
 
-
 // SNVS_LP Secure Real Time Counter LSB Register
 struct LPSRTCLR_fields_ {
   // LP Secure Real Time Counter least-significant 32 bits This register can be programmed only when SRTC is not active and not locked, meaning the SRTC_ENV, SRTC_SL, and SRTC_HL bits are not set
@@ -2025,7 +2003,6 @@ struct LPSRTCLR : ftl::mmio::Register<
   using SRTC = LPSRTCLR_fields_::SRTC;
 };
 
-
 // SNVS_LP Time Alarm Register
 struct LPTAR_fields_ {
   // LP Time Alarm This register can be programmed only when the LP time alarm is disabled (LPTA_EN bit is not set)
@@ -2040,7 +2017,6 @@ struct LPTAR : ftl::mmio::Register<
     LPTAR_fields_::LPTA> {
   using LPTA = LPTAR_fields_::LPTA;
 };
-
 
 // SNVS_LP Secure Monotonic Counter MSB Register
 struct LPSMCMR_fields_ {
@@ -2061,7 +2037,6 @@ struct LPSMCMR : ftl::mmio::Register<
   using MC_ERA_BITS = LPSMCMR_fields_::MC_ERA_BITS;
 };
 
-
 // SNVS_LP Secure Monotonic Counter LSB Register
 struct LPSMCLR_fields_ {
   // Monotonic Counter bits Note that writing to this register does not change the value of this field to the value that was written
@@ -2076,7 +2051,6 @@ struct LPSMCLR : ftl::mmio::Register<
     LPSMCLR_fields_::MON_COUNTER> {
   using MON_COUNTER = LPSMCLR_fields_::MON_COUNTER;
 };
-
 
 // SNVS_LP Digital Low-Voltage Detector Register
 struct LPLVDR_fields_ {
@@ -2093,7 +2067,6 @@ struct LPLVDR : ftl::mmio::Register<
   using LVD = LPLVDR_fields_::LVD;
 };
 
-
 // SNVS_LP General Purpose Register 0 (legacy alias)
 struct LPGPR0_legacy_alias_fields_ {
   // General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
@@ -2108,7 +2081,6 @@ struct LPGPR0_legacy_alias : ftl::mmio::Register<
     LPGPR0_legacy_alias_fields_::GPR> {
   using GPR = LPGPR0_legacy_alias_fields_::GPR;
 };
-
 
 // SNVS_LP Zeroizable Master Key Register
 struct LPZMKR_fields_ {
@@ -2127,7 +2099,6 @@ struct LPZMKR : ftl::mmio::Register<
   using ZMK = LPZMKR_fields_::ZMK;
 };
 
-
 // SNVS_LP General Purpose Registers 0 .. 3
 struct LPGPR_alias_fields_ {
   // General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
@@ -2145,10 +2116,8 @@ struct LPGPR_alias : ftl::mmio::Register<
   using GPR = LPGPR_alias_fields_::GPR;
 };
 
-
 // SNVS_LP Tamper Detectors Config 2 Register
 struct LPTDC2R_fields_ {
-
   enum class eET3_EN : std::uint32_t {
     // External tamper 3 is disabled.
     eDISABLED = 0,
@@ -2260,6 +2229,7 @@ struct LPTDC2R_fields_ {
     // External tamper 10 is active high.
     eACTIVE_HIGH = 1,
   };
+
   // External Tampering 3 Enable When set, external tampering 3 detection generates an LP security violation
   using ET3_EN = ftl::mmio::Field<1, 0, eET3_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // External Tampering 4 Enable When set, external tampering 4 detection generates an LP security violation
@@ -2351,10 +2321,8 @@ struct LPTDC2R : ftl::mmio::Register<
   using ET10P = LPTDC2R_fields_::ET10P;
 };
 
-
 // SNVS_LP Tamper Detectors Status Register
 struct LPTDSR_fields_ {
-
   enum class eET3D : std::uint32_t {
     // External tamper 3 is not detected.
     eNOREPORT = 0,
@@ -2410,6 +2378,7 @@ struct LPTDSR_fields_ {
     // External tamper 10 is detected.
     eREPORTED = 1,
   };
+
   // External Tampering 3 Detected
   using ET3D = ftl::mmio::Field<1, 0, eET3D, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // External Tampering 4 Detected
@@ -2460,10 +2429,8 @@ struct LPTDSR : ftl::mmio::Register<
   using ET10D = LPTDSR_fields_::ET10D;
 };
 
-
 // SNVS_LP Tamper Glitch Filter 1 Configuration Register
 struct LPTGF1CR_fields_ {
-
   enum class eETGF3_EN : std::uint32_t {
     // External tamper glitch filter 3 is bypassed.
     eBYPASSED = 0,
@@ -2491,6 +2458,7 @@ struct LPTGF1CR_fields_ {
     // External tamper glitch filter 6 is enabled.
     eENABLED = 1,
   };
+
   // External Tamper Glitch Filter 3 Configures the length of the digital glitch filter for the external tamper 3 pin between 128 and 32640 SRTC clock cycles
   using ETGF3 = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // External Tamper Glitch Filter 3 Enable When set, enables the external tamper glitch filter 3.
@@ -2536,10 +2504,8 @@ struct LPTGF1CR : ftl::mmio::Register<
   using ETGF6_EN = LPTGF1CR_fields_::ETGF6_EN;
 };
 
-
 // SNVS_LP Tamper Glitch Filter 2 Configuration Register
 struct LPTGF2CR_fields_ {
-
   enum class eETGF7_EN : std::uint32_t {
     // External tamper glitch filter 7 is bypassed.
     eBYPASSED = 0,
@@ -2567,6 +2533,7 @@ struct LPTGF2CR_fields_ {
     // External tamper glitch filter 10 is enabled.
     eENABLED = 1,
   };
+
   // External Tamper Glitch Filter 7 Configures the length of the digital glitch filter for the external tamper 7 pin between 128 and 32640 SRTC clock cycles
   using ETGF7 = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // External Tamper Glitch Filter 7 Enable When set, enables the external tamper glitch filter 7.
@@ -2612,7 +2579,6 @@ struct LPTGF2CR : ftl::mmio::Register<
   using ETGF10_EN = LPTGF2CR_fields_::ETGF10_EN;
 };
 
-
 // SNVS_LP Active Tamper 1 Configuration Register
 struct LPAT1CR_fields_ {
   // Active Tamper 1 Initial Seed Default Seed is 1111h.
@@ -2631,7 +2597,6 @@ struct LPAT1CR : ftl::mmio::Register<
   using Seed = LPAT1CR_fields_::Seed;
   using Polynomial = LPAT1CR_fields_::Polynomial;
 };
-
 
 // SNVS_LP Active Tamper 2 Configuration Register
 struct LPAT2CR_fields_ {
@@ -2652,7 +2617,6 @@ struct LPAT2CR : ftl::mmio::Register<
   using Polynomial = LPAT2CR_fields_::Polynomial;
 };
 
-
 // SNVS_LP Active Tamper 3 Configuration Register
 struct LPAT3CR_fields_ {
   // Active Tamper 3 Initial Seed Default Seed is 3333h.
@@ -2671,7 +2635,6 @@ struct LPAT3CR : ftl::mmio::Register<
   using Seed = LPAT3CR_fields_::Seed;
   using Polynomial = LPAT3CR_fields_::Polynomial;
 };
-
 
 // SNVS_LP Active Tamper 4 Configuration Register
 struct LPAT4CR_fields_ {
@@ -2692,7 +2655,6 @@ struct LPAT4CR : ftl::mmio::Register<
   using Polynomial = LPAT4CR_fields_::Polynomial;
 };
 
-
 // SNVS_LP Active Tamper 5 Configuration Register
 struct LPAT5CR_fields_ {
   // Active Tamper 5 Initial Seed Default Seed is 5555h.
@@ -2712,10 +2674,8 @@ struct LPAT5CR : ftl::mmio::Register<
   using Polynomial = LPAT5CR_fields_::Polynomial;
 };
 
-
 // SNVS_LP Active Tamper Control Register
 struct LPATCTLR_fields_ {
-
   enum class eAT1_EN : std::uint32_t {
     // Active Tamper 1 is disabled.
     eDISABLED = 0,
@@ -2785,6 +2745,7 @@ struct LPATCTLR_fields_ {
     // Active Tamper 5 is enabled.
     eENABLED = 1,
   };
+
   // Active Tamper 1 Enable When set, enables the Active Tamper 1 LFSR.
   using AT1_EN = ftl::mmio::Field<1, 0, eAT1_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Active Tamper 2 Enable When set, enables the Active Tamper 2 LFSR.
@@ -2846,7 +2807,6 @@ struct LPATCTLR : ftl::mmio::Register<
   using AT5_PAD_EN = LPATCTLR_fields_::AT5_PAD_EN;
 };
 
-
 // SNVS_LP Active Tamper Clock Control Register
 struct LPATCLKR_fields_ {
   // Active Tamper 1 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
@@ -2882,7 +2842,6 @@ struct LPATCLKR : ftl::mmio::Register<
   using AT4_CLK_CTL = LPATCLKR_fields_::AT4_CLK_CTL;
   using AT5_CLK_CTL = LPATCLKR_fields_::AT5_CLK_CTL;
 };
-
 
 // SNVS_LP Active Tamper Routing Control 1 Register
 struct LPATRC1R_fields_ {
@@ -2935,7 +2894,6 @@ struct LPATRC1R : ftl::mmio::Register<
   using ET8RCTL = LPATRC1R_fields_::ET8RCTL;
 };
 
-
 // SNVS_LP Active Tamper Routing Control 2 Register
 struct LPATRC2R_fields_ {
   // External Tamper 9 Routing Control Any undefined selection will be routed to passive
@@ -2957,7 +2915,6 @@ struct LPATRC2R : ftl::mmio::Register<
   using ET10RCTL = LPATRC2R_fields_::ET10RCTL;
 };
 
-
 // SNVS_LP General Purpose Registers 0 .. 3
 struct LPGPR_fields_ {
   // General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
@@ -2974,7 +2931,6 @@ struct LPGPR : ftl::mmio::Register<
   static_assert(Index < 4u, "LPGPR: Index out of range");
   using GPR = LPGPR_fields_::GPR;
 };
-
 
 // SNVS_HP Version ID Register 1
 struct HPVIDR1_fields_ {
@@ -2998,7 +2954,6 @@ struct HPVIDR1 : ftl::mmio::Register<
   using MAJOR_REV = HPVIDR1_fields_::MAJOR_REV;
   using IP_ID = HPVIDR1_fields_::IP_ID;
 };
-
 
 // SNVS_HP Version ID Register 2
 struct HPVIDR2_fields_ {

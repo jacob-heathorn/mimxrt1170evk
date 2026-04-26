@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::iomuxc_lpsr {
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_00 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: FLEXCAN3_TX of instance: FLEXCAN3
     eALT0_can3_TX = 0,
@@ -37,6 +35,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_ {
     // Force input path of pad GPIO_LPSR_00
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -57,10 +56,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_00 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_01 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: FLEXCAN3_RX of instance: FLEXCAN3
     eALT0_can3_RX = 0,
@@ -84,6 +81,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_ {
     // Force input path of pad GPIO_LPSR_01
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -104,10 +102,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_01 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_02 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SRC_BOOT_MODE00 of instance: SRC
     eALT0_src_BOOT_MODE0 = 0,
@@ -129,6 +125,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_ {
     // Force input path of pad GPIO_LPSR_02
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -149,10 +146,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_02 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_03 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SRC_BOOT_MODE01 of instance: SRC
     eALT0_src_BOOT_MODE1 = 0,
@@ -174,6 +169,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_ {
     // Force input path of pad GPIO_LPSR_03
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -194,10 +190,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_03 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_04 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPI2C5_SDA of instance: LPI2C5
     eALT0_lpi2c5_SDA = 0,
@@ -221,6 +215,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_ {
     // Force input path of pad GPIO_LPSR_04
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -241,10 +236,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_04 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_05 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPI2C5_SCL of instance: LPI2C5
     eALT0_lpi2c5_SCL = 0,
@@ -270,6 +263,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_ {
     // Force input path of pad GPIO_LPSR_05
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -290,10 +284,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_05 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_06 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPI2C6_SDA of instance: LPI2C6
     eALT0_lpi2c6_SDA = 0,
@@ -321,6 +313,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_ {
     // Force input path of pad GPIO_LPSR_06
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -341,10 +334,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_06 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_07 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPI2C6_SCL of instance: LPI2C6
     eALT0_lpi2c6_SCL = 0,
@@ -372,6 +363,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_ {
     // Force input path of pad GPIO_LPSR_07
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -392,10 +384,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_07 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_08 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPUART11_TXD of instance: LPUART11
     eALT0_lpuart11_TX = 0,
@@ -425,6 +415,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_ {
     // Force input path of pad GPIO_LPSR_08
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -445,10 +436,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_08 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_09 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPUART11_RXD of instance: LPUART11
     eALT0_lpuart11_RX = 0,
@@ -476,6 +465,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_ {
     // Force input path of pad GPIO_LPSR_09
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -496,10 +486,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_09 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_10 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TRSTB of instance: JTAG_MUX
     eALT0_jtag_mux_TRSTB = 0,
@@ -529,6 +517,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_ {
     // Force input path of pad GPIO_LPSR_10
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -549,10 +538,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_10 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_11 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TDO of instance: JTAG_MUX
     eALT0_jtag_mux_TDO = 0,
@@ -582,6 +569,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_ {
     // Force input path of pad GPIO_LPSR_11
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -602,10 +590,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_11 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_12 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TDI of instance: JTAG_MUX
     eALT0_jtag_mux_TDI = 0,
@@ -633,6 +619,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_ {
     // Force input path of pad GPIO_LPSR_12
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -653,10 +640,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_12 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_13 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_MOD of instance: JTAG_MUX
     eALT0_jtag_mux_MOD = 0,
@@ -680,6 +665,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_ {
     // Force input path of pad GPIO_LPSR_13
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -700,10 +686,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_13 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_14 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TCK of instance: JTAG_MUX/SWD_CLK
     eALT0_jtag_mux_TCK = 0,
@@ -727,6 +711,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_ {
     // Force input path of pad GPIO_LPSR_14
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -747,10 +732,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_14 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_LPSR_15 SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TMS of instance: JTAG_MUX/SWD_DIO
     eALT0_jtag_mux_TMS = 0,
@@ -774,6 +757,7 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_ {
     // Force input path of pad GPIO_LPSR_15
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -794,10 +778,8 @@ struct SW_MUX_CTL_PAD_GPIO_LPSR_15 : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_::SION;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_00 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -854,6 +836,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -900,10 +883,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_00 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_01 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -960,6 +941,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1006,10 +988,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_01 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_02 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1066,6 +1046,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1112,10 +1093,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_02 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_03 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1172,6 +1151,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1218,10 +1198,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_03 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_04 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1278,6 +1256,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1324,10 +1303,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_04 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_05 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1384,6 +1361,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1430,10 +1408,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_05 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_06 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1490,6 +1466,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1536,10 +1513,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_06 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_07 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1596,6 +1571,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1642,10 +1618,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_07 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_08 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1702,6 +1676,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1748,10 +1723,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_08 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_09 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1808,6 +1781,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1854,10 +1828,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_09 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_10 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -1914,6 +1886,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -1960,10 +1933,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_10 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_11 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -2020,6 +1991,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -2066,10 +2038,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_11 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_12 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -2126,6 +2096,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -2172,10 +2143,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_12 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_13 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -2232,6 +2201,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -2278,10 +2248,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_13 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_14 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -2338,6 +2306,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -2384,10 +2353,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_14 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_LPSR_15 SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_ {
-
   enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
@@ -2444,6 +2411,7 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Slew Rate Field
   using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Drive Strength Field
@@ -2490,10 +2458,8 @@ struct SW_PAD_CTL_PAD_GPIO_LPSR_15 : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::DWP_LOCK;
 };
 
-
 // CAN3_IPP_IND_CANRX_SELECT_INPUT DAISY Register
 struct CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_01 for Mode: ALT0
     eSELECT_GPIO_LPSR_01_ALT0 = 0,
@@ -2502,6 +2468,7 @@ struct CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_ {
     // Selecting Pad: GPIO_LPSR_09 for Mode: ALT1
     eSELECT_GPIO_LPSR_09_ALT1 = 2,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<2, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_
@@ -2517,16 +2484,15 @@ struct CAN3_IPP_IND_CANRX_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT DAISY Register
 struct LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT0
     eSELECT_GPIO_LPSR_05_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_09 for Mode: ALT6
     eSELECT_GPIO_LPSR_09_ALT6 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_
@@ -2542,16 +2508,15 @@ struct LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT DAISY Register
 struct LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_04 for Mode: ALT0
     eSELECT_GPIO_LPSR_04_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_08 for Mode: ALT6
     eSELECT_GPIO_LPSR_08_ALT6 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_
@@ -2567,16 +2532,15 @@ struct LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT DAISY Register
 struct LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_07 for Mode: ALT0
     eSELECT_GPIO_LPSR_07_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_11 for Mode: ALT2
     eSELECT_GPIO_LPSR_11_ALT2 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_
@@ -2592,16 +2556,15 @@ struct LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT DAISY Register
 struct LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_06 for Mode: ALT0
     eSELECT_GPIO_LPSR_06_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_10 for Mode: ALT2
     eSELECT_GPIO_LPSR_10_ALT2 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_
@@ -2617,16 +2580,15 @@ struct LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 DAISY Register
 struct LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_03 for Mode: ALT1
     eSELECT_GPIO_LPSR_03_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_13 for Mode: ALT8
     eSELECT_GPIO_LPSR_13_ALT8 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0_fields_
@@ -2642,16 +2604,15 @@ struct LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 : ftl::mmio::Register<
   using DAISY = LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0_fields_::DAISY;
 };
 
-
 // LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT DAISY Register
 struct LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_02 for Mode: ALT1
     eSELECT_GPIO_LPSR_02_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_12 for Mode: ALT8
     eSELECT_GPIO_LPSR_12_ALT8 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT_fields_
@@ -2667,16 +2628,15 @@ struct LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT DAISY Register
 struct LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT1
     eSELECT_GPIO_LPSR_05_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_15 for Mode: ALT8
     eSELECT_GPIO_LPSR_15_ALT8 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT_fields_
@@ -2692,16 +2652,15 @@ struct LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT DAISY Register
 struct LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_04 for Mode: ALT1
     eSELECT_GPIO_LPSR_04_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_14 for Mode: ALT8
     eSELECT_GPIO_LPSR_14_ALT8 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT_fields_
@@ -2717,16 +2676,15 @@ struct LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT DAISY Register
 struct LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT6
     eSELECT_GPIO_LPSR_05_ALT6 = 0,
     // Selecting Pad: GPIO_LPSR_09 for Mode: ALT0
     eSELECT_GPIO_LPSR_09_ALT0 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_
@@ -2742,16 +2700,15 @@ struct LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT DAISY Register
 struct LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_04 for Mode: ALT6
     eSELECT_GPIO_LPSR_04_ALT6 = 0,
     // Selecting Pad: GPIO_LPSR_08 for Mode: ALT0
     eSELECT_GPIO_LPSR_08_ALT0 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_
@@ -2767,10 +2724,8 @@ struct LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT DAISY Register
 struct LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_01 for Mode: ALT6
     eSELECT_GPIO_LPSR_01_ALT6 = 0,
@@ -2779,6 +2734,7 @@ struct LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_ {
     // Selecting Pad: GPIO_LPSR_11 for Mode: ALT8
     eSELECT_GPIO_LPSR_11_ALT8 = 2,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<2, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_
@@ -2794,10 +2750,8 @@ struct LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT DAISY Register
 struct LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_00 for Mode: ALT6
     eSELECT_GPIO_LPSR_00_ALT6 = 0,
@@ -2806,6 +2760,7 @@ struct LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_ {
     // Selecting Pad: GPIO_LPSR_10 for Mode: ALT8
     eSELECT_GPIO_LPSR_10_ALT8 = 2,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<2, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_
@@ -2821,16 +2776,15 @@ struct LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 DAISY Register
 struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_01 for Mode: ALT1
     eSELECT_GPIO_LPSR_01_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_09 for Mode: ALT3
     eSELECT_GPIO_LPSR_09_ALT3 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0_fields_
@@ -2846,16 +2800,15 @@ struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 : ftl::mmio::Register<
   using DAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0_fields_::DAISY;
 };
 
-
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 DAISY Register
 struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_10 for Mode: ALT3
     eSELECT_GPIO_LPSR_10_ALT3 = 0,
     // Selecting Pad: GPIO_LPSR_13 for Mode: ALT1
     eSELECT_GPIO_LPSR_13_ALT1 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1_fields_
@@ -2871,16 +2824,15 @@ struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 : ftl::mmio::Register<
   using DAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1_fields_::DAISY;
 };
 
-
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 DAISY Register
 struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_11 for Mode: ALT3
     eSELECT_GPIO_LPSR_11_ALT3 = 0,
     // Selecting Pad: GPIO_LPSR_14 for Mode: ALT1
     eSELECT_GPIO_LPSR_14_ALT1 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2_fields_
@@ -2896,16 +2848,15 @@ struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 : ftl::mmio::Register<
   using DAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2_fields_::DAISY;
 };
 
-
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 DAISY Register
 struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_12 for Mode: ALT3
     eSELECT_GPIO_LPSR_12_ALT3 = 0,
     // Selecting Pad: GPIO_LPSR_15 for Mode: ALT1
     eSELECT_GPIO_LPSR_15_ALT1 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3_fields_
@@ -2921,16 +2872,15 @@ struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 : ftl::mmio::Register<
   using DAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3_fields_::DAISY;
 };
 
-
 // NMI_GLUE_IPP_IND_NMI_SELECT_INPUT DAISY Register
 struct NMI_GLUE_IPP_IND_NMI_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT7
     eSELECT_GPIO_LPSR_05_ALT7 = 0,
     // Selecting Pad: WAKEUP_DIG for Mode: ALT7
     eSELECT_WAKEUP_DIG_ALT7 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct NMI_GLUE_IPP_IND_NMI_SELECT_INPUT_fields_
@@ -2946,16 +2896,15 @@ struct NMI_GLUE_IPP_IND_NMI_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = NMI_GLUE_IPP_IND_NMI_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT DAISY Register
 struct SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_00 for Mode: ALT7
     eSELECT_GPIO_LPSR_00_ALT7 = 0,
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT2
     eSELECT_GPIO_LPSR_05_ALT2 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT_fields_
@@ -2971,16 +2920,15 @@ struct SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT DAISY Register
 struct SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_07 for Mode: ALT2
     eSELECT_GPIO_LPSR_07_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_14 for Mode: ALT7
     eSELECT_GPIO_LPSR_14_ALT7 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT_fields_
@@ -2996,16 +2944,15 @@ struct SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 DAISY Register
 struct SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_06 for Mode: ALT2
     eSELECT_GPIO_LPSR_06_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_13 for Mode: ALT7
     eSELECT_GPIO_LPSR_13_ALT7 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0_fields_
@@ -3021,16 +2968,15 @@ struct SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 : ftl::mmio::Register<
   using DAISY = SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0_fields_::DAISY;
 };
 
-
 // SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT DAISY Register
 struct SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_08 for Mode: ALT2
     eSELECT_GPIO_LPSR_08_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_15 for Mode: ALT7
     eSELECT_GPIO_LPSR_15_ALT7 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT_fields_
@@ -3046,16 +2992,15 @@ struct SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT DAISY Register
 struct SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_04 for Mode: ALT2
     eSELECT_GPIO_LPSR_04_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_12 for Mode: ALT7
     eSELECT_GPIO_LPSR_12_ALT7 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT_fields_
@@ -3071,16 +3016,15 @@ struct SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT : ftl::mmio::Register<
   using DAISY = SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT_fields_::DAISY;
 };
 
-
 // SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT DAISY Register
 struct SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT_fields_ {
-
   enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_03 for Mode: ALT2
     eSELECT_GPIO_LPSR_03_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_10 for Mode: ALT7
     eSELECT_GPIO_LPSR_10_ALT7 = 1,
   };
+
   // Selecting Pads Involved in Daisy Chain.
   using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT_fields_

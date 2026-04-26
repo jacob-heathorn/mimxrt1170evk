@@ -290,7 +290,7 @@ struct KEYSIZE : ftl::mmio::Register<
     KEYSIZE_fields_::KEYSIZE,
     ftl::mmio::Reserved<26, 6>> {
   using eKEYSIZE = KEYSIZE_fields_::eKEYSIZE;
-  using value_ = KEYSIZE_fields_::KEYSIZE;
+  using VALUE = KEYSIZE_fields_::KEYSIZE;
 };
 
 // PUF Status Register
@@ -561,7 +561,7 @@ struct VERSION : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VERSION_fields_::VERSION> {
-  using value_ = VERSION_fields_::VERSION;
+  using VALUE = VERSION_fields_::VERSION;
 };
 
 // PUF Interrupt Enable

@@ -97,7 +97,7 @@ struct PIXEL_FORMAT : ftl::mmio::Register<
     PIXEL_FORMAT_fields_::PIXEL_FORMAT,
     ftl::mmio::Reserved<30, 2>> {
   using ePIXEL_FORMAT = PIXEL_FORMAT_fields_::ePIXEL_FORMAT;
-  using value_ = PIXEL_FORMAT_fields_::PIXEL_FORMAT;
+  using VALUE = PIXEL_FORMAT_fields_::PIXEL_FORMAT;
 };
 
 // VSYNC_POLARITY
@@ -121,7 +121,7 @@ struct VSYNC_POLARITY : ftl::mmio::Register<
     VSYNC_POLARITY_fields_::VSYNC_POLARITY,
     ftl::mmio::Reserved<31, 1>> {
   using eVSYNC_POLARITY = VSYNC_POLARITY_fields_::eVSYNC_POLARITY;
-  using value_ = VSYNC_POLARITY_fields_::VSYNC_POLARITY;
+  using VALUE = VSYNC_POLARITY_fields_::VSYNC_POLARITY;
 };
 
 // HSYNC_POLARITY
@@ -145,7 +145,7 @@ struct HSYNC_POLARITY : ftl::mmio::Register<
     HSYNC_POLARITY_fields_::HSYNC_POLARITY,
     ftl::mmio::Reserved<31, 1>> {
   using eHSYNC_POLARITY = HSYNC_POLARITY_fields_::eHSYNC_POLARITY;
-  using value_ = HSYNC_POLARITY_fields_::HSYNC_POLARITY;
+  using VALUE = HSYNC_POLARITY_fields_::HSYNC_POLARITY;
 };
 
 // VIDEO_MODE
@@ -171,7 +171,7 @@ struct VIDEO_MODE : ftl::mmio::Register<
     VIDEO_MODE_fields_::VIDEO_MODE,
     ftl::mmio::Reserved<30, 2>> {
   using eVIDEO_MODE = VIDEO_MODE_fields_::eVIDEO_MODE;
-  using value_ = VIDEO_MODE_fields_::VIDEO_MODE;
+  using VALUE = VIDEO_MODE_fields_::VIDEO_MODE;
 };
 
 // HFP
@@ -243,7 +243,7 @@ struct ENABLE_MULT_PKTS : ftl::mmio::Register<
     ENABLE_MULT_PKTS_fields_::ENABLE_MULT_PKTS,
     ftl::mmio::Reserved<31, 1>> {
   using eENABLE_MULT_PKTS = ENABLE_MULT_PKTS_fields_::eENABLE_MULT_PKTS;
-  using value_ = ENABLE_MULT_PKTS_fields_::ENABLE_MULT_PKTS;
+  using VALUE = ENABLE_MULT_PKTS_fields_::ENABLE_MULT_PKTS;
 };
 
 // VBP

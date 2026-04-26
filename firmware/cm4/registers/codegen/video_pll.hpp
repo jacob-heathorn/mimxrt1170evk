@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::video_pll {
 
-
 // Fractional PLL Control Register
 struct CTRL0_fields_ {
-
   enum class eENABLE_ALT : std::uint32_t {
     // Disable the alternate clock output
     eDISABLE = 0,
@@ -75,6 +73,7 @@ struct CTRL0_fields_ {
     // Used in SoCs with a bias current of 2uA
     eBAIS2 = 1,
   };
+
   // DIV_SELECT
   using DIV_SELECT = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // ENABLE_ALT
@@ -142,7 +141,6 @@ struct CTRL0 : ftl::mmio::Register<
   using BIAS_SELECT = CTRL0_fields_::BIAS_SELECT;
 };
 
-
 // Fractional PLL Control Register
 struct CTRL0_SET_fields_ {
   // DIV_SELECT
@@ -203,7 +201,6 @@ struct CTRL0_SET : ftl::mmio::Register<
   using POST_DIV_SEL = CTRL0_SET_fields_::POST_DIV_SEL;
   using BIAS_SELECT = CTRL0_SET_fields_::BIAS_SELECT;
 };
-
 
 // Fractional PLL Control Register
 struct CTRL0_CLR_fields_ {
@@ -266,7 +263,6 @@ struct CTRL0_CLR : ftl::mmio::Register<
   using BIAS_SELECT = CTRL0_CLR_fields_::BIAS_SELECT;
 };
 
-
 // Fractional PLL Control Register
 struct CTRL0_TOG_fields_ {
   // DIV_SELECT
@@ -328,7 +324,6 @@ struct CTRL0_TOG : ftl::mmio::Register<
   using BIAS_SELECT = CTRL0_TOG_fields_::BIAS_SELECT;
 };
 
-
 // Fractional PLL Spread Spectrum Control Register
 struct SPREAD_SPECTRUM_fields_ {
   // Step
@@ -351,7 +346,6 @@ struct SPREAD_SPECTRUM : ftl::mmio::Register<
   using ENABLE = SPREAD_SPECTRUM_fields_::ENABLE;
   using STOP = SPREAD_SPECTRUM_fields_::STOP;
 };
-
 
 // Fractional PLL Spread Spectrum Control Register
 struct SPREAD_SPECTRUM_SET_fields_ {
@@ -376,7 +370,6 @@ struct SPREAD_SPECTRUM_SET : ftl::mmio::Register<
   using STOP = SPREAD_SPECTRUM_SET_fields_::STOP;
 };
 
-
 // Fractional PLL Spread Spectrum Control Register
 struct SPREAD_SPECTRUM_CLR_fields_ {
   // Step
@@ -399,7 +392,6 @@ struct SPREAD_SPECTRUM_CLR : ftl::mmio::Register<
   using ENABLE = SPREAD_SPECTRUM_CLR_fields_::ENABLE;
   using STOP = SPREAD_SPECTRUM_CLR_fields_::STOP;
 };
-
 
 // Fractional PLL Spread Spectrum Control Register
 struct SPREAD_SPECTRUM_TOG_fields_ {
@@ -424,7 +416,6 @@ struct SPREAD_SPECTRUM_TOG : ftl::mmio::Register<
   using STOP = SPREAD_SPECTRUM_TOG_fields_::STOP;
 };
 
-
 // Fractional PLL Numerator Control Register
 struct NUMERATOR_fields_ {
   // Numerator
@@ -440,7 +431,6 @@ struct NUMERATOR : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using NUM = NUMERATOR_fields_::NUM;
 };
-
 
 // Fractional PLL Numerator Control Register
 struct NUMERATOR_SET_fields_ {
@@ -458,7 +448,6 @@ struct NUMERATOR_SET : ftl::mmio::Register<
   using NUM = NUMERATOR_SET_fields_::NUM;
 };
 
-
 // Fractional PLL Numerator Control Register
 struct NUMERATOR_CLR_fields_ {
   // Numerator
@@ -474,7 +463,6 @@ struct NUMERATOR_CLR : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using NUM = NUMERATOR_CLR_fields_::NUM;
 };
-
 
 // Fractional PLL Numerator Control Register
 struct NUMERATOR_TOG_fields_ {
@@ -492,7 +480,6 @@ struct NUMERATOR_TOG : ftl::mmio::Register<
   using NUM = NUMERATOR_TOG_fields_::NUM;
 };
 
-
 // Fractional PLL Denominator Control Register
 struct DENOMINATOR_fields_ {
   // Denominator
@@ -508,7 +495,6 @@ struct DENOMINATOR : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using DENOM = DENOMINATOR_fields_::DENOM;
 };
-
 
 // Fractional PLL Denominator Control Register
 struct DENOMINATOR_SET_fields_ {
@@ -526,7 +512,6 @@ struct DENOMINATOR_SET : ftl::mmio::Register<
   using DENOM = DENOMINATOR_SET_fields_::DENOM;
 };
 
-
 // Fractional PLL Denominator Control Register
 struct DENOMINATOR_CLR_fields_ {
   // Denominator
@@ -542,7 +527,6 @@ struct DENOMINATOR_CLR : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using DENOM = DENOMINATOR_CLR_fields_::DENOM;
 };
-
 
 // Fractional PLL Denominator Control Register
 struct DENOMINATOR_TOG_fields_ {

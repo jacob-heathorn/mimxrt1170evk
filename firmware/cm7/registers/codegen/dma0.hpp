@@ -1141,7 +1141,7 @@ struct CEEI : ftl::mmio::Register<
     CEEI_fields_::NOP> {
   using eCAEE = CEEI_fields_::eCAEE;
   using eNOP = CEEI_fields_::eNOP;
-  using value_ = CEEI_fields_::CEEI;
+  using VALUE = CEEI_fields_::CEEI;
   using CAEE = CEEI_fields_::CAEE;
   using NOP = CEEI_fields_::NOP;
 };
@@ -1181,7 +1181,7 @@ struct SEEI : ftl::mmio::Register<
     SEEI_fields_::NOP> {
   using eSAEE = SEEI_fields_::eSAEE;
   using eNOP = SEEI_fields_::eNOP;
-  using value_ = SEEI_fields_::SEEI;
+  using VALUE = SEEI_fields_::SEEI;
   using SAEE = SEEI_fields_::SAEE;
   using NOP = SEEI_fields_::NOP;
 };
@@ -1221,7 +1221,7 @@ struct CERQ : ftl::mmio::Register<
     CERQ_fields_::NOP> {
   using eCAER = CERQ_fields_::eCAER;
   using eNOP = CERQ_fields_::eNOP;
-  using value_ = CERQ_fields_::CERQ;
+  using VALUE = CERQ_fields_::CERQ;
   using CAER = CERQ_fields_::CAER;
   using NOP = CERQ_fields_::NOP;
 };
@@ -1261,7 +1261,7 @@ struct SERQ : ftl::mmio::Register<
     SERQ_fields_::NOP> {
   using eSAER = SERQ_fields_::eSAER;
   using eNOP = SERQ_fields_::eNOP;
-  using value_ = SERQ_fields_::SERQ;
+  using VALUE = SERQ_fields_::SERQ;
   using SAER = SERQ_fields_::SAER;
   using NOP = SERQ_fields_::NOP;
 };
@@ -1301,7 +1301,7 @@ struct CDNE : ftl::mmio::Register<
     CDNE_fields_::NOP> {
   using eCADN = CDNE_fields_::eCADN;
   using eNOP = CDNE_fields_::eNOP;
-  using value_ = CDNE_fields_::CDNE;
+  using VALUE = CDNE_fields_::CDNE;
   using CADN = CDNE_fields_::CADN;
   using NOP = CDNE_fields_::NOP;
 };
@@ -1341,7 +1341,7 @@ struct SSRT : ftl::mmio::Register<
     SSRT_fields_::NOP> {
   using eSAST = SSRT_fields_::eSAST;
   using eNOP = SSRT_fields_::eNOP;
-  using value_ = SSRT_fields_::SSRT;
+  using VALUE = SSRT_fields_::SSRT;
   using SAST = SSRT_fields_::SAST;
   using NOP = SSRT_fields_::NOP;
 };
@@ -1381,7 +1381,7 @@ struct CERR : ftl::mmio::Register<
     CERR_fields_::NOP> {
   using eCAEI = CERR_fields_::eCAEI;
   using eNOP = CERR_fields_::eNOP;
-  using value_ = CERR_fields_::CERR;
+  using VALUE = CERR_fields_::CERR;
   using CAEI = CERR_fields_::CAEI;
   using NOP = CERR_fields_::NOP;
 };
@@ -1421,7 +1421,7 @@ struct CINT : ftl::mmio::Register<
     CINT_fields_::NOP> {
   using eCAIR = CINT_fields_::eCAIR;
   using eNOP = CINT_fields_::eNOP;
-  using value_ = CINT_fields_::CINT;
+  using VALUE = CINT_fields_::CINT;
   using CAIR = CINT_fields_::CAIR;
   using NOP = CINT_fields_::NOP;
 };

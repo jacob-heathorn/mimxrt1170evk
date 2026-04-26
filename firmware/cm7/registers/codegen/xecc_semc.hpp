@@ -197,7 +197,7 @@ struct ERR_DATA_INJ : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ERR_DATA_INJ_fields_::ERR_DATA_INJ> {
-  using value_ = ERR_DATA_INJ_fields_::ERR_DATA_INJ;
+  using VALUE = ERR_DATA_INJ_fields_::ERR_DATA_INJ;
 };
 
 // Error Injection On ECC Code of Write Data
@@ -212,7 +212,7 @@ struct ERR_ECC_INJ : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ERR_ECC_INJ_fields_::ERR_ECC_INJ> {
-  using value_ = ERR_ECC_INJ_fields_::ERR_ECC_INJ;
+  using VALUE = ERR_ECC_INJ_fields_::ERR_ECC_INJ;
 };
 
 // Single Error Address
@@ -227,7 +227,7 @@ struct SINGLE_ERR_ADDR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR> {
-  using value_ = SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR;
+  using VALUE = SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR;
 };
 
 // Single Error Read Data
@@ -242,7 +242,7 @@ struct SINGLE_ERR_DATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA> {
-  using value_ = SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA;
+  using VALUE = SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA;
 };
 
 // Single Error ECC Code
@@ -257,7 +257,7 @@ struct SINGLE_ERR_ECC : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC> {
-  using value_ = SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC;
+  using VALUE = SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC;
 };
 
 // Single Error Bit Position
@@ -272,7 +272,7 @@ struct SINGLE_ERR_POS : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     SINGLE_ERR_POS_fields_::SINGLE_ERR_POS> {
-  using value_ = SINGLE_ERR_POS_fields_::SINGLE_ERR_POS;
+  using VALUE = SINGLE_ERR_POS_fields_::SINGLE_ERR_POS;
 };
 
 // Single Error Bit Field
@@ -290,7 +290,7 @@ struct SINGLE_ERR_BIT_FIELD : ftl::mmio::Register<
     ftl::mmio::RO,
     SINGLE_ERR_BIT_FIELD_fields_::SINGLE_ERR_BIT_FIELD,
     SINGLE_ERR_BIT_FIELD_fields_::Reserved1> {
-  using value_ = SINGLE_ERR_BIT_FIELD_fields_::SINGLE_ERR_BIT_FIELD;
+  using VALUE = SINGLE_ERR_BIT_FIELD_fields_::SINGLE_ERR_BIT_FIELD;
   using Reserved1 = SINGLE_ERR_BIT_FIELD_fields_::Reserved1;
 };
 
@@ -306,7 +306,7 @@ struct MULTI_ERR_ADDR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR> {
-  using value_ = MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR;
+  using VALUE = MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR;
 };
 
 // Multiple Error Read Data
@@ -321,7 +321,7 @@ struct MULTI_ERR_DATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     MULTI_ERR_DATA_fields_::MULTI_ERR_DATA> {
-  using value_ = MULTI_ERR_DATA_fields_::MULTI_ERR_DATA;
+  using VALUE = MULTI_ERR_DATA_fields_::MULTI_ERR_DATA;
 };
 
 // Multiple Error ECC code
@@ -336,7 +336,7 @@ struct MULTI_ERR_ECC : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     MULTI_ERR_ECC_fields_::MULTI_ERR_ECC> {
-  using value_ = MULTI_ERR_ECC_fields_::MULTI_ERR_ECC;
+  using VALUE = MULTI_ERR_ECC_fields_::MULTI_ERR_ECC;
 };
 
 // Multiple Error Bit Field
@@ -354,7 +354,7 @@ struct MULTI_ERR_BIT_FIELD : ftl::mmio::Register<
     ftl::mmio::RO,
     MULTI_ERR_BIT_FIELD_fields_::MULTI_ERR_BIT_FIELD,
     MULTI_ERR_BIT_FIELD_fields_::Reserved1> {
-  using value_ = MULTI_ERR_BIT_FIELD_fields_::MULTI_ERR_BIT_FIELD;
+  using VALUE = MULTI_ERR_BIT_FIELD_fields_::MULTI_ERR_BIT_FIELD;
   using Reserved1 = MULTI_ERR_BIT_FIELD_fields_::Reserved1;
 };
 
@@ -370,7 +370,7 @@ struct ECC_BASE_ADDR0 : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0> {
-  using value_ = ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0;
+  using VALUE = ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0;
 };
 
 // ECC Region 0 End Address
@@ -385,7 +385,7 @@ struct ECC_END_ADDR0 : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ECC_END_ADDR0_fields_::ECC_END_ADDR0> {
-  using value_ = ECC_END_ADDR0_fields_::ECC_END_ADDR0;
+  using VALUE = ECC_END_ADDR0_fields_::ECC_END_ADDR0;
 };
 
 // ECC Region 1 Base Address
@@ -400,7 +400,7 @@ struct ECC_BASE_ADDR1 : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1> {
-  using value_ = ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1;
+  using VALUE = ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1;
 };
 
 // ECC Region 1 End Address
@@ -415,7 +415,7 @@ struct ECC_END_ADDR1 : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ECC_END_ADDR1_fields_::ECC_END_ADDR1> {
-  using value_ = ECC_END_ADDR1_fields_::ECC_END_ADDR1;
+  using VALUE = ECC_END_ADDR1_fields_::ECC_END_ADDR1;
 };
 
 // ECC Region 2 Base Address
@@ -430,7 +430,7 @@ struct ECC_BASE_ADDR2 : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2> {
-  using value_ = ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2;
+  using VALUE = ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2;
 };
 
 // ECC Region 2 End Address
@@ -445,7 +445,7 @@ struct ECC_END_ADDR2 : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ECC_END_ADDR2_fields_::ECC_END_ADDR2> {
-  using value_ = ECC_END_ADDR2_fields_::ECC_END_ADDR2;
+  using VALUE = ECC_END_ADDR2_fields_::ECC_END_ADDR2;
 };
 
 // ECC Region 3 Base Address
@@ -460,7 +460,7 @@ struct ECC_BASE_ADDR3 : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3> {
-  using value_ = ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3;
+  using VALUE = ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3;
 };
 
 // ECC Region 3 End Address
@@ -475,7 +475,7 @@ struct ECC_END_ADDR3 : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ECC_END_ADDR3_fields_::ECC_END_ADDR3> {
-  using value_ = ECC_END_ADDR3_fields_::ECC_END_ADDR3;
+  using VALUE = ECC_END_ADDR3_fields_::ECC_END_ADDR3;
 };
 
 }  // namespace regs::xecc_semc

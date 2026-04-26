@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::caam {
 
-
 // Master Configuration Register
 struct MCFGR_fields_ {
-
   enum class eNORMAL_BURST : std::uint32_t {
     // Aligned 32 byte burst size target
     eALIGNED_32B_TARGET = 0,
@@ -25,6 +23,7 @@ struct MCFGR_fields_ {
     // Pointers require two 32-bit words (pointers are 36-bit addresses).
     eLRG_64BIT_PTRS = 1,
   };
+
   // Normal Burst Size
   using NORMAL_BURST = ftl::mmio::Field<1, 0, eNORMAL_BURST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable Large Bursts
@@ -88,7 +87,6 @@ struct MCFGR : ftl::mmio::Register<
   using SWRST = MCFGR_fields_::SWRST;
 };
 
-
 // Page 0 SDID Register
 struct PAGE0_SDID_fields_ {
   // Security Domain Identifier
@@ -105,10 +103,8 @@ struct PAGE0_SDID : ftl::mmio::Register<
   using SDID = PAGE0_SDID_fields_::SDID;
 };
 
-
 // Security Configuration Register
 struct SCFGR_fields_ {
-
   enum class ePRIBLOB : std::uint32_t {
     // Private secure boot software blobs
     ePRIV_SEC_BOOT_SW = 0,
@@ -133,6 +129,7 @@ struct SCFGR_fields_ {
     // Enable job ring virtualization
     eENABLE_JR_VIRT = 1,
   };
+
   // Private Blob
   using PRIBLOB = ftl::mmio::Field<2, 0, ePRIBLOB, ftl::mmio::RW, ftl::mmio::Normal>;
   // Random Number Generator State Handle 0.
@@ -177,7 +174,6 @@ struct SCFGR : ftl::mmio::Register<
   using MPCURVE = SCFGR_fields_::MPCURVE;
 };
 
-
 // Debug Control Register
 struct DEBUGCTL_fields_ {
   // STOP is written to 1 to request that CAAM stop processing jobs
@@ -199,10 +195,8 @@ struct DEBUGCTL : ftl::mmio::Register<
   using STOP_ACK = DEBUGCTL_fields_::STOP_ACK;
 };
 
-
 // Job Ring Start Register
 struct JRSTARTR_fields_ {
-
   enum class eStart_JR0 : std::uint32_t {
     // Stop Mode. The JR0DID register and the SMVBA register for Job Ring 0 can be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 0 are NOT accessible. If Job Ring 0 is allocated to TrustZone SecureWorld (JR0DID[TZ]=1), the JR0DID and SMVBA register can be written only via a bus transaction that has ns=0.
     eJR0_STOP_MODE = 0,
@@ -230,6 +224,7 @@ struct JRSTARTR_fields_ {
     // Start Mode. The JR3DID register and the SMVBA register for Job Ring 3 CANNOT be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 3 ARE accessible. If Job Ring 3 is allocated to TrustZone SecureWorld (JR3DID[TZ]=1), then the SMVBA, IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR registers for Job Ring 3 can be written only via a bus transaction that has ns=0.
     eJR3_START_MODE = 1,
   };
+
   // Start Job Ring 0
   using Start_JR0 = ftl::mmio::Field<1, 0, eStart_JR0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Start Job Ring 1
@@ -260,7 +255,6 @@ struct JRSTARTR : ftl::mmio::Register<
   using Start_JR3 = JRSTARTR_fields_::Start_JR3;
 };
 
-
 // RTIC OWN Register
 struct RTIC_OWN_fields_ {
   // RTIC Owner's DID
@@ -285,7 +279,6 @@ struct RTIC_OWN : ftl::mmio::Register<
   using LCK = RTIC_OWN_fields_::LCK;
 };
 
-
 // DECO Request Source Register
 struct DECORSR_fields_ {
   // Job Ring number
@@ -305,7 +298,6 @@ struct DECORSR : ftl::mmio::Register<
   using JR = DECORSR_fields_::JR;
   using VALID = DECORSR_fields_::VALID;
 };
-
 
 // DECO Request Register
 struct DECORR_fields_ {
@@ -327,7 +319,6 @@ struct DECORR : ftl::mmio::Register<
   using RQD0 = DECORR_fields_::RQD0;
   using DEN0 = DECORR_fields_::DEN0;
 };
-
 
 // DECO0 DID Register - most significant half
 struct DECO0DID_MS_fields_ {
@@ -352,7 +343,6 @@ struct DECO0DID_MS : ftl::mmio::Register<
   using D_NS = DECO0DID_MS_fields_::D_NS;
   using LCK = DECO0DID_MS_fields_::LCK;
 };
-
 
 // DECO0 DID Register - least significant half
 struct DECO0DID_LS_fields_ {
@@ -383,7 +373,6 @@ struct DECO0DID_LS : ftl::mmio::Register<
   using DNONSEQ_NS = DECO0DID_LS_fields_::DNONSEQ_NS;
 };
 
-
 // DECO Availability Register
 struct DAR_fields_ {
   // This bit is set by software to start polling for the availability of DECO 0
@@ -399,7 +388,6 @@ struct DAR : ftl::mmio::Register<
     ftl::mmio::Reserved<31, 1>> {
   using NYA0 = DAR_fields_::NYA0;
 };
-
 
 // DECO Reset Register
 struct DRR_fields_ {
@@ -417,7 +405,6 @@ struct DRR : ftl::mmio::Register<
   using RST0 = DRR_fields_::RST0;
 };
 
-
 // Peak Bandwidth Smoothing Limit Register
 struct PBSL_fields_ {
   // Whenever the number of outstanding AXI read bursts exceeds the value programmed in this field, the Job Rings will be prevented from issuing additional AXI reads
@@ -431,9 +418,8 @@ struct PBSL : ftl::mmio::Register<
     ftl::mmio::RW,
     PBSL_fields_::PBSL,
     ftl::mmio::Reserved<25, 7>> {
-  using value_ = PBSL_fields_::PBSL;
+  using VALUE = PBSL_fields_::PBSL;
 };
-
 
 // DMA0_AIDL_MAP_MS
 struct DMA0_AIDL_MAP_MS_fields_ {
@@ -462,7 +448,6 @@ struct DMA0_AIDL_MAP_MS : ftl::mmio::Register<
   using AID7_BID = DMA0_AIDL_MAP_MS_fields_::AID7_BID;
 };
 
-
 // DMA0_AIDL_MAP_LS
 struct DMA0_AIDL_MAP_LS_fields_ {
   // This field shows the CAAM Block ID that uses AXI ID 0.
@@ -489,7 +474,6 @@ struct DMA0_AIDL_MAP_LS : ftl::mmio::Register<
   using AID2_BID = DMA0_AIDL_MAP_LS_fields_::AID2_BID;
   using AID3_BID = DMA0_AIDL_MAP_LS_fields_::AID3_BID;
 };
-
 
 // DMA0_AIDM_MAP_MS
 struct DMA0_AIDM_MAP_MS_fields_ {
@@ -518,7 +502,6 @@ struct DMA0_AIDM_MAP_MS : ftl::mmio::Register<
   using AID15_BID = DMA0_AIDM_MAP_MS_fields_::AID15_BID;
 };
 
-
 // DMA0_AIDM_MAP_LS
 struct DMA0_AIDM_MAP_LS_fields_ {
   // This field shows the CAAM Block ID that uses AXI ID 8.
@@ -545,7 +528,6 @@ struct DMA0_AIDM_MAP_LS : ftl::mmio::Register<
   using AID10_BID = DMA0_AIDM_MAP_LS_fields_::AID10_BID;
   using AID11_BID = DMA0_AIDM_MAP_LS_fields_::AID11_BID;
 };
-
 
 // DMA0 AXI ID Enable Register
 struct DMA0_AID_ENB_fields_ {
@@ -623,7 +605,6 @@ struct DMA0_AID_ENB : ftl::mmio::Register<
   using AID15E = DMA0_AID_ENB_fields_::AID15E;
 };
 
-
 // DMA0 AXI Read Timing Check Register
 struct DMA0_ARD_TC_fields_ {
   // AXI Read Sample Count
@@ -665,7 +646,6 @@ struct DMA0_ARD_TC : ftl::mmio::Register<
   using ARTCE = DMA0_ARD_TC_fields_::ARTCE;
 };
 
-
 // DMA0 Read Timing Check Latency Register
 struct DMA0_ARD_LAT_fields_ {
   // Sum of the AXI Read Latencies
@@ -680,7 +660,6 @@ struct DMA0_ARD_LAT : ftl::mmio::Register<
     DMA0_ARD_LAT_fields_::SARL> {
   using SARL = DMA0_ARD_LAT_fields_::SARL;
 };
-
 
 // DMA0 AXI Write Timing Check Register
 struct DMA0_AWR_TC_fields_ {
@@ -720,7 +699,6 @@ struct DMA0_AWR_TC : ftl::mmio::Register<
   using AWTCE = DMA0_AWR_TC_fields_::AWTCE;
 };
 
-
 // DMA0 Write Timing Check Latency Register
 struct DMA0_AWR_LAT_fields_ {
   // Sum of the AXI Write Latencies
@@ -735,7 +713,6 @@ struct DMA0_AWR_LAT : ftl::mmio::Register<
     DMA0_AWR_LAT_fields_::SAWL> {
   using SAWL = DMA0_AWR_LAT_fields_::SAWL;
 };
-
 
 // Manufacturing Protection Private Key Register
 struct MPPKR_fields_ {
@@ -754,7 +731,6 @@ struct MPPKR : ftl::mmio::Register<
   using MPPrivK = MPPKR_fields_::MPPrivK;
 };
 
-
 // Manufacturing Protection Message Register
 struct MPMR_fields_ {
   // Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
@@ -771,7 +747,6 @@ struct MPMR : ftl::mmio::Register<
   static_assert(Index < 32u, "MPMR: Index out of range");
   using MPMSG = MPMR_fields_::MPMSG;
 };
-
 
 // Manufacturing Protection Test Register
 struct MPTESTR_fields_ {
@@ -790,10 +765,8 @@ struct MPTESTR : ftl::mmio::Register<
   using TEST_VALUE = MPTESTR_fields_::TEST_VALUE;
 };
 
-
 // Manufacturing Protection ECC Register
 struct MPECC_fields_ {
-
   enum class eMP_SYNDROME : std::uint32_t {
     // The MP Key in the SFP passes the ECC check.
     eKEYOK = 0,
@@ -823,6 +796,7 @@ struct MPECC_fields_ {
     // The MP Key in the SFP is all zeros (unprogrammed).
     eALLZERO = 1,
   };
+
   // This is the syndrome produced by the ECC check on the Manufacturing Protection Key that is programmed in the Security Fuse Processor
   using MP_SYNDROME = ftl::mmio::Field<9, 16, eMP_SYNDROME, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicates if the Manufacturing Protection Key that is programmed in the Security Fuse Processor has an all-zero value
@@ -845,7 +819,6 @@ struct MPECC : ftl::mmio::Register<
   using MP_ZERO = MPECC_fields_::MP_ZERO;
 };
 
-
 // Job Descriptor Key Encryption Key Register
 struct JDKEKR_fields_ {
   // The 256-bit Job Descriptor Key Encryption Key used to encrypt and decrypt Black Keys.
@@ -862,7 +835,6 @@ struct JDKEKR : ftl::mmio::Register<
   static_assert(Index < 8u, "JDKEKR: Index out of range");
   using JDKEK = JDKEKR_fields_::JDKEK;
 };
-
 
 // Trusted Descriptor Key Encryption Key Register
 struct TDKEKR_fields_ {
@@ -881,7 +853,6 @@ struct TDKEKR : ftl::mmio::Register<
   using TDKEK = TDKEKR_fields_::TDKEK;
 };
 
-
 // Trusted Descriptor Signing Key Register
 struct TDSKR_fields_ {
   // The 256-bit Trusted Descriptor Signing Key used to sign and verify Trusted Descriptors.
@@ -898,7 +869,6 @@ struct TDSKR : ftl::mmio::Register<
   static_assert(Index < 8u, "TDSKR: Index out of range");
   using TDSK = TDSKR_fields_::TDSK;
 };
-
 
 // Secure Key Nonce Register
 struct SKNR_fields_ {
@@ -919,7 +889,6 @@ struct SKNR : ftl::mmio::Register<
   using SK_NONCE_LS = SKNR_fields_::SK_NONCE_LS;
   using SK_NONCE_MS = SKNR_fields_::SK_NONCE_MS;
 };
-
 
 // DMA Status Register
 struct DMA_STA_fields_ {
@@ -945,7 +914,6 @@ struct DMA_STA : ftl::mmio::Register<
   using DMA0_ITIF = DMA_STA_fields_::DMA0_ITIF;
   using DMA0_IDLE = DMA_STA_fields_::DMA0_IDLE;
 };
-
 
 // DMA_X_AID_7_4_MAP
 struct DMA_X_AID_7_4_MAP_fields_ {
@@ -974,7 +942,6 @@ struct DMA_X_AID_7_4_MAP : ftl::mmio::Register<
   using AID7_BID = DMA_X_AID_7_4_MAP_fields_::AID7_BID;
 };
 
-
 // DMA_X_AID_3_0_MAP
 struct DMA_X_AID_3_0_MAP_fields_ {
   // This field shows the CAAM Block ID that uses AXI ID 0.
@@ -1001,7 +968,6 @@ struct DMA_X_AID_3_0_MAP : ftl::mmio::Register<
   using AID2_BID = DMA_X_AID_3_0_MAP_fields_::AID2_BID;
   using AID3_BID = DMA_X_AID_3_0_MAP_fields_::AID3_BID;
 };
-
 
 // DMA_X_AID_15_12_MAP
 struct DMA_X_AID_15_12_MAP_fields_ {
@@ -1030,7 +996,6 @@ struct DMA_X_AID_15_12_MAP : ftl::mmio::Register<
   using AID15_BID = DMA_X_AID_15_12_MAP_fields_::AID15_BID;
 };
 
-
 // DMA_X_AID_11_8_MAP
 struct DMA_X_AID_11_8_MAP_fields_ {
   // This field shows the CAAM Block ID that uses AXI ID 8.
@@ -1057,7 +1022,6 @@ struct DMA_X_AID_11_8_MAP : ftl::mmio::Register<
   using AID10_BID = DMA_X_AID_11_8_MAP_fields_::AID10_BID;
   using AID11_BID = DMA_X_AID_11_8_MAP_fields_::AID11_BID;
 };
-
 
 // DMA_X AXI ID Map Enable Register
 struct DMA_X_AID_15_0_EN_fields_ {
@@ -1135,7 +1099,6 @@ struct DMA_X_AID_15_0_EN : ftl::mmio::Register<
   using AID15E = DMA_X_AID_15_0_EN_fields_::AID15E;
 };
 
-
 // DMA_X AXI Read Timing Check Control Register
 struct DMA_X_ARTC_CTL_fields_ {
   // AXI Read Timer
@@ -1172,7 +1135,6 @@ struct DMA_X_ARTC_CTL : ftl::mmio::Register<
   using ARTCE = DMA_X_ARTC_CTL_fields_::ARTCE;
 };
 
-
 // DMA_X AXI Read Timing Check Late Count Register
 struct DMA_X_ARTC_LC_fields_ {
   // AXI Read Late Count
@@ -1188,7 +1150,6 @@ struct DMA_X_ARTC_LC : ftl::mmio::Register<
     ftl::mmio::Reserved<12, 20>> {
   using ARLC = DMA_X_ARTC_LC_fields_::ARLC;
 };
-
 
 // DMA_X AXI Read Timing Check Sample Count Register
 struct DMA_X_ARTC_SC_fields_ {
@@ -1206,7 +1167,6 @@ struct DMA_X_ARTC_SC : ftl::mmio::Register<
   using ARSC = DMA_X_ARTC_SC_fields_::ARSC;
 };
 
-
 // DMA_X Read Timing Check Latency Register
 struct DMA_X_ARTC_LAT_fields_ {
   // Sum of the AXI Read Latencies
@@ -1221,7 +1181,6 @@ struct DMA_X_ARTC_LAT : ftl::mmio::Register<
     DMA_X_ARTC_LAT_fields_::SARL> {
   using SARL = DMA_X_ARTC_LAT_fields_::SARL;
 };
-
 
 // DMA_X AXI Write Timing Check Control Register
 struct DMA_X_AWTC_CTL_fields_ {
@@ -1256,7 +1215,6 @@ struct DMA_X_AWTC_CTL : ftl::mmio::Register<
   using AWTCE = DMA_X_AWTC_CTL_fields_::AWTCE;
 };
 
-
 // DMA_X AXI Write Timing Check Late Count Register
 struct DMA_X_AWTC_LC_fields_ {
   // AXI Write Late Count
@@ -1272,7 +1230,6 @@ struct DMA_X_AWTC_LC : ftl::mmio::Register<
     ftl::mmio::Reserved<12, 20>> {
   using AWLC = DMA_X_AWTC_LC_fields_::AWLC;
 };
-
 
 // DMA_X AXI Write Timing Check Sample Count Register
 struct DMA_X_AWTC_SC_fields_ {
@@ -1290,7 +1247,6 @@ struct DMA_X_AWTC_SC : ftl::mmio::Register<
   using AWSC = DMA_X_AWTC_SC_fields_::AWSC;
 };
 
-
 // DMA_X Write Timing Check Latency Register
 struct DMA_X_AWTC_LAT_fields_ {
   // Sum of the AXI Write Latencies
@@ -1306,10 +1262,8 @@ struct DMA_X_AWTC_LAT : ftl::mmio::Register<
   using SAWL = DMA_X_AWTC_LAT_fields_::SAWL;
 };
 
-
 // RNG TRNG Miscellaneous Control Register
 struct RTMCTL_fields_ {
-
   enum class eSAMP_MODE : std::uint32_t {
     // use Von Neumann data into both Entropy shifter and Statistical Checker
     eVON_DATA_4_SHIFTER_N_CHECKER = 0,
@@ -1329,6 +1283,7 @@ struct RTMCTL_fields_ {
     // use ring oscillator divided-by-8
     eOSC_DIVIDE_BY_8 = 3,
   };
+
   // Sample Mode
   using SAMP_MODE = ftl::mmio::Field<2, 0, eSAMP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Oscillator Divide
@@ -1394,7 +1349,6 @@ struct RTMCTL : ftl::mmio::Register<
   using PRGM = RTMCTL_fields_::PRGM;
 };
 
-
 // RNG TRNG Statistical Check Miscellaneous Register
 struct RTSCMISC_fields_ {
   // LONG RUN MAX LIMIT
@@ -1416,7 +1370,6 @@ struct RTSCMISC : ftl::mmio::Register<
   using RTY_CNT = RTSCMISC_fields_::RTY_CNT;
 };
 
-
 // RNG TRNG Poker Range Register
 struct RTPKRRNG_fields_ {
   // Poker Range
@@ -1432,7 +1385,6 @@ struct RTPKRRNG : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using PKR_RNG = RTPKRRNG_fields_::PKR_RNG;
 };
-
 
 // RNG TRNG Poker Maximum Limit Register
 struct RTPKRMAX_fields_ {
@@ -1450,7 +1402,6 @@ struct RTPKRMAX : ftl::mmio::Register<
   using PKR_MAX = RTPKRMAX_fields_::PKR_MAX;
 };
 
-
 // RNG TRNG Poker Square Calculation Result Register
 struct RTPKRSQ_fields_ {
   // Poker Square Calculation Result
@@ -1466,7 +1417,6 @@ struct RTPKRSQ : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using PKR_SQ = RTPKRSQ_fields_::PKR_SQ;
 };
-
 
 // RNG TRNG Seed Control Register
 struct RTSDCTL_fields_ {
@@ -1487,7 +1437,6 @@ struct RTSDCTL : ftl::mmio::Register<
   using ENT_DLY = RTSDCTL_fields_::ENT_DLY;
 };
 
-
 // RNG TRNG Sparse Bit Limit Register
 struct RTSBLIM_fields_ {
   // Sparse Bit Limit
@@ -1503,7 +1452,6 @@ struct RTSBLIM : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using SB_LIM = RTSBLIM_fields_::SB_LIM;
 };
-
 
 // RNG TRNG Total Samples Register
 struct RTTOTSAM_fields_ {
@@ -1521,7 +1469,6 @@ struct RTTOTSAM : ftl::mmio::Register<
   using TOT_SAM = RTTOTSAM_fields_::TOT_SAM;
 };
 
-
 // RNG TRNG Frequency Count Minimum Limit Register
 struct RTFRQMIN_fields_ {
   // Frequency Count Minimum Limit
@@ -1537,7 +1484,6 @@ struct RTFRQMIN : ftl::mmio::Register<
     ftl::mmio::Reserved<10, 22>> {
   using FRQ_MIN = RTFRQMIN_fields_::FRQ_MIN;
 };
-
 
 // RNG TRNG Frequency Count Register
 struct RTFRQCNT_fields_ {
@@ -1555,7 +1501,6 @@ struct RTFRQCNT : ftl::mmio::Register<
   using FRQ_CNT = RTFRQCNT_fields_::FRQ_CNT;
 };
 
-
 // RNG TRNG Frequency Count Maximum Limit Register
 struct RTFRQMAX_fields_ {
   // Frequency Counter Maximum Limit
@@ -1572,7 +1517,6 @@ struct RTFRQMAX : ftl::mmio::Register<
   using FRQ_MAX = RTFRQMAX_fields_::FRQ_MAX;
 };
 
-
 // RNG TRNG Statistical Check Monobit Count Register
 struct RTSCMC_fields_ {
   // Monobit Count
@@ -1588,7 +1532,6 @@ struct RTSCMC : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using MONO_CNT = RTSCMC_fields_::MONO_CNT;
 };
-
 
 // RNG TRNG Statistical Check Monobit Limit Register
 struct RTSCML_fields_ {
@@ -1608,7 +1551,6 @@ struct RTSCML : ftl::mmio::Register<
   using MONO_MAX = RTSCML_fields_::MONO_MAX;
   using MONO_RNG = RTSCML_fields_::MONO_RNG;
 };
-
 
 // RNG TRNG Statistical Check Run Length 1 Count Register
 struct RTSCR1C_fields_ {
@@ -1631,7 +1573,6 @@ struct RTSCR1C : ftl::mmio::Register<
   using R1_1_COUNT = RTSCR1C_fields_::R1_1_COUNT;
 };
 
-
 // RNG TRNG Statistical Check Run Length 1 Limit Register
 struct RTSCR1L_fields_ {
   // Run Length 1 Maximum Limit
@@ -1652,7 +1593,6 @@ struct RTSCR1L : ftl::mmio::Register<
   using RUN1_MAX = RTSCR1L_fields_::RUN1_MAX;
   using RUN1_RNG = RTSCR1L_fields_::RUN1_RNG;
 };
-
 
 // RNG TRNG Statistical Check Run Length 2 Count Register
 struct RTSCR2C_fields_ {
@@ -1675,7 +1615,6 @@ struct RTSCR2C : ftl::mmio::Register<
   using R2_1_COUNT = RTSCR2C_fields_::R2_1_COUNT;
 };
 
-
 // RNG TRNG Statistical Check Run Length 2 Limit Register
 struct RTSCR2L_fields_ {
   // Run Length 2 Maximum Limit
@@ -1696,7 +1635,6 @@ struct RTSCR2L : ftl::mmio::Register<
   using RUN2_MAX = RTSCR2L_fields_::RUN2_MAX;
   using RUN2_RNG = RTSCR2L_fields_::RUN2_RNG;
 };
-
 
 // RNG TRNG Statistical Check Run Length 3 Count Register
 struct RTSCR3C_fields_ {
@@ -1719,7 +1657,6 @@ struct RTSCR3C : ftl::mmio::Register<
   using R3_1_COUNT = RTSCR3C_fields_::R3_1_COUNT;
 };
 
-
 // RNG TRNG Statistical Check Run Length 3 Limit Register
 struct RTSCR3L_fields_ {
   // Run Length 3 Maximum Limit
@@ -1740,7 +1677,6 @@ struct RTSCR3L : ftl::mmio::Register<
   using RUN3_MAX = RTSCR3L_fields_::RUN3_MAX;
   using RUN3_RNG = RTSCR3L_fields_::RUN3_RNG;
 };
-
 
 // RNG TRNG Statistical Check Run Length 4 Count Register
 struct RTSCR4C_fields_ {
@@ -1763,7 +1699,6 @@ struct RTSCR4C : ftl::mmio::Register<
   using R4_1_COUNT = RTSCR4C_fields_::R4_1_COUNT;
 };
 
-
 // RNG TRNG Statistical Check Run Length 4 Limit Register
 struct RTSCR4L_fields_ {
   // Run Length 4 Maximum Limit
@@ -1784,7 +1719,6 @@ struct RTSCR4L : ftl::mmio::Register<
   using RUN4_MAX = RTSCR4L_fields_::RUN4_MAX;
   using RUN4_RNG = RTSCR4L_fields_::RUN4_RNG;
 };
-
 
 // RNG TRNG Statistical Check Run Length 5 Count Register
 struct RTSCR5C_fields_ {
@@ -1807,7 +1741,6 @@ struct RTSCR5C : ftl::mmio::Register<
   using R5_1_COUNT = RTSCR5C_fields_::R5_1_COUNT;
 };
 
-
 // RNG TRNG Statistical Check Run Length 5 Limit Register
 struct RTSCR5L_fields_ {
   // Run Length 5 Maximum Limit
@@ -1828,7 +1761,6 @@ struct RTSCR5L : ftl::mmio::Register<
   using RUN5_MAX = RTSCR5L_fields_::RUN5_MAX;
   using RUN5_RNG = RTSCR5L_fields_::RUN5_RNG;
 };
-
 
 // RNG TRNG Statistical Check Run Length 6+ Count Register
 struct RTSCR6PC_fields_ {
@@ -1851,7 +1783,6 @@ struct RTSCR6PC : ftl::mmio::Register<
   using R6P_1_COUNT = RTSCR6PC_fields_::R6P_1_COUNT;
 };
 
-
 // RNG TRNG Statistical Check Run Length 6+ Limit Register
 struct RTSCR6PL_fields_ {
   // Run Length 6+ Maximum Limit
@@ -1872,7 +1803,6 @@ struct RTSCR6PL : ftl::mmio::Register<
   using RUN6P_MAX = RTSCR6PL_fields_::RUN6P_MAX;
   using RUN6P_RNG = RTSCR6PL_fields_::RUN6P_RNG;
 };
-
 
 // RNG TRNG Status Register
 struct RTSTATUS_fields_ {
@@ -1954,7 +1884,6 @@ struct RTSTATUS : ftl::mmio::Register<
   using RETRY_COUNT = RTSTATUS_fields_::RETRY_COUNT;
 };
 
-
 // RNG TRNG Entropy Read Register
 struct RTENT_fields_ {
   // Entropy Value
@@ -1971,7 +1900,6 @@ struct RTENT : ftl::mmio::Register<
   static_assert(Index < 16u, "RTENT: Index out of range");
   using ENT = RTENT_fields_::ENT;
 };
-
 
 // RNG TRNG Statistical Check Poker Count 1 and 0 Register
 struct RTPKRCNT10_fields_ {
@@ -1992,7 +1920,6 @@ struct RTPKRCNT10 : ftl::mmio::Register<
   using PKR_1_CNT = RTPKRCNT10_fields_::PKR_1_CNT;
 };
 
-
 // RNG TRNG Statistical Check Poker Count 3 and 2 Register
 struct RTPKRCNT32_fields_ {
   // Poker 2h Count
@@ -2011,7 +1938,6 @@ struct RTPKRCNT32 : ftl::mmio::Register<
   using PKR_2_CNT = RTPKRCNT32_fields_::PKR_2_CNT;
   using PKR_3_CNT = RTPKRCNT32_fields_::PKR_3_CNT;
 };
-
 
 // RNG TRNG Statistical Check Poker Count 5 and 4 Register
 struct RTPKRCNT54_fields_ {
@@ -2032,7 +1958,6 @@ struct RTPKRCNT54 : ftl::mmio::Register<
   using PKR_5_CNT = RTPKRCNT54_fields_::PKR_5_CNT;
 };
 
-
 // RNG TRNG Statistical Check Poker Count 7 and 6 Register
 struct RTPKRCNT76_fields_ {
   // Poker 6h Count
@@ -2051,7 +1976,6 @@ struct RTPKRCNT76 : ftl::mmio::Register<
   using PKR_6_CNT = RTPKRCNT76_fields_::PKR_6_CNT;
   using PKR_7_CNT = RTPKRCNT76_fields_::PKR_7_CNT;
 };
-
 
 // RNG TRNG Statistical Check Poker Count 9 and 8 Register
 struct RTPKRCNT98_fields_ {
@@ -2072,7 +1996,6 @@ struct RTPKRCNT98 : ftl::mmio::Register<
   using PKR_9_CNT = RTPKRCNT98_fields_::PKR_9_CNT;
 };
 
-
 // RNG TRNG Statistical Check Poker Count B and A Register
 struct RTPKRCNTBA_fields_ {
   // Poker Ah Count
@@ -2091,7 +2014,6 @@ struct RTPKRCNTBA : ftl::mmio::Register<
   using PKR_A_CNT = RTPKRCNTBA_fields_::PKR_A_CNT;
   using PKR_B_CNT = RTPKRCNTBA_fields_::PKR_B_CNT;
 };
-
 
 // RNG TRNG Statistical Check Poker Count D and C Register
 struct RTPKRCNTDC_fields_ {
@@ -2112,7 +2034,6 @@ struct RTPKRCNTDC : ftl::mmio::Register<
   using PKR_D_CNT = RTPKRCNTDC_fields_::PKR_D_CNT;
 };
 
-
 // RNG TRNG Statistical Check Poker Count F and E Register
 struct RTPKRCNTFE_fields_ {
   // Poker Eh Count
@@ -2131,7 +2052,6 @@ struct RTPKRCNTFE : ftl::mmio::Register<
   using PKR_E_CNT = RTPKRCNTFE_fields_::PKR_E_CNT;
   using PKR_F_CNT = RTPKRCNTFE_fields_::PKR_F_CNT;
 };
-
 
 // RNG DRNG Status Register
 struct RDSTA_fields_ {
@@ -2188,7 +2108,6 @@ struct RDSTA : ftl::mmio::Register<
   using SKVT = RDSTA_fields_::SKVT;
 };
 
-
 // RNG DRNG State Handle 0 Reseed Interval Register
 struct RDINT0_fields_ {
   // RESINT0. This read-only register holds the Reseed Interval for State Handle 0.
@@ -2204,7 +2123,6 @@ struct RDINT0 : ftl::mmio::Register<
   using RESINT0 = RDINT0_fields_::RESINT0;
 };
 
-
 // RNG DRNG State Handle 1 Reseed Interval Register
 struct RDINT1_fields_ {
   // RESINT1. This read-only register holds the Reseed Interval for State Handle 1.
@@ -2219,7 +2137,6 @@ struct RDINT1 : ftl::mmio::Register<
     RDINT1_fields_::RESINT1> {
   using RESINT1 = RDINT1_fields_::RESINT1;
 };
-
 
 // RNG DRNG Hash Control Register
 struct RDHCNTL_fields_ {
@@ -2253,7 +2170,6 @@ struct RDHCNTL : ftl::mmio::Register<
   using HTC = RDHCNTL_fields_::HTC;
 };
 
-
 // RNG DRNG Hash Digest Register
 struct RDHDIG_fields_ {
   // HASHMD
@@ -2269,7 +2185,6 @@ struct RDHDIG : ftl::mmio::Register<
   using HASHMD = RDHDIG_fields_::HASHMD;
 };
 
-
 // RNG DRNG Hash Buffer Register
 struct RDHBUF_fields_ {
   // HASHBUF
@@ -2284,7 +2199,6 @@ struct RDHBUF : ftl::mmio::Register<
     RDHBUF_fields_::HASHBUF> {
   using HASHBUF = RDHBUF_fields_::HASHBUF;
 };
-
 
 // Partition 0 SDID register
 struct P0SDID_PG0_fields_ {
@@ -2302,10 +2216,8 @@ struct P0SDID_PG0 : ftl::mmio::Register<
   using SDID = P0SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P0SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -2389,6 +2301,7 @@ struct P0SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -2462,7 +2375,6 @@ struct P0SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P0SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P0SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P0SMAG2_PG0_fields_ {
@@ -2603,7 +2515,6 @@ struct P0SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P0SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -2743,7 +2654,6 @@ struct P0SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 1 SDID register
 struct P1SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -2760,10 +2670,8 @@ struct P1SDID_PG0 : ftl::mmio::Register<
   using SDID = P1SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P1SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -2847,6 +2755,7 @@ struct P1SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -2920,7 +2829,6 @@ struct P1SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P1SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P1SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P1SMAG2_PG0_fields_ {
@@ -3061,7 +2969,6 @@ struct P1SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P1SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -3201,7 +3108,6 @@ struct P1SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 2 SDID register
 struct P2SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -3218,10 +3124,8 @@ struct P2SDID_PG0 : ftl::mmio::Register<
   using SDID = P2SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P2SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -3305,6 +3209,7 @@ struct P2SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -3378,7 +3283,6 @@ struct P2SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P2SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P2SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P2SMAG2_PG0_fields_ {
@@ -3519,7 +3423,6 @@ struct P2SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P2SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -3659,7 +3562,6 @@ struct P2SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 3 SDID register
 struct P3SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -3676,10 +3578,8 @@ struct P3SDID_PG0 : ftl::mmio::Register<
   using SDID = P3SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P3SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -3763,6 +3663,7 @@ struct P3SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -3836,7 +3737,6 @@ struct P3SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P3SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P3SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P3SMAG2_PG0_fields_ {
@@ -3977,7 +3877,6 @@ struct P3SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P3SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -4117,7 +4016,6 @@ struct P3SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 4 SDID register
 struct P4SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -4134,10 +4032,8 @@ struct P4SDID_PG0 : ftl::mmio::Register<
   using SDID = P4SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P4SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -4221,6 +4117,7 @@ struct P4SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -4294,7 +4191,6 @@ struct P4SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P4SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P4SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P4SMAG2_PG0_fields_ {
@@ -4435,7 +4331,6 @@ struct P4SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P4SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -4575,7 +4470,6 @@ struct P4SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 5 SDID register
 struct P5SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -4592,10 +4486,8 @@ struct P5SDID_PG0 : ftl::mmio::Register<
   using SDID = P5SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P5SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -4679,6 +4571,7 @@ struct P5SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -4752,7 +4645,6 @@ struct P5SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P5SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P5SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P5SMAG2_PG0_fields_ {
@@ -4893,7 +4785,6 @@ struct P5SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P5SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -5033,7 +4924,6 @@ struct P5SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 6 SDID register
 struct P6SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -5050,10 +4940,8 @@ struct P6SDID_PG0 : ftl::mmio::Register<
   using SDID = P6SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P6SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -5137,6 +5025,7 @@ struct P6SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -5210,7 +5099,6 @@ struct P6SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P6SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P6SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P6SMAG2_PG0_fields_ {
@@ -5351,7 +5239,6 @@ struct P6SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P6SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -5491,7 +5378,6 @@ struct P6SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 7 SDID register
 struct P7SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -5508,10 +5394,8 @@ struct P7SDID_PG0 : ftl::mmio::Register<
   using SDID = P7SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P7SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -5595,6 +5479,7 @@ struct P7SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -5668,7 +5553,6 @@ struct P7SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P7SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P7SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P7SMAG2_PG0_fields_ {
@@ -5809,7 +5693,6 @@ struct P7SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P7SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -5949,7 +5832,6 @@ struct P7SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 8 SDID register
 struct P8SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -5966,10 +5848,8 @@ struct P8SDID_PG0 : ftl::mmio::Register<
   using SDID = P8SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P8SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -6053,6 +5933,7 @@ struct P8SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -6126,7 +6007,6 @@ struct P8SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P8SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P8SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P8SMAG2_PG0_fields_ {
@@ -6267,7 +6147,6 @@ struct P8SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P8SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -6407,7 +6286,6 @@ struct P8SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 9 SDID register
 struct P9SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -6424,10 +6302,8 @@ struct P9SDID_PG0 : ftl::mmio::Register<
   using SDID = P9SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P9SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -6511,6 +6387,7 @@ struct P9SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -6584,7 +6461,6 @@ struct P9SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P9SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P9SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P9SMAG2_PG0_fields_ {
@@ -6725,7 +6601,6 @@ struct P9SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P9SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -6865,7 +6740,6 @@ struct P9SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 10 SDID register
 struct P10SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -6882,10 +6756,8 @@ struct P10SDID_PG0 : ftl::mmio::Register<
   using SDID = P10SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P10SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -6969,6 +6841,7 @@ struct P10SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -7042,7 +6915,6 @@ struct P10SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P10SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P10SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P10SMAG2_PG0_fields_ {
@@ -7183,7 +7055,6 @@ struct P10SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P10SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -7323,7 +7194,6 @@ struct P10SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 11 SDID register
 struct P11SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -7340,10 +7210,8 @@ struct P11SDID_PG0 : ftl::mmio::Register<
   using SDID = P11SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P11SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -7427,6 +7295,7 @@ struct P11SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -7500,7 +7369,6 @@ struct P11SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P11SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P11SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P11SMAG2_PG0_fields_ {
@@ -7641,7 +7509,6 @@ struct P11SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P11SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -7781,7 +7648,6 @@ struct P11SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 12 SDID register
 struct P12SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -7798,10 +7664,8 @@ struct P12SDID_PG0 : ftl::mmio::Register<
   using SDID = P12SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P12SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -7885,6 +7749,7 @@ struct P12SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -7958,7 +7823,6 @@ struct P12SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P12SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P12SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P12SMAG2_PG0_fields_ {
@@ -8099,7 +7963,6 @@ struct P12SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P12SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -8239,7 +8102,6 @@ struct P12SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 13 SDID register
 struct P13SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -8256,10 +8118,8 @@ struct P13SDID_PG0 : ftl::mmio::Register<
   using SDID = P13SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P13SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -8343,6 +8203,7 @@ struct P13SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -8416,7 +8277,6 @@ struct P13SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P13SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P13SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P13SMAG2_PG0_fields_ {
@@ -8557,7 +8417,6 @@ struct P13SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P13SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -8697,7 +8556,6 @@ struct P13SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 14 SDID register
 struct P14SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -8714,10 +8572,8 @@ struct P14SDID_PG0 : ftl::mmio::Register<
   using SDID = P14SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P14SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -8801,6 +8657,7 @@ struct P14SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -8874,7 +8731,6 @@ struct P14SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P14SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P14SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P14SMAG2_PG0_fields_ {
@@ -9015,7 +8871,6 @@ struct P14SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P14SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -9155,7 +9010,6 @@ struct P14SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Partition 15 SDID register
 struct P15SDID_PG0_fields_ {
   // Security Domain Identifier
@@ -9172,10 +9026,8 @@ struct P15SDID_PG0 : ftl::mmio::Register<
   using SDID = P15SDID_PG0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P15SMAPR_PG0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -9259,6 +9111,7 @@ struct P15SMAPR_PG0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -9332,7 +9185,6 @@ struct P15SMAPR_PG0 : ftl::mmio::Register<
   using CSP = P15SMAPR_PG0_fields_::CSP;
   using PARTITION_KMOD = P15SMAPR_PG0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P15SMAG2_PG0_fields_ {
@@ -9473,7 +9325,6 @@ struct P15SMAG2_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG2_PG0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P15SMAG1_PG0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -9613,7 +9464,6 @@ struct P15SMAG1_PG0 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG1_PG0_fields_::Gx_ID31;
 };
 
-
 // Recoverable Error Interrupt Status
 struct REIS_fields_ {
   // The CAAM watchdog timer expired.
@@ -9651,7 +9501,6 @@ struct REIS : ftl::mmio::Register<
   using JBAE2 = REIS_fields_::JBAE2;
   using JBAE3 = REIS_fields_::JBAE3;
 };
-
 
 // Recoverable Error Interrupt Enable
 struct REIE_fields_ {
@@ -9691,7 +9540,6 @@ struct REIE : ftl::mmio::Register<
   using JBAE3 = REIE_fields_::JBAE3;
 };
 
-
 // Recoverable Error Interrupt Force
 struct REIF_fields_ {
   // CAAM watchdog timer expired
@@ -9730,10 +9578,8 @@ struct REIF : ftl::mmio::Register<
   using JBAE3 = REIF_fields_::JBAE3;
 };
 
-
 // Recoverable Error Interrupt Halt
 struct REIH_fields_ {
-
   enum class eCWDE : std::uint32_t {
     // Don't halt CAAM if CAAM watchdog expired.
     eDONT_HALT = 0,
@@ -9775,6 +9621,7 @@ struct REIH_fields_ {
     // Halt CAAM if JR3-initiated job execution caused bus access error.
     eHALT = 1,
   };
+
   // Halt CAAM if CAAM watchdog timer expires.
   using CWDE = ftl::mmio::Field<1, 0, eCWDE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Halt CAAM if RTIC-initiated job execution caused bus access error.
@@ -9817,7 +9664,6 @@ struct REIH : ftl::mmio::Register<
   using JBAE3 = REIH_fields_::JBAE3;
 };
 
-
 // Secure Memory Write Protect Job Ring Register
 struct SMWPJRR_fields_ {
   // Secure Memory Registers Write Protect
@@ -9835,7 +9681,6 @@ struct SMWPJRR : ftl::mmio::Register<
   static_assert(Index < 4u, "SMWPJRR: Index out of range");
   using SMR_WP_JRa = SMWPJRR_fields_::SMR_WP_JRa;
 };
-
 
 // Secure Memory Command Register
 struct SMCR_PG0_fields_ {
@@ -9862,10 +9707,8 @@ struct SMCR_PG0 : ftl::mmio::Register<
   using PAGE = SMCR_PG0_fields_::PAGE;
 };
 
-
 // Secure Memory Command Status Register
 struct SMCSR_PG0_fields_ {
-
   enum class ePO : std::uint32_t {
     // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eAVAILABLE = 0,
@@ -9887,6 +9730,7 @@ struct SMCSR_PG0_fields_ {
     // Command Overflow. Another command was issued by the same Job Ring owner before the owner's previous command completed. The additional command was ignored.
     eCMD_OVERFLOW_ERROR = 3,
   };
+
   // Following a Page Inquiry Command, if the PO field is 10 or 11, this field indicates the partition to which the page specified in the PAGE field is allocated
   using PRTN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Page Owner: Following a Page Inquiry Command, this field indicates if the Page is owned by the entity that issued the inquiry, owned by another entity, or unowned
@@ -9921,7 +9765,6 @@ struct SMCSR_PG0 : ftl::mmio::Register<
   using PAGE = SMCSR_PG0_fields_::PAGE;
 };
 
-
 // Holding Tank 0 Job Descriptor Address
 struct HT0_JD_ADDR_fields_ {
   // Job Descriptor Address.
@@ -9937,7 +9780,6 @@ struct HT0_JD_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = HT0_JD_ADDR_fields_::JD_ADDR;
 };
-
 
 // Holding Tank 0 Shared Descriptor Address
 struct HT0_SD_ADDR_fields_ {
@@ -9955,10 +9797,8 @@ struct HT0_SD_ADDR : ftl::mmio::Register<
   using SD_ADDR = HT0_SD_ADDR_fields_::SD_ADDR;
 };
 
-
 // Holding Tank 0 Job Queue Control, most-significant half
 struct HT0_JQ_CTRL_MS_fields_ {
-
   enum class eSRC : std::uint32_t {
     // Job Ring 0
     eJR0 = 0,
@@ -10001,6 +9841,7 @@ struct HT0_JQ_CTRL_MS_fields_ {
     // Byte-swapping is performed for immediate data transferred to or from the Descriptor Buffer.
     eBYTE_SWAP = 1,
   };
+
   // Job ID
   using ID = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Job Source
@@ -10063,16 +9904,15 @@ struct HT0_JQ_CTRL_MS : ftl::mmio::Register<
   using WHL = HT0_JQ_CTRL_MS_fields_::WHL;
 };
 
-
 // Holding Tank 0 Job Queue Control, least-significant half
 struct HT0_JQ_CTRL_LS_fields_ {
-
   enum class ePRIM_TZ : std::uint32_t {
     // TrustZone NonSecureWorld
     eNONSECUREWORLD = 0,
     // TrustZone SecureWorld
     eSECUREWORLD = 1,
   };
+
   // Primary DID
   using PRIM_DID = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Primary TZ
@@ -10104,7 +9944,6 @@ struct HT0_JQ_CTRL_LS : ftl::mmio::Register<
   using OUT_ICID = HT0_JQ_CTRL_LS_fields_::OUT_ICID;
 };
 
-
 // Holding Tank Status
 struct HT0_STATUS_fields_ {
   // Pending for DECO 0
@@ -10129,7 +9968,6 @@ struct HT0_STATUS : ftl::mmio::Register<
   using BC = HT0_STATUS_fields_::BC;
 };
 
-
 // Job Queue Debug Select Register
 struct JQ_DEBUG_SEL_fields_ {
   // Holding Tank Select
@@ -10150,7 +9988,6 @@ struct JQ_DEBUG_SEL : ftl::mmio::Register<
   using HT_SEL = JQ_DEBUG_SEL_fields_::HT_SEL;
   using JOB_ID = JQ_DEBUG_SEL_fields_::JOB_ID;
 };
-
 
 // Job Ring Job IDs in Use Register, least-significant half
 struct JRJIDU_LS_fields_ {
@@ -10180,7 +10017,6 @@ struct JRJIDU_LS : ftl::mmio::Register<
   using JID03 = JRJIDU_LS_fields_::JID03;
 };
 
-
 // Job Ring Job-Done Job ID FIFO BC
 struct JRJDJIFBC_fields_ {
   // Been changed
@@ -10197,7 +10033,6 @@ struct JRJDJIFBC : ftl::mmio::Register<
   using BC = JRJDJIFBC_fields_::BC;
 };
 
-
 // Job Ring Job-Done Job ID FIFO
 struct JRJDJIF_fields_ {
   // Job ID entry
@@ -10213,7 +10048,6 @@ struct JRJDJIF : ftl::mmio::Register<
     ftl::mmio::Reserved<29, 3>> {
   using JOB_ID_ENTRY = JRJDJIF_fields_::JOB_ID_ENTRY;
 };
-
 
 // Job Ring Job-Done Source 1
 struct JRJDS1_fields_ {
@@ -10235,7 +10069,6 @@ struct JRJDS1 : ftl::mmio::Register<
   using VALID = JRJDS1_fields_::VALID;
 };
 
-
 // Job Ring Job-Done Descriptor Address 0 Register
 struct JRJDDA_fields_ {
   // Job Descriptor Address.
@@ -10251,7 +10084,6 @@ struct JRJDDA : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JRJDDA_fields_::JD_ADDR;
 };
-
 
 // CHA Revision Number Register, most-significant half
 struct CRNR_MS_fields_ {
@@ -10289,10 +10121,8 @@ struct CRNR_MS : ftl::mmio::Register<
   using JRRN = CRNR_MS_fields_::JRRN;
 };
 
-
 // CHA Revision Number Register, least-significant half
 struct CRNR_LS_fields_ {
-
   enum class ePKRN : std::uint32_t {
     // PKHA-SDv1
     ePKHA_SDV0 = 0,
@@ -10303,6 +10133,7 @@ struct CRNR_LS_fields_ {
     // PKHA-SDv4
     ePKHA_SDV3 = 3,
   };
+
   // AES Accelerator Revision Number
   using AESRN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // DES Accelerator Revision Number.
@@ -10341,7 +10172,6 @@ struct CRNR_LS : ftl::mmio::Register<
   using KASRN = CRNR_LS_fields_::KASRN;
   using PKRN = CRNR_LS_fields_::PKRN;
 };
-
 
 // Compile Time Parameters Register, most-significant half
 struct CTPR_MS_fields_ {
@@ -10435,10 +10265,8 @@ struct CTPR_MS : ftl::mmio::Register<
   using AXI_PIPE_DEPTH = CTPR_MS_fields_::AXI_PIPE_DEPTH;
 };
 
-
 // Compile Time Parameters Register, least-significant half
 struct CTPR_LS_fields_ {
-
   enum class eKG_DS : std::uint32_t {
     // CAAM does not implement specialized support for Public Key Generation and Digital Signatures.
     eKG_DS_PROTOCOL_ABSENT = 0,
@@ -10543,6 +10371,7 @@ struct CTPR_LS_fields_ {
     // CAAM implements the Derived Key Protocol.
     eDERIVED_KEY_PROTOCOL_EXISTS = 1,
   };
+
   // PK generation and digital signature protcols
   using KG_DS = ftl::mmio::Field<1, 0, eKG_DS, ftl::mmio::RO, ftl::mmio::Normal>;
   // Blob protocol
@@ -10628,10 +10457,8 @@ struct CTPR_LS : ftl::mmio::Register<
   using DKP = CTPR_LS_fields_::DKP;
 };
 
-
 // Secure Memory Status Register
 struct SMSTA_fields_ {
-
   enum class eSTATE : std::uint32_t {
     // Reset State
     eRESET = 0,
@@ -10667,6 +10494,7 @@ struct SMSTA_fields_ {
     // An attempt was made to access a page while it was still being initialized.
     eUNINITIALIZED_PAGE_ACCESS_ERROR = 13,
   };
+
   // Current State. This field represents the current state of the Secure Memory Controller.
   using STATE = ftl::mmio::Field<4, 0, eSTATE, ftl::mmio::RO, ftl::mmio::Normal>;
   // Access Error
@@ -10708,10 +10536,8 @@ struct SMSTA : ftl::mmio::Register<
   using PART = SMSTA_fields_::PART;
 };
 
-
 // Secure Memory Partition Owners Register
 struct SMPO_fields_ {
-
   enum class ePO0 : std::uint32_t {
     // Available; Unowned. A Job Ring owner may claim partition 0 by writing to the appropriate SMAPJR register address alias. Note that the entire register will return all 0s if read by a entity that does not own the Job Ring associated with the SMPO address alias that was read.
     eAVAILABLE = 0,
@@ -10722,6 +10548,7 @@ struct SMPO_fields_ {
     // The entity that read the SMPO register owns partition 0. Ownership is claimed when the access permissions register (SMAPJR) of an available partition is first written.
     eOWNED = 3,
   };
+
   // Partition Owner for partition 0: When read by a Job Ring owner, this field indicates if partition 0 is owned by that Job Ring, another Job Ring, Unowned, or Unimplemented
   using PO0 = ftl::mmio::Field<2, 0, ePO0, ftl::mmio::RO, ftl::mmio::Normal>;
   // Partition Owner for partition 1. See PO0.
@@ -10796,7 +10623,6 @@ struct SMPO : ftl::mmio::Register<
   using PO15 = SMPO_fields_::PO15;
 };
 
-
 // Fault Address Register
 struct FAR_fields_ {
   // Fault Address
@@ -10810,9 +10636,8 @@ struct FAR : ftl::mmio::Register<
     ftl::mmio::RO,
     FAR_fields_::FAR,
     ftl::mmio::Reserved<28, 36>> {
-  using value_ = FAR_fields_::FAR;
+  using VALUE = FAR_fields_::FAR;
 };
-
 
 // Fault Address DID Register
 struct FADID_fields_ {
@@ -10838,10 +10663,8 @@ struct FADID : ftl::mmio::Register<
   using FICID = FADID_fields_::FICID;
 };
 
-
 // Fault Address Detail Register
 struct FADR_fields_ {
-
   enum class eTYP : std::uint32_t {
     // Read.
     eREAD = 0,
@@ -10921,6 +10744,7 @@ struct FADR_fields_ {
     // DECERR - Decode Error
     eDECERR = 3,
   };
+
   // AXI Transaction Transfer Size
   using FSZ = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // AXI Transaction Type
@@ -10990,10 +10814,8 @@ struct FADR : ftl::mmio::Register<
   using FERR = FADR_fields_::FERR;
 };
 
-
 // CAAM Status Register
 struct CSTA_fields_ {
-
   enum class eMOO : std::uint32_t {
     // Non-Secure
     eNON_SECURE = 0,
@@ -11011,6 +10833,7 @@ struct CSTA_fields_ {
     // Platform default is Big Endian
     eBIG = 1,
   };
+
   // CAAM Busy
   using BSY = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
   // CAAM Idle
@@ -11044,7 +10867,6 @@ struct CSTA : ftl::mmio::Register<
   using PLEND = CSTA_fields_::PLEND;
 };
 
-
 // Secure Memory Version ID Register, most-significant half
 struct SMVID_MS_fields_ {
   // This is the highest numbered page of Secure Memory
@@ -11070,7 +10892,6 @@ struct SMVID_MS : ftl::mmio::Register<
   using MAX_NPAG = SMVID_MS_fields_::MAX_NPAG;
 };
 
-
 // Secure Memory Version ID Register, least-significant half
 struct SMVID_LS_fields_ {
   // Secure Memory Minor Version ID.
@@ -11095,10 +10916,8 @@ struct SMVID_LS : ftl::mmio::Register<
   using PSIZ = SMVID_LS_fields_::PSIZ;
 };
 
-
 // RTIC Version ID Register
 struct RVID_fields_ {
-
   enum class eSHA_256 : std::uint32_t {
     // RTIC cannot use the SHA-256 hashing algorithm.
     eSHA256_ABSENT = 0,
@@ -11112,6 +10931,7 @@ struct RVID_fields_ {
     // RTIC can use the SHA-512 hashing algorithm.
     eSHA512_EXISTS = 1,
   };
+
   // RTIC Minor Version
   using RMNV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // RTIC Major Version
@@ -11159,7 +10979,6 @@ struct RVID : ftl::mmio::Register<
   using MD = RVID_fields_::MD;
 };
 
-
 // CHA Cluster Block Version ID Register
 struct CCBVID_fields_ {
   // Accelerator Minor Revision Number
@@ -11183,7 +11002,6 @@ struct CCBVID : ftl::mmio::Register<
   using AMJV = CCBVID_fields_::AMJV;
   using CAAM_ERA = CCBVID_fields_::CAAM_ERA;
 };
-
 
 // CHA Version ID Register, most-significant half
 struct CHAVID_MS_fields_ {
@@ -11221,10 +11039,8 @@ struct CHAVID_MS : ftl::mmio::Register<
   using JRVID = CHAVID_MS_fields_::JRVID;
 };
 
-
 // CHA Version ID Register, least-significant half
 struct CHAVID_LS_fields_ {
-
   enum class eAESVID : std::uint32_t {
     // Low-power AESA, implementing ECB, CBC, CBC-CS2, CFB128, OFB, CTR, CCM, CMAC, XCBC-MAC, and GCM modes
     eAESA_LP = 3,
@@ -11260,6 +11076,7 @@ struct CHAVID_LS_fields_ {
     // PKHA-SD (128-bit)
     ePKHA_SD128 = 3,
   };
+
   // AES Accelerator Version ID.
   using AESVID = ftl::mmio::Field<4, 0, eAESVID, ftl::mmio::RO, ftl::mmio::Normal>;
   // DES Accelerator Version ID.
@@ -11302,7 +11119,6 @@ struct CHAVID_LS : ftl::mmio::Register<
   using PKVID = CHAVID_LS_fields_::PKVID;
 };
 
-
 // CHA Number Register, most-significant half
 struct CHANUM_MS_fields_ {
   // The number of copies of the CRC module that are implemented in this version of CAAM
@@ -11338,7 +11154,6 @@ struct CHANUM_MS : ftl::mmio::Register<
   using DECONUM = CHANUM_MS_fields_::DECONUM;
   using JRNUM = CHANUM_MS_fields_::JRNUM;
 };
-
 
 // CHA Number Register, least-significant half
 struct CHANUM_LS_fields_ {
@@ -11383,7 +11198,6 @@ struct CHANUM_LS : ftl::mmio::Register<
   using PKNUM = CHANUM_LS_fields_::PKNUM;
 };
 
-
 // CAAM Version ID Register, most-significant half
 struct CAAMVID_MS_fields_ {
   // Minor revision number for CAAM.
@@ -11406,7 +11220,6 @@ struct CAAMVID_MS : ftl::mmio::Register<
   using MAJ_REV = CAAMVID_MS_fields_::MAJ_REV;
   using IP_ID = CAAMVID_MS_fields_::IP_ID;
 };
-
 
 // CAAM Version ID Register, least-significant half
 struct CAAMVID_LS_fields_ {
@@ -11435,7 +11248,6 @@ struct CAAMVID_LS : ftl::mmio::Register<
   using COMPILE_OPT = CAAMVID_LS_fields_::COMPILE_OPT;
 };
 
-
 // Input Ring Base Address Register for Job Ring 0
 struct IRBAR_JR0_fields_ {
   // Input Ring Base Address.
@@ -11451,7 +11263,6 @@ struct IRBAR_JR0 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using IRBA = IRBAR_JR0_fields_::IRBA;
 };
-
 
 // Input Ring Size Register for Job Ring 0
 struct IRSR_JR0_fields_ {
@@ -11469,7 +11280,6 @@ struct IRSR_JR0 : ftl::mmio::Register<
   using IRS = IRSR_JR0_fields_::IRS;
 };
 
-
 // Input Ring Slots Available Register for Job Ring 0
 struct IRSAR_JR0_fields_ {
   // Input Ring Slots Available. (measured in number of available job slots)
@@ -11485,7 +11295,6 @@ struct IRSAR_JR0 : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using IRSA = IRSAR_JR0_fields_::IRSA;
 };
-
 
 // Input Ring Jobs Added Register for Job Ring0
 struct IRJAR_JR0_fields_ {
@@ -11503,7 +11312,6 @@ struct IRJAR_JR0 : ftl::mmio::Register<
   using IRJA = IRJAR_JR0_fields_::IRJA;
 };
 
-
 // Output Ring Base Address Register for Job Ring 0
 struct ORBAR_JR0_fields_ {
   // Output Ring Base Address.
@@ -11519,7 +11327,6 @@ struct ORBAR_JR0 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using ORBA = ORBAR_JR0_fields_::ORBA;
 };
-
 
 // Output Ring Size Register for Job Ring 0
 struct ORSR_JR0_fields_ {
@@ -11537,7 +11344,6 @@ struct ORSR_JR0 : ftl::mmio::Register<
   using ORS = ORSR_JR0_fields_::ORS;
 };
 
-
 // Output Ring Jobs Removed Register for Job Ring 0
 struct ORJRR_JR0_fields_ {
   // Output Ring Jobs Removed. (measured in number of entries)
@@ -11553,7 +11359,6 @@ struct ORJRR_JR0 : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using ORJR = ORJRR_JR0_fields_::ORJR;
 };
-
 
 // Output Ring Slots Full Register for Job Ring 0
 struct ORSFR_JR0_fields_ {
@@ -11571,10 +11376,8 @@ struct ORSFR_JR0 : ftl::mmio::Register<
   using ORSF = ORSFR_JR0_fields_::ORSF;
 };
 
-
 // Job Ring Output Status Register for Job Ring 0
 struct JRSTAR_JR0_fields_ {
-
   enum class eSSRC : std::uint32_t {
     // No Status Source (No Error or Status Reported)
     eNO_STATUS = 0,
@@ -11589,6 +11392,7 @@ struct JRSTAR_JR0_fields_ {
     // Jump Halt Condition Codes (Condition Code Status Reported)
     eJMP_COND_STATUS = 7,
   };
+
   // Source-specific error details
   using SSED = ftl::mmio::Field<28, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Status source. These bits define which source is reporting the status. All other values - reserved
@@ -11607,10 +11411,8 @@ struct JRSTAR_JR0 : ftl::mmio::Register<
   using SSRC = JRSTAR_JR0_fields_::SSRC;
 };
 
-
 // Job Ring Interrupt Status Register for Job Ring 0
 struct JRINTR_JR0_fields_ {
-
   enum class eERR_TYPE : std::uint32_t {
     // Error writing status to Output Ring
     eOR_WR_ERR = 1,
@@ -11645,6 +11447,7 @@ struct JRINTR_JR0_fields_ {
     // Writing ORWI when ring is active
     eINV_ORWI_WR_ERR = 17,
   };
+
   // Job Ring Interrupt
   using JRI = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Job Ring Error
@@ -11685,7 +11488,6 @@ struct JRINTR_JR0 : ftl::mmio::Register<
   using ERR_TYPE = JRINTR_JR0_fields_::ERR_TYPE;
   using ERR_ORWI = JRINTR_JR0_fields_::ERR_ORWI;
 };
-
 
 // Job Ring Configuration Register for Job Ring 0, most-significant half
 struct JRCFGR_JR0_MS_fields_ {
@@ -11772,10 +11574,8 @@ struct JRCFGR_JR0_MS : ftl::mmio::Register<
   using INCL_SEQ_OUT = JRCFGR_JR0_MS_fields_::INCL_SEQ_OUT;
 };
 
-
 // Job Ring Configuration Register for Job Ring 0, least-significant half
 struct JRCFGR_JR0_LS_fields_ {
-
   enum class eIMSK : std::uint32_t {
     // Interrupt enabled.
     eINTR_ENABLED = 0,
@@ -11789,6 +11589,7 @@ struct JRCFGR_JR0_LS_fields_ {
     // Interrupt coalescing is enabled. If the IMSK bit is cleared, an interrupt is asserted whenever the threshold number of frames is reached (ICDCT) or when the threshold timer expires (ICTT). Note that if software removes one or more jobs and clears the interrupt but the interrupt coalescing threshold is still met (ORSF >= ICDCT), then the interrupt will clear but reassert on the next clock cycle.
     eINTR_COAL_ENABLED = 1,
   };
+
   // Interrupt Mask. Mask the interrupt that is associated with the particular processor.
   using IMSK = ftl::mmio::Field<1, 0, eIMSK, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Coalescing Enable.
@@ -11817,7 +11618,6 @@ struct JRCFGR_JR0_LS : ftl::mmio::Register<
   using ICTT = JRCFGR_JR0_LS_fields_::ICTT;
 };
 
-
 // Input Ring Read Index Register for Job Ring 0
 struct IRRIR_JR0_fields_ {
   // Input Ring Read Index.
@@ -11834,7 +11634,6 @@ struct IRRIR_JR0 : ftl::mmio::Register<
   using IRRI = IRRIR_JR0_fields_::IRRI;
 };
 
-
 // Output Ring Write Index Register for Job Ring 0
 struct ORWIR_JR0_fields_ {
   // Output Ring Write Index. The pointer to the next entry in the output ring.
@@ -11850,7 +11649,6 @@ struct ORWIR_JR0 : ftl::mmio::Register<
     ftl::mmio::Reserved<18, 14>> {
   using ORWI = ORWIR_JR0_fields_::ORWI;
 };
-
 
 // Job Ring Command Register for Job Ring 0
 struct JRCR_JR0_fields_ {
@@ -11871,7 +11669,6 @@ struct JRCR_JR0 : ftl::mmio::Register<
   using RESET = JRCR_JR0_fields_::RESET;
   using PARK = JRCR_JR0_fields_::PARK;
 };
-
 
 // Job Ring 0 Address-Array Valid Register
 struct JR0AAV_fields_ {
@@ -11905,7 +11702,6 @@ struct JR0AAV : ftl::mmio::Register<
   using BC = JR0AAV_fields_::BC;
 };
 
-
 // Job Ring 0 Address-Array Address 0 Register
 struct JR0AAA0_fields_ {
   // Job Descriptor Address.
@@ -11921,7 +11717,6 @@ struct JR0AAA0 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JR0AAA0_fields_::JD_ADDR;
 };
-
 
 // Job Ring 0 Address-Array Address 1 Register
 struct JR0AAA1_fields_ {
@@ -11939,7 +11734,6 @@ struct JR0AAA1 : ftl::mmio::Register<
   using JD_ADDR = JR0AAA1_fields_::JD_ADDR;
 };
 
-
 // Job Ring 0 Address-Array Address 2 Register
 struct JR0AAA2_fields_ {
   // Job Descriptor Address.
@@ -11955,7 +11749,6 @@ struct JR0AAA2 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JR0AAA2_fields_::JD_ADDR;
 };
-
 
 // Job Ring 0 Address-Array Address 3 Register
 struct JR0AAA3_fields_ {
@@ -11973,7 +11766,6 @@ struct JR0AAA3 : ftl::mmio::Register<
   using JD_ADDR = JR0AAA3_fields_::JD_ADDR;
 };
 
-
 // Partition 0 SDID register
 struct P0SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -11990,10 +11782,8 @@ struct P0SDID_JR0 : ftl::mmio::Register<
   using SDID = P0SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P0SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -12077,6 +11867,7 @@ struct P0SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -12150,7 +11941,6 @@ struct P0SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P0SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P0SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P0SMAG2_JR0_fields_ {
@@ -12291,7 +12081,6 @@ struct P0SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P0SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -12431,7 +12220,6 @@ struct P0SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 1 SDID register
 struct P1SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -12448,10 +12236,8 @@ struct P1SDID_JR0 : ftl::mmio::Register<
   using SDID = P1SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P1SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -12535,6 +12321,7 @@ struct P1SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -12608,7 +12395,6 @@ struct P1SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P1SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P1SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P1SMAG2_JR0_fields_ {
@@ -12749,7 +12535,6 @@ struct P1SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P1SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -12889,7 +12674,6 @@ struct P1SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 2 SDID register
 struct P2SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -12906,10 +12690,8 @@ struct P2SDID_JR0 : ftl::mmio::Register<
   using SDID = P2SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P2SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -12993,6 +12775,7 @@ struct P2SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -13066,7 +12849,6 @@ struct P2SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P2SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P2SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P2SMAG2_JR0_fields_ {
@@ -13207,7 +12989,6 @@ struct P2SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P2SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -13347,7 +13128,6 @@ struct P2SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 3 SDID register
 struct P3SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -13364,10 +13144,8 @@ struct P3SDID_JR0 : ftl::mmio::Register<
   using SDID = P3SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P3SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -13451,6 +13229,7 @@ struct P3SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -13524,7 +13303,6 @@ struct P3SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P3SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P3SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P3SMAG2_JR0_fields_ {
@@ -13665,7 +13443,6 @@ struct P3SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P3SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -13805,7 +13582,6 @@ struct P3SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 4 SDID register
 struct P4SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -13822,10 +13598,8 @@ struct P4SDID_JR0 : ftl::mmio::Register<
   using SDID = P4SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P4SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -13909,6 +13683,7 @@ struct P4SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -13982,7 +13757,6 @@ struct P4SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P4SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P4SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P4SMAG2_JR0_fields_ {
@@ -14123,7 +13897,6 @@ struct P4SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P4SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -14263,7 +14036,6 @@ struct P4SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 5 SDID register
 struct P5SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -14280,10 +14052,8 @@ struct P5SDID_JR0 : ftl::mmio::Register<
   using SDID = P5SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P5SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -14367,6 +14137,7 @@ struct P5SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -14440,7 +14211,6 @@ struct P5SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P5SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P5SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P5SMAG2_JR0_fields_ {
@@ -14581,7 +14351,6 @@ struct P5SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P5SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -14721,7 +14490,6 @@ struct P5SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 6 SDID register
 struct P6SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -14738,10 +14506,8 @@ struct P6SDID_JR0 : ftl::mmio::Register<
   using SDID = P6SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P6SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -14825,6 +14591,7 @@ struct P6SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -14898,7 +14665,6 @@ struct P6SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P6SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P6SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P6SMAG2_JR0_fields_ {
@@ -15039,7 +14805,6 @@ struct P6SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P6SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -15179,7 +14944,6 @@ struct P6SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 7 SDID register
 struct P7SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -15196,10 +14960,8 @@ struct P7SDID_JR0 : ftl::mmio::Register<
   using SDID = P7SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P7SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -15283,6 +15045,7 @@ struct P7SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -15356,7 +15119,6 @@ struct P7SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P7SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P7SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P7SMAG2_JR0_fields_ {
@@ -15497,7 +15259,6 @@ struct P7SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P7SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -15637,7 +15398,6 @@ struct P7SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 8 SDID register
 struct P8SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -15654,10 +15414,8 @@ struct P8SDID_JR0 : ftl::mmio::Register<
   using SDID = P8SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P8SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -15741,6 +15499,7 @@ struct P8SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -15814,7 +15573,6 @@ struct P8SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P8SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P8SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P8SMAG2_JR0_fields_ {
@@ -15955,7 +15713,6 @@ struct P8SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P8SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -16095,7 +15852,6 @@ struct P8SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 9 SDID register
 struct P9SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -16112,10 +15868,8 @@ struct P9SDID_JR0 : ftl::mmio::Register<
   using SDID = P9SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P9SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -16199,6 +15953,7 @@ struct P9SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -16272,7 +16027,6 @@ struct P9SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P9SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P9SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P9SMAG2_JR0_fields_ {
@@ -16413,7 +16167,6 @@ struct P9SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P9SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -16553,7 +16306,6 @@ struct P9SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 10 SDID register
 struct P10SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -16570,10 +16322,8 @@ struct P10SDID_JR0 : ftl::mmio::Register<
   using SDID = P10SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P10SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -16657,6 +16407,7 @@ struct P10SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -16730,7 +16481,6 @@ struct P10SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P10SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P10SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P10SMAG2_JR0_fields_ {
@@ -16871,7 +16621,6 @@ struct P10SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P10SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -17011,7 +16760,6 @@ struct P10SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 11 SDID register
 struct P11SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -17028,10 +16776,8 @@ struct P11SDID_JR0 : ftl::mmio::Register<
   using SDID = P11SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P11SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -17115,6 +16861,7 @@ struct P11SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -17188,7 +16935,6 @@ struct P11SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P11SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P11SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P11SMAG2_JR0_fields_ {
@@ -17329,7 +17075,6 @@ struct P11SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P11SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -17469,7 +17214,6 @@ struct P11SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 12 SDID register
 struct P12SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -17486,10 +17230,8 @@ struct P12SDID_JR0 : ftl::mmio::Register<
   using SDID = P12SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P12SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -17573,6 +17315,7 @@ struct P12SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -17646,7 +17389,6 @@ struct P12SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P12SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P12SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P12SMAG2_JR0_fields_ {
@@ -17787,7 +17529,6 @@ struct P12SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P12SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -17927,7 +17668,6 @@ struct P12SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 13 SDID register
 struct P13SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -17944,10 +17684,8 @@ struct P13SDID_JR0 : ftl::mmio::Register<
   using SDID = P13SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P13SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -18031,6 +17769,7 @@ struct P13SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -18104,7 +17843,6 @@ struct P13SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P13SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P13SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P13SMAG2_JR0_fields_ {
@@ -18245,7 +17983,6 @@ struct P13SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P13SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -18385,7 +18122,6 @@ struct P13SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 14 SDID register
 struct P14SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -18402,10 +18138,8 @@ struct P14SDID_JR0 : ftl::mmio::Register<
   using SDID = P14SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P14SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -18489,6 +18223,7 @@ struct P14SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -18562,7 +18297,6 @@ struct P14SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P14SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P14SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P14SMAG2_JR0_fields_ {
@@ -18703,7 +18437,6 @@ struct P14SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P14SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -18843,7 +18576,6 @@ struct P14SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Partition 15 SDID register
 struct P15SDID_JR0_fields_ {
   // Security Domain Identifier
@@ -18860,10 +18592,8 @@ struct P15SDID_JR0 : ftl::mmio::Register<
   using SDID = P15SDID_JR0_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P15SMAPR_JR0_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -18947,6 +18677,7 @@ struct P15SMAPR_JR0_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -19020,7 +18751,6 @@ struct P15SMAPR_JR0 : ftl::mmio::Register<
   using CSP = P15SMAPR_JR0_fields_::CSP;
   using PARTITION_KMOD = P15SMAPR_JR0_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P15SMAG2_JR0_fields_ {
@@ -19161,7 +18891,6 @@ struct P15SMAG2_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG2_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P15SMAG1_JR0_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -19301,7 +19030,6 @@ struct P15SMAG1_JR0 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG1_JR0_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Command Register
 struct SMCR_JR0_fields_ {
   // Command: 1h: Allocate Page - This command allocates the page specified in the PAGE field to the partition specified in the PRTN field
@@ -19327,10 +19055,8 @@ struct SMCR_JR0 : ftl::mmio::Register<
   using PAGE = SMCR_JR0_fields_::PAGE;
 };
 
-
 // Secure Memory Command Status Register
 struct SMCSR_JR0_fields_ {
-
   enum class ePO : std::uint32_t {
     // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eAVAILABLE = 0,
@@ -19352,6 +19078,7 @@ struct SMCSR_JR0_fields_ {
     // Command Overflow. Another command was issued by the same Job Ring owner before the owner's previous command completed. The additional command was ignored.
     eCMD_OVERFLOW_ERROR = 3,
   };
+
   // Following a Page Inquiry Command, if the PO field is 10 or 11, this field indicates the partition to which the page specified in the PAGE field is allocated
   using PRTN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Page Owner: Following a Page Inquiry Command, this field indicates if the Page is owned by the entity that issued the inquiry, owned by another entity, or unowned
@@ -19386,7 +19113,6 @@ struct SMCSR_JR0 : ftl::mmio::Register<
   using PAGE = SMCSR_JR0_fields_::PAGE;
 };
 
-
 // Recoverable Error Interrupt Record 0 for Job Ring 0
 struct REIR0JR0_fields_ {
   // This field indicates the type of the recoverable error
@@ -19408,7 +19134,6 @@ struct REIR0JR0 : ftl::mmio::Register<
   using MISS = REIR0JR0_fields_::MISS;
 };
 
-
 // Recoverable Error Interrupt Record 2 for Job Ring 0
 struct REIR2JR0_fields_ {
   // Address associated with the recoverable JR error.
@@ -19424,7 +19149,6 @@ struct REIR2JR0 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using ADDR = REIR2JR0_fields_::ADDR;
 };
-
 
 // Recoverable Error Interrupt Record 4 for Job Ring 0
 struct REIR4JR0_fields_ {
@@ -19467,7 +19191,6 @@ struct REIR4JR0 : ftl::mmio::Register<
   using MIX = REIR4JR0_fields_::MIX;
 };
 
-
 // Recoverable Error Interrupt Record 5 for Job Ring 0
 struct REIR5JR0_fields_ {
   // This field holds the block identifier (see Internal Block ID) of the source of the AXI transaction associated with the recoverable error
@@ -19506,7 +19229,6 @@ struct REIR5JR0 : ftl::mmio::Register<
   using SMA = REIR5JR0_fields_::SMA;
 };
 
-
 // Input Ring Base Address Register for Job Ring 1
 struct IRBAR_JR1_fields_ {
   // Input Ring Base Address.
@@ -19522,7 +19244,6 @@ struct IRBAR_JR1 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using IRBA = IRBAR_JR1_fields_::IRBA;
 };
-
 
 // Input Ring Size Register for Job Ring 1
 struct IRSR_JR1_fields_ {
@@ -19540,7 +19261,6 @@ struct IRSR_JR1 : ftl::mmio::Register<
   using IRS = IRSR_JR1_fields_::IRS;
 };
 
-
 // Input Ring Slots Available Register for Job Ring 1
 struct IRSAR_JR1_fields_ {
   // Input Ring Slots Available. (measured in number of available job slots)
@@ -19556,7 +19276,6 @@ struct IRSAR_JR1 : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using IRSA = IRSAR_JR1_fields_::IRSA;
 };
-
 
 // Input Ring Jobs Added Register for Job Ring1
 struct IRJAR_JR1_fields_ {
@@ -19574,7 +19293,6 @@ struct IRJAR_JR1 : ftl::mmio::Register<
   using IRJA = IRJAR_JR1_fields_::IRJA;
 };
 
-
 // Output Ring Base Address Register for Job Ring 1
 struct ORBAR_JR1_fields_ {
   // Output Ring Base Address.
@@ -19590,7 +19308,6 @@ struct ORBAR_JR1 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using ORBA = ORBAR_JR1_fields_::ORBA;
 };
-
 
 // Output Ring Size Register for Job Ring 1
 struct ORSR_JR1_fields_ {
@@ -19608,7 +19325,6 @@ struct ORSR_JR1 : ftl::mmio::Register<
   using ORS = ORSR_JR1_fields_::ORS;
 };
 
-
 // Output Ring Jobs Removed Register for Job Ring 1
 struct ORJRR_JR1_fields_ {
   // Output Ring Jobs Removed. (measured in number of entries)
@@ -19624,7 +19340,6 @@ struct ORJRR_JR1 : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using ORJR = ORJRR_JR1_fields_::ORJR;
 };
-
 
 // Output Ring Slots Full Register for Job Ring 1
 struct ORSFR_JR1_fields_ {
@@ -19642,10 +19357,8 @@ struct ORSFR_JR1 : ftl::mmio::Register<
   using ORSF = ORSFR_JR1_fields_::ORSF;
 };
 
-
 // Job Ring Output Status Register for Job Ring 1
 struct JRSTAR_JR1_fields_ {
-
   enum class eSSRC : std::uint32_t {
     // No Status Source (No Error or Status Reported)
     eNO_STATUS = 0,
@@ -19660,6 +19373,7 @@ struct JRSTAR_JR1_fields_ {
     // Jump Halt Condition Codes (Condition Code Status Reported)
     eJMP_COND_STATUS = 7,
   };
+
   // Source-specific error details
   using SSED = ftl::mmio::Field<28, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Status source. These bits define which source is reporting the status. All other values - reserved
@@ -19678,10 +19392,8 @@ struct JRSTAR_JR1 : ftl::mmio::Register<
   using SSRC = JRSTAR_JR1_fields_::SSRC;
 };
 
-
 // Job Ring Interrupt Status Register for Job Ring 1
 struct JRINTR_JR1_fields_ {
-
   enum class eERR_TYPE : std::uint32_t {
     // Error writing status to Output Ring
     eOR_WR_ERR = 1,
@@ -19716,6 +19428,7 @@ struct JRINTR_JR1_fields_ {
     // Writing ORWI when ring is active
     eINV_ORWI_WR_ERR = 17,
   };
+
   // Job Ring Interrupt
   using JRI = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Job Ring Error
@@ -19756,7 +19469,6 @@ struct JRINTR_JR1 : ftl::mmio::Register<
   using ERR_TYPE = JRINTR_JR1_fields_::ERR_TYPE;
   using ERR_ORWI = JRINTR_JR1_fields_::ERR_ORWI;
 };
-
 
 // Job Ring Configuration Register for Job Ring 1, most-significant half
 struct JRCFGR_JR1_MS_fields_ {
@@ -19843,10 +19555,8 @@ struct JRCFGR_JR1_MS : ftl::mmio::Register<
   using INCL_SEQ_OUT = JRCFGR_JR1_MS_fields_::INCL_SEQ_OUT;
 };
 
-
 // Job Ring Configuration Register for Job Ring 1, least-significant half
 struct JRCFGR_JR1_LS_fields_ {
-
   enum class eIMSK : std::uint32_t {
     // Interrupt enabled.
     eINTR_ENABLED = 0,
@@ -19860,6 +19570,7 @@ struct JRCFGR_JR1_LS_fields_ {
     // Interrupt coalescing is enabled. If the IMSK bit is cleared, an interrupt is asserted whenever the threshold number of frames is reached (ICDCT) or when the threshold timer expires (ICTT). Note that if software removes one or more jobs and clears the interrupt but the interrupt coalescing threshold is still met (ORSF >= ICDCT), then the interrupt will clear but reassert on the next clock cycle.
     eINTR_COAL_ENABLED = 1,
   };
+
   // Interrupt Mask. Mask the interrupt that is associated with the particular processor.
   using IMSK = ftl::mmio::Field<1, 0, eIMSK, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Coalescing Enable.
@@ -19888,7 +19599,6 @@ struct JRCFGR_JR1_LS : ftl::mmio::Register<
   using ICTT = JRCFGR_JR1_LS_fields_::ICTT;
 };
 
-
 // Input Ring Read Index Register for Job Ring 1
 struct IRRIR_JR1_fields_ {
   // Input Ring Read Index.
@@ -19905,7 +19615,6 @@ struct IRRIR_JR1 : ftl::mmio::Register<
   using IRRI = IRRIR_JR1_fields_::IRRI;
 };
 
-
 // Output Ring Write Index Register for Job Ring 1
 struct ORWIR_JR1_fields_ {
   // Output Ring Write Index. The pointer to the next entry in the output ring.
@@ -19921,7 +19630,6 @@ struct ORWIR_JR1 : ftl::mmio::Register<
     ftl::mmio::Reserved<18, 14>> {
   using ORWI = ORWIR_JR1_fields_::ORWI;
 };
-
 
 // Job Ring Command Register for Job Ring 1
 struct JRCR_JR1_fields_ {
@@ -19942,7 +19650,6 @@ struct JRCR_JR1 : ftl::mmio::Register<
   using RESET = JRCR_JR1_fields_::RESET;
   using PARK = JRCR_JR1_fields_::PARK;
 };
-
 
 // Job Ring 1 Address-Array Valid Register
 struct JR1AAV_fields_ {
@@ -19976,7 +19683,6 @@ struct JR1AAV : ftl::mmio::Register<
   using BC = JR1AAV_fields_::BC;
 };
 
-
 // Job Ring 1 Address-Array Address 0 Register
 struct JR1AAA0_fields_ {
   // Job Descriptor Address.
@@ -19992,7 +19698,6 @@ struct JR1AAA0 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JR1AAA0_fields_::JD_ADDR;
 };
-
 
 // Job Ring 1 Address-Array Address 1 Register
 struct JR1AAA1_fields_ {
@@ -20010,7 +19715,6 @@ struct JR1AAA1 : ftl::mmio::Register<
   using JD_ADDR = JR1AAA1_fields_::JD_ADDR;
 };
 
-
 // Job Ring 1 Address-Array Address 2 Register
 struct JR1AAA2_fields_ {
   // Job Descriptor Address.
@@ -20026,7 +19730,6 @@ struct JR1AAA2 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JR1AAA2_fields_::JD_ADDR;
 };
-
 
 // Job Ring 1 Address-Array Address 3 Register
 struct JR1AAA3_fields_ {
@@ -20044,7 +19747,6 @@ struct JR1AAA3 : ftl::mmio::Register<
   using JD_ADDR = JR1AAA3_fields_::JD_ADDR;
 };
 
-
 // Partition 0 SDID register
 struct P0SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -20061,10 +19763,8 @@ struct P0SDID_JR1 : ftl::mmio::Register<
   using SDID = P0SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P0SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -20148,6 +19848,7 @@ struct P0SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -20221,7 +19922,6 @@ struct P0SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P0SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P0SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P0SMAG2_JR1_fields_ {
@@ -20362,7 +20062,6 @@ struct P0SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P0SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -20502,7 +20201,6 @@ struct P0SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 1 SDID register
 struct P1SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -20519,10 +20217,8 @@ struct P1SDID_JR1 : ftl::mmio::Register<
   using SDID = P1SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P1SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -20606,6 +20302,7 @@ struct P1SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -20679,7 +20376,6 @@ struct P1SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P1SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P1SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P1SMAG2_JR1_fields_ {
@@ -20820,7 +20516,6 @@ struct P1SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P1SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -20960,7 +20655,6 @@ struct P1SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 2 SDID register
 struct P2SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -20977,10 +20671,8 @@ struct P2SDID_JR1 : ftl::mmio::Register<
   using SDID = P2SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P2SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -21064,6 +20756,7 @@ struct P2SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -21137,7 +20830,6 @@ struct P2SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P2SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P2SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P2SMAG2_JR1_fields_ {
@@ -21278,7 +20970,6 @@ struct P2SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P2SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -21418,7 +21109,6 @@ struct P2SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 3 SDID register
 struct P3SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -21435,10 +21125,8 @@ struct P3SDID_JR1 : ftl::mmio::Register<
   using SDID = P3SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P3SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -21522,6 +21210,7 @@ struct P3SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -21595,7 +21284,6 @@ struct P3SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P3SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P3SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P3SMAG2_JR1_fields_ {
@@ -21736,7 +21424,6 @@ struct P3SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P3SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -21876,7 +21563,6 @@ struct P3SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 4 SDID register
 struct P4SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -21893,10 +21579,8 @@ struct P4SDID_JR1 : ftl::mmio::Register<
   using SDID = P4SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P4SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -21980,6 +21664,7 @@ struct P4SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -22053,7 +21738,6 @@ struct P4SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P4SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P4SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P4SMAG2_JR1_fields_ {
@@ -22194,7 +21878,6 @@ struct P4SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P4SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -22334,7 +22017,6 @@ struct P4SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 5 SDID register
 struct P5SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -22351,10 +22033,8 @@ struct P5SDID_JR1 : ftl::mmio::Register<
   using SDID = P5SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P5SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -22438,6 +22118,7 @@ struct P5SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -22511,7 +22192,6 @@ struct P5SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P5SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P5SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P5SMAG2_JR1_fields_ {
@@ -22652,7 +22332,6 @@ struct P5SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P5SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -22792,7 +22471,6 @@ struct P5SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 6 SDID register
 struct P6SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -22809,10 +22487,8 @@ struct P6SDID_JR1 : ftl::mmio::Register<
   using SDID = P6SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P6SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -22896,6 +22572,7 @@ struct P6SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -22969,7 +22646,6 @@ struct P6SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P6SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P6SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P6SMAG2_JR1_fields_ {
@@ -23110,7 +22786,6 @@ struct P6SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P6SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -23250,7 +22925,6 @@ struct P6SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 7 SDID register
 struct P7SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -23267,10 +22941,8 @@ struct P7SDID_JR1 : ftl::mmio::Register<
   using SDID = P7SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P7SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -23354,6 +23026,7 @@ struct P7SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -23427,7 +23100,6 @@ struct P7SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P7SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P7SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P7SMAG2_JR1_fields_ {
@@ -23568,7 +23240,6 @@ struct P7SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P7SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -23708,7 +23379,6 @@ struct P7SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 8 SDID register
 struct P8SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -23725,10 +23395,8 @@ struct P8SDID_JR1 : ftl::mmio::Register<
   using SDID = P8SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P8SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -23812,6 +23480,7 @@ struct P8SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -23885,7 +23554,6 @@ struct P8SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P8SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P8SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P8SMAG2_JR1_fields_ {
@@ -24026,7 +23694,6 @@ struct P8SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P8SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -24166,7 +23833,6 @@ struct P8SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 9 SDID register
 struct P9SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -24183,10 +23849,8 @@ struct P9SDID_JR1 : ftl::mmio::Register<
   using SDID = P9SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P9SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -24270,6 +23934,7 @@ struct P9SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -24343,7 +24008,6 @@ struct P9SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P9SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P9SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P9SMAG2_JR1_fields_ {
@@ -24484,7 +24148,6 @@ struct P9SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P9SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -24624,7 +24287,6 @@ struct P9SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 10 SDID register
 struct P10SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -24641,10 +24303,8 @@ struct P10SDID_JR1 : ftl::mmio::Register<
   using SDID = P10SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P10SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -24728,6 +24388,7 @@ struct P10SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -24801,7 +24462,6 @@ struct P10SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P10SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P10SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P10SMAG2_JR1_fields_ {
@@ -24942,7 +24602,6 @@ struct P10SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P10SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -25082,7 +24741,6 @@ struct P10SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 11 SDID register
 struct P11SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -25099,10 +24757,8 @@ struct P11SDID_JR1 : ftl::mmio::Register<
   using SDID = P11SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P11SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -25186,6 +24842,7 @@ struct P11SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -25259,7 +24916,6 @@ struct P11SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P11SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P11SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P11SMAG2_JR1_fields_ {
@@ -25400,7 +25056,6 @@ struct P11SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P11SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -25540,7 +25195,6 @@ struct P11SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 12 SDID register
 struct P12SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -25557,10 +25211,8 @@ struct P12SDID_JR1 : ftl::mmio::Register<
   using SDID = P12SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P12SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -25644,6 +25296,7 @@ struct P12SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -25717,7 +25370,6 @@ struct P12SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P12SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P12SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P12SMAG2_JR1_fields_ {
@@ -25858,7 +25510,6 @@ struct P12SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P12SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -25998,7 +25649,6 @@ struct P12SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 13 SDID register
 struct P13SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -26015,10 +25665,8 @@ struct P13SDID_JR1 : ftl::mmio::Register<
   using SDID = P13SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P13SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -26102,6 +25750,7 @@ struct P13SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -26175,7 +25824,6 @@ struct P13SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P13SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P13SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P13SMAG2_JR1_fields_ {
@@ -26316,7 +25964,6 @@ struct P13SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P13SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -26456,7 +26103,6 @@ struct P13SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 14 SDID register
 struct P14SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -26473,10 +26119,8 @@ struct P14SDID_JR1 : ftl::mmio::Register<
   using SDID = P14SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P14SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -26560,6 +26204,7 @@ struct P14SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -26633,7 +26278,6 @@ struct P14SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P14SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P14SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P14SMAG2_JR1_fields_ {
@@ -26774,7 +26418,6 @@ struct P14SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P14SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -26914,7 +26557,6 @@ struct P14SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Partition 15 SDID register
 struct P15SDID_JR1_fields_ {
   // Security Domain Identifier
@@ -26931,10 +26573,8 @@ struct P15SDID_JR1 : ftl::mmio::Register<
   using SDID = P15SDID_JR1_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P15SMAPR_JR1_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -27018,6 +26658,7 @@ struct P15SMAPR_JR1_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -27091,7 +26732,6 @@ struct P15SMAPR_JR1 : ftl::mmio::Register<
   using CSP = P15SMAPR_JR1_fields_::CSP;
   using PARTITION_KMOD = P15SMAPR_JR1_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P15SMAG2_JR1_fields_ {
@@ -27232,7 +26872,6 @@ struct P15SMAG2_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG2_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P15SMAG1_JR1_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -27372,7 +27011,6 @@ struct P15SMAG1_JR1 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG1_JR1_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Command Register
 struct SMCR_JR1_fields_ {
   // Command: 1h: Allocate Page - This command allocates the page specified in the PAGE field to the partition specified in the PRTN field
@@ -27398,10 +27036,8 @@ struct SMCR_JR1 : ftl::mmio::Register<
   using PAGE = SMCR_JR1_fields_::PAGE;
 };
 
-
 // Secure Memory Command Status Register
 struct SMCSR_JR1_fields_ {
-
   enum class ePO : std::uint32_t {
     // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eAVAILABLE = 0,
@@ -27423,6 +27059,7 @@ struct SMCSR_JR1_fields_ {
     // Command Overflow. Another command was issued by the same Job Ring owner before the owner's previous command completed. The additional command was ignored.
     eCMD_OVERFLOW_ERROR = 3,
   };
+
   // Following a Page Inquiry Command, if the PO field is 10 or 11, this field indicates the partition to which the page specified in the PAGE field is allocated
   using PRTN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Page Owner: Following a Page Inquiry Command, this field indicates if the Page is owned by the entity that issued the inquiry, owned by another entity, or unowned
@@ -27457,7 +27094,6 @@ struct SMCSR_JR1 : ftl::mmio::Register<
   using PAGE = SMCSR_JR1_fields_::PAGE;
 };
 
-
 // Recoverable Error Interrupt Record 0 for Job Ring 1
 struct REIR0JR1_fields_ {
   // This field indicates the type of the recoverable error
@@ -27479,7 +27115,6 @@ struct REIR0JR1 : ftl::mmio::Register<
   using MISS = REIR0JR1_fields_::MISS;
 };
 
-
 // Recoverable Error Interrupt Record 2 for Job Ring 1
 struct REIR2JR1_fields_ {
   // Address associated with the recoverable JR error.
@@ -27495,7 +27130,6 @@ struct REIR2JR1 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using ADDR = REIR2JR1_fields_::ADDR;
 };
-
 
 // Recoverable Error Interrupt Record 4 for Job Ring 1
 struct REIR4JR1_fields_ {
@@ -27538,7 +27172,6 @@ struct REIR4JR1 : ftl::mmio::Register<
   using MIX = REIR4JR1_fields_::MIX;
 };
 
-
 // Recoverable Error Interrupt Record 5 for Job Ring 1
 struct REIR5JR1_fields_ {
   // This field holds the block identifier (see Internal Block ID) of the source of the AXI transaction associated with the recoverable error
@@ -27577,7 +27210,6 @@ struct REIR5JR1 : ftl::mmio::Register<
   using SMA = REIR5JR1_fields_::SMA;
 };
 
-
 // Input Ring Base Address Register for Job Ring 2
 struct IRBAR_JR2_fields_ {
   // Input Ring Base Address.
@@ -27593,7 +27225,6 @@ struct IRBAR_JR2 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using IRBA = IRBAR_JR2_fields_::IRBA;
 };
-
 
 // Input Ring Size Register for Job Ring 2
 struct IRSR_JR2_fields_ {
@@ -27611,7 +27242,6 @@ struct IRSR_JR2 : ftl::mmio::Register<
   using IRS = IRSR_JR2_fields_::IRS;
 };
 
-
 // Input Ring Slots Available Register for Job Ring 2
 struct IRSAR_JR2_fields_ {
   // Input Ring Slots Available. (measured in number of available job slots)
@@ -27627,7 +27257,6 @@ struct IRSAR_JR2 : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using IRSA = IRSAR_JR2_fields_::IRSA;
 };
-
 
 // Input Ring Jobs Added Register for Job Ring2
 struct IRJAR_JR2_fields_ {
@@ -27645,7 +27274,6 @@ struct IRJAR_JR2 : ftl::mmio::Register<
   using IRJA = IRJAR_JR2_fields_::IRJA;
 };
 
-
 // Output Ring Base Address Register for Job Ring 2
 struct ORBAR_JR2_fields_ {
   // Output Ring Base Address.
@@ -27661,7 +27289,6 @@ struct ORBAR_JR2 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using ORBA = ORBAR_JR2_fields_::ORBA;
 };
-
 
 // Output Ring Size Register for Job Ring 2
 struct ORSR_JR2_fields_ {
@@ -27679,7 +27306,6 @@ struct ORSR_JR2 : ftl::mmio::Register<
   using ORS = ORSR_JR2_fields_::ORS;
 };
 
-
 // Output Ring Jobs Removed Register for Job Ring 2
 struct ORJRR_JR2_fields_ {
   // Output Ring Jobs Removed. (measured in number of entries)
@@ -27695,7 +27321,6 @@ struct ORJRR_JR2 : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using ORJR = ORJRR_JR2_fields_::ORJR;
 };
-
 
 // Output Ring Slots Full Register for Job Ring 2
 struct ORSFR_JR2_fields_ {
@@ -27713,10 +27338,8 @@ struct ORSFR_JR2 : ftl::mmio::Register<
   using ORSF = ORSFR_JR2_fields_::ORSF;
 };
 
-
 // Job Ring Output Status Register for Job Ring 2
 struct JRSTAR_JR2_fields_ {
-
   enum class eSSRC : std::uint32_t {
     // No Status Source (No Error or Status Reported)
     eNO_STATUS = 0,
@@ -27731,6 +27354,7 @@ struct JRSTAR_JR2_fields_ {
     // Jump Halt Condition Codes (Condition Code Status Reported)
     eJMP_COND_STATUS = 7,
   };
+
   // Source-specific error details
   using SSED = ftl::mmio::Field<28, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Status source. These bits define which source is reporting the status. All other values - reserved
@@ -27749,10 +27373,8 @@ struct JRSTAR_JR2 : ftl::mmio::Register<
   using SSRC = JRSTAR_JR2_fields_::SSRC;
 };
 
-
 // Job Ring Interrupt Status Register for Job Ring 2
 struct JRINTR_JR2_fields_ {
-
   enum class eERR_TYPE : std::uint32_t {
     // Error writing status to Output Ring
     eOR_WR_ERR = 1,
@@ -27787,6 +27409,7 @@ struct JRINTR_JR2_fields_ {
     // Writing ORWI when ring is active
     eINV_ORWI_WR_ERR = 17,
   };
+
   // Job Ring Interrupt
   using JRI = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Job Ring Error
@@ -27827,7 +27450,6 @@ struct JRINTR_JR2 : ftl::mmio::Register<
   using ERR_TYPE = JRINTR_JR2_fields_::ERR_TYPE;
   using ERR_ORWI = JRINTR_JR2_fields_::ERR_ORWI;
 };
-
 
 // Job Ring Configuration Register for Job Ring 2, most-significant half
 struct JRCFGR_JR2_MS_fields_ {
@@ -27914,10 +27536,8 @@ struct JRCFGR_JR2_MS : ftl::mmio::Register<
   using INCL_SEQ_OUT = JRCFGR_JR2_MS_fields_::INCL_SEQ_OUT;
 };
 
-
 // Job Ring Configuration Register for Job Ring 2, least-significant half
 struct JRCFGR_JR2_LS_fields_ {
-
   enum class eIMSK : std::uint32_t {
     // Interrupt enabled.
     eINTR_ENABLED = 0,
@@ -27931,6 +27551,7 @@ struct JRCFGR_JR2_LS_fields_ {
     // Interrupt coalescing is enabled. If the IMSK bit is cleared, an interrupt is asserted whenever the threshold number of frames is reached (ICDCT) or when the threshold timer expires (ICTT). Note that if software removes one or more jobs and clears the interrupt but the interrupt coalescing threshold is still met (ORSF >= ICDCT), then the interrupt will clear but reassert on the next clock cycle.
     eINTR_COAL_ENABLED = 1,
   };
+
   // Interrupt Mask. Mask the interrupt that is associated with the particular processor.
   using IMSK = ftl::mmio::Field<1, 0, eIMSK, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Coalescing Enable.
@@ -27959,7 +27580,6 @@ struct JRCFGR_JR2_LS : ftl::mmio::Register<
   using ICTT = JRCFGR_JR2_LS_fields_::ICTT;
 };
 
-
 // Input Ring Read Index Register for Job Ring 2
 struct IRRIR_JR2_fields_ {
   // Input Ring Read Index.
@@ -27976,7 +27596,6 @@ struct IRRIR_JR2 : ftl::mmio::Register<
   using IRRI = IRRIR_JR2_fields_::IRRI;
 };
 
-
 // Output Ring Write Index Register for Job Ring 2
 struct ORWIR_JR2_fields_ {
   // Output Ring Write Index. The pointer to the next entry in the output ring.
@@ -27992,7 +27611,6 @@ struct ORWIR_JR2 : ftl::mmio::Register<
     ftl::mmio::Reserved<18, 14>> {
   using ORWI = ORWIR_JR2_fields_::ORWI;
 };
-
 
 // Job Ring Command Register for Job Ring 2
 struct JRCR_JR2_fields_ {
@@ -28013,7 +27631,6 @@ struct JRCR_JR2 : ftl::mmio::Register<
   using RESET = JRCR_JR2_fields_::RESET;
   using PARK = JRCR_JR2_fields_::PARK;
 };
-
 
 // Job Ring 2 Address-Array Valid Register
 struct JR2AAV_fields_ {
@@ -28047,7 +27664,6 @@ struct JR2AAV : ftl::mmio::Register<
   using BC = JR2AAV_fields_::BC;
 };
 
-
 // Job Ring 2 Address-Array Address 0 Register
 struct JR2AAA0_fields_ {
   // Job Descriptor Address.
@@ -28063,7 +27679,6 @@ struct JR2AAA0 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JR2AAA0_fields_::JD_ADDR;
 };
-
 
 // Job Ring 2 Address-Array Address 1 Register
 struct JR2AAA1_fields_ {
@@ -28081,7 +27696,6 @@ struct JR2AAA1 : ftl::mmio::Register<
   using JD_ADDR = JR2AAA1_fields_::JD_ADDR;
 };
 
-
 // Job Ring 2 Address-Array Address 2 Register
 struct JR2AAA2_fields_ {
   // Job Descriptor Address.
@@ -28097,7 +27711,6 @@ struct JR2AAA2 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JR2AAA2_fields_::JD_ADDR;
 };
-
 
 // Job Ring 2 Address-Array Address 3 Register
 struct JR2AAA3_fields_ {
@@ -28115,7 +27728,6 @@ struct JR2AAA3 : ftl::mmio::Register<
   using JD_ADDR = JR2AAA3_fields_::JD_ADDR;
 };
 
-
 // Partition 0 SDID register
 struct P0SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -28132,10 +27744,8 @@ struct P0SDID_JR2 : ftl::mmio::Register<
   using SDID = P0SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P0SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -28219,6 +27829,7 @@ struct P0SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -28292,7 +27903,6 @@ struct P0SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P0SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P0SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P0SMAG2_JR2_fields_ {
@@ -28433,7 +28043,6 @@ struct P0SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P0SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -28573,7 +28182,6 @@ struct P0SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 1 SDID register
 struct P1SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -28590,10 +28198,8 @@ struct P1SDID_JR2 : ftl::mmio::Register<
   using SDID = P1SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P1SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -28677,6 +28283,7 @@ struct P1SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -28750,7 +28357,6 @@ struct P1SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P1SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P1SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P1SMAG2_JR2_fields_ {
@@ -28891,7 +28497,6 @@ struct P1SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P1SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -29031,7 +28636,6 @@ struct P1SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 2 SDID register
 struct P2SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -29048,10 +28652,8 @@ struct P2SDID_JR2 : ftl::mmio::Register<
   using SDID = P2SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P2SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -29135,6 +28737,7 @@ struct P2SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -29208,7 +28811,6 @@ struct P2SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P2SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P2SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P2SMAG2_JR2_fields_ {
@@ -29349,7 +28951,6 @@ struct P2SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P2SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -29489,7 +29090,6 @@ struct P2SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 3 SDID register
 struct P3SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -29506,10 +29106,8 @@ struct P3SDID_JR2 : ftl::mmio::Register<
   using SDID = P3SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P3SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -29593,6 +29191,7 @@ struct P3SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -29666,7 +29265,6 @@ struct P3SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P3SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P3SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P3SMAG2_JR2_fields_ {
@@ -29807,7 +29405,6 @@ struct P3SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P3SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -29947,7 +29544,6 @@ struct P3SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 4 SDID register
 struct P4SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -29964,10 +29560,8 @@ struct P4SDID_JR2 : ftl::mmio::Register<
   using SDID = P4SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P4SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -30051,6 +29645,7 @@ struct P4SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -30124,7 +29719,6 @@ struct P4SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P4SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P4SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P4SMAG2_JR2_fields_ {
@@ -30265,7 +29859,6 @@ struct P4SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P4SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -30405,7 +29998,6 @@ struct P4SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 5 SDID register
 struct P5SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -30422,10 +30014,8 @@ struct P5SDID_JR2 : ftl::mmio::Register<
   using SDID = P5SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P5SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -30509,6 +30099,7 @@ struct P5SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -30582,7 +30173,6 @@ struct P5SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P5SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P5SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P5SMAG2_JR2_fields_ {
@@ -30723,7 +30313,6 @@ struct P5SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P5SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -30863,7 +30452,6 @@ struct P5SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 6 SDID register
 struct P6SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -30880,10 +30468,8 @@ struct P6SDID_JR2 : ftl::mmio::Register<
   using SDID = P6SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P6SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -30967,6 +30553,7 @@ struct P6SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -31040,7 +30627,6 @@ struct P6SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P6SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P6SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P6SMAG2_JR2_fields_ {
@@ -31181,7 +30767,6 @@ struct P6SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P6SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -31321,7 +30906,6 @@ struct P6SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 7 SDID register
 struct P7SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -31338,10 +30922,8 @@ struct P7SDID_JR2 : ftl::mmio::Register<
   using SDID = P7SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P7SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -31425,6 +31007,7 @@ struct P7SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -31498,7 +31081,6 @@ struct P7SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P7SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P7SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P7SMAG2_JR2_fields_ {
@@ -31639,7 +31221,6 @@ struct P7SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P7SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -31779,7 +31360,6 @@ struct P7SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 8 SDID register
 struct P8SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -31796,10 +31376,8 @@ struct P8SDID_JR2 : ftl::mmio::Register<
   using SDID = P8SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P8SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -31883,6 +31461,7 @@ struct P8SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -31956,7 +31535,6 @@ struct P8SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P8SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P8SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P8SMAG2_JR2_fields_ {
@@ -32097,7 +31675,6 @@ struct P8SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P8SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -32237,7 +31814,6 @@ struct P8SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 9 SDID register
 struct P9SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -32254,10 +31830,8 @@ struct P9SDID_JR2 : ftl::mmio::Register<
   using SDID = P9SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P9SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -32341,6 +31915,7 @@ struct P9SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -32414,7 +31989,6 @@ struct P9SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P9SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P9SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P9SMAG2_JR2_fields_ {
@@ -32555,7 +32129,6 @@ struct P9SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P9SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -32695,7 +32268,6 @@ struct P9SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 10 SDID register
 struct P10SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -32712,10 +32284,8 @@ struct P10SDID_JR2 : ftl::mmio::Register<
   using SDID = P10SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P10SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -32799,6 +32369,7 @@ struct P10SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -32872,7 +32443,6 @@ struct P10SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P10SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P10SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P10SMAG2_JR2_fields_ {
@@ -33013,7 +32583,6 @@ struct P10SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P10SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -33153,7 +32722,6 @@ struct P10SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 11 SDID register
 struct P11SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -33170,10 +32738,8 @@ struct P11SDID_JR2 : ftl::mmio::Register<
   using SDID = P11SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P11SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -33257,6 +32823,7 @@ struct P11SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -33330,7 +32897,6 @@ struct P11SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P11SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P11SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P11SMAG2_JR2_fields_ {
@@ -33471,7 +33037,6 @@ struct P11SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P11SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -33611,7 +33176,6 @@ struct P11SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 12 SDID register
 struct P12SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -33628,10 +33192,8 @@ struct P12SDID_JR2 : ftl::mmio::Register<
   using SDID = P12SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P12SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -33715,6 +33277,7 @@ struct P12SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -33788,7 +33351,6 @@ struct P12SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P12SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P12SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P12SMAG2_JR2_fields_ {
@@ -33929,7 +33491,6 @@ struct P12SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P12SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -34069,7 +33630,6 @@ struct P12SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 13 SDID register
 struct P13SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -34086,10 +33646,8 @@ struct P13SDID_JR2 : ftl::mmio::Register<
   using SDID = P13SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P13SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -34173,6 +33731,7 @@ struct P13SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -34246,7 +33805,6 @@ struct P13SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P13SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P13SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P13SMAG2_JR2_fields_ {
@@ -34387,7 +33945,6 @@ struct P13SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P13SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -34527,7 +34084,6 @@ struct P13SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 14 SDID register
 struct P14SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -34544,10 +34100,8 @@ struct P14SDID_JR2 : ftl::mmio::Register<
   using SDID = P14SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P14SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -34631,6 +34185,7 @@ struct P14SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -34704,7 +34259,6 @@ struct P14SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P14SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P14SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P14SMAG2_JR2_fields_ {
@@ -34845,7 +34399,6 @@ struct P14SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P14SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -34985,7 +34538,6 @@ struct P14SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Partition 15 SDID register
 struct P15SDID_JR2_fields_ {
   // Security Domain Identifier
@@ -35002,10 +34554,8 @@ struct P15SDID_JR2 : ftl::mmio::Register<
   using SDID = P15SDID_JR2_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P15SMAPR_JR2_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -35089,6 +34639,7 @@ struct P15SMAPR_JR2_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -35162,7 +34713,6 @@ struct P15SMAPR_JR2 : ftl::mmio::Register<
   using CSP = P15SMAPR_JR2_fields_::CSP;
   using PARTITION_KMOD = P15SMAPR_JR2_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P15SMAG2_JR2_fields_ {
@@ -35303,7 +34853,6 @@ struct P15SMAG2_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG2_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P15SMAG1_JR2_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -35443,7 +34992,6 @@ struct P15SMAG1_JR2 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG1_JR2_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Command Register
 struct SMCR_JR2_fields_ {
   // Command: 1h: Allocate Page - This command allocates the page specified in the PAGE field to the partition specified in the PRTN field
@@ -35469,10 +35017,8 @@ struct SMCR_JR2 : ftl::mmio::Register<
   using PAGE = SMCR_JR2_fields_::PAGE;
 };
 
-
 // Secure Memory Command Status Register
 struct SMCSR_JR2_fields_ {
-
   enum class ePO : std::uint32_t {
     // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eAVAILABLE = 0,
@@ -35494,6 +35040,7 @@ struct SMCSR_JR2_fields_ {
     // Command Overflow. Another command was issued by the same Job Ring owner before the owner's previous command completed. The additional command was ignored.
     eCMD_OVERFLOW_ERROR = 3,
   };
+
   // Following a Page Inquiry Command, if the PO field is 10 or 11, this field indicates the partition to which the page specified in the PAGE field is allocated
   using PRTN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Page Owner: Following a Page Inquiry Command, this field indicates if the Page is owned by the entity that issued the inquiry, owned by another entity, or unowned
@@ -35528,7 +35075,6 @@ struct SMCSR_JR2 : ftl::mmio::Register<
   using PAGE = SMCSR_JR2_fields_::PAGE;
 };
 
-
 // Recoverable Error Interrupt Record 0 for Job Ring 2
 struct REIR0JR2_fields_ {
   // This field indicates the type of the recoverable error
@@ -35550,7 +35096,6 @@ struct REIR0JR2 : ftl::mmio::Register<
   using MISS = REIR0JR2_fields_::MISS;
 };
 
-
 // Recoverable Error Interrupt Record 2 for Job Ring 2
 struct REIR2JR2_fields_ {
   // Address associated with the recoverable JR error.
@@ -35566,7 +35111,6 @@ struct REIR2JR2 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using ADDR = REIR2JR2_fields_::ADDR;
 };
-
 
 // Recoverable Error Interrupt Record 4 for Job Ring 2
 struct REIR4JR2_fields_ {
@@ -35609,7 +35153,6 @@ struct REIR4JR2 : ftl::mmio::Register<
   using MIX = REIR4JR2_fields_::MIX;
 };
 
-
 // Recoverable Error Interrupt Record 5 for Job Ring 2
 struct REIR5JR2_fields_ {
   // This field holds the block identifier (see Internal Block ID) of the source of the AXI transaction associated with the recoverable error
@@ -35648,7 +35191,6 @@ struct REIR5JR2 : ftl::mmio::Register<
   using SMA = REIR5JR2_fields_::SMA;
 };
 
-
 // Input Ring Base Address Register for Job Ring 3
 struct IRBAR_JR3_fields_ {
   // Input Ring Base Address.
@@ -35664,7 +35206,6 @@ struct IRBAR_JR3 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using IRBA = IRBAR_JR3_fields_::IRBA;
 };
-
 
 // Input Ring Size Register for Job Ring 3
 struct IRSR_JR3_fields_ {
@@ -35682,7 +35223,6 @@ struct IRSR_JR3 : ftl::mmio::Register<
   using IRS = IRSR_JR3_fields_::IRS;
 };
 
-
 // Input Ring Slots Available Register for Job Ring 3
 struct IRSAR_JR3_fields_ {
   // Input Ring Slots Available. (measured in number of available job slots)
@@ -35698,7 +35238,6 @@ struct IRSAR_JR3 : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using IRSA = IRSAR_JR3_fields_::IRSA;
 };
-
 
 // Input Ring Jobs Added Register for Job Ring3
 struct IRJAR_JR3_fields_ {
@@ -35716,7 +35255,6 @@ struct IRJAR_JR3 : ftl::mmio::Register<
   using IRJA = IRJAR_JR3_fields_::IRJA;
 };
 
-
 // Output Ring Base Address Register for Job Ring 3
 struct ORBAR_JR3_fields_ {
   // Output Ring Base Address.
@@ -35732,7 +35270,6 @@ struct ORBAR_JR3 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using ORBA = ORBAR_JR3_fields_::ORBA;
 };
-
 
 // Output Ring Size Register for Job Ring 3
 struct ORSR_JR3_fields_ {
@@ -35750,7 +35287,6 @@ struct ORSR_JR3 : ftl::mmio::Register<
   using ORS = ORSR_JR3_fields_::ORS;
 };
 
-
 // Output Ring Jobs Removed Register for Job Ring 3
 struct ORJRR_JR3_fields_ {
   // Output Ring Jobs Removed. (measured in number of entries)
@@ -35766,7 +35302,6 @@ struct ORJRR_JR3 : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using ORJR = ORJRR_JR3_fields_::ORJR;
 };
-
 
 // Output Ring Slots Full Register for Job Ring 3
 struct ORSFR_JR3_fields_ {
@@ -35784,10 +35319,8 @@ struct ORSFR_JR3 : ftl::mmio::Register<
   using ORSF = ORSFR_JR3_fields_::ORSF;
 };
 
-
 // Job Ring Output Status Register for Job Ring 3
 struct JRSTAR_JR3_fields_ {
-
   enum class eSSRC : std::uint32_t {
     // No Status Source (No Error or Status Reported)
     eNO_STATUS = 0,
@@ -35802,6 +35335,7 @@ struct JRSTAR_JR3_fields_ {
     // Jump Halt Condition Codes (Condition Code Status Reported)
     eJMP_COND_STATUS = 7,
   };
+
   // Source-specific error details
   using SSED = ftl::mmio::Field<28, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Status source. These bits define which source is reporting the status. All other values - reserved
@@ -35820,10 +35354,8 @@ struct JRSTAR_JR3 : ftl::mmio::Register<
   using SSRC = JRSTAR_JR3_fields_::SSRC;
 };
 
-
 // Job Ring Interrupt Status Register for Job Ring 3
 struct JRINTR_JR3_fields_ {
-
   enum class eERR_TYPE : std::uint32_t {
     // Error writing status to Output Ring
     eOR_WR_ERR = 1,
@@ -35858,6 +35390,7 @@ struct JRINTR_JR3_fields_ {
     // Writing ORWI when ring is active
     eINV_ORWI_WR_ERR = 17,
   };
+
   // Job Ring Interrupt
   using JRI = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Job Ring Error
@@ -35898,7 +35431,6 @@ struct JRINTR_JR3 : ftl::mmio::Register<
   using ERR_TYPE = JRINTR_JR3_fields_::ERR_TYPE;
   using ERR_ORWI = JRINTR_JR3_fields_::ERR_ORWI;
 };
-
 
 // Job Ring Configuration Register for Job Ring 3, most-significant half
 struct JRCFGR_JR3_MS_fields_ {
@@ -35985,10 +35517,8 @@ struct JRCFGR_JR3_MS : ftl::mmio::Register<
   using INCL_SEQ_OUT = JRCFGR_JR3_MS_fields_::INCL_SEQ_OUT;
 };
 
-
 // Job Ring Configuration Register for Job Ring 3, least-significant half
 struct JRCFGR_JR3_LS_fields_ {
-
   enum class eIMSK : std::uint32_t {
     // Interrupt enabled.
     eINTR_ENABLED = 0,
@@ -36002,6 +35532,7 @@ struct JRCFGR_JR3_LS_fields_ {
     // Interrupt coalescing is enabled. If the IMSK bit is cleared, an interrupt is asserted whenever the threshold number of frames is reached (ICDCT) or when the threshold timer expires (ICTT). Note that if software removes one or more jobs and clears the interrupt but the interrupt coalescing threshold is still met (ORSF >= ICDCT), then the interrupt will clear but reassert on the next clock cycle.
     eINTR_COAL_ENABLED = 1,
   };
+
   // Interrupt Mask. Mask the interrupt that is associated with the particular processor.
   using IMSK = ftl::mmio::Field<1, 0, eIMSK, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Coalescing Enable.
@@ -36030,7 +35561,6 @@ struct JRCFGR_JR3_LS : ftl::mmio::Register<
   using ICTT = JRCFGR_JR3_LS_fields_::ICTT;
 };
 
-
 // Input Ring Read Index Register for Job Ring 3
 struct IRRIR_JR3_fields_ {
   // Input Ring Read Index.
@@ -36047,7 +35577,6 @@ struct IRRIR_JR3 : ftl::mmio::Register<
   using IRRI = IRRIR_JR3_fields_::IRRI;
 };
 
-
 // Output Ring Write Index Register for Job Ring 3
 struct ORWIR_JR3_fields_ {
   // Output Ring Write Index. The pointer to the next entry in the output ring.
@@ -36063,7 +35592,6 @@ struct ORWIR_JR3 : ftl::mmio::Register<
     ftl::mmio::Reserved<18, 14>> {
   using ORWI = ORWIR_JR3_fields_::ORWI;
 };
-
 
 // Job Ring Command Register for Job Ring 3
 struct JRCR_JR3_fields_ {
@@ -36084,7 +35612,6 @@ struct JRCR_JR3 : ftl::mmio::Register<
   using RESET = JRCR_JR3_fields_::RESET;
   using PARK = JRCR_JR3_fields_::PARK;
 };
-
 
 // Job Ring 3 Address-Array Valid Register
 struct JR3AAV_fields_ {
@@ -36118,7 +35645,6 @@ struct JR3AAV : ftl::mmio::Register<
   using BC = JR3AAV_fields_::BC;
 };
 
-
 // Job Ring 3 Address-Array Address 0 Register
 struct JR3AAA0_fields_ {
   // Job Descriptor Address.
@@ -36134,7 +35660,6 @@ struct JR3AAA0 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JR3AAA0_fields_::JD_ADDR;
 };
-
 
 // Job Ring 3 Address-Array Address 1 Register
 struct JR3AAA1_fields_ {
@@ -36152,7 +35677,6 @@ struct JR3AAA1 : ftl::mmio::Register<
   using JD_ADDR = JR3AAA1_fields_::JD_ADDR;
 };
 
-
 // Job Ring 3 Address-Array Address 2 Register
 struct JR3AAA2_fields_ {
   // Job Descriptor Address.
@@ -36168,7 +35692,6 @@ struct JR3AAA2 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JD_ADDR = JR3AAA2_fields_::JD_ADDR;
 };
-
 
 // Job Ring 3 Address-Array Address 3 Register
 struct JR3AAA3_fields_ {
@@ -36186,7 +35709,6 @@ struct JR3AAA3 : ftl::mmio::Register<
   using JD_ADDR = JR3AAA3_fields_::JD_ADDR;
 };
 
-
 // Partition 0 SDID register
 struct P0SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -36203,10 +35725,8 @@ struct P0SDID_JR3 : ftl::mmio::Register<
   using SDID = P0SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P0SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -36290,6 +35810,7 @@ struct P0SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -36363,7 +35884,6 @@ struct P0SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P0SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P0SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P0SMAG2_JR3_fields_ {
@@ -36504,7 +36024,6 @@ struct P0SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P0SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -36644,7 +36163,6 @@ struct P0SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P0SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 1 SDID register
 struct P1SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -36661,10 +36179,8 @@ struct P1SDID_JR3 : ftl::mmio::Register<
   using SDID = P1SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P1SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -36748,6 +36264,7 @@ struct P1SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -36821,7 +36338,6 @@ struct P1SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P1SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P1SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P1SMAG2_JR3_fields_ {
@@ -36962,7 +36478,6 @@ struct P1SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P1SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -37102,7 +36617,6 @@ struct P1SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P1SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 2 SDID register
 struct P2SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -37119,10 +36633,8 @@ struct P2SDID_JR3 : ftl::mmio::Register<
   using SDID = P2SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P2SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -37206,6 +36718,7 @@ struct P2SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -37279,7 +36792,6 @@ struct P2SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P2SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P2SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P2SMAG2_JR3_fields_ {
@@ -37420,7 +36932,6 @@ struct P2SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P2SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -37560,7 +37071,6 @@ struct P2SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P2SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 3 SDID register
 struct P3SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -37577,10 +37087,8 @@ struct P3SDID_JR3 : ftl::mmio::Register<
   using SDID = P3SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P3SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -37664,6 +37172,7 @@ struct P3SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -37737,7 +37246,6 @@ struct P3SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P3SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P3SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P3SMAG2_JR3_fields_ {
@@ -37878,7 +37386,6 @@ struct P3SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P3SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -38018,7 +37525,6 @@ struct P3SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P3SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 4 SDID register
 struct P4SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -38035,10 +37541,8 @@ struct P4SDID_JR3 : ftl::mmio::Register<
   using SDID = P4SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P4SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -38122,6 +37626,7 @@ struct P4SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -38195,7 +37700,6 @@ struct P4SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P4SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P4SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P4SMAG2_JR3_fields_ {
@@ -38336,7 +37840,6 @@ struct P4SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P4SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -38476,7 +37979,6 @@ struct P4SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P4SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 5 SDID register
 struct P5SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -38493,10 +37995,8 @@ struct P5SDID_JR3 : ftl::mmio::Register<
   using SDID = P5SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P5SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -38580,6 +38080,7 @@ struct P5SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -38653,7 +38154,6 @@ struct P5SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P5SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P5SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P5SMAG2_JR3_fields_ {
@@ -38794,7 +38294,6 @@ struct P5SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P5SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -38934,7 +38433,6 @@ struct P5SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P5SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 6 SDID register
 struct P6SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -38951,10 +38449,8 @@ struct P6SDID_JR3 : ftl::mmio::Register<
   using SDID = P6SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P6SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -39038,6 +38534,7 @@ struct P6SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -39111,7 +38608,6 @@ struct P6SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P6SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P6SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P6SMAG2_JR3_fields_ {
@@ -39252,7 +38748,6 @@ struct P6SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P6SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -39392,7 +38887,6 @@ struct P6SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P6SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 7 SDID register
 struct P7SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -39409,10 +38903,8 @@ struct P7SDID_JR3 : ftl::mmio::Register<
   using SDID = P7SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P7SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -39496,6 +38988,7 @@ struct P7SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -39569,7 +39062,6 @@ struct P7SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P7SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P7SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P7SMAG2_JR3_fields_ {
@@ -39710,7 +39202,6 @@ struct P7SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P7SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -39850,7 +39341,6 @@ struct P7SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P7SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 8 SDID register
 struct P8SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -39867,10 +39357,8 @@ struct P8SDID_JR3 : ftl::mmio::Register<
   using SDID = P8SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P8SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -39954,6 +39442,7 @@ struct P8SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -40027,7 +39516,6 @@ struct P8SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P8SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P8SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P8SMAG2_JR3_fields_ {
@@ -40168,7 +39656,6 @@ struct P8SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P8SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -40308,7 +39795,6 @@ struct P8SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P8SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 9 SDID register
 struct P9SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -40325,10 +39811,8 @@ struct P9SDID_JR3 : ftl::mmio::Register<
   using SDID = P9SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P9SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -40412,6 +39896,7 @@ struct P9SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -40485,7 +39970,6 @@ struct P9SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P9SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P9SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P9SMAG2_JR3_fields_ {
@@ -40626,7 +40110,6 @@ struct P9SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P9SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -40766,7 +40249,6 @@ struct P9SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P9SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 10 SDID register
 struct P10SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -40783,10 +40265,8 @@ struct P10SDID_JR3 : ftl::mmio::Register<
   using SDID = P10SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P10SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -40870,6 +40350,7 @@ struct P10SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -40943,7 +40424,6 @@ struct P10SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P10SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P10SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P10SMAG2_JR3_fields_ {
@@ -41084,7 +40564,6 @@ struct P10SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P10SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -41224,7 +40703,6 @@ struct P10SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P10SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 11 SDID register
 struct P11SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -41241,10 +40719,8 @@ struct P11SDID_JR3 : ftl::mmio::Register<
   using SDID = P11SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P11SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -41328,6 +40804,7 @@ struct P11SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -41401,7 +40878,6 @@ struct P11SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P11SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P11SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P11SMAG2_JR3_fields_ {
@@ -41542,7 +41018,6 @@ struct P11SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P11SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -41682,7 +41157,6 @@ struct P11SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P11SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 12 SDID register
 struct P12SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -41699,10 +41173,8 @@ struct P12SDID_JR3 : ftl::mmio::Register<
   using SDID = P12SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P12SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -41786,6 +41258,7 @@ struct P12SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -41859,7 +41332,6 @@ struct P12SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P12SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P12SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P12SMAG2_JR3_fields_ {
@@ -42000,7 +41472,6 @@ struct P12SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P12SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -42140,7 +41611,6 @@ struct P12SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P12SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 13 SDID register
 struct P13SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -42157,10 +41627,8 @@ struct P13SDID_JR3 : ftl::mmio::Register<
   using SDID = P13SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P13SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -42244,6 +41712,7 @@ struct P13SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -42317,7 +41786,6 @@ struct P13SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P13SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P13SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P13SMAG2_JR3_fields_ {
@@ -42458,7 +41926,6 @@ struct P13SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P13SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -42598,7 +42065,6 @@ struct P13SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P13SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 14 SDID register
 struct P14SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -42615,10 +42081,8 @@ struct P14SDID_JR3 : ftl::mmio::Register<
   using SDID = P14SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P14SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -42702,6 +42166,7 @@ struct P14SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -42775,7 +42240,6 @@ struct P14SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P14SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P14SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P14SMAG2_JR3_fields_ {
@@ -42916,7 +42380,6 @@ struct P14SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P14SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -43056,7 +42519,6 @@ struct P14SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P14SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Partition 15 SDID register
 struct P15SDID_JR3_fields_ {
   // Security Domain Identifier
@@ -43073,10 +42535,8 @@ struct P15SDID_JR3 : ftl::mmio::Register<
   using SDID = P15SDID_JR3_fields_::SDID;
 };
 
-
 // Secure Memory Access Permissions register
 struct P15SMAPR_JR3_fields_ {
-
   enum class eG1_READ : std::uint32_t {
     // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_PROHIB = 0,
@@ -43160,6 +42620,7 @@ struct P15SMAPR_JR3_fields_ {
     // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1,
   };
+
   // Access Group 1 Read
   using G1_READ = ftl::mmio::Field<1, 0, eG1_READ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access Group 1 Write
@@ -43233,7 +42694,6 @@ struct P15SMAPR_JR3 : ftl::mmio::Register<
   using CSP = P15SMAPR_JR3_fields_::CSP;
   using PARTITION_KMOD = P15SMAPR_JR3_fields_::PARTITION_KMOD;
 };
-
 
 // Secure Memory Access Group Registers
 struct P15SMAG2_JR3_fields_ {
@@ -43374,7 +42834,6 @@ struct P15SMAG2_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG2_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Access Group Registers
 struct P15SMAG1_JR3_fields_ {
   // Bit set to 1 indicates SecureWorld DID 00 is a member of Access Group x.
@@ -43514,7 +42973,6 @@ struct P15SMAG1_JR3 : ftl::mmio::Register<
   using Gx_ID31 = P15SMAG1_JR3_fields_::Gx_ID31;
 };
 
-
 // Secure Memory Command Register
 struct SMCR_JR3_fields_ {
   // Command: 1h: Allocate Page - This command allocates the page specified in the PAGE field to the partition specified in the PRTN field
@@ -43540,10 +42998,8 @@ struct SMCR_JR3 : ftl::mmio::Register<
   using PAGE = SMCR_JR3_fields_::PAGE;
 };
 
-
 // Secure Memory Command Status Register
 struct SMCSR_JR3_fields_ {
-
   enum class ePO : std::uint32_t {
     // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eAVAILABLE = 0,
@@ -43565,6 +43021,7 @@ struct SMCSR_JR3_fields_ {
     // Command Overflow. Another command was issued by the same Job Ring owner before the owner's previous command completed. The additional command was ignored.
     eCMD_OVERFLOW_ERROR = 3,
   };
+
   // Following a Page Inquiry Command, if the PO field is 10 or 11, this field indicates the partition to which the page specified in the PAGE field is allocated
   using PRTN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Page Owner: Following a Page Inquiry Command, this field indicates if the Page is owned by the entity that issued the inquiry, owned by another entity, or unowned
@@ -43599,7 +43056,6 @@ struct SMCSR_JR3 : ftl::mmio::Register<
   using PAGE = SMCSR_JR3_fields_::PAGE;
 };
 
-
 // Recoverable Error Interrupt Record 0 for Job Ring 3
 struct REIR0JR3_fields_ {
   // This field indicates the type of the recoverable error
@@ -43621,7 +43077,6 @@ struct REIR0JR3 : ftl::mmio::Register<
   using MISS = REIR0JR3_fields_::MISS;
 };
 
-
 // Recoverable Error Interrupt Record 2 for Job Ring 3
 struct REIR2JR3_fields_ {
   // Address associated with the recoverable JR error.
@@ -43637,7 +43092,6 @@ struct REIR2JR3 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using ADDR = REIR2JR3_fields_::ADDR;
 };
-
 
 // Recoverable Error Interrupt Record 4 for Job Ring 3
 struct REIR4JR3_fields_ {
@@ -43680,7 +43134,6 @@ struct REIR4JR3 : ftl::mmio::Register<
   using MIX = REIR4JR3_fields_::MIX;
 };
 
-
 // Recoverable Error Interrupt Record 5 for Job Ring 3
 struct REIR5JR3_fields_ {
   // This field holds the block identifier (see Internal Block ID) of the source of the AXI transaction associated with the recoverable error
@@ -43719,10 +43172,8 @@ struct REIR5JR3 : ftl::mmio::Register<
   using SMA = REIR5JR3_fields_::SMA;
 };
 
-
 // RTIC Status Register
 struct RSTA_fields_ {
-
   enum class eBSY : std::uint32_t {
     // RTIC Idle.
     eIDLE = 0,
@@ -43782,6 +43233,7 @@ struct RSTA_fields_ {
     // Error State
     eERROR = 3,
   };
+
   // RTIC Idle/Busy Status. When busy, the RTIC cannot be written to.
   using BSY = ftl::mmio::Field<1, 0, eBSY, ftl::mmio::RO, ftl::mmio::Normal>;
   // Hash Once Operation Completed (Hash Done)
@@ -43846,10 +43298,8 @@ struct RSTA : ftl::mmio::Register<
   using CS = RSTA_fields_::CS;
 };
 
-
 // RTIC Command Register
 struct RCMD_fields_ {
-
   enum class eCINT : std::uint32_t {
     // Do not clear interrupt
     eKEEP_INTR = 0,
@@ -43877,6 +43327,7 @@ struct RCMD_fields_ {
     // Prevent Run Time Mode
     eDISABLED = 1,
   };
+
   // Clear Interrupt
   using CINT = ftl::mmio::Field<1, 0, eCINT, ftl::mmio::WO, ftl::mmio::Normal>;
   // Hash once
@@ -43907,16 +43358,15 @@ struct RCMD : ftl::mmio::Register<
   using RTD = RCMD_fields_::RTD;
 };
 
-
 // RTIC Control Register
 struct RCTL_fields_ {
-
   enum class eIE : std::uint32_t {
     // Interrupts disabled
     eDISABLED = 0,
     // Interrupts enabled
     eENABLED = 1,
   };
+
   // Interrupt Enable
   using IE = ftl::mmio::Field<1, 0, eIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // RTIC Request Size
@@ -43956,7 +43406,6 @@ struct RCTL : ftl::mmio::Register<
   using RIDLE = RCTL_fields_::RIDLE;
 };
 
-
 // RTIC Throttle Register
 struct RTHR_fields_ {
   // Run Time Mode DMA Throttle
@@ -43970,9 +43419,8 @@ struct RTHR : ftl::mmio::Register<
     ftl::mmio::RW,
     RTHR_fields_::RTHR,
     ftl::mmio::Reserved<16, 16>> {
-  using value_ = RTHR_fields_::RTHR;
+  using VALUE = RTHR_fields_::RTHR;
 };
-
 
 // RTIC Watchdog Timer
 struct RWDOG_fields_ {
@@ -43987,13 +43435,11 @@ struct RWDOG : ftl::mmio::Register<
     ftl::mmio::RW,
     RWDOG_fields_::RWDOG,
     ftl::mmio::Reserved<32, 32>> {
-  using value_ = RWDOG_fields_::RWDOG;
+  using VALUE = RWDOG_fields_::RWDOG;
 };
-
 
 // RTIC Endian Register
 struct REND_fields_ {
-
   enum class eREPO : std::uint32_t {
     // Byte Swap Memory Block A
     eBYTE_SWAP_BLOCK_A = 1,
@@ -44013,6 +43459,7 @@ struct REND_fields_ {
     // Word Swap Memory Block A
     eWORD_SWAP_BLOCK_A = 1,
   };
+
   // RTIC Endian Platform Override
   using REPO = ftl::mmio::Field<4, 0, eREPO, ftl::mmio::RW, ftl::mmio::Normal>;
   // RTIC Byte Swap
@@ -44043,7 +43490,6 @@ struct REND : ftl::mmio::Register<
   using RWS = REND_fields_::RWS;
 };
 
-
 // Recoverable Error Interrupt Record 0 for RTIC
 struct REIR0RTIC_fields_ {
   // This field indicates the type of the recoverable error
@@ -44065,7 +43511,6 @@ struct REIR0RTIC : ftl::mmio::Register<
   using MISS = REIR0RTIC_fields_::MISS;
 };
 
-
 // Recoverable Error Interrupt Record 2 for RTIC
 struct REIR2RTIC_fields_ {
   // This register holds the address associated with the recoverable RTIC error.
@@ -44080,7 +43525,6 @@ struct REIR2RTIC : ftl::mmio::Register<
     REIR2RTIC_fields_::ADDR> {
   using ADDR = REIR2RTIC_fields_::ADDR;
 };
-
 
 // Recoverable Error Interrupt Record 4 for RTIC
 struct REIR4RTIC_fields_ {
@@ -44123,7 +43567,6 @@ struct REIR4RTIC : ftl::mmio::Register<
   using MIX = REIR4RTIC_fields_::MIX;
 };
 
-
 // Recoverable Error Interrupt Record 5 for RTIC
 struct REIR5RTIC_fields_ {
   // This field holds the block identifier (see Internal Block ID) of the source of the AXI transaction associated with the recoverable error
@@ -44150,10 +43593,8 @@ struct REIR5RTIC : ftl::mmio::Register<
   using SMA = REIR5RTIC_fields_::SMA;
 };
 
-
 // CCB 0 Class 1 Mode Register Format for Non-Public Key Algorithms
 struct C0C1MR_fields_ {
-
   enum class eENC : std::uint32_t {
     // Decrypt.
     eDECRYPT = 0,
@@ -44182,6 +43623,7 @@ struct C0C1MR_fields_ {
     // RNG
     eRNG = 80,
   };
+
   // Encrypt/Decrypt
   using ENC = ftl::mmio::Field<1, 0, eENC, ftl::mmio::RW, ftl::mmio::Normal>;
   // ICV Checking / Test AESA fault detection
@@ -44216,7 +43658,6 @@ struct C0C1MR : ftl::mmio::Register<
   using ALG = C0C1MR_fields_::ALG;
 };
 
-
 // CCB 0 Class 1 Mode Register Format for Public Key Algorithms
 struct C0C1MR_PK_fields_ {
   // PKHA_MODE least significant 12 bits
@@ -44238,10 +43679,8 @@ struct C0C1MR_PK : ftl::mmio::Register<
   using PKHA_MODE_MS = C0C1MR_PK_fields_::PKHA_MODE_MS;
 };
 
-
 // CCB 0 Class 1 Mode Register Format for RNG4
 struct C0C1MR_RNG_fields_ {
-
   enum class eSH : std::uint32_t {
     // State Handle 0
     eSH0 = 0,
@@ -44288,6 +43727,7 @@ struct C0C1MR_RNG_fields_ {
     // RNG
     eRNG = 80,
   };
+
   // Test Mode Request
   using TST = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Prediction Resistance
@@ -44347,7 +43787,6 @@ struct C0C1MR_RNG : ftl::mmio::Register<
   using ALG = C0C1MR_RNG_fields_::ALG;
 };
 
-
 // CCB 0 Class 1 Key Size Register
 struct C0C1KSR_fields_ {
   // Class 1 Key Size. This is the size of a Class 1 Key measured in bytes
@@ -44364,16 +43803,15 @@ struct C0C1KSR : ftl::mmio::Register<
   using C1KS = C0C1KSR_fields_::C1KS;
 };
 
-
 // CCB 0 Class 1 Data Size Register
 struct C0C1DSR_fields_ {
-
   enum class eC1CY : std::uint32_t {
     // No carry out of the C1 Data Size Reg.
     eNO_C1DS_CARRY = 0,
     // There was a carry out of the C1 Data Size Reg.
     eC1DS_CARRY = 1,
   };
+
   // Class 1 Data Size
   using C1DS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Class 1 Data Size Carry
@@ -44397,7 +43835,6 @@ struct C0C1DSR : ftl::mmio::Register<
   using NUMBITS = C0C1DSR_fields_::NUMBITS;
 };
 
-
 // CCB 0 Class 1 ICV Size Register
 struct C0C1ICVSR_fields_ {
   // Class 1 ICV Size, in Bytes.
@@ -44414,10 +43851,8 @@ struct C0C1ICVSR : ftl::mmio::Register<
   using C1ICVS = C0C1ICVSR_fields_::C1ICVS;
 };
 
-
 // CCB 0 CHA Control Register
 struct C0CCTRL_fields_ {
-
   enum class eCCB : std::uint32_t {
     // Do Not Reset
     eDO_NOT_CCB = 0,
@@ -44543,6 +43978,7 @@ struct C0CCTRL_fields_ {
     // Unload the PKHA B Memory into OFIFO.
     eUNLOAD_PKHA_B = 1,
   };
+
   // Reset CCB
   using CCB = ftl::mmio::Field<1, 0, eCCB, ftl::mmio::WO, ftl::mmio::Normal>;
   // Reset AESA. Writing a 1 to this bit resets the AES Accelerator.
@@ -44646,10 +44082,8 @@ struct C0CCTRL : ftl::mmio::Register<
   using UB = C0CCTRL_fields_::UB;
 };
 
-
 // CCB 0 Interrupt Control Register
 struct C0ICTL_fields_ {
-
   enum class eAEI : std::uint32_t {
     // No AESA error detected
     eNO_AESA_ERROR = 0,
@@ -44691,6 +44125,7 @@ struct C0ICTL_fields_ {
     // RNG error detected
     eRNG_ERROR = 1,
   };
+
   // AESA done interrupt
   using ADI = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // DESA done interrupt
@@ -44759,10 +44194,8 @@ struct C0ICTL : ftl::mmio::Register<
   using RNEI = C0ICTL_fields_::RNEI;
 };
 
-
 // CCB 0 Clear Written Register
 struct C0CWR_fields_ {
-
   enum class eC1M : std::uint32_t {
     // Don't clear the Class 1 Mode Register.
     eDONT_CLEAR_C1_MODE = 0,
@@ -44902,6 +44335,7 @@ struct C0CWR_fields_ {
     // Clear the IFIFO.
     eCLEAR_IFIFO = 1,
   };
+
   // Clear the Class 1 Mode Register
   using C1M = ftl::mmio::Field<1, 0, eC1M, ftl::mmio::WO, ftl::mmio::Normal>;
   // Clear the Class 1 Data Size Register
@@ -45017,10 +44451,8 @@ struct C0CWR : ftl::mmio::Register<
   using CIF = C0CWR_fields_::CIF;
 };
 
-
 // CCB 0 Status and Error Register, most-significant half
 struct C0CSTA_MS_fields_ {
-
   enum class eERRID1 : std::uint32_t {
     // Mode Error
     eMODE_ERROR = 1,
@@ -45090,6 +44522,7 @@ struct C0CSTA_MS_fields_ {
     // CRC
     eCRC = 9,
   };
+
   // Error ID 1
   using ERRID1 = ftl::mmio::Field<4, 0, eERRID1, ftl::mmio::RO, ftl::mmio::Normal>;
   // Class 1 algorithms
@@ -45121,10 +44554,8 @@ struct C0CSTA_MS : ftl::mmio::Register<
   using CL2 = C0CSTA_MS_fields_::CL2;
 };
 
-
 // CCB 0 Status and Error Register, least-significant half
 struct C0CSTA_LS_fields_ {
-
   enum class eAB : std::uint32_t {
     // AESA Idle
     eAESA_IDLE = 0,
@@ -45215,6 +44646,7 @@ struct C0CSTA_LS_fields_ {
     // The result of a Public Key operation is zero.
     ePK_RESULT_ZERO = 1,
   };
+
   // AESA Busy
   using AB = ftl::mmio::Field<1, 1, eAB, ftl::mmio::RO, ftl::mmio::Normal>;
   // DESA Busy
@@ -45295,7 +44727,6 @@ struct C0CSTA_LS : ftl::mmio::Register<
   using PIZ = C0CSTA_LS_fields_::PIZ;
 };
 
-
 // CCB 0 Class 1 AAD Size Register
 struct C0C1AADSZR_fields_ {
   // AAD size in Bytes, mod 16.
@@ -45311,7 +44742,6 @@ struct C0C1AADSZR : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 4>> {
   using AASZ = C0C1AADSZR_fields_::AASZ;
 };
-
 
 // CCB 0 Class 1 IV Size Register
 struct C0C1IVSZR_fields_ {
@@ -45329,7 +44759,6 @@ struct C0C1IVSZR : ftl::mmio::Register<
   using IVSZ = C0C1IVSZR_fields_::IVSZ;
 };
 
-
 // PKHA A Size Register
 struct C0PKASZR_fields_ {
   // PKHA A Memory key size in bytes.
@@ -45345,7 +44774,6 @@ struct C0PKASZR : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using PKASZ = C0PKASZR_fields_::PKASZ;
 };
-
 
 // PKHA B Size Register
 struct C0PKBSZR_fields_ {
@@ -45363,7 +44791,6 @@ struct C0PKBSZR : ftl::mmio::Register<
   using PKBSZ = C0PKBSZR_fields_::PKBSZ;
 };
 
-
 // PKHA N Size Register
 struct C0PKNSZR_fields_ {
   // PKHA N Memory key size in bytes.
@@ -45379,7 +44806,6 @@ struct C0PKNSZR : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using PKNSZ = C0PKNSZR_fields_::PKNSZ;
 };
-
 
 // PKHA E Size Register
 struct C0PKESZR_fields_ {
@@ -45397,7 +44823,6 @@ struct C0PKESZR : ftl::mmio::Register<
   using PKESZ = C0PKESZR_fields_::PKESZ;
 };
 
-
 // CCB 0 Class 1 Context Register Word 0
 struct C0C1CTXR0_fields_ {
   // Class 1 Context.
@@ -45412,7 +44837,6 @@ struct C0C1CTXR0 : ftl::mmio::Register<
     C0C1CTXR0_fields_::C1CTX> {
   using C1CTX = C0C1CTXR0_fields_::C1CTX;
 };
-
 
 // CCB 0 Class 1 Context Register Word 1
 struct C0C1CTXR1_fields_ {
@@ -45429,7 +44853,6 @@ struct C0C1CTXR1 : ftl::mmio::Register<
   using C1CTX = C0C1CTXR1_fields_::C1CTX;
 };
 
-
 // CCB 0 Class 1 Context Register Word 2
 struct C0C1CTXR2_fields_ {
   // Class 1 Context.
@@ -45444,7 +44867,6 @@ struct C0C1CTXR2 : ftl::mmio::Register<
     C0C1CTXR2_fields_::C1CTX> {
   using C1CTX = C0C1CTXR2_fields_::C1CTX;
 };
-
 
 // CCB 0 Class 1 Context Register Word 3
 struct C0C1CTXR3_fields_ {
@@ -45461,7 +44883,6 @@ struct C0C1CTXR3 : ftl::mmio::Register<
   using C1CTX = C0C1CTXR3_fields_::C1CTX;
 };
 
-
 // CCB 0 Class 1 Context Register Word 4
 struct C0C1CTXR4_fields_ {
   // Class 1 Context.
@@ -45476,7 +44897,6 @@ struct C0C1CTXR4 : ftl::mmio::Register<
     C0C1CTXR4_fields_::C1CTX> {
   using C1CTX = C0C1CTXR4_fields_::C1CTX;
 };
-
 
 // CCB 0 Class 1 Context Register Word 5
 struct C0C1CTXR5_fields_ {
@@ -45493,7 +44913,6 @@ struct C0C1CTXR5 : ftl::mmio::Register<
   using C1CTX = C0C1CTXR5_fields_::C1CTX;
 };
 
-
 // CCB 0 Class 1 Context Register Word 6
 struct C0C1CTXR6_fields_ {
   // Class 1 Context.
@@ -45508,7 +44927,6 @@ struct C0C1CTXR6 : ftl::mmio::Register<
     C0C1CTXR6_fields_::C1CTX> {
   using C1CTX = C0C1CTXR6_fields_::C1CTX;
 };
-
 
 // CCB 0 Class 1 Context Register Word 7
 struct C0C1CTXR7_fields_ {
@@ -45525,7 +44943,6 @@ struct C0C1CTXR7 : ftl::mmio::Register<
   using C1CTX = C0C1CTXR7_fields_::C1CTX;
 };
 
-
 // CCB 0 Class 1 Context Register Word 8
 struct C0C1CTXR8_fields_ {
   // Class 1 Context.
@@ -45540,7 +44957,6 @@ struct C0C1CTXR8 : ftl::mmio::Register<
     C0C1CTXR8_fields_::C1CTX> {
   using C1CTX = C0C1CTXR8_fields_::C1CTX;
 };
-
 
 // CCB 0 Class 1 Context Register Word 9
 struct C0C1CTXR9_fields_ {
@@ -45557,7 +44973,6 @@ struct C0C1CTXR9 : ftl::mmio::Register<
   using C1CTX = C0C1CTXR9_fields_::C1CTX;
 };
 
-
 // CCB 0 Class 1 Context Register Word 10
 struct C0C1CTXR10_fields_ {
   // Class 1 Context.
@@ -45572,7 +44987,6 @@ struct C0C1CTXR10 : ftl::mmio::Register<
     C0C1CTXR10_fields_::C1CTX> {
   using C1CTX = C0C1CTXR10_fields_::C1CTX;
 };
-
 
 // CCB 0 Class 1 Context Register Word 11
 struct C0C1CTXR11_fields_ {
@@ -45589,7 +45003,6 @@ struct C0C1CTXR11 : ftl::mmio::Register<
   using C1CTX = C0C1CTXR11_fields_::C1CTX;
 };
 
-
 // CCB 0 Class 1 Context Register Word 12
 struct C0C1CTXR12_fields_ {
   // Class 1 Context.
@@ -45604,7 +45017,6 @@ struct C0C1CTXR12 : ftl::mmio::Register<
     C0C1CTXR12_fields_::C1CTX> {
   using C1CTX = C0C1CTXR12_fields_::C1CTX;
 };
-
 
 // CCB 0 Class 1 Context Register Word 13
 struct C0C1CTXR13_fields_ {
@@ -45621,7 +45033,6 @@ struct C0C1CTXR13 : ftl::mmio::Register<
   using C1CTX = C0C1CTXR13_fields_::C1CTX;
 };
 
-
 // CCB 0 Class 1 Context Register Word 14
 struct C0C1CTXR14_fields_ {
   // Class 1 Context.
@@ -45636,7 +45047,6 @@ struct C0C1CTXR14 : ftl::mmio::Register<
     C0C1CTXR14_fields_::C1CTX> {
   using C1CTX = C0C1CTXR14_fields_::C1CTX;
 };
-
 
 // CCB 0 Class 1 Context Register Word 15
 struct C0C1CTXR15_fields_ {
@@ -45653,7 +45063,6 @@ struct C0C1CTXR15 : ftl::mmio::Register<
   using C1CTX = C0C1CTXR15_fields_::C1CTX;
 };
 
-
 // CCB 0 Class 1 Key Registers Word 0
 struct C0C1KR0_fields_ {
   // Class 1 Key.
@@ -45668,7 +45077,6 @@ struct C0C1KR0 : ftl::mmio::Register<
     C0C1KR0_fields_::C1KEY> {
   using C1KEY = C0C1KR0_fields_::C1KEY;
 };
-
 
 // CCB 0 Class 1 Key Registers Word 1
 struct C0C1KR1_fields_ {
@@ -45685,7 +45093,6 @@ struct C0C1KR1 : ftl::mmio::Register<
   using C1KEY = C0C1KR1_fields_::C1KEY;
 };
 
-
 // CCB 0 Class 1 Key Registers Word 2
 struct C0C1KR2_fields_ {
   // Class 1 Key.
@@ -45700,7 +45107,6 @@ struct C0C1KR2 : ftl::mmio::Register<
     C0C1KR2_fields_::C1KEY> {
   using C1KEY = C0C1KR2_fields_::C1KEY;
 };
-
 
 // CCB 0 Class 1 Key Registers Word 3
 struct C0C1KR3_fields_ {
@@ -45717,7 +45123,6 @@ struct C0C1KR3 : ftl::mmio::Register<
   using C1KEY = C0C1KR3_fields_::C1KEY;
 };
 
-
 // CCB 0 Class 1 Key Registers Word 4
 struct C0C1KR4_fields_ {
   // Class 1 Key.
@@ -45732,7 +45137,6 @@ struct C0C1KR4 : ftl::mmio::Register<
     C0C1KR4_fields_::C1KEY> {
   using C1KEY = C0C1KR4_fields_::C1KEY;
 };
-
 
 // CCB 0 Class 1 Key Registers Word 5
 struct C0C1KR5_fields_ {
@@ -45749,7 +45153,6 @@ struct C0C1KR5 : ftl::mmio::Register<
   using C1KEY = C0C1KR5_fields_::C1KEY;
 };
 
-
 // CCB 0 Class 1 Key Registers Word 6
 struct C0C1KR6_fields_ {
   // Class 1 Key.
@@ -45764,7 +45167,6 @@ struct C0C1KR6 : ftl::mmio::Register<
     C0C1KR6_fields_::C1KEY> {
   using C1KEY = C0C1KR6_fields_::C1KEY;
 };
-
 
 // CCB 0 Class 1 Key Registers Word 7
 struct C0C1KR7_fields_ {
@@ -45781,10 +45183,8 @@ struct C0C1KR7 : ftl::mmio::Register<
   using C1KEY = C0C1KR7_fields_::C1KEY;
 };
 
-
 // CCB 0 Class 2 Mode Register
 struct C0C2MR_fields_ {
-
   enum class eAP : std::uint32_t {
     // Authenticate
     eAUTHENTICATE = 0,
@@ -45830,6 +45230,7 @@ struct C0C2MR_fields_ {
     // CRC
     eCRC = 144,
   };
+
   // Authenticate / Protect
   using AP = ftl::mmio::Field<1, 0, eAP, ftl::mmio::RW, ftl::mmio::Normal>;
   // ICV Checking
@@ -45865,7 +45266,6 @@ struct C0C2MR : ftl::mmio::Register<
   using ALG = C0C2MR_fields_::ALG;
 };
 
-
 // CCB 0 Class 2 Key Size Register
 struct C0C2KSR_fields_ {
   // Class 2 key size in bytes.
@@ -45882,16 +45282,15 @@ struct C0C2KSR : ftl::mmio::Register<
   using C2KS = C0C2KSR_fields_::C2KS;
 };
 
-
 // CCB 0 Class 2 Data Size Register
 struct C0C2DSR_fields_ {
-
   enum class eC2CY : std::uint32_t {
     // A write to the Class 2 Data Size Register did not cause a carry.
     eNO_C2DS_CARRY = 0,
     // A write to the Class 2 Data Size Register caused a carry.
     eC2DS_CARRY = 1,
   };
+
   // Class 2 Data Size in Bytes
   using C2DS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Class 2 Data Size Carry
@@ -45915,7 +45314,6 @@ struct C0C2DSR : ftl::mmio::Register<
   using NUMBITS = C0C2DSR_fields_::NUMBITS;
 };
 
-
 // CCB 0 Class 2 ICV Size Register
 struct C0C2ICVSZR_fields_ {
   // Class 2 ICV size (mod 8) in bytes
@@ -45932,7 +45330,6 @@ struct C0C2ICVSZR : ftl::mmio::Register<
   using ICVSZ = C0C2ICVSZR_fields_::ICVSZ;
 };
 
-
 // CCB 0 Class 2 Context Register Word 0
 struct C0C2CTXR0_fields_ {
   // Class 2 Context.
@@ -45947,7 +45344,6 @@ struct C0C2CTXR0 : ftl::mmio::Register<
     C0C2CTXR0_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR0_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 1
 struct C0C2CTXR1_fields_ {
@@ -45964,7 +45360,6 @@ struct C0C2CTXR1 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR1_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Context Register Word 2
 struct C0C2CTXR2_fields_ {
   // Class 2 Context.
@@ -45979,7 +45374,6 @@ struct C0C2CTXR2 : ftl::mmio::Register<
     C0C2CTXR2_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR2_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 3
 struct C0C2CTXR3_fields_ {
@@ -45996,7 +45390,6 @@ struct C0C2CTXR3 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR3_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Context Register Word 4
 struct C0C2CTXR4_fields_ {
   // Class 2 Context.
@@ -46011,7 +45404,6 @@ struct C0C2CTXR4 : ftl::mmio::Register<
     C0C2CTXR4_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR4_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 5
 struct C0C2CTXR5_fields_ {
@@ -46028,7 +45420,6 @@ struct C0C2CTXR5 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR5_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Context Register Word 6
 struct C0C2CTXR6_fields_ {
   // Class 2 Context.
@@ -46043,7 +45434,6 @@ struct C0C2CTXR6 : ftl::mmio::Register<
     C0C2CTXR6_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR6_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 7
 struct C0C2CTXR7_fields_ {
@@ -46060,7 +45450,6 @@ struct C0C2CTXR7 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR7_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Context Register Word 8
 struct C0C2CTXR8_fields_ {
   // Class 2 Context.
@@ -46075,7 +45464,6 @@ struct C0C2CTXR8 : ftl::mmio::Register<
     C0C2CTXR8_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR8_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 9
 struct C0C2CTXR9_fields_ {
@@ -46092,7 +45480,6 @@ struct C0C2CTXR9 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR9_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Context Register Word 10
 struct C0C2CTXR10_fields_ {
   // Class 2 Context.
@@ -46107,7 +45494,6 @@ struct C0C2CTXR10 : ftl::mmio::Register<
     C0C2CTXR10_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR10_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 11
 struct C0C2CTXR11_fields_ {
@@ -46124,7 +45510,6 @@ struct C0C2CTXR11 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR11_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Context Register Word 12
 struct C0C2CTXR12_fields_ {
   // Class 2 Context.
@@ -46139,7 +45524,6 @@ struct C0C2CTXR12 : ftl::mmio::Register<
     C0C2CTXR12_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR12_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 13
 struct C0C2CTXR13_fields_ {
@@ -46156,7 +45540,6 @@ struct C0C2CTXR13 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR13_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Context Register Word 14
 struct C0C2CTXR14_fields_ {
   // Class 2 Context.
@@ -46171,7 +45554,6 @@ struct C0C2CTXR14 : ftl::mmio::Register<
     C0C2CTXR14_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR14_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 15
 struct C0C2CTXR15_fields_ {
@@ -46188,7 +45570,6 @@ struct C0C2CTXR15 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR15_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Context Register Word 16
 struct C0C2CTXR16_fields_ {
   // Class 2 Context.
@@ -46203,7 +45584,6 @@ struct C0C2CTXR16 : ftl::mmio::Register<
     C0C2CTXR16_fields_::C2CTXR> {
   using C2CTXR = C0C2CTXR16_fields_::C2CTXR;
 };
-
 
 // CCB 0 Class 2 Context Register Word 17
 struct C0C2CTXR17_fields_ {
@@ -46220,7 +45600,6 @@ struct C0C2CTXR17 : ftl::mmio::Register<
   using C2CTXR = C0C2CTXR17_fields_::C2CTXR;
 };
 
-
 // CCB 0 Class 2 Key Register Word 0
 struct C0C2KEYR0_fields_ {
   // Class 2 Key.
@@ -46235,7 +45614,6 @@ struct C0C2KEYR0 : ftl::mmio::Register<
     C0C2KEYR0_fields_::C2KEY> {
   using C2KEY = C0C2KEYR0_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 1
 struct C0C2KEYR1_fields_ {
@@ -46252,7 +45630,6 @@ struct C0C2KEYR1 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR1_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 2
 struct C0C2KEYR2_fields_ {
   // Class 2 Key.
@@ -46267,7 +45644,6 @@ struct C0C2KEYR2 : ftl::mmio::Register<
     C0C2KEYR2_fields_::C2KEY> {
   using C2KEY = C0C2KEYR2_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 3
 struct C0C2KEYR3_fields_ {
@@ -46284,7 +45660,6 @@ struct C0C2KEYR3 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR3_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 4
 struct C0C2KEYR4_fields_ {
   // Class 2 Key.
@@ -46299,7 +45674,6 @@ struct C0C2KEYR4 : ftl::mmio::Register<
     C0C2KEYR4_fields_::C2KEY> {
   using C2KEY = C0C2KEYR4_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 5
 struct C0C2KEYR5_fields_ {
@@ -46316,7 +45690,6 @@ struct C0C2KEYR5 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR5_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 6
 struct C0C2KEYR6_fields_ {
   // Class 2 Key.
@@ -46331,7 +45704,6 @@ struct C0C2KEYR6 : ftl::mmio::Register<
     C0C2KEYR6_fields_::C2KEY> {
   using C2KEY = C0C2KEYR6_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 7
 struct C0C2KEYR7_fields_ {
@@ -46348,7 +45720,6 @@ struct C0C2KEYR7 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR7_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 8
 struct C0C2KEYR8_fields_ {
   // Class 2 Key.
@@ -46363,7 +45734,6 @@ struct C0C2KEYR8 : ftl::mmio::Register<
     C0C2KEYR8_fields_::C2KEY> {
   using C2KEY = C0C2KEYR8_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 9
 struct C0C2KEYR9_fields_ {
@@ -46380,7 +45750,6 @@ struct C0C2KEYR9 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR9_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 10
 struct C0C2KEYR10_fields_ {
   // Class 2 Key.
@@ -46395,7 +45764,6 @@ struct C0C2KEYR10 : ftl::mmio::Register<
     C0C2KEYR10_fields_::C2KEY> {
   using C2KEY = C0C2KEYR10_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 11
 struct C0C2KEYR11_fields_ {
@@ -46412,7 +45780,6 @@ struct C0C2KEYR11 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR11_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 12
 struct C0C2KEYR12_fields_ {
   // Class 2 Key.
@@ -46427,7 +45794,6 @@ struct C0C2KEYR12 : ftl::mmio::Register<
     C0C2KEYR12_fields_::C2KEY> {
   using C2KEY = C0C2KEYR12_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 13
 struct C0C2KEYR13_fields_ {
@@ -46444,7 +45810,6 @@ struct C0C2KEYR13 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR13_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 14
 struct C0C2KEYR14_fields_ {
   // Class 2 Key.
@@ -46459,7 +45824,6 @@ struct C0C2KEYR14 : ftl::mmio::Register<
     C0C2KEYR14_fields_::C2KEY> {
   using C2KEY = C0C2KEYR14_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 15
 struct C0C2KEYR15_fields_ {
@@ -46476,7 +45840,6 @@ struct C0C2KEYR15 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR15_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 16
 struct C0C2KEYR16_fields_ {
   // Class 2 Key.
@@ -46491,7 +45854,6 @@ struct C0C2KEYR16 : ftl::mmio::Register<
     C0C2KEYR16_fields_::C2KEY> {
   using C2KEY = C0C2KEYR16_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 17
 struct C0C2KEYR17_fields_ {
@@ -46508,7 +45870,6 @@ struct C0C2KEYR17 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR17_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 18
 struct C0C2KEYR18_fields_ {
   // Class 2 Key.
@@ -46523,7 +45884,6 @@ struct C0C2KEYR18 : ftl::mmio::Register<
     C0C2KEYR18_fields_::C2KEY> {
   using C2KEY = C0C2KEYR18_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 19
 struct C0C2KEYR19_fields_ {
@@ -46540,7 +45900,6 @@ struct C0C2KEYR19 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR19_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 20
 struct C0C2KEYR20_fields_ {
   // Class 2 Key.
@@ -46555,7 +45914,6 @@ struct C0C2KEYR20 : ftl::mmio::Register<
     C0C2KEYR20_fields_::C2KEY> {
   using C2KEY = C0C2KEYR20_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 21
 struct C0C2KEYR21_fields_ {
@@ -46572,7 +45930,6 @@ struct C0C2KEYR21 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR21_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 22
 struct C0C2KEYR22_fields_ {
   // Class 2 Key.
@@ -46587,7 +45944,6 @@ struct C0C2KEYR22 : ftl::mmio::Register<
     C0C2KEYR22_fields_::C2KEY> {
   using C2KEY = C0C2KEYR22_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 23
 struct C0C2KEYR23_fields_ {
@@ -46604,7 +45960,6 @@ struct C0C2KEYR23 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR23_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 24
 struct C0C2KEYR24_fields_ {
   // Class 2 Key.
@@ -46619,7 +45974,6 @@ struct C0C2KEYR24 : ftl::mmio::Register<
     C0C2KEYR24_fields_::C2KEY> {
   using C2KEY = C0C2KEYR24_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 25
 struct C0C2KEYR25_fields_ {
@@ -46636,7 +45990,6 @@ struct C0C2KEYR25 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR25_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 26
 struct C0C2KEYR26_fields_ {
   // Class 2 Key.
@@ -46651,7 +46004,6 @@ struct C0C2KEYR26 : ftl::mmio::Register<
     C0C2KEYR26_fields_::C2KEY> {
   using C2KEY = C0C2KEYR26_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 27
 struct C0C2KEYR27_fields_ {
@@ -46668,7 +46020,6 @@ struct C0C2KEYR27 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR27_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 28
 struct C0C2KEYR28_fields_ {
   // Class 2 Key.
@@ -46683,7 +46034,6 @@ struct C0C2KEYR28 : ftl::mmio::Register<
     C0C2KEYR28_fields_::C2KEY> {
   using C2KEY = C0C2KEYR28_fields_::C2KEY;
 };
-
 
 // CCB 0 Class 2 Key Register Word 29
 struct C0C2KEYR29_fields_ {
@@ -46700,7 +46050,6 @@ struct C0C2KEYR29 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR29_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 30
 struct C0C2KEYR30_fields_ {
   // Class 2 Key.
@@ -46716,7 +46065,6 @@ struct C0C2KEYR30 : ftl::mmio::Register<
   using C2KEY = C0C2KEYR30_fields_::C2KEY;
 };
 
-
 // CCB 0 Class 2 Key Register Word 31
 struct C0C2KEYR31_fields_ {
   // Class 2 Key.
@@ -46731,7 +46079,6 @@ struct C0C2KEYR31 : ftl::mmio::Register<
     C0C2KEYR31_fields_::C2KEY> {
   using C2KEY = C0C2KEYR31_fields_::C2KEY;
 };
-
 
 // CCB 0 FIFO Status Register
 struct C0FIFOSTA_fields_ {
@@ -46760,10 +46107,8 @@ struct C0FIFOSTA : ftl::mmio::Register<
   using C1IQHEAD = C0FIFOSTA_fields_::C1IQHEAD;
 };
 
-
 // CCB 0 iNformation FIFO When STYPE != 10b
 struct C0NFIFO_fields_ {
-
   enum class eOC : std::uint32_t {
     // Allow the final word to be popped from the Output Data FIFO.
     ePOP_OFIFO_FINAL = 0,
@@ -46816,6 +46161,7 @@ struct C0NFIFO_fields_ {
     // Both Class 1 and Class 2.
     eCLASS_1_2 = 3,
   };
+
   // Data Length
   using DL = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
   // Additional Source Types
@@ -46881,10 +46227,8 @@ struct C0NFIFO : ftl::mmio::Register<
   using DEST = C0NFIFO_fields_::DEST;
 };
 
-
 // CCB 0 iNformation FIFO When STYPE == 10b
 struct C0NFIFO_2_fields_ {
-
   enum class ePS : std::uint32_t {
     // C2 CHA snoops pad data from padding block.
     eFROM_PAD_BLOCK = 0,
@@ -46970,6 +46314,7 @@ struct C0NFIFO_2_fields_ {
     // Both Class 1 and Class 2.
     eCLASS_1_2 = 3,
   };
+
   // Pad Length
   using PL = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::WO, ftl::mmio::Normal>;
   // Pad Snoop
@@ -47043,7 +46388,6 @@ struct C0NFIFO_2 : ftl::mmio::Register<
   using DEST = C0NFIFO_2_fields_::DEST;
 };
 
-
 // CCB 0 Input Data FIFO
 struct C0IFIFO_fields_ {
   // Input Data FIFO.
@@ -47058,7 +46402,6 @@ struct C0IFIFO : ftl::mmio::Register<
     C0IFIFO_fields_::IFIFO> {
   using IFIFO = C0IFIFO_fields_::IFIFO;
 };
-
 
 // CCB 0 Output Data FIFO
 struct C0OFIFO_fields_ {
@@ -47075,10 +46418,8 @@ struct C0OFIFO : ftl::mmio::Register<
   using OFIFO = C0OFIFO_fields_::OFIFO;
 };
 
-
 // DECO0 Job Queue Control Register, most-significant half
 struct D0JQCR_MS_fields_ {
-
   enum class eSRC : std::uint32_t {
     // Job Ring 0
     eJR0 = 0,
@@ -47147,6 +46488,7 @@ struct D0JQCR_MS_fields_ {
     // DECO has been told to execute the next command in the descriptor.
     eSTEP = 1,
   };
+
   // Job ID
   using ID = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Job Source
@@ -47213,7 +46555,6 @@ struct D0JQCR_MS : ftl::mmio::Register<
   using STEP = D0JQCR_MS_fields_::STEP;
 };
 
-
 // DECO0 Job Queue Control Register, least-significant half
 struct D0JQCR_LS_fields_ {
   // Command
@@ -47228,7 +46569,6 @@ struct D0JQCR_LS : ftl::mmio::Register<
     D0JQCR_LS_fields_::CMD> {
   using CMD = D0JQCR_LS_fields_::CMD;
 };
-
 
 // DECO0 Descriptor Address Register
 struct D0DAR_fields_ {
@@ -47246,10 +46586,8 @@ struct D0DAR : ftl::mmio::Register<
   using DPTR = D0DAR_fields_::DPTR;
 };
 
-
 // DECO0 Operation Status Register, most-significant half
 struct D0OPSTA_MS_fields_ {
-
   enum class eNLJ : std::uint32_t {
     // The original job descriptor running in this DECO has not caused another job descriptor to be executed.
     eORIGINAL_DESC = 0,
@@ -47271,6 +46609,7 @@ struct D0OPSTA_MS_fields_ {
     // Jump Halt Condition Code
     eJHALT_COND = 7,
   };
+
   // If ERRTYP indicates no error, this field contains PKHA/Math Status, as defined below
   using STATUS = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Command index: A pointer to a 32-bit word within the descriptor
@@ -47299,7 +46638,6 @@ struct D0OPSTA_MS : ftl::mmio::Register<
   using STATUS_TYPE = D0OPSTA_MS_fields_::STATUS_TYPE;
 };
 
-
 // DECO0 Operation Status Register, least-significant half
 struct D0OPSTA_LS_fields_ {
   // Output Count. Number of bytes written to sequential out pointer.
@@ -47314,7 +46652,6 @@ struct D0OPSTA_LS : ftl::mmio::Register<
     D0OPSTA_LS_fields_::OUT_CT> {
   using OUT_CT = D0OPSTA_LS_fields_::OUT_CT;
 };
-
 
 // DECO0 Primary DID Status Register
 struct D0PDIDSR_fields_ {
@@ -47337,7 +46674,6 @@ struct D0PDIDSR : ftl::mmio::Register<
   using PRIM_ICID = D0PDIDSR_fields_::PRIM_ICID;
 };
 
-
 // DECO0 Output DID Status Register
 struct D0ODIDSR_fields_ {
   // DECO Output DID
@@ -47359,7 +46695,6 @@ struct D0ODIDSR : ftl::mmio::Register<
   using OUT_ICID = D0ODIDSR_fields_::OUT_ICID;
 };
 
-
 // DECO0 Math Register 0_MS
 struct D0MTH0_MS_fields_ {
   // MATH register, most-significant 32 bits.
@@ -47374,7 +46709,6 @@ struct D0MTH0_MS : ftl::mmio::Register<
     D0MTH0_MS_fields_::MATH_MS> {
   using MATH_MS = D0MTH0_MS_fields_::MATH_MS;
 };
-
 
 // DECO0 Math Register 0_LS
 struct D0MTH0_LS_fields_ {
@@ -47391,7 +46725,6 @@ struct D0MTH0_LS : ftl::mmio::Register<
   using MATH_LS = D0MTH0_LS_fields_::MATH_LS;
 };
 
-
 // DECO0 Math Register 1_MS
 struct D0MTH1_MS_fields_ {
   // MATH register, most-significant 32 bits.
@@ -47406,7 +46739,6 @@ struct D0MTH1_MS : ftl::mmio::Register<
     D0MTH1_MS_fields_::MATH_MS> {
   using MATH_MS = D0MTH1_MS_fields_::MATH_MS;
 };
-
 
 // DECO0 Math Register 1_LS
 struct D0MTH1_LS_fields_ {
@@ -47423,7 +46755,6 @@ struct D0MTH1_LS : ftl::mmio::Register<
   using MATH_LS = D0MTH1_LS_fields_::MATH_LS;
 };
 
-
 // DECO0 Math Register 2_MS
 struct D0MTH2_MS_fields_ {
   // MATH register, most-significant 32 bits.
@@ -47438,7 +46769,6 @@ struct D0MTH2_MS : ftl::mmio::Register<
     D0MTH2_MS_fields_::MATH_MS> {
   using MATH_MS = D0MTH2_MS_fields_::MATH_MS;
 };
-
 
 // DECO0 Math Register 2_LS
 struct D0MTH2_LS_fields_ {
@@ -47455,7 +46785,6 @@ struct D0MTH2_LS : ftl::mmio::Register<
   using MATH_LS = D0MTH2_LS_fields_::MATH_LS;
 };
 
-
 // DECO0 Math Register 3_MS
 struct D0MTH3_MS_fields_ {
   // MATH register, most-significant 32 bits.
@@ -47471,7 +46800,6 @@ struct D0MTH3_MS : ftl::mmio::Register<
   using MATH_MS = D0MTH3_MS_fields_::MATH_MS;
 };
 
-
 // DECO0 Math Register 3_LS
 struct D0MTH3_LS_fields_ {
   // MATH register, least-significant 32 bits.
@@ -47486,7 +46814,6 @@ struct D0MTH3_LS : ftl::mmio::Register<
     D0MTH3_LS_fields_::MATH_LS> {
   using MATH_LS = D0MTH3_LS_fields_::MATH_LS;
 };
-
 
 // DECO0 Gather Table Register 0 Word 0
 struct D0GTR0_0_fields_ {
@@ -47504,7 +46831,6 @@ struct D0GTR0_0 : ftl::mmio::Register<
   using ADDRESS_POINTER = D0GTR0_0_fields_::ADDRESS_POINTER;
 };
 
-
 // DECO0 Gather Table Register 0 Word 1
 struct D0GTR0_1_fields_ {
   // This field holds the least-significant 32 bits of the memory address to which this table entry points
@@ -47520,10 +46846,8 @@ struct D0GTR0_1 : ftl::mmio::Register<
   using ADDRESS_POINTER = D0GTR0_1_fields_::ADDRESS_POINTER;
 };
 
-
 // DECO0 Gather Table Register 0 Word 2
 struct D0GTR0_2_fields_ {
-
   enum class eF : std::uint32_t {
     // This is not the last entry of the SGT.
     eNOT_LAST = 0,
@@ -47537,6 +46861,7 @@ struct D0GTR0_2_fields_ {
     // Address Pointer points to a Scatter/Gather Table Entry.
     eSGTE = 1,
   };
+
   // This field specifies how many bytes of data (for Gather Tables) or available space (for Scatter Tables) are located at the address pointed to by the Address Pointer
   using Length = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Final Bit. If set, this is the last entry of this Scatter/Gather Table.
@@ -47560,7 +46885,6 @@ struct D0GTR0_2 : ftl::mmio::Register<
   using E = D0GTR0_2_fields_::E;
 };
 
-
 // DECO0 Gather Table Register 0 Word 3
 struct D0GTR0_3_fields_ {
   // Offset (measured in bytes) into memory where significant data is to be found
@@ -47576,7 +46900,6 @@ struct D0GTR0_3 : ftl::mmio::Register<
     ftl::mmio::Reserved<19, 13>> {
   using Offset = D0GTR0_3_fields_::Offset;
 };
-
 
 // DECO0 Scatter Table Register 0 Word 0
 struct D0STR0_0_fields_ {
@@ -47594,7 +46917,6 @@ struct D0STR0_0 : ftl::mmio::Register<
   using ADDRESS_POINTER = D0STR0_0_fields_::ADDRESS_POINTER;
 };
 
-
 // DECO0 Scatter Table Register 0 Word 1
 struct D0STR0_1_fields_ {
   // This field holds the least-significant 32 bits of the memory address to which this table entry points
@@ -47610,10 +46932,8 @@ struct D0STR0_1 : ftl::mmio::Register<
   using ADDRESS_POINTER = D0STR0_1_fields_::ADDRESS_POINTER;
 };
 
-
 // DECO0 Scatter Table Register 0 Word 2
 struct D0STR0_2_fields_ {
-
   enum class eF : std::uint32_t {
     // This is not the last entry of the SGT.
     eNOT_LAST = 0,
@@ -47627,6 +46947,7 @@ struct D0STR0_2_fields_ {
     // Address Pointer points to a Scatter/Gather Table Entry.
     eSGTE = 1,
   };
+
   // This field specifies how many bytes of data (for Gather Tables) or available space (for Scatter Tables) are located at the address pointed to by the Address Pointer
   using Length = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Final Bit. If set, this is the last entry of this Scatter/Gather Table.
@@ -47650,7 +46971,6 @@ struct D0STR0_2 : ftl::mmio::Register<
   using E = D0STR0_2_fields_::E;
 };
 
-
 // DECO0 Scatter Table Register 0 Word 3
 struct D0STR0_3_fields_ {
   // Offset (measured in bytes) into memory where significant data is to be found
@@ -47667,7 +46987,6 @@ struct D0STR0_3 : ftl::mmio::Register<
   using Offset = D0STR0_3_fields_::Offset;
 };
 
-
 // DECO0 Descriptor Buffer Word 0
 struct D0DESB0_fields_ {
   // Descriptor Buffer Word
@@ -47682,7 +47001,6 @@ struct D0DESB0 : ftl::mmio::Register<
     D0DESB0_fields_::DESBW> {
   using DESBW = D0DESB0_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 1
 struct D0DESB1_fields_ {
@@ -47699,7 +47017,6 @@ struct D0DESB1 : ftl::mmio::Register<
   using DESBW = D0DESB1_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 2
 struct D0DESB2_fields_ {
   // Descriptor Buffer Word
@@ -47714,7 +47031,6 @@ struct D0DESB2 : ftl::mmio::Register<
     D0DESB2_fields_::DESBW> {
   using DESBW = D0DESB2_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 3
 struct D0DESB3_fields_ {
@@ -47731,7 +47047,6 @@ struct D0DESB3 : ftl::mmio::Register<
   using DESBW = D0DESB3_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 4
 struct D0DESB4_fields_ {
   // Descriptor Buffer Word
@@ -47746,7 +47061,6 @@ struct D0DESB4 : ftl::mmio::Register<
     D0DESB4_fields_::DESBW> {
   using DESBW = D0DESB4_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 5
 struct D0DESB5_fields_ {
@@ -47763,7 +47077,6 @@ struct D0DESB5 : ftl::mmio::Register<
   using DESBW = D0DESB5_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 6
 struct D0DESB6_fields_ {
   // Descriptor Buffer Word
@@ -47778,7 +47091,6 @@ struct D0DESB6 : ftl::mmio::Register<
     D0DESB6_fields_::DESBW> {
   using DESBW = D0DESB6_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 7
 struct D0DESB7_fields_ {
@@ -47795,7 +47107,6 @@ struct D0DESB7 : ftl::mmio::Register<
   using DESBW = D0DESB7_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 8
 struct D0DESB8_fields_ {
   // Descriptor Buffer Word
@@ -47810,7 +47121,6 @@ struct D0DESB8 : ftl::mmio::Register<
     D0DESB8_fields_::DESBW> {
   using DESBW = D0DESB8_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 9
 struct D0DESB9_fields_ {
@@ -47827,7 +47137,6 @@ struct D0DESB9 : ftl::mmio::Register<
   using DESBW = D0DESB9_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 10
 struct D0DESB10_fields_ {
   // Descriptor Buffer Word
@@ -47842,7 +47151,6 @@ struct D0DESB10 : ftl::mmio::Register<
     D0DESB10_fields_::DESBW> {
   using DESBW = D0DESB10_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 11
 struct D0DESB11_fields_ {
@@ -47859,7 +47167,6 @@ struct D0DESB11 : ftl::mmio::Register<
   using DESBW = D0DESB11_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 12
 struct D0DESB12_fields_ {
   // Descriptor Buffer Word
@@ -47874,7 +47181,6 @@ struct D0DESB12 : ftl::mmio::Register<
     D0DESB12_fields_::DESBW> {
   using DESBW = D0DESB12_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 13
 struct D0DESB13_fields_ {
@@ -47891,7 +47197,6 @@ struct D0DESB13 : ftl::mmio::Register<
   using DESBW = D0DESB13_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 14
 struct D0DESB14_fields_ {
   // Descriptor Buffer Word
@@ -47906,7 +47211,6 @@ struct D0DESB14 : ftl::mmio::Register<
     D0DESB14_fields_::DESBW> {
   using DESBW = D0DESB14_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 15
 struct D0DESB15_fields_ {
@@ -47923,7 +47227,6 @@ struct D0DESB15 : ftl::mmio::Register<
   using DESBW = D0DESB15_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 16
 struct D0DESB16_fields_ {
   // Descriptor Buffer Word
@@ -47938,7 +47241,6 @@ struct D0DESB16 : ftl::mmio::Register<
     D0DESB16_fields_::DESBW> {
   using DESBW = D0DESB16_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 17
 struct D0DESB17_fields_ {
@@ -47955,7 +47257,6 @@ struct D0DESB17 : ftl::mmio::Register<
   using DESBW = D0DESB17_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 18
 struct D0DESB18_fields_ {
   // Descriptor Buffer Word
@@ -47970,7 +47271,6 @@ struct D0DESB18 : ftl::mmio::Register<
     D0DESB18_fields_::DESBW> {
   using DESBW = D0DESB18_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 19
 struct D0DESB19_fields_ {
@@ -47987,7 +47287,6 @@ struct D0DESB19 : ftl::mmio::Register<
   using DESBW = D0DESB19_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 20
 struct D0DESB20_fields_ {
   // Descriptor Buffer Word
@@ -48002,7 +47301,6 @@ struct D0DESB20 : ftl::mmio::Register<
     D0DESB20_fields_::DESBW> {
   using DESBW = D0DESB20_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 21
 struct D0DESB21_fields_ {
@@ -48019,7 +47317,6 @@ struct D0DESB21 : ftl::mmio::Register<
   using DESBW = D0DESB21_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 22
 struct D0DESB22_fields_ {
   // Descriptor Buffer Word
@@ -48034,7 +47331,6 @@ struct D0DESB22 : ftl::mmio::Register<
     D0DESB22_fields_::DESBW> {
   using DESBW = D0DESB22_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 23
 struct D0DESB23_fields_ {
@@ -48051,7 +47347,6 @@ struct D0DESB23 : ftl::mmio::Register<
   using DESBW = D0DESB23_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 24
 struct D0DESB24_fields_ {
   // Descriptor Buffer Word
@@ -48066,7 +47361,6 @@ struct D0DESB24 : ftl::mmio::Register<
     D0DESB24_fields_::DESBW> {
   using DESBW = D0DESB24_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 25
 struct D0DESB25_fields_ {
@@ -48083,7 +47377,6 @@ struct D0DESB25 : ftl::mmio::Register<
   using DESBW = D0DESB25_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 26
 struct D0DESB26_fields_ {
   // Descriptor Buffer Word
@@ -48098,7 +47391,6 @@ struct D0DESB26 : ftl::mmio::Register<
     D0DESB26_fields_::DESBW> {
   using DESBW = D0DESB26_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 27
 struct D0DESB27_fields_ {
@@ -48115,7 +47407,6 @@ struct D0DESB27 : ftl::mmio::Register<
   using DESBW = D0DESB27_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 28
 struct D0DESB28_fields_ {
   // Descriptor Buffer Word
@@ -48130,7 +47421,6 @@ struct D0DESB28 : ftl::mmio::Register<
     D0DESB28_fields_::DESBW> {
   using DESBW = D0DESB28_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 29
 struct D0DESB29_fields_ {
@@ -48147,7 +47437,6 @@ struct D0DESB29 : ftl::mmio::Register<
   using DESBW = D0DESB29_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 30
 struct D0DESB30_fields_ {
   // Descriptor Buffer Word
@@ -48162,7 +47451,6 @@ struct D0DESB30 : ftl::mmio::Register<
     D0DESB30_fields_::DESBW> {
   using DESBW = D0DESB30_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 31
 struct D0DESB31_fields_ {
@@ -48179,7 +47467,6 @@ struct D0DESB31 : ftl::mmio::Register<
   using DESBW = D0DESB31_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 32
 struct D0DESB32_fields_ {
   // Descriptor Buffer Word
@@ -48194,7 +47481,6 @@ struct D0DESB32 : ftl::mmio::Register<
     D0DESB32_fields_::DESBW> {
   using DESBW = D0DESB32_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 33
 struct D0DESB33_fields_ {
@@ -48211,7 +47497,6 @@ struct D0DESB33 : ftl::mmio::Register<
   using DESBW = D0DESB33_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 34
 struct D0DESB34_fields_ {
   // Descriptor Buffer Word
@@ -48226,7 +47511,6 @@ struct D0DESB34 : ftl::mmio::Register<
     D0DESB34_fields_::DESBW> {
   using DESBW = D0DESB34_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 35
 struct D0DESB35_fields_ {
@@ -48243,7 +47527,6 @@ struct D0DESB35 : ftl::mmio::Register<
   using DESBW = D0DESB35_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 36
 struct D0DESB36_fields_ {
   // Descriptor Buffer Word
@@ -48258,7 +47541,6 @@ struct D0DESB36 : ftl::mmio::Register<
     D0DESB36_fields_::DESBW> {
   using DESBW = D0DESB36_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 37
 struct D0DESB37_fields_ {
@@ -48275,7 +47557,6 @@ struct D0DESB37 : ftl::mmio::Register<
   using DESBW = D0DESB37_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 38
 struct D0DESB38_fields_ {
   // Descriptor Buffer Word
@@ -48290,7 +47571,6 @@ struct D0DESB38 : ftl::mmio::Register<
     D0DESB38_fields_::DESBW> {
   using DESBW = D0DESB38_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 39
 struct D0DESB39_fields_ {
@@ -48307,7 +47587,6 @@ struct D0DESB39 : ftl::mmio::Register<
   using DESBW = D0DESB39_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 40
 struct D0DESB40_fields_ {
   // Descriptor Buffer Word
@@ -48322,7 +47601,6 @@ struct D0DESB40 : ftl::mmio::Register<
     D0DESB40_fields_::DESBW> {
   using DESBW = D0DESB40_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 41
 struct D0DESB41_fields_ {
@@ -48339,7 +47617,6 @@ struct D0DESB41 : ftl::mmio::Register<
   using DESBW = D0DESB41_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 42
 struct D0DESB42_fields_ {
   // Descriptor Buffer Word
@@ -48354,7 +47631,6 @@ struct D0DESB42 : ftl::mmio::Register<
     D0DESB42_fields_::DESBW> {
   using DESBW = D0DESB42_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 43
 struct D0DESB43_fields_ {
@@ -48371,7 +47647,6 @@ struct D0DESB43 : ftl::mmio::Register<
   using DESBW = D0DESB43_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 44
 struct D0DESB44_fields_ {
   // Descriptor Buffer Word
@@ -48386,7 +47661,6 @@ struct D0DESB44 : ftl::mmio::Register<
     D0DESB44_fields_::DESBW> {
   using DESBW = D0DESB44_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 45
 struct D0DESB45_fields_ {
@@ -48403,7 +47677,6 @@ struct D0DESB45 : ftl::mmio::Register<
   using DESBW = D0DESB45_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 46
 struct D0DESB46_fields_ {
   // Descriptor Buffer Word
@@ -48418,7 +47691,6 @@ struct D0DESB46 : ftl::mmio::Register<
     D0DESB46_fields_::DESBW> {
   using DESBW = D0DESB46_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 47
 struct D0DESB47_fields_ {
@@ -48435,7 +47707,6 @@ struct D0DESB47 : ftl::mmio::Register<
   using DESBW = D0DESB47_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 48
 struct D0DESB48_fields_ {
   // Descriptor Buffer Word
@@ -48450,7 +47721,6 @@ struct D0DESB48 : ftl::mmio::Register<
     D0DESB48_fields_::DESBW> {
   using DESBW = D0DESB48_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 49
 struct D0DESB49_fields_ {
@@ -48467,7 +47737,6 @@ struct D0DESB49 : ftl::mmio::Register<
   using DESBW = D0DESB49_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 50
 struct D0DESB50_fields_ {
   // Descriptor Buffer Word
@@ -48482,7 +47751,6 @@ struct D0DESB50 : ftl::mmio::Register<
     D0DESB50_fields_::DESBW> {
   using DESBW = D0DESB50_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 51
 struct D0DESB51_fields_ {
@@ -48499,7 +47767,6 @@ struct D0DESB51 : ftl::mmio::Register<
   using DESBW = D0DESB51_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 52
 struct D0DESB52_fields_ {
   // Descriptor Buffer Word
@@ -48514,7 +47781,6 @@ struct D0DESB52 : ftl::mmio::Register<
     D0DESB52_fields_::DESBW> {
   using DESBW = D0DESB52_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 53
 struct D0DESB53_fields_ {
@@ -48531,7 +47797,6 @@ struct D0DESB53 : ftl::mmio::Register<
   using DESBW = D0DESB53_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 54
 struct D0DESB54_fields_ {
   // Descriptor Buffer Word
@@ -48546,7 +47811,6 @@ struct D0DESB54 : ftl::mmio::Register<
     D0DESB54_fields_::DESBW> {
   using DESBW = D0DESB54_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 55
 struct D0DESB55_fields_ {
@@ -48563,7 +47827,6 @@ struct D0DESB55 : ftl::mmio::Register<
   using DESBW = D0DESB55_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 56
 struct D0DESB56_fields_ {
   // Descriptor Buffer Word
@@ -48578,7 +47841,6 @@ struct D0DESB56 : ftl::mmio::Register<
     D0DESB56_fields_::DESBW> {
   using DESBW = D0DESB56_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 57
 struct D0DESB57_fields_ {
@@ -48595,7 +47857,6 @@ struct D0DESB57 : ftl::mmio::Register<
   using DESBW = D0DESB57_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 58
 struct D0DESB58_fields_ {
   // Descriptor Buffer Word
@@ -48610,7 +47871,6 @@ struct D0DESB58 : ftl::mmio::Register<
     D0DESB58_fields_::DESBW> {
   using DESBW = D0DESB58_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 59
 struct D0DESB59_fields_ {
@@ -48627,7 +47887,6 @@ struct D0DESB59 : ftl::mmio::Register<
   using DESBW = D0DESB59_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 60
 struct D0DESB60_fields_ {
   // Descriptor Buffer Word
@@ -48642,7 +47901,6 @@ struct D0DESB60 : ftl::mmio::Register<
     D0DESB60_fields_::DESBW> {
   using DESBW = D0DESB60_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 61
 struct D0DESB61_fields_ {
@@ -48659,7 +47917,6 @@ struct D0DESB61 : ftl::mmio::Register<
   using DESBW = D0DESB61_fields_::DESBW;
 };
 
-
 // DECO0 Descriptor Buffer Word 62
 struct D0DESB62_fields_ {
   // Descriptor Buffer Word
@@ -48674,7 +47931,6 @@ struct D0DESB62 : ftl::mmio::Register<
     D0DESB62_fields_::DESBW> {
   using DESBW = D0DESB62_fields_::DESBW;
 };
-
 
 // DECO0 Descriptor Buffer Word 63
 struct D0DESB63_fields_ {
@@ -48691,10 +47947,8 @@ struct D0DESB63 : ftl::mmio::Register<
   using DESBW = D0DESB63_fields_::DESBW;
 };
 
-
 // DECO0 Debug Job Register
 struct D0DJR_fields_ {
-
   enum class eSRC : std::uint32_t {
     // Job Ring 0
     eJR0 = 0,
@@ -48770,6 +48024,7 @@ struct D0DJR_fields_ {
     // DECO has been told to execute the next command in the descriptor.
     eSTEP = 1,
   };
+
   // Job ID
   using ID = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Job Source
@@ -48841,10 +48096,8 @@ struct D0DJR : ftl::mmio::Register<
   using STEP = D0DJR_fields_::STEP;
 };
 
-
 // DECO0 Debug DECO Register
 struct D0DDR_fields_ {
-
   enum class eCT : std::uint32_t {
     // This DECO is NOTcurrently generating the signature of a Trusted Descriptor.
     eNOT_CHECKING = 0,
@@ -48918,6 +48171,7 @@ struct D0DDR_fields_ {
     // There is currently a descriptor running in this DECO.
     eDESC_RUNNING = 1,
   };
+
   // Checking Trusted
   using CT = ftl::mmio::Field<1, 0, eCT, ftl::mmio::RO, ftl::mmio::Normal>;
   // Burster Read Busy
@@ -49005,7 +48259,6 @@ struct D0DDR : ftl::mmio::Register<
   using VALID = D0DDR_fields_::VALID;
 };
 
-
 // DECO0 Debug Job Pointer
 struct D0DJP_fields_ {
   // Job Descriptor Pointer.
@@ -49021,7 +48274,6 @@ struct D0DJP : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 36>> {
   using JDPTR = D0DJP_fields_::JDPTR;
 };
-
 
 // DECO0 Debug Shared Pointer
 struct D0SDP_fields_ {
@@ -49039,16 +48291,15 @@ struct D0SDP : ftl::mmio::Register<
   using SDPTR = D0SDP_fields_::SDPTR;
 };
 
-
 // DECO0 Debug DID, most-significant half
 struct D0DDR_MS_fields_ {
-
   enum class ePRIM_TZ : std::uint32_t {
     // TrustZone NonSecureWorld
     eNONSECUREWORLD = 0,
     // TrustZone SecureWorld
     eSECUREWORLD = 1,
   };
+
   // Primary DID
   using PRIM_DID = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Primary TZ
@@ -49080,7 +48331,6 @@ struct D0DDR_MS : ftl::mmio::Register<
   using OUT_ICID = D0DDR_MS_fields_::OUT_ICID;
 };
 
-
 // DECO0 Debug DID, least-significant half
 struct D0DDR_LS_fields_ {
   // DECO Output Domain Identifier
@@ -49102,7 +48352,6 @@ struct D0DDR_LS : ftl::mmio::Register<
   using OUT_ICID = D0DDR_LS_fields_::OUT_ICID;
 };
 
-
 // Sequence Output Length Register
 struct SOL0_fields_ {
   // Output Sequence Length
@@ -49117,7 +48366,6 @@ struct SOL0 : ftl::mmio::Register<
     SOL0_fields_::SOL> {
   using SOL = SOL0_fields_::SOL;
 };
-
 
 // Variable Sequence Output Length Register
 struct VSOL0_fields_ {
@@ -49134,7 +48382,6 @@ struct VSOL0 : ftl::mmio::Register<
   using VSOL = VSOL0_fields_::VSOL;
 };
 
-
 // Sequence Input Length Register
 struct SIL0_fields_ {
   // This value is used in input data sequences
@@ -49149,7 +48396,6 @@ struct SIL0 : ftl::mmio::Register<
     SIL0_fields_::SIL> {
   using SIL = SIL0_fields_::SIL;
 };
-
 
 // Variable Sequence Input Length Register
 struct VSIL0_fields_ {
@@ -49166,7 +48412,6 @@ struct VSIL0 : ftl::mmio::Register<
   using VSIL = VSIL0_fields_::VSIL;
 };
 
-
 // Protocol Override Register
 struct D0POVRD_fields_ {
   // DPOVRD can be used as a general purpose math register.
@@ -49181,7 +48426,6 @@ struct D0POVRD : ftl::mmio::Register<
     D0POVRD_fields_::DPOVRD> {
   using DPOVRD = D0POVRD_fields_::DPOVRD;
 };
-
 
 // Variable Sequence Output Length Register; Upper 32 bits
 struct UVSOL0_fields_ {
@@ -49198,7 +48442,6 @@ struct UVSOL0 : ftl::mmio::Register<
   using UVSOL = UVSOL0_fields_::UVSOL;
 };
 
-
 // Variable Sequence Input Length Register; Upper 32 bits
 struct UVSIL0_fields_ {
   // This value is used in variable-length input data sequences
@@ -49213,7 +48456,6 @@ struct UVSIL0 : ftl::mmio::Register<
     UVSIL0_fields_::UVSIL> {
   using UVSIL = UVSIL0_fields_::UVSIL;
 };
-
 
 // Job Ring Job_Ring DID Register - most significant half
 struct JRDID_MS_fields_ {
@@ -49265,7 +48507,6 @@ struct JRDID_MS : ftl::mmio::Register<
   using LDID = JRDID_MS_fields_::LDID;
 };
 
-
 // Job Ring Job_Ring DID Register - least significant half
 struct JRDID_LS_fields_ {
   // Output DID
@@ -49289,7 +48530,6 @@ struct JRDID_LS : ftl::mmio::Register<
   using OUT_ICID = JRDID_LS_fields_::OUT_ICID;
 };
 
-
 // RTIC DID Register for Block RTIC_hash_block
 struct RTIC_DID_fields_ {
   // RTIC DID
@@ -49312,11 +48552,10 @@ struct RTIC_DID : ftl::mmio::Register<
     RTIC_DID_fields_::RTIC_ICID,
     ftl::mmio::Reserved<2, 30>> {
   static_assert(ClusterIndex < 4u, "RTIC_DID: ClusterIndex out of range");
-  using value_ = RTIC_DID_fields_::RTIC_DID;
+  using VALUE = RTIC_DID_fields_::RTIC_DID;
   using RTIC_TZ = RTIC_DID_fields_::RTIC_TZ;
   using RTIC_ICID = RTIC_DID_fields_::RTIC_ICID;
 };
-
 
 // Job Ring Job_Ring Secure Memory Virtual Base Address Register
 struct JRSMVBAR_fields_ {

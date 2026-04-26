@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::iomuxc_lpsr_gpr {
 
-
 // GPR0 General Purpose Register
 struct GPR0_fields_ {
-
   enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
@@ -33,6 +31,7 @@ struct GPR0_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // CM4 Vector table offset value lower bits out of reset
   using CM4_INIT_VTOR_LOW = ftl::mmio::Field<13, 3, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Domain write protection
@@ -58,10 +57,8 @@ struct GPR0 : ftl::mmio::Register<
   using DWP_LOCK = GPR0_fields_::DWP_LOCK;
 };
 
-
 // GPR1 General Purpose Register
 struct GPR1_fields_ {
-
   enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
@@ -83,6 +80,7 @@ struct GPR1_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // CM4 Vector table offset value higher bits out of reset
   using CM4_INIT_VTOR_HIGH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Domain write protection
@@ -107,16 +105,15 @@ struct GPR1 : ftl::mmio::Register<
   using DWP_LOCK = GPR1_fields_::DWP_LOCK;
 };
 
-
 // GPR2 General Purpose Register
 struct GPR2_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC start address of memory region-0
@@ -136,16 +133,15 @@ struct GPR2 : ftl::mmio::Register<
   using APC_AC_R0_BOT = GPR2_fields_::APC_AC_R0_BOT;
 };
 
-
 // GPR3 General Purpose Register
 struct GPR3_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC end address of memory region-0
@@ -165,16 +161,15 @@ struct GPR3 : ftl::mmio::Register<
   using APC_AC_R0_TOP = GPR3_fields_::APC_AC_R0_TOP;
 };
 
-
 // GPR4 General Purpose Register
 struct GPR4_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC start address of memory region-1
@@ -194,16 +189,15 @@ struct GPR4 : ftl::mmio::Register<
   using APC_AC_R1_BOT = GPR4_fields_::APC_AC_R1_BOT;
 };
 
-
 // GPR5 General Purpose Register
 struct GPR5_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC end address of memory region-1
@@ -223,16 +217,15 @@ struct GPR5 : ftl::mmio::Register<
   using APC_AC_R1_TOP = GPR5_fields_::APC_AC_R1_TOP;
 };
 
-
 // GPR6 General Purpose Register
 struct GPR6_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC start address of memory region-2
@@ -252,16 +245,15 @@ struct GPR6 : ftl::mmio::Register<
   using APC_AC_R2_BOT = GPR6_fields_::APC_AC_R2_BOT;
 };
 
-
 // GPR7 General Purpose Register
 struct GPR7_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC end address of memory region-2
@@ -281,16 +273,15 @@ struct GPR7 : ftl::mmio::Register<
   using APC_AC_R2_TOP = GPR7_fields_::APC_AC_R2_TOP;
 };
 
-
 // GPR8 General Purpose Register
 struct GPR8_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC start address of memory region-3
@@ -310,16 +301,15 @@ struct GPR8 : ftl::mmio::Register<
   using APC_AC_R3_BOT = GPR8_fields_::APC_AC_R3_BOT;
 };
 
-
 // GPR9 General Purpose Register
 struct GPR9_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC end address of memory region-3
@@ -339,16 +329,15 @@ struct GPR9 : ftl::mmio::Register<
   using APC_AC_R3_TOP = GPR9_fields_::APC_AC_R3_TOP;
 };
 
-
 // GPR10 General Purpose Register
 struct GPR10_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC start address of memory region-4
@@ -368,16 +357,15 @@ struct GPR10 : ftl::mmio::Register<
   using APC_AC_R4_BOT = GPR10_fields_::APC_AC_R4_BOT;
 };
 
-
 // GPR11 General Purpose Register
 struct GPR11_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC end address of memory region-4
@@ -397,16 +385,15 @@ struct GPR11 : ftl::mmio::Register<
   using APC_AC_R4_TOP = GPR11_fields_::APC_AC_R4_TOP;
 };
 
-
 // GPR12 General Purpose Register
 struct GPR12_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC start address of memory region-5
@@ -426,16 +413,15 @@ struct GPR12 : ftl::mmio::Register<
   using APC_AC_R5_BOT = GPR12_fields_::APC_AC_R5_BOT;
 };
 
-
 // GPR13 General Purpose Register
 struct GPR13_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC end address of memory region-5
@@ -455,16 +441,15 @@ struct GPR13 : ftl::mmio::Register<
   using APC_AC_R5_TOP = GPR13_fields_::APC_AC_R5_TOP;
 };
 
-
 // GPR14 General Purpose Register
 struct GPR14_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC start address of memory region-6
@@ -484,16 +469,15 @@ struct GPR14 : ftl::mmio::Register<
   using APC_AC_R6_BOT = GPR14_fields_::APC_AC_R6_BOT;
 };
 
-
 // GPR15 General Purpose Register
 struct GPR15_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC end address of memory region-6
@@ -513,16 +497,15 @@ struct GPR15 : ftl::mmio::Register<
   using APC_AC_R6_TOP = GPR15_fields_::APC_AC_R6_TOP;
 };
 
-
 // GPR16 General Purpose Register
 struct GPR16_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC start address of memory region-7
@@ -542,16 +525,15 @@ struct GPR16 : ftl::mmio::Register<
   using APC_AC_R7_BOT = GPR16_fields_::APC_AC_R7_BOT;
 };
 
-
 // GPR17 General Purpose Register
 struct GPR17_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Write access to bit 31:1 is not blocked
     eNO = 0,
     // Write access to bit 31:1 is blocked
     eBLOCK = 1,
   };
+
   // Lock the write to bit 31:1
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC end address of memory region-7
@@ -571,16 +553,15 @@ struct GPR17 : ftl::mmio::Register<
   using APC_AC_R7_TOP = GPR17_fields_::APC_AC_R7_TOP;
 };
 
-
 // GPR18 General Purpose Register
 struct GPR18_fields_ {
-
   enum class eAPC_R0_ENCRYPT_ENABLE : std::uint32_t {
     // No effect
     eDIS = 0,
     // Encryption enabled
     eENABLE = 1,
   };
+
   // APC memory region-0 encryption enable
   using APC_R0_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R0_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock the write to bit 15:0
@@ -601,16 +582,15 @@ struct GPR18 : ftl::mmio::Register<
   using LOCK = GPR18_fields_::LOCK;
 };
 
-
 // GPR19 General Purpose Register
 struct GPR19_fields_ {
-
   enum class eAPC_R1_ENCRYPT_ENABLE : std::uint32_t {
     // No effect
     eDIS = 0,
     // Encryption enabled
     eENABLE = 1,
   };
+
   // APC memory region-1 encryption enable
   using APC_R1_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R1_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock the write to bit 15:0
@@ -631,16 +611,15 @@ struct GPR19 : ftl::mmio::Register<
   using LOCK = GPR19_fields_::LOCK;
 };
 
-
 // GPR20 General Purpose Register
 struct GPR20_fields_ {
-
   enum class eAPC_R2_ENCRYPT_ENABLE : std::uint32_t {
     // No effect
     eDIS = 0,
     // Encryption enabled
     eENABLE = 1,
   };
+
   // APC memory region-2 encryption enable
   using APC_R2_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R2_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock the write to bit 15:0
@@ -661,16 +640,15 @@ struct GPR20 : ftl::mmio::Register<
   using LOCK = GPR20_fields_::LOCK;
 };
 
-
 // GPR21 General Purpose Register
 struct GPR21_fields_ {
-
   enum class eAPC_R3_ENCRYPT_ENABLE : std::uint32_t {
     // No effect
     eDIS = 0,
     // Encryption enabled
     eENABLE = 1,
   };
+
   // APC memory region-3 encryption enable
   using APC_R3_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R3_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock the write to bit 15:0
@@ -691,16 +669,15 @@ struct GPR21 : ftl::mmio::Register<
   using LOCK = GPR21_fields_::LOCK;
 };
 
-
 // GPR22 General Purpose Register
 struct GPR22_fields_ {
-
   enum class eAPC_R4_ENCRYPT_ENABLE : std::uint32_t {
     // No effect
     eDIS = 0,
     // Encryption enabled
     eENABLE = 1,
   };
+
   // APC memory region-4 encryption enable
   using APC_R4_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R4_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock the write to bit 15:0
@@ -721,16 +698,15 @@ struct GPR22 : ftl::mmio::Register<
   using LOCK = GPR22_fields_::LOCK;
 };
 
-
 // GPR23 General Purpose Register
 struct GPR23_fields_ {
-
   enum class eAPC_R5_ENCRYPT_ENABLE : std::uint32_t {
     // No effect
     eDIS = 0,
     // Encryption enabled
     eENABLE = 1,
   };
+
   // APC memory region-5 encryption enable
   using APC_R5_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R5_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock the write to bit 15:0
@@ -751,16 +727,15 @@ struct GPR23 : ftl::mmio::Register<
   using LOCK = GPR23_fields_::LOCK;
 };
 
-
 // GPR24 General Purpose Register
 struct GPR24_fields_ {
-
   enum class eAPC_R6_ENCRYPT_ENABLE : std::uint32_t {
     // No effect
     eDIS = 0,
     // Encryption enabled
     eENABLE = 1,
   };
+
   // APC memory region-6 encryption enable
   using APC_R6_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R6_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock the write to bit 15:0
@@ -781,10 +756,8 @@ struct GPR24 : ftl::mmio::Register<
   using LOCK = GPR24_fields_::LOCK;
 };
 
-
 // GPR25 General Purpose Register
 struct GPR25_fields_ {
-
   enum class eAPC_R7_ENCRYPT_ENABLE : std::uint32_t {
     // No effect
     eDIS = 0,
@@ -798,6 +771,7 @@ struct GPR25_fields_ {
     // Enable encryption for GPRx[APC_x_ENCRYPT_ENABLE] (valid for GPR2-GPR25)
     eENABLE = 1,
   };
+
   // APC memory region-7 encryption enable
   using APC_R7_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R7_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // APC global enable bit
@@ -823,10 +797,8 @@ struct GPR25 : ftl::mmio::Register<
   using LOCK = GPR25_fields_::LOCK;
 };
 
-
 // GPR26 General Purpose Register
 struct GPR26_fields_ {
-
   enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
@@ -848,6 +820,7 @@ struct GPR26_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Vector table offset register out of reset. See the ARM v7-M Architecture Reference Manual for more information about the vector table offset register (VTOR).
   using CM7_INIT_VTOR = ftl::mmio::Field<25, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // General purpose bits
@@ -875,10 +848,8 @@ struct GPR26 : ftl::mmio::Register<
   using DWP_LOCK = GPR26_fields_::DWP_LOCK;
 };
 
-
 // GPR33 General Purpose Register
 struct GPR33_fields_ {
-
   enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
@@ -900,6 +871,7 @@ struct GPR33_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Clear CM4 NMI holding register
   using M4_NMI_CLEAR = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clear USBPHY1 wakeup interrupt holding register
@@ -933,10 +905,8 @@ struct GPR33 : ftl::mmio::Register<
   using DWP_LOCK = GPR33_fields_::DWP_LOCK;
 };
 
-
 // GPR34 General Purpose Register
 struct GPR34_fields_ {
-
   enum class eM7_NMI_MASK : std::uint32_t {
     // NMI input from IO to CM7 is not blocked
     eDISABLE = 0,
@@ -986,6 +956,7 @@ struct GPR34_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // GPIO_LPSR IO bank supply voltage range selection
   using GPIO_LPSR_HIGH_RANGE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // GPIO_LPSR IO bank supply voltage range selection
@@ -1036,10 +1007,8 @@ struct GPR34 : ftl::mmio::Register<
   using DWP_LOCK = GPR34_fields_::DWP_LOCK;
 };
 
-
 // GPR35 General Purpose Register
 struct GPR35_fields_ {
-
   enum class eADC1_IPG_DOZE : std::uint32_t {
     // Not in doze mode
     eDISABLE = 0,
@@ -1243,6 +1212,7 @@ struct GPR35_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // ADC1 doze mode
   using ADC1_IPG_DOZE = ftl::mmio::Field<1, 0, eADC1_IPG_DOZE, ftl::mmio::RW, ftl::mmio::Normal>;
   // ADC1 stop request
@@ -1394,10 +1364,8 @@ struct GPR35 : ftl::mmio::Register<
   using DWP_LOCK = GPR35_fields_::DWP_LOCK;
 };
 
-
 // GPR36 General Purpose Register
 struct GPR36_fields_ {
-
   enum class eGPT1_IPG_DOZE : std::uint32_t {
     // Not in doze mode
     eDISABLE = 0,
@@ -1608,6 +1576,7 @@ struct GPR36_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // GPT1 doze mode
   using GPT1_IPG_DOZE = ftl::mmio::Field<1, 0, eGPT1_IPG_DOZE, ftl::mmio::RW, ftl::mmio::Normal>;
   // GPT2 doze mode
@@ -1763,10 +1732,8 @@ struct GPR36 : ftl::mmio::Register<
   using DWP_LOCK = GPR36_fields_::DWP_LOCK;
 };
 
-
 // GPR37 General Purpose Register
 struct GPR37_fields_ {
-
   enum class eLPSPI2_IPG_DOZE : std::uint32_t {
     // Not in doze mode
     eDISABLE = 0,
@@ -1977,6 +1944,7 @@ struct GPR37_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // LPSPI2 doze mode
   using LPSPI2_IPG_DOZE = ftl::mmio::Field<1, 0, eLPSPI2_IPG_DOZE, ftl::mmio::RW, ftl::mmio::Normal>;
   // LPSPI2 stop request
@@ -2132,10 +2100,8 @@ struct GPR37 : ftl::mmio::Register<
   using DWP_LOCK = GPR37_fields_::DWP_LOCK;
 };
 
-
 // GPR38 General Purpose Register
 struct GPR38_fields_ {
-
   enum class eLPUART5_IPG_DOZE : std::uint32_t {
     // Not in doze mode
     eDISABLE = 0,
@@ -2346,6 +2312,7 @@ struct GPR38_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // LPUART5 doze mode
   using LPUART5_IPG_DOZE = ftl::mmio::Field<1, 0, eLPUART5_IPG_DOZE, ftl::mmio::RW, ftl::mmio::Normal>;
   // LPUART5 stop request
@@ -2501,10 +2468,8 @@ struct GPR38 : ftl::mmio::Register<
   using DWP_LOCK = GPR38_fields_::DWP_LOCK;
 };
 
-
 // GPR39 General Purpose Register
 struct GPR39_fields_ {
-
   enum class ePIT1_STOP_REQ : std::uint32_t {
     // Stop request off
     eDISABLE = 0,
@@ -2645,6 +2610,7 @@ struct GPR39_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // PIT1 stop request
   using PIT1_STOP_REQ = ftl::mmio::Field<1, 1, ePIT1_STOP_REQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // PIT2 stop request
@@ -2750,7 +2716,6 @@ struct GPR39 : ftl::mmio::Register<
   using DWP = GPR39_fields_::DWP;
   using DWP_LOCK = GPR39_fields_::DWP_LOCK;
 };
-
 
 // GPR40 General Purpose Register
 struct GPR40_fields_ {
@@ -2890,7 +2855,6 @@ struct GPR40 : ftl::mmio::Register<
   using LPUART7_STOP_ACK = GPR40_fields_::LPUART7_STOP_ACK;
   using LPUART8_STOP_ACK = GPR40_fields_::LPUART8_STOP_ACK;
 };
-
 
 // GPR41 General Purpose Register
 struct GPR41_fields_ {

@@ -29,7 +29,7 @@ struct CFG_NUM_LANES : ftl::mmio::Register<
     CFG_NUM_LANES_fields_::CFG_NUM_LANES,
     ftl::mmio::Reserved<30, 2>> {
   using eCFG_NUM_LANES = CFG_NUM_LANES_fields_::eCFG_NUM_LANES;
-  using value_ = CFG_NUM_LANES_fields_::CFG_NUM_LANES;
+  using VALUE = CFG_NUM_LANES_fields_::CFG_NUM_LANES;
 };
 
 // Disable Data Lane Register
@@ -45,7 +45,7 @@ struct CFG_DISABLE_DATA_LANES : ftl::mmio::Register<
     ftl::mmio::RW,
     CFG_DISABLE_DATA_LANES_fields_::CFG_DISABLE_DATA_LANES,
     ftl::mmio::Reserved<28, 4>> {
-  using value_ = CFG_DISABLE_DATA_LANES_fields_::CFG_DISABLE_DATA_LANES;
+  using VALUE = CFG_DISABLE_DATA_LANES_fields_::CFG_DISABLE_DATA_LANES;
 };
 
 // ECC and CRC Error Status Register
@@ -61,7 +61,7 @@ struct BIT_ERR : ftl::mmio::Register<
     ftl::mmio::RO,
     BIT_ERR_fields_::BIT_ERR,
     ftl::mmio::Reserved<22, 10>> {
-  using value_ = BIT_ERR_fields_::BIT_ERR;
+  using VALUE = BIT_ERR_fields_::BIT_ERR;
 };
 
 // IRQ Status Register
@@ -77,7 +77,7 @@ struct IRQ_STATUS : ftl::mmio::Register<
     ftl::mmio::RO,
     IRQ_STATUS_fields_::IRQ_STATUS,
     ftl::mmio::Reserved<23, 9>> {
-  using value_ = IRQ_STATUS_fields_::IRQ_STATUS;
+  using VALUE = IRQ_STATUS_fields_::IRQ_STATUS;
 };
 
 // IRQ Mask Setting Register
@@ -93,7 +93,7 @@ struct IRQ_MASK : ftl::mmio::Register<
     ftl::mmio::RW,
     IRQ_MASK_fields_::IRQ_MASK,
     ftl::mmio::Reserved<23, 9>> {
-  using value_ = IRQ_MASK_fields_::IRQ_MASK;
+  using VALUE = IRQ_MASK_fields_::IRQ_MASK;
 };
 
 // Ultra Low Power State (ULPS) Status Register

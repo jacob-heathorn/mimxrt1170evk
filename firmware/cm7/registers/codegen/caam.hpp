@@ -418,7 +418,7 @@ struct PBSL : ftl::mmio::Register<
     ftl::mmio::RW,
     PBSL_fields_::PBSL,
     ftl::mmio::Reserved<25, 7>> {
-  using value_ = PBSL_fields_::PBSL;
+  using VALUE = PBSL_fields_::PBSL;
 };
 
 // DMA0_AIDL_MAP_MS
@@ -10636,7 +10636,7 @@ struct FAR : ftl::mmio::Register<
     ftl::mmio::RO,
     FAR_fields_::FAR,
     ftl::mmio::Reserved<28, 36>> {
-  using value_ = FAR_fields_::FAR;
+  using VALUE = FAR_fields_::FAR;
 };
 
 // Fault Address DID Register
@@ -43419,7 +43419,7 @@ struct RTHR : ftl::mmio::Register<
     ftl::mmio::RW,
     RTHR_fields_::RTHR,
     ftl::mmio::Reserved<16, 16>> {
-  using value_ = RTHR_fields_::RTHR;
+  using VALUE = RTHR_fields_::RTHR;
 };
 
 // RTIC Watchdog Timer
@@ -43435,7 +43435,7 @@ struct RWDOG : ftl::mmio::Register<
     ftl::mmio::RW,
     RWDOG_fields_::RWDOG,
     ftl::mmio::Reserved<32, 32>> {
-  using value_ = RWDOG_fields_::RWDOG;
+  using VALUE = RWDOG_fields_::RWDOG;
 };
 
 // RTIC Endian Register
@@ -48552,7 +48552,7 @@ struct RTIC_DID : ftl::mmio::Register<
     RTIC_DID_fields_::RTIC_ICID,
     ftl::mmio::Reserved<2, 30>> {
   static_assert(ClusterIndex < 4u, "RTIC_DID: ClusterIndex out of range");
-  using value_ = RTIC_DID_fields_::RTIC_DID;
+  using VALUE = RTIC_DID_fields_::RTIC_DID;
   using RTIC_TZ = RTIC_DID_fields_::RTIC_TZ;
   using RTIC_ICID = RTIC_DID_fields_::RTIC_ICID;
 };

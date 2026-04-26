@@ -405,7 +405,7 @@ struct CFG_DT_DISABLE : ftl::mmio::Register<
     ftl::mmio::RW,
     CFG_DT_DISABLE_fields_::CFG_DT_DISABLE,
     ftl::mmio::Reserved<8, 24>> {
-  using value_ = CFG_DT_DISABLE_fields_::CFG_DT_DISABLE;
+  using VALUE = CFG_DT_DISABLE_fields_::CFG_DT_DISABLE;
 };
 
 // Data Disable Register

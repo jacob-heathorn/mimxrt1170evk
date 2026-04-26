@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::lmem {
 
-
 // PC bus Cache control register
 struct PCCCR_fields_ {
-
   enum class eENCACHE : std::uint32_t {
     // Cache disabled
     edisabled = 0,
@@ -74,6 +72,7 @@ struct PCCCR_fields_ {
     // Write: initiate command indicated by bits 27-24. Read: cache command active.
     einit_cmd = 1,
   };
+
   // Cache enable
   using ENCACHE = ftl::mmio::Field<1, 0, eENCACHE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable Write Buffer
@@ -130,10 +129,8 @@ struct PCCCR : ftl::mmio::Register<
   using GO = PCCCR_fields_::GO;
 };
 
-
 // PC bus Cache line control register
 struct PCCLCR_fields_ {
-
   enum class eLGO : std::uint32_t {
     // Write: no effect. Read: no line command active.
     eno_effect = 0,
@@ -179,6 +176,7 @@ struct PCCLCR_fields_ {
     // Write
     ewrite = 1,
   };
+
   // Initiate Cache Line Command
   using LGO = ftl::mmio::Field<1, 0, eLGO, ftl::mmio::RW, ftl::mmio::Normal>;
   // Cache address
@@ -239,16 +237,15 @@ struct PCCLCR : ftl::mmio::Register<
   using LACC = PCCLCR_fields_::LACC;
 };
 
-
 // PC bus Cache search address register
 struct PCCSAR_fields_ {
-
   enum class eLGO : std::uint32_t {
     // Write: no effect. Read: no line command active.
     eno_effect = 0,
     // Write: initiate line command indicated by bits CLCR[27:24]. Read: line command active.
     einit_cmd = 1,
   };
+
   // Initiate Cache Line Command
   using LGO = ftl::mmio::Field<1, 0, eLGO, ftl::mmio::RW, ftl::mmio::Normal>;
   // Physical Address
@@ -267,7 +264,6 @@ struct PCCSAR : ftl::mmio::Register<
   using PHYADDR = PCCSAR_fields_::PHYADDR;
 };
 
-
 // PC bus Cache read/write value register
 struct PCCCVR_fields_ {
   // Cache read/write Data
@@ -283,10 +279,8 @@ struct PCCCVR : ftl::mmio::Register<
   using DATA = PCCCVR_fields_::DATA;
 };
 
-
 // PS bus Cache control register
 struct PSCCR_fields_ {
-
   enum class eENCACHE : std::uint32_t {
     // Cache disabled
     edisabled = 0,
@@ -349,6 +343,7 @@ struct PSCCR_fields_ {
     // Write: initiate command indicated by bits 27-24. Read: cache command active.
     einit_cmd = 1,
   };
+
   // Cache enable
   using ENCACHE = ftl::mmio::Field<1, 0, eENCACHE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable Write Buffer
@@ -405,10 +400,8 @@ struct PSCCR : ftl::mmio::Register<
   using GO = PSCCR_fields_::GO;
 };
 
-
 // PS bus Cache line control register
 struct PSCLCR_fields_ {
-
   enum class eLGO : std::uint32_t {
     // Write: no effect. Read: no line command active.
     eno_effect = 0,
@@ -454,6 +447,7 @@ struct PSCLCR_fields_ {
     // Write
     ewrite = 1,
   };
+
   // Initiate Cache Line Command
   using LGO = ftl::mmio::Field<1, 0, eLGO, ftl::mmio::RW, ftl::mmio::Normal>;
   // Cache address
@@ -514,16 +508,15 @@ struct PSCLCR : ftl::mmio::Register<
   using LACC = PSCLCR_fields_::LACC;
 };
 
-
 // PS bus Cache search address register
 struct PSCSAR_fields_ {
-
   enum class eLGO : std::uint32_t {
     // Write: no effect. Read: no line command active.
     eno_effect = 0,
     // Write: initiate line command indicated by bits CLCR[27:24]. Read: line command active.
     einit_cmd = 1,
   };
+
   // Initiate Cache Line Command
   using LGO = ftl::mmio::Field<1, 0, eLGO, ftl::mmio::RW, ftl::mmio::Normal>;
   // Physical Address
@@ -541,7 +534,6 @@ struct PSCSAR : ftl::mmio::Register<
   using LGO = PSCSAR_fields_::LGO;
   using PHYADDR = PSCSAR_fields_::PHYADDR;
 };
-
 
 // PS bus Cache read/write value register
 struct PSCCVR_fields_ {

@@ -78,7 +78,7 @@ struct OCRAM_MAGIC_ADDR : ftl::mmio::Register<
     OCRAM_MAGIC_ADDR_fields_::Reserved> {
   using eOCRAM_WR_RD_SEL = OCRAM_MAGIC_ADDR_fields_::eOCRAM_WR_RD_SEL;
   using OCRAM_WR_RD_SEL = OCRAM_MAGIC_ADDR_fields_::OCRAM_WR_RD_SEL;
-  using value_ = OCRAM_MAGIC_ADDR_fields_::OCRAM_MAGIC_ADDR;
+  using VALUE = OCRAM_MAGIC_ADDR_fields_::OCRAM_MAGIC_ADDR;
   using Reserved = OCRAM_MAGIC_ADDR_fields_::Reserved;
 };
 
@@ -109,7 +109,7 @@ struct DTCM_MAGIC_ADDR : ftl::mmio::Register<
     DTCM_MAGIC_ADDR_fields_::Reserved> {
   using eDTCM_WR_RD_SEL = DTCM_MAGIC_ADDR_fields_::eDTCM_WR_RD_SEL;
   using DTCM_WR_RD_SEL = DTCM_MAGIC_ADDR_fields_::DTCM_WR_RD_SEL;
-  using value_ = DTCM_MAGIC_ADDR_fields_::DTCM_MAGIC_ADDR;
+  using VALUE = DTCM_MAGIC_ADDR_fields_::DTCM_MAGIC_ADDR;
   using Reserved = DTCM_MAGIC_ADDR_fields_::Reserved;
 };
 
@@ -140,7 +140,7 @@ struct ITCM_MAGIC_ADDR : ftl::mmio::Register<
     ITCM_MAGIC_ADDR_fields_::Reserved> {
   using eITCM_WR_RD_SEL = ITCM_MAGIC_ADDR_fields_::eITCM_WR_RD_SEL;
   using ITCM_WR_RD_SEL = ITCM_MAGIC_ADDR_fields_::ITCM_WR_RD_SEL;
-  using value_ = ITCM_MAGIC_ADDR_fields_::ITCM_MAGIC_ADDR;
+  using VALUE = ITCM_MAGIC_ADDR_fields_::ITCM_MAGIC_ADDR;
   using Reserved = ITCM_MAGIC_ADDR_fields_::Reserved;
 };
 

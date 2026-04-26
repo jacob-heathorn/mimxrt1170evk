@@ -65,8 +65,8 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
 
     // Enable DMA request and start transfer.
     dma0::ERQ::modify(dma0::ERQ::ERQ1{dma0::ERQ::eERQ1::eENABLE});
-    dma0::SERQ::modify(dma0::SERQ::value_{DMA_CHANNEL});
-    dma0::SSRT::modify(dma0::SSRT::value_{1});  // Trigger DMA
+    dma0::SERQ::modify(dma0::SERQ::VALUE{DMA_CHANNEL});
+    dma0::SSRT::modify(dma0::SSRT::VALUE{1});  // Trigger DMA
 
     while (!tcd_csr::read().get<tcd_csr::DONE>()) {}
 

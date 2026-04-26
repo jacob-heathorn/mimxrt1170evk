@@ -31,7 +31,7 @@ struct Usdhc {
       0x00000000u,
       ftl::mmio::RW,
       typename DS_ADDR_fields_::DS_ADDR> {
-    using value_ = typename DS_ADDR_fields_::DS_ADDR;
+    using VALUE = typename DS_ADDR_fields_::DS_ADDR;
   };
 
   // Block Attributes

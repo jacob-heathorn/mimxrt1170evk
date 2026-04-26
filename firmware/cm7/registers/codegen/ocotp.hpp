@@ -749,7 +749,7 @@ struct PDN : ftl::mmio::Register<
     PDN_fields_::PDN,
     ftl::mmio::Reserved<31, 1>> {
   using ePDN = PDN_fields_::ePDN;
-  using value_ = PDN_fields_::PDN;
+  using VALUE = PDN_fields_::PDN;
 };
 
 // OTP Controller Write Data Register
@@ -764,7 +764,7 @@ struct DATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     DATA_fields_::DATA> {
-  using value_ = DATA_fields_::DATA;
+  using VALUE = DATA_fields_::DATA;
 };
 
 // OTP Controller Read Control Register
@@ -1242,7 +1242,7 @@ struct SW_LOCK : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     SW_LOCK_fields_::SW_LOCK> {
-  using value_ = SW_LOCK_fields_::SW_LOCK;
+  using VALUE = SW_LOCK_fields_::SW_LOCK;
 };
 
 // BIT_LOCK Register
@@ -1257,7 +1257,7 @@ struct BIT_LOCK : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     BIT_LOCK_fields_::BIT_LOCK> {
-  using value_ = BIT_LOCK_fields_::BIT_LOCK;
+  using VALUE = BIT_LOCK_fields_::BIT_LOCK;
 };
 
 // OTP Controller Program Locked Status 0 Register

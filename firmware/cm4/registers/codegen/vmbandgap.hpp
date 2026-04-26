@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::vmbandgap {
 
-
 // Analog Control Register CTRL0
 struct CTRL0_fields_ {
   // Master power-down for bandgap module
@@ -40,7 +39,6 @@ struct CTRL0 : ftl::mmio::Register<
   using REFTOP_LOWPOWER = CTRL0_fields_::REFTOP_LOWPOWER;
   using REFTOP_SELFBIASOFF = CTRL0_fields_::REFTOP_SELFBIASOFF;
 };
-
 
 // Analog Control Register CTRL0
 struct CTRL0_SET_fields_ {
@@ -74,7 +72,6 @@ struct CTRL0_SET : ftl::mmio::Register<
   using REFTOP_SELFBIASOFF = CTRL0_SET_fields_::REFTOP_SELFBIASOFF;
 };
 
-
 // Analog Control Register CTRL0
 struct CTRL0_CLR_fields_ {
   // Master power-down for bandgap module
@@ -106,7 +103,6 @@ struct CTRL0_CLR : ftl::mmio::Register<
   using REFTOP_LOWPOWER = CTRL0_CLR_fields_::REFTOP_LOWPOWER;
   using REFTOP_SELFBIASOFF = CTRL0_CLR_fields_::REFTOP_SELFBIASOFF;
 };
-
 
 // Analog Control Register CTRL0
 struct CTRL0_TOG_fields_ {
@@ -140,7 +136,6 @@ struct CTRL0_TOG : ftl::mmio::Register<
   using REFTOP_SELFBIASOFF = CTRL0_TOG_fields_::REFTOP_SELFBIASOFF;
 };
 
-
 // Analog Status Register STAT0
 struct STAT0_fields_ {
   // Brief description here
@@ -168,7 +163,6 @@ struct STAT0 : ftl::mmio::Register<
   using VDD2_PORB = STAT0_fields_::VDD2_PORB;
   using VDD3_PORB = STAT0_fields_::VDD3_PORB;
 };
-
 
 // Analog Status Register STAT0
 struct STAT0_SET_fields_ {
@@ -198,7 +192,6 @@ struct STAT0_SET : ftl::mmio::Register<
   using VDD3_PORB = STAT0_SET_fields_::VDD3_PORB;
 };
 
-
 // Analog Status Register STAT0
 struct STAT0_CLR_fields_ {
   // Brief description here
@@ -226,7 +219,6 @@ struct STAT0_CLR : ftl::mmio::Register<
   using VDD2_PORB = STAT0_CLR_fields_::VDD2_PORB;
   using VDD3_PORB = STAT0_CLR_fields_::VDD3_PORB;
 };
-
 
 // Analog Status Register STAT0
 struct STAT0_TOG_fields_ {

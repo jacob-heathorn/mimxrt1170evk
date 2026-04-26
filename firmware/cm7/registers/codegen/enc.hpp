@@ -271,7 +271,7 @@ struct Enc {
       0x0000u,
       ftl::mmio::RW,
       typename POSD_fields_::POSD> {
-    using value_ = typename POSD_fields_::POSD;
+    using VALUE = typename POSD_fields_::POSD;
   };
 
   // Position Difference Hold Register
@@ -286,7 +286,7 @@ struct Enc {
       0x0000u,
       ftl::mmio::RO,
       typename POSDH_fields_::POSDH> {
-    using value_ = typename POSDH_fields_::POSDH;
+    using VALUE = typename POSDH_fields_::POSDH;
   };
 
   // Revolution Counter Register
@@ -301,7 +301,7 @@ struct Enc {
       0x0000u,
       ftl::mmio::RW,
       typename REV_fields_::REV> {
-    using value_ = typename REV_fields_::REV;
+    using VALUE = typename REV_fields_::REV;
   };
 
   // Revolution Hold Register
@@ -316,7 +316,7 @@ struct Enc {
       0x0000u,
       ftl::mmio::RO,
       typename REVH_fields_::REVH> {
-    using value_ = typename REVH_fields_::REVH;
+    using VALUE = typename REVH_fields_::REVH;
   };
 
   // Upper Position Counter Register
@@ -736,7 +736,7 @@ struct Enc {
       0xFFFFu,
       ftl::mmio::RO,
       typename LASTEDGE_fields_::LASTEDGE> {
-    using value_ = typename LASTEDGE_fields_::LASTEDGE;
+    using VALUE = typename LASTEDGE_fields_::LASTEDGE;
   };
 
   // Last Edge Time Hold Register
@@ -751,7 +751,7 @@ struct Enc {
       0xFFFFu,
       ftl::mmio::RO,
       typename LASTEDGEH_fields_::LASTEDGEH> {
-    using value_ = typename LASTEDGEH_fields_::LASTEDGEH;
+    using VALUE = typename LASTEDGEH_fields_::LASTEDGEH;
   };
 
   // Position Difference Period Counter Register
@@ -766,7 +766,7 @@ struct Enc {
       0xFFFFu,
       ftl::mmio::RO,
       typename POSDPER_fields_::POSDPER> {
-    using value_ = typename POSDPER_fields_::POSDPER;
+    using VALUE = typename POSDPER_fields_::POSDPER;
   };
 
   // Position Difference Period Buffer Register
@@ -781,7 +781,7 @@ struct Enc {
       0xFFFFu,
       ftl::mmio::RO,
       typename POSDPERBFR_fields_::POSDPERBFR> {
-    using value_ = typename POSDPERBFR_fields_::POSDPERBFR;
+    using VALUE = typename POSDPERBFR_fields_::POSDPERBFR;
   };
 
   // Position Difference Period Hold Register
@@ -796,7 +796,7 @@ struct Enc {
       0xFFFFu,
       ftl::mmio::RO,
       typename POSDPERH_fields_::POSDPERH> {
-    using value_ = typename POSDPERH_fields_::POSDPERH;
+    using VALUE = typename POSDPERH_fields_::POSDPERH;
   };
 
   // Control 3 Register

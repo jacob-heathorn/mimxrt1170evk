@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::ewm {
 
-
 // Control Register
 struct CTRL_fields_ {
-
   enum class eEWMEN : std::uint32_t {
     // EWM module is disabled.
     eDISABLE = 0,
@@ -39,6 +37,7 @@ struct CTRL_fields_ {
     // Generates an interrupt request, when EWM_OUT_b is asserted.
     eINT_REQ = 1,
   };
+
   // EWM enable.
   using EWMEN = ftl::mmio::Field<1, 0, eEWMEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // EWM_in's Assertion State Select.
@@ -69,7 +68,6 @@ struct CTRL : ftl::mmio::Register<
   using INTEN = CTRL_fields_::INTEN;
 };
 
-
 // Service Register
 struct SERV_fields_ {
   // SERVICE
@@ -84,7 +82,6 @@ struct SERV : ftl::mmio::Register<
     SERV_fields_::SERVICE> {
   using SERVICE = SERV_fields_::SERVICE;
 };
-
 
 // Compare Low Register
 struct CMPL_fields_ {
@@ -101,7 +98,6 @@ struct CMPL : ftl::mmio::Register<
   using COMPAREL = CMPL_fields_::COMPAREL;
 };
 
-
 // Compare High Register
 struct CMPH_fields_ {
   // COMPAREH
@@ -116,7 +112,6 @@ struct CMPH : ftl::mmio::Register<
     CMPH_fields_::COMPAREH> {
   using COMPAREH = CMPH_fields_::COMPAREH;
 };
-
 
 // Clock Control Register
 struct CLKCTRL_fields_ {
@@ -133,7 +128,6 @@ struct CLKCTRL : ftl::mmio::Register<
     ftl::mmio::Reserved<6, 2>> {
   using CLKSEL = CLKCTRL_fields_::CLKSEL;
 };
-
 
 // Clock Prescaler Register
 struct CLKPRESCALER_fields_ {

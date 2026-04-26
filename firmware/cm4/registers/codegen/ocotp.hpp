@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::ocotp {
 
-
 // OTP Controller Control and Status Register
 struct CTRL_fields_ {
-
   enum class eADDR : std::uint32_t {
     // Address of one of the 16 supplementary fuse words in OTP memory.
     esupp_word_0 = 0,
@@ -581,6 +579,7 @@ struct CTRL_fields_ {
     // OTP write access is unlocked.
     eotp_w_unlocked = 15991,
   };
+
   // OTP write and read access address register
   using ADDR = ftl::mmio::Field<10, 0, eADDR, ftl::mmio::RW, ftl::mmio::Normal>;
   // OTP controller status bit
@@ -621,7 +620,6 @@ struct CTRL : ftl::mmio::Register<
   using WR_UNLOCK = CTRL_fields_::WR_UNLOCK;
 };
 
-
 // OTP Controller Control and Status Register
 struct CTRL_SET_fields_ {
   // OTP write and read access address register
@@ -657,7 +655,6 @@ struct CTRL_SET : ftl::mmio::Register<
   using WORDLOCK = CTRL_SET_fields_::WORDLOCK;
   using WR_UNLOCK = CTRL_SET_fields_::WR_UNLOCK;
 };
-
 
 // OTP Controller Control and Status Register
 struct CTRL_CLR_fields_ {
@@ -695,7 +692,6 @@ struct CTRL_CLR : ftl::mmio::Register<
   using WR_UNLOCK = CTRL_CLR_fields_::WR_UNLOCK;
 };
 
-
 // OTP Controller Control and Status Register
 struct CTRL_TOG_fields_ {
   // OTP write and read access address register
@@ -732,16 +728,15 @@ struct CTRL_TOG : ftl::mmio::Register<
   using WR_UNLOCK = CTRL_TOG_fields_::WR_UNLOCK;
 };
 
-
 // OTP Controller PDN Register
 struct PDN_fields_ {
-
   enum class ePDN : std::uint32_t {
     // OTP memory is not powered
     epower_off = 0,
     // OTP memory is powered
     epower_on = 1,
   };
+
   // PDN value
   using PDN = ftl::mmio::Field<1, 0, ePDN, ftl::mmio::RW, ftl::mmio::OneToClear>;
 };  // struct PDN_fields_
@@ -754,9 +749,8 @@ struct PDN : ftl::mmio::Register<
     PDN_fields_::PDN,
     ftl::mmio::Reserved<31, 1>> {
   using ePDN = PDN_fields_::ePDN;
-  using value_ = PDN_fields_::PDN;
+  using VALUE = PDN_fields_::PDN;
 };
-
 
 // OTP Controller Write Data Register
 struct DATA_fields_ {
@@ -770,13 +764,11 @@ struct DATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     DATA_fields_::DATA> {
-  using value_ = DATA_fields_::DATA;
+  using VALUE = DATA_fields_::DATA;
 };
-
 
 // OTP Controller Read Control Register
 struct READ_CTRL_fields_ {
-
   enum class eREAD_FUSE : std::uint32_t {
     // Do not initiate a read from OTP
     eDO_NOT_START_RD_OP = 0,
@@ -808,6 +800,7 @@ struct READ_CTRL_fields_ {
     // Enable
     eENABLE = 1,
   };
+
   // Read Fuse
   using READ_FUSE = ftl::mmio::Field<1, 0, eREAD_FUSE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Number of words to read.
@@ -838,16 +831,15 @@ struct READ_CTRL : ftl::mmio::Register<
   using READ_FUSE_ERROR_INTR_ENA = READ_CTRL_fields_::READ_FUSE_ERROR_INTR_ENA;
 };
 
-
 // 8K OTP Memory STATUS Register
 struct OUT_STATUS_fields_ {
-
   enum class eREAD_ERROR_INTR : std::uint32_t {
     // Read operation finished with out any error
     eno_error = 0,
     // Read operation finished with an error
     eerror = 1,
   };
+
   // Single Error Correct
   using SEC = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Double error detect
@@ -923,7 +915,6 @@ struct OUT_STATUS : ftl::mmio::Register<
   using DED2 = OUT_STATUS_fields_::DED2;
   using DED3 = OUT_STATUS_fields_::DED3;
 };
-
 
 // 8K OTP Memory STATUS Register
 struct OUT_STATUS_SET_fields_ {
@@ -1002,7 +993,6 @@ struct OUT_STATUS_SET : ftl::mmio::Register<
   using DED3 = OUT_STATUS_SET_fields_::DED3;
 };
 
-
 // 8K OTP Memory STATUS Register
 struct OUT_STATUS_CLR_fields_ {
   // Single Error Correct
@@ -1079,7 +1069,6 @@ struct OUT_STATUS_CLR : ftl::mmio::Register<
   using DED2 = OUT_STATUS_CLR_fields_::DED2;
   using DED3 = OUT_STATUS_CLR_fields_::DED3;
 };
-
 
 // 8K OTP Memory STATUS Register
 struct OUT_STATUS_TOG_fields_ {
@@ -1158,7 +1147,6 @@ struct OUT_STATUS_TOG : ftl::mmio::Register<
   using DED3 = OUT_STATUS_TOG_fields_::DED3;
 };
 
-
 // OTP Controller Version Register
 struct VERSION_fields_ {
   // RTL Version Stepping
@@ -1182,7 +1170,6 @@ struct VERSION : ftl::mmio::Register<
   using MAJOR = VERSION_fields_::MAJOR;
 };
 
-
 // OTP Controller Read Data 0 Register
 struct READ_FUSE_DATA0_fields_ {
   // Data
@@ -1197,7 +1184,6 @@ struct READ_FUSE_DATA0 : ftl::mmio::Register<
     READ_FUSE_DATA0_fields_::DATA> {
   using DATA = READ_FUSE_DATA0_fields_::DATA;
 };
-
 
 // OTP Controller Read Data 1 Register
 struct READ_FUSE_DATA1_fields_ {
@@ -1214,7 +1200,6 @@ struct READ_FUSE_DATA1 : ftl::mmio::Register<
   using DATA = READ_FUSE_DATA1_fields_::DATA;
 };
 
-
 // OTP Controller Read Data 2 Register
 struct READ_FUSE_DATA2_fields_ {
   // Data
@@ -1229,7 +1214,6 @@ struct READ_FUSE_DATA2 : ftl::mmio::Register<
     READ_FUSE_DATA2_fields_::DATA> {
   using DATA = READ_FUSE_DATA2_fields_::DATA;
 };
-
 
 // OTP Controller Read Data 3 Register
 struct READ_FUSE_DATA3_fields_ {
@@ -1246,7 +1230,6 @@ struct READ_FUSE_DATA3 : ftl::mmio::Register<
   using DATA = READ_FUSE_DATA3_fields_::DATA;
 };
 
-
 // SW_LOCK Register
 struct SW_LOCK_fields_ {
   // This register contains lock information, which has the same function as the RLOCK fuse words (supplementary fuse words 8 (0x880) and 9 (0x890)) in fuse memory
@@ -1259,9 +1242,8 @@ struct SW_LOCK : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     SW_LOCK_fields_::SW_LOCK> {
-  using value_ = SW_LOCK_fields_::SW_LOCK;
+  using VALUE = SW_LOCK_fields_::SW_LOCK;
 };
-
 
 // BIT_LOCK Register
 struct BIT_LOCK_fields_ {
@@ -1275,9 +1257,8 @@ struct BIT_LOCK : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     BIT_LOCK_fields_::BIT_LOCK> {
-  using value_ = BIT_LOCK_fields_::BIT_LOCK;
+  using VALUE = BIT_LOCK_fields_::BIT_LOCK;
 };
-
 
 // OTP Controller Program Locked Status 0 Register
 struct LOCKED0_fields_ {
@@ -1295,7 +1276,6 @@ struct LOCKED0 : ftl::mmio::Register<
   using LOCKED = LOCKED0_fields_::LOCKED;
 };
 
-
 // OTP Controller Program Locked Status 1 Register
 struct LOCKED1_fields_ {
   // Stores program locked status for fuse words 16-47
@@ -1310,7 +1290,6 @@ struct LOCKED1 : ftl::mmio::Register<
     LOCKED1_fields_::LOCKED> {
   using LOCKED = LOCKED1_fields_::LOCKED;
 };
-
 
 // Value of fuse word index
 struct FUSE_fields_ {

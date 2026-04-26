@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::osc_rc_400m {
 
-
 // Control Register 0
 struct CTRL0_fields_ {
   // Divide value for ref_clk to generate slow_clk (used inside this IP)
@@ -25,7 +24,6 @@ struct CTRL0 : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using REF_CLK_DIV = CTRL0_fields_::REF_CLK_DIV;
 };
-
 
 // Control Register 0
 struct CTRL0_SET_fields_ {
@@ -44,7 +42,6 @@ struct CTRL0_SET : ftl::mmio::Register<
   using REF_CLK_DIV = CTRL0_SET_fields_::REF_CLK_DIV;
 };
 
-
 // Control Register 0
 struct CTRL0_CLR_fields_ {
   // Divide value for ref_clk to generate slow_clk (used inside this IP)
@@ -62,7 +59,6 @@ struct CTRL0_CLR : ftl::mmio::Register<
   using REF_CLK_DIV = CTRL0_CLR_fields_::REF_CLK_DIV;
 };
 
-
 // Control Register 0
 struct CTRL0_TOG_fields_ {
   // Divide value for ref_clk to generate slow_clk (used inside this IP)
@@ -79,7 +75,6 @@ struct CTRL0_TOG : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using REF_CLK_DIV = CTRL0_TOG_fields_::REF_CLK_DIV;
 };
-
 
 // Control Register 1
 struct CTRL1_fields_ {
@@ -106,7 +101,6 @@ struct CTRL1 : ftl::mmio::Register<
   using TARGET_COUNT = CTRL1_fields_::TARGET_COUNT;
 };
 
-
 // Control Register 1
 struct CTRL1_SET_fields_ {
   // Negative hysteresis value for the tuned clock
@@ -131,7 +125,6 @@ struct CTRL1_SET : ftl::mmio::Register<
   using HYST_PLUS = CTRL1_SET_fields_::HYST_PLUS;
   using TARGET_COUNT = CTRL1_SET_fields_::TARGET_COUNT;
 };
-
 
 // Control Register 1
 struct CTRL1_CLR_fields_ {
@@ -158,7 +151,6 @@ struct CTRL1_CLR : ftl::mmio::Register<
   using TARGET_COUNT = CTRL1_CLR_fields_::TARGET_COUNT;
 };
 
-
 // Control Register 1
 struct CTRL1_TOG_fields_ {
   // Negative hysteresis value for the tuned clock
@@ -184,10 +176,8 @@ struct CTRL1_TOG : ftl::mmio::Register<
   using TARGET_COUNT = CTRL1_TOG_fields_::TARGET_COUNT;
 };
 
-
 // Control Register 2
 struct CTRL2_fields_ {
-
   enum class eTUNE_BYP : std::uint32_t {
     // Use the output of tuning logic to run the oscillator
     eTUNE_BYP_0 = 0,
@@ -208,6 +198,7 @@ struct CTRL2_fields_ {
     // Start tuning
     eTUNE_START_1 = 1,
   };
+
   // Bypass the tuning logic
   using TUNE_BYP = ftl::mmio::Field<1, 10, eTUNE_BYP, ftl::mmio::RW, ftl::mmio::Normal>;
   // Freeze/Unfreeze the tuning value
@@ -240,7 +231,6 @@ struct CTRL2 : ftl::mmio::Register<
   using OSC_TUNE_VAL = CTRL2_fields_::OSC_TUNE_VAL;
 };
 
-
 // Control Register 2
 struct CTRL2_SET_fields_ {
   // Bypass the tuning logic
@@ -271,7 +261,6 @@ struct CTRL2_SET : ftl::mmio::Register<
   using TUNE_START = CTRL2_SET_fields_::TUNE_START;
   using OSC_TUNE_VAL = CTRL2_SET_fields_::OSC_TUNE_VAL;
 };
-
 
 // Control Register 2
 struct CTRL2_CLR_fields_ {
@@ -304,7 +293,6 @@ struct CTRL2_CLR : ftl::mmio::Register<
   using OSC_TUNE_VAL = CTRL2_CLR_fields_::OSC_TUNE_VAL;
 };
 
-
 // Control Register 2
 struct CTRL2_TOG_fields_ {
   // Bypass the tuning logic
@@ -336,10 +324,8 @@ struct CTRL2_TOG : ftl::mmio::Register<
   using OSC_TUNE_VAL = CTRL2_TOG_fields_::OSC_TUNE_VAL;
 };
 
-
 // Control Register 3
 struct CTRL3_fields_ {
-
   enum class eCLR_ERR : std::uint32_t {
     // No effect
     eCLR_ERR_0 = 0,
@@ -360,6 +346,7 @@ struct CTRL3_fields_ {
     // Select locked 1MHz to be put out on clk_1m_out
     eMUX_1M_CLK_1 = 1,
   };
+
   // Clear the error flag CLK1M_ERR
   using CLR_ERR = ftl::mmio::Field<1, 0, eCLR_ERR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable 1MHz output Clock
@@ -391,7 +378,6 @@ struct CTRL3 : ftl::mmio::Register<
   using COUNT_1M_CLK = CTRL3_fields_::COUNT_1M_CLK;
 };
 
-
 // Control Register 3
 struct CTRL3_SET_fields_ {
   // Clear the error flag CLK1M_ERR
@@ -421,7 +407,6 @@ struct CTRL3_SET : ftl::mmio::Register<
   using MUX_1M_CLK = CTRL3_SET_fields_::MUX_1M_CLK;
   using COUNT_1M_CLK = CTRL3_SET_fields_::COUNT_1M_CLK;
 };
-
 
 // Control Register 3
 struct CTRL3_CLR_fields_ {
@@ -453,7 +438,6 @@ struct CTRL3_CLR : ftl::mmio::Register<
   using COUNT_1M_CLK = CTRL3_CLR_fields_::COUNT_1M_CLK;
 };
 
-
 // Control Register 3
 struct CTRL3_TOG_fields_ {
   // Clear the error flag CLK1M_ERR
@@ -484,16 +468,15 @@ struct CTRL3_TOG : ftl::mmio::Register<
   using COUNT_1M_CLK = CTRL3_TOG_fields_::COUNT_1M_CLK;
 };
 
-
 // Status Register 0
 struct STAT0_fields_ {
-
   enum class eCLK1M_ERR : std::uint32_t {
     // No effect
     eCLK1M_ERR_0 = 0,
     // The count value has been reached within one divided ref_clk period
     eCLK1M_ERR_1 = 1,
   };
+
   // Error flag for clk_1m_locked
   using CLK1M_ERR = ftl::mmio::Field<1, 0, eCLK1M_ERR, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct STAT0_fields_
@@ -508,7 +491,6 @@ struct STAT0 : ftl::mmio::Register<
   using eCLK1M_ERR = STAT0_fields_::eCLK1M_ERR;
   using CLK1M_ERR = STAT0_fields_::CLK1M_ERR;
 };
-
 
 // Status Register 0
 struct STAT0_SET_fields_ {
@@ -526,7 +508,6 @@ struct STAT0_SET : ftl::mmio::Register<
   using CLK1M_ERR = STAT0_SET_fields_::CLK1M_ERR;
 };
 
-
 // Status Register 0
 struct STAT0_CLR_fields_ {
   // Error flag for clk_1m_locked
@@ -542,7 +523,6 @@ struct STAT0_CLR : ftl::mmio::Register<
     ftl::mmio::Reserved<31, 1>> {
   using CLK1M_ERR = STAT0_CLR_fields_::CLK1M_ERR;
 };
-
 
 // Status Register 0
 struct STAT0_TOG_fields_ {
@@ -560,7 +540,6 @@ struct STAT0_TOG : ftl::mmio::Register<
   using CLK1M_ERR = STAT0_TOG_fields_::CLK1M_ERR;
 };
 
-
 // Status Register 1
 struct STAT1_fields_ {
   // Current count for the fast clock
@@ -576,7 +555,6 @@ struct STAT1 : ftl::mmio::Register<
     STAT1_fields_::CURR_COUNT_VAL> {
   using CURR_COUNT_VAL = STAT1_fields_::CURR_COUNT_VAL;
 };
-
 
 // Status Register 1
 struct STAT1_SET_fields_ {
@@ -594,7 +572,6 @@ struct STAT1_SET : ftl::mmio::Register<
   using CURR_COUNT_VAL = STAT1_SET_fields_::CURR_COUNT_VAL;
 };
 
-
 // Status Register 1
 struct STAT1_CLR_fields_ {
   // Current count for the fast clock
@@ -610,7 +587,6 @@ struct STAT1_CLR : ftl::mmio::Register<
     STAT1_CLR_fields_::CURR_COUNT_VAL> {
   using CURR_COUNT_VAL = STAT1_CLR_fields_::CURR_COUNT_VAL;
 };
-
 
 // Status Register 1
 struct STAT1_TOG_fields_ {
@@ -628,7 +604,6 @@ struct STAT1_TOG : ftl::mmio::Register<
   using CURR_COUNT_VAL = STAT1_TOG_fields_::CURR_COUNT_VAL;
 };
 
-
 // Status Register 2
 struct STAT2_fields_ {
   // Current tuning value used by oscillator
@@ -644,7 +619,6 @@ struct STAT2 : ftl::mmio::Register<
     STAT2_fields_::CURR_OSC_TUNE_VAL> {
   using CURR_OSC_TUNE_VAL = STAT2_fields_::CURR_OSC_TUNE_VAL;
 };
-
 
 // Status Register 2
 struct STAT2_SET_fields_ {
@@ -662,7 +636,6 @@ struct STAT2_SET : ftl::mmio::Register<
   using CURR_OSC_TUNE_VAL = STAT2_SET_fields_::CURR_OSC_TUNE_VAL;
 };
 
-
 // Status Register 2
 struct STAT2_CLR_fields_ {
   // Current tuning value used by oscillator
@@ -678,7 +651,6 @@ struct STAT2_CLR : ftl::mmio::Register<
     STAT2_CLR_fields_::CURR_OSC_TUNE_VAL> {
   using CURR_OSC_TUNE_VAL = STAT2_CLR_fields_::CURR_OSC_TUNE_VAL;
 };
-
 
 // Status Register 2
 struct STAT2_TOG_fields_ {

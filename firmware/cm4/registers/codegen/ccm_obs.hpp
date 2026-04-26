@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::ccm_obs {
 
-
 // Observe control
 struct OBSERVE_CONTROL_fields_ {
-
   enum class eRAW : std::uint32_t {
     // Select divided signal.
     eRAW_0 = 0,
@@ -39,6 +37,7 @@ struct OBSERVE_CONTROL_fields_ {
     // observe slice is off
     eOFF_1 = 1,
   };
+
   // Observe signal selector
   using SELECT = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Observe raw signal
@@ -81,7 +80,6 @@ struct OBSERVE_CONTROL : ftl::mmio::Register<
   using OFF = OBSERVE_CONTROL_fields_::OFF;
 };
 
-
 // Observe control
 struct OBSERVE_CONTROL_SET_fields_ {
   // Observe signal selector
@@ -121,7 +119,6 @@ struct OBSERVE_CONTROL_SET : ftl::mmio::Register<
   using DIVIDE = OBSERVE_CONTROL_SET_fields_::DIVIDE;
   using OFF = OBSERVE_CONTROL_SET_fields_::OFF;
 };
-
 
 // Observe control
 struct OBSERVE_CONTROL_CLR_fields_ {
@@ -163,7 +160,6 @@ struct OBSERVE_CONTROL_CLR : ftl::mmio::Register<
   using OFF = OBSERVE_CONTROL_CLR_fields_::OFF;
 };
 
-
 // Observe control
 struct OBSERVE_CONTROL_TOG_fields_ {
   // Observe signal selector
@@ -204,10 +200,8 @@ struct OBSERVE_CONTROL_TOG : ftl::mmio::Register<
   using OFF = OBSERVE_CONTROL_TOG_fields_::OFF;
 };
 
-
 // Observe status
 struct OBSERVE_STATUS0_fields_ {
-
   enum class eRAW : std::uint32_t {
     // Divided signal is selected
     eRAW_0 = 0,
@@ -235,6 +229,7 @@ struct OBSERVE_STATUS0_fields_ {
     // observe slice is off
     eOFF_1 = 1,
   };
+
   // Select value
   using SELECT = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Observe raw signal
@@ -277,10 +272,8 @@ struct OBSERVE_STATUS0 : ftl::mmio::Register<
   using OFF = OBSERVE_STATUS0_fields_::OFF;
 };
 
-
 // Observe access control
 struct OBSERVE_AUTHEN_fields_ {
-
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
     eTZ_USER_0 = 0,
@@ -337,6 +330,7 @@ struct OBSERVE_AUTHEN_fields_ {
     // MODE is locked.
     eLOCK_MODE_1 = 1,
   };
+
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
   // Non-secure access
@@ -388,7 +382,6 @@ struct OBSERVE_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = OBSERVE_AUTHEN_fields_::LOCK_MODE;
 };
 
-
 // Observe access control
 struct OBSERVE_AUTHEN_SET_fields_ {
   // User access
@@ -434,7 +427,6 @@ struct OBSERVE_AUTHEN_SET : ftl::mmio::Register<
   using DOMAIN_MODE = OBSERVE_AUTHEN_SET_fields_::DOMAIN_MODE;
   using LOCK_MODE = OBSERVE_AUTHEN_SET_fields_::LOCK_MODE;
 };
-
 
 // Observe access control
 struct OBSERVE_AUTHEN_CLR_fields_ {
@@ -482,7 +474,6 @@ struct OBSERVE_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = OBSERVE_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
-
 // Observe access control
 struct OBSERVE_AUTHEN_TOG_fields_ {
   // User access
@@ -529,7 +520,6 @@ struct OBSERVE_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = OBSERVE_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
-
 // Current frequency detected
 struct OBSERVE_FREQUENCY_CURRENT_fields_ {
   // Frequency
@@ -547,7 +537,6 @@ struct OBSERVE_FREQUENCY_CURRENT : ftl::mmio::Register<
   using FREQUENCY = OBSERVE_FREQUENCY_CURRENT_fields_::FREQUENCY;
 };
 
-
 // Minimum frequency detected
 struct OBSERVE_FREQUENCY_MIN_fields_ {
   // Frequency
@@ -564,7 +553,6 @@ struct OBSERVE_FREQUENCY_MIN : ftl::mmio::Register<
   static_assert(ClusterIndex < 6u, "OBSERVE_FREQUENCY_MIN: ClusterIndex out of range");
   using FREQUENCY = OBSERVE_FREQUENCY_MIN_fields_::FREQUENCY;
 };
-
 
 // Maximum frequency detected
 struct OBSERVE_FREQUENCY_MAX_fields_ {

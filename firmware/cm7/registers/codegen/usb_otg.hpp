@@ -40,7 +40,7 @@ struct Usb_otg {
       ftl::mmio::Reserved<2, 14>,
       typename ID_fields_::REVISION,
       ftl::mmio::Reserved<8, 24>> {
-    using value_ = typename ID_fields_::ID;
+    using VALUE = typename ID_fields_::ID;
     using NID = typename ID_fields_::NID;
     using REVISION = typename ID_fields_::REVISION;
   };
@@ -393,7 +393,7 @@ struct Usb_otg {
       0x40u,
       ftl::mmio::RO,
       typename CAPLENGTH_fields_::CAPLENGTH> {
-    using value_ = typename CAPLENGTH_fields_::CAPLENGTH;
+    using VALUE = typename CAPLENGTH_fields_::CAPLENGTH;
   };
 
   // Host Controller Interface Version
@@ -408,7 +408,7 @@ struct Usb_otg {
       0x0100u,
       ftl::mmio::RO,
       typename HCIVERSION_fields_::HCIVERSION> {
-    using value_ = typename HCIVERSION_fields_::HCIVERSION;
+    using VALUE = typename HCIVERSION_fields_::HCIVERSION;
   };
 
   // Host Controller Structural Parameters
@@ -506,7 +506,7 @@ struct Usb_otg {
       0x0001u,
       ftl::mmio::RO,
       typename DCIVERSION_fields_::DCIVERSION> {
-    using value_ = typename DCIVERSION_fields_::DCIVERSION;
+    using VALUE = typename DCIVERSION_fields_::DCIVERSION;
   };
 
   // Device Controller Capability Parameters
@@ -825,7 +825,7 @@ struct Usb_otg {
       typename FRINDEX_fields_::FRINDEX,
       ftl::mmio::Reserved<18, 14>> {
     using eFRINDEX = typename FRINDEX_fields_::eFRINDEX;
-    using value_ = typename FRINDEX_fields_::FRINDEX;
+    using VALUE = typename FRINDEX_fields_::FRINDEX;
   };
 
   // Device Address
@@ -1393,7 +1393,7 @@ struct Usb_otg {
       ftl::mmio::RW,
       typename ENDPTSETUPSTAT_fields_::ENDPTSETUPSTAT,
       ftl::mmio::Reserved<16, 16>> {
-    using value_ = typename ENDPTSETUPSTAT_fields_::ENDPTSETUPSTAT;
+    using VALUE = typename ENDPTSETUPSTAT_fields_::ENDPTSETUPSTAT;
   };
 
   // Endpoint Prime

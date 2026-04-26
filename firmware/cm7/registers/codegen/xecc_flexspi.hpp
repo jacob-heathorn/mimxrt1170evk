@@ -208,7 +208,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ERR_DATA_INJ_fields_::ERR_DATA_INJ> {
-    using value_ = typename ERR_DATA_INJ_fields_::ERR_DATA_INJ;
+    using VALUE = typename ERR_DATA_INJ_fields_::ERR_DATA_INJ;
   };
 
   // Error Injection On ECC Code of Write Data
@@ -223,7 +223,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ERR_ECC_INJ_fields_::ERR_ECC_INJ> {
-    using value_ = typename ERR_ECC_INJ_fields_::ERR_ECC_INJ;
+    using VALUE = typename ERR_ECC_INJ_fields_::ERR_ECC_INJ;
   };
 
   // Single Error Address
@@ -238,7 +238,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RO,
       typename SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR> {
-    using value_ = typename SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR;
+    using VALUE = typename SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR;
   };
 
   // Single Error Read Data
@@ -253,7 +253,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RO,
       typename SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA> {
-    using value_ = typename SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA;
+    using VALUE = typename SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA;
   };
 
   // Single Error ECC Code
@@ -268,7 +268,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RO,
       typename SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC> {
-    using value_ = typename SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC;
+    using VALUE = typename SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC;
   };
 
   // Single Error Bit Position
@@ -283,7 +283,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RO,
       typename SINGLE_ERR_POS_fields_::SINGLE_ERR_POS> {
-    using value_ = typename SINGLE_ERR_POS_fields_::SINGLE_ERR_POS;
+    using VALUE = typename SINGLE_ERR_POS_fields_::SINGLE_ERR_POS;
   };
 
   // Single Error Bit Field
@@ -301,7 +301,7 @@ struct Xecc_flexspi {
       ftl::mmio::RO,
       typename SINGLE_ERR_BIT_FIELD_fields_::SINGLE_ERR_BIT_FIELD,
       typename SINGLE_ERR_BIT_FIELD_fields_::Reserved1> {
-    using value_ = typename SINGLE_ERR_BIT_FIELD_fields_::SINGLE_ERR_BIT_FIELD;
+    using VALUE = typename SINGLE_ERR_BIT_FIELD_fields_::SINGLE_ERR_BIT_FIELD;
     using Reserved1 = typename SINGLE_ERR_BIT_FIELD_fields_::Reserved1;
   };
 
@@ -317,7 +317,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RO,
       typename MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR> {
-    using value_ = typename MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR;
+    using VALUE = typename MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR;
   };
 
   // Multiple Error Read Data
@@ -332,7 +332,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RO,
       typename MULTI_ERR_DATA_fields_::MULTI_ERR_DATA> {
-    using value_ = typename MULTI_ERR_DATA_fields_::MULTI_ERR_DATA;
+    using VALUE = typename MULTI_ERR_DATA_fields_::MULTI_ERR_DATA;
   };
 
   // Multiple Error ECC code
@@ -347,7 +347,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RO,
       typename MULTI_ERR_ECC_fields_::MULTI_ERR_ECC> {
-    using value_ = typename MULTI_ERR_ECC_fields_::MULTI_ERR_ECC;
+    using VALUE = typename MULTI_ERR_ECC_fields_::MULTI_ERR_ECC;
   };
 
   // Multiple Error Bit Field
@@ -365,7 +365,7 @@ struct Xecc_flexspi {
       ftl::mmio::RO,
       typename MULTI_ERR_BIT_FIELD_fields_::MULTI_ERR_BIT_FIELD,
       typename MULTI_ERR_BIT_FIELD_fields_::Reserved1> {
-    using value_ = typename MULTI_ERR_BIT_FIELD_fields_::MULTI_ERR_BIT_FIELD;
+    using VALUE = typename MULTI_ERR_BIT_FIELD_fields_::MULTI_ERR_BIT_FIELD;
     using Reserved1 = typename MULTI_ERR_BIT_FIELD_fields_::Reserved1;
   };
 
@@ -381,7 +381,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0> {
-    using value_ = typename ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0;
+    using VALUE = typename ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0;
   };
 
   // ECC Region 0 End Address
@@ -396,7 +396,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ECC_END_ADDR0_fields_::ECC_END_ADDR0> {
-    using value_ = typename ECC_END_ADDR0_fields_::ECC_END_ADDR0;
+    using VALUE = typename ECC_END_ADDR0_fields_::ECC_END_ADDR0;
   };
 
   // ECC Region 1 Base Address
@@ -411,7 +411,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1> {
-    using value_ = typename ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1;
+    using VALUE = typename ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1;
   };
 
   // ECC Region 1 End Address
@@ -426,7 +426,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ECC_END_ADDR1_fields_::ECC_END_ADDR1> {
-    using value_ = typename ECC_END_ADDR1_fields_::ECC_END_ADDR1;
+    using VALUE = typename ECC_END_ADDR1_fields_::ECC_END_ADDR1;
   };
 
   // ECC Region 2 Base Address
@@ -441,7 +441,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2> {
-    using value_ = typename ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2;
+    using VALUE = typename ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2;
   };
 
   // ECC Region 2 End Address
@@ -456,7 +456,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ECC_END_ADDR2_fields_::ECC_END_ADDR2> {
-    using value_ = typename ECC_END_ADDR2_fields_::ECC_END_ADDR2;
+    using VALUE = typename ECC_END_ADDR2_fields_::ECC_END_ADDR2;
   };
 
   // ECC Region 3 Base Address
@@ -471,7 +471,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3> {
-    using value_ = typename ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3;
+    using VALUE = typename ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3;
   };
 
   // ECC Region 3 End Address
@@ -486,7 +486,7 @@ struct Xecc_flexspi {
       0x00000000u,
       ftl::mmio::RW,
       typename ECC_END_ADDR3_fields_::ECC_END_ADDR3> {
-    using value_ = typename ECC_END_ADDR3_fields_::ECC_END_ADDR3;
+    using VALUE = typename ECC_END_ADDR3_fields_::ECC_END_ADDR3;
   };
 
 };

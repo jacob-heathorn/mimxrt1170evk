@@ -480,7 +480,7 @@ struct RDAR : ftl::mmio::Register<
     ftl::mmio::Reserved<24, 0>,
     RDAR_fields_::RDAR,
     ftl::mmio::Reserved<7, 25>> {
-  using value_ = RDAR_fields_::RDAR;
+  using VALUE = RDAR_fields_::RDAR;
 };
 
 // Transmit Descriptor Active Register - Ring 0
@@ -497,7 +497,7 @@ struct TDAR : ftl::mmio::Register<
     ftl::mmio::Reserved<24, 0>,
     TDAR_fields_::TDAR,
     ftl::mmio::Reserved<7, 25>> {
-  using value_ = TDAR_fields_::TDAR;
+  using VALUE = TDAR_fields_::TDAR;
 };
 
 // Ethernet Control Register
@@ -1306,7 +1306,7 @@ struct TFWR : ftl::mmio::Register<
     ftl::mmio::Reserved<23, 9>> {
   using eTFWR = TFWR_fields_::eTFWR;
   using eSTRFWD = TFWR_fields_::eSTRFWD;
-  using value_ = TFWR_fields_::TFWR;
+  using VALUE = TFWR_fields_::TFWR;
   using STRFWD = TFWR_fields_::STRFWD;
 };
 

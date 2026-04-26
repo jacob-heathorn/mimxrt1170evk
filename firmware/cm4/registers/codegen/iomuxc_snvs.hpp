@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::iomuxc_snvs {
 
-
 // SW_MUX_CTL_PAD_WAKEUP_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_WAKEUP_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT5 mux port: GPIO13_IO00 of instance: GPIO13
     eALT5_gpio13_IO0 = 5,
@@ -25,6 +23,7 @@ struct SW_MUX_CTL_PAD_WAKEUP_DIG_fields_ {
     // Force input path of pad WAKEUP_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -46,10 +45,8 @@ struct SW_MUX_CTL_PAD_WAKEUP_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_WAKEUP_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_LP_PMIC_ON_REQ of instance: SNVS_LP
     eALT0_snvs_lp_PMIC_ON_REQ = 0,
@@ -63,6 +60,7 @@ struct SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG_fields_ {
     // Force input path of pad PMIC_ON_REQ_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -84,10 +82,8 @@ struct SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: CCM_PMIC_VSTBY_REQ of instance: CCM
     eALT0_ccm_PMIC_VSTBY_REQ = 0,
@@ -101,6 +97,7 @@ struct SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG_fields_ {
     // Force input path of pad PMIC_STBY_REQ_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -122,10 +119,8 @@ struct SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER0 of instance: SNVS_LP
     eALT0_SNVS_TAMPER0 = 0,
@@ -139,6 +134,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_00_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -160,10 +156,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER1 of instance: SNVS_LP
     eALT0_SNVS_TAMPER1 = 0,
@@ -177,6 +171,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_01_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -198,10 +193,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER2 of instance: SNVS_LP
     eALT0_SNVS_TAMPER2 = 0,
@@ -215,6 +208,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_02_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -236,10 +230,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER3 of instance: SNVS_LP
     eALT0_SNVS_TAMPER3 = 0,
@@ -253,6 +245,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_03_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -274,10 +267,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER4 of instance: SNVS_LP
     eALT0_SNVS_TAMPER4 = 0,
@@ -291,6 +282,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_04_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -312,10 +304,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER5 of instance: SNVS_LP
     eALT0_SNVS_TAMPER5 = 0,
@@ -329,6 +319,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_05_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -350,10 +341,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER6 of instance: SNVS_LP
     eALT0_SNVS_TAMPER6 = 0,
@@ -367,6 +356,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_06_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -388,10 +378,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER7 of instance: SNVS_LP
     eALT0_SNVS_TAMPER7 = 0,
@@ -405,6 +393,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_07_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -426,10 +415,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER8 of instance: SNVS_LP
     eALT0_SNVS_TAMPER8 = 0,
@@ -443,6 +430,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_08_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -464,10 +452,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG_fields_::SION;
 };
 
-
 // SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG SW MUX Control Register
 struct SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG_fields_ {
-
   enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SNVS_TAMPER9 of instance: SNVS_LP
     eALT0_SNVS_TAMPER9 = 0,
@@ -481,6 +467,7 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG_fields_ {
     // Force input path of pad GPIO_SNVS_09_DIG
     eENABLED = 1,
   };
+
   // MUX Mode Select Field.
   using MUX_MODE = ftl::mmio::Field<3, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software Input On Field.
@@ -502,10 +489,8 @@ struct SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG : ftl::mmio::Register<
   using SION = SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG_fields_::SION;
 };
 
-
 // SW_PAD_CTL_PAD_TEST_MODE_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_TEST_MODE_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -541,6 +526,7 @@ struct SW_PAD_CTL_PAD_TEST_MODE_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -572,10 +558,8 @@ struct SW_PAD_CTL_PAD_TEST_MODE_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_TEST_MODE_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_POR_B_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_POR_B_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -611,6 +595,7 @@ struct SW_PAD_CTL_PAD_POR_B_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -642,10 +627,8 @@ struct SW_PAD_CTL_PAD_POR_B_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_POR_B_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_ONOFF_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_ONOFF_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -681,6 +664,7 @@ struct SW_PAD_CTL_PAD_ONOFF_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -712,10 +696,8 @@ struct SW_PAD_CTL_PAD_ONOFF_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_ONOFF_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_WAKEUP_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_WAKEUP_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -758,6 +740,7 @@ struct SW_PAD_CTL_PAD_WAKEUP_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -795,10 +778,8 @@ struct SW_PAD_CTL_PAD_WAKEUP_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_WAKEUP_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -841,6 +822,7 @@ struct SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -878,10 +860,8 @@ struct SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -924,6 +904,7 @@ struct SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -961,10 +942,8 @@ struct SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1007,6 +986,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1044,10 +1024,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1090,6 +1068,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1127,10 +1106,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1173,6 +1150,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1210,10 +1188,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1256,6 +1232,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1293,10 +1270,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1339,6 +1314,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1376,10 +1352,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1422,6 +1396,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1459,10 +1434,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1505,6 +1478,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1542,10 +1516,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1588,6 +1560,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1625,10 +1598,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1671,6 +1642,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field
@@ -1708,10 +1680,8 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG : ftl::mmio::Register<
   using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG_fields_::DWP_LOCK;
 };
 
-
 // SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG SW PAD Control Register
 struct SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG_fields_ {
-
   enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
@@ -1754,6 +1724,7 @@ struct SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG_fields_ {
     // Both DWP bits are locked
     elock_both = 3,
   };
+
   // Pull / Keep Select Field
   using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pull Up / Down Config. Field

@@ -164,7 +164,7 @@ struct Wdog {
       ftl::mmio::RW,
       typename WSR_fields_::WSR> {
     using eWSR = typename WSR_fields_::eWSR;
-    using value_ = typename WSR_fields_::WSR;
+    using VALUE = typename WSR_fields_::WSR;
   };
 
   // Watchdog Reset Status Register

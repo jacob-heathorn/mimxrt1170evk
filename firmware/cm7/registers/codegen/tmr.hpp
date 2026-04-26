@@ -603,7 +603,7 @@ struct Tmr {
       typename ENBL_fields_::ENBL,
       ftl::mmio::Reserved<12, 4>> {
     using eENBL = typename ENBL_fields_::eENBL;
-    using value_ = typename ENBL_fields_::ENBL;
+    using VALUE = typename ENBL_fields_::ENBL;
   };
 
   // Timer Channel Compare Register 1

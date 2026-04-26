@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::csi {
 
-
 // CSI Control Register 1
 struct CSI_CR1_fields_ {
-
   enum class ePIXEL_BIT : std::uint32_t {
     // 8-bit data for each pixel
     ePIXEL_BIT_0 = 0,
@@ -179,6 +177,7 @@ struct CSI_CR1_fields_ {
     // Enable swapping
     eSWAP16_EN_1 = 1,
   };
+
   // Pixel Bit
   using PIXEL_BIT = ftl::mmio::Field<1, 0, ePIXEL_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Valid Pixel Clock Edge Select
@@ -320,10 +319,8 @@ struct CSI_CR1 : ftl::mmio::Register<
   using SWAP16_EN = CSI_CR1_fields_::SWAP16_EN;
 };
 
-
 // CSI Control Register 2
 struct CSI_CR2_fields_ {
-
   enum class eHSC : std::uint32_t {
     // Number of pixels to skip minus 1
     eHSC_0 = 0,
@@ -438,6 +435,7 @@ struct CSI_CR2_fields_ {
     // INCR16
     eDMA_BURST_TYPE_RFF_3 = 3,
   };
+
   // Horizontal Skip Count
   using HSC = ftl::mmio::Field<8, 0, eHSC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Vertical Skip Count. Contains the number of rows to skip. SCE must be 1, otherwise VSC is ignored.
@@ -494,10 +492,8 @@ struct CSI_CR2 : ftl::mmio::Register<
   using DMA_BURST_TYPE_RFF = CSI_CR2_fields_::DMA_BURST_TYPE_RFF;
 };
 
-
 // CSI Control Register 3
 struct CSI_CR3_fields_ {
-
   enum class eECC_AUTO_EN : std::uint32_t {
     // Auto Error correction is disabled.
     eECC_AUTO_EN_0 = 0,
@@ -605,6 +601,7 @@ struct CSI_CR3_fields_ {
     // Reset frame counter immediately
     eFRMCNT_RST_1 = 1,
   };
+
   // Automatic Error Correction Enable
   using ECC_AUTO_EN = ftl::mmio::Field<1, 0, eECC_AUTO_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Error Detection Interrupt Enable
@@ -678,7 +675,6 @@ struct CSI_CR3 : ftl::mmio::Register<
   using FRMCNT = CSI_CR3_fields_::FRMCNT;
 };
 
-
 // CSI Statistic FIFO Register
 struct CSI_STATFIFO_fields_ {
   // Static data from sensor
@@ -694,7 +690,6 @@ struct CSI_STATFIFO : ftl::mmio::Register<
   using STAT = CSI_STATFIFO_fields_::STAT;
 };
 
-
 // CSI RX FIFO Register
 struct CSI_RFIFO_fields_ {
   // Received image data
@@ -709,7 +704,6 @@ struct CSI_RFIFO : ftl::mmio::Register<
     CSI_RFIFO_fields_::IMAGE> {
   using IMAGE = CSI_RFIFO_fields_::IMAGE;
 };
-
 
 // CSI RX Count Register
 struct CSI_RXCNT_fields_ {
@@ -727,10 +721,8 @@ struct CSI_RXCNT : ftl::mmio::Register<
   using RXCNT = CSI_RXCNT_fields_::RXCNT;
 };
 
-
 // CSI Status Register
 struct CSI_SR_fields_ {
-
   enum class eDRDY : std::uint32_t {
     // No data (word) is ready
     eDRDY_0 = 0,
@@ -842,6 +834,7 @@ struct CSI_SR_fields_ {
     // STATFIFO has overflowed.
     eSF_OR_INT_1 = 1,
   };
+
   // RXFIFO Data Ready
   using DRDY = ftl::mmio::Field<1, 0, eDRDY, ftl::mmio::RW, ftl::mmio::Normal>;
   // BT
@@ -947,7 +940,6 @@ struct CSI_SR : ftl::mmio::Register<
   using BASEADDR_CHHANGE_ERROR = CSI_SR_fields_::BASEADDR_CHHANGE_ERROR;
 };
 
-
 // CSI DMA Start Address Register - for STATFIFO
 struct CSI_DMASA_STATFIFO_fields_ {
   // DMA Start Address for STATFIFO
@@ -964,7 +956,6 @@ struct CSI_DMASA_STATFIFO : ftl::mmio::Register<
   using DMA_START_ADDR_SFF = CSI_DMASA_STATFIFO_fields_::DMA_START_ADDR_SFF;
 };
 
-
 // CSI DMA Transfer Size Register - for STATFIFO
 struct CSI_DMATS_STATFIFO_fields_ {
   // DMA Transfer Size for STATFIFO
@@ -979,7 +970,6 @@ struct CSI_DMATS_STATFIFO : ftl::mmio::Register<
     CSI_DMATS_STATFIFO_fields_::DMA_TSF_SIZE_SFF> {
   using DMA_TSF_SIZE_SFF = CSI_DMATS_STATFIFO_fields_::DMA_TSF_SIZE_SFF;
 };
-
 
 // CSI DMA Start Address Register - for Frame Buffer1
 struct CSI_DMASA_FB1_fields_ {
@@ -997,7 +987,6 @@ struct CSI_DMASA_FB1 : ftl::mmio::Register<
   using DMA_START_ADDR_FB1 = CSI_DMASA_FB1_fields_::DMA_START_ADDR_FB1;
 };
 
-
 // CSI DMA Transfer Size Register - for Frame Buffer2
 struct CSI_DMASA_FB2_fields_ {
   // DMA Start Address in Frame Buffer2
@@ -1013,7 +1002,6 @@ struct CSI_DMASA_FB2 : ftl::mmio::Register<
     CSI_DMASA_FB2_fields_::DMA_START_ADDR_FB2> {
   using DMA_START_ADDR_FB2 = CSI_DMASA_FB2_fields_::DMA_START_ADDR_FB2;
 };
-
 
 // CSI Frame Buffer Parameter Register
 struct CSI_FBUF_PARA_fields_ {
@@ -1034,7 +1022,6 @@ struct CSI_FBUF_PARA : ftl::mmio::Register<
   using DEINTERLACE_STRIDE = CSI_FBUF_PARA_fields_::DEINTERLACE_STRIDE;
 };
 
-
 // CSI Image Parameter Register
 struct CSI_IMAG_PARA_fields_ {
   // Image Height. Indicates how many pixels in a column of the image from the sensor.
@@ -1054,10 +1041,8 @@ struct CSI_IMAG_PARA : ftl::mmio::Register<
   using IMAGE_WIDTH = CSI_IMAG_PARA_fields_::IMAGE_WIDTH;
 };
 
-
 // CSI Control Register 18
 struct CSI_CR18_fields_ {
-
   enum class eNTSC_EN : std::uint32_t {
     // PAL
     eNTSC_EN_0 = 0,
@@ -1145,6 +1130,7 @@ struct CSI_CR18_fields_ {
     // Data from MIPI
     eDATA_FROM_MIPI_1 = 1,
   };
+
   // This bit is used to select NTSC/PAL mode When input is TVDECODER or standard BT.656 video.
   using NTSC_EN = ftl::mmio::Field<1, 0, eNTSC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // When input is from TV decoder, this bit is enabled.
@@ -1245,7 +1231,6 @@ struct CSI_CR18 : ftl::mmio::Register<
   using CSI_ENABLE = CSI_CR18_fields_::CSI_ENABLE;
 };
 
-
 // CSI Control Register 19
 struct CSI_CR19_fields_ {
   // This byte stores the highest FIFO level achieved by CSI FIFO timely and will be clear by writing 8'ff to it
@@ -1262,10 +1247,8 @@ struct CSI_CR19 : ftl::mmio::Register<
   using DMA_RFIFO_HIGHEST_FIFO_LEVEL = CSI_CR19_fields_::DMA_RFIFO_HIGHEST_FIFO_LEVEL;
 };
 
-
 // CSI Control Register 20
 struct CSI_CR20_fields_ {
-
   enum class eBINARY_EN : std::uint32_t {
     // Output is Y8 format(8 bits each pixel)
     eBINARY_EN_0 = 0,
@@ -1315,6 +1298,7 @@ struct CSI_CR20_fields_ {
     // Gray scale mode
     eQRCODE_EN_1 = 1,
   };
+
   // THRESHOLD used for binary function. When data value > THRESHOLD, output will be 1 Else will be 0.
   using THRESHOLD = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // no description available
@@ -1358,7 +1342,6 @@ struct CSI_CR20 : ftl::mmio::Register<
   using HISTOGRAM_EN = CSI_CR20_fields_::HISTOGRAM_EN;
   using QRCODE_EN = CSI_CR20_fields_::QRCODE_EN;
 };
-
 
 // CSI Control Register
 struct CR_fields_ {

@@ -42,7 +42,7 @@ struct Gpio {
       0x00000000u,
       ftl::mmio::RW,
       typename DR_fields_::DR> {
-    using value_ = typename DR_fields_::DR;
+    using VALUE = typename DR_fields_::DR;
   };
 
   // GPIO direction register
@@ -57,7 +57,7 @@ struct Gpio {
       0x00000000u,
       ftl::mmio::RW,
       typename GDIR_fields_::GDIR> {
-    using value_ = typename GDIR_fields_::GDIR;
+    using VALUE = typename GDIR_fields_::GDIR;
   };
 
   // GPIO pad status register
@@ -72,7 +72,7 @@ struct Gpio {
       0x00000000u,
       ftl::mmio::RO,
       typename PSR_fields_::PSR> {
-    using value_ = typename PSR_fields_::PSR;
+    using VALUE = typename PSR_fields_::PSR;
   };
 
   // GPIO interrupt configuration register1
@@ -325,7 +325,7 @@ struct Gpio {
     using eICR14 = typename ICR1_fields_::eICR14;
     using eICR15 = typename ICR1_fields_::eICR15;
     using ICR0 = typename ICR1_fields_::ICR0;
-    using value_ = typename ICR1_fields_::ICR1;
+    using VALUE = typename ICR1_fields_::ICR1;
     using ICR2 = typename ICR1_fields_::ICR2;
     using ICR3 = typename ICR1_fields_::ICR3;
     using ICR4 = typename ICR1_fields_::ICR4;
@@ -621,7 +621,7 @@ struct Gpio {
       0x00000000u,
       ftl::mmio::RW,
       typename IMR_fields_::IMR> {
-    using value_ = typename IMR_fields_::IMR;
+    using VALUE = typename IMR_fields_::IMR;
   };
 
   // GPIO interrupt status register
@@ -636,7 +636,7 @@ struct Gpio {
       0x00000000u,
       ftl::mmio::RW,
       typename ISR_fields_::ISR> {
-    using value_ = typename ISR_fields_::ISR;
+    using VALUE = typename ISR_fields_::ISR;
   };
 
   // GPIO edge select register
@@ -666,7 +666,7 @@ struct Gpio {
       0x00000000u,
       ftl::mmio::WO,
       typename DR_SET_fields_::DR_SET> {
-    using value_ = typename DR_SET_fields_::DR_SET;
+    using VALUE = typename DR_SET_fields_::DR_SET;
   };
 
   // GPIO data register CLEAR
@@ -681,7 +681,7 @@ struct Gpio {
       0x00000000u,
       ftl::mmio::WO,
       typename DR_CLEAR_fields_::DR_CLEAR> {
-    using value_ = typename DR_CLEAR_fields_::DR_CLEAR;
+    using VALUE = typename DR_CLEAR_fields_::DR_CLEAR;
   };
 
   // GPIO data register TOGGLE
@@ -696,7 +696,7 @@ struct Gpio {
       0x00000000u,
       ftl::mmio::WO,
       typename DR_TOGGLE_fields_::DR_TOGGLE> {
-    using value_ = typename DR_TOGGLE_fields_::DR_TOGGLE;
+    using VALUE = typename DR_TOGGLE_fields_::DR_TOGGLE;
   };
 
 };

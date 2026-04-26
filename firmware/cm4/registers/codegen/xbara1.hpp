@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::xbara1 {
 
-
 // Crossbar A Select Register 0
 struct XBARA1_SEL0_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT0 (refer to Functional Description section for input/output assignment)
@@ -27,7 +26,6 @@ struct XBARA1_SEL0 : ftl::mmio::Register<
   using SEL0 = XBARA1_SEL0_fields_::SEL0;
   using SEL1 = XBARA1_SEL0_fields_::SEL1;
 };
-
 
 // Crossbar A Select Register 1
 struct XBARA1_SEL1_fields_ {
@@ -48,7 +46,6 @@ struct XBARA1_SEL1 : ftl::mmio::Register<
   using SEL3 = XBARA1_SEL1_fields_::SEL3;
 };
 
-
 // Crossbar A Select Register 2
 struct XBARA1_SEL2_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT4 (refer to Functional Description section for input/output assignment)
@@ -67,7 +64,6 @@ struct XBARA1_SEL2 : ftl::mmio::Register<
   using SEL4 = XBARA1_SEL2_fields_::SEL4;
   using SEL5 = XBARA1_SEL2_fields_::SEL5;
 };
-
 
 // Crossbar A Select Register 3
 struct XBARA1_SEL3_fields_ {
@@ -88,7 +84,6 @@ struct XBARA1_SEL3 : ftl::mmio::Register<
   using SEL7 = XBARA1_SEL3_fields_::SEL7;
 };
 
-
 // Crossbar A Select Register 4
 struct XBARA1_SEL4_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT8 (refer to Functional Description section for input/output assignment)
@@ -107,7 +102,6 @@ struct XBARA1_SEL4 : ftl::mmio::Register<
   using SEL8 = XBARA1_SEL4_fields_::SEL8;
   using SEL9 = XBARA1_SEL4_fields_::SEL9;
 };
-
 
 // Crossbar A Select Register 5
 struct XBARA1_SEL5_fields_ {
@@ -128,7 +122,6 @@ struct XBARA1_SEL5 : ftl::mmio::Register<
   using SEL11 = XBARA1_SEL5_fields_::SEL11;
 };
 
-
 // Crossbar A Select Register 6
 struct XBARA1_SEL6_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT12 (refer to Functional Description section for input/output assignment)
@@ -147,7 +140,6 @@ struct XBARA1_SEL6 : ftl::mmio::Register<
   using SEL12 = XBARA1_SEL6_fields_::SEL12;
   using SEL13 = XBARA1_SEL6_fields_::SEL13;
 };
-
 
 // Crossbar A Select Register 7
 struct XBARA1_SEL7_fields_ {
@@ -168,7 +160,6 @@ struct XBARA1_SEL7 : ftl::mmio::Register<
   using SEL15 = XBARA1_SEL7_fields_::SEL15;
 };
 
-
 // Crossbar A Select Register 8
 struct XBARA1_SEL8_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT16 (refer to Functional Description section for input/output assignment)
@@ -187,7 +178,6 @@ struct XBARA1_SEL8 : ftl::mmio::Register<
   using SEL16 = XBARA1_SEL8_fields_::SEL16;
   using SEL17 = XBARA1_SEL8_fields_::SEL17;
 };
-
 
 // Crossbar A Select Register 9
 struct XBARA1_SEL9_fields_ {
@@ -208,7 +198,6 @@ struct XBARA1_SEL9 : ftl::mmio::Register<
   using SEL19 = XBARA1_SEL9_fields_::SEL19;
 };
 
-
 // Crossbar A Select Register 10
 struct XBARA1_SEL10_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT20 (refer to Functional Description section for input/output assignment)
@@ -227,7 +216,6 @@ struct XBARA1_SEL10 : ftl::mmio::Register<
   using SEL20 = XBARA1_SEL10_fields_::SEL20;
   using SEL21 = XBARA1_SEL10_fields_::SEL21;
 };
-
 
 // Crossbar A Select Register 11
 struct XBARA1_SEL11_fields_ {
@@ -248,7 +236,6 @@ struct XBARA1_SEL11 : ftl::mmio::Register<
   using SEL23 = XBARA1_SEL11_fields_::SEL23;
 };
 
-
 // Crossbar A Select Register 12
 struct XBARA1_SEL12_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT24 (refer to Functional Description section for input/output assignment)
@@ -267,7 +254,6 @@ struct XBARA1_SEL12 : ftl::mmio::Register<
   using SEL24 = XBARA1_SEL12_fields_::SEL24;
   using SEL25 = XBARA1_SEL12_fields_::SEL25;
 };
-
 
 // Crossbar A Select Register 13
 struct XBARA1_SEL13_fields_ {
@@ -288,7 +274,6 @@ struct XBARA1_SEL13 : ftl::mmio::Register<
   using SEL27 = XBARA1_SEL13_fields_::SEL27;
 };
 
-
 // Crossbar A Select Register 14
 struct XBARA1_SEL14_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT28 (refer to Functional Description section for input/output assignment)
@@ -307,7 +292,6 @@ struct XBARA1_SEL14 : ftl::mmio::Register<
   using SEL28 = XBARA1_SEL14_fields_::SEL28;
   using SEL29 = XBARA1_SEL14_fields_::SEL29;
 };
-
 
 // Crossbar A Select Register 15
 struct XBARA1_SEL15_fields_ {
@@ -328,7 +312,6 @@ struct XBARA1_SEL15 : ftl::mmio::Register<
   using SEL31 = XBARA1_SEL15_fields_::SEL31;
 };
 
-
 // Crossbar A Select Register 16
 struct XBARA1_SEL16_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT32 (refer to Functional Description section for input/output assignment)
@@ -347,7 +330,6 @@ struct XBARA1_SEL16 : ftl::mmio::Register<
   using SEL32 = XBARA1_SEL16_fields_::SEL32;
   using SEL33 = XBARA1_SEL16_fields_::SEL33;
 };
-
 
 // Crossbar A Select Register 17
 struct XBARA1_SEL17_fields_ {
@@ -368,7 +350,6 @@ struct XBARA1_SEL17 : ftl::mmio::Register<
   using SEL35 = XBARA1_SEL17_fields_::SEL35;
 };
 
-
 // Crossbar A Select Register 18
 struct XBARA1_SEL18_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT36 (refer to Functional Description section for input/output assignment)
@@ -387,7 +368,6 @@ struct XBARA1_SEL18 : ftl::mmio::Register<
   using SEL36 = XBARA1_SEL18_fields_::SEL36;
   using SEL37 = XBARA1_SEL18_fields_::SEL37;
 };
-
 
 // Crossbar A Select Register 19
 struct XBARA1_SEL19_fields_ {
@@ -408,7 +388,6 @@ struct XBARA1_SEL19 : ftl::mmio::Register<
   using SEL39 = XBARA1_SEL19_fields_::SEL39;
 };
 
-
 // Crossbar A Select Register 20
 struct XBARA1_SEL20_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT40 (refer to Functional Description section for input/output assignment)
@@ -427,7 +406,6 @@ struct XBARA1_SEL20 : ftl::mmio::Register<
   using SEL40 = XBARA1_SEL20_fields_::SEL40;
   using SEL41 = XBARA1_SEL20_fields_::SEL41;
 };
-
 
 // Crossbar A Select Register 21
 struct XBARA1_SEL21_fields_ {
@@ -448,7 +426,6 @@ struct XBARA1_SEL21 : ftl::mmio::Register<
   using SEL43 = XBARA1_SEL21_fields_::SEL43;
 };
 
-
 // Crossbar A Select Register 22
 struct XBARA1_SEL22_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT44 (refer to Functional Description section for input/output assignment)
@@ -467,7 +444,6 @@ struct XBARA1_SEL22 : ftl::mmio::Register<
   using SEL44 = XBARA1_SEL22_fields_::SEL44;
   using SEL45 = XBARA1_SEL22_fields_::SEL45;
 };
-
 
 // Crossbar A Select Register 23
 struct XBARA1_SEL23_fields_ {
@@ -488,7 +464,6 @@ struct XBARA1_SEL23 : ftl::mmio::Register<
   using SEL47 = XBARA1_SEL23_fields_::SEL47;
 };
 
-
 // Crossbar A Select Register 24
 struct XBARA1_SEL24_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT48 (refer to Functional Description section for input/output assignment)
@@ -507,7 +482,6 @@ struct XBARA1_SEL24 : ftl::mmio::Register<
   using SEL48 = XBARA1_SEL24_fields_::SEL48;
   using SEL49 = XBARA1_SEL24_fields_::SEL49;
 };
-
 
 // Crossbar A Select Register 25
 struct XBARA1_SEL25_fields_ {
@@ -528,7 +502,6 @@ struct XBARA1_SEL25 : ftl::mmio::Register<
   using SEL51 = XBARA1_SEL25_fields_::SEL51;
 };
 
-
 // Crossbar A Select Register 26
 struct XBARA1_SEL26_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT52 (refer to Functional Description section for input/output assignment)
@@ -547,7 +520,6 @@ struct XBARA1_SEL26 : ftl::mmio::Register<
   using SEL52 = XBARA1_SEL26_fields_::SEL52;
   using SEL53 = XBARA1_SEL26_fields_::SEL53;
 };
-
 
 // Crossbar A Select Register 27
 struct XBARA1_SEL27_fields_ {
@@ -568,7 +540,6 @@ struct XBARA1_SEL27 : ftl::mmio::Register<
   using SEL55 = XBARA1_SEL27_fields_::SEL55;
 };
 
-
 // Crossbar A Select Register 28
 struct XBARA1_SEL28_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT56 (refer to Functional Description section for input/output assignment)
@@ -587,7 +558,6 @@ struct XBARA1_SEL28 : ftl::mmio::Register<
   using SEL56 = XBARA1_SEL28_fields_::SEL56;
   using SEL57 = XBARA1_SEL28_fields_::SEL57;
 };
-
 
 // Crossbar A Select Register 29
 struct XBARA1_SEL29_fields_ {
@@ -608,7 +578,6 @@ struct XBARA1_SEL29 : ftl::mmio::Register<
   using SEL59 = XBARA1_SEL29_fields_::SEL59;
 };
 
-
 // Crossbar A Select Register 30
 struct XBARA1_SEL30_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT60 (refer to Functional Description section for input/output assignment)
@@ -627,7 +596,6 @@ struct XBARA1_SEL30 : ftl::mmio::Register<
   using SEL60 = XBARA1_SEL30_fields_::SEL60;
   using SEL61 = XBARA1_SEL30_fields_::SEL61;
 };
-
 
 // Crossbar A Select Register 31
 struct XBARA1_SEL31_fields_ {
@@ -648,7 +616,6 @@ struct XBARA1_SEL31 : ftl::mmio::Register<
   using SEL63 = XBARA1_SEL31_fields_::SEL63;
 };
 
-
 // Crossbar A Select Register 32
 struct XBARA1_SEL32_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT64 (refer to Functional Description section for input/output assignment)
@@ -667,7 +634,6 @@ struct XBARA1_SEL32 : ftl::mmio::Register<
   using SEL64 = XBARA1_SEL32_fields_::SEL64;
   using SEL65 = XBARA1_SEL32_fields_::SEL65;
 };
-
 
 // Crossbar A Select Register 33
 struct XBARA1_SEL33_fields_ {
@@ -688,7 +654,6 @@ struct XBARA1_SEL33 : ftl::mmio::Register<
   using SEL67 = XBARA1_SEL33_fields_::SEL67;
 };
 
-
 // Crossbar A Select Register 34
 struct XBARA1_SEL34_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT68 (refer to Functional Description section for input/output assignment)
@@ -707,7 +672,6 @@ struct XBARA1_SEL34 : ftl::mmio::Register<
   using SEL68 = XBARA1_SEL34_fields_::SEL68;
   using SEL69 = XBARA1_SEL34_fields_::SEL69;
 };
-
 
 // Crossbar A Select Register 35
 struct XBARA1_SEL35_fields_ {
@@ -728,7 +692,6 @@ struct XBARA1_SEL35 : ftl::mmio::Register<
   using SEL71 = XBARA1_SEL35_fields_::SEL71;
 };
 
-
 // Crossbar A Select Register 36
 struct XBARA1_SEL36_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT72 (refer to Functional Description section for input/output assignment)
@@ -747,7 +710,6 @@ struct XBARA1_SEL36 : ftl::mmio::Register<
   using SEL72 = XBARA1_SEL36_fields_::SEL72;
   using SEL73 = XBARA1_SEL36_fields_::SEL73;
 };
-
 
 // Crossbar A Select Register 37
 struct XBARA1_SEL37_fields_ {
@@ -768,7 +730,6 @@ struct XBARA1_SEL37 : ftl::mmio::Register<
   using SEL75 = XBARA1_SEL37_fields_::SEL75;
 };
 
-
 // Crossbar A Select Register 38
 struct XBARA1_SEL38_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT76 (refer to Functional Description section for input/output assignment)
@@ -787,7 +748,6 @@ struct XBARA1_SEL38 : ftl::mmio::Register<
   using SEL76 = XBARA1_SEL38_fields_::SEL76;
   using SEL77 = XBARA1_SEL38_fields_::SEL77;
 };
-
 
 // Crossbar A Select Register 39
 struct XBARA1_SEL39_fields_ {
@@ -808,7 +768,6 @@ struct XBARA1_SEL39 : ftl::mmio::Register<
   using SEL79 = XBARA1_SEL39_fields_::SEL79;
 };
 
-
 // Crossbar A Select Register 40
 struct XBARA1_SEL40_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT80 (refer to Functional Description section for input/output assignment)
@@ -827,7 +786,6 @@ struct XBARA1_SEL40 : ftl::mmio::Register<
   using SEL80 = XBARA1_SEL40_fields_::SEL80;
   using SEL81 = XBARA1_SEL40_fields_::SEL81;
 };
-
 
 // Crossbar A Select Register 41
 struct XBARA1_SEL41_fields_ {
@@ -848,7 +806,6 @@ struct XBARA1_SEL41 : ftl::mmio::Register<
   using SEL83 = XBARA1_SEL41_fields_::SEL83;
 };
 
-
 // Crossbar A Select Register 42
 struct XBARA1_SEL42_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT84 (refer to Functional Description section for input/output assignment)
@@ -867,7 +824,6 @@ struct XBARA1_SEL42 : ftl::mmio::Register<
   using SEL84 = XBARA1_SEL42_fields_::SEL84;
   using SEL85 = XBARA1_SEL42_fields_::SEL85;
 };
-
 
 // Crossbar A Select Register 43
 struct XBARA1_SEL43_fields_ {
@@ -888,7 +844,6 @@ struct XBARA1_SEL43 : ftl::mmio::Register<
   using SEL87 = XBARA1_SEL43_fields_::SEL87;
 };
 
-
 // Crossbar A Select Register 44
 struct XBARA1_SEL44_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT88 (refer to Functional Description section for input/output assignment)
@@ -907,7 +862,6 @@ struct XBARA1_SEL44 : ftl::mmio::Register<
   using SEL88 = XBARA1_SEL44_fields_::SEL88;
   using SEL89 = XBARA1_SEL44_fields_::SEL89;
 };
-
 
 // Crossbar A Select Register 45
 struct XBARA1_SEL45_fields_ {
@@ -928,7 +882,6 @@ struct XBARA1_SEL45 : ftl::mmio::Register<
   using SEL91 = XBARA1_SEL45_fields_::SEL91;
 };
 
-
 // Crossbar A Select Register 46
 struct XBARA1_SEL46_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT92 (refer to Functional Description section for input/output assignment)
@@ -947,7 +900,6 @@ struct XBARA1_SEL46 : ftl::mmio::Register<
   using SEL92 = XBARA1_SEL46_fields_::SEL92;
   using SEL93 = XBARA1_SEL46_fields_::SEL93;
 };
-
 
 // Crossbar A Select Register 47
 struct XBARA1_SEL47_fields_ {
@@ -968,7 +920,6 @@ struct XBARA1_SEL47 : ftl::mmio::Register<
   using SEL95 = XBARA1_SEL47_fields_::SEL95;
 };
 
-
 // Crossbar A Select Register 48
 struct XBARA1_SEL48_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT96 (refer to Functional Description section for input/output assignment)
@@ -987,7 +938,6 @@ struct XBARA1_SEL48 : ftl::mmio::Register<
   using SEL96 = XBARA1_SEL48_fields_::SEL96;
   using SEL97 = XBARA1_SEL48_fields_::SEL97;
 };
-
 
 // Crossbar A Select Register 49
 struct XBARA1_SEL49_fields_ {
@@ -1008,7 +958,6 @@ struct XBARA1_SEL49 : ftl::mmio::Register<
   using SEL99 = XBARA1_SEL49_fields_::SEL99;
 };
 
-
 // Crossbar A Select Register 50
 struct XBARA1_SEL50_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT100 (refer to Functional Description section for input/output assignment)
@@ -1027,7 +976,6 @@ struct XBARA1_SEL50 : ftl::mmio::Register<
   using SEL100 = XBARA1_SEL50_fields_::SEL100;
   using SEL101 = XBARA1_SEL50_fields_::SEL101;
 };
-
 
 // Crossbar A Select Register 51
 struct XBARA1_SEL51_fields_ {
@@ -1048,7 +996,6 @@ struct XBARA1_SEL51 : ftl::mmio::Register<
   using SEL103 = XBARA1_SEL51_fields_::SEL103;
 };
 
-
 // Crossbar A Select Register 52
 struct XBARA1_SEL52_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT104 (refer to Functional Description section for input/output assignment)
@@ -1067,7 +1014,6 @@ struct XBARA1_SEL52 : ftl::mmio::Register<
   using SEL104 = XBARA1_SEL52_fields_::SEL104;
   using SEL105 = XBARA1_SEL52_fields_::SEL105;
 };
-
 
 // Crossbar A Select Register 53
 struct XBARA1_SEL53_fields_ {
@@ -1088,7 +1034,6 @@ struct XBARA1_SEL53 : ftl::mmio::Register<
   using SEL107 = XBARA1_SEL53_fields_::SEL107;
 };
 
-
 // Crossbar A Select Register 54
 struct XBARA1_SEL54_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT108 (refer to Functional Description section for input/output assignment)
@@ -1107,7 +1052,6 @@ struct XBARA1_SEL54 : ftl::mmio::Register<
   using SEL108 = XBARA1_SEL54_fields_::SEL108;
   using SEL109 = XBARA1_SEL54_fields_::SEL109;
 };
-
 
 // Crossbar A Select Register 55
 struct XBARA1_SEL55_fields_ {
@@ -1128,7 +1072,6 @@ struct XBARA1_SEL55 : ftl::mmio::Register<
   using SEL111 = XBARA1_SEL55_fields_::SEL111;
 };
 
-
 // Crossbar A Select Register 56
 struct XBARA1_SEL56_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT112 (refer to Functional Description section for input/output assignment)
@@ -1147,7 +1090,6 @@ struct XBARA1_SEL56 : ftl::mmio::Register<
   using SEL112 = XBARA1_SEL56_fields_::SEL112;
   using SEL113 = XBARA1_SEL56_fields_::SEL113;
 };
-
 
 // Crossbar A Select Register 57
 struct XBARA1_SEL57_fields_ {
@@ -1168,7 +1110,6 @@ struct XBARA1_SEL57 : ftl::mmio::Register<
   using SEL115 = XBARA1_SEL57_fields_::SEL115;
 };
 
-
 // Crossbar A Select Register 58
 struct XBARA1_SEL58_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT116 (refer to Functional Description section for input/output assignment)
@@ -1187,7 +1128,6 @@ struct XBARA1_SEL58 : ftl::mmio::Register<
   using SEL116 = XBARA1_SEL58_fields_::SEL116;
   using SEL117 = XBARA1_SEL58_fields_::SEL117;
 };
-
 
 // Crossbar A Select Register 59
 struct XBARA1_SEL59_fields_ {
@@ -1208,7 +1148,6 @@ struct XBARA1_SEL59 : ftl::mmio::Register<
   using SEL119 = XBARA1_SEL59_fields_::SEL119;
 };
 
-
 // Crossbar A Select Register 60
 struct XBARA1_SEL60_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT120 (refer to Functional Description section for input/output assignment)
@@ -1227,7 +1166,6 @@ struct XBARA1_SEL60 : ftl::mmio::Register<
   using SEL120 = XBARA1_SEL60_fields_::SEL120;
   using SEL121 = XBARA1_SEL60_fields_::SEL121;
 };
-
 
 // Crossbar A Select Register 61
 struct XBARA1_SEL61_fields_ {
@@ -1248,7 +1186,6 @@ struct XBARA1_SEL61 : ftl::mmio::Register<
   using SEL123 = XBARA1_SEL61_fields_::SEL123;
 };
 
-
 // Crossbar A Select Register 62
 struct XBARA1_SEL62_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT124 (refer to Functional Description section for input/output assignment)
@@ -1267,7 +1204,6 @@ struct XBARA1_SEL62 : ftl::mmio::Register<
   using SEL124 = XBARA1_SEL62_fields_::SEL124;
   using SEL125 = XBARA1_SEL62_fields_::SEL125;
 };
-
 
 // Crossbar A Select Register 63
 struct XBARA1_SEL63_fields_ {
@@ -1288,7 +1224,6 @@ struct XBARA1_SEL63 : ftl::mmio::Register<
   using SEL127 = XBARA1_SEL63_fields_::SEL127;
 };
 
-
 // Crossbar A Select Register 64
 struct XBARA1_SEL64_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT128 (refer to Functional Description section for input/output assignment)
@@ -1307,7 +1242,6 @@ struct XBARA1_SEL64 : ftl::mmio::Register<
   using SEL128 = XBARA1_SEL64_fields_::SEL128;
   using SEL129 = XBARA1_SEL64_fields_::SEL129;
 };
-
 
 // Crossbar A Select Register 65
 struct XBARA1_SEL65_fields_ {
@@ -1328,7 +1262,6 @@ struct XBARA1_SEL65 : ftl::mmio::Register<
   using SEL131 = XBARA1_SEL65_fields_::SEL131;
 };
 
-
 // Crossbar A Select Register 66
 struct XBARA1_SEL66_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT132 (refer to Functional Description section for input/output assignment)
@@ -1347,7 +1280,6 @@ struct XBARA1_SEL66 : ftl::mmio::Register<
   using SEL132 = XBARA1_SEL66_fields_::SEL132;
   using SEL133 = XBARA1_SEL66_fields_::SEL133;
 };
-
 
 // Crossbar A Select Register 67
 struct XBARA1_SEL67_fields_ {
@@ -1368,7 +1300,6 @@ struct XBARA1_SEL67 : ftl::mmio::Register<
   using SEL135 = XBARA1_SEL67_fields_::SEL135;
 };
 
-
 // Crossbar A Select Register 68
 struct XBARA1_SEL68_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT136 (refer to Functional Description section for input/output assignment)
@@ -1387,7 +1318,6 @@ struct XBARA1_SEL68 : ftl::mmio::Register<
   using SEL136 = XBARA1_SEL68_fields_::SEL136;
   using SEL137 = XBARA1_SEL68_fields_::SEL137;
 };
-
 
 // Crossbar A Select Register 69
 struct XBARA1_SEL69_fields_ {
@@ -1408,7 +1338,6 @@ struct XBARA1_SEL69 : ftl::mmio::Register<
   using SEL139 = XBARA1_SEL69_fields_::SEL139;
 };
 
-
 // Crossbar A Select Register 70
 struct XBARA1_SEL70_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT140 (refer to Functional Description section for input/output assignment)
@@ -1427,7 +1356,6 @@ struct XBARA1_SEL70 : ftl::mmio::Register<
   using SEL140 = XBARA1_SEL70_fields_::SEL140;
   using SEL141 = XBARA1_SEL70_fields_::SEL141;
 };
-
 
 // Crossbar A Select Register 71
 struct XBARA1_SEL71_fields_ {
@@ -1448,7 +1376,6 @@ struct XBARA1_SEL71 : ftl::mmio::Register<
   using SEL143 = XBARA1_SEL71_fields_::SEL143;
 };
 
-
 // Crossbar A Select Register 72
 struct XBARA1_SEL72_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT144 (refer to Functional Description section for input/output assignment)
@@ -1467,7 +1394,6 @@ struct XBARA1_SEL72 : ftl::mmio::Register<
   using SEL144 = XBARA1_SEL72_fields_::SEL144;
   using SEL145 = XBARA1_SEL72_fields_::SEL145;
 };
-
 
 // Crossbar A Select Register 73
 struct XBARA1_SEL73_fields_ {
@@ -1488,7 +1414,6 @@ struct XBARA1_SEL73 : ftl::mmio::Register<
   using SEL147 = XBARA1_SEL73_fields_::SEL147;
 };
 
-
 // Crossbar A Select Register 74
 struct XBARA1_SEL74_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT148 (refer to Functional Description section for input/output assignment)
@@ -1507,7 +1432,6 @@ struct XBARA1_SEL74 : ftl::mmio::Register<
   using SEL148 = XBARA1_SEL74_fields_::SEL148;
   using SEL149 = XBARA1_SEL74_fields_::SEL149;
 };
-
 
 // Crossbar A Select Register 75
 struct XBARA1_SEL75_fields_ {
@@ -1528,7 +1452,6 @@ struct XBARA1_SEL75 : ftl::mmio::Register<
   using SEL151 = XBARA1_SEL75_fields_::SEL151;
 };
 
-
 // Crossbar A Select Register 76
 struct XBARA1_SEL76_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT152 (refer to Functional Description section for input/output assignment)
@@ -1547,7 +1470,6 @@ struct XBARA1_SEL76 : ftl::mmio::Register<
   using SEL152 = XBARA1_SEL76_fields_::SEL152;
   using SEL153 = XBARA1_SEL76_fields_::SEL153;
 };
-
 
 // Crossbar A Select Register 77
 struct XBARA1_SEL77_fields_ {
@@ -1568,7 +1490,6 @@ struct XBARA1_SEL77 : ftl::mmio::Register<
   using SEL155 = XBARA1_SEL77_fields_::SEL155;
 };
 
-
 // Crossbar A Select Register 78
 struct XBARA1_SEL78_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT156 (refer to Functional Description section for input/output assignment)
@@ -1587,7 +1508,6 @@ struct XBARA1_SEL78 : ftl::mmio::Register<
   using SEL156 = XBARA1_SEL78_fields_::SEL156;
   using SEL157 = XBARA1_SEL78_fields_::SEL157;
 };
-
 
 // Crossbar A Select Register 79
 struct XBARA1_SEL79_fields_ {
@@ -1608,7 +1528,6 @@ struct XBARA1_SEL79 : ftl::mmio::Register<
   using SEL159 = XBARA1_SEL79_fields_::SEL159;
 };
 
-
 // Crossbar A Select Register 80
 struct XBARA1_SEL80_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT160 (refer to Functional Description section for input/output assignment)
@@ -1627,7 +1546,6 @@ struct XBARA1_SEL80 : ftl::mmio::Register<
   using SEL160 = XBARA1_SEL80_fields_::SEL160;
   using SEL161 = XBARA1_SEL80_fields_::SEL161;
 };
-
 
 // Crossbar A Select Register 81
 struct XBARA1_SEL81_fields_ {
@@ -1648,7 +1566,6 @@ struct XBARA1_SEL81 : ftl::mmio::Register<
   using SEL163 = XBARA1_SEL81_fields_::SEL163;
 };
 
-
 // Crossbar A Select Register 82
 struct XBARA1_SEL82_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT164 (refer to Functional Description section for input/output assignment)
@@ -1667,7 +1584,6 @@ struct XBARA1_SEL82 : ftl::mmio::Register<
   using SEL164 = XBARA1_SEL82_fields_::SEL164;
   using SEL165 = XBARA1_SEL82_fields_::SEL165;
 };
-
 
 // Crossbar A Select Register 83
 struct XBARA1_SEL83_fields_ {
@@ -1688,7 +1604,6 @@ struct XBARA1_SEL83 : ftl::mmio::Register<
   using SEL167 = XBARA1_SEL83_fields_::SEL167;
 };
 
-
 // Crossbar A Select Register 84
 struct XBARA1_SEL84_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT168 (refer to Functional Description section for input/output assignment)
@@ -1707,7 +1622,6 @@ struct XBARA1_SEL84 : ftl::mmio::Register<
   using SEL168 = XBARA1_SEL84_fields_::SEL168;
   using SEL169 = XBARA1_SEL84_fields_::SEL169;
 };
-
 
 // Crossbar A Select Register 85
 struct XBARA1_SEL85_fields_ {
@@ -1728,7 +1642,6 @@ struct XBARA1_SEL85 : ftl::mmio::Register<
   using SEL171 = XBARA1_SEL85_fields_::SEL171;
 };
 
-
 // Crossbar A Select Register 86
 struct XBARA1_SEL86_fields_ {
   // Input (XBARA_INn) to be muxed to XBARA_OUT172 (refer to Functional Description section for input/output assignment)
@@ -1747,7 +1660,6 @@ struct XBARA1_SEL86 : ftl::mmio::Register<
   using SEL172 = XBARA1_SEL86_fields_::SEL172;
   using SEL173 = XBARA1_SEL86_fields_::SEL173;
 };
-
 
 // Crossbar A Select Register 87
 struct XBARA1_SEL87_fields_ {
@@ -1768,10 +1680,8 @@ struct XBARA1_SEL87 : ftl::mmio::Register<
   using SEL175 = XBARA1_SEL87_fields_::SEL175;
 };
 
-
 // Crossbar A Control Register 0
 struct XBARA1_CTRL0_fields_ {
-
   enum class eDEN0 : std::uint32_t {
     // DMA disabled
     eDEN0_0 = 0,
@@ -1835,6 +1745,7 @@ struct XBARA1_CTRL0_fields_ {
     // Active edge detected on XBAR_OUT1
     eSTS1_1 = 1,
   };
+
   // DMA Enable for XBAR_OUT0
   using DEN0 = ftl::mmio::Field<1, 0, eDEN0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Enable for XBAR_OUT0
@@ -1886,10 +1797,8 @@ struct XBARA1_CTRL0 : ftl::mmio::Register<
   using STS1 = XBARA1_CTRL0_fields_::STS1;
 };
 
-
 // Crossbar A Control Register 1
 struct XBARA1_CTRL1_fields_ {
-
   enum class eDEN2 : std::uint32_t {
     // DMA disabled
     eDEN2_0 = 0,
@@ -1953,6 +1862,7 @@ struct XBARA1_CTRL1_fields_ {
     // Active edge detected on XBAR_OUT3
     eSTS3_1 = 1,
   };
+
   // DMA Enable for XBAR_OUT2
   using DEN2 = ftl::mmio::Field<1, 0, eDEN2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Enable for XBAR_OUT2

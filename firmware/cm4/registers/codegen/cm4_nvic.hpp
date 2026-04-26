@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::cm4_nvic {
 
-
 // Interrupt Set Enable Register n
 struct NVICISER0_fields_ {
   // Interrupt set enable bits
@@ -23,7 +22,6 @@ struct NVICISER0 : ftl::mmio::Register<
     NVICISER0_fields_::SETENA> {
   using SETENA = NVICISER0_fields_::SETENA;
 };
-
 
 // Interrupt Set Enable Register n
 struct NVICISER1_fields_ {
@@ -40,7 +38,6 @@ struct NVICISER1 : ftl::mmio::Register<
   using SETENA = NVICISER1_fields_::SETENA;
 };
 
-
 // Interrupt Set Enable Register n
 struct NVICISER2_fields_ {
   // Interrupt set enable bits
@@ -55,7 +52,6 @@ struct NVICISER2 : ftl::mmio::Register<
     NVICISER2_fields_::SETENA> {
   using SETENA = NVICISER2_fields_::SETENA;
 };
-
 
 // Interrupt Set Enable Register n
 struct NVICISER3_fields_ {
@@ -72,7 +68,6 @@ struct NVICISER3 : ftl::mmio::Register<
   using SETENA = NVICISER3_fields_::SETENA;
 };
 
-
 // Interrupt Set Enable Register n
 struct NVICISER4_fields_ {
   // Interrupt set enable bits
@@ -87,7 +82,6 @@ struct NVICISER4 : ftl::mmio::Register<
     NVICISER4_fields_::SETENA> {
   using SETENA = NVICISER4_fields_::SETENA;
 };
-
 
 // Interrupt Set Enable Register n
 struct NVICISER5_fields_ {
@@ -104,7 +98,6 @@ struct NVICISER5 : ftl::mmio::Register<
   using SETENA = NVICISER5_fields_::SETENA;
 };
 
-
 // Interrupt Set Enable Register n
 struct NVICISER6_fields_ {
   // Interrupt set enable bits
@@ -119,7 +112,6 @@ struct NVICISER6 : ftl::mmio::Register<
     NVICISER6_fields_::SETENA> {
   using SETENA = NVICISER6_fields_::SETENA;
 };
-
 
 // Interrupt Clear Enable Register n
 struct NVICICER0_fields_ {
@@ -136,7 +128,6 @@ struct NVICICER0 : ftl::mmio::Register<
   using CLRENA = NVICICER0_fields_::CLRENA;
 };
 
-
 // Interrupt Clear Enable Register n
 struct NVICICER1_fields_ {
   // Interrupt clear-enable bits
@@ -151,7 +142,6 @@ struct NVICICER1 : ftl::mmio::Register<
     NVICICER1_fields_::CLRENA> {
   using CLRENA = NVICICER1_fields_::CLRENA;
 };
-
 
 // Interrupt Clear Enable Register n
 struct NVICICER2_fields_ {
@@ -168,7 +158,6 @@ struct NVICICER2 : ftl::mmio::Register<
   using CLRENA = NVICICER2_fields_::CLRENA;
 };
 
-
 // Interrupt Clear Enable Register n
 struct NVICICER3_fields_ {
   // Interrupt clear-enable bits
@@ -183,7 +172,6 @@ struct NVICICER3 : ftl::mmio::Register<
     NVICICER3_fields_::CLRENA> {
   using CLRENA = NVICICER3_fields_::CLRENA;
 };
-
 
 // Interrupt Clear Enable Register n
 struct NVICICER4_fields_ {
@@ -200,7 +188,6 @@ struct NVICICER4 : ftl::mmio::Register<
   using CLRENA = NVICICER4_fields_::CLRENA;
 };
 
-
 // Interrupt Clear Enable Register n
 struct NVICICER5_fields_ {
   // Interrupt clear-enable bits
@@ -215,7 +202,6 @@ struct NVICICER5 : ftl::mmio::Register<
     NVICICER5_fields_::CLRENA> {
   using CLRENA = NVICICER5_fields_::CLRENA;
 };
-
 
 // Interrupt Clear Enable Register n
 struct NVICICER6_fields_ {
@@ -232,7 +218,6 @@ struct NVICICER6 : ftl::mmio::Register<
   using CLRENA = NVICICER6_fields_::CLRENA;
 };
 
-
 // Interrupt Set Pending Register n
 struct NVICISPR0_fields_ {
   // Interrupt set-pending bits
@@ -247,7 +232,6 @@ struct NVICISPR0 : ftl::mmio::Register<
     NVICISPR0_fields_::SETPEND> {
   using SETPEND = NVICISPR0_fields_::SETPEND;
 };
-
 
 // Interrupt Set Pending Register n
 struct NVICISPR1_fields_ {
@@ -264,7 +248,6 @@ struct NVICISPR1 : ftl::mmio::Register<
   using SETPEND = NVICISPR1_fields_::SETPEND;
 };
 
-
 // Interrupt Set Pending Register n
 struct NVICISPR2_fields_ {
   // Interrupt set-pending bits
@@ -279,7 +262,6 @@ struct NVICISPR2 : ftl::mmio::Register<
     NVICISPR2_fields_::SETPEND> {
   using SETPEND = NVICISPR2_fields_::SETPEND;
 };
-
 
 // Interrupt Set Pending Register n
 struct NVICISPR3_fields_ {
@@ -296,7 +278,6 @@ struct NVICISPR3 : ftl::mmio::Register<
   using SETPEND = NVICISPR3_fields_::SETPEND;
 };
 
-
 // Interrupt Set Pending Register n
 struct NVICISPR4_fields_ {
   // Interrupt set-pending bits
@@ -311,7 +292,6 @@ struct NVICISPR4 : ftl::mmio::Register<
     NVICISPR4_fields_::SETPEND> {
   using SETPEND = NVICISPR4_fields_::SETPEND;
 };
-
 
 // Interrupt Set Pending Register n
 struct NVICISPR5_fields_ {
@@ -328,7 +308,6 @@ struct NVICISPR5 : ftl::mmio::Register<
   using SETPEND = NVICISPR5_fields_::SETPEND;
 };
 
-
 // Interrupt Set Pending Register n
 struct NVICISPR6_fields_ {
   // Interrupt set-pending bits
@@ -343,7 +322,6 @@ struct NVICISPR6 : ftl::mmio::Register<
     NVICISPR6_fields_::SETPEND> {
   using SETPEND = NVICISPR6_fields_::SETPEND;
 };
-
 
 // Interrupt Clear Pending Register n
 struct NVICICPR0_fields_ {
@@ -360,7 +338,6 @@ struct NVICICPR0 : ftl::mmio::Register<
   using CLRPEND = NVICICPR0_fields_::CLRPEND;
 };
 
-
 // Interrupt Clear Pending Register n
 struct NVICICPR1_fields_ {
   // Interrupt clear-pending bits
@@ -375,7 +352,6 @@ struct NVICICPR1 : ftl::mmio::Register<
     NVICICPR1_fields_::CLRPEND> {
   using CLRPEND = NVICICPR1_fields_::CLRPEND;
 };
-
 
 // Interrupt Clear Pending Register n
 struct NVICICPR2_fields_ {
@@ -392,7 +368,6 @@ struct NVICICPR2 : ftl::mmio::Register<
   using CLRPEND = NVICICPR2_fields_::CLRPEND;
 };
 
-
 // Interrupt Clear Pending Register n
 struct NVICICPR3_fields_ {
   // Interrupt clear-pending bits
@@ -407,7 +382,6 @@ struct NVICICPR3 : ftl::mmio::Register<
     NVICICPR3_fields_::CLRPEND> {
   using CLRPEND = NVICICPR3_fields_::CLRPEND;
 };
-
 
 // Interrupt Clear Pending Register n
 struct NVICICPR4_fields_ {
@@ -424,7 +398,6 @@ struct NVICICPR4 : ftl::mmio::Register<
   using CLRPEND = NVICICPR4_fields_::CLRPEND;
 };
 
-
 // Interrupt Clear Pending Register n
 struct NVICICPR5_fields_ {
   // Interrupt clear-pending bits
@@ -439,7 +412,6 @@ struct NVICICPR5 : ftl::mmio::Register<
     NVICICPR5_fields_::CLRPEND> {
   using CLRPEND = NVICICPR5_fields_::CLRPEND;
 };
-
 
 // Interrupt Clear Pending Register n
 struct NVICICPR6_fields_ {
@@ -456,7 +428,6 @@ struct NVICICPR6 : ftl::mmio::Register<
   using CLRPEND = NVICICPR6_fields_::CLRPEND;
 };
 
-
 // Interrupt Active bit Register n
 struct NVICIABR0_fields_ {
   // Interrupt active flags
@@ -471,7 +442,6 @@ struct NVICIABR0 : ftl::mmio::Register<
     NVICIABR0_fields_::ACTIVE> {
   using ACTIVE = NVICIABR0_fields_::ACTIVE;
 };
-
 
 // Interrupt Active bit Register n
 struct NVICIABR1_fields_ {
@@ -488,7 +458,6 @@ struct NVICIABR1 : ftl::mmio::Register<
   using ACTIVE = NVICIABR1_fields_::ACTIVE;
 };
 
-
 // Interrupt Active bit Register n
 struct NVICIABR2_fields_ {
   // Interrupt active flags
@@ -503,7 +472,6 @@ struct NVICIABR2 : ftl::mmio::Register<
     NVICIABR2_fields_::ACTIVE> {
   using ACTIVE = NVICIABR2_fields_::ACTIVE;
 };
-
 
 // Interrupt Active bit Register n
 struct NVICIABR3_fields_ {
@@ -520,7 +488,6 @@ struct NVICIABR3 : ftl::mmio::Register<
   using ACTIVE = NVICIABR3_fields_::ACTIVE;
 };
 
-
 // Interrupt Active bit Register n
 struct NVICIABR4_fields_ {
   // Interrupt active flags
@@ -535,7 +502,6 @@ struct NVICIABR4 : ftl::mmio::Register<
     NVICIABR4_fields_::ACTIVE> {
   using ACTIVE = NVICIABR4_fields_::ACTIVE;
 };
-
 
 // Interrupt Active bit Register n
 struct NVICIABR5_fields_ {
@@ -552,7 +518,6 @@ struct NVICIABR5 : ftl::mmio::Register<
   using ACTIVE = NVICIABR5_fields_::ACTIVE;
 };
 
-
 // Interrupt Active bit Register n
 struct NVICIABR6_fields_ {
   // Interrupt active flags
@@ -567,7 +532,6 @@ struct NVICIABR6 : ftl::mmio::Register<
     NVICIABR6_fields_::ACTIVE> {
   using ACTIVE = NVICIABR6_fields_::ACTIVE;
 };
-
 
 // Interrupt Priority Register 0
 struct NVICIP0_fields_ {
@@ -585,7 +549,6 @@ struct NVICIP0 : ftl::mmio::Register<
   using PRI0 = NVICIP0_fields_::PRI0;
 };
 
-
 // Interrupt Priority Register 1
 struct NVICIP1_fields_ {
   // Priority of interrupt 1
@@ -601,7 +564,6 @@ struct NVICIP1 : ftl::mmio::Register<
     NVICIP1_fields_::PRI1> {
   using PRI1 = NVICIP1_fields_::PRI1;
 };
-
 
 // Interrupt Priority Register 2
 struct NVICIP2_fields_ {
@@ -619,7 +581,6 @@ struct NVICIP2 : ftl::mmio::Register<
   using PRI2 = NVICIP2_fields_::PRI2;
 };
 
-
 // Interrupt Priority Register 3
 struct NVICIP3_fields_ {
   // Priority of interrupt 3
@@ -635,7 +596,6 @@ struct NVICIP3 : ftl::mmio::Register<
     NVICIP3_fields_::PRI3> {
   using PRI3 = NVICIP3_fields_::PRI3;
 };
-
 
 // Interrupt Priority Register 4
 struct NVICIP4_fields_ {
@@ -653,7 +613,6 @@ struct NVICIP4 : ftl::mmio::Register<
   using PRI4 = NVICIP4_fields_::PRI4;
 };
 
-
 // Interrupt Priority Register 5
 struct NVICIP5_fields_ {
   // Priority of interrupt 5
@@ -669,7 +628,6 @@ struct NVICIP5 : ftl::mmio::Register<
     NVICIP5_fields_::PRI5> {
   using PRI5 = NVICIP5_fields_::PRI5;
 };
-
 
 // Interrupt Priority Register 6
 struct NVICIP6_fields_ {
@@ -687,7 +645,6 @@ struct NVICIP6 : ftl::mmio::Register<
   using PRI6 = NVICIP6_fields_::PRI6;
 };
 
-
 // Interrupt Priority Register 7
 struct NVICIP7_fields_ {
   // Priority of interrupt 7
@@ -703,7 +660,6 @@ struct NVICIP7 : ftl::mmio::Register<
     NVICIP7_fields_::PRI7> {
   using PRI7 = NVICIP7_fields_::PRI7;
 };
-
 
 // Interrupt Priority Register 8
 struct NVICIP8_fields_ {
@@ -721,7 +677,6 @@ struct NVICIP8 : ftl::mmio::Register<
   using PRI8 = NVICIP8_fields_::PRI8;
 };
 
-
 // Interrupt Priority Register 9
 struct NVICIP9_fields_ {
   // Priority of interrupt 9
@@ -737,7 +692,6 @@ struct NVICIP9 : ftl::mmio::Register<
     NVICIP9_fields_::PRI9> {
   using PRI9 = NVICIP9_fields_::PRI9;
 };
-
 
 // Interrupt Priority Register 10
 struct NVICIP10_fields_ {
@@ -755,7 +709,6 @@ struct NVICIP10 : ftl::mmio::Register<
   using PRI10 = NVICIP10_fields_::PRI10;
 };
 
-
 // Interrupt Priority Register 11
 struct NVICIP11_fields_ {
   // Priority of interrupt 11
@@ -771,7 +724,6 @@ struct NVICIP11 : ftl::mmio::Register<
     NVICIP11_fields_::PRI11> {
   using PRI11 = NVICIP11_fields_::PRI11;
 };
-
 
 // Interrupt Priority Register 12
 struct NVICIP12_fields_ {
@@ -789,7 +741,6 @@ struct NVICIP12 : ftl::mmio::Register<
   using PRI12 = NVICIP12_fields_::PRI12;
 };
 
-
 // Interrupt Priority Register 13
 struct NVICIP13_fields_ {
   // Priority of interrupt 13
@@ -805,7 +756,6 @@ struct NVICIP13 : ftl::mmio::Register<
     NVICIP13_fields_::PRI13> {
   using PRI13 = NVICIP13_fields_::PRI13;
 };
-
 
 // Interrupt Priority Register 14
 struct NVICIP14_fields_ {
@@ -823,7 +773,6 @@ struct NVICIP14 : ftl::mmio::Register<
   using PRI14 = NVICIP14_fields_::PRI14;
 };
 
-
 // Interrupt Priority Register 15
 struct NVICIP15_fields_ {
   // Priority of interrupt 15
@@ -839,7 +788,6 @@ struct NVICIP15 : ftl::mmio::Register<
     NVICIP15_fields_::PRI15> {
   using PRI15 = NVICIP15_fields_::PRI15;
 };
-
 
 // Interrupt Priority Register 16
 struct NVICIP16_fields_ {
@@ -857,7 +805,6 @@ struct NVICIP16 : ftl::mmio::Register<
   using PRI16 = NVICIP16_fields_::PRI16;
 };
 
-
 // Interrupt Priority Register 17
 struct NVICIP17_fields_ {
   // Priority of interrupt 17
@@ -873,7 +820,6 @@ struct NVICIP17 : ftl::mmio::Register<
     NVICIP17_fields_::PRI17> {
   using PRI17 = NVICIP17_fields_::PRI17;
 };
-
 
 // Interrupt Priority Register 18
 struct NVICIP18_fields_ {
@@ -891,7 +837,6 @@ struct NVICIP18 : ftl::mmio::Register<
   using PRI18 = NVICIP18_fields_::PRI18;
 };
 
-
 // Interrupt Priority Register 19
 struct NVICIP19_fields_ {
   // Priority of interrupt 19
@@ -907,7 +852,6 @@ struct NVICIP19 : ftl::mmio::Register<
     NVICIP19_fields_::PRI19> {
   using PRI19 = NVICIP19_fields_::PRI19;
 };
-
 
 // Interrupt Priority Register 20
 struct NVICIP20_fields_ {
@@ -925,7 +869,6 @@ struct NVICIP20 : ftl::mmio::Register<
   using PRI20 = NVICIP20_fields_::PRI20;
 };
 
-
 // Interrupt Priority Register 21
 struct NVICIP21_fields_ {
   // Priority of interrupt 21
@@ -941,7 +884,6 @@ struct NVICIP21 : ftl::mmio::Register<
     NVICIP21_fields_::PRI21> {
   using PRI21 = NVICIP21_fields_::PRI21;
 };
-
 
 // Interrupt Priority Register 22
 struct NVICIP22_fields_ {
@@ -959,7 +901,6 @@ struct NVICIP22 : ftl::mmio::Register<
   using PRI22 = NVICIP22_fields_::PRI22;
 };
 
-
 // Interrupt Priority Register 23
 struct NVICIP23_fields_ {
   // Priority of interrupt 23
@@ -975,7 +916,6 @@ struct NVICIP23 : ftl::mmio::Register<
     NVICIP23_fields_::PRI23> {
   using PRI23 = NVICIP23_fields_::PRI23;
 };
-
 
 // Interrupt Priority Register 24
 struct NVICIP24_fields_ {
@@ -993,7 +933,6 @@ struct NVICIP24 : ftl::mmio::Register<
   using PRI24 = NVICIP24_fields_::PRI24;
 };
 
-
 // Interrupt Priority Register 25
 struct NVICIP25_fields_ {
   // Priority of interrupt 25
@@ -1009,7 +948,6 @@ struct NVICIP25 : ftl::mmio::Register<
     NVICIP25_fields_::PRI25> {
   using PRI25 = NVICIP25_fields_::PRI25;
 };
-
 
 // Interrupt Priority Register 26
 struct NVICIP26_fields_ {
@@ -1027,7 +965,6 @@ struct NVICIP26 : ftl::mmio::Register<
   using PRI26 = NVICIP26_fields_::PRI26;
 };
 
-
 // Interrupt Priority Register 27
 struct NVICIP27_fields_ {
   // Priority of interrupt 27
@@ -1043,7 +980,6 @@ struct NVICIP27 : ftl::mmio::Register<
     NVICIP27_fields_::PRI27> {
   using PRI27 = NVICIP27_fields_::PRI27;
 };
-
 
 // Interrupt Priority Register 28
 struct NVICIP28_fields_ {
@@ -1061,7 +997,6 @@ struct NVICIP28 : ftl::mmio::Register<
   using PRI28 = NVICIP28_fields_::PRI28;
 };
 
-
 // Interrupt Priority Register 29
 struct NVICIP29_fields_ {
   // Priority of interrupt 29
@@ -1077,7 +1012,6 @@ struct NVICIP29 : ftl::mmio::Register<
     NVICIP29_fields_::PRI29> {
   using PRI29 = NVICIP29_fields_::PRI29;
 };
-
 
 // Interrupt Priority Register 30
 struct NVICIP30_fields_ {
@@ -1095,7 +1029,6 @@ struct NVICIP30 : ftl::mmio::Register<
   using PRI30 = NVICIP30_fields_::PRI30;
 };
 
-
 // Interrupt Priority Register 31
 struct NVICIP31_fields_ {
   // Priority of interrupt 31
@@ -1111,7 +1044,6 @@ struct NVICIP31 : ftl::mmio::Register<
     NVICIP31_fields_::PRI31> {
   using PRI31 = NVICIP31_fields_::PRI31;
 };
-
 
 // Interrupt Priority Register 32
 struct NVICIP32_fields_ {
@@ -1129,7 +1061,6 @@ struct NVICIP32 : ftl::mmio::Register<
   using PRI32 = NVICIP32_fields_::PRI32;
 };
 
-
 // Interrupt Priority Register 33
 struct NVICIP33_fields_ {
   // Priority of interrupt 33
@@ -1145,7 +1076,6 @@ struct NVICIP33 : ftl::mmio::Register<
     NVICIP33_fields_::PRI33> {
   using PRI33 = NVICIP33_fields_::PRI33;
 };
-
 
 // Interrupt Priority Register 34
 struct NVICIP34_fields_ {
@@ -1163,7 +1093,6 @@ struct NVICIP34 : ftl::mmio::Register<
   using PRI34 = NVICIP34_fields_::PRI34;
 };
 
-
 // Interrupt Priority Register 35
 struct NVICIP35_fields_ {
   // Priority of interrupt 35
@@ -1179,7 +1108,6 @@ struct NVICIP35 : ftl::mmio::Register<
     NVICIP35_fields_::PRI35> {
   using PRI35 = NVICIP35_fields_::PRI35;
 };
-
 
 // Interrupt Priority Register 36
 struct NVICIP36_fields_ {
@@ -1197,7 +1125,6 @@ struct NVICIP36 : ftl::mmio::Register<
   using PRI36 = NVICIP36_fields_::PRI36;
 };
 
-
 // Interrupt Priority Register 37
 struct NVICIP37_fields_ {
   // Priority of interrupt 37
@@ -1213,7 +1140,6 @@ struct NVICIP37 : ftl::mmio::Register<
     NVICIP37_fields_::PRI37> {
   using PRI37 = NVICIP37_fields_::PRI37;
 };
-
 
 // Interrupt Priority Register 38
 struct NVICIP38_fields_ {
@@ -1231,7 +1157,6 @@ struct NVICIP38 : ftl::mmio::Register<
   using PRI38 = NVICIP38_fields_::PRI38;
 };
 
-
 // Interrupt Priority Register 39
 struct NVICIP39_fields_ {
   // Priority of interrupt 39
@@ -1247,7 +1172,6 @@ struct NVICIP39 : ftl::mmio::Register<
     NVICIP39_fields_::PRI39> {
   using PRI39 = NVICIP39_fields_::PRI39;
 };
-
 
 // Interrupt Priority Register 40
 struct NVICIP40_fields_ {
@@ -1265,7 +1189,6 @@ struct NVICIP40 : ftl::mmio::Register<
   using PRI40 = NVICIP40_fields_::PRI40;
 };
 
-
 // Interrupt Priority Register 41
 struct NVICIP41_fields_ {
   // Priority of interrupt 41
@@ -1281,7 +1204,6 @@ struct NVICIP41 : ftl::mmio::Register<
     NVICIP41_fields_::PRI41> {
   using PRI41 = NVICIP41_fields_::PRI41;
 };
-
 
 // Interrupt Priority Register 42
 struct NVICIP42_fields_ {
@@ -1299,7 +1221,6 @@ struct NVICIP42 : ftl::mmio::Register<
   using PRI42 = NVICIP42_fields_::PRI42;
 };
 
-
 // Interrupt Priority Register 43
 struct NVICIP43_fields_ {
   // Priority of interrupt 43
@@ -1315,7 +1236,6 @@ struct NVICIP43 : ftl::mmio::Register<
     NVICIP43_fields_::PRI43> {
   using PRI43 = NVICIP43_fields_::PRI43;
 };
-
 
 // Interrupt Priority Register 44
 struct NVICIP44_fields_ {
@@ -1333,7 +1253,6 @@ struct NVICIP44 : ftl::mmio::Register<
   using PRI44 = NVICIP44_fields_::PRI44;
 };
 
-
 // Interrupt Priority Register 45
 struct NVICIP45_fields_ {
   // Priority of interrupt 45
@@ -1349,7 +1268,6 @@ struct NVICIP45 : ftl::mmio::Register<
     NVICIP45_fields_::PRI45> {
   using PRI45 = NVICIP45_fields_::PRI45;
 };
-
 
 // Interrupt Priority Register 46
 struct NVICIP46_fields_ {
@@ -1367,7 +1285,6 @@ struct NVICIP46 : ftl::mmio::Register<
   using PRI46 = NVICIP46_fields_::PRI46;
 };
 
-
 // Interrupt Priority Register 47
 struct NVICIP47_fields_ {
   // Priority of interrupt 47
@@ -1383,7 +1300,6 @@ struct NVICIP47 : ftl::mmio::Register<
     NVICIP47_fields_::PRI47> {
   using PRI47 = NVICIP47_fields_::PRI47;
 };
-
 
 // Interrupt Priority Register 48
 struct NVICIP48_fields_ {
@@ -1401,7 +1317,6 @@ struct NVICIP48 : ftl::mmio::Register<
   using PRI48 = NVICIP48_fields_::PRI48;
 };
 
-
 // Interrupt Priority Register 49
 struct NVICIP49_fields_ {
   // Priority of interrupt 49
@@ -1417,7 +1332,6 @@ struct NVICIP49 : ftl::mmio::Register<
     NVICIP49_fields_::PRI49> {
   using PRI49 = NVICIP49_fields_::PRI49;
 };
-
 
 // Interrupt Priority Register 50
 struct NVICIP50_fields_ {
@@ -1435,7 +1349,6 @@ struct NVICIP50 : ftl::mmio::Register<
   using PRI50 = NVICIP50_fields_::PRI50;
 };
 
-
 // Interrupt Priority Register 51
 struct NVICIP51_fields_ {
   // Priority of interrupt 51
@@ -1451,7 +1364,6 @@ struct NVICIP51 : ftl::mmio::Register<
     NVICIP51_fields_::PRI51> {
   using PRI51 = NVICIP51_fields_::PRI51;
 };
-
 
 // Interrupt Priority Register 52
 struct NVICIP52_fields_ {
@@ -1469,7 +1381,6 @@ struct NVICIP52 : ftl::mmio::Register<
   using PRI52 = NVICIP52_fields_::PRI52;
 };
 
-
 // Interrupt Priority Register 53
 struct NVICIP53_fields_ {
   // Priority of interrupt 53
@@ -1485,7 +1396,6 @@ struct NVICIP53 : ftl::mmio::Register<
     NVICIP53_fields_::PRI53> {
   using PRI53 = NVICIP53_fields_::PRI53;
 };
-
 
 // Interrupt Priority Register 54
 struct NVICIP54_fields_ {
@@ -1503,7 +1413,6 @@ struct NVICIP54 : ftl::mmio::Register<
   using PRI54 = NVICIP54_fields_::PRI54;
 };
 
-
 // Interrupt Priority Register 55
 struct NVICIP55_fields_ {
   // Priority of interrupt 55
@@ -1519,7 +1428,6 @@ struct NVICIP55 : ftl::mmio::Register<
     NVICIP55_fields_::PRI55> {
   using PRI55 = NVICIP55_fields_::PRI55;
 };
-
 
 // Interrupt Priority Register 56
 struct NVICIP56_fields_ {
@@ -1537,7 +1445,6 @@ struct NVICIP56 : ftl::mmio::Register<
   using PRI56 = NVICIP56_fields_::PRI56;
 };
 
-
 // Interrupt Priority Register 57
 struct NVICIP57_fields_ {
   // Priority of interrupt 57
@@ -1553,7 +1460,6 @@ struct NVICIP57 : ftl::mmio::Register<
     NVICIP57_fields_::PRI57> {
   using PRI57 = NVICIP57_fields_::PRI57;
 };
-
 
 // Interrupt Priority Register 58
 struct NVICIP58_fields_ {
@@ -1571,7 +1477,6 @@ struct NVICIP58 : ftl::mmio::Register<
   using PRI58 = NVICIP58_fields_::PRI58;
 };
 
-
 // Interrupt Priority Register 59
 struct NVICIP59_fields_ {
   // Priority of interrupt 59
@@ -1587,7 +1492,6 @@ struct NVICIP59 : ftl::mmio::Register<
     NVICIP59_fields_::PRI59> {
   using PRI59 = NVICIP59_fields_::PRI59;
 };
-
 
 // Interrupt Priority Register 60
 struct NVICIP60_fields_ {
@@ -1605,7 +1509,6 @@ struct NVICIP60 : ftl::mmio::Register<
   using PRI60 = NVICIP60_fields_::PRI60;
 };
 
-
 // Interrupt Priority Register 61
 struct NVICIP61_fields_ {
   // Priority of interrupt 61
@@ -1621,7 +1524,6 @@ struct NVICIP61 : ftl::mmio::Register<
     NVICIP61_fields_::PRI61> {
   using PRI61 = NVICIP61_fields_::PRI61;
 };
-
 
 // Interrupt Priority Register 62
 struct NVICIP62_fields_ {
@@ -1639,7 +1541,6 @@ struct NVICIP62 : ftl::mmio::Register<
   using PRI62 = NVICIP62_fields_::PRI62;
 };
 
-
 // Interrupt Priority Register 63
 struct NVICIP63_fields_ {
   // Priority of interrupt 63
@@ -1655,7 +1556,6 @@ struct NVICIP63 : ftl::mmio::Register<
     NVICIP63_fields_::PRI63> {
   using PRI63 = NVICIP63_fields_::PRI63;
 };
-
 
 // Interrupt Priority Register 64
 struct NVICIP64_fields_ {
@@ -1673,7 +1573,6 @@ struct NVICIP64 : ftl::mmio::Register<
   using PRI64 = NVICIP64_fields_::PRI64;
 };
 
-
 // Interrupt Priority Register 65
 struct NVICIP65_fields_ {
   // Priority of interrupt 65
@@ -1689,7 +1588,6 @@ struct NVICIP65 : ftl::mmio::Register<
     NVICIP65_fields_::PRI65> {
   using PRI65 = NVICIP65_fields_::PRI65;
 };
-
 
 // Interrupt Priority Register 66
 struct NVICIP66_fields_ {
@@ -1707,7 +1605,6 @@ struct NVICIP66 : ftl::mmio::Register<
   using PRI66 = NVICIP66_fields_::PRI66;
 };
 
-
 // Interrupt Priority Register 67
 struct NVICIP67_fields_ {
   // Priority of interrupt 67
@@ -1723,7 +1620,6 @@ struct NVICIP67 : ftl::mmio::Register<
     NVICIP67_fields_::PRI67> {
   using PRI67 = NVICIP67_fields_::PRI67;
 };
-
 
 // Interrupt Priority Register 68
 struct NVICIP68_fields_ {
@@ -1741,7 +1637,6 @@ struct NVICIP68 : ftl::mmio::Register<
   using PRI68 = NVICIP68_fields_::PRI68;
 };
 
-
 // Interrupt Priority Register 69
 struct NVICIP69_fields_ {
   // Priority of interrupt 69
@@ -1757,7 +1652,6 @@ struct NVICIP69 : ftl::mmio::Register<
     NVICIP69_fields_::PRI69> {
   using PRI69 = NVICIP69_fields_::PRI69;
 };
-
 
 // Interrupt Priority Register 70
 struct NVICIP70_fields_ {
@@ -1775,7 +1669,6 @@ struct NVICIP70 : ftl::mmio::Register<
   using PRI70 = NVICIP70_fields_::PRI70;
 };
 
-
 // Interrupt Priority Register 71
 struct NVICIP71_fields_ {
   // Priority of interrupt 71
@@ -1791,7 +1684,6 @@ struct NVICIP71 : ftl::mmio::Register<
     NVICIP71_fields_::PRI71> {
   using PRI71 = NVICIP71_fields_::PRI71;
 };
-
 
 // Interrupt Priority Register 72
 struct NVICIP72_fields_ {
@@ -1809,7 +1701,6 @@ struct NVICIP72 : ftl::mmio::Register<
   using PRI72 = NVICIP72_fields_::PRI72;
 };
 
-
 // Interrupt Priority Register 73
 struct NVICIP73_fields_ {
   // Priority of interrupt 73
@@ -1825,7 +1716,6 @@ struct NVICIP73 : ftl::mmio::Register<
     NVICIP73_fields_::PRI73> {
   using PRI73 = NVICIP73_fields_::PRI73;
 };
-
 
 // Interrupt Priority Register 74
 struct NVICIP74_fields_ {
@@ -1843,7 +1733,6 @@ struct NVICIP74 : ftl::mmio::Register<
   using PRI74 = NVICIP74_fields_::PRI74;
 };
 
-
 // Interrupt Priority Register 75
 struct NVICIP75_fields_ {
   // Priority of interrupt 75
@@ -1859,7 +1748,6 @@ struct NVICIP75 : ftl::mmio::Register<
     NVICIP75_fields_::PRI75> {
   using PRI75 = NVICIP75_fields_::PRI75;
 };
-
 
 // Interrupt Priority Register 76
 struct NVICIP76_fields_ {
@@ -1877,7 +1765,6 @@ struct NVICIP76 : ftl::mmio::Register<
   using PRI76 = NVICIP76_fields_::PRI76;
 };
 
-
 // Interrupt Priority Register 77
 struct NVICIP77_fields_ {
   // Priority of interrupt 77
@@ -1893,7 +1780,6 @@ struct NVICIP77 : ftl::mmio::Register<
     NVICIP77_fields_::PRI77> {
   using PRI77 = NVICIP77_fields_::PRI77;
 };
-
 
 // Interrupt Priority Register 78
 struct NVICIP78_fields_ {
@@ -1911,7 +1797,6 @@ struct NVICIP78 : ftl::mmio::Register<
   using PRI78 = NVICIP78_fields_::PRI78;
 };
 
-
 // Interrupt Priority Register 79
 struct NVICIP79_fields_ {
   // Priority of interrupt 79
@@ -1927,7 +1812,6 @@ struct NVICIP79 : ftl::mmio::Register<
     NVICIP79_fields_::PRI79> {
   using PRI79 = NVICIP79_fields_::PRI79;
 };
-
 
 // Interrupt Priority Register 80
 struct NVICIP80_fields_ {
@@ -1945,7 +1829,6 @@ struct NVICIP80 : ftl::mmio::Register<
   using PRI80 = NVICIP80_fields_::PRI80;
 };
 
-
 // Interrupt Priority Register 81
 struct NVICIP81_fields_ {
   // Priority of interrupt 81
@@ -1961,7 +1844,6 @@ struct NVICIP81 : ftl::mmio::Register<
     NVICIP81_fields_::PRI81> {
   using PRI81 = NVICIP81_fields_::PRI81;
 };
-
 
 // Interrupt Priority Register 82
 struct NVICIP82_fields_ {
@@ -1979,7 +1861,6 @@ struct NVICIP82 : ftl::mmio::Register<
   using PRI82 = NVICIP82_fields_::PRI82;
 };
 
-
 // Interrupt Priority Register 83
 struct NVICIP83_fields_ {
   // Priority of interrupt 83
@@ -1995,7 +1876,6 @@ struct NVICIP83 : ftl::mmio::Register<
     NVICIP83_fields_::PRI83> {
   using PRI83 = NVICIP83_fields_::PRI83;
 };
-
 
 // Interrupt Priority Register 84
 struct NVICIP84_fields_ {
@@ -2013,7 +1893,6 @@ struct NVICIP84 : ftl::mmio::Register<
   using PRI84 = NVICIP84_fields_::PRI84;
 };
 
-
 // Interrupt Priority Register 85
 struct NVICIP85_fields_ {
   // Priority of interrupt 85
@@ -2029,7 +1908,6 @@ struct NVICIP85 : ftl::mmio::Register<
     NVICIP85_fields_::PRI85> {
   using PRI85 = NVICIP85_fields_::PRI85;
 };
-
 
 // Interrupt Priority Register 86
 struct NVICIP86_fields_ {
@@ -2047,7 +1925,6 @@ struct NVICIP86 : ftl::mmio::Register<
   using PRI86 = NVICIP86_fields_::PRI86;
 };
 
-
 // Interrupt Priority Register 87
 struct NVICIP87_fields_ {
   // Priority of interrupt 87
@@ -2063,7 +1940,6 @@ struct NVICIP87 : ftl::mmio::Register<
     NVICIP87_fields_::PRI87> {
   using PRI87 = NVICIP87_fields_::PRI87;
 };
-
 
 // Interrupt Priority Register 88
 struct NVICIP88_fields_ {
@@ -2081,7 +1957,6 @@ struct NVICIP88 : ftl::mmio::Register<
   using PRI88 = NVICIP88_fields_::PRI88;
 };
 
-
 // Interrupt Priority Register 89
 struct NVICIP89_fields_ {
   // Priority of interrupt 89
@@ -2097,7 +1972,6 @@ struct NVICIP89 : ftl::mmio::Register<
     NVICIP89_fields_::PRI89> {
   using PRI89 = NVICIP89_fields_::PRI89;
 };
-
 
 // Interrupt Priority Register 90
 struct NVICIP90_fields_ {
@@ -2115,7 +1989,6 @@ struct NVICIP90 : ftl::mmio::Register<
   using PRI90 = NVICIP90_fields_::PRI90;
 };
 
-
 // Interrupt Priority Register 91
 struct NVICIP91_fields_ {
   // Priority of interrupt 91
@@ -2131,7 +2004,6 @@ struct NVICIP91 : ftl::mmio::Register<
     NVICIP91_fields_::PRI91> {
   using PRI91 = NVICIP91_fields_::PRI91;
 };
-
 
 // Interrupt Priority Register 92
 struct NVICIP92_fields_ {
@@ -2149,7 +2021,6 @@ struct NVICIP92 : ftl::mmio::Register<
   using PRI92 = NVICIP92_fields_::PRI92;
 };
 
-
 // Interrupt Priority Register 93
 struct NVICIP93_fields_ {
   // Priority of interrupt 93
@@ -2165,7 +2036,6 @@ struct NVICIP93 : ftl::mmio::Register<
     NVICIP93_fields_::PRI93> {
   using PRI93 = NVICIP93_fields_::PRI93;
 };
-
 
 // Interrupt Priority Register 94
 struct NVICIP94_fields_ {
@@ -2183,7 +2053,6 @@ struct NVICIP94 : ftl::mmio::Register<
   using PRI94 = NVICIP94_fields_::PRI94;
 };
 
-
 // Interrupt Priority Register 95
 struct NVICIP95_fields_ {
   // Priority of interrupt 95
@@ -2199,7 +2068,6 @@ struct NVICIP95 : ftl::mmio::Register<
     NVICIP95_fields_::PRI95> {
   using PRI95 = NVICIP95_fields_::PRI95;
 };
-
 
 // Interrupt Priority Register 96
 struct NVICIP96_fields_ {
@@ -2217,7 +2085,6 @@ struct NVICIP96 : ftl::mmio::Register<
   using PRI96 = NVICIP96_fields_::PRI96;
 };
 
-
 // Interrupt Priority Register 97
 struct NVICIP97_fields_ {
   // Priority of interrupt 97
@@ -2233,7 +2100,6 @@ struct NVICIP97 : ftl::mmio::Register<
     NVICIP97_fields_::PRI97> {
   using PRI97 = NVICIP97_fields_::PRI97;
 };
-
 
 // Interrupt Priority Register 98
 struct NVICIP98_fields_ {
@@ -2251,7 +2117,6 @@ struct NVICIP98 : ftl::mmio::Register<
   using PRI98 = NVICIP98_fields_::PRI98;
 };
 
-
 // Interrupt Priority Register 99
 struct NVICIP99_fields_ {
   // Priority of interrupt 99
@@ -2267,7 +2132,6 @@ struct NVICIP99 : ftl::mmio::Register<
     NVICIP99_fields_::PRI99> {
   using PRI99 = NVICIP99_fields_::PRI99;
 };
-
 
 // Interrupt Priority Register 100
 struct NVICIP100_fields_ {
@@ -2285,7 +2149,6 @@ struct NVICIP100 : ftl::mmio::Register<
   using PRI100 = NVICIP100_fields_::PRI100;
 };
 
-
 // Interrupt Priority Register 101
 struct NVICIP101_fields_ {
   // Priority of interrupt 101
@@ -2301,7 +2164,6 @@ struct NVICIP101 : ftl::mmio::Register<
     NVICIP101_fields_::PRI101> {
   using PRI101 = NVICIP101_fields_::PRI101;
 };
-
 
 // Interrupt Priority Register 102
 struct NVICIP102_fields_ {
@@ -2319,7 +2181,6 @@ struct NVICIP102 : ftl::mmio::Register<
   using PRI102 = NVICIP102_fields_::PRI102;
 };
 
-
 // Interrupt Priority Register 103
 struct NVICIP103_fields_ {
   // Priority of interrupt 103
@@ -2335,7 +2196,6 @@ struct NVICIP103 : ftl::mmio::Register<
     NVICIP103_fields_::PRI103> {
   using PRI103 = NVICIP103_fields_::PRI103;
 };
-
 
 // Interrupt Priority Register 104
 struct NVICIP104_fields_ {
@@ -2353,7 +2213,6 @@ struct NVICIP104 : ftl::mmio::Register<
   using PRI104 = NVICIP104_fields_::PRI104;
 };
 
-
 // Interrupt Priority Register 105
 struct NVICIP105_fields_ {
   // Priority of interrupt 105
@@ -2369,7 +2228,6 @@ struct NVICIP105 : ftl::mmio::Register<
     NVICIP105_fields_::PRI105> {
   using PRI105 = NVICIP105_fields_::PRI105;
 };
-
 
 // Interrupt Priority Register 106
 struct NVICIP106_fields_ {
@@ -2387,7 +2245,6 @@ struct NVICIP106 : ftl::mmio::Register<
   using PRI106 = NVICIP106_fields_::PRI106;
 };
 
-
 // Interrupt Priority Register 107
 struct NVICIP107_fields_ {
   // Priority of interrupt 107
@@ -2403,7 +2260,6 @@ struct NVICIP107 : ftl::mmio::Register<
     NVICIP107_fields_::PRI107> {
   using PRI107 = NVICIP107_fields_::PRI107;
 };
-
 
 // Interrupt Priority Register 108
 struct NVICIP108_fields_ {
@@ -2421,7 +2277,6 @@ struct NVICIP108 : ftl::mmio::Register<
   using PRI108 = NVICIP108_fields_::PRI108;
 };
 
-
 // Interrupt Priority Register 109
 struct NVICIP109_fields_ {
   // Priority of interrupt 109
@@ -2437,7 +2292,6 @@ struct NVICIP109 : ftl::mmio::Register<
     NVICIP109_fields_::PRI109> {
   using PRI109 = NVICIP109_fields_::PRI109;
 };
-
 
 // Interrupt Priority Register 110
 struct NVICIP110_fields_ {
@@ -2455,7 +2309,6 @@ struct NVICIP110 : ftl::mmio::Register<
   using PRI110 = NVICIP110_fields_::PRI110;
 };
 
-
 // Interrupt Priority Register 111
 struct NVICIP111_fields_ {
   // Priority of interrupt 111
@@ -2471,7 +2324,6 @@ struct NVICIP111 : ftl::mmio::Register<
     NVICIP111_fields_::PRI111> {
   using PRI111 = NVICIP111_fields_::PRI111;
 };
-
 
 // Interrupt Priority Register 112
 struct NVICIP112_fields_ {
@@ -2489,7 +2341,6 @@ struct NVICIP112 : ftl::mmio::Register<
   using PRI112 = NVICIP112_fields_::PRI112;
 };
 
-
 // Interrupt Priority Register 113
 struct NVICIP113_fields_ {
   // Priority of interrupt 113
@@ -2505,7 +2356,6 @@ struct NVICIP113 : ftl::mmio::Register<
     NVICIP113_fields_::PRI113> {
   using PRI113 = NVICIP113_fields_::PRI113;
 };
-
 
 // Interrupt Priority Register 114
 struct NVICIP114_fields_ {
@@ -2523,7 +2373,6 @@ struct NVICIP114 : ftl::mmio::Register<
   using PRI114 = NVICIP114_fields_::PRI114;
 };
 
-
 // Interrupt Priority Register 115
 struct NVICIP115_fields_ {
   // Priority of interrupt 115
@@ -2539,7 +2388,6 @@ struct NVICIP115 : ftl::mmio::Register<
     NVICIP115_fields_::PRI115> {
   using PRI115 = NVICIP115_fields_::PRI115;
 };
-
 
 // Interrupt Priority Register 116
 struct NVICIP116_fields_ {
@@ -2557,7 +2405,6 @@ struct NVICIP116 : ftl::mmio::Register<
   using PRI116 = NVICIP116_fields_::PRI116;
 };
 
-
 // Interrupt Priority Register 117
 struct NVICIP117_fields_ {
   // Priority of interrupt 117
@@ -2573,7 +2420,6 @@ struct NVICIP117 : ftl::mmio::Register<
     NVICIP117_fields_::PRI117> {
   using PRI117 = NVICIP117_fields_::PRI117;
 };
-
 
 // Interrupt Priority Register 118
 struct NVICIP118_fields_ {
@@ -2591,7 +2437,6 @@ struct NVICIP118 : ftl::mmio::Register<
   using PRI118 = NVICIP118_fields_::PRI118;
 };
 
-
 // Interrupt Priority Register 119
 struct NVICIP119_fields_ {
   // Priority of interrupt 119
@@ -2607,7 +2452,6 @@ struct NVICIP119 : ftl::mmio::Register<
     NVICIP119_fields_::PRI119> {
   using PRI119 = NVICIP119_fields_::PRI119;
 };
-
 
 // Interrupt Priority Register 120
 struct NVICIP120_fields_ {
@@ -2625,7 +2469,6 @@ struct NVICIP120 : ftl::mmio::Register<
   using PRI120 = NVICIP120_fields_::PRI120;
 };
 
-
 // Interrupt Priority Register 121
 struct NVICIP121_fields_ {
   // Priority of interrupt 121
@@ -2641,7 +2484,6 @@ struct NVICIP121 : ftl::mmio::Register<
     NVICIP121_fields_::PRI121> {
   using PRI121 = NVICIP121_fields_::PRI121;
 };
-
 
 // Interrupt Priority Register 122
 struct NVICIP122_fields_ {
@@ -2659,7 +2501,6 @@ struct NVICIP122 : ftl::mmio::Register<
   using PRI122 = NVICIP122_fields_::PRI122;
 };
 
-
 // Interrupt Priority Register 123
 struct NVICIP123_fields_ {
   // Priority of interrupt 123
@@ -2675,7 +2516,6 @@ struct NVICIP123 : ftl::mmio::Register<
     NVICIP123_fields_::PRI123> {
   using PRI123 = NVICIP123_fields_::PRI123;
 };
-
 
 // Interrupt Priority Register 124
 struct NVICIP124_fields_ {
@@ -2693,7 +2533,6 @@ struct NVICIP124 : ftl::mmio::Register<
   using PRI124 = NVICIP124_fields_::PRI124;
 };
 
-
 // Interrupt Priority Register 125
 struct NVICIP125_fields_ {
   // Priority of interrupt 125
@@ -2709,7 +2548,6 @@ struct NVICIP125 : ftl::mmio::Register<
     NVICIP125_fields_::PRI125> {
   using PRI125 = NVICIP125_fields_::PRI125;
 };
-
 
 // Interrupt Priority Register 126
 struct NVICIP126_fields_ {
@@ -2727,7 +2565,6 @@ struct NVICIP126 : ftl::mmio::Register<
   using PRI126 = NVICIP126_fields_::PRI126;
 };
 
-
 // Interrupt Priority Register 127
 struct NVICIP127_fields_ {
   // Priority of interrupt 127
@@ -2743,7 +2580,6 @@ struct NVICIP127 : ftl::mmio::Register<
     NVICIP127_fields_::PRI127> {
   using PRI127 = NVICIP127_fields_::PRI127;
 };
-
 
 // Interrupt Priority Register 128
 struct NVICIP128_fields_ {
@@ -2761,7 +2597,6 @@ struct NVICIP128 : ftl::mmio::Register<
   using PRI128 = NVICIP128_fields_::PRI128;
 };
 
-
 // Interrupt Priority Register 129
 struct NVICIP129_fields_ {
   // Priority of interrupt 129
@@ -2777,7 +2612,6 @@ struct NVICIP129 : ftl::mmio::Register<
     NVICIP129_fields_::PRI129> {
   using PRI129 = NVICIP129_fields_::PRI129;
 };
-
 
 // Interrupt Priority Register 130
 struct NVICIP130_fields_ {
@@ -2795,7 +2629,6 @@ struct NVICIP130 : ftl::mmio::Register<
   using PRI130 = NVICIP130_fields_::PRI130;
 };
 
-
 // Interrupt Priority Register 131
 struct NVICIP131_fields_ {
   // Priority of interrupt 131
@@ -2811,7 +2644,6 @@ struct NVICIP131 : ftl::mmio::Register<
     NVICIP131_fields_::PRI131> {
   using PRI131 = NVICIP131_fields_::PRI131;
 };
-
 
 // Interrupt Priority Register 132
 struct NVICIP132_fields_ {
@@ -2829,7 +2661,6 @@ struct NVICIP132 : ftl::mmio::Register<
   using PRI132 = NVICIP132_fields_::PRI132;
 };
 
-
 // Interrupt Priority Register 133
 struct NVICIP133_fields_ {
   // Priority of interrupt 133
@@ -2845,7 +2676,6 @@ struct NVICIP133 : ftl::mmio::Register<
     NVICIP133_fields_::PRI133> {
   using PRI133 = NVICIP133_fields_::PRI133;
 };
-
 
 // Interrupt Priority Register 134
 struct NVICIP134_fields_ {
@@ -2863,7 +2693,6 @@ struct NVICIP134 : ftl::mmio::Register<
   using PRI134 = NVICIP134_fields_::PRI134;
 };
 
-
 // Interrupt Priority Register 135
 struct NVICIP135_fields_ {
   // Priority of interrupt 135
@@ -2879,7 +2708,6 @@ struct NVICIP135 : ftl::mmio::Register<
     NVICIP135_fields_::PRI135> {
   using PRI135 = NVICIP135_fields_::PRI135;
 };
-
 
 // Interrupt Priority Register 136
 struct NVICIP136_fields_ {
@@ -2897,7 +2725,6 @@ struct NVICIP136 : ftl::mmio::Register<
   using PRI136 = NVICIP136_fields_::PRI136;
 };
 
-
 // Interrupt Priority Register 137
 struct NVICIP137_fields_ {
   // Priority of interrupt 137
@@ -2913,7 +2740,6 @@ struct NVICIP137 : ftl::mmio::Register<
     NVICIP137_fields_::PRI137> {
   using PRI137 = NVICIP137_fields_::PRI137;
 };
-
 
 // Interrupt Priority Register 138
 struct NVICIP138_fields_ {
@@ -2931,7 +2757,6 @@ struct NVICIP138 : ftl::mmio::Register<
   using PRI138 = NVICIP138_fields_::PRI138;
 };
 
-
 // Interrupt Priority Register 139
 struct NVICIP139_fields_ {
   // Priority of interrupt 139
@@ -2947,7 +2772,6 @@ struct NVICIP139 : ftl::mmio::Register<
     NVICIP139_fields_::PRI139> {
   using PRI139 = NVICIP139_fields_::PRI139;
 };
-
 
 // Interrupt Priority Register 140
 struct NVICIP140_fields_ {
@@ -2965,7 +2789,6 @@ struct NVICIP140 : ftl::mmio::Register<
   using PRI140 = NVICIP140_fields_::PRI140;
 };
 
-
 // Interrupt Priority Register 141
 struct NVICIP141_fields_ {
   // Priority of interrupt 141
@@ -2981,7 +2804,6 @@ struct NVICIP141 : ftl::mmio::Register<
     NVICIP141_fields_::PRI141> {
   using PRI141 = NVICIP141_fields_::PRI141;
 };
-
 
 // Interrupt Priority Register 142
 struct NVICIP142_fields_ {
@@ -2999,7 +2821,6 @@ struct NVICIP142 : ftl::mmio::Register<
   using PRI142 = NVICIP142_fields_::PRI142;
 };
 
-
 // Interrupt Priority Register 143
 struct NVICIP143_fields_ {
   // Priority of interrupt 143
@@ -3015,7 +2836,6 @@ struct NVICIP143 : ftl::mmio::Register<
     NVICIP143_fields_::PRI143> {
   using PRI143 = NVICIP143_fields_::PRI143;
 };
-
 
 // Interrupt Priority Register 144
 struct NVICIP144_fields_ {
@@ -3033,7 +2853,6 @@ struct NVICIP144 : ftl::mmio::Register<
   using PRI144 = NVICIP144_fields_::PRI144;
 };
 
-
 // Interrupt Priority Register 145
 struct NVICIP145_fields_ {
   // Priority of interrupt 145
@@ -3049,7 +2868,6 @@ struct NVICIP145 : ftl::mmio::Register<
     NVICIP145_fields_::PRI145> {
   using PRI145 = NVICIP145_fields_::PRI145;
 };
-
 
 // Interrupt Priority Register 146
 struct NVICIP146_fields_ {
@@ -3067,7 +2885,6 @@ struct NVICIP146 : ftl::mmio::Register<
   using PRI146 = NVICIP146_fields_::PRI146;
 };
 
-
 // Interrupt Priority Register 147
 struct NVICIP147_fields_ {
   // Priority of interrupt 147
@@ -3083,7 +2900,6 @@ struct NVICIP147 : ftl::mmio::Register<
     NVICIP147_fields_::PRI147> {
   using PRI147 = NVICIP147_fields_::PRI147;
 };
-
 
 // Interrupt Priority Register 148
 struct NVICIP148_fields_ {
@@ -3101,7 +2917,6 @@ struct NVICIP148 : ftl::mmio::Register<
   using PRI148 = NVICIP148_fields_::PRI148;
 };
 
-
 // Interrupt Priority Register 149
 struct NVICIP149_fields_ {
   // Priority of interrupt 149
@@ -3117,7 +2932,6 @@ struct NVICIP149 : ftl::mmio::Register<
     NVICIP149_fields_::PRI149> {
   using PRI149 = NVICIP149_fields_::PRI149;
 };
-
 
 // Interrupt Priority Register 150
 struct NVICIP150_fields_ {
@@ -3135,7 +2949,6 @@ struct NVICIP150 : ftl::mmio::Register<
   using PRI150 = NVICIP150_fields_::PRI150;
 };
 
-
 // Interrupt Priority Register 151
 struct NVICIP151_fields_ {
   // Priority of interrupt 151
@@ -3151,7 +2964,6 @@ struct NVICIP151 : ftl::mmio::Register<
     NVICIP151_fields_::PRI151> {
   using PRI151 = NVICIP151_fields_::PRI151;
 };
-
 
 // Interrupt Priority Register 152
 struct NVICIP152_fields_ {
@@ -3169,7 +2981,6 @@ struct NVICIP152 : ftl::mmio::Register<
   using PRI152 = NVICIP152_fields_::PRI152;
 };
 
-
 // Interrupt Priority Register 153
 struct NVICIP153_fields_ {
   // Priority of interrupt 153
@@ -3185,7 +2996,6 @@ struct NVICIP153 : ftl::mmio::Register<
     NVICIP153_fields_::PRI153> {
   using PRI153 = NVICIP153_fields_::PRI153;
 };
-
 
 // Interrupt Priority Register 154
 struct NVICIP154_fields_ {
@@ -3203,7 +3013,6 @@ struct NVICIP154 : ftl::mmio::Register<
   using PRI154 = NVICIP154_fields_::PRI154;
 };
 
-
 // Interrupt Priority Register 155
 struct NVICIP155_fields_ {
   // Priority of interrupt 155
@@ -3219,7 +3028,6 @@ struct NVICIP155 : ftl::mmio::Register<
     NVICIP155_fields_::PRI155> {
   using PRI155 = NVICIP155_fields_::PRI155;
 };
-
 
 // Interrupt Priority Register 156
 struct NVICIP156_fields_ {
@@ -3237,7 +3045,6 @@ struct NVICIP156 : ftl::mmio::Register<
   using PRI156 = NVICIP156_fields_::PRI156;
 };
 
-
 // Interrupt Priority Register 157
 struct NVICIP157_fields_ {
   // Priority of interrupt 157
@@ -3253,7 +3060,6 @@ struct NVICIP157 : ftl::mmio::Register<
     NVICIP157_fields_::PRI157> {
   using PRI157 = NVICIP157_fields_::PRI157;
 };
-
 
 // Interrupt Priority Register 158
 struct NVICIP158_fields_ {
@@ -3271,7 +3077,6 @@ struct NVICIP158 : ftl::mmio::Register<
   using PRI158 = NVICIP158_fields_::PRI158;
 };
 
-
 // Interrupt Priority Register 159
 struct NVICIP159_fields_ {
   // Priority of interrupt 159
@@ -3287,7 +3092,6 @@ struct NVICIP159 : ftl::mmio::Register<
     NVICIP159_fields_::PRI159> {
   using PRI159 = NVICIP159_fields_::PRI159;
 };
-
 
 // Interrupt Priority Register 160
 struct NVICIP160_fields_ {
@@ -3305,7 +3109,6 @@ struct NVICIP160 : ftl::mmio::Register<
   using PRI160 = NVICIP160_fields_::PRI160;
 };
 
-
 // Interrupt Priority Register 161
 struct NVICIP161_fields_ {
   // Priority of interrupt 161
@@ -3321,7 +3124,6 @@ struct NVICIP161 : ftl::mmio::Register<
     NVICIP161_fields_::PRI161> {
   using PRI161 = NVICIP161_fields_::PRI161;
 };
-
 
 // Interrupt Priority Register 162
 struct NVICIP162_fields_ {
@@ -3339,7 +3141,6 @@ struct NVICIP162 : ftl::mmio::Register<
   using PRI162 = NVICIP162_fields_::PRI162;
 };
 
-
 // Interrupt Priority Register 163
 struct NVICIP163_fields_ {
   // Priority of interrupt 163
@@ -3355,7 +3156,6 @@ struct NVICIP163 : ftl::mmio::Register<
     NVICIP163_fields_::PRI163> {
   using PRI163 = NVICIP163_fields_::PRI163;
 };
-
 
 // Interrupt Priority Register 164
 struct NVICIP164_fields_ {
@@ -3373,7 +3173,6 @@ struct NVICIP164 : ftl::mmio::Register<
   using PRI164 = NVICIP164_fields_::PRI164;
 };
 
-
 // Interrupt Priority Register 165
 struct NVICIP165_fields_ {
   // Priority of interrupt 165
@@ -3389,7 +3188,6 @@ struct NVICIP165 : ftl::mmio::Register<
     NVICIP165_fields_::PRI165> {
   using PRI165 = NVICIP165_fields_::PRI165;
 };
-
 
 // Interrupt Priority Register 166
 struct NVICIP166_fields_ {
@@ -3407,7 +3205,6 @@ struct NVICIP166 : ftl::mmio::Register<
   using PRI166 = NVICIP166_fields_::PRI166;
 };
 
-
 // Interrupt Priority Register 167
 struct NVICIP167_fields_ {
   // Priority of interrupt 167
@@ -3423,7 +3220,6 @@ struct NVICIP167 : ftl::mmio::Register<
     NVICIP167_fields_::PRI167> {
   using PRI167 = NVICIP167_fields_::PRI167;
 };
-
 
 // Interrupt Priority Register 168
 struct NVICIP168_fields_ {
@@ -3441,7 +3237,6 @@ struct NVICIP168 : ftl::mmio::Register<
   using PRI168 = NVICIP168_fields_::PRI168;
 };
 
-
 // Interrupt Priority Register 169
 struct NVICIP169_fields_ {
   // Priority of interrupt 169
@@ -3457,7 +3252,6 @@ struct NVICIP169 : ftl::mmio::Register<
     NVICIP169_fields_::PRI169> {
   using PRI169 = NVICIP169_fields_::PRI169;
 };
-
 
 // Interrupt Priority Register 170
 struct NVICIP170_fields_ {
@@ -3475,7 +3269,6 @@ struct NVICIP170 : ftl::mmio::Register<
   using PRI170 = NVICIP170_fields_::PRI170;
 };
 
-
 // Interrupt Priority Register 171
 struct NVICIP171_fields_ {
   // Priority of interrupt 171
@@ -3491,7 +3284,6 @@ struct NVICIP171 : ftl::mmio::Register<
     NVICIP171_fields_::PRI171> {
   using PRI171 = NVICIP171_fields_::PRI171;
 };
-
 
 // Interrupt Priority Register 172
 struct NVICIP172_fields_ {
@@ -3509,7 +3301,6 @@ struct NVICIP172 : ftl::mmio::Register<
   using PRI172 = NVICIP172_fields_::PRI172;
 };
 
-
 // Interrupt Priority Register 173
 struct NVICIP173_fields_ {
   // Priority of interrupt 173
@@ -3525,7 +3316,6 @@ struct NVICIP173 : ftl::mmio::Register<
     NVICIP173_fields_::PRI173> {
   using PRI173 = NVICIP173_fields_::PRI173;
 };
-
 
 // Interrupt Priority Register 174
 struct NVICIP174_fields_ {
@@ -3543,7 +3333,6 @@ struct NVICIP174 : ftl::mmio::Register<
   using PRI174 = NVICIP174_fields_::PRI174;
 };
 
-
 // Interrupt Priority Register 175
 struct NVICIP175_fields_ {
   // Priority of interrupt 175
@@ -3559,7 +3348,6 @@ struct NVICIP175 : ftl::mmio::Register<
     NVICIP175_fields_::PRI175> {
   using PRI175 = NVICIP175_fields_::PRI175;
 };
-
 
 // Interrupt Priority Register 176
 struct NVICIP176_fields_ {
@@ -3577,7 +3365,6 @@ struct NVICIP176 : ftl::mmio::Register<
   using PRI176 = NVICIP176_fields_::PRI176;
 };
 
-
 // Interrupt Priority Register 177
 struct NVICIP177_fields_ {
   // Priority of interrupt 177
@@ -3593,7 +3380,6 @@ struct NVICIP177 : ftl::mmio::Register<
     NVICIP177_fields_::PRI177> {
   using PRI177 = NVICIP177_fields_::PRI177;
 };
-
 
 // Interrupt Priority Register 178
 struct NVICIP178_fields_ {
@@ -3611,7 +3397,6 @@ struct NVICIP178 : ftl::mmio::Register<
   using PRI178 = NVICIP178_fields_::PRI178;
 };
 
-
 // Interrupt Priority Register 179
 struct NVICIP179_fields_ {
   // Priority of interrupt 179
@@ -3627,7 +3412,6 @@ struct NVICIP179 : ftl::mmio::Register<
     NVICIP179_fields_::PRI179> {
   using PRI179 = NVICIP179_fields_::PRI179;
 };
-
 
 // Interrupt Priority Register 180
 struct NVICIP180_fields_ {
@@ -3645,7 +3429,6 @@ struct NVICIP180 : ftl::mmio::Register<
   using PRI180 = NVICIP180_fields_::PRI180;
 };
 
-
 // Interrupt Priority Register 181
 struct NVICIP181_fields_ {
   // Priority of interrupt 181
@@ -3661,7 +3444,6 @@ struct NVICIP181 : ftl::mmio::Register<
     NVICIP181_fields_::PRI181> {
   using PRI181 = NVICIP181_fields_::PRI181;
 };
-
 
 // Interrupt Priority Register 182
 struct NVICIP182_fields_ {
@@ -3679,7 +3461,6 @@ struct NVICIP182 : ftl::mmio::Register<
   using PRI182 = NVICIP182_fields_::PRI182;
 };
 
-
 // Interrupt Priority Register 183
 struct NVICIP183_fields_ {
   // Priority of interrupt 183
@@ -3695,7 +3476,6 @@ struct NVICIP183 : ftl::mmio::Register<
     NVICIP183_fields_::PRI183> {
   using PRI183 = NVICIP183_fields_::PRI183;
 };
-
 
 // Interrupt Priority Register 184
 struct NVICIP184_fields_ {
@@ -3713,7 +3493,6 @@ struct NVICIP184 : ftl::mmio::Register<
   using PRI184 = NVICIP184_fields_::PRI184;
 };
 
-
 // Interrupt Priority Register 185
 struct NVICIP185_fields_ {
   // Priority of interrupt 185
@@ -3729,7 +3508,6 @@ struct NVICIP185 : ftl::mmio::Register<
     NVICIP185_fields_::PRI185> {
   using PRI185 = NVICIP185_fields_::PRI185;
 };
-
 
 // Interrupt Priority Register 186
 struct NVICIP186_fields_ {
@@ -3747,7 +3525,6 @@ struct NVICIP186 : ftl::mmio::Register<
   using PRI186 = NVICIP186_fields_::PRI186;
 };
 
-
 // Interrupt Priority Register 187
 struct NVICIP187_fields_ {
   // Priority of interrupt 187
@@ -3763,7 +3540,6 @@ struct NVICIP187 : ftl::mmio::Register<
     NVICIP187_fields_::PRI187> {
   using PRI187 = NVICIP187_fields_::PRI187;
 };
-
 
 // Interrupt Priority Register 188
 struct NVICIP188_fields_ {
@@ -3781,7 +3557,6 @@ struct NVICIP188 : ftl::mmio::Register<
   using PRI188 = NVICIP188_fields_::PRI188;
 };
 
-
 // Interrupt Priority Register 189
 struct NVICIP189_fields_ {
   // Priority of interrupt 189
@@ -3797,7 +3572,6 @@ struct NVICIP189 : ftl::mmio::Register<
     NVICIP189_fields_::PRI189> {
   using PRI189 = NVICIP189_fields_::PRI189;
 };
-
 
 // Interrupt Priority Register 190
 struct NVICIP190_fields_ {
@@ -3815,7 +3589,6 @@ struct NVICIP190 : ftl::mmio::Register<
   using PRI190 = NVICIP190_fields_::PRI190;
 };
 
-
 // Interrupt Priority Register 191
 struct NVICIP191_fields_ {
   // Priority of interrupt 191
@@ -3831,7 +3604,6 @@ struct NVICIP191 : ftl::mmio::Register<
     NVICIP191_fields_::PRI191> {
   using PRI191 = NVICIP191_fields_::PRI191;
 };
-
 
 // Interrupt Priority Register 192
 struct NVICIP192_fields_ {
@@ -3849,7 +3621,6 @@ struct NVICIP192 : ftl::mmio::Register<
   using PRI192 = NVICIP192_fields_::PRI192;
 };
 
-
 // Interrupt Priority Register 193
 struct NVICIP193_fields_ {
   // Priority of interrupt 193
@@ -3865,7 +3636,6 @@ struct NVICIP193 : ftl::mmio::Register<
     NVICIP193_fields_::PRI193> {
   using PRI193 = NVICIP193_fields_::PRI193;
 };
-
 
 // Interrupt Priority Register 194
 struct NVICIP194_fields_ {
@@ -3883,7 +3653,6 @@ struct NVICIP194 : ftl::mmio::Register<
   using PRI194 = NVICIP194_fields_::PRI194;
 };
 
-
 // Interrupt Priority Register 195
 struct NVICIP195_fields_ {
   // Priority of interrupt 195
@@ -3899,7 +3668,6 @@ struct NVICIP195 : ftl::mmio::Register<
     NVICIP195_fields_::PRI195> {
   using PRI195 = NVICIP195_fields_::PRI195;
 };
-
 
 // Interrupt Priority Register 196
 struct NVICIP196_fields_ {
@@ -3917,7 +3685,6 @@ struct NVICIP196 : ftl::mmio::Register<
   using PRI196 = NVICIP196_fields_::PRI196;
 };
 
-
 // Interrupt Priority Register 197
 struct NVICIP197_fields_ {
   // Priority of interrupt 197
@@ -3933,7 +3700,6 @@ struct NVICIP197 : ftl::mmio::Register<
     NVICIP197_fields_::PRI197> {
   using PRI197 = NVICIP197_fields_::PRI197;
 };
-
 
 // Interrupt Priority Register 198
 struct NVICIP198_fields_ {
@@ -3951,7 +3717,6 @@ struct NVICIP198 : ftl::mmio::Register<
   using PRI198 = NVICIP198_fields_::PRI198;
 };
 
-
 // Interrupt Priority Register 199
 struct NVICIP199_fields_ {
   // Priority of interrupt 199
@@ -3967,7 +3732,6 @@ struct NVICIP199 : ftl::mmio::Register<
     NVICIP199_fields_::PRI199> {
   using PRI199 = NVICIP199_fields_::PRI199;
 };
-
 
 // Interrupt Priority Register 200
 struct NVICIP200_fields_ {
@@ -3985,7 +3749,6 @@ struct NVICIP200 : ftl::mmio::Register<
   using PRI200 = NVICIP200_fields_::PRI200;
 };
 
-
 // Interrupt Priority Register 201
 struct NVICIP201_fields_ {
   // Priority of interrupt 201
@@ -4001,7 +3764,6 @@ struct NVICIP201 : ftl::mmio::Register<
     NVICIP201_fields_::PRI201> {
   using PRI201 = NVICIP201_fields_::PRI201;
 };
-
 
 // Interrupt Priority Register 202
 struct NVICIP202_fields_ {
@@ -4019,7 +3781,6 @@ struct NVICIP202 : ftl::mmio::Register<
   using PRI202 = NVICIP202_fields_::PRI202;
 };
 
-
 // Interrupt Priority Register 203
 struct NVICIP203_fields_ {
   // Priority of interrupt 203
@@ -4035,7 +3796,6 @@ struct NVICIP203 : ftl::mmio::Register<
     NVICIP203_fields_::PRI203> {
   using PRI203 = NVICIP203_fields_::PRI203;
 };
-
 
 // Interrupt Priority Register 204
 struct NVICIP204_fields_ {
@@ -4053,7 +3813,6 @@ struct NVICIP204 : ftl::mmio::Register<
   using PRI204 = NVICIP204_fields_::PRI204;
 };
 
-
 // Interrupt Priority Register 205
 struct NVICIP205_fields_ {
   // Priority of interrupt 205
@@ -4069,7 +3828,6 @@ struct NVICIP205 : ftl::mmio::Register<
     NVICIP205_fields_::PRI205> {
   using PRI205 = NVICIP205_fields_::PRI205;
 };
-
 
 // Interrupt Priority Register 206
 struct NVICIP206_fields_ {
@@ -4087,7 +3845,6 @@ struct NVICIP206 : ftl::mmio::Register<
   using PRI206 = NVICIP206_fields_::PRI206;
 };
 
-
 // Interrupt Priority Register 207
 struct NVICIP207_fields_ {
   // Priority of interrupt 207
@@ -4103,7 +3860,6 @@ struct NVICIP207 : ftl::mmio::Register<
     NVICIP207_fields_::PRI207> {
   using PRI207 = NVICIP207_fields_::PRI207;
 };
-
 
 // Interrupt Priority Register 208
 struct NVICIP208_fields_ {
@@ -4121,7 +3877,6 @@ struct NVICIP208 : ftl::mmio::Register<
   using PRI208 = NVICIP208_fields_::PRI208;
 };
 
-
 // Interrupt Priority Register 209
 struct NVICIP209_fields_ {
   // Priority of interrupt 209
@@ -4137,7 +3892,6 @@ struct NVICIP209 : ftl::mmio::Register<
     NVICIP209_fields_::PRI209> {
   using PRI209 = NVICIP209_fields_::PRI209;
 };
-
 
 // Interrupt Priority Register 210
 struct NVICIP210_fields_ {
@@ -4155,7 +3909,6 @@ struct NVICIP210 : ftl::mmio::Register<
   using PRI210 = NVICIP210_fields_::PRI210;
 };
 
-
 // Interrupt Priority Register 211
 struct NVICIP211_fields_ {
   // Priority of interrupt 211
@@ -4171,7 +3924,6 @@ struct NVICIP211 : ftl::mmio::Register<
     NVICIP211_fields_::PRI211> {
   using PRI211 = NVICIP211_fields_::PRI211;
 };
-
 
 // Interrupt Priority Register 212
 struct NVICIP212_fields_ {
@@ -4189,7 +3941,6 @@ struct NVICIP212 : ftl::mmio::Register<
   using PRI212 = NVICIP212_fields_::PRI212;
 };
 
-
 // Interrupt Priority Register 213
 struct NVICIP213_fields_ {
   // Priority of interrupt 213
@@ -4205,7 +3956,6 @@ struct NVICIP213 : ftl::mmio::Register<
     NVICIP213_fields_::PRI213> {
   using PRI213 = NVICIP213_fields_::PRI213;
 };
-
 
 // Interrupt Priority Register 214
 struct NVICIP214_fields_ {
@@ -4223,7 +3973,6 @@ struct NVICIP214 : ftl::mmio::Register<
   using PRI214 = NVICIP214_fields_::PRI214;
 };
 
-
 // Interrupt Priority Register 215
 struct NVICIP215_fields_ {
   // Priority of interrupt 215
@@ -4239,7 +3988,6 @@ struct NVICIP215 : ftl::mmio::Register<
     NVICIP215_fields_::PRI215> {
   using PRI215 = NVICIP215_fields_::PRI215;
 };
-
 
 // Interrupt Priority Register 216
 struct NVICIP216_fields_ {
@@ -4257,7 +4005,6 @@ struct NVICIP216 : ftl::mmio::Register<
   using PRI216 = NVICIP216_fields_::PRI216;
 };
 
-
 // Interrupt Priority Register 217
 struct NVICIP217_fields_ {
   // Priority of interrupt 217
@@ -4273,7 +4020,6 @@ struct NVICIP217 : ftl::mmio::Register<
     NVICIP217_fields_::PRI217> {
   using PRI217 = NVICIP217_fields_::PRI217;
 };
-
 
 // Software Trigger Interrupt Register
 struct NVICSTIR_fields_ {

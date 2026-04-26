@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::anadig_misc {
 
-
 // Chip Silicon Version Register
 struct MISC_DIFPROG_fields_ {
   // Chip ID
@@ -23,7 +22,6 @@ struct MISC_DIFPROG : ftl::mmio::Register<
     MISC_DIFPROG_fields_::CHIPID> {
   using CHIPID = MISC_DIFPROG_fields_::CHIPID;
 };
-
 
 // VDDSOC_AI_CTRL_REGISTER
 struct VDDSOC_AI_CTRL_fields_ {
@@ -46,7 +44,6 @@ struct VDDSOC_AI_CTRL : ftl::mmio::Register<
   using VDDSOC_AIRWB = VDDSOC_AI_CTRL_fields_::VDDSOC_AIRWB;
 };
 
-
 // VDDSOC_AI_WDATA_REGISTER
 struct VDDSOC_AI_WDATA_fields_ {
   // VDDSOC_AI_WDATA
@@ -59,9 +56,8 @@ struct VDDSOC_AI_WDATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     VDDSOC_AI_WDATA_fields_::VDDSOC_AI_WDATA> {
-  using value_ = VDDSOC_AI_WDATA_fields_::VDDSOC_AI_WDATA;
+  using VALUE = VDDSOC_AI_WDATA_fields_::VDDSOC_AI_WDATA;
 };
-
 
 // VDDSOC_AI_RDATA_REGISTER
 struct VDDSOC_AI_RDATA_fields_ {
@@ -75,9 +71,8 @@ struct VDDSOC_AI_RDATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VDDSOC_AI_RDATA_fields_::VDDSOC_AI_RDATA> {
-  using value_ = VDDSOC_AI_RDATA_fields_::VDDSOC_AI_RDATA;
+  using VALUE = VDDSOC_AI_RDATA_fields_::VDDSOC_AI_RDATA;
 };
-
 
 // VDDSOC2PLL_AI_CTRL_1G_REGISTER
 struct VDDSOC2PLL_AI_CTRL_1G_fields_ {
@@ -108,7 +103,6 @@ struct VDDSOC2PLL_AI_CTRL_1G : ftl::mmio::Register<
   using VDDSOC2PLL_AIRWB_1G = VDDSOC2PLL_AI_CTRL_1G_fields_::VDDSOC2PLL_AIRWB_1G;
 };
 
-
 // VDDSOC2PLL_AI_WDATA_1G_REGISTER
 struct VDDSOC2PLL_AI_WDATA_1G_fields_ {
   // VDDSOC2PLL_AI_WDATA_1G
@@ -121,9 +115,8 @@ struct VDDSOC2PLL_AI_WDATA_1G : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     VDDSOC2PLL_AI_WDATA_1G_fields_::VDDSOC2PLL_AI_WDATA_1G> {
-  using value_ = VDDSOC2PLL_AI_WDATA_1G_fields_::VDDSOC2PLL_AI_WDATA_1G;
+  using VALUE = VDDSOC2PLL_AI_WDATA_1G_fields_::VDDSOC2PLL_AI_WDATA_1G;
 };
-
 
 // VDDSOC2PLL_AI_RDATA_1G_REGISTER
 struct VDDSOC2PLL_AI_RDATA_1G_fields_ {
@@ -137,9 +130,8 @@ struct VDDSOC2PLL_AI_RDATA_1G : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VDDSOC2PLL_AI_RDATA_1G_fields_::VDDSOC2PLL_AI_RDATA_1G> {
-  using value_ = VDDSOC2PLL_AI_RDATA_1G_fields_::VDDSOC2PLL_AI_RDATA_1G;
+  using VALUE = VDDSOC2PLL_AI_RDATA_1G_fields_::VDDSOC2PLL_AI_RDATA_1G;
 };
-
 
 // VDDSOC_AI_CTRL_AUDIO_REGISTER
 struct VDDSOC2PLL_AI_CTRL_AUDIO_fields_ {
@@ -170,7 +162,6 @@ struct VDDSOC2PLL_AI_CTRL_AUDIO : ftl::mmio::Register<
   using VDDSOC2PLL_AIRWB_AUDIO = VDDSOC2PLL_AI_CTRL_AUDIO_fields_::VDDSOC2PLL_AIRWB_AUDIO;
 };
 
-
 // VDDSOC_AI_WDATA_AUDIO_REGISTER
 struct VDDSOC2PLL_AI_WDATA_AUDIO_fields_ {
   // VDDSOC2PLL_AI_WDATA_AUDIO
@@ -183,9 +174,8 @@ struct VDDSOC2PLL_AI_WDATA_AUDIO : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     VDDSOC2PLL_AI_WDATA_AUDIO_fields_::VDDSOC2PLL_AI_WDATA_AUDIO> {
-  using value_ = VDDSOC2PLL_AI_WDATA_AUDIO_fields_::VDDSOC2PLL_AI_WDATA_AUDIO;
+  using VALUE = VDDSOC2PLL_AI_WDATA_AUDIO_fields_::VDDSOC2PLL_AI_WDATA_AUDIO;
 };
-
 
 // VDDSOC2PLL_AI_RDATA_REGISTER
 struct VDDSOC2PLL_AI_RDATA_AUDIO_fields_ {
@@ -199,9 +189,8 @@ struct VDDSOC2PLL_AI_RDATA_AUDIO : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VDDSOC2PLL_AI_RDATA_AUDIO_fields_::VDDSOC2PLL_AI_RDATA_AUDIO> {
-  using value_ = VDDSOC2PLL_AI_RDATA_AUDIO_fields_::VDDSOC2PLL_AI_RDATA_AUDIO;
+  using VALUE = VDDSOC2PLL_AI_RDATA_AUDIO_fields_::VDDSOC2PLL_AI_RDATA_AUDIO;
 };
-
 
 // VDDSOC2PLL_AI_CTRL_VIDEO_REGISTER
 struct VDDSOC2PLL_AI_CTRL_VIDEO_fields_ {
@@ -232,7 +221,6 @@ struct VDDSOC2PLL_AI_CTRL_VIDEO : ftl::mmio::Register<
   using VDDSOC2PLL_AIRWB_VIDEO = VDDSOC2PLL_AI_CTRL_VIDEO_fields_::VDDSOC2PLL_AIRWB_VIDEO;
 };
 
-
 // VDDSOC2PLL_AI_WDATA_VIDEO_REGISTER
 struct VDDSOC2PLL_AI_WDATA_VIDEO_fields_ {
   // VDDSOC2PLL_AI_WDATA_VIDEO
@@ -245,9 +233,8 @@ struct VDDSOC2PLL_AI_WDATA_VIDEO : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     VDDSOC2PLL_AI_WDATA_VIDEO_fields_::VDDSOC2PLL_AI_WDATA_VIDEO> {
-  using value_ = VDDSOC2PLL_AI_WDATA_VIDEO_fields_::VDDSOC2PLL_AI_WDATA_VIDEO;
+  using VALUE = VDDSOC2PLL_AI_WDATA_VIDEO_fields_::VDDSOC2PLL_AI_WDATA_VIDEO;
 };
-
 
 // VDDSOC2PLL_AI_RDATA_VIDEO_REGISTER
 struct VDDSOC2PLL_AI_RDATA_VIDEO_fields_ {
@@ -261,9 +248,8 @@ struct VDDSOC2PLL_AI_RDATA_VIDEO : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VDDSOC2PLL_AI_RDATA_VIDEO_fields_::VDDSOC2PLL_AI_RDATA_VIDEO> {
-  using value_ = VDDSOC2PLL_AI_RDATA_VIDEO_fields_::VDDSOC2PLL_AI_RDATA_VIDEO;
+  using VALUE = VDDSOC2PLL_AI_RDATA_VIDEO_fields_::VDDSOC2PLL_AI_RDATA_VIDEO;
 };
-
 
 // VDDSOC_AI_CTRL_REGISTER
 struct VDDLPSR_AI_CTRL_fields_ {
@@ -286,7 +272,6 @@ struct VDDLPSR_AI_CTRL : ftl::mmio::Register<
   using VDDLPSR_AIRWB = VDDLPSR_AI_CTRL_fields_::VDDLPSR_AIRWB;
 };
 
-
 // VDDLPSR_AI_WDATA_REGISTER
 struct VDDLPSR_AI_WDATA_fields_ {
   // VDD_LPSR_AI_WDATA
@@ -299,9 +284,8 @@ struct VDDLPSR_AI_WDATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     VDDLPSR_AI_WDATA_fields_::VDDLPSR_AI_WDATA> {
-  using value_ = VDDLPSR_AI_WDATA_fields_::VDDLPSR_AI_WDATA;
+  using VALUE = VDDLPSR_AI_WDATA_fields_::VDDLPSR_AI_WDATA;
 };
-
 
 // VDDLPSR_AI_RDATA_REFTOP_REGISTER
 struct VDDLPSR_AI_RDATA_REFTOP_fields_ {
@@ -315,9 +299,8 @@ struct VDDLPSR_AI_RDATA_REFTOP : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VDDLPSR_AI_RDATA_REFTOP_fields_::VDDLPSR_AI_RDATA_REFTOP> {
-  using value_ = VDDLPSR_AI_RDATA_REFTOP_fields_::VDDLPSR_AI_RDATA_REFTOP;
+  using VALUE = VDDLPSR_AI_RDATA_REFTOP_fields_::VDDLPSR_AI_RDATA_REFTOP;
 };
-
 
 // VDDLPSR_AI_RDATA_TMPSNS_REGISTER
 struct VDDLPSR_AI_RDATA_TMPSNS_fields_ {
@@ -331,9 +314,8 @@ struct VDDLPSR_AI_RDATA_TMPSNS : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VDDLPSR_AI_RDATA_TMPSNS_fields_::VDDLPSR_AI_RDATA_TMPSNS> {
-  using value_ = VDDLPSR_AI_RDATA_TMPSNS_fields_::VDDLPSR_AI_RDATA_TMPSNS;
+  using VALUE = VDDLPSR_AI_RDATA_TMPSNS_fields_::VDDLPSR_AI_RDATA_TMPSNS;
 };
-
 
 // VDDLPSR_AI400M_CTRL_REGISTER
 struct VDDLPSR_AI400M_CTRL_fields_ {
@@ -364,7 +346,6 @@ struct VDDLPSR_AI400M_CTRL : ftl::mmio::Register<
   using VDDLPSR_AI400M_RWB = VDDLPSR_AI400M_CTRL_fields_::VDDLPSR_AI400M_RWB;
 };
 
-
 // VDDLPSR_AI400M_WDATA_REGISTER
 struct VDDLPSR_AI400M_WDATA_fields_ {
   // VDDLPSR_AI400M_WDATA
@@ -377,9 +358,8 @@ struct VDDLPSR_AI400M_WDATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     VDDLPSR_AI400M_WDATA_fields_::VDDLPSR_AI400M_WDATA> {
-  using value_ = VDDLPSR_AI400M_WDATA_fields_::VDDLPSR_AI400M_WDATA;
+  using VALUE = VDDLPSR_AI400M_WDATA_fields_::VDDLPSR_AI400M_WDATA;
 };
-
 
 // VDDLPSR_AI400M_RDATA_REGISTER
 struct VDDLPSR_AI400M_RDATA_fields_ {
@@ -393,7 +373,7 @@ struct VDDLPSR_AI400M_RDATA : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     VDDLPSR_AI400M_RDATA_fields_::VDDLPSR_AI400M_RDATA> {
-  using value_ = VDDLPSR_AI400M_RDATA_fields_::VDDLPSR_AI400M_RDATA;
+  using VALUE = VDDLPSR_AI400M_RDATA_fields_::VDDLPSR_AI400M_RDATA;
 };
 
 }  // namespace regs::anadig_misc

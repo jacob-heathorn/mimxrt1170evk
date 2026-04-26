@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::cm7_gpio2 {
 
-
 // GPIO data register
 struct DR_fields_ {
   // DR data bits
@@ -21,9 +20,8 @@ struct DR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     DR_fields_::DR> {
-  using value_ = DR_fields_::DR;
+  using VALUE = DR_fields_::DR;
 };
-
 
 // GPIO direction register
 struct GDIR_fields_ {
@@ -37,9 +35,8 @@ struct GDIR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     GDIR_fields_::GDIR> {
-  using value_ = GDIR_fields_::GDIR;
+  using VALUE = GDIR_fields_::GDIR;
 };
-
 
 // GPIO pad status register
 struct PSR_fields_ {
@@ -53,13 +50,11 @@ struct PSR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     PSR_fields_::PSR> {
-  using value_ = PSR_fields_::PSR;
+  using VALUE = PSR_fields_::PSR;
 };
-
 
 // GPIO interrupt configuration register1
 struct ICR1_fields_ {
-
   enum class eICR0 : std::uint32_t {
     // Interrupt 0 is low-level sensitive.
     eLOW_LEVEL = 0,
@@ -235,6 +230,7 @@ struct ICR1_fields_ {
     // Interrupt 15 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
+
   // Interrupt configuration field for GPIO interrupt 0
   using ICR0 = ftl::mmio::Field<2, 0, eICR0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt configuration field for GPIO interrupt 1
@@ -307,7 +303,7 @@ struct ICR1 : ftl::mmio::Register<
   using eICR14 = ICR1_fields_::eICR14;
   using eICR15 = ICR1_fields_::eICR15;
   using ICR0 = ICR1_fields_::ICR0;
-  using value_ = ICR1_fields_::ICR1;
+  using VALUE = ICR1_fields_::ICR1;
   using ICR2 = ICR1_fields_::ICR2;
   using ICR3 = ICR1_fields_::ICR3;
   using ICR4 = ICR1_fields_::ICR4;
@@ -324,10 +320,8 @@ struct ICR1 : ftl::mmio::Register<
   using ICR15 = ICR1_fields_::ICR15;
 };
 
-
 // GPIO interrupt configuration register2
 struct ICR2_fields_ {
-
   enum class eICR16 : std::uint32_t {
     // Interrupt 16 is low-level sensitive.
     eLOW_LEVEL = 0,
@@ -503,6 +497,7 @@ struct ICR2_fields_ {
     // Interrupt 31 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
+
   // Interrupt configuration field for GPIO interrupt 16
   using ICR16 = ftl::mmio::Field<2, 0, eICR16, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt configuration field for GPIO interrupt 17
@@ -592,7 +587,6 @@ struct ICR2 : ftl::mmio::Register<
   using ICR31 = ICR2_fields_::ICR31;
 };
 
-
 // GPIO interrupt mask register
 struct IMR_fields_ {
   // Interrupt Mask bits
@@ -605,9 +599,8 @@ struct IMR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     IMR_fields_::IMR> {
-  using value_ = IMR_fields_::IMR;
+  using VALUE = IMR_fields_::IMR;
 };
-
 
 // GPIO interrupt status register
 struct ISR_fields_ {
@@ -621,9 +614,8 @@ struct ISR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ISR_fields_::ISR> {
-  using value_ = ISR_fields_::ISR;
+  using VALUE = ISR_fields_::ISR;
 };
-
 
 // GPIO edge select register
 struct EDGE_SEL_fields_ {
@@ -640,7 +632,6 @@ struct EDGE_SEL : ftl::mmio::Register<
   using GPIO_EDGE_SEL = EDGE_SEL_fields_::GPIO_EDGE_SEL;
 };
 
-
 // GPIO data register SET
 struct DR_SET_fields_ {
   // Set
@@ -653,9 +644,8 @@ struct DR_SET : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::WO,
     DR_SET_fields_::DR_SET> {
-  using value_ = DR_SET_fields_::DR_SET;
+  using VALUE = DR_SET_fields_::DR_SET;
 };
-
 
 // GPIO data register CLEAR
 struct DR_CLEAR_fields_ {
@@ -669,9 +659,8 @@ struct DR_CLEAR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::WO,
     DR_CLEAR_fields_::DR_CLEAR> {
-  using value_ = DR_CLEAR_fields_::DR_CLEAR;
+  using VALUE = DR_CLEAR_fields_::DR_CLEAR;
 };
-
 
 // GPIO data register TOGGLE
 struct DR_TOGGLE_fields_ {
@@ -685,7 +674,7 @@ struct DR_TOGGLE : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::WO,
     DR_TOGGLE_fields_::DR_TOGGLE> {
-  using value_ = DR_TOGGLE_fields_::DR_TOGGLE;
+  using VALUE = DR_TOGGLE_fields_::DR_TOGGLE;
 };
 
 }  // namespace regs::cm7_gpio2

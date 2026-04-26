@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::dsi_host_dpi_intfc {
 
-
 // PIXEL_PAYLOAD_SIZE
 struct PIXEL_PAYLOAD_SIZE_fields_ {
   // Maximum number of pixels that should be sent as one DSI packet. Recommended to be evenly divisible by the line size (in pixels).
@@ -24,7 +23,6 @@ struct PIXEL_PAYLOAD_SIZE : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using PAYLOAD_SIZE = PIXEL_PAYLOAD_SIZE_fields_::PAYLOAD_SIZE;
 };
-
 
 // PIXEL_FIFO_SEND_LEVEL
 struct PIXEL_FIFO_SEND_LEVEL_fields_ {
@@ -42,10 +40,8 @@ struct PIXEL_FIFO_SEND_LEVEL : ftl::mmio::Register<
   using FIFO_SEND_LEVEL = PIXEL_FIFO_SEND_LEVEL_fields_::FIFO_SEND_LEVEL;
 };
 
-
 // INTERFACE_COLOR_CODING
 struct INTERFACE_COLOR_CODING_fields_ {
-
   enum class eRGB_CONFIG : std::uint32_t {
     // 16-bit Configuration 1
     eRGB_CONFIG_0 = 0,
@@ -60,6 +56,7 @@ struct INTERFACE_COLOR_CODING_fields_ {
     // 24-bit
     eRGB_CONFIG_5 = 5,
   };
+
   // Sets the distribution of RGB bits within the 24-bit d bus, as specified by the DPI specification.
   using RGB_CONFIG = ftl::mmio::Field<3, 0, eRGB_CONFIG, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct INTERFACE_COLOR_CODING_fields_
@@ -75,10 +72,8 @@ struct INTERFACE_COLOR_CODING : ftl::mmio::Register<
   using RGB_CONFIG = INTERFACE_COLOR_CODING_fields_::RGB_CONFIG;
 };
 
-
 // PIXEL_FORMAT
 struct PIXEL_FORMAT_fields_ {
-
   enum class ePIXEL_FORMAT : std::uint32_t {
     // 16 bit
     ePIXEL_FORMAT_0 = 0,
@@ -89,6 +84,7 @@ struct PIXEL_FORMAT_fields_ {
     // 24 bit
     ePIXEL_FORMAT_3 = 3,
   };
+
   // Sets the DSI packet type of the pixels
   using PIXEL_FORMAT = ftl::mmio::Field<2, 0, ePIXEL_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct PIXEL_FORMAT_fields_
@@ -101,19 +97,18 @@ struct PIXEL_FORMAT : ftl::mmio::Register<
     PIXEL_FORMAT_fields_::PIXEL_FORMAT,
     ftl::mmio::Reserved<30, 2>> {
   using ePIXEL_FORMAT = PIXEL_FORMAT_fields_::ePIXEL_FORMAT;
-  using value_ = PIXEL_FORMAT_fields_::PIXEL_FORMAT;
+  using VALUE = PIXEL_FORMAT_fields_::PIXEL_FORMAT;
 };
-
 
 // VSYNC_POLARITY
 struct VSYNC_POLARITY_fields_ {
-
   enum class eVSYNC_POLARITY : std::uint32_t {
     // active low
     eVSYNC_POLARITY_0 = 0,
     // active high
     eVSYNC_POLARITY_1 = 1,
   };
+
   // Sets polarity of dpi_vsync_input
   using VSYNC_POLARITY = ftl::mmio::Field<1, 0, eVSYNC_POLARITY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct VSYNC_POLARITY_fields_
@@ -126,19 +121,18 @@ struct VSYNC_POLARITY : ftl::mmio::Register<
     VSYNC_POLARITY_fields_::VSYNC_POLARITY,
     ftl::mmio::Reserved<31, 1>> {
   using eVSYNC_POLARITY = VSYNC_POLARITY_fields_::eVSYNC_POLARITY;
-  using value_ = VSYNC_POLARITY_fields_::VSYNC_POLARITY;
+  using VALUE = VSYNC_POLARITY_fields_::VSYNC_POLARITY;
 };
-
 
 // HSYNC_POLARITY
 struct HSYNC_POLARITY_fields_ {
-
   enum class eHSYNC_POLARITY : std::uint32_t {
     // active low
     eHSYNC_POLARITY_0 = 0,
     // active high
     eHSYNC_POLARITY_1 = 1,
   };
+
   // Sets polarity of dpi_hsync_input
   using HSYNC_POLARITY = ftl::mmio::Field<1, 0, eHSYNC_POLARITY, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct HSYNC_POLARITY_fields_
@@ -151,13 +145,11 @@ struct HSYNC_POLARITY : ftl::mmio::Register<
     HSYNC_POLARITY_fields_::HSYNC_POLARITY,
     ftl::mmio::Reserved<31, 1>> {
   using eHSYNC_POLARITY = HSYNC_POLARITY_fields_::eHSYNC_POLARITY;
-  using value_ = HSYNC_POLARITY_fields_::HSYNC_POLARITY;
+  using VALUE = HSYNC_POLARITY_fields_::HSYNC_POLARITY;
 };
-
 
 // VIDEO_MODE
 struct VIDEO_MODE_fields_ {
-
   enum class eVIDEO_MODE : std::uint32_t {
     // Non-Burst mode with Sync Pulses
     eVIDEO_MODE_0 = 0,
@@ -166,6 +158,7 @@ struct VIDEO_MODE_fields_ {
     // Burst mode
     eVIDEO_MODE_2 = 2,
   };
+
   // Select DSI video mode that the host DPI module should generate packets for.
   using VIDEO_MODE = ftl::mmio::Field<2, 0, eVIDEO_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct VIDEO_MODE_fields_
@@ -178,9 +171,8 @@ struct VIDEO_MODE : ftl::mmio::Register<
     VIDEO_MODE_fields_::VIDEO_MODE,
     ftl::mmio::Reserved<30, 2>> {
   using eVIDEO_MODE = VIDEO_MODE_fields_::eVIDEO_MODE;
-  using value_ = VIDEO_MODE_fields_::VIDEO_MODE;
+  using VALUE = VIDEO_MODE_fields_::VIDEO_MODE;
 };
-
 
 // HFP
 struct HFP_fields_ {
@@ -198,7 +190,6 @@ struct HFP : ftl::mmio::Register<
   using PAYLOAD_SIZE = HFP_fields_::PAYLOAD_SIZE;
 };
 
-
 // HBP
 struct HBP_fields_ {
   // Sets the DSI packet payload size, in bytes, of the horizontal back porch blanking packet.
@@ -214,7 +205,6 @@ struct HBP : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using PAYLOAD_SIZE = HBP_fields_::PAYLOAD_SIZE;
 };
-
 
 // HSA
 struct HSA_fields_ {
@@ -232,16 +222,15 @@ struct HSA : ftl::mmio::Register<
   using PAYLOAD_SIZE = HSA_fields_::PAYLOAD_SIZE;
 };
 
-
 // ENABLE_MULT_PKTS
 struct ENABLE_MULT_PKTS_fields_ {
-
   enum class eENABLE_MULT_PKTS : std::uint32_t {
     // Video Line is sent in a single packet
     eENABLE_MULT_PKTS_0 = 0,
     // Video Line is sent in two packets
     eENABLE_MULT_PKTS_1 = 1,
   };
+
   // Enable Multiple packets per video line. When enabled, PIXEL_PAYLOAD_SIZE[PAYLOAD_SIZE] must be set to exactly half the size of the video line
   using ENABLE_MULT_PKTS = ftl::mmio::Field<1, 0, eENABLE_MULT_PKTS, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct ENABLE_MULT_PKTS_fields_
@@ -254,9 +243,8 @@ struct ENABLE_MULT_PKTS : ftl::mmio::Register<
     ENABLE_MULT_PKTS_fields_::ENABLE_MULT_PKTS,
     ftl::mmio::Reserved<31, 1>> {
   using eENABLE_MULT_PKTS = ENABLE_MULT_PKTS_fields_::eENABLE_MULT_PKTS;
-  using value_ = ENABLE_MULT_PKTS_fields_::ENABLE_MULT_PKTS;
+  using VALUE = ENABLE_MULT_PKTS_fields_::ENABLE_MULT_PKTS;
 };
-
 
 // VBP
 struct VBP_fields_ {
@@ -274,7 +262,6 @@ struct VBP : ftl::mmio::Register<
   using NUM_LINES = VBP_fields_::NUM_LINES;
 };
 
-
 // VFP
 struct VFP_fields_ {
   // Sets the number of lines in the vertical front porch.
@@ -291,16 +278,15 @@ struct VFP : ftl::mmio::Register<
   using NUM_LINES = VFP_fields_::NUM_LINES;
 };
 
-
 // BLLP_MODE
 struct BLLP_MODE_fields_ {
-
   enum class eLP : std::uint32_t {
     // Blanking packets are sent during BLLP periods
     eLP_0 = 0,
     // LP mode is used for BLLP periods
     eLP_1 = 1,
   };
+
   // Optimize bllp periods to Low Power mode when possible
   using LP = ftl::mmio::Field<1, 0, eLP, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct BLLP_MODE_fields_
@@ -316,16 +302,15 @@ struct BLLP_MODE : ftl::mmio::Register<
   using LP = BLLP_MODE_fields_::LP;
 };
 
-
 // USE_NULL_PKT_BLLP
 struct USE_NULL_PKT_BLLP_fields_ {
-
   enum class eNULL : std::uint32_t {
     // Blanking packet used in bllp region 1
     eNULL_0 = 0,
     // Null packet used in bllp region
     eNULL_1 = 1,
   };
+
   // Selects type of blanking packet to be sent during bllp
   using NULL = ftl::mmio::Field<1, 0, eNULL, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct USE_NULL_PKT_BLLP_fields_
@@ -340,7 +325,6 @@ struct USE_NULL_PKT_BLLP : ftl::mmio::Register<
   using eNULL = USE_NULL_PKT_BLLP_fields_::eNULL;
   using NULL = USE_NULL_PKT_BLLP_fields_::NULL;
 };
-
 
 // VACTIVE
 struct VACTIVE_fields_ {

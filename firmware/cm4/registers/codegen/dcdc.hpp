@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::dcdc {
 
-
 // DCDC Control Register 0
 struct CTRL0_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // Disable (Bypass)
     edisable = 0,
@@ -61,6 +59,7 @@ struct CTRL0_fields_ {
     // Hardware control mode (controlled by GPC Setpoints)
     egpc = 1,
   };
+
   // DCDC Enable
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable the DCDC_DIG switching converter output
@@ -115,10 +114,8 @@ struct CTRL0 : ftl::mmio::Register<
   using CONTROL_MODE = CTRL0_fields_::CONTROL_MODE;
 };
 
-
 // DCDC Control Register 1
 struct CTRL1_fields_ {
-
   enum class eVDD1P8CTRL_TRG : std::uint32_t {
     // 1.5V
     ev1p5 = 0,
@@ -154,6 +151,7 @@ struct CTRL1_fields_ {
     // 1.4V
     ev1p4 = 31,
   };
+
   // Target value of VDD1P8 in buck mode, 25mV each step from 0x00 to 0x1F:
   using VDD1P8CTRL_TRG = ftl::mmio::Field<5, 0, eVDD1P8CTRL_TRG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Target value of VDD1P0 in buck mode, 25mV each step from 0x00 to 0x1F:
@@ -187,10 +185,8 @@ struct CTRL1 : ftl::mmio::Register<
   using VDD1P0CTRL_STBY_TRG = CTRL1_fields_::VDD1P0CTRL_STBY_TRG;
 };
 
-
 // DCDC Register 0
 struct REG0_fields_ {
-
   enum class ePWD_ZCD : std::uint32_t {
     // Zero cross detetion function powered up
     epowered_up = 0,
@@ -288,6 +284,7 @@ struct REG0_fields_ {
     // DCDC already settled
     esettled = 1,
   };
+
   // Power Down Zero Cross Detection
   using PWD_ZCD = ftl::mmio::Field<1, 0, ePWD_ZCD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Disable Auto Clock Switch
@@ -377,10 +374,8 @@ struct REG0 : ftl::mmio::Register<
   using STS_DC_OK = REG0_fields_::STS_DC_OK;
 };
 
-
 // DCDC Register 1
 struct REG1_fields_ {
-
   enum class eDM_CTRL : std::uint32_t {
     // No change to ripple when the discontinuous current is present in DCM.
     eDM_CTRL_0 = 0,
@@ -428,6 +423,7 @@ struct REG1_fields_ {
     // Enable hysteresis in switching converter differential mode analog comparators
     eenable = 1,
   };
+
   // DM Control
   using DM_CTRL = ftl::mmio::Field<1, 3, eDM_CTRL, ftl::mmio::RW, ftl::mmio::Normal>;
   // Load Resistor Enable
@@ -478,7 +474,6 @@ struct REG1 : ftl::mmio::Register<
   using LOOPCTRL_EN_CM_HYST = REG1_fields_::LOOPCTRL_EN_CM_HYST;
   using LOOPCTRL_EN_DF_HYST = REG1_fields_::LOOPCTRL_EN_DF_HYST;
 };
-
 
 // DCDC Register 2
 struct REG2_fields_ {
@@ -535,10 +530,8 @@ struct REG2 : ftl::mmio::Register<
   using LOOPCTRL_TOGGLE_DIF = REG2_fields_::LOOPCTRL_TOGGLE_DIF;
 };
 
-
 // DCDC Register 3
 struct REG3_fields_ {
-
   enum class eIN_BROWNOUT : std::uint32_t {
     // DCDC_IN is lower than 2.6V
     ebrownout = 1,
@@ -599,6 +592,7 @@ struct REG3_fields_ {
     // Disable stepping for VDD1P8
     edisable = 1,
   };
+
   // signal "1" when the voltage on DCDC_IN is lower than 2.6V
   using IN_BROWNOUT = ftl::mmio::Field<1, 14, eIN_BROWNOUT, ftl::mmio::RO, ftl::mmio::Normal>;
   // signal "1" when overvoltage on the VDD1P8 output happens
@@ -679,7 +673,6 @@ struct REG3 : ftl::mmio::Register<
   using VDD1P8CTRL_DISABLE_STEP = REG3_fields_::VDD1P8CTRL_DISABLE_STEP;
 };
 
-
 // DCDC Register 4
 struct REG4_fields_ {
   // Configures CTRL0[ENABLE] (DCDC Enable) for Setpoints 0-15
@@ -695,7 +688,6 @@ struct REG4 : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using ENABLE_SP = REG4_fields_::ENABLE_SP;
 };
-
 
 // DCDC Register 5
 struct REG5_fields_ {
@@ -713,7 +705,6 @@ struct REG5 : ftl::mmio::Register<
   using DIG_EN_SP = REG5_fields_::DIG_EN_SP;
 };
 
-
 // DCDC Register 6
 struct REG6_fields_ {
   // Configures CTRL0[LP_MODE_EN] (LP Mode Enable) for Setpoints 0-15
@@ -729,7 +720,6 @@ struct REG6 : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using LP_MODE_SP = REG6_fields_::LP_MODE_SP;
 };
-
 
 // DCDC Register 7
 struct REG7_fields_ {
@@ -747,7 +737,6 @@ struct REG7 : ftl::mmio::Register<
   using STBY_EN_SP = REG7_fields_::STBY_EN_SP;
 };
 
-
 // DCDC Register 7 plus
 struct REG7P_fields_ {
   // Configures CTRL0[STBY_LP_MODE_EN] (LP Mode via GPC Enable) for Setpoints 0-15
@@ -764,7 +753,6 @@ struct REG7P : ftl::mmio::Register<
   using STBY_LP_MODE_SP = REG7P_fields_::STBY_LP_MODE_SP;
 };
 
-
 // DCDC Register 8
 struct REG8_fields_ {
   // Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 0-3
@@ -779,7 +767,6 @@ struct REG8 : ftl::mmio::Register<
     REG8_fields_::ANA_TRG_SP0> {
   using ANA_TRG_SP0 = REG8_fields_::ANA_TRG_SP0;
 };
-
 
 // DCDC Register 9
 struct REG9_fields_ {
@@ -796,7 +783,6 @@ struct REG9 : ftl::mmio::Register<
   using ANA_TRG_SP1 = REG9_fields_::ANA_TRG_SP1;
 };
 
-
 // DCDC Register 10
 struct REG10_fields_ {
   // Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 8-11
@@ -811,7 +797,6 @@ struct REG10 : ftl::mmio::Register<
     REG10_fields_::ANA_TRG_SP2> {
   using ANA_TRG_SP2 = REG10_fields_::ANA_TRG_SP2;
 };
-
 
 // DCDC Register 11
 struct REG11_fields_ {
@@ -828,7 +813,6 @@ struct REG11 : ftl::mmio::Register<
   using ANA_TRG_SP3 = REG11_fields_::ANA_TRG_SP3;
 };
 
-
 // DCDC Register 12
 struct REG12_fields_ {
   // Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 0-3
@@ -843,7 +827,6 @@ struct REG12 : ftl::mmio::Register<
     REG12_fields_::DIG_TRG_SP0> {
   using DIG_TRG_SP0 = REG12_fields_::DIG_TRG_SP0;
 };
-
 
 // DCDC Register 13
 struct REG13_fields_ {
@@ -860,7 +843,6 @@ struct REG13 : ftl::mmio::Register<
   using DIG_TRG_SP1 = REG13_fields_::DIG_TRG_SP1;
 };
 
-
 // DCDC Register 14
 struct REG14_fields_ {
   // Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 8-11
@@ -875,7 +857,6 @@ struct REG14 : ftl::mmio::Register<
     REG14_fields_::DIG_TRG_SP2> {
   using DIG_TRG_SP2 = REG14_fields_::DIG_TRG_SP2;
 };
-
 
 // DCDC Register 15
 struct REG15_fields_ {
@@ -892,7 +873,6 @@ struct REG15 : ftl::mmio::Register<
   using DIG_TRG_SP3 = REG15_fields_::DIG_TRG_SP3;
 };
 
-
 // DCDC Register 16
 struct REG16_fields_ {
   // Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 0-3
@@ -907,7 +887,6 @@ struct REG16 : ftl::mmio::Register<
     REG16_fields_::ANA_STBY_TRG_SP0> {
   using ANA_STBY_TRG_SP0 = REG16_fields_::ANA_STBY_TRG_SP0;
 };
-
 
 // DCDC Register 17
 struct REG17_fields_ {
@@ -924,7 +903,6 @@ struct REG17 : ftl::mmio::Register<
   using ANA_STBY_TRG_SP1 = REG17_fields_::ANA_STBY_TRG_SP1;
 };
 
-
 // DCDC Register 18
 struct REG18_fields_ {
   // Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 8-11
@@ -939,7 +917,6 @@ struct REG18 : ftl::mmio::Register<
     REG18_fields_::ANA_STBY_TRG_SP2> {
   using ANA_STBY_TRG_SP2 = REG18_fields_::ANA_STBY_TRG_SP2;
 };
-
 
 // DCDC Register 19
 struct REG19_fields_ {
@@ -956,7 +933,6 @@ struct REG19 : ftl::mmio::Register<
   using ANA_STBY_TRG_SP3 = REG19_fields_::ANA_STBY_TRG_SP3;
 };
 
-
 // DCDC Register 20
 struct REG20_fields_ {
   // Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 0-3
@@ -971,7 +947,6 @@ struct REG20 : ftl::mmio::Register<
     REG20_fields_::DIG_STBY_TRG_SP0> {
   using DIG_STBY_TRG_SP0 = REG20_fields_::DIG_STBY_TRG_SP0;
 };
-
 
 // DCDC Register 21
 struct REG21_fields_ {
@@ -988,7 +963,6 @@ struct REG21 : ftl::mmio::Register<
   using DIG_STBY_TRG_SP1 = REG21_fields_::DIG_STBY_TRG_SP1;
 };
 
-
 // DCDC Register 22
 struct REG22_fields_ {
   // Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 8-11
@@ -1004,7 +978,6 @@ struct REG22 : ftl::mmio::Register<
   using DIG_STBY_TRG_SP2 = REG22_fields_::DIG_STBY_TRG_SP2;
 };
 
-
 // DCDC Register 23
 struct REG23_fields_ {
   // Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 12-15
@@ -1019,7 +992,6 @@ struct REG23 : ftl::mmio::Register<
     REG23_fields_::DIG_STBY_TRG_SP3> {
   using DIG_STBY_TRG_SP3 = REG23_fields_::DIG_STBY_TRG_SP3;
 };
-
 
 // DCDC Register 24
 struct REG24_fields_ {

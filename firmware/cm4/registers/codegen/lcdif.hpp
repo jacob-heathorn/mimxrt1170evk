@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::lcdif {
 
-
 // LCDIF General Control Register
 struct LCDIF_CTRL_fields_ {
-
   enum class eDATA_FORMAT_24_BIT : std::uint32_t {
     // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eALL_24_BITS_VALID = 0,
@@ -76,6 +74,7 @@ struct LCDIF_CTRL_fields_ {
     // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1,
   };
+
   // When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
   using RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Used only when WORD_LENGTH = 3, i
@@ -162,10 +161,8 @@ struct LCDIF_CTRL : ftl::mmio::Register<
   using SFTRST = LCDIF_CTRL_fields_::SFTRST;
 };
 
-
 // LCDIF General Control Register
 struct LCDIF_CTRL_SET_fields_ {
-
   enum class eDATA_FORMAT_24_BIT : std::uint32_t {
     // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eALL_24_BITS_VALID = 0,
@@ -230,6 +227,7 @@ struct LCDIF_CTRL_SET_fields_ {
     // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1,
   };
+
   // When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
   using RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Used only when WORD_LENGTH = 3, i
@@ -316,10 +314,8 @@ struct LCDIF_CTRL_SET : ftl::mmio::Register<
   using SFTRST = LCDIF_CTRL_SET_fields_::SFTRST;
 };
 
-
 // LCDIF General Control Register
 struct LCDIF_CTRL_CLR_fields_ {
-
   enum class eDATA_FORMAT_24_BIT : std::uint32_t {
     // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eALL_24_BITS_VALID = 0,
@@ -384,6 +380,7 @@ struct LCDIF_CTRL_CLR_fields_ {
     // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1,
   };
+
   // When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
   using RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Used only when WORD_LENGTH = 3, i
@@ -470,10 +467,8 @@ struct LCDIF_CTRL_CLR : ftl::mmio::Register<
   using SFTRST = LCDIF_CTRL_CLR_fields_::SFTRST;
 };
 
-
 // LCDIF General Control Register
 struct LCDIF_CTRL_TOG_fields_ {
-
   enum class eDATA_FORMAT_24_BIT : std::uint32_t {
     // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eALL_24_BITS_VALID = 0,
@@ -538,6 +533,7 @@ struct LCDIF_CTRL_TOG_fields_ {
     // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1,
   };
+
   // When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
   using RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Used only when WORD_LENGTH = 3, i
@@ -624,10 +620,8 @@ struct LCDIF_CTRL_TOG : ftl::mmio::Register<
   using SFTRST = LCDIF_CTRL_TOG_fields_::SFTRST;
 };
 
-
 // LCDIF General Control1 Register
 struct LCDIF_CTRL1_fields_ {
-
   enum class eVSYNC_EDGE_IRQ : std::uint32_t {
     // No Interrupt Request Pending.
     eNO_REQUEST = 0,
@@ -662,6 +656,7 @@ struct LCDIF_CTRL1_fields_ {
     // Interrupt Request Pending.
     eREQUEST = 1,
   };
+
   // This bit is set to indicate that an interrupt is requested by the LCDIF block
   using VSYNC_EDGE_IRQ = ftl::mmio::Field<1, 8, eVSYNC_EDGE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // This bit is set to indicate that an interrupt is requested by the LCDIF block
@@ -750,10 +745,8 @@ struct LCDIF_CTRL1 : ftl::mmio::Register<
   using IMAGE_DATA_SELECT = LCDIF_CTRL1_fields_::IMAGE_DATA_SELECT;
 };
 
-
 // LCDIF General Control1 Register
 struct LCDIF_CTRL1_SET_fields_ {
-
   enum class eVSYNC_EDGE_IRQ : std::uint32_t {
     // No Interrupt Request Pending.
     eNO_REQUEST = 0,
@@ -788,6 +781,7 @@ struct LCDIF_CTRL1_SET_fields_ {
     // Interrupt Request Pending.
     eREQUEST = 1,
   };
+
   // This bit is set to indicate that an interrupt is requested by the LCDIF block
   using VSYNC_EDGE_IRQ = ftl::mmio::Field<1, 8, eVSYNC_EDGE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // This bit is set to indicate that an interrupt is requested by the LCDIF block
@@ -876,10 +870,8 @@ struct LCDIF_CTRL1_SET : ftl::mmio::Register<
   using IMAGE_DATA_SELECT = LCDIF_CTRL1_SET_fields_::IMAGE_DATA_SELECT;
 };
 
-
 // LCDIF General Control1 Register
 struct LCDIF_CTRL1_CLR_fields_ {
-
   enum class eVSYNC_EDGE_IRQ : std::uint32_t {
     // No Interrupt Request Pending.
     eNO_REQUEST = 0,
@@ -914,6 +906,7 @@ struct LCDIF_CTRL1_CLR_fields_ {
     // Interrupt Request Pending.
     eREQUEST = 1,
   };
+
   // This bit is set to indicate that an interrupt is requested by the LCDIF block
   using VSYNC_EDGE_IRQ = ftl::mmio::Field<1, 8, eVSYNC_EDGE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // This bit is set to indicate that an interrupt is requested by the LCDIF block
@@ -1002,10 +995,8 @@ struct LCDIF_CTRL1_CLR : ftl::mmio::Register<
   using IMAGE_DATA_SELECT = LCDIF_CTRL1_CLR_fields_::IMAGE_DATA_SELECT;
 };
 
-
 // LCDIF General Control1 Register
 struct LCDIF_CTRL1_TOG_fields_ {
-
   enum class eVSYNC_EDGE_IRQ : std::uint32_t {
     // No Interrupt Request Pending.
     eNO_REQUEST = 0,
@@ -1040,6 +1031,7 @@ struct LCDIF_CTRL1_TOG_fields_ {
     // Interrupt Request Pending.
     eREQUEST = 1,
   };
+
   // This bit is set to indicate that an interrupt is requested by the LCDIF block
   using VSYNC_EDGE_IRQ = ftl::mmio::Field<1, 8, eVSYNC_EDGE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // This bit is set to indicate that an interrupt is requested by the LCDIF block
@@ -1128,10 +1120,8 @@ struct LCDIF_CTRL1_TOG : ftl::mmio::Register<
   using IMAGE_DATA_SELECT = LCDIF_CTRL1_TOG_fields_::IMAGE_DATA_SELECT;
 };
 
-
 // LCDIF General Control2 Register
 struct LCDIF_CTRL2_fields_ {
-
   enum class eEVEN_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
@@ -1174,6 +1164,7 @@ struct LCDIF_CTRL2_fields_ {
     // REQ_16
     eREQ_16 = 4,
   };
+
   // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
   using EVEN_LINE_PATTERN = ftl::mmio::Field<3, 12, eEVEN_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
   // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
@@ -1206,10 +1197,8 @@ struct LCDIF_CTRL2 : ftl::mmio::Register<
   using OUTSTANDING_REQS = LCDIF_CTRL2_fields_::OUTSTANDING_REQS;
 };
 
-
 // LCDIF General Control2 Register
 struct LCDIF_CTRL2_SET_fields_ {
-
   enum class eEVEN_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
@@ -1252,6 +1241,7 @@ struct LCDIF_CTRL2_SET_fields_ {
     // REQ_16
     eREQ_16 = 4,
   };
+
   // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
   using EVEN_LINE_PATTERN = ftl::mmio::Field<3, 12, eEVEN_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
   // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
@@ -1284,10 +1274,8 @@ struct LCDIF_CTRL2_SET : ftl::mmio::Register<
   using OUTSTANDING_REQS = LCDIF_CTRL2_SET_fields_::OUTSTANDING_REQS;
 };
 
-
 // LCDIF General Control2 Register
 struct LCDIF_CTRL2_CLR_fields_ {
-
   enum class eEVEN_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
@@ -1330,6 +1318,7 @@ struct LCDIF_CTRL2_CLR_fields_ {
     // REQ_16
     eREQ_16 = 4,
   };
+
   // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
   using EVEN_LINE_PATTERN = ftl::mmio::Field<3, 12, eEVEN_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
   // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
@@ -1362,10 +1351,8 @@ struct LCDIF_CTRL2_CLR : ftl::mmio::Register<
   using OUTSTANDING_REQS = LCDIF_CTRL2_CLR_fields_::OUTSTANDING_REQS;
 };
 
-
 // LCDIF General Control2 Register
 struct LCDIF_CTRL2_TOG_fields_ {
-
   enum class eEVEN_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
@@ -1408,6 +1395,7 @@ struct LCDIF_CTRL2_TOG_fields_ {
     // REQ_16
     eREQ_16 = 4,
   };
+
   // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
   using EVEN_LINE_PATTERN = ftl::mmio::Field<3, 12, eEVEN_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
   // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
@@ -1440,7 +1428,6 @@ struct LCDIF_CTRL2_TOG : ftl::mmio::Register<
   using OUTSTANDING_REQS = LCDIF_CTRL2_TOG_fields_::OUTSTANDING_REQS;
 };
 
-
 // LCDIF Horizontal and Vertical Valid Data Count Register
 struct LCDIF_TRANSFER_COUNT_fields_ {
   // Total valid data (pixels) in each horizontal line
@@ -1460,7 +1447,6 @@ struct LCDIF_TRANSFER_COUNT : ftl::mmio::Register<
   using V_COUNT = LCDIF_TRANSFER_COUNT_fields_::V_COUNT;
 };
 
-
 // LCD Interface Current Buffer Address Register
 struct LCDIF_CUR_BUF_fields_ {
   // Address of the current frame being transmitted by LCDIF.
@@ -1475,7 +1461,6 @@ struct LCDIF_CUR_BUF : ftl::mmio::Register<
     LCDIF_CUR_BUF_fields_::ADDR> {
   using ADDR = LCDIF_CUR_BUF_fields_::ADDR;
 };
-
 
 // LCD Interface Next Buffer Address Register
 struct LCDIF_NEXT_BUF_fields_ {
@@ -1492,16 +1477,15 @@ struct LCDIF_NEXT_BUF : ftl::mmio::Register<
   using ADDR = LCDIF_NEXT_BUF_fields_::ADDR;
 };
 
-
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
 struct LCDIF_VDCTRL0_fields_ {
-
   enum class eVSYNC_OEB : std::uint32_t {
     // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_OUTPUT = 0,
     // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
     eVSYNC_INPUT = 1,
   };
+
   // Number of units for which VSYNC signal is active
   using VSYNC_PULSE_WIDTH = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
@@ -1558,16 +1542,15 @@ struct LCDIF_VDCTRL0 : ftl::mmio::Register<
   using VSYNC_OEB = LCDIF_VDCTRL0_fields_::VSYNC_OEB;
 };
 
-
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
 struct LCDIF_VDCTRL0_SET_fields_ {
-
   enum class eVSYNC_OEB : std::uint32_t {
     // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_OUTPUT = 0,
     // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
     eVSYNC_INPUT = 1,
   };
+
   // Number of units for which VSYNC signal is active
   using VSYNC_PULSE_WIDTH = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
@@ -1624,16 +1607,15 @@ struct LCDIF_VDCTRL0_SET : ftl::mmio::Register<
   using VSYNC_OEB = LCDIF_VDCTRL0_SET_fields_::VSYNC_OEB;
 };
 
-
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
 struct LCDIF_VDCTRL0_CLR_fields_ {
-
   enum class eVSYNC_OEB : std::uint32_t {
     // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_OUTPUT = 0,
     // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
     eVSYNC_INPUT = 1,
   };
+
   // Number of units for which VSYNC signal is active
   using VSYNC_PULSE_WIDTH = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
@@ -1690,16 +1672,15 @@ struct LCDIF_VDCTRL0_CLR : ftl::mmio::Register<
   using VSYNC_OEB = LCDIF_VDCTRL0_CLR_fields_::VSYNC_OEB;
 };
 
-
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
 struct LCDIF_VDCTRL0_TOG_fields_ {
-
   enum class eVSYNC_OEB : std::uint32_t {
     // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_OUTPUT = 0,
     // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
     eVSYNC_INPUT = 1,
   };
+
   // Number of units for which VSYNC signal is active
   using VSYNC_PULSE_WIDTH = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
@@ -1756,7 +1737,6 @@ struct LCDIF_VDCTRL0_TOG : ftl::mmio::Register<
   using VSYNC_OEB = LCDIF_VDCTRL0_TOG_fields_::VSYNC_OEB;
 };
 
-
 // LCDIF VSYNC Mode and Dotclk Mode Control Register1
 struct LCDIF_VDCTRL1_fields_ {
   // Total number of units between two positive or two negative edges of the VSYNC signal
@@ -1771,7 +1751,6 @@ struct LCDIF_VDCTRL1 : ftl::mmio::Register<
     LCDIF_VDCTRL1_fields_::VSYNC_PERIOD> {
   using VSYNC_PERIOD = LCDIF_VDCTRL1_fields_::VSYNC_PERIOD;
 };
-
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register2
 struct LCDIF_VDCTRL2_fields_ {
@@ -1791,7 +1770,6 @@ struct LCDIF_VDCTRL2 : ftl::mmio::Register<
   using HSYNC_PERIOD = LCDIF_VDCTRL2_fields_::HSYNC_PERIOD;
   using HSYNC_PULSE_WIDTH = LCDIF_VDCTRL2_fields_::HSYNC_PULSE_WIDTH;
 };
-
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register3
 struct LCDIF_VDCTRL3_fields_ {
@@ -1821,7 +1799,6 @@ struct LCDIF_VDCTRL3 : ftl::mmio::Register<
   using MUX_SYNC_SIGNALS = LCDIF_VDCTRL3_fields_::MUX_SYNC_SIGNALS;
 };
 
-
 // LCDIF VSYNC Mode and Dotclk Mode Control Register4
 struct LCDIF_VDCTRL4_fields_ {
   // Total number of DISPLAY CLOCK (pix_clk) cycles on each horizontal line that carry valid data in DOTCLK mode
@@ -1846,7 +1823,6 @@ struct LCDIF_VDCTRL4 : ftl::mmio::Register<
   using DOTCLK_DLY_SEL = LCDIF_VDCTRL4_fields_::DOTCLK_DLY_SEL;
 };
 
-
 // Bus Master Error Status Register
 struct LCDIF_BM_ERROR_STAT_fields_ {
   // Virtual address at which bus master error occurred.
@@ -1862,7 +1838,6 @@ struct LCDIF_BM_ERROR_STAT : ftl::mmio::Register<
   using ADDR = LCDIF_BM_ERROR_STAT_fields_::ADDR;
 };
 
-
 // CRC Status Register
 struct LCDIF_CRC_STAT_fields_ {
   // Calculated CRC value.
@@ -1877,7 +1852,6 @@ struct LCDIF_CRC_STAT : ftl::mmio::Register<
     LCDIF_CRC_STAT_fields_::CRC_VALUE> {
   using CRC_VALUE = LCDIF_CRC_STAT_fields_::CRC_VALUE;
 };
-
 
 // LCD Interface Status Register
 struct LCDIF_STAT_fields_ {
@@ -1919,7 +1893,6 @@ struct LCDIF_STAT : ftl::mmio::Register<
   using PRESENT = LCDIF_STAT_fields_::PRESENT;
 };
 
-
 // LCDIF Threshold Register
 struct LCDIF_THRES_fields_ {
   // This value should be set to a value of pixels, from 0 to 511
@@ -1936,7 +1909,6 @@ struct LCDIF_THRES : ftl::mmio::Register<
     ftl::mmio::Reserved<7, 25>> {
   using FASTCLOCK = LCDIF_THRES_fields_::FASTCLOCK;
 };
-
 
 // LCDIF Pigeon Mode Control0 Register
 struct LCDIF_PIGEONCTRL0_fields_ {
@@ -1959,7 +1931,6 @@ struct LCDIF_PIGEONCTRL0 : ftl::mmio::Register<
   using LD_PERIOD = LCDIF_PIGEONCTRL0_fields_::LD_PERIOD;
 };
 
-
 // LCDIF Pigeon Mode Control0 Register
 struct LCDIF_PIGEONCTRL0_SET_fields_ {
   // Period of line counter during FD phase
@@ -1980,7 +1951,6 @@ struct LCDIF_PIGEONCTRL0_SET : ftl::mmio::Register<
   using FD_PERIOD = LCDIF_PIGEONCTRL0_SET_fields_::FD_PERIOD;
   using LD_PERIOD = LCDIF_PIGEONCTRL0_SET_fields_::LD_PERIOD;
 };
-
 
 // LCDIF Pigeon Mode Control0 Register
 struct LCDIF_PIGEONCTRL0_CLR_fields_ {
@@ -2003,7 +1973,6 @@ struct LCDIF_PIGEONCTRL0_CLR : ftl::mmio::Register<
   using LD_PERIOD = LCDIF_PIGEONCTRL0_CLR_fields_::LD_PERIOD;
 };
 
-
 // LCDIF Pigeon Mode Control0 Register
 struct LCDIF_PIGEONCTRL0_TOG_fields_ {
   // Period of line counter during FD phase
@@ -2024,7 +1993,6 @@ struct LCDIF_PIGEONCTRL0_TOG : ftl::mmio::Register<
   using FD_PERIOD = LCDIF_PIGEONCTRL0_TOG_fields_::FD_PERIOD;
   using LD_PERIOD = LCDIF_PIGEONCTRL0_TOG_fields_::LD_PERIOD;
 };
-
 
 // LCDIF Pigeon Mode Control1 Register
 struct LCDIF_PIGEONCTRL1_fields_ {
@@ -2047,7 +2015,6 @@ struct LCDIF_PIGEONCTRL1 : ftl::mmio::Register<
   using FRAME_CNT_CYCLES = LCDIF_PIGEONCTRL1_fields_::FRAME_CNT_CYCLES;
 };
 
-
 // LCDIF Pigeon Mode Control1 Register
 struct LCDIF_PIGEONCTRL1_SET_fields_ {
   // Period of frame counter
@@ -2068,7 +2035,6 @@ struct LCDIF_PIGEONCTRL1_SET : ftl::mmio::Register<
   using FRAME_CNT_PERIOD = LCDIF_PIGEONCTRL1_SET_fields_::FRAME_CNT_PERIOD;
   using FRAME_CNT_CYCLES = LCDIF_PIGEONCTRL1_SET_fields_::FRAME_CNT_CYCLES;
 };
-
 
 // LCDIF Pigeon Mode Control1 Register
 struct LCDIF_PIGEONCTRL1_CLR_fields_ {
@@ -2091,7 +2057,6 @@ struct LCDIF_PIGEONCTRL1_CLR : ftl::mmio::Register<
   using FRAME_CNT_CYCLES = LCDIF_PIGEONCTRL1_CLR_fields_::FRAME_CNT_CYCLES;
 };
 
-
 // LCDIF Pigeon Mode Control1 Register
 struct LCDIF_PIGEONCTRL1_TOG_fields_ {
   // Period of frame counter
@@ -2113,7 +2078,6 @@ struct LCDIF_PIGEONCTRL1_TOG : ftl::mmio::Register<
   using FRAME_CNT_CYCLES = LCDIF_PIGEONCTRL1_TOG_fields_::FRAME_CNT_CYCLES;
 };
 
-
 // LCDIF Pigeon Mode Control2 Register
 struct LCDIF_PIGEONCTRL2_fields_ {
   // Pigeon mode data enable
@@ -2133,7 +2097,6 @@ struct LCDIF_PIGEONCTRL2 : ftl::mmio::Register<
   using PIGEON_DATA_EN = LCDIF_PIGEONCTRL2_fields_::PIGEON_DATA_EN;
   using PIGEON_CLK_GATE = LCDIF_PIGEONCTRL2_fields_::PIGEON_CLK_GATE;
 };
-
 
 // LCDIF Pigeon Mode Control2 Register
 struct LCDIF_PIGEONCTRL2_SET_fields_ {
@@ -2155,7 +2118,6 @@ struct LCDIF_PIGEONCTRL2_SET : ftl::mmio::Register<
   using PIGEON_CLK_GATE = LCDIF_PIGEONCTRL2_SET_fields_::PIGEON_CLK_GATE;
 };
 
-
 // LCDIF Pigeon Mode Control2 Register
 struct LCDIF_PIGEONCTRL2_CLR_fields_ {
   // Pigeon mode data enable
@@ -2175,7 +2137,6 @@ struct LCDIF_PIGEONCTRL2_CLR : ftl::mmio::Register<
   using PIGEON_DATA_EN = LCDIF_PIGEONCTRL2_CLR_fields_::PIGEON_DATA_EN;
   using PIGEON_CLK_GATE = LCDIF_PIGEONCTRL2_CLR_fields_::PIGEON_CLK_GATE;
 };
-
 
 // LCDIF Pigeon Mode Control2 Register
 struct LCDIF_PIGEONCTRL2_TOG_fields_ {
@@ -2197,10 +2158,8 @@ struct LCDIF_PIGEONCTRL2_TOG : ftl::mmio::Register<
   using PIGEON_CLK_GATE = LCDIF_PIGEONCTRL2_TOG_fields_::PIGEON_CLK_GATE;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_0_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -2256,6 +2215,7 @@ struct LCDIF_PIGEON_0_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -2297,10 +2257,8 @@ struct LCDIF_PIGEON_0_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_0_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_0_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -2310,6 +2268,7 @@ struct LCDIF_PIGEON_0_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -2329,10 +2288,8 @@ struct LCDIF_PIGEON_0_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_0_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_0_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -2348,6 +2305,7 @@ struct LCDIF_PIGEON_0_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -2368,10 +2326,8 @@ struct LCDIF_PIGEON_0_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_0_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_1_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -2427,6 +2383,7 @@ struct LCDIF_PIGEON_1_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -2468,10 +2425,8 @@ struct LCDIF_PIGEON_1_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_1_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_1_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -2481,6 +2436,7 @@ struct LCDIF_PIGEON_1_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -2500,10 +2456,8 @@ struct LCDIF_PIGEON_1_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_1_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_1_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -2519,6 +2473,7 @@ struct LCDIF_PIGEON_1_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -2539,10 +2494,8 @@ struct LCDIF_PIGEON_1_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_1_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_2_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -2598,6 +2551,7 @@ struct LCDIF_PIGEON_2_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -2639,10 +2593,8 @@ struct LCDIF_PIGEON_2_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_2_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_2_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -2652,6 +2604,7 @@ struct LCDIF_PIGEON_2_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -2671,10 +2624,8 @@ struct LCDIF_PIGEON_2_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_2_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_2_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -2690,6 +2641,7 @@ struct LCDIF_PIGEON_2_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -2710,10 +2662,8 @@ struct LCDIF_PIGEON_2_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_2_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_3_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -2769,6 +2719,7 @@ struct LCDIF_PIGEON_3_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -2810,10 +2761,8 @@ struct LCDIF_PIGEON_3_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_3_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_3_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -2823,6 +2772,7 @@ struct LCDIF_PIGEON_3_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -2842,10 +2792,8 @@ struct LCDIF_PIGEON_3_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_3_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_3_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -2861,6 +2809,7 @@ struct LCDIF_PIGEON_3_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -2881,10 +2830,8 @@ struct LCDIF_PIGEON_3_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_3_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_4_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -2940,6 +2887,7 @@ struct LCDIF_PIGEON_4_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -2981,10 +2929,8 @@ struct LCDIF_PIGEON_4_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_4_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_4_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -2994,6 +2940,7 @@ struct LCDIF_PIGEON_4_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -3013,10 +2960,8 @@ struct LCDIF_PIGEON_4_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_4_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_4_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -3032,6 +2977,7 @@ struct LCDIF_PIGEON_4_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -3052,10 +2998,8 @@ struct LCDIF_PIGEON_4_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_4_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_5_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -3111,6 +3055,7 @@ struct LCDIF_PIGEON_5_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -3152,10 +3097,8 @@ struct LCDIF_PIGEON_5_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_5_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_5_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -3165,6 +3108,7 @@ struct LCDIF_PIGEON_5_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -3184,10 +3128,8 @@ struct LCDIF_PIGEON_5_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_5_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_5_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -3203,6 +3145,7 @@ struct LCDIF_PIGEON_5_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -3223,10 +3166,8 @@ struct LCDIF_PIGEON_5_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_5_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_6_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -3282,6 +3223,7 @@ struct LCDIF_PIGEON_6_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -3323,10 +3265,8 @@ struct LCDIF_PIGEON_6_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_6_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_6_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -3336,6 +3276,7 @@ struct LCDIF_PIGEON_6_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -3355,10 +3296,8 @@ struct LCDIF_PIGEON_6_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_6_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_6_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -3374,6 +3313,7 @@ struct LCDIF_PIGEON_6_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -3394,10 +3334,8 @@ struct LCDIF_PIGEON_6_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_6_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_7_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -3453,6 +3391,7 @@ struct LCDIF_PIGEON_7_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -3494,10 +3433,8 @@ struct LCDIF_PIGEON_7_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_7_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_7_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -3507,6 +3444,7 @@ struct LCDIF_PIGEON_7_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -3526,10 +3464,8 @@ struct LCDIF_PIGEON_7_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_7_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_7_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -3545,6 +3481,7 @@ struct LCDIF_PIGEON_7_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -3565,10 +3502,8 @@ struct LCDIF_PIGEON_7_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_7_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_8_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -3624,6 +3559,7 @@ struct LCDIF_PIGEON_8_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -3665,10 +3601,8 @@ struct LCDIF_PIGEON_8_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_8_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_8_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -3678,6 +3612,7 @@ struct LCDIF_PIGEON_8_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -3697,10 +3632,8 @@ struct LCDIF_PIGEON_8_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_8_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_8_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -3716,6 +3649,7 @@ struct LCDIF_PIGEON_8_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -3736,10 +3670,8 @@ struct LCDIF_PIGEON_8_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_8_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_9_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -3795,6 +3727,7 @@ struct LCDIF_PIGEON_9_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -3836,10 +3769,8 @@ struct LCDIF_PIGEON_9_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_9_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_9_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -3849,6 +3780,7 @@ struct LCDIF_PIGEON_9_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -3868,10 +3800,8 @@ struct LCDIF_PIGEON_9_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_9_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_9_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -3887,6 +3817,7 @@ struct LCDIF_PIGEON_9_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -3907,10 +3838,8 @@ struct LCDIF_PIGEON_9_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_9_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_10_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -3966,6 +3895,7 @@ struct LCDIF_PIGEON_10_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -4007,10 +3937,8 @@ struct LCDIF_PIGEON_10_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_10_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_10_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -4020,6 +3948,7 @@ struct LCDIF_PIGEON_10_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -4039,10 +3968,8 @@ struct LCDIF_PIGEON_10_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_10_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_10_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -4058,6 +3985,7 @@ struct LCDIF_PIGEON_10_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -4078,10 +4006,8 @@ struct LCDIF_PIGEON_10_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_10_2_fields_::SIG_ANOTHER;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_11_0_fields_ {
-
   enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
@@ -4137,6 +4063,7 @@ struct LCDIF_PIGEON_11_0_fields_ {
     // LINE END
     eLE = 128,
   };
+
   // Enable pigeon Mode on this signal
   using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Polarity of signal output
@@ -4178,10 +4105,8 @@ struct LCDIF_PIGEON_11_0 : ftl::mmio::Register<
   using STATE_MASK = LCDIF_PIGEON_11_0_fields_::STATE_MASK;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_11_1_fields_ {
-
   enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
@@ -4191,6 +4116,7 @@ struct LCDIF_PIGEON_11_1_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Assert signal output when counter match this value
   using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Deassert signal output when counter match this value
@@ -4210,10 +4136,8 @@ struct LCDIF_PIGEON_11_1 : ftl::mmio::Register<
   using CLR_CNT = LCDIF_PIGEON_11_1_fields_::CLR_CNT;
 };
 
-
 // Panel Interface Signal Generator Register
 struct LCDIF_PIGEON_11_2_fields_ {
-
   enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
@@ -4229,6 +4153,7 @@ struct LCDIF_PIGEON_11_2_fields_ {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
+
   // Logic operation with another signal: DIS/AND/OR/COND
   using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Select another signal for logic operation or as mask or counter tick event
@@ -4249,7 +4174,6 @@ struct LCDIF_PIGEON_11_2 : ftl::mmio::Register<
   using SIG_ANOTHER = LCDIF_PIGEON_11_2_fields_::SIG_ANOTHER;
 };
 
-
 // Look Up Table Control Register
 struct LCDIF_LUT_CTRL_fields_ {
   // Setting this bit will bypass the LUT memory resource completely
@@ -4265,7 +4189,6 @@ struct LCDIF_LUT_CTRL : ftl::mmio::Register<
     ftl::mmio::Reserved<31, 1>> {
   using LUT_BYPASS = LCDIF_LUT_CTRL_fields_::LUT_BYPASS;
 };
-
 
 // Lookup Table 0 Index Register
 struct LCDIF_LUT0_ADDR_fields_ {
@@ -4283,7 +4206,6 @@ struct LCDIF_LUT0_ADDR : ftl::mmio::Register<
   using ADDR = LCDIF_LUT0_ADDR_fields_::ADDR;
 };
 
-
 // Lookup Table 0 Data Register
 struct LCDIF_LUT0_DATA_fields_ {
   // Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register
@@ -4298,7 +4220,6 @@ struct LCDIF_LUT0_DATA : ftl::mmio::Register<
     LCDIF_LUT0_DATA_fields_::DATA> {
   using DATA = LCDIF_LUT0_DATA_fields_::DATA;
 };
-
 
 // Lookup Table 1 Index Register
 struct LCDIF_LUT1_ADDR_fields_ {
@@ -4315,7 +4236,6 @@ struct LCDIF_LUT1_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<24, 8>> {
   using ADDR = LCDIF_LUT1_ADDR_fields_::ADDR;
 };
-
 
 // Lookup Table 1 Data Register
 struct LCDIF_LUT1_DATA_fields_ {

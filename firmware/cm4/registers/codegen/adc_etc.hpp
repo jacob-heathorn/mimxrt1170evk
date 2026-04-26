@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::adc_etc {
 
-
 // ADC_ETC Global Control Register
 struct CTRL_fields_ {
-
   enum class eTRIG_ENABLE : std::uint32_t {
     // disable all 8 external XBAR triggers.
     eTRIG_ENABLE_0 = 0,
@@ -38,6 +36,7 @@ struct CTRL_fields_ {
     // All registers inside ADC_ETC will be reset to the default value.
     eSOFTRST_1 = 1,
   };
+
   // TRIG enable register.
   using TRIG_ENABLE = ftl::mmio::Field<8, 0, eTRIG_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pre-divider for trig delay and interval
@@ -69,10 +68,8 @@ struct CTRL : ftl::mmio::Register<
   using SOFTRST = CTRL_fields_::SOFTRST;
 };
 
-
 // ETC DONE0 and DONE1 IRQ State Register
 struct DONE0_1_IRQ_fields_ {
-
   enum class eTRIG0_DONE0 : std::uint32_t {
     // No TRIG0_DONE0 interrupt detected
     eTRIG0_DONE0_0 = 0,
@@ -184,6 +181,7 @@ struct DONE0_1_IRQ_fields_ {
     // TRIG7_DONE1 interrupt detected
     eTRIG7_DONE1_1 = 1,
   };
+
   // TRIG0 done0 interrupt detection.
   using TRIG0_DONE0 = ftl::mmio::Field<1, 0, eTRIG0_DONE0, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // TRIG1 done0 interrupt detection.
@@ -275,10 +273,8 @@ struct DONE0_1_IRQ : ftl::mmio::Register<
   using TRIG7_DONE1 = DONE0_1_IRQ_fields_::TRIG7_DONE1;
 };
 
-
 // ETC DONE_2, DONE_3 and DONE_ERR IRQ State Register
 struct DONE2_3_ERR_IRQ_fields_ {
-
   enum class eTRIG0_DONE2 : std::uint32_t {
     // No TRIG0_DONE2 interrupt detected
     eTRIG0_DONE2_0 = 0,
@@ -446,6 +442,7 @@ struct DONE2_3_ERR_IRQ_fields_ {
     // TRIG7_ERR interrupt detected
     eTRIG7_ERR_1 = 1,
   };
+
   // TRIG0 done2 interrupt detection.
   using TRIG0_DONE2 = ftl::mmio::Field<1, 0, eTRIG0_DONE2, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // TRIG1 done2 interrupt detection.
@@ -576,10 +573,8 @@ struct DONE2_3_ERR_IRQ : ftl::mmio::Register<
   using TRIG7_ERR = DONE2_3_ERR_IRQ_fields_::TRIG7_ERR;
 };
 
-
 // ETC DMA control Register
 struct DMA_CTRL_fields_ {
-
   enum class eTRIG0_ENABLE : std::uint32_t {
     // TRIG0 DMA request disabled.
     eTRIG0_ENABLE_0 = 0,
@@ -691,6 +686,7 @@ struct DMA_CTRL_fields_ {
     // TRIG7_REQ detected.
     eTRIG7_REQ_1 = 1,
   };
+
   // Enable DMA request when TRIG0 done.
   using TRIG0_ENABLE = ftl::mmio::Field<1, 0, eTRIG0_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable DMA request when TRIG1 done.
@@ -782,10 +778,8 @@ struct DMA_CTRL : ftl::mmio::Register<
   using TRIG7_REQ = DMA_CTRL_fields_::TRIG7_REQ;
 };
 
-
 // ETC_TRIG Control Register
 struct TRIG0_CTRL_fields_ {
-
   enum class eSW_TRIG : std::uint32_t {
     // No software trigger event generated.
     eSW_TRIG_0 = 0,
@@ -832,6 +826,7 @@ struct TRIG0_CTRL_fields_ {
     // segment x done detected.
     eCHAINx_DONE_1 = 1,
   };
+
   // Software trigger. This field is self-clearing.
   using SW_TRIG = ftl::mmio::Field<1, 0, eSW_TRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Trigger mode selection.
@@ -875,7 +870,6 @@ struct TRIG0_CTRL : ftl::mmio::Register<
   using CHAINx_DONE = TRIG0_CTRL_fields_::CHAINx_DONE;
 };
 
-
 // ETC_TRIG Counter Register
 struct TRIG0_COUNTER_fields_ {
   // TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
@@ -895,10 +889,8 @@ struct TRIG0_COUNTER : ftl::mmio::Register<
   using SAMPLE_INTERVAL = TRIG0_COUNTER_fields_::SAMPLE_INTERVAL;
 };
 
-
 // ETC_TRIG Chain 0/1 Register
 struct TRIG0_CHAIN_1_0_fields_ {
-
   enum class eCSEL0 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_0 = 0,
@@ -1060,6 +1052,7 @@ struct TRIG0_CHAIN_1_0_fields_ {
     // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
     eIE1_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL0 = ftl::mmio::Field<4, 0, eCSEL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 0 HWTS ADC hardware trigger selection
@@ -1119,10 +1112,8 @@ struct TRIG0_CHAIN_1_0 : ftl::mmio::Register<
   using IE1_EN = TRIG0_CHAIN_1_0_fields_::IE1_EN;
 };
 
-
 // ETC_TRIG Chain 2/3 Register
 struct TRIG0_CHAIN_3_2_fields_ {
-
   enum class eCSEL2 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_0 = 0,
@@ -1284,6 +1275,7 @@ struct TRIG0_CHAIN_3_2_fields_ {
     // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
     eIE3_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL2 = ftl::mmio::Field<4, 0, eCSEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 2 HWTS ADC hardware trigger selection
@@ -1343,10 +1335,8 @@ struct TRIG0_CHAIN_3_2 : ftl::mmio::Register<
   using IE3_EN = TRIG0_CHAIN_3_2_fields_::IE3_EN;
 };
 
-
 // ETC_TRIG Chain 4/5 Register
 struct TRIG0_CHAIN_5_4_fields_ {
-
   enum class eCSEL4 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_0 = 0,
@@ -1508,6 +1498,7 @@ struct TRIG0_CHAIN_5_4_fields_ {
     // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
     eIE5_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL4 = ftl::mmio::Field<4, 0, eCSEL4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 4 HWTS ADC hardware trigger selection
@@ -1567,10 +1558,8 @@ struct TRIG0_CHAIN_5_4 : ftl::mmio::Register<
   using IE5_EN = TRIG0_CHAIN_5_4_fields_::IE5_EN;
 };
 
-
 // ETC_TRIG Chain 6/7 Register
 struct TRIG0_CHAIN_7_6_fields_ {
-
   enum class eCSEL6 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_0 = 0,
@@ -1732,6 +1721,7 @@ struct TRIG0_CHAIN_7_6_fields_ {
     // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
     eIE7_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL6 = ftl::mmio::Field<4, 0, eCSEL6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 6 HWTS ADC hardware trigger selection
@@ -1791,7 +1781,6 @@ struct TRIG0_CHAIN_7_6 : ftl::mmio::Register<
   using IE7_EN = TRIG0_CHAIN_7_6_fields_::IE7_EN;
 };
 
-
 // ETC_TRIG Result Data 1/0 Register
 struct TRIG0_RESULT_1_0_fields_ {
   // Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -1812,7 +1801,6 @@ struct TRIG0_RESULT_1_0 : ftl::mmio::Register<
   using DATA0 = TRIG0_RESULT_1_0_fields_::DATA0;
   using DATA1 = TRIG0_RESULT_1_0_fields_::DATA1;
 };
-
 
 // ETC_TRIG Result Data 3/2 Register
 struct TRIG0_RESULT_3_2_fields_ {
@@ -1835,7 +1823,6 @@ struct TRIG0_RESULT_3_2 : ftl::mmio::Register<
   using DATA3 = TRIG0_RESULT_3_2_fields_::DATA3;
 };
 
-
 // ETC_TRIG Result Data 5/4 Register
 struct TRIG0_RESULT_5_4_fields_ {
   // Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -1856,7 +1843,6 @@ struct TRIG0_RESULT_5_4 : ftl::mmio::Register<
   using DATA4 = TRIG0_RESULT_5_4_fields_::DATA4;
   using DATA5 = TRIG0_RESULT_5_4_fields_::DATA5;
 };
-
 
 // ETC_TRIG Result Data 7/6 Register
 struct TRIG0_RESULT_7_6_fields_ {
@@ -1879,10 +1865,8 @@ struct TRIG0_RESULT_7_6 : ftl::mmio::Register<
   using DATA7 = TRIG0_RESULT_7_6_fields_::DATA7;
 };
 
-
 // ETC_TRIG Control Register
 struct TRIG1_CTRL_fields_ {
-
   enum class eSW_TRIG : std::uint32_t {
     // No software trigger event generated.
     eSW_TRIG_0 = 0,
@@ -1929,6 +1913,7 @@ struct TRIG1_CTRL_fields_ {
     // segment x done detected.
     eCHAINx_DONE_1 = 1,
   };
+
   // Software trigger. This field is self-clearing.
   using SW_TRIG = ftl::mmio::Field<1, 0, eSW_TRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Trigger mode selection.
@@ -1972,7 +1957,6 @@ struct TRIG1_CTRL : ftl::mmio::Register<
   using CHAINx_DONE = TRIG1_CTRL_fields_::CHAINx_DONE;
 };
 
-
 // ETC_TRIG Counter Register
 struct TRIG1_COUNTER_fields_ {
   // TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
@@ -1992,10 +1976,8 @@ struct TRIG1_COUNTER : ftl::mmio::Register<
   using SAMPLE_INTERVAL = TRIG1_COUNTER_fields_::SAMPLE_INTERVAL;
 };
 
-
 // ETC_TRIG Chain 0/1 Register
 struct TRIG1_CHAIN_1_0_fields_ {
-
   enum class eCSEL0 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_0 = 0,
@@ -2157,6 +2139,7 @@ struct TRIG1_CHAIN_1_0_fields_ {
     // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
     eIE1_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL0 = ftl::mmio::Field<4, 0, eCSEL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 0 HWTS ADC hardware trigger selection
@@ -2216,10 +2199,8 @@ struct TRIG1_CHAIN_1_0 : ftl::mmio::Register<
   using IE1_EN = TRIG1_CHAIN_1_0_fields_::IE1_EN;
 };
 
-
 // ETC_TRIG Chain 2/3 Register
 struct TRIG1_CHAIN_3_2_fields_ {
-
   enum class eCSEL2 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_0 = 0,
@@ -2381,6 +2362,7 @@ struct TRIG1_CHAIN_3_2_fields_ {
     // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
     eIE3_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL2 = ftl::mmio::Field<4, 0, eCSEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 2 HWTS ADC hardware trigger selection
@@ -2440,10 +2422,8 @@ struct TRIG1_CHAIN_3_2 : ftl::mmio::Register<
   using IE3_EN = TRIG1_CHAIN_3_2_fields_::IE3_EN;
 };
 
-
 // ETC_TRIG Chain 4/5 Register
 struct TRIG1_CHAIN_5_4_fields_ {
-
   enum class eCSEL4 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_0 = 0,
@@ -2605,6 +2585,7 @@ struct TRIG1_CHAIN_5_4_fields_ {
     // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
     eIE5_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL4 = ftl::mmio::Field<4, 0, eCSEL4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 4 HWTS ADC hardware trigger selection
@@ -2664,10 +2645,8 @@ struct TRIG1_CHAIN_5_4 : ftl::mmio::Register<
   using IE5_EN = TRIG1_CHAIN_5_4_fields_::IE5_EN;
 };
 
-
 // ETC_TRIG Chain 6/7 Register
 struct TRIG1_CHAIN_7_6_fields_ {
-
   enum class eCSEL6 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_0 = 0,
@@ -2829,6 +2808,7 @@ struct TRIG1_CHAIN_7_6_fields_ {
     // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
     eIE7_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL6 = ftl::mmio::Field<4, 0, eCSEL6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 6 HWTS ADC hardware trigger selection
@@ -2888,7 +2868,6 @@ struct TRIG1_CHAIN_7_6 : ftl::mmio::Register<
   using IE7_EN = TRIG1_CHAIN_7_6_fields_::IE7_EN;
 };
 
-
 // ETC_TRIG Result Data 1/0 Register
 struct TRIG1_RESULT_1_0_fields_ {
   // Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -2909,7 +2888,6 @@ struct TRIG1_RESULT_1_0 : ftl::mmio::Register<
   using DATA0 = TRIG1_RESULT_1_0_fields_::DATA0;
   using DATA1 = TRIG1_RESULT_1_0_fields_::DATA1;
 };
-
 
 // ETC_TRIG Result Data 3/2 Register
 struct TRIG1_RESULT_3_2_fields_ {
@@ -2932,7 +2910,6 @@ struct TRIG1_RESULT_3_2 : ftl::mmio::Register<
   using DATA3 = TRIG1_RESULT_3_2_fields_::DATA3;
 };
 
-
 // ETC_TRIG Result Data 5/4 Register
 struct TRIG1_RESULT_5_4_fields_ {
   // Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -2953,7 +2930,6 @@ struct TRIG1_RESULT_5_4 : ftl::mmio::Register<
   using DATA4 = TRIG1_RESULT_5_4_fields_::DATA4;
   using DATA5 = TRIG1_RESULT_5_4_fields_::DATA5;
 };
-
 
 // ETC_TRIG Result Data 7/6 Register
 struct TRIG1_RESULT_7_6_fields_ {
@@ -2976,10 +2952,8 @@ struct TRIG1_RESULT_7_6 : ftl::mmio::Register<
   using DATA7 = TRIG1_RESULT_7_6_fields_::DATA7;
 };
 
-
 // ETC_TRIG Control Register
 struct TRIG2_CTRL_fields_ {
-
   enum class eSW_TRIG : std::uint32_t {
     // No software trigger event generated.
     eSW_TRIG_0 = 0,
@@ -3026,6 +3000,7 @@ struct TRIG2_CTRL_fields_ {
     // segment x done detected.
     eCHAINx_DONE_1 = 1,
   };
+
   // Software trigger. This field is self-clearing.
   using SW_TRIG = ftl::mmio::Field<1, 0, eSW_TRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Trigger mode selection.
@@ -3069,7 +3044,6 @@ struct TRIG2_CTRL : ftl::mmio::Register<
   using CHAINx_DONE = TRIG2_CTRL_fields_::CHAINx_DONE;
 };
 
-
 // ETC_TRIG Counter Register
 struct TRIG2_COUNTER_fields_ {
   // TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
@@ -3089,10 +3063,8 @@ struct TRIG2_COUNTER : ftl::mmio::Register<
   using SAMPLE_INTERVAL = TRIG2_COUNTER_fields_::SAMPLE_INTERVAL;
 };
 
-
 // ETC_TRIG Chain 0/1 Register
 struct TRIG2_CHAIN_1_0_fields_ {
-
   enum class eCSEL0 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_0 = 0,
@@ -3254,6 +3226,7 @@ struct TRIG2_CHAIN_1_0_fields_ {
     // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
     eIE1_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL0 = ftl::mmio::Field<4, 0, eCSEL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 0 HWTS ADC hardware trigger selection
@@ -3313,10 +3286,8 @@ struct TRIG2_CHAIN_1_0 : ftl::mmio::Register<
   using IE1_EN = TRIG2_CHAIN_1_0_fields_::IE1_EN;
 };
 
-
 // ETC_TRIG Chain 2/3 Register
 struct TRIG2_CHAIN_3_2_fields_ {
-
   enum class eCSEL2 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_0 = 0,
@@ -3478,6 +3449,7 @@ struct TRIG2_CHAIN_3_2_fields_ {
     // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
     eIE3_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL2 = ftl::mmio::Field<4, 0, eCSEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 2 HWTS ADC hardware trigger selection
@@ -3537,10 +3509,8 @@ struct TRIG2_CHAIN_3_2 : ftl::mmio::Register<
   using IE3_EN = TRIG2_CHAIN_3_2_fields_::IE3_EN;
 };
 
-
 // ETC_TRIG Chain 4/5 Register
 struct TRIG2_CHAIN_5_4_fields_ {
-
   enum class eCSEL4 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_0 = 0,
@@ -3702,6 +3672,7 @@ struct TRIG2_CHAIN_5_4_fields_ {
     // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
     eIE5_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL4 = ftl::mmio::Field<4, 0, eCSEL4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 4 HWTS ADC hardware trigger selection
@@ -3761,10 +3732,8 @@ struct TRIG2_CHAIN_5_4 : ftl::mmio::Register<
   using IE5_EN = TRIG2_CHAIN_5_4_fields_::IE5_EN;
 };
 
-
 // ETC_TRIG Chain 6/7 Register
 struct TRIG2_CHAIN_7_6_fields_ {
-
   enum class eCSEL6 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_0 = 0,
@@ -3926,6 +3895,7 @@ struct TRIG2_CHAIN_7_6_fields_ {
     // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
     eIE7_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL6 = ftl::mmio::Field<4, 0, eCSEL6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 6 HWTS ADC hardware trigger selection
@@ -3985,7 +3955,6 @@ struct TRIG2_CHAIN_7_6 : ftl::mmio::Register<
   using IE7_EN = TRIG2_CHAIN_7_6_fields_::IE7_EN;
 };
 
-
 // ETC_TRIG Result Data 1/0 Register
 struct TRIG2_RESULT_1_0_fields_ {
   // Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -4006,7 +3975,6 @@ struct TRIG2_RESULT_1_0 : ftl::mmio::Register<
   using DATA0 = TRIG2_RESULT_1_0_fields_::DATA0;
   using DATA1 = TRIG2_RESULT_1_0_fields_::DATA1;
 };
-
 
 // ETC_TRIG Result Data 3/2 Register
 struct TRIG2_RESULT_3_2_fields_ {
@@ -4029,7 +3997,6 @@ struct TRIG2_RESULT_3_2 : ftl::mmio::Register<
   using DATA3 = TRIG2_RESULT_3_2_fields_::DATA3;
 };
 
-
 // ETC_TRIG Result Data 5/4 Register
 struct TRIG2_RESULT_5_4_fields_ {
   // Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -4050,7 +4017,6 @@ struct TRIG2_RESULT_5_4 : ftl::mmio::Register<
   using DATA4 = TRIG2_RESULT_5_4_fields_::DATA4;
   using DATA5 = TRIG2_RESULT_5_4_fields_::DATA5;
 };
-
 
 // ETC_TRIG Result Data 7/6 Register
 struct TRIG2_RESULT_7_6_fields_ {
@@ -4073,10 +4039,8 @@ struct TRIG2_RESULT_7_6 : ftl::mmio::Register<
   using DATA7 = TRIG2_RESULT_7_6_fields_::DATA7;
 };
 
-
 // ETC_TRIG Control Register
 struct TRIG3_CTRL_fields_ {
-
   enum class eSW_TRIG : std::uint32_t {
     // No software trigger event generated.
     eSW_TRIG_0 = 0,
@@ -4123,6 +4087,7 @@ struct TRIG3_CTRL_fields_ {
     // segment x done detected.
     eCHAINx_DONE_1 = 1,
   };
+
   // Software trigger. This field is self-clearing.
   using SW_TRIG = ftl::mmio::Field<1, 0, eSW_TRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Trigger mode selection.
@@ -4166,7 +4131,6 @@ struct TRIG3_CTRL : ftl::mmio::Register<
   using CHAINx_DONE = TRIG3_CTRL_fields_::CHAINx_DONE;
 };
 
-
 // ETC_TRIG Counter Register
 struct TRIG3_COUNTER_fields_ {
   // TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
@@ -4186,10 +4150,8 @@ struct TRIG3_COUNTER : ftl::mmio::Register<
   using SAMPLE_INTERVAL = TRIG3_COUNTER_fields_::SAMPLE_INTERVAL;
 };
 
-
 // ETC_TRIG Chain 0/1 Register
 struct TRIG3_CHAIN_1_0_fields_ {
-
   enum class eCSEL0 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_0 = 0,
@@ -4351,6 +4313,7 @@ struct TRIG3_CHAIN_1_0_fields_ {
     // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
     eIE1_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL0 = ftl::mmio::Field<4, 0, eCSEL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 0 HWTS ADC hardware trigger selection
@@ -4410,10 +4373,8 @@ struct TRIG3_CHAIN_1_0 : ftl::mmio::Register<
   using IE1_EN = TRIG3_CHAIN_1_0_fields_::IE1_EN;
 };
 
-
 // ETC_TRIG Chain 2/3 Register
 struct TRIG3_CHAIN_3_2_fields_ {
-
   enum class eCSEL2 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_0 = 0,
@@ -4575,6 +4536,7 @@ struct TRIG3_CHAIN_3_2_fields_ {
     // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
     eIE3_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL2 = ftl::mmio::Field<4, 0, eCSEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 2 HWTS ADC hardware trigger selection
@@ -4634,10 +4596,8 @@ struct TRIG3_CHAIN_3_2 : ftl::mmio::Register<
   using IE3_EN = TRIG3_CHAIN_3_2_fields_::IE3_EN;
 };
 
-
 // ETC_TRIG Chain 4/5 Register
 struct TRIG3_CHAIN_5_4_fields_ {
-
   enum class eCSEL4 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_0 = 0,
@@ -4799,6 +4759,7 @@ struct TRIG3_CHAIN_5_4_fields_ {
     // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
     eIE5_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL4 = ftl::mmio::Field<4, 0, eCSEL4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 4 HWTS ADC hardware trigger selection
@@ -4858,10 +4819,8 @@ struct TRIG3_CHAIN_5_4 : ftl::mmio::Register<
   using IE5_EN = TRIG3_CHAIN_5_4_fields_::IE5_EN;
 };
 
-
 // ETC_TRIG Chain 6/7 Register
 struct TRIG3_CHAIN_7_6_fields_ {
-
   enum class eCSEL6 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_0 = 0,
@@ -5023,6 +4982,7 @@ struct TRIG3_CHAIN_7_6_fields_ {
     // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
     eIE7_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL6 = ftl::mmio::Field<4, 0, eCSEL6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 6 HWTS ADC hardware trigger selection
@@ -5082,7 +5042,6 @@ struct TRIG3_CHAIN_7_6 : ftl::mmio::Register<
   using IE7_EN = TRIG3_CHAIN_7_6_fields_::IE7_EN;
 };
 
-
 // ETC_TRIG Result Data 1/0 Register
 struct TRIG3_RESULT_1_0_fields_ {
   // Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -5103,7 +5062,6 @@ struct TRIG3_RESULT_1_0 : ftl::mmio::Register<
   using DATA0 = TRIG3_RESULT_1_0_fields_::DATA0;
   using DATA1 = TRIG3_RESULT_1_0_fields_::DATA1;
 };
-
 
 // ETC_TRIG Result Data 3/2 Register
 struct TRIG3_RESULT_3_2_fields_ {
@@ -5126,7 +5084,6 @@ struct TRIG3_RESULT_3_2 : ftl::mmio::Register<
   using DATA3 = TRIG3_RESULT_3_2_fields_::DATA3;
 };
 
-
 // ETC_TRIG Result Data 5/4 Register
 struct TRIG3_RESULT_5_4_fields_ {
   // Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -5147,7 +5104,6 @@ struct TRIG3_RESULT_5_4 : ftl::mmio::Register<
   using DATA4 = TRIG3_RESULT_5_4_fields_::DATA4;
   using DATA5 = TRIG3_RESULT_5_4_fields_::DATA5;
 };
-
 
 // ETC_TRIG Result Data 7/6 Register
 struct TRIG3_RESULT_7_6_fields_ {
@@ -5170,10 +5126,8 @@ struct TRIG3_RESULT_7_6 : ftl::mmio::Register<
   using DATA7 = TRIG3_RESULT_7_6_fields_::DATA7;
 };
 
-
 // ETC_TRIG Control Register
 struct TRIG4_CTRL_fields_ {
-
   enum class eSW_TRIG : std::uint32_t {
     // No software trigger event generated.
     eSW_TRIG_0 = 0,
@@ -5220,6 +5174,7 @@ struct TRIG4_CTRL_fields_ {
     // segment x done detected.
     eCHAINx_DONE_1 = 1,
   };
+
   // Software trigger. This field is self-clearing.
   using SW_TRIG = ftl::mmio::Field<1, 0, eSW_TRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Trigger mode selection.
@@ -5263,7 +5218,6 @@ struct TRIG4_CTRL : ftl::mmio::Register<
   using CHAINx_DONE = TRIG4_CTRL_fields_::CHAINx_DONE;
 };
 
-
 // ETC_TRIG Counter Register
 struct TRIG4_COUNTER_fields_ {
   // TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
@@ -5283,10 +5237,8 @@ struct TRIG4_COUNTER : ftl::mmio::Register<
   using SAMPLE_INTERVAL = TRIG4_COUNTER_fields_::SAMPLE_INTERVAL;
 };
 
-
 // ETC_TRIG Chain 0/1 Register
 struct TRIG4_CHAIN_1_0_fields_ {
-
   enum class eCSEL0 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_0 = 0,
@@ -5448,6 +5400,7 @@ struct TRIG4_CHAIN_1_0_fields_ {
     // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
     eIE1_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL0 = ftl::mmio::Field<4, 0, eCSEL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 0 HWTS ADC hardware trigger selection
@@ -5507,10 +5460,8 @@ struct TRIG4_CHAIN_1_0 : ftl::mmio::Register<
   using IE1_EN = TRIG4_CHAIN_1_0_fields_::IE1_EN;
 };
 
-
 // ETC_TRIG Chain 2/3 Register
 struct TRIG4_CHAIN_3_2_fields_ {
-
   enum class eCSEL2 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_0 = 0,
@@ -5672,6 +5623,7 @@ struct TRIG4_CHAIN_3_2_fields_ {
     // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
     eIE3_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL2 = ftl::mmio::Field<4, 0, eCSEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 2 HWTS ADC hardware trigger selection
@@ -5731,10 +5683,8 @@ struct TRIG4_CHAIN_3_2 : ftl::mmio::Register<
   using IE3_EN = TRIG4_CHAIN_3_2_fields_::IE3_EN;
 };
 
-
 // ETC_TRIG Chain 4/5 Register
 struct TRIG4_CHAIN_5_4_fields_ {
-
   enum class eCSEL4 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_0 = 0,
@@ -5896,6 +5846,7 @@ struct TRIG4_CHAIN_5_4_fields_ {
     // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
     eIE5_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL4 = ftl::mmio::Field<4, 0, eCSEL4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 4 HWTS ADC hardware trigger selection
@@ -5955,10 +5906,8 @@ struct TRIG4_CHAIN_5_4 : ftl::mmio::Register<
   using IE5_EN = TRIG4_CHAIN_5_4_fields_::IE5_EN;
 };
 
-
 // ETC_TRIG Chain 6/7 Register
 struct TRIG4_CHAIN_7_6_fields_ {
-
   enum class eCSEL6 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_0 = 0,
@@ -6120,6 +6069,7 @@ struct TRIG4_CHAIN_7_6_fields_ {
     // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
     eIE7_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL6 = ftl::mmio::Field<4, 0, eCSEL6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 6 HWTS ADC hardware trigger selection
@@ -6179,7 +6129,6 @@ struct TRIG4_CHAIN_7_6 : ftl::mmio::Register<
   using IE7_EN = TRIG4_CHAIN_7_6_fields_::IE7_EN;
 };
 
-
 // ETC_TRIG Result Data 1/0 Register
 struct TRIG4_RESULT_1_0_fields_ {
   // Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -6200,7 +6149,6 @@ struct TRIG4_RESULT_1_0 : ftl::mmio::Register<
   using DATA0 = TRIG4_RESULT_1_0_fields_::DATA0;
   using DATA1 = TRIG4_RESULT_1_0_fields_::DATA1;
 };
-
 
 // ETC_TRIG Result Data 3/2 Register
 struct TRIG4_RESULT_3_2_fields_ {
@@ -6223,7 +6171,6 @@ struct TRIG4_RESULT_3_2 : ftl::mmio::Register<
   using DATA3 = TRIG4_RESULT_3_2_fields_::DATA3;
 };
 
-
 // ETC_TRIG Result Data 5/4 Register
 struct TRIG4_RESULT_5_4_fields_ {
   // Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -6244,7 +6191,6 @@ struct TRIG4_RESULT_5_4 : ftl::mmio::Register<
   using DATA4 = TRIG4_RESULT_5_4_fields_::DATA4;
   using DATA5 = TRIG4_RESULT_5_4_fields_::DATA5;
 };
-
 
 // ETC_TRIG Result Data 7/6 Register
 struct TRIG4_RESULT_7_6_fields_ {
@@ -6267,10 +6213,8 @@ struct TRIG4_RESULT_7_6 : ftl::mmio::Register<
   using DATA7 = TRIG4_RESULT_7_6_fields_::DATA7;
 };
 
-
 // ETC_TRIG Control Register
 struct TRIG5_CTRL_fields_ {
-
   enum class eSW_TRIG : std::uint32_t {
     // No software trigger event generated.
     eSW_TRIG_0 = 0,
@@ -6317,6 +6261,7 @@ struct TRIG5_CTRL_fields_ {
     // segment x done detected.
     eCHAINx_DONE_1 = 1,
   };
+
   // Software trigger. This field is self-clearing.
   using SW_TRIG = ftl::mmio::Field<1, 0, eSW_TRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Trigger mode selection.
@@ -6360,7 +6305,6 @@ struct TRIG5_CTRL : ftl::mmio::Register<
   using CHAINx_DONE = TRIG5_CTRL_fields_::CHAINx_DONE;
 };
 
-
 // ETC_TRIG Counter Register
 struct TRIG5_COUNTER_fields_ {
   // TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
@@ -6380,10 +6324,8 @@ struct TRIG5_COUNTER : ftl::mmio::Register<
   using SAMPLE_INTERVAL = TRIG5_COUNTER_fields_::SAMPLE_INTERVAL;
 };
 
-
 // ETC_TRIG Chain 0/1 Register
 struct TRIG5_CHAIN_1_0_fields_ {
-
   enum class eCSEL0 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_0 = 0,
@@ -6545,6 +6487,7 @@ struct TRIG5_CHAIN_1_0_fields_ {
     // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
     eIE1_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL0 = ftl::mmio::Field<4, 0, eCSEL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 0 HWTS ADC hardware trigger selection
@@ -6604,10 +6547,8 @@ struct TRIG5_CHAIN_1_0 : ftl::mmio::Register<
   using IE1_EN = TRIG5_CHAIN_1_0_fields_::IE1_EN;
 };
 
-
 // ETC_TRIG Chain 2/3 Register
 struct TRIG5_CHAIN_3_2_fields_ {
-
   enum class eCSEL2 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_0 = 0,
@@ -6769,6 +6710,7 @@ struct TRIG5_CHAIN_3_2_fields_ {
     // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
     eIE3_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL2 = ftl::mmio::Field<4, 0, eCSEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 2 HWTS ADC hardware trigger selection
@@ -6828,10 +6770,8 @@ struct TRIG5_CHAIN_3_2 : ftl::mmio::Register<
   using IE3_EN = TRIG5_CHAIN_3_2_fields_::IE3_EN;
 };
 
-
 // ETC_TRIG Chain 4/5 Register
 struct TRIG5_CHAIN_5_4_fields_ {
-
   enum class eCSEL4 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_0 = 0,
@@ -6993,6 +6933,7 @@ struct TRIG5_CHAIN_5_4_fields_ {
     // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
     eIE5_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL4 = ftl::mmio::Field<4, 0, eCSEL4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 4 HWTS ADC hardware trigger selection
@@ -7052,10 +6993,8 @@ struct TRIG5_CHAIN_5_4 : ftl::mmio::Register<
   using IE5_EN = TRIG5_CHAIN_5_4_fields_::IE5_EN;
 };
 
-
 // ETC_TRIG Chain 6/7 Register
 struct TRIG5_CHAIN_7_6_fields_ {
-
   enum class eCSEL6 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_0 = 0,
@@ -7217,6 +7156,7 @@ struct TRIG5_CHAIN_7_6_fields_ {
     // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
     eIE7_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL6 = ftl::mmio::Field<4, 0, eCSEL6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 6 HWTS ADC hardware trigger selection
@@ -7276,7 +7216,6 @@ struct TRIG5_CHAIN_7_6 : ftl::mmio::Register<
   using IE7_EN = TRIG5_CHAIN_7_6_fields_::IE7_EN;
 };
 
-
 // ETC_TRIG Result Data 1/0 Register
 struct TRIG5_RESULT_1_0_fields_ {
   // Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -7297,7 +7236,6 @@ struct TRIG5_RESULT_1_0 : ftl::mmio::Register<
   using DATA0 = TRIG5_RESULT_1_0_fields_::DATA0;
   using DATA1 = TRIG5_RESULT_1_0_fields_::DATA1;
 };
-
 
 // ETC_TRIG Result Data 3/2 Register
 struct TRIG5_RESULT_3_2_fields_ {
@@ -7320,7 +7258,6 @@ struct TRIG5_RESULT_3_2 : ftl::mmio::Register<
   using DATA3 = TRIG5_RESULT_3_2_fields_::DATA3;
 };
 
-
 // ETC_TRIG Result Data 5/4 Register
 struct TRIG5_RESULT_5_4_fields_ {
   // Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -7341,7 +7278,6 @@ struct TRIG5_RESULT_5_4 : ftl::mmio::Register<
   using DATA4 = TRIG5_RESULT_5_4_fields_::DATA4;
   using DATA5 = TRIG5_RESULT_5_4_fields_::DATA5;
 };
-
 
 // ETC_TRIG Result Data 7/6 Register
 struct TRIG5_RESULT_7_6_fields_ {
@@ -7364,10 +7300,8 @@ struct TRIG5_RESULT_7_6 : ftl::mmio::Register<
   using DATA7 = TRIG5_RESULT_7_6_fields_::DATA7;
 };
 
-
 // ETC_TRIG Control Register
 struct TRIG6_CTRL_fields_ {
-
   enum class eSW_TRIG : std::uint32_t {
     // No software trigger event generated.
     eSW_TRIG_0 = 0,
@@ -7414,6 +7348,7 @@ struct TRIG6_CTRL_fields_ {
     // segment x done detected.
     eCHAINx_DONE_1 = 1,
   };
+
   // Software trigger. This field is self-clearing.
   using SW_TRIG = ftl::mmio::Field<1, 0, eSW_TRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Trigger mode selection.
@@ -7457,7 +7392,6 @@ struct TRIG6_CTRL : ftl::mmio::Register<
   using CHAINx_DONE = TRIG6_CTRL_fields_::CHAINx_DONE;
 };
 
-
 // ETC_TRIG Counter Register
 struct TRIG6_COUNTER_fields_ {
   // TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
@@ -7477,10 +7411,8 @@ struct TRIG6_COUNTER : ftl::mmio::Register<
   using SAMPLE_INTERVAL = TRIG6_COUNTER_fields_::SAMPLE_INTERVAL;
 };
 
-
 // ETC_TRIG Chain 0/1 Register
 struct TRIG6_CHAIN_1_0_fields_ {
-
   enum class eCSEL0 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_0 = 0,
@@ -7642,6 +7574,7 @@ struct TRIG6_CHAIN_1_0_fields_ {
     // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
     eIE1_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL0 = ftl::mmio::Field<4, 0, eCSEL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 0 HWTS ADC hardware trigger selection
@@ -7701,10 +7634,8 @@ struct TRIG6_CHAIN_1_0 : ftl::mmio::Register<
   using IE1_EN = TRIG6_CHAIN_1_0_fields_::IE1_EN;
 };
 
-
 // ETC_TRIG Chain 2/3 Register
 struct TRIG6_CHAIN_3_2_fields_ {
-
   enum class eCSEL2 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_0 = 0,
@@ -7866,6 +7797,7 @@ struct TRIG6_CHAIN_3_2_fields_ {
     // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
     eIE3_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL2 = ftl::mmio::Field<4, 0, eCSEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 2 HWTS ADC hardware trigger selection
@@ -7925,10 +7857,8 @@ struct TRIG6_CHAIN_3_2 : ftl::mmio::Register<
   using IE3_EN = TRIG6_CHAIN_3_2_fields_::IE3_EN;
 };
 
-
 // ETC_TRIG Chain 4/5 Register
 struct TRIG6_CHAIN_5_4_fields_ {
-
   enum class eCSEL4 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_0 = 0,
@@ -8090,6 +8020,7 @@ struct TRIG6_CHAIN_5_4_fields_ {
     // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
     eIE5_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL4 = ftl::mmio::Field<4, 0, eCSEL4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 4 HWTS ADC hardware trigger selection
@@ -8149,10 +8080,8 @@ struct TRIG6_CHAIN_5_4 : ftl::mmio::Register<
   using IE5_EN = TRIG6_CHAIN_5_4_fields_::IE5_EN;
 };
 
-
 // ETC_TRIG Chain 6/7 Register
 struct TRIG6_CHAIN_7_6_fields_ {
-
   enum class eCSEL6 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_0 = 0,
@@ -8314,6 +8243,7 @@ struct TRIG6_CHAIN_7_6_fields_ {
     // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
     eIE7_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL6 = ftl::mmio::Field<4, 0, eCSEL6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 6 HWTS ADC hardware trigger selection
@@ -8373,7 +8303,6 @@ struct TRIG6_CHAIN_7_6 : ftl::mmio::Register<
   using IE7_EN = TRIG6_CHAIN_7_6_fields_::IE7_EN;
 };
 
-
 // ETC_TRIG Result Data 1/0 Register
 struct TRIG6_RESULT_1_0_fields_ {
   // Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -8394,7 +8323,6 @@ struct TRIG6_RESULT_1_0 : ftl::mmio::Register<
   using DATA0 = TRIG6_RESULT_1_0_fields_::DATA0;
   using DATA1 = TRIG6_RESULT_1_0_fields_::DATA1;
 };
-
 
 // ETC_TRIG Result Data 3/2 Register
 struct TRIG6_RESULT_3_2_fields_ {
@@ -8417,7 +8345,6 @@ struct TRIG6_RESULT_3_2 : ftl::mmio::Register<
   using DATA3 = TRIG6_RESULT_3_2_fields_::DATA3;
 };
 
-
 // ETC_TRIG Result Data 5/4 Register
 struct TRIG6_RESULT_5_4_fields_ {
   // Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -8438,7 +8365,6 @@ struct TRIG6_RESULT_5_4 : ftl::mmio::Register<
   using DATA4 = TRIG6_RESULT_5_4_fields_::DATA4;
   using DATA5 = TRIG6_RESULT_5_4_fields_::DATA5;
 };
-
 
 // ETC_TRIG Result Data 7/6 Register
 struct TRIG6_RESULT_7_6_fields_ {
@@ -8461,10 +8387,8 @@ struct TRIG6_RESULT_7_6 : ftl::mmio::Register<
   using DATA7 = TRIG6_RESULT_7_6_fields_::DATA7;
 };
 
-
 // ETC_TRIG Control Register
 struct TRIG7_CTRL_fields_ {
-
   enum class eSW_TRIG : std::uint32_t {
     // No software trigger event generated.
     eSW_TRIG_0 = 0,
@@ -8511,6 +8435,7 @@ struct TRIG7_CTRL_fields_ {
     // segment x done detected.
     eCHAINx_DONE_1 = 1,
   };
+
   // Software trigger. This field is self-clearing.
   using SW_TRIG = ftl::mmio::Field<1, 0, eSW_TRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Trigger mode selection.
@@ -8554,7 +8479,6 @@ struct TRIG7_CTRL : ftl::mmio::Register<
   using CHAINx_DONE = TRIG7_CTRL_fields_::CHAINx_DONE;
 };
 
-
 // ETC_TRIG Counter Register
 struct TRIG7_COUNTER_fields_ {
   // TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
@@ -8574,10 +8498,8 @@ struct TRIG7_COUNTER : ftl::mmio::Register<
   using SAMPLE_INTERVAL = TRIG7_COUNTER_fields_::SAMPLE_INTERVAL;
 };
 
-
 // ETC_TRIG Chain 0/1 Register
 struct TRIG7_CHAIN_1_0_fields_ {
-
   enum class eCSEL0 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_0 = 0,
@@ -8739,6 +8661,7 @@ struct TRIG7_CHAIN_1_0_fields_ {
     // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
     eIE1_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL0 = ftl::mmio::Field<4, 0, eCSEL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 0 HWTS ADC hardware trigger selection
@@ -8798,10 +8721,8 @@ struct TRIG7_CHAIN_1_0 : ftl::mmio::Register<
   using IE1_EN = TRIG7_CHAIN_1_0_fields_::IE1_EN;
 };
 
-
 // ETC_TRIG Chain 2/3 Register
 struct TRIG7_CHAIN_3_2_fields_ {
-
   enum class eCSEL2 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_0 = 0,
@@ -8963,6 +8884,7 @@ struct TRIG7_CHAIN_3_2_fields_ {
     // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
     eIE3_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL2 = ftl::mmio::Field<4, 0, eCSEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 2 HWTS ADC hardware trigger selection
@@ -9022,10 +8944,8 @@ struct TRIG7_CHAIN_3_2 : ftl::mmio::Register<
   using IE3_EN = TRIG7_CHAIN_3_2_fields_::IE3_EN;
 };
 
-
 // ETC_TRIG Chain 4/5 Register
 struct TRIG7_CHAIN_5_4_fields_ {
-
   enum class eCSEL4 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_0 = 0,
@@ -9187,6 +9107,7 @@ struct TRIG7_CHAIN_5_4_fields_ {
     // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
     eIE5_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL4 = ftl::mmio::Field<4, 0, eCSEL4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 4 HWTS ADC hardware trigger selection
@@ -9246,10 +9167,8 @@ struct TRIG7_CHAIN_5_4 : ftl::mmio::Register<
   using IE5_EN = TRIG7_CHAIN_5_4_fields_::IE5_EN;
 };
 
-
 // ETC_TRIG Chain 6/7 Register
 struct TRIG7_CHAIN_7_6_fields_ {
-
   enum class eCSEL6 : std::uint32_t {
     // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_0 = 0,
@@ -9411,6 +9330,7 @@ struct TRIG7_CHAIN_7_6_fields_ {
     // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
     eIE7_EN_1 = 1,
   };
+
   // ADC hardware trigger command selection
   using CSEL6 = ftl::mmio::Field<4, 0, eCSEL6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Segment 6 HWTS ADC hardware trigger selection
@@ -9470,7 +9390,6 @@ struct TRIG7_CHAIN_7_6 : ftl::mmio::Register<
   using IE7_EN = TRIG7_CHAIN_7_6_fields_::IE7_EN;
 };
 
-
 // ETC_TRIG Result Data 1/0 Register
 struct TRIG7_RESULT_1_0_fields_ {
   // Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -9491,7 +9410,6 @@ struct TRIG7_RESULT_1_0 : ftl::mmio::Register<
   using DATA0 = TRIG7_RESULT_1_0_fields_::DATA0;
   using DATA1 = TRIG7_RESULT_1_0_fields_::DATA1;
 };
-
 
 // ETC_TRIG Result Data 3/2 Register
 struct TRIG7_RESULT_3_2_fields_ {
@@ -9514,7 +9432,6 @@ struct TRIG7_RESULT_3_2 : ftl::mmio::Register<
   using DATA3 = TRIG7_RESULT_3_2_fields_::DATA3;
 };
 
-
 // ETC_TRIG Result Data 5/4 Register
 struct TRIG7_RESULT_5_4_fields_ {
   // Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
@@ -9535,7 +9452,6 @@ struct TRIG7_RESULT_5_4 : ftl::mmio::Register<
   using DATA4 = TRIG7_RESULT_5_4_fields_::DATA4;
   using DATA5 = TRIG7_RESULT_5_4_fields_::DATA5;
 };
-
 
 // ETC_TRIG Result Data 7/6 Register
 struct TRIG7_RESULT_7_6_fields_ {

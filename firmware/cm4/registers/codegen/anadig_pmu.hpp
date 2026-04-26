@@ -8,16 +8,15 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::anadig_pmu {
 
-
 // PMU_LDO_PLL_REGISTER
 struct PMU_LDO_PLL_fields_ {
-
   enum class eLDO_PLL_CONTROL_MODE : std::uint32_t {
     // SW Control
     esw = 0,
     // HW Control
     ehw = 1,
   };
+
   // LDO_PLL_ENABLE
   using LDO_PLL_ENABLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // LDO_PLL_CONTROL_MODE
@@ -47,16 +46,15 @@ struct PMU_LDO_PLL : ftl::mmio::Register<
   using LDO_PLL_AI_BUSY = PMU_LDO_PLL_fields_::LDO_PLL_AI_BUSY;
 };
 
-
 // PMU_BIAS_CTRL_REGISTER
 struct PMU_BIAS_CTRL_fields_ {
-
   enum class eWB_VDD_SEL_1P8 : std::uint32_t {
     // VDD_LV1
     elv1 = 0,
     // VDD_LV2
     elv2 = 1,
   };
+
   // wb_cfg_1p8
   using WB_CFG_1P8 = ftl::mmio::Field<13, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // wb_vdd_sel_1p8
@@ -77,10 +75,8 @@ struct PMU_BIAS_CTRL : ftl::mmio::Register<
   using WB_VDD_SEL_1P8 = PMU_BIAS_CTRL_fields_::WB_VDD_SEL_1P8;
 };
 
-
 // PMU_BIAS_CTRL2_REGISTER
 struct PMU_BIAS_CTRL2_fields_ {
-
   enum class eWB_PWR_SW_EN_1P8 : std::uint32_t {
     // No BB
     ebb0 = 1,
@@ -145,6 +141,7 @@ struct PMU_BIAS_CTRL2_fields_ {
     // HW Control
     ehw = 1,
   };
+
   // TMOD_wb_tst_md_1p8
   using WB_TST_MD = ftl::mmio::Field<9, 1, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // MODSEL_wb_tst_md_1p8
@@ -197,16 +194,15 @@ struct PMU_BIAS_CTRL2 : ftl::mmio::Register<
   using WB_OK = PMU_BIAS_CTRL2_fields_::WB_OK;
 };
 
-
 // PMU_REF_CTRL_REGISTER
 struct PMU_REF_CTRL_fields_ {
-
   enum class eREF_CONTROL_MODE : std::uint32_t {
     // SW Control
     esw = 0,
     // HW Control
     ehw = 1,
   };
+
   // ref_ai_toggle
   using REF_AI_TOGGLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // ref_ai_busy
@@ -238,7 +234,6 @@ struct PMU_REF_CTRL : ftl::mmio::Register<
   using EN_PLL_VOL_REF_BUFFER = PMU_REF_CTRL_fields_::EN_PLL_VOL_REF_BUFFER;
 };
 
-
 // PMU_POWER_DETECT_CTRL_REGISTER
 struct PMU_POWER_DETECT_CTRL_fields_ {
   // ckgb_lpsr1p0
@@ -256,10 +251,8 @@ struct PMU_POWER_DETECT_CTRL : ftl::mmio::Register<
   using CKGB_LPSR1P0 = PMU_POWER_DETECT_CTRL_fields_::CKGB_LPSR1P0;
 };
 
-
 // LDO_PLL_ENABLE_SP_REGISTER
 struct LDO_PLL_ENABLE_SP_fields_ {
-
   enum class eON_OFF_SETPOINT0 : std::uint32_t {
     // ON
     es0 = 0,
@@ -371,6 +364,7 @@ struct LDO_PLL_ENABLE_SP_fields_ {
     // OFF
     es1 = 1,
   };
+
   // ON_OFF_SETPOINT0
   using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // ON_OFF_SETPOINT1
@@ -461,10 +455,8 @@ struct LDO_PLL_ENABLE_SP : ftl::mmio::Register<
   using ON_OFF_SETPOINT15 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
 
-
 // LDO_LPSR_ANA_ENABLE_SP_REGISTER
 struct LDO_LPSR_ANA_ENABLE_SP_fields_ {
-
   enum class eON_OFF_SETPOINT0 : std::uint32_t {
     // ON
     es0 = 0,
@@ -576,6 +568,7 @@ struct LDO_LPSR_ANA_ENABLE_SP_fields_ {
     // OFF
     es1 = 1,
   };
+
   // ON_OFF_SETPOINT0
   using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // ON_OFF_SETPOINT1
@@ -666,10 +659,8 @@ struct LDO_LPSR_ANA_ENABLE_SP : ftl::mmio::Register<
   using ON_OFF_SETPOINT15 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
 
-
 // LDO_LPSR_ANA_LP_MODE_SP_REGISTER
 struct LDO_LPSR_ANA_LP_MODE_SP_fields_ {
-
   enum class eLP_MODE_SETPOINT0 : std::uint32_t {
     // LP
     elp0 = 0,
@@ -781,6 +772,7 @@ struct LDO_LPSR_ANA_LP_MODE_SP_fields_ {
     // HP
     ehp1 = 1,
   };
+
   // LP_MODE_SETPOINT0
   using LP_MODE_SETPOINT0 = ftl::mmio::Field<1, 0, eLP_MODE_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // LP_MODE_SETPOINT1
@@ -871,10 +863,8 @@ struct LDO_LPSR_ANA_LP_MODE_SP : ftl::mmio::Register<
   using LP_MODE_SETPONIT15 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT15;
 };
 
-
 // LDO_LPSR_ANA_TRACKING_EN_SP_REGISTER
 struct LDO_LPSR_ANA_TRACKING_EN_SP_fields_ {
-
   enum class eTRACKING_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     etrack0 = 0,
@@ -986,6 +976,7 @@ struct LDO_LPSR_ANA_TRACKING_EN_SP_fields_ {
     // Enabled
     etrack1 = 1,
   };
+
   // TRACKING_EN_SETPOINT0
   using TRACKING_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eTRACKING_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // TRACKING_EN_SETPOINT1
@@ -1076,10 +1067,8 @@ struct LDO_LPSR_ANA_TRACKING_EN_SP : ftl::mmio::Register<
   using TRACKING_EN_SETPOINT15 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT15;
 };
 
-
 // LDO_LPSR_ANA_BYPASS_EN_SP_REGISTER
 struct LDO_LPSR_ANA_BYPASS_EN_SP_fields_ {
-
   enum class eBYPASS_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     ebyp0 = 0,
@@ -1191,6 +1180,7 @@ struct LDO_LPSR_ANA_BYPASS_EN_SP_fields_ {
     // Enabled
     ebyp1 = 1,
   };
+
   // BYPASS_EN_SETPOINT0
   using BYPASS_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eBYPASS_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // BYPASS_EN_SETPOINT1
@@ -1281,10 +1271,8 @@ struct LDO_LPSR_ANA_BYPASS_EN_SP : ftl::mmio::Register<
   using BYPASS_EN_SETPOINT15 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT15;
 };
 
-
 // LDO_LPSR_ANA_STBY_EN_SP_REGISTER
 struct LDO_LPSR_ANA_STBY_EN_SP_fields_ {
-
   enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     eb0 = 0,
@@ -1396,6 +1384,7 @@ struct LDO_LPSR_ANA_STBY_EN_SP_fields_ {
     // Enabled
     eb1 = 1,
   };
+
   // STBY_EN_SETPOINT0
   using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // STBY_EN_SETPOINT1
@@ -1486,10 +1475,8 @@ struct LDO_LPSR_ANA_STBY_EN_SP : ftl::mmio::Register<
   using STBY_EN_SETPOINT15 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
 
-
 // LDO_LPSR_DIG_ENABLE_SP_REGISTER
 struct LDO_LPSR_DIG_ENABLE_SP_fields_ {
-
   enum class eON_OFF_SETPOINT0 : std::uint32_t {
     // ON
     es0 = 0,
@@ -1601,6 +1588,7 @@ struct LDO_LPSR_DIG_ENABLE_SP_fields_ {
     // OFF
     es1 = 1,
   };
+
   // ON_OFF_SETPOINT0
   using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // ON_OFF_SETPOINT1
@@ -1691,7 +1679,6 @@ struct LDO_LPSR_DIG_ENABLE_SP : ftl::mmio::Register<
   using ON_OFF_SETPOINT15 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
 
-
 // LDO_LPSR_DIG_TRG_SP0_REGISTER
 struct LDO_LPSR_DIG_TRG_SP0_fields_ {
   // VOLTAGE_SETPOINT0
@@ -1718,7 +1705,6 @@ struct LDO_LPSR_DIG_TRG_SP0 : ftl::mmio::Register<
   using VOLTAGE_SETPOINT2 = LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT2;
   using VOLTAGE_SETPOINT3 = LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT3;
 };
-
 
 // LDO_LPSR_DIG_TRG_SP1_REGISTER
 struct LDO_LPSR_DIG_TRG_SP1_fields_ {
@@ -1747,7 +1733,6 @@ struct LDO_LPSR_DIG_TRG_SP1 : ftl::mmio::Register<
   using VOLTAGE_SETPOINT7 = LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT7;
 };
 
-
 // LDO_LPSR_DIG_TRG_SP2_REGISTER
 struct LDO_LPSR_DIG_TRG_SP2_fields_ {
   // VOLTAGE_SETPOINT8
@@ -1774,7 +1759,6 @@ struct LDO_LPSR_DIG_TRG_SP2 : ftl::mmio::Register<
   using VOLTAGE_SETPOINT10 = LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT10;
   using VOLTAGE_SETPOINT11 = LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT11;
 };
-
 
 // LDO_LPSR_DIG_TRG_SP3_REGISTER
 struct LDO_LPSR_DIG_TRG_SP3_fields_ {
@@ -1803,10 +1787,8 @@ struct LDO_LPSR_DIG_TRG_SP3 : ftl::mmio::Register<
   using VOLTAGE_SETPOINT15 = LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT15;
 };
 
-
 // LDO_LPSR_DIG_LP_MODE_SP_REGISTER
 struct LDO_LPSR_DIG_LP_MODE_SP_fields_ {
-
   enum class eLP_MODE_SETPOINT0 : std::uint32_t {
     // LP
     elp0 = 0,
@@ -1918,6 +1900,7 @@ struct LDO_LPSR_DIG_LP_MODE_SP_fields_ {
     // HP
     ehp1 = 1,
   };
+
   // LP_MODE_SETPOINT0
   using LP_MODE_SETPOINT0 = ftl::mmio::Field<1, 0, eLP_MODE_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // LP_MODE_SETPOINT1
@@ -2008,10 +1991,8 @@ struct LDO_LPSR_DIG_LP_MODE_SP : ftl::mmio::Register<
   using LP_MODE_SETPOINT15 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT15;
 };
 
-
 // LDO_LPSR_DIG_TRACKING_EN_SP_REGISTER
 struct LDO_LPSR_DIG_TRACKING_EN_SP_fields_ {
-
   enum class eTRACKING_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     etrack0 = 0,
@@ -2123,6 +2104,7 @@ struct LDO_LPSR_DIG_TRACKING_EN_SP_fields_ {
     // Enabled
     etrack1 = 1,
   };
+
   // TRACKING_EN_SETPOINT0
   using TRACKING_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eTRACKING_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // TRACKING_EN_SETPOINT1
@@ -2213,10 +2195,8 @@ struct LDO_LPSR_DIG_TRACKING_EN_SP : ftl::mmio::Register<
   using TRACKING_EN_SETPOINT15 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT15;
 };
 
-
 // LDO_LPSR_DIG_BYPASS_EN_SP_REGISTER
 struct LDO_LPSR_DIG_BYPASS_EN_SP_fields_ {
-
   enum class eBYPASS_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     ebyp0 = 0,
@@ -2328,6 +2308,7 @@ struct LDO_LPSR_DIG_BYPASS_EN_SP_fields_ {
     // Enabled
     ebyp1 = 1,
   };
+
   // BYPASS_EN_SETPOINT0
   using BYPASS_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eBYPASS_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // BYPASS_EN_SETPOINT1
@@ -2418,10 +2399,8 @@ struct LDO_LPSR_DIG_BYPASS_EN_SP : ftl::mmio::Register<
   using BYPASS_EN_SETPOINT15 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT15;
 };
 
-
 // LDO_LPSR_DIG_STBY_EN_SP_REGISTER
 struct LDO_LPSR_DIG_STBY_EN_SP_fields_ {
-
   enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     eb0 = 0,
@@ -2533,6 +2512,7 @@ struct LDO_LPSR_DIG_STBY_EN_SP_fields_ {
     // Enabled
     eb1 = 1,
   };
+
   // STBY_EN_SETPOINT0
   using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // STBY_EN_SETPOINT1
@@ -2623,10 +2603,8 @@ struct LDO_LPSR_DIG_STBY_EN_SP : ftl::mmio::Register<
   using STBY_EN_SETPOINT15 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
 
-
 // BANDGAP_ENABLE_SP_REGISTER
 struct BANDGAP_ENABLE_SP_fields_ {
-
   enum class eON_OFF_SETPOINT0 : std::uint32_t {
     // ON
     es0 = 0,
@@ -2738,6 +2716,7 @@ struct BANDGAP_ENABLE_SP_fields_ {
     // OFF
     es1 = 1,
   };
+
   // ON_OFF_SETPOINT0
   using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // ON_OFF_SETPOINT1
@@ -2828,10 +2807,8 @@ struct BANDGAP_ENABLE_SP : ftl::mmio::Register<
   using ON_OFF_SETPOINT15 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
 
-
 // FBB_M7_ENABLE_SP_REGISTER
 struct FBB_M7_ENABLE_SP_fields_ {
-
   enum class eON_OFF_SETPOINT0 : std::uint32_t {
     // ON
     es0 = 0,
@@ -2943,6 +2920,7 @@ struct FBB_M7_ENABLE_SP_fields_ {
     // OFF
     es1 = 1,
   };
+
   // ON_OFF_SETPOINT0
   using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // ON_OFF_SETPOINT1
@@ -3033,10 +3011,8 @@ struct FBB_M7_ENABLE_SP : ftl::mmio::Register<
   using ON_OFF_SETPOINT15 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
 
-
 // RBB_SOC_ENABLE_SP_REGISTER
 struct RBB_SOC_ENABLE_SP_fields_ {
-
   enum class eON_OFF_SETPOINT0 : std::uint32_t {
     // ON
     es0 = 0,
@@ -3148,6 +3124,7 @@ struct RBB_SOC_ENABLE_SP_fields_ {
     // OFF
     es1 = 1,
   };
+
   // ON_OFF_SETPOINT0
   using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // ON_OFF_SETPOINT1
@@ -3238,10 +3215,8 @@ struct RBB_SOC_ENABLE_SP : ftl::mmio::Register<
   using ON_OFF_SETPOINT15 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
 
-
 // RBB_LPSR_ENABLE_SP_REGISTER
 struct RBB_LPSR_ENABLE_SP_fields_ {
-
   enum class eON_OFF_SETPOINT0 : std::uint32_t {
     // ON
     es0 = 0,
@@ -3353,6 +3328,7 @@ struct RBB_LPSR_ENABLE_SP_fields_ {
     // OFF
     es1 = 1,
   };
+
   // ON_OFF_SETPOINT0
   using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // ON_OFF_SETPOINT1
@@ -3443,10 +3419,8 @@ struct RBB_LPSR_ENABLE_SP : ftl::mmio::Register<
   using ON_OFF_SETPOINT15 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
 
-
 // BANDGAP_STBY_EN_SP_REGISTER
 struct BANDGAP_STBY_EN_SP_fields_ {
-
   enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     eb0 = 0,
@@ -3558,6 +3532,7 @@ struct BANDGAP_STBY_EN_SP_fields_ {
     // Enabled
     eb1 = 1,
   };
+
   // STBY_EN_SETPOINT
   using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // STBY_EN_SETPOINT
@@ -3648,10 +3623,8 @@ struct BANDGAP_STBY_EN_SP : ftl::mmio::Register<
   using STBY_EN_SETPOINT15 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
 
-
 // PLL_LDO_STBY_EN_SP_REGISTER
 struct PLL_LDO_STBY_EN_SP_fields_ {
-
   enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     eb0 = 0,
@@ -3763,6 +3736,7 @@ struct PLL_LDO_STBY_EN_SP_fields_ {
     // Enabled
     eb1 = 1,
   };
+
   // Standby mode
   using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby mode
@@ -3853,10 +3827,8 @@ struct PLL_LDO_STBY_EN_SP : ftl::mmio::Register<
   using STBY_EN_SETPOINT15 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
 
-
 // FBB_M7_STBY_EN_SP_REGISTER
 struct FBB_M7_STBY_EN_SP_fields_ {
-
   enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     eb0 = 0,
@@ -3968,6 +3940,7 @@ struct FBB_M7_STBY_EN_SP_fields_ {
     // Enabled
     eb1 = 1,
   };
+
   // Standby mode
   using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby mode
@@ -4058,10 +4031,8 @@ struct FBB_M7_STBY_EN_SP : ftl::mmio::Register<
   using STBY_EN_SETPOINT15 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
 
-
 // RBB_SOC_STBY_EN_SP_REGISTER
 struct RBB_SOC_STBY_EN_SP_fields_ {
-
   enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     eb0 = 0,
@@ -4173,6 +4144,7 @@ struct RBB_SOC_STBY_EN_SP_fields_ {
     // Enabled
     eb1 = 1,
   };
+
   // Standby mode
   using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby mode
@@ -4263,10 +4235,8 @@ struct RBB_SOC_STBY_EN_SP : ftl::mmio::Register<
   using STBY_EN_SETPOINT15 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
 
-
 // RBB_LPSR_STBY_EN_SP_REGISTER
 struct RBB_LPSR_STBY_EN_SP_fields_ {
-
   enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
     // Disabled
     eb0 = 0,
@@ -4378,6 +4348,7 @@ struct RBB_LPSR_STBY_EN_SP_fields_ {
     // Enabled
     eb1 = 1,
   };
+
   // Standby mode
   using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby mode
@@ -4468,7 +4439,6 @@ struct RBB_LPSR_STBY_EN_SP : ftl::mmio::Register<
   using STBY_EN_SETPOINT15 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
 
-
 // FBB_M7_CONFIGURE_REGISTER
 struct FBB_M7_CONFIGURE_fields_ {
   // wb_cfg_pw
@@ -4496,7 +4466,6 @@ struct FBB_M7_CONFIGURE : ftl::mmio::Register<
   using OSCILLATOR_BITS = FBB_M7_CONFIGURE_fields_::OSCILLATOR_BITS;
   using REGULATOR_STRENGTH = FBB_M7_CONFIGURE_fields_::REGULATOR_STRENGTH;
 };
-
 
 // RBB_LPSR_CONFIGURE_REGISTER
 struct RBB_LPSR_CONFIGURE_fields_ {
@@ -4526,7 +4495,6 @@ struct RBB_LPSR_CONFIGURE : ftl::mmio::Register<
   using REGULATOR_STRENGTH = RBB_LPSR_CONFIGURE_fields_::REGULATOR_STRENGTH;
 };
 
-
 // RBB_SOC_CONFIGURE_REGISTER
 struct RBB_SOC_CONFIGURE_fields_ {
   // wb_cfg_pw
@@ -4555,7 +4523,6 @@ struct RBB_SOC_CONFIGURE : ftl::mmio::Register<
   using REGULATOR_STRENGTH = RBB_SOC_CONFIGURE_fields_::REGULATOR_STRENGTH;
 };
 
-
 // REFTOP_OTP_TRIM_VALUE_REGISTER
 struct REFTOP_OTP_TRIM_VALUE_fields_ {
   // REFTOP_IBZTCADJ
@@ -4579,7 +4546,6 @@ struct REFTOP_OTP_TRIM_VALUE : ftl::mmio::Register<
   using REFTOP_VBGADJ = REFTOP_OTP_TRIM_VALUE_fields_::REFTOP_VBGADJ;
   using REFTOP_TRIM_EN = REFTOP_OTP_TRIM_VALUE_fields_::REFTOP_TRIM_EN;
 };
-
 
 // LPSR_1P8_LDO_OTP_TRIM_VALUE_REGISTER
 struct LPSR_1P8_LDO_OTP_TRIM_VALUE_fields_ {

@@ -20,7 +20,7 @@ struct DR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     DR_fields_::DR> {
-  using value_ = DR_fields_::DR;
+  using VALUE = DR_fields_::DR;
 };
 
 // GPIO direction register
@@ -35,7 +35,7 @@ struct GDIR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     GDIR_fields_::GDIR> {
-  using value_ = GDIR_fields_::GDIR;
+  using VALUE = GDIR_fields_::GDIR;
 };
 
 // GPIO pad status register
@@ -50,7 +50,7 @@ struct PSR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RO,
     PSR_fields_::PSR> {
-  using value_ = PSR_fields_::PSR;
+  using VALUE = PSR_fields_::PSR;
 };
 
 // GPIO interrupt configuration register1
@@ -303,7 +303,7 @@ struct ICR1 : ftl::mmio::Register<
   using eICR14 = ICR1_fields_::eICR14;
   using eICR15 = ICR1_fields_::eICR15;
   using ICR0 = ICR1_fields_::ICR0;
-  using value_ = ICR1_fields_::ICR1;
+  using VALUE = ICR1_fields_::ICR1;
   using ICR2 = ICR1_fields_::ICR2;
   using ICR3 = ICR1_fields_::ICR3;
   using ICR4 = ICR1_fields_::ICR4;
@@ -599,7 +599,7 @@ struct IMR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     IMR_fields_::IMR> {
-  using value_ = IMR_fields_::IMR;
+  using VALUE = IMR_fields_::IMR;
 };
 
 // GPIO interrupt status register
@@ -614,7 +614,7 @@ struct ISR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::RW,
     ISR_fields_::ISR> {
-  using value_ = ISR_fields_::ISR;
+  using VALUE = ISR_fields_::ISR;
 };
 
 // GPIO edge select register
@@ -644,7 +644,7 @@ struct DR_SET : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::WO,
     DR_SET_fields_::DR_SET> {
-  using value_ = DR_SET_fields_::DR_SET;
+  using VALUE = DR_SET_fields_::DR_SET;
 };
 
 // GPIO data register CLEAR
@@ -659,7 +659,7 @@ struct DR_CLEAR : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::WO,
     DR_CLEAR_fields_::DR_CLEAR> {
-  using value_ = DR_CLEAR_fields_::DR_CLEAR;
+  using VALUE = DR_CLEAR_fields_::DR_CLEAR;
 };
 
 // GPIO data register TOGGLE
@@ -674,7 +674,7 @@ struct DR_TOGGLE : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::WO,
     DR_TOGGLE_fields_::DR_TOGGLE> {
-  using value_ = DR_TOGGLE_fields_::DR_TOGGLE;
+  using VALUE = DR_TOGGLE_fields_::DR_TOGGLE;
 };
 
 }  // namespace regs::cm7_gpio3

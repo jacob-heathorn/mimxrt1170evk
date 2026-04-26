@@ -488,7 +488,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUF_fields_::SHIFTBUF> {
     static_assert(Index < 8u, "SHIFTBUF: Index out of range");
-    using value_ = typename SHIFTBUF_fields_::SHIFTBUF;
+    using VALUE = typename SHIFTBUF_fields_::SHIFTBUF;
   };
 
   // Shifter Buffer N Bit Swapped Register
@@ -505,7 +505,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUFBIS_fields_::SHIFTBUFBIS> {
     static_assert(Index < 8u, "SHIFTBUFBIS: Index out of range");
-    using value_ = typename SHIFTBUFBIS_fields_::SHIFTBUFBIS;
+    using VALUE = typename SHIFTBUFBIS_fields_::SHIFTBUFBIS;
   };
 
   // Shifter Buffer N Byte Swapped Register
@@ -522,7 +522,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUFBYS_fields_::SHIFTBUFBYS> {
     static_assert(Index < 8u, "SHIFTBUFBYS: Index out of range");
-    using value_ = typename SHIFTBUFBYS_fields_::SHIFTBUFBYS;
+    using VALUE = typename SHIFTBUFBYS_fields_::SHIFTBUFBYS;
   };
 
   // Shifter Buffer N Bit Byte Swapped Register
@@ -539,7 +539,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUFBBS_fields_::SHIFTBUFBBS> {
     static_assert(Index < 8u, "SHIFTBUFBBS: Index out of range");
-    using value_ = typename SHIFTBUFBBS_fields_::SHIFTBUFBBS;
+    using VALUE = typename SHIFTBUFBBS_fields_::SHIFTBUFBBS;
   };
 
   // Timer Control N Register
@@ -856,7 +856,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUFNBS_fields_::SHIFTBUFNBS> {
     static_assert(Index < 8u, "SHIFTBUFNBS: Index out of range");
-    using value_ = typename SHIFTBUFNBS_fields_::SHIFTBUFNBS;
+    using VALUE = typename SHIFTBUFNBS_fields_::SHIFTBUFNBS;
   };
 
   // Shifter Buffer N Half Word Swapped Register
@@ -873,7 +873,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUFHWS_fields_::SHIFTBUFHWS> {
     static_assert(Index < 8u, "SHIFTBUFHWS: Index out of range");
-    using value_ = typename SHIFTBUFHWS_fields_::SHIFTBUFHWS;
+    using VALUE = typename SHIFTBUFHWS_fields_::SHIFTBUFHWS;
   };
 
   // Shifter Buffer N Nibble Swapped Register
@@ -890,7 +890,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUFNIS_fields_::SHIFTBUFNIS> {
     static_assert(Index < 8u, "SHIFTBUFNIS: Index out of range");
-    using value_ = typename SHIFTBUFNIS_fields_::SHIFTBUFNIS;
+    using VALUE = typename SHIFTBUFNIS_fields_::SHIFTBUFNIS;
   };
 
   // Shifter Buffer N Odd Even Swapped Register
@@ -907,7 +907,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUFOES_fields_::SHIFTBUFOES> {
     static_assert(Index < 8u, "SHIFTBUFOES: Index out of range");
-    using value_ = typename SHIFTBUFOES_fields_::SHIFTBUFOES;
+    using VALUE = typename SHIFTBUFOES_fields_::SHIFTBUFOES;
   };
 
   // Shifter Buffer N Even Odd Swapped Register
@@ -924,7 +924,7 @@ struct Flexio {
       ftl::mmio::RW,
       typename SHIFTBUFEOS_fields_::SHIFTBUFEOS> {
     static_assert(Index < 8u, "SHIFTBUFEOS: Index out of range");
-    using value_ = typename SHIFTBUFEOS_fields_::SHIFTBUFEOS;
+    using VALUE = typename SHIFTBUFEOS_fields_::SHIFTBUFEOS;
   };
 
 };

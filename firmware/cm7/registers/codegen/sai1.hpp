@@ -619,7 +619,7 @@ struct TDR : ftl::mmio::Register<
     ftl::mmio::RW,
     TDR_fields_::TDR> {
   static_assert(Index < 4u, "TDR: Index out of range");
-  using value_ = TDR_fields_::TDR;
+  using VALUE = TDR_fields_::TDR;
 };
 
 // Transmit FIFO
@@ -1224,7 +1224,7 @@ struct RDR : ftl::mmio::Register<
     ftl::mmio::RO,
     RDR_fields_::RDR> {
   static_assert(Index < 4u, "RDR: Index out of range");
-  using value_ = RDR_fields_::RDR;
+  using VALUE = RDR_fields_::RDR;
 };
 
 // Receive FIFO

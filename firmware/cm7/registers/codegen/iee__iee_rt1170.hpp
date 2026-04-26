@@ -317,7 +317,7 @@ struct DPAMS : ftl::mmio::Register<
     0x00000000u,
     ftl::mmio::WO,
     DPAMS_fields_::DPAMS> {
-  using value_ = DPAMS_fields_::DPAMS;
+  using VALUE = DPAMS_fields_::DPAMS;
 };
 
 // Performance Counter, AES Slave Latency Threshold Value
@@ -887,7 +887,7 @@ struct AESVID : ftl::mmio::Register<
     AESVID_fields_::AESVID,
     ftl::mmio::Reserved<24, 8>> {
   using AESRN = AESVID_fields_::AESRN;
-  using value_ = AESVID_fields_::AESVID;
+  using VALUE = AESVID_fields_::AESVID;
 };
 
 // IEE AES Test Mode Data Buffer

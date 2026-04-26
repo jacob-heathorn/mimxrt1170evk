@@ -21,7 +21,7 @@ struct GFWR : ftl::mmio::Register<
     ftl::mmio::RW,
     GFWR_fields_::GFWR,
     ftl::mmio::Reserved<24, 8>> {
-  using value_ = GFWR_fields_::GFWR;
+  using VALUE = GFWR_fields_::GFWR;
 };
 
 }  // namespace regs::can1_wrapper

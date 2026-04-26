@@ -471,7 +471,7 @@ struct Can {
       ftl::mmio::RW,
       typename TIMER_fields_::TIMER,
       ftl::mmio::Reserved<16, 16>> {
-    using value_ = typename TIMER_fields_::TIMER;
+    using VALUE = typename TIMER_fields_::TIMER;
   };
 
   // Rx Mailboxes Global Mask Register

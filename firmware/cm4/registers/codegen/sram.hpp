@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::sram {
 
-
 // Control Register
 struct CTRL_fields_ {
-
   enum class eRAM_RD_EN : std::uint32_t {
     // Disable read access
     eDISABLE = 0,
@@ -39,6 +37,7 @@ struct CTRL_fields_ {
     // Turn off power for all secure RAM banks when tamper is detected
     eON = 1,
   };
+
   // RAM Read Enable (with lock)
   using RAM_RD_EN = ftl::mmio::Field<1, 0, eRAM_RD_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // RAM Write Enable (with lock)
