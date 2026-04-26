@@ -1,7 +1,9 @@
 #include "drivers/gpio.hpp"
 #include <cassert>
 
-namespace iomuxc = regs::iomuxc;
+namespace {
+using Iomuxc = regs::Iomuxc;
+}  // namespace
 
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::configurePinMux() {
@@ -15,13 +17,13 @@ void Gpio<9>::configurePinMux() {
     switch (pin_)
     {
       case 3: {
-        using pad = iomuxc::SW_MUX_CTL_PAD_GPIO_AD_04;
-        pad::modify(pad::MUX_MODE{pad::eMUX_MODE::eALT10_gpio9_IO3});
+        using Pad = Iomuxc::SW_MUX_CTL_PAD_GPIO_AD_04;
+        Pad::modify(Pad::MUX_MODE{Pad::eMUX_MODE::eALT10_gpio9_IO3});
         break;
       }
       case 25: {
-        using pad = iomuxc::SW_MUX_CTL_PAD_GPIO_AD_26;
-        pad::modify(pad::MUX_MODE{pad::eMUX_MODE::eALT10_gpio9_IO25});
+        using Pad = Iomuxc::SW_MUX_CTL_PAD_GPIO_AD_26;
+        Pad::modify(Pad::MUX_MODE{Pad::eMUX_MODE::eALT10_gpio9_IO25});
         break;
       }
       default:

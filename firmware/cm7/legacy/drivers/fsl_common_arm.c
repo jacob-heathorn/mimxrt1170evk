@@ -159,11 +159,13 @@ static void DelayLoop(uint32_t count)
 {
     __ASM volatile("    MOV    X0, %0" : : "r"(count));
     __ASM volatile(
-        "loop:                          \n"
+        // Numeric local label so LTO can inline this into multiple call sites
+        // within one TU without colliding on a shared `loop:` symbol.
+        "1:                             \n"
         "    SUB    X0, X0, #1          \n"
         "    CMP    X0, #0              \n"
 
-        "    BNE    loop                \n"
+        "    BNE    1b                  \n"
         :
         :
         : "r0");
@@ -176,7 +178,9 @@ static void DelayLoop(uint32_t count)
 {
     __ASM volatile("    MOV    R0, %0" : : "r"(count));
     __ASM volatile(
-        "loop:                          \n"
+        // Numeric local label so LTO can inline this into multiple call sites
+        // within one TU without colliding on a shared `loop:` symbol.
+        "1:                             \n"
 #if defined(__GNUC__) && !defined(__ARMCC_VERSION)
         "    SUB    R0, R0, #1          \n"
 #else
@@ -184,7 +188,7 @@ static void DelayLoop(uint32_t count)
 #endif
         "    CMP    R0, #0              \n"
 
-        "    BNE    loop                \n"
+        "    BNE    1b                  \n"
         :
         :
         : "r0");

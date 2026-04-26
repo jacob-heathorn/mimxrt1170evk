@@ -19,7 +19,9 @@
 
 #include <uavcan/node/Heartbeat_1_0.hpp>
 
+namespace {
 using namespace ftl::ipv4;
+}  // namespace
 
 static constexpr uint16_t kSourceNodeId = 1002;
 

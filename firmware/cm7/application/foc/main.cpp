@@ -63,7 +63,7 @@ int main() {
 
     if (status != Lpi2cStatus::eOk) {
       std::printf("read error: %u\r\n", static_cast<unsigned>(status));
-      for (volatile int i = 0; i < 1'000'000; ++i) {}
+      for (int i = 0; i < 1'000'000; ++i) { asm volatile(""); }
       continue;
     }
 
@@ -72,6 +72,6 @@ int main() {
                 angle, static_cast<double>(angle * (360.0f / kAngleCounts)),
                 readU8(i2c, kRegStatus), readU8(i2c, kRegAgc));
 
-    for (volatile int i = 0; i < 1'000'000; ++i) {}
+    for (int i = 0; i < 1'000'000; ++i) { asm volatile(""); }
   }
 }

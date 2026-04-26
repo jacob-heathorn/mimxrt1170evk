@@ -1,19 +1,17 @@
 #include <sys/stat.h>
 #include <errno.h>
-#include "platform/lpuart.hpp"
-
-// Lpuart1 lpuart;
+#include "platform/console_uart.hpp"
 
 extern "C" {
     int _write(int fd, const char* ptr, int len) {
         (void)fd;  // Ignore file descriptor
-        Lpuart1::instance().write(reinterpret_cast<const uint8_t*>(ptr), len);
+        ConsoleUart::instance().write(reinterpret_cast<const uint8_t*>(ptr), len);
         return len;
     }
 
     int _read(int fd, char* ptr, int len) {
         (void)fd;  // Ignore file descriptor
-        *ptr = Lpuart1::instance().read_byte();
+        *ptr = ConsoleUart::instance().read_byte();
         
         // Convert \r to \n for the expected stop condition.
         if (*ptr == '\r' || *ptr == '\n')
