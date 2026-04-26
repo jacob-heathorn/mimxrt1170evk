@@ -4,11 +4,11 @@
 #include "registers/codegen/iomuxc_lpsr.hpp"
 #include "registers/codegen/lpi2c.hpp"
 
+namespace {
+
 using Ccm = regs::Ccm;
 using IomuxcLpsr = regs::IomuxcLpsr;
 using Lp = regs::Lpi2c<5>;
-
-namespace {
 
 // SCL timing for 400 kHz with functional clock = 24 MHz, PRESCALE = 1.
 constexpr std::uint32_t kClkLo   = 36;

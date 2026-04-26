@@ -1,7 +1,9 @@
 #include "drivers/gpio.hpp"
 #include <cassert>
 
+namespace {
 using Iomuxc = regs::Iomuxc;
+}  // namespace
 
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::configurePinMux() {

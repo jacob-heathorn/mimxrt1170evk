@@ -11,8 +11,10 @@
 #include "registers/codegen/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
 
+namespace {
 using Dma0 = regs::Dma0;
 using Dmamux0 = regs::Dmamux0;
+}  // namespace
 
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"

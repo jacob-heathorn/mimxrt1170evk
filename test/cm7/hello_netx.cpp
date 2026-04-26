@@ -13,7 +13,9 @@
 #include "utils/dtcm_allocator.hpp"
 #include "network/nx_udp_socket.hpp"
 
+namespace {
 using namespace ftl::ipv4;
+}  // namespace
 
 
 #define STACK_SIZE 2048
