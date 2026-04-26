@@ -10,10 +10,10 @@ namespace regs {
 
 struct SsarcHp {
   // Description Address Register
-  struct SRAM0__fields_ {
+  struct Sram0Fields {
     // Address field
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SRAM0__fields_
+  };  // struct Sram0Fields
 
   template<std::uint32_t ClusterIndex>
   struct SRAM0_ : ftl::mmio::Register<
@@ -21,16 +21,16 @@ struct SsarcHp {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SRAM0__fields_::ADDR> {
+      Sram0Fields::ADDR> {
     static_assert(ClusterIndex < 1024u, "SRAM0_: ClusterIndex out of range");
-    using ADDR = SRAM0__fields_::ADDR;
+    using ADDR = Sram0Fields::ADDR;
   };
 
   // Description Data Register
-  struct SRAM1__fields_ {
+  struct Sram1Fields {
     // Data field
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SRAM1__fields_
+  };  // struct Sram1Fields
 
   template<std::uint32_t ClusterIndex>
   struct SRAM1_ : ftl::mmio::Register<
@@ -38,13 +38,13 @@ struct SsarcHp {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SRAM1__fields_::DATA> {
+      Sram1Fields::DATA> {
     static_assert(ClusterIndex < 1024u, "SRAM1_: ClusterIndex out of range");
-    using DATA = SRAM1__fields_::DATA;
+    using DATA = Sram1Fields::DATA;
   };
 
   // Description Control Register
-  struct SRAM2__fields_ {
+  struct Sram2Fields {
     enum class eTYPE : std::uint32_t {
       // SR
       eSR = 0,
@@ -93,7 +93,7 @@ struct SsarcHp {
     using RT_EN = ftl::mmio::Field<1, 5, eRT_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Size field
     using SIZE = ftl::mmio::Field<2, 6, eSIZE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SRAM2__fields_
+  };  // struct Sram2Fields
 
   template<std::uint32_t ClusterIndex>
   struct SRAM2_ : ftl::mmio::Register<
@@ -101,21 +101,21 @@ struct SsarcHp {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SRAM2__fields_::TYPE,
+      Sram2Fields::TYPE,
       ftl::mmio::Reserved<1, 3>,
-      SRAM2__fields_::SV_EN,
-      SRAM2__fields_::RT_EN,
-      SRAM2__fields_::SIZE,
+      Sram2Fields::SV_EN,
+      Sram2Fields::RT_EN,
+      Sram2Fields::SIZE,
       ftl::mmio::Reserved<24, 8>> {
     static_assert(ClusterIndex < 1024u, "SRAM2_: ClusterIndex out of range");
-    using eTYPE = SRAM2__fields_::eTYPE;
-    using eSV_EN = SRAM2__fields_::eSV_EN;
-    using eRT_EN = SRAM2__fields_::eRT_EN;
-    using eSIZE = SRAM2__fields_::eSIZE;
-    using TYPE = SRAM2__fields_::TYPE;
-    using SV_EN = SRAM2__fields_::SV_EN;
-    using RT_EN = SRAM2__fields_::RT_EN;
-    using SIZE = SRAM2__fields_::SIZE;
+    using eTYPE = Sram2Fields::eTYPE;
+    using eSV_EN = Sram2Fields::eSV_EN;
+    using eRT_EN = Sram2Fields::eRT_EN;
+    using eSIZE = Sram2Fields::eSIZE;
+    using TYPE = Sram2Fields::TYPE;
+    using SV_EN = Sram2Fields::SV_EN;
+    using RT_EN = Sram2Fields::RT_EN;
+    using SIZE = Sram2Fields::SIZE;
   };
 
 };

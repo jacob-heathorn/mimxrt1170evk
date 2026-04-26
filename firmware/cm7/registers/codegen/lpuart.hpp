@@ -30,7 +30,7 @@ struct Lpuart {
       0u;
 
   // Version ID Register
-  struct VERID_fields_ {
+  struct VeridFields {
     enum class eFEATURE : std::uint32_t {
       // Standard feature set.
       eSTANDARD = 1,
@@ -44,44 +44,44 @@ struct Lpuart {
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Major Version Number
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERID_fields_
+  };  // struct VeridFields
 
   struct VERID : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x04010003u,
       ftl::mmio::RO,
-      typename VERID_fields_::FEATURE,
-      typename VERID_fields_::MINOR,
-      typename VERID_fields_::MAJOR> {
-    using eFEATURE = typename VERID_fields_::eFEATURE;
-    using FEATURE = typename VERID_fields_::FEATURE;
-    using MINOR = typename VERID_fields_::MINOR;
-    using MAJOR = typename VERID_fields_::MAJOR;
+      typename VeridFields::FEATURE,
+      typename VeridFields::MINOR,
+      typename VeridFields::MAJOR> {
+    using eFEATURE = typename VeridFields::eFEATURE;
+    using FEATURE = typename VeridFields::FEATURE;
+    using MINOR = typename VeridFields::MINOR;
+    using MAJOR = typename VeridFields::MAJOR;
   };
 
   // Parameter Register
-  struct PARAM_fields_ {
+  struct ParamFields {
     // Transmit FIFO Size
     using TXFIFO = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Receive FIFO Size
     using RXFIFO = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PARAM_fields_
+  };  // struct ParamFields
 
   struct PARAM : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00000202u,
       ftl::mmio::RO,
-      typename PARAM_fields_::TXFIFO,
-      typename PARAM_fields_::RXFIFO,
+      typename ParamFields::TXFIFO,
+      typename ParamFields::RXFIFO,
       ftl::mmio::Reserved<16, 16>> {
-    using TXFIFO = typename PARAM_fields_::TXFIFO;
-    using RXFIFO = typename PARAM_fields_::RXFIFO;
+    using TXFIFO = typename ParamFields::TXFIFO;
+    using RXFIFO = typename ParamFields::RXFIFO;
   };
 
   // LPUART Global Register
-  struct GLOBAL_fields_ {
+  struct GlobalFields {
     enum class eRST : std::uint32_t {
       // Module is not reset.
       eNO_EFFECT = 0,
@@ -91,7 +91,7 @@ struct Lpuart {
 
     // Software Reset
     using RST = ftl::mmio::Field<1, 1, eRST, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GLOBAL_fields_
+  };  // struct GlobalFields
 
   struct GLOBAL : ftl::mmio::Register<
       kBase + 0x8u,
@@ -99,14 +99,14 @@ struct Lpuart {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      typename GLOBAL_fields_::RST,
+      typename GlobalFields::RST,
       ftl::mmio::Reserved<30, 2>> {
-    using eRST = typename GLOBAL_fields_::eRST;
-    using RST = typename GLOBAL_fields_::RST;
+    using eRST = typename GlobalFields::eRST;
+    using RST = typename GlobalFields::RST;
   };
 
   // LPUART Pin Configuration Register
-  struct PINCFG_fields_ {
+  struct PincfgFields {
     enum class eTRGSEL : std::uint32_t {
       // Input trigger is disabled.
       eDISABLED = 0,
@@ -120,21 +120,21 @@ struct Lpuart {
 
     // Trigger Select
     using TRGSEL = ftl::mmio::Field<2, 0, eTRGSEL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PINCFG_fields_
+  };  // struct PincfgFields
 
   struct PINCFG : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename PINCFG_fields_::TRGSEL,
+      typename PincfgFields::TRGSEL,
       ftl::mmio::Reserved<30, 2>> {
-    using eTRGSEL = typename PINCFG_fields_::eTRGSEL;
-    using TRGSEL = typename PINCFG_fields_::TRGSEL;
+    using eTRGSEL = typename PincfgFields::eTRGSEL;
+    using TRGSEL = typename PincfgFields::TRGSEL;
   };
 
   // LPUART Baud Rate Register
-  struct BAUD_fields_ {
+  struct BaudFields {
     enum class eSBNS : std::uint32_t {
       // One stop bit.
       eONE = 0,
@@ -305,57 +305,57 @@ struct Lpuart {
     using MAEN2 = ftl::mmio::Field<1, 30, eMAEN2, ftl::mmio::RW, ftl::mmio::Normal>;
     // Match Address Mode Enable 1
     using MAEN1 = ftl::mmio::Field<1, 31, eMAEN1, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BAUD_fields_
+  };  // struct BaudFields
 
   struct BAUD : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x0F000004u,
       ftl::mmio::RW,
-      typename BAUD_fields_::SBR,
-      typename BAUD_fields_::SBNS,
-      typename BAUD_fields_::RXEDGIE,
-      typename BAUD_fields_::LBKDIE,
-      typename BAUD_fields_::RESYNCDIS,
-      typename BAUD_fields_::BOTHEDGE,
-      typename BAUD_fields_::MATCFG,
+      typename BaudFields::SBR,
+      typename BaudFields::SBNS,
+      typename BaudFields::RXEDGIE,
+      typename BaudFields::LBKDIE,
+      typename BaudFields::RESYNCDIS,
+      typename BaudFields::BOTHEDGE,
+      typename BaudFields::MATCFG,
       ftl::mmio::Reserved<1, 20>,
-      typename BAUD_fields_::RDMAE,
+      typename BaudFields::RDMAE,
       ftl::mmio::Reserved<1, 22>,
-      typename BAUD_fields_::TDMAE,
-      typename BAUD_fields_::OSR,
-      typename BAUD_fields_::M10,
-      typename BAUD_fields_::MAEN2,
-      typename BAUD_fields_::MAEN1> {
-    using eSBNS = typename BAUD_fields_::eSBNS;
-    using eRXEDGIE = typename BAUD_fields_::eRXEDGIE;
-    using eLBKDIE = typename BAUD_fields_::eLBKDIE;
-    using eRESYNCDIS = typename BAUD_fields_::eRESYNCDIS;
-    using eBOTHEDGE = typename BAUD_fields_::eBOTHEDGE;
-    using eMATCFG = typename BAUD_fields_::eMATCFG;
-    using eRDMAE = typename BAUD_fields_::eRDMAE;
-    using eTDMAE = typename BAUD_fields_::eTDMAE;
-    using eOSR = typename BAUD_fields_::eOSR;
-    using eM10 = typename BAUD_fields_::eM10;
-    using eMAEN2 = typename BAUD_fields_::eMAEN2;
-    using eMAEN1 = typename BAUD_fields_::eMAEN1;
-    using SBR = typename BAUD_fields_::SBR;
-    using SBNS = typename BAUD_fields_::SBNS;
-    using RXEDGIE = typename BAUD_fields_::RXEDGIE;
-    using LBKDIE = typename BAUD_fields_::LBKDIE;
-    using RESYNCDIS = typename BAUD_fields_::RESYNCDIS;
-    using BOTHEDGE = typename BAUD_fields_::BOTHEDGE;
-    using MATCFG = typename BAUD_fields_::MATCFG;
-    using RDMAE = typename BAUD_fields_::RDMAE;
-    using TDMAE = typename BAUD_fields_::TDMAE;
-    using OSR = typename BAUD_fields_::OSR;
-    using M10 = typename BAUD_fields_::M10;
-    using MAEN2 = typename BAUD_fields_::MAEN2;
-    using MAEN1 = typename BAUD_fields_::MAEN1;
+      typename BaudFields::TDMAE,
+      typename BaudFields::OSR,
+      typename BaudFields::M10,
+      typename BaudFields::MAEN2,
+      typename BaudFields::MAEN1> {
+    using eSBNS = typename BaudFields::eSBNS;
+    using eRXEDGIE = typename BaudFields::eRXEDGIE;
+    using eLBKDIE = typename BaudFields::eLBKDIE;
+    using eRESYNCDIS = typename BaudFields::eRESYNCDIS;
+    using eBOTHEDGE = typename BaudFields::eBOTHEDGE;
+    using eMATCFG = typename BaudFields::eMATCFG;
+    using eRDMAE = typename BaudFields::eRDMAE;
+    using eTDMAE = typename BaudFields::eTDMAE;
+    using eOSR = typename BaudFields::eOSR;
+    using eM10 = typename BaudFields::eM10;
+    using eMAEN2 = typename BaudFields::eMAEN2;
+    using eMAEN1 = typename BaudFields::eMAEN1;
+    using SBR = typename BaudFields::SBR;
+    using SBNS = typename BaudFields::SBNS;
+    using RXEDGIE = typename BaudFields::RXEDGIE;
+    using LBKDIE = typename BaudFields::LBKDIE;
+    using RESYNCDIS = typename BaudFields::RESYNCDIS;
+    using BOTHEDGE = typename BaudFields::BOTHEDGE;
+    using MATCFG = typename BaudFields::MATCFG;
+    using RDMAE = typename BaudFields::RDMAE;
+    using TDMAE = typename BaudFields::TDMAE;
+    using OSR = typename BaudFields::OSR;
+    using M10 = typename BaudFields::M10;
+    using MAEN2 = typename BaudFields::MAEN2;
+    using MAEN1 = typename BaudFields::MAEN1;
   };
 
   // LPUART Status Register
-  struct STAT_fields_ {
+  struct StatFields {
     enum class eMA2F : std::uint32_t {
       // Received data is not equal to MA2
       eNOMATCH = 0,
@@ -518,7 +518,7 @@ struct Lpuart {
     using RXEDGIF = ftl::mmio::Field<1, 30, eRXEDGIF, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // LIN Break Detect Interrupt Flag
     using LBKDIF = ftl::mmio::Field<1, 31, eLBKDIF, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct STAT_fields_
+  };  // struct StatFields
 
   struct STAT : ftl::mmio::Register<
       kBase + 0x14u,
@@ -526,64 +526,64 @@ struct Lpuart {
       0x00C00000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<14, 0>,
-      typename STAT_fields_::MA2F,
-      typename STAT_fields_::MA1F,
-      typename STAT_fields_::PF,
-      typename STAT_fields_::FE,
-      typename STAT_fields_::NF,
-      typename STAT_fields_::OR,
-      typename STAT_fields_::IDLE,
-      typename STAT_fields_::RDRF,
-      typename STAT_fields_::TC,
-      typename STAT_fields_::TDRE,
-      typename STAT_fields_::RAF,
-      typename STAT_fields_::LBKDE,
-      typename STAT_fields_::BRK13,
-      typename STAT_fields_::RWUID,
-      typename STAT_fields_::RXINV,
-      typename STAT_fields_::MSBF,
-      typename STAT_fields_::RXEDGIF,
-      typename STAT_fields_::LBKDIF> {
-    using eMA2F = typename STAT_fields_::eMA2F;
-    using eMA1F = typename STAT_fields_::eMA1F;
-    using ePF = typename STAT_fields_::ePF;
-    using eFE = typename STAT_fields_::eFE;
-    using eNF = typename STAT_fields_::eNF;
-    using eOR = typename STAT_fields_::eOR;
-    using eIDLE = typename STAT_fields_::eIDLE;
-    using eRDRF = typename STAT_fields_::eRDRF;
-    using eTC = typename STAT_fields_::eTC;
-    using eTDRE = typename STAT_fields_::eTDRE;
-    using eRAF = typename STAT_fields_::eRAF;
-    using eLBKDE = typename STAT_fields_::eLBKDE;
-    using eBRK13 = typename STAT_fields_::eBRK13;
-    using eRWUID = typename STAT_fields_::eRWUID;
-    using eRXINV = typename STAT_fields_::eRXINV;
-    using eMSBF = typename STAT_fields_::eMSBF;
-    using eRXEDGIF = typename STAT_fields_::eRXEDGIF;
-    using eLBKDIF = typename STAT_fields_::eLBKDIF;
-    using MA2F = typename STAT_fields_::MA2F;
-    using MA1F = typename STAT_fields_::MA1F;
-    using PF = typename STAT_fields_::PF;
-    using FE = typename STAT_fields_::FE;
-    using NF = typename STAT_fields_::NF;
-    using OR = typename STAT_fields_::OR;
-    using IDLE = typename STAT_fields_::IDLE;
-    using RDRF = typename STAT_fields_::RDRF;
-    using TC = typename STAT_fields_::TC;
-    using TDRE = typename STAT_fields_::TDRE;
-    using RAF = typename STAT_fields_::RAF;
-    using LBKDE = typename STAT_fields_::LBKDE;
-    using BRK13 = typename STAT_fields_::BRK13;
-    using RWUID = typename STAT_fields_::RWUID;
-    using RXINV = typename STAT_fields_::RXINV;
-    using MSBF = typename STAT_fields_::MSBF;
-    using RXEDGIF = typename STAT_fields_::RXEDGIF;
-    using LBKDIF = typename STAT_fields_::LBKDIF;
+      typename StatFields::MA2F,
+      typename StatFields::MA1F,
+      typename StatFields::PF,
+      typename StatFields::FE,
+      typename StatFields::NF,
+      typename StatFields::OR,
+      typename StatFields::IDLE,
+      typename StatFields::RDRF,
+      typename StatFields::TC,
+      typename StatFields::TDRE,
+      typename StatFields::RAF,
+      typename StatFields::LBKDE,
+      typename StatFields::BRK13,
+      typename StatFields::RWUID,
+      typename StatFields::RXINV,
+      typename StatFields::MSBF,
+      typename StatFields::RXEDGIF,
+      typename StatFields::LBKDIF> {
+    using eMA2F = typename StatFields::eMA2F;
+    using eMA1F = typename StatFields::eMA1F;
+    using ePF = typename StatFields::ePF;
+    using eFE = typename StatFields::eFE;
+    using eNF = typename StatFields::eNF;
+    using eOR = typename StatFields::eOR;
+    using eIDLE = typename StatFields::eIDLE;
+    using eRDRF = typename StatFields::eRDRF;
+    using eTC = typename StatFields::eTC;
+    using eTDRE = typename StatFields::eTDRE;
+    using eRAF = typename StatFields::eRAF;
+    using eLBKDE = typename StatFields::eLBKDE;
+    using eBRK13 = typename StatFields::eBRK13;
+    using eRWUID = typename StatFields::eRWUID;
+    using eRXINV = typename StatFields::eRXINV;
+    using eMSBF = typename StatFields::eMSBF;
+    using eRXEDGIF = typename StatFields::eRXEDGIF;
+    using eLBKDIF = typename StatFields::eLBKDIF;
+    using MA2F = typename StatFields::MA2F;
+    using MA1F = typename StatFields::MA1F;
+    using PF = typename StatFields::PF;
+    using FE = typename StatFields::FE;
+    using NF = typename StatFields::NF;
+    using OR = typename StatFields::OR;
+    using IDLE = typename StatFields::IDLE;
+    using RDRF = typename StatFields::RDRF;
+    using TC = typename StatFields::TC;
+    using TDRE = typename StatFields::TDRE;
+    using RAF = typename StatFields::RAF;
+    using LBKDE = typename StatFields::LBKDE;
+    using BRK13 = typename StatFields::BRK13;
+    using RWUID = typename StatFields::RWUID;
+    using RXINV = typename StatFields::RXINV;
+    using MSBF = typename StatFields::MSBF;
+    using RXEDGIF = typename StatFields::RXEDGIF;
+    using LBKDIF = typename StatFields::LBKDIF;
   };
 
   // LPUART Control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class ePT : std::uint32_t {
       // Even parity.
       eEVEN = 0,
@@ -834,100 +834,100 @@ struct Lpuart {
     using R9T8 = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Bit 8 / Transmit Bit 9
     using R8T9 = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CTRL_fields_::PT,
-      typename CTRL_fields_::PE,
-      typename CTRL_fields_::ILT,
-      typename CTRL_fields_::WAKE,
-      typename CTRL_fields_::M,
-      typename CTRL_fields_::RSRC,
-      typename CTRL_fields_::DOZEEN,
-      typename CTRL_fields_::LOOPS,
-      typename CTRL_fields_::IDLECFG,
-      typename CTRL_fields_::M7,
+      typename CtrlFields::PT,
+      typename CtrlFields::PE,
+      typename CtrlFields::ILT,
+      typename CtrlFields::WAKE,
+      typename CtrlFields::M,
+      typename CtrlFields::RSRC,
+      typename CtrlFields::DOZEEN,
+      typename CtrlFields::LOOPS,
+      typename CtrlFields::IDLECFG,
+      typename CtrlFields::M7,
       ftl::mmio::Reserved<2, 12>,
-      typename CTRL_fields_::MA2IE,
-      typename CTRL_fields_::MA1IE,
-      typename CTRL_fields_::SBK,
-      typename CTRL_fields_::RWU,
-      typename CTRL_fields_::RE,
-      typename CTRL_fields_::TE,
-      typename CTRL_fields_::ILIE,
-      typename CTRL_fields_::RIE,
-      typename CTRL_fields_::TCIE,
-      typename CTRL_fields_::TIE,
-      typename CTRL_fields_::PEIE,
-      typename CTRL_fields_::FEIE,
-      typename CTRL_fields_::NEIE,
-      typename CTRL_fields_::ORIE,
-      typename CTRL_fields_::TXINV,
-      typename CTRL_fields_::TXDIR,
-      typename CTRL_fields_::R9T8,
-      typename CTRL_fields_::R8T9> {
-    using ePT = typename CTRL_fields_::ePT;
-    using ePE = typename CTRL_fields_::ePE;
-    using eILT = typename CTRL_fields_::eILT;
-    using eWAKE = typename CTRL_fields_::eWAKE;
-    using eM = typename CTRL_fields_::eM;
-    using eRSRC = typename CTRL_fields_::eRSRC;
-    using eDOZEEN = typename CTRL_fields_::eDOZEEN;
-    using eLOOPS = typename CTRL_fields_::eLOOPS;
-    using eIDLECFG = typename CTRL_fields_::eIDLECFG;
-    using eM7 = typename CTRL_fields_::eM7;
-    using eMA2IE = typename CTRL_fields_::eMA2IE;
-    using eMA1IE = typename CTRL_fields_::eMA1IE;
-    using eSBK = typename CTRL_fields_::eSBK;
-    using eRWU = typename CTRL_fields_::eRWU;
-    using eRE = typename CTRL_fields_::eRE;
-    using eTE = typename CTRL_fields_::eTE;
-    using eILIE = typename CTRL_fields_::eILIE;
-    using eRIE = typename CTRL_fields_::eRIE;
-    using eTCIE = typename CTRL_fields_::eTCIE;
-    using eTIE = typename CTRL_fields_::eTIE;
-    using ePEIE = typename CTRL_fields_::ePEIE;
-    using eFEIE = typename CTRL_fields_::eFEIE;
-    using eNEIE = typename CTRL_fields_::eNEIE;
-    using eORIE = typename CTRL_fields_::eORIE;
-    using eTXINV = typename CTRL_fields_::eTXINV;
-    using eTXDIR = typename CTRL_fields_::eTXDIR;
-    using PT = typename CTRL_fields_::PT;
-    using PE = typename CTRL_fields_::PE;
-    using ILT = typename CTRL_fields_::ILT;
-    using WAKE = typename CTRL_fields_::WAKE;
-    using M = typename CTRL_fields_::M;
-    using RSRC = typename CTRL_fields_::RSRC;
-    using DOZEEN = typename CTRL_fields_::DOZEEN;
-    using LOOPS = typename CTRL_fields_::LOOPS;
-    using IDLECFG = typename CTRL_fields_::IDLECFG;
-    using M7 = typename CTRL_fields_::M7;
-    using MA2IE = typename CTRL_fields_::MA2IE;
-    using MA1IE = typename CTRL_fields_::MA1IE;
-    using SBK = typename CTRL_fields_::SBK;
-    using RWU = typename CTRL_fields_::RWU;
-    using RE = typename CTRL_fields_::RE;
-    using TE = typename CTRL_fields_::TE;
-    using ILIE = typename CTRL_fields_::ILIE;
-    using RIE = typename CTRL_fields_::RIE;
-    using TCIE = typename CTRL_fields_::TCIE;
-    using TIE = typename CTRL_fields_::TIE;
-    using PEIE = typename CTRL_fields_::PEIE;
-    using FEIE = typename CTRL_fields_::FEIE;
-    using NEIE = typename CTRL_fields_::NEIE;
-    using ORIE = typename CTRL_fields_::ORIE;
-    using TXINV = typename CTRL_fields_::TXINV;
-    using TXDIR = typename CTRL_fields_::TXDIR;
-    using R9T8 = typename CTRL_fields_::R9T8;
-    using R8T9 = typename CTRL_fields_::R8T9;
+      typename CtrlFields::MA2IE,
+      typename CtrlFields::MA1IE,
+      typename CtrlFields::SBK,
+      typename CtrlFields::RWU,
+      typename CtrlFields::RE,
+      typename CtrlFields::TE,
+      typename CtrlFields::ILIE,
+      typename CtrlFields::RIE,
+      typename CtrlFields::TCIE,
+      typename CtrlFields::TIE,
+      typename CtrlFields::PEIE,
+      typename CtrlFields::FEIE,
+      typename CtrlFields::NEIE,
+      typename CtrlFields::ORIE,
+      typename CtrlFields::TXINV,
+      typename CtrlFields::TXDIR,
+      typename CtrlFields::R9T8,
+      typename CtrlFields::R8T9> {
+    using ePT = typename CtrlFields::ePT;
+    using ePE = typename CtrlFields::ePE;
+    using eILT = typename CtrlFields::eILT;
+    using eWAKE = typename CtrlFields::eWAKE;
+    using eM = typename CtrlFields::eM;
+    using eRSRC = typename CtrlFields::eRSRC;
+    using eDOZEEN = typename CtrlFields::eDOZEEN;
+    using eLOOPS = typename CtrlFields::eLOOPS;
+    using eIDLECFG = typename CtrlFields::eIDLECFG;
+    using eM7 = typename CtrlFields::eM7;
+    using eMA2IE = typename CtrlFields::eMA2IE;
+    using eMA1IE = typename CtrlFields::eMA1IE;
+    using eSBK = typename CtrlFields::eSBK;
+    using eRWU = typename CtrlFields::eRWU;
+    using eRE = typename CtrlFields::eRE;
+    using eTE = typename CtrlFields::eTE;
+    using eILIE = typename CtrlFields::eILIE;
+    using eRIE = typename CtrlFields::eRIE;
+    using eTCIE = typename CtrlFields::eTCIE;
+    using eTIE = typename CtrlFields::eTIE;
+    using ePEIE = typename CtrlFields::ePEIE;
+    using eFEIE = typename CtrlFields::eFEIE;
+    using eNEIE = typename CtrlFields::eNEIE;
+    using eORIE = typename CtrlFields::eORIE;
+    using eTXINV = typename CtrlFields::eTXINV;
+    using eTXDIR = typename CtrlFields::eTXDIR;
+    using PT = typename CtrlFields::PT;
+    using PE = typename CtrlFields::PE;
+    using ILT = typename CtrlFields::ILT;
+    using WAKE = typename CtrlFields::WAKE;
+    using M = typename CtrlFields::M;
+    using RSRC = typename CtrlFields::RSRC;
+    using DOZEEN = typename CtrlFields::DOZEEN;
+    using LOOPS = typename CtrlFields::LOOPS;
+    using IDLECFG = typename CtrlFields::IDLECFG;
+    using M7 = typename CtrlFields::M7;
+    using MA2IE = typename CtrlFields::MA2IE;
+    using MA1IE = typename CtrlFields::MA1IE;
+    using SBK = typename CtrlFields::SBK;
+    using RWU = typename CtrlFields::RWU;
+    using RE = typename CtrlFields::RE;
+    using TE = typename CtrlFields::TE;
+    using ILIE = typename CtrlFields::ILIE;
+    using RIE = typename CtrlFields::RIE;
+    using TCIE = typename CtrlFields::TCIE;
+    using TIE = typename CtrlFields::TIE;
+    using PEIE = typename CtrlFields::PEIE;
+    using FEIE = typename CtrlFields::FEIE;
+    using NEIE = typename CtrlFields::NEIE;
+    using ORIE = typename CtrlFields::ORIE;
+    using TXINV = typename CtrlFields::TXINV;
+    using TXDIR = typename CtrlFields::TXDIR;
+    using R9T8 = typename CtrlFields::R9T8;
+    using R8T9 = typename CtrlFields::R8T9;
   };
 
   // LPUART Data Register
-  struct DATA_fields_ {
+  struct DataFields {
     enum class eIDLINE : std::uint32_t {
       // Receiver was not idle before receiving this character.
       eNO_IDLE = 0,
@@ -993,75 +993,75 @@ struct Lpuart {
     using PARITYE = ftl::mmio::Field<1, 14, ePARITYE, ftl::mmio::RO, ftl::mmio::Normal>;
     // Noisy Data Received
     using NOISY = ftl::mmio::Field<1, 15, eNOISY, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DATA_fields_
+  };  // struct DataFields
 
   struct DATA : ftl::mmio::Register<
       kBase + 0x1Cu,
       std::uint32_t,
       0x00001000u,
       ftl::mmio::RW,
-      typename DATA_fields_::R0T0,
-      typename DATA_fields_::R1T1,
-      typename DATA_fields_::R2T2,
-      typename DATA_fields_::R3T3,
-      typename DATA_fields_::R4T4,
-      typename DATA_fields_::R5T5,
-      typename DATA_fields_::R6T6,
-      typename DATA_fields_::R7T7,
-      typename DATA_fields_::R8T8,
-      typename DATA_fields_::R9T9,
+      typename DataFields::R0T0,
+      typename DataFields::R1T1,
+      typename DataFields::R2T2,
+      typename DataFields::R3T3,
+      typename DataFields::R4T4,
+      typename DataFields::R5T5,
+      typename DataFields::R6T6,
+      typename DataFields::R7T7,
+      typename DataFields::R8T8,
+      typename DataFields::R9T9,
       ftl::mmio::Reserved<1, 10>,
-      typename DATA_fields_::IDLINE,
-      typename DATA_fields_::RXEMPT,
-      typename DATA_fields_::FRETSC,
-      typename DATA_fields_::PARITYE,
-      typename DATA_fields_::NOISY,
+      typename DataFields::IDLINE,
+      typename DataFields::RXEMPT,
+      typename DataFields::FRETSC,
+      typename DataFields::PARITYE,
+      typename DataFields::NOISY,
       ftl::mmio::Reserved<16, 16>> {
-    using eIDLINE = typename DATA_fields_::eIDLINE;
-    using eRXEMPT = typename DATA_fields_::eRXEMPT;
-    using eFRETSC = typename DATA_fields_::eFRETSC;
-    using ePARITYE = typename DATA_fields_::ePARITYE;
-    using eNOISY = typename DATA_fields_::eNOISY;
-    using R0T0 = typename DATA_fields_::R0T0;
-    using R1T1 = typename DATA_fields_::R1T1;
-    using R2T2 = typename DATA_fields_::R2T2;
-    using R3T3 = typename DATA_fields_::R3T3;
-    using R4T4 = typename DATA_fields_::R4T4;
-    using R5T5 = typename DATA_fields_::R5T5;
-    using R6T6 = typename DATA_fields_::R6T6;
-    using R7T7 = typename DATA_fields_::R7T7;
-    using R8T8 = typename DATA_fields_::R8T8;
-    using R9T9 = typename DATA_fields_::R9T9;
-    using IDLINE = typename DATA_fields_::IDLINE;
-    using RXEMPT = typename DATA_fields_::RXEMPT;
-    using FRETSC = typename DATA_fields_::FRETSC;
-    using PARITYE = typename DATA_fields_::PARITYE;
-    using NOISY = typename DATA_fields_::NOISY;
+    using eIDLINE = typename DataFields::eIDLINE;
+    using eRXEMPT = typename DataFields::eRXEMPT;
+    using eFRETSC = typename DataFields::eFRETSC;
+    using ePARITYE = typename DataFields::ePARITYE;
+    using eNOISY = typename DataFields::eNOISY;
+    using R0T0 = typename DataFields::R0T0;
+    using R1T1 = typename DataFields::R1T1;
+    using R2T2 = typename DataFields::R2T2;
+    using R3T3 = typename DataFields::R3T3;
+    using R4T4 = typename DataFields::R4T4;
+    using R5T5 = typename DataFields::R5T5;
+    using R6T6 = typename DataFields::R6T6;
+    using R7T7 = typename DataFields::R7T7;
+    using R8T8 = typename DataFields::R8T8;
+    using R9T9 = typename DataFields::R9T9;
+    using IDLINE = typename DataFields::IDLINE;
+    using RXEMPT = typename DataFields::RXEMPT;
+    using FRETSC = typename DataFields::FRETSC;
+    using PARITYE = typename DataFields::PARITYE;
+    using NOISY = typename DataFields::NOISY;
   };
 
   // LPUART Match Address Register
-  struct MATCH_fields_ {
+  struct MatchFields {
     // Match Address 1
     using MA1 = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Match Address 2
     using MA2 = ftl::mmio::Field<10, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MATCH_fields_
+  };  // struct MatchFields
 
   struct MATCH : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename MATCH_fields_::MA1,
+      typename MatchFields::MA1,
       ftl::mmio::Reserved<6, 10>,
-      typename MATCH_fields_::MA2,
+      typename MatchFields::MA2,
       ftl::mmio::Reserved<6, 26>> {
-    using MA1 = typename MATCH_fields_::MA1;
-    using MA2 = typename MATCH_fields_::MA2;
+    using MA1 = typename MatchFields::MA1;
+    using MA2 = typename MatchFields::MA2;
   };
 
   // LPUART Modem IrDA Register
-  struct MODIR_fields_ {
+  struct ModirFields {
     enum class eTXCTSE : std::uint32_t {
       // CTS has no effect on the transmitter.
       eDISABLED = 0,
@@ -1140,46 +1140,46 @@ struct Lpuart {
     using TNP = ftl::mmio::Field<2, 16, eTNP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Infrared enable
     using IREN = ftl::mmio::Field<1, 18, eIREN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MODIR_fields_
+  };  // struct ModirFields
 
   struct MODIR : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename MODIR_fields_::TXCTSE,
-      typename MODIR_fields_::TXRTSE,
-      typename MODIR_fields_::TXRTSPOL,
-      typename MODIR_fields_::RXRTSE,
-      typename MODIR_fields_::TXCTSC,
-      typename MODIR_fields_::TXCTSSRC,
+      typename ModirFields::TXCTSE,
+      typename ModirFields::TXRTSE,
+      typename ModirFields::TXRTSPOL,
+      typename ModirFields::RXRTSE,
+      typename ModirFields::TXCTSC,
+      typename ModirFields::TXCTSSRC,
       ftl::mmio::Reserved<2, 6>,
-      typename MODIR_fields_::RTSWATER,
+      typename ModirFields::RTSWATER,
       ftl::mmio::Reserved<6, 10>,
-      typename MODIR_fields_::TNP,
-      typename MODIR_fields_::IREN,
+      typename ModirFields::TNP,
+      typename ModirFields::IREN,
       ftl::mmio::Reserved<13, 19>> {
-    using eTXCTSE = typename MODIR_fields_::eTXCTSE;
-    using eTXRTSE = typename MODIR_fields_::eTXRTSE;
-    using eTXRTSPOL = typename MODIR_fields_::eTXRTSPOL;
-    using eRXRTSE = typename MODIR_fields_::eRXRTSE;
-    using eTXCTSC = typename MODIR_fields_::eTXCTSC;
-    using eTXCTSSRC = typename MODIR_fields_::eTXCTSSRC;
-    using eTNP = typename MODIR_fields_::eTNP;
-    using eIREN = typename MODIR_fields_::eIREN;
-    using TXCTSE = typename MODIR_fields_::TXCTSE;
-    using TXRTSE = typename MODIR_fields_::TXRTSE;
-    using TXRTSPOL = typename MODIR_fields_::TXRTSPOL;
-    using RXRTSE = typename MODIR_fields_::RXRTSE;
-    using TXCTSC = typename MODIR_fields_::TXCTSC;
-    using TXCTSSRC = typename MODIR_fields_::TXCTSSRC;
-    using RTSWATER = typename MODIR_fields_::RTSWATER;
-    using TNP = typename MODIR_fields_::TNP;
-    using IREN = typename MODIR_fields_::IREN;
+    using eTXCTSE = typename ModirFields::eTXCTSE;
+    using eTXRTSE = typename ModirFields::eTXRTSE;
+    using eTXRTSPOL = typename ModirFields::eTXRTSPOL;
+    using eRXRTSE = typename ModirFields::eRXRTSE;
+    using eTXCTSC = typename ModirFields::eTXCTSC;
+    using eTXCTSSRC = typename ModirFields::eTXCTSSRC;
+    using eTNP = typename ModirFields::eTNP;
+    using eIREN = typename ModirFields::eIREN;
+    using TXCTSE = typename ModirFields::TXCTSE;
+    using TXRTSE = typename ModirFields::TXRTSE;
+    using TXRTSPOL = typename ModirFields::TXRTSPOL;
+    using RXRTSE = typename ModirFields::RXRTSE;
+    using TXCTSC = typename ModirFields::TXCTSC;
+    using TXCTSSRC = typename ModirFields::TXCTSSRC;
+    using RTSWATER = typename ModirFields::RTSWATER;
+    using TNP = typename ModirFields::TNP;
+    using IREN = typename ModirFields::IREN;
   };
 
   // LPUART FIFO Register
-  struct FIFO_fields_ {
+  struct FifoFields {
     enum class eRXFIFOSIZE : std::uint32_t {
       // Receive FIFO/Buffer depth = 1 dataword.
       eFIFO_1 = 0,
@@ -1333,59 +1333,59 @@ struct Lpuart {
     using RXEMPT = ftl::mmio::Field<1, 22, eRXEMPT, ftl::mmio::RO, ftl::mmio::Normal>;
     // Transmit FIFO/Buffer Empty
     using TXEMPT = ftl::mmio::Field<1, 23, eTXEMPT, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct FIFO_fields_
+  };  // struct FifoFields
 
   struct FIFO : ftl::mmio::Register<
       kBase + 0x28u,
       std::uint32_t,
       0x00C00011u,
       ftl::mmio::RW,
-      typename FIFO_fields_::RXFIFOSIZE,
-      typename FIFO_fields_::RXFE,
-      typename FIFO_fields_::TXFIFOSIZE,
-      typename FIFO_fields_::TXFE,
-      typename FIFO_fields_::RXUFE,
-      typename FIFO_fields_::TXOFE,
-      typename FIFO_fields_::RXIDEN,
+      typename FifoFields::RXFIFOSIZE,
+      typename FifoFields::RXFE,
+      typename FifoFields::TXFIFOSIZE,
+      typename FifoFields::TXFE,
+      typename FifoFields::RXUFE,
+      typename FifoFields::TXOFE,
+      typename FifoFields::RXIDEN,
       ftl::mmio::Reserved<1, 13>,
-      typename FIFO_fields_::RXFLUSH,
-      typename FIFO_fields_::TXFLUSH,
-      typename FIFO_fields_::RXUF,
-      typename FIFO_fields_::TXOF,
+      typename FifoFields::RXFLUSH,
+      typename FifoFields::TXFLUSH,
+      typename FifoFields::RXUF,
+      typename FifoFields::TXOF,
       ftl::mmio::Reserved<4, 18>,
-      typename FIFO_fields_::RXEMPT,
-      typename FIFO_fields_::TXEMPT,
+      typename FifoFields::RXEMPT,
+      typename FifoFields::TXEMPT,
       ftl::mmio::Reserved<8, 24>> {
-    using eRXFIFOSIZE = typename FIFO_fields_::eRXFIFOSIZE;
-    using eRXFE = typename FIFO_fields_::eRXFE;
-    using eTXFIFOSIZE = typename FIFO_fields_::eTXFIFOSIZE;
-    using eTXFE = typename FIFO_fields_::eTXFE;
-    using eRXUFE = typename FIFO_fields_::eRXUFE;
-    using eTXOFE = typename FIFO_fields_::eTXOFE;
-    using eRXIDEN = typename FIFO_fields_::eRXIDEN;
-    using eRXFLUSH = typename FIFO_fields_::eRXFLUSH;
-    using eTXFLUSH = typename FIFO_fields_::eTXFLUSH;
-    using eRXUF = typename FIFO_fields_::eRXUF;
-    using eTXOF = typename FIFO_fields_::eTXOF;
-    using eRXEMPT = typename FIFO_fields_::eRXEMPT;
-    using eTXEMPT = typename FIFO_fields_::eTXEMPT;
-    using RXFIFOSIZE = typename FIFO_fields_::RXFIFOSIZE;
-    using RXFE = typename FIFO_fields_::RXFE;
-    using TXFIFOSIZE = typename FIFO_fields_::TXFIFOSIZE;
-    using TXFE = typename FIFO_fields_::TXFE;
-    using RXUFE = typename FIFO_fields_::RXUFE;
-    using TXOFE = typename FIFO_fields_::TXOFE;
-    using RXIDEN = typename FIFO_fields_::RXIDEN;
-    using RXFLUSH = typename FIFO_fields_::RXFLUSH;
-    using TXFLUSH = typename FIFO_fields_::TXFLUSH;
-    using RXUF = typename FIFO_fields_::RXUF;
-    using TXOF = typename FIFO_fields_::TXOF;
-    using RXEMPT = typename FIFO_fields_::RXEMPT;
-    using TXEMPT = typename FIFO_fields_::TXEMPT;
+    using eRXFIFOSIZE = typename FifoFields::eRXFIFOSIZE;
+    using eRXFE = typename FifoFields::eRXFE;
+    using eTXFIFOSIZE = typename FifoFields::eTXFIFOSIZE;
+    using eTXFE = typename FifoFields::eTXFE;
+    using eRXUFE = typename FifoFields::eRXUFE;
+    using eTXOFE = typename FifoFields::eTXOFE;
+    using eRXIDEN = typename FifoFields::eRXIDEN;
+    using eRXFLUSH = typename FifoFields::eRXFLUSH;
+    using eTXFLUSH = typename FifoFields::eTXFLUSH;
+    using eRXUF = typename FifoFields::eRXUF;
+    using eTXOF = typename FifoFields::eTXOF;
+    using eRXEMPT = typename FifoFields::eRXEMPT;
+    using eTXEMPT = typename FifoFields::eTXEMPT;
+    using RXFIFOSIZE = typename FifoFields::RXFIFOSIZE;
+    using RXFE = typename FifoFields::RXFE;
+    using TXFIFOSIZE = typename FifoFields::TXFIFOSIZE;
+    using TXFE = typename FifoFields::TXFE;
+    using RXUFE = typename FifoFields::RXUFE;
+    using TXOFE = typename FifoFields::TXOFE;
+    using RXIDEN = typename FifoFields::RXIDEN;
+    using RXFLUSH = typename FifoFields::RXFLUSH;
+    using TXFLUSH = typename FifoFields::TXFLUSH;
+    using RXUF = typename FifoFields::RXUF;
+    using TXOF = typename FifoFields::TXOF;
+    using RXEMPT = typename FifoFields::RXEMPT;
+    using TXEMPT = typename FifoFields::TXEMPT;
   };
 
   // LPUART Watermark Register
-  struct WATER_fields_ {
+  struct WaterFields {
     // Transmit Watermark
     using TXWATER = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit Counter
@@ -1394,25 +1394,25 @@ struct Lpuart {
     using RXWATER = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Counter
     using RXCOUNT = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct WATER_fields_
+  };  // struct WaterFields
 
   struct WATER : ftl::mmio::Register<
       kBase + 0x2Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename WATER_fields_::TXWATER,
+      typename WaterFields::TXWATER,
       ftl::mmio::Reserved<6, 2>,
-      typename WATER_fields_::TXCOUNT,
+      typename WaterFields::TXCOUNT,
       ftl::mmio::Reserved<5, 11>,
-      typename WATER_fields_::RXWATER,
+      typename WaterFields::RXWATER,
       ftl::mmio::Reserved<6, 18>,
-      typename WATER_fields_::RXCOUNT,
+      typename WaterFields::RXCOUNT,
       ftl::mmio::Reserved<5, 27>> {
-    using TXWATER = typename WATER_fields_::TXWATER;
-    using TXCOUNT = typename WATER_fields_::TXCOUNT;
-    using RXWATER = typename WATER_fields_::RXWATER;
-    using RXCOUNT = typename WATER_fields_::RXCOUNT;
+    using TXWATER = typename WaterFields::TXWATER;
+    using TXCOUNT = typename WaterFields::TXCOUNT;
+    using RXWATER = typename WaterFields::RXWATER;
+    using RXCOUNT = typename WaterFields::RXCOUNT;
   };
 
 };

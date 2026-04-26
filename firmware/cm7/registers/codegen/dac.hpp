@@ -10,7 +10,7 @@ namespace regs {
 
 struct Dac {
   // Version Identifier Register
-  struct VERID_fields_ {
+  struct VeridFields {
     enum class eFEATURE : std::uint32_t {
       // Standard feature set
       eFEATURE_0 = 0,
@@ -28,24 +28,24 @@ struct Dac {
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Major version number
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERID_fields_
+  };  // struct VeridFields
 
   struct VERID : ftl::mmio::Register<
       0x40064000u,
       std::uint32_t,
       0x01000000u,
       ftl::mmio::RO,
-      VERID_fields_::FEATURE,
-      VERID_fields_::MINOR,
-      VERID_fields_::MAJOR> {
-    using eFEATURE = VERID_fields_::eFEATURE;
-    using FEATURE = VERID_fields_::FEATURE;
-    using MINOR = VERID_fields_::MINOR;
-    using MAJOR = VERID_fields_::MAJOR;
+      VeridFields::FEATURE,
+      VeridFields::MINOR,
+      VeridFields::MAJOR> {
+    using eFEATURE = VeridFields::eFEATURE;
+    using FEATURE = VeridFields::FEATURE;
+    using MINOR = VeridFields::MINOR;
+    using MAJOR = VeridFields::MAJOR;
   };
 
   // Parameter Register
-  struct PARAM_fields_ {
+  struct ParamFields {
     enum class eFIFOSZ : std::uint32_t {
       // FIFO depth is 2
       eFIFOSZ_0 = 0,
@@ -67,37 +67,37 @@ struct Dac {
 
     // FIFO size
     using FIFOSZ = ftl::mmio::Field<3, 0, eFIFOSZ, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PARAM_fields_
+  };  // struct ParamFields
 
   struct PARAM : ftl::mmio::Register<
       0x40064004u,
       std::uint32_t,
       0x00000003u,
       ftl::mmio::RO,
-      PARAM_fields_::FIFOSZ,
+      ParamFields::FIFOSZ,
       ftl::mmio::Reserved<29, 3>> {
-    using eFIFOSZ = PARAM_fields_::eFIFOSZ;
-    using FIFOSZ = PARAM_fields_::FIFOSZ;
+    using eFIFOSZ = ParamFields::eFIFOSZ;
+    using FIFOSZ = ParamFields::FIFOSZ;
   };
 
   // DAC Data Register
-  struct DATA_fields_ {
+  struct DataFields {
     // FIFO DATA0
     using DATA0 = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct DATA_fields_
+  };  // struct DataFields
 
   struct DATA : ftl::mmio::Register<
       0x40064008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      DATA_fields_::DATA0,
+      DataFields::DATA0,
       ftl::mmio::Reserved<20, 12>> {
-    using DATA0 = DATA_fields_::DATA0;
+    using DATA0 = DataFields::DATA0;
   };
 
   // DAC Status and Control Register
-  struct CR_fields_ {
+  struct CrFields {
     enum class eFULLF : std::uint32_t {
       // FIFO is not full.
       eFULLF_0 = 0,
@@ -255,96 +255,96 @@ struct Dac {
     using DMAEN = ftl::mmio::Field<1, 23, eDMAEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Watermark Level Select
     using WML = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CR_fields_
+  };  // struct CrFields
 
   struct CR : ftl::mmio::Register<
       0x4006400Cu,
       std::uint32_t,
       0x00000002u,
       ftl::mmio::RW,
-      CR_fields_::FULLF,
-      CR_fields_::NEMPTF,
-      CR_fields_::WMF,
-      CR_fields_::UDFF,
-      CR_fields_::OVFF,
+      CrFields::FULLF,
+      CrFields::NEMPTF,
+      CrFields::WMF,
+      CrFields::UDFF,
+      CrFields::OVFF,
       ftl::mmio::Reserved<3, 5>,
-      CR_fields_::FULLIE,
-      CR_fields_::EMPTIE,
-      CR_fields_::WTMIE,
+      CrFields::FULLIE,
+      CrFields::EMPTIE,
+      CrFields::WTMIE,
       ftl::mmio::Reserved<1, 11>,
-      CR_fields_::SWTRG,
-      CR_fields_::TRGSEL,
-      CR_fields_::DACRFS,
-      CR_fields_::DACEN,
-      CR_fields_::FIFOEN,
-      CR_fields_::SWMD,
-      CR_fields_::UVIE,
+      CrFields::SWTRG,
+      CrFields::TRGSEL,
+      CrFields::DACRFS,
+      CrFields::DACEN,
+      CrFields::FIFOEN,
+      CrFields::SWMD,
+      CrFields::UVIE,
       ftl::mmio::Reserved<2, 19>,
-      CR_fields_::FIFORST,
-      CR_fields_::SWRST,
-      CR_fields_::DMAEN,
-      CR_fields_::WML> {
-    using eFULLF = CR_fields_::eFULLF;
-    using eNEMPTF = CR_fields_::eNEMPTF;
-    using eWMF = CR_fields_::eWMF;
-    using eUDFF = CR_fields_::eUDFF;
-    using eOVFF = CR_fields_::eOVFF;
-    using eFULLIE = CR_fields_::eFULLIE;
-    using eEMPTIE = CR_fields_::eEMPTIE;
-    using eWTMIE = CR_fields_::eWTMIE;
-    using eSWTRG = CR_fields_::eSWTRG;
-    using eTRGSEL = CR_fields_::eTRGSEL;
-    using eDACRFS = CR_fields_::eDACRFS;
-    using eDACEN = CR_fields_::eDACEN;
-    using eFIFOEN = CR_fields_::eFIFOEN;
-    using eSWMD = CR_fields_::eSWMD;
-    using eUVIE = CR_fields_::eUVIE;
-    using eFIFORST = CR_fields_::eFIFORST;
-    using eDMAEN = CR_fields_::eDMAEN;
-    using FULLF = CR_fields_::FULLF;
-    using NEMPTF = CR_fields_::NEMPTF;
-    using WMF = CR_fields_::WMF;
-    using UDFF = CR_fields_::UDFF;
-    using OVFF = CR_fields_::OVFF;
-    using FULLIE = CR_fields_::FULLIE;
-    using EMPTIE = CR_fields_::EMPTIE;
-    using WTMIE = CR_fields_::WTMIE;
-    using SWTRG = CR_fields_::SWTRG;
-    using TRGSEL = CR_fields_::TRGSEL;
-    using DACRFS = CR_fields_::DACRFS;
-    using DACEN = CR_fields_::DACEN;
-    using FIFOEN = CR_fields_::FIFOEN;
-    using SWMD = CR_fields_::SWMD;
-    using UVIE = CR_fields_::UVIE;
-    using FIFORST = CR_fields_::FIFORST;
-    using SWRST = CR_fields_::SWRST;
-    using DMAEN = CR_fields_::DMAEN;
-    using WML = CR_fields_::WML;
+      CrFields::FIFORST,
+      CrFields::SWRST,
+      CrFields::DMAEN,
+      CrFields::WML> {
+    using eFULLF = CrFields::eFULLF;
+    using eNEMPTF = CrFields::eNEMPTF;
+    using eWMF = CrFields::eWMF;
+    using eUDFF = CrFields::eUDFF;
+    using eOVFF = CrFields::eOVFF;
+    using eFULLIE = CrFields::eFULLIE;
+    using eEMPTIE = CrFields::eEMPTIE;
+    using eWTMIE = CrFields::eWTMIE;
+    using eSWTRG = CrFields::eSWTRG;
+    using eTRGSEL = CrFields::eTRGSEL;
+    using eDACRFS = CrFields::eDACRFS;
+    using eDACEN = CrFields::eDACEN;
+    using eFIFOEN = CrFields::eFIFOEN;
+    using eSWMD = CrFields::eSWMD;
+    using eUVIE = CrFields::eUVIE;
+    using eFIFORST = CrFields::eFIFORST;
+    using eDMAEN = CrFields::eDMAEN;
+    using FULLF = CrFields::FULLF;
+    using NEMPTF = CrFields::NEMPTF;
+    using WMF = CrFields::WMF;
+    using UDFF = CrFields::UDFF;
+    using OVFF = CrFields::OVFF;
+    using FULLIE = CrFields::FULLIE;
+    using EMPTIE = CrFields::EMPTIE;
+    using WTMIE = CrFields::WTMIE;
+    using SWTRG = CrFields::SWTRG;
+    using TRGSEL = CrFields::TRGSEL;
+    using DACRFS = CrFields::DACRFS;
+    using DACEN = CrFields::DACEN;
+    using FIFOEN = CrFields::FIFOEN;
+    using SWMD = CrFields::SWMD;
+    using UVIE = CrFields::UVIE;
+    using FIFORST = CrFields::FIFORST;
+    using SWRST = CrFields::SWRST;
+    using DMAEN = CrFields::DMAEN;
+    using WML = CrFields::WML;
   };
 
   // DAC FIFO Pointer Register
-  struct PTR_fields_ {
+  struct PtrFields {
     // DACWFP
     using DACWFP = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // DACRFP
     using DACRFP = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PTR_fields_
+  };  // struct PtrFields
 
   struct PTR : ftl::mmio::Register<
       0x40064010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      PTR_fields_::DACWFP,
+      PtrFields::DACWFP,
       ftl::mmio::Reserved<8, 8>,
-      PTR_fields_::DACRFP,
+      PtrFields::DACRFP,
       ftl::mmio::Reserved<8, 24>> {
-    using DACWFP = PTR_fields_::DACWFP;
-    using DACRFP = PTR_fields_::DACRFP;
+    using DACWFP = PtrFields::DACWFP;
+    using DACRFP = PtrFields::DACRFP;
   };
 
   // DAC Status and Control Register 2
-  struct CR2_fields_ {
+  struct Cr2Fields {
     enum class eBFEN : std::uint32_t {
       // Opamp is not used as buffer
       eBFEN_0 = 0,
@@ -408,35 +408,35 @@ struct Dac {
     using IREF1 = ftl::mmio::Field<1, 5, eIREF1, ftl::mmio::RW, ftl::mmio::Normal>;
     // Internal Current Reference Select
     using IREF = ftl::mmio::Field<1, 6, eIREF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CR2_fields_
+  };  // struct Cr2Fields
 
   struct CR2 : ftl::mmio::Register<
       0x40064014u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CR2_fields_::BFEN,
-      CR2_fields_::OEN,
-      CR2_fields_::BFMS,
-      CR2_fields_::BFHS,
-      CR2_fields_::IREF2,
-      CR2_fields_::IREF1,
-      CR2_fields_::IREF,
+      Cr2Fields::BFEN,
+      Cr2Fields::OEN,
+      Cr2Fields::BFMS,
+      Cr2Fields::BFHS,
+      Cr2Fields::IREF2,
+      Cr2Fields::IREF1,
+      Cr2Fields::IREF,
       ftl::mmio::Reserved<25, 7>> {
-    using eBFEN = CR2_fields_::eBFEN;
-    using eOEN = CR2_fields_::eOEN;
-    using eBFMS = CR2_fields_::eBFMS;
-    using eBFHS = CR2_fields_::eBFHS;
-    using eIREF2 = CR2_fields_::eIREF2;
-    using eIREF1 = CR2_fields_::eIREF1;
-    using eIREF = CR2_fields_::eIREF;
-    using BFEN = CR2_fields_::BFEN;
-    using OEN = CR2_fields_::OEN;
-    using BFMS = CR2_fields_::BFMS;
-    using BFHS = CR2_fields_::BFHS;
-    using IREF2 = CR2_fields_::IREF2;
-    using IREF1 = CR2_fields_::IREF1;
-    using IREF = CR2_fields_::IREF;
+    using eBFEN = Cr2Fields::eBFEN;
+    using eOEN = Cr2Fields::eOEN;
+    using eBFMS = Cr2Fields::eBFMS;
+    using eBFHS = Cr2Fields::eBFHS;
+    using eIREF2 = Cr2Fields::eIREF2;
+    using eIREF1 = Cr2Fields::eIREF1;
+    using eIREF = Cr2Fields::eIREF;
+    using BFEN = Cr2Fields::BFEN;
+    using OEN = Cr2Fields::OEN;
+    using BFMS = Cr2Fields::BFMS;
+    using BFHS = Cr2Fields::BFHS;
+    using IREF2 = Cr2Fields::IREF2;
+    using IREF1 = Cr2Fields::IREF1;
+    using IREF = Cr2Fields::IREF;
   };
 
 };

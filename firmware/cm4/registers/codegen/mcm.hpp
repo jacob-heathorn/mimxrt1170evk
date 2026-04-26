@@ -10,22 +10,22 @@ namespace regs {
 
 struct Mcm {
   // SoC-defined platform revision
-  struct MCM_PLREV_fields_ {
+  struct McmPlrevFields {
     // The PLREV[15:0] field is specified by an platform input signal to define a software-visible revision number.
     using PLREV = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_PLREV_fields_
+  };  // struct McmPlrevFields
 
   struct MCM_PLREV : ftl::mmio::Register<
       0xE0080000u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RO,
-      MCM_PLREV_fields_::PLREV> {
-    using PLREV = MCM_PLREV_fields_::PLREV;
+      McmPlrevFields::PLREV> {
+    using PLREV = McmPlrevFields::PLREV;
   };
 
   // Processor core type
-  struct MCM_PCT_fields_ {
+  struct McmPctFields {
     enum class ePCT : std::uint32_t {
       // ARM Cortex M4
       ePCT_44096 = 44096,
@@ -33,25 +33,25 @@ struct Mcm {
 
     // This MCM design supports the ARM Cortex M4 core. The following value identifies this core complex.
     using PCT = ftl::mmio::Field<16, 0, ePCT, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_PCT_fields_
+  };  // struct McmPctFields
 
   struct MCM_PCT : ftl::mmio::Register<
       0xE0080002u,
       std::uint16_t,
       0xAC40u,
       ftl::mmio::RO,
-      MCM_PCT_fields_::PCT> {
-    using ePCT = MCM_PCT_fields_::ePCT;
-    using PCT = MCM_PCT_fields_::PCT;
+      McmPctFields::PCT> {
+    using ePCT = McmPctFields::ePCT;
+    using PCT = McmPctFields::PCT;
   };
 
   // Memory configuration
-  struct MCM_MEMCFG_fields_ {
+  struct McmMemcfgFields {
     // TCRAMU size
     using TCRAMUSZ = ftl::mmio::Field<4, 2, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // TCRAML size
     using TCRAMLSZ = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_MEMCFG_fields_
+  };  // struct McmMemcfgFields
 
   struct MCM_MEMCFG : ftl::mmio::Register<
       0xE0080004u,
@@ -59,16 +59,16 @@ struct Mcm {
       0x00000000u,
       ftl::mmio::RO,
       ftl::mmio::Reserved<2, 0>,
-      MCM_MEMCFG_fields_::TCRAMUSZ,
+      McmMemcfgFields::TCRAMUSZ,
       ftl::mmio::Reserved<2, 6>,
-      MCM_MEMCFG_fields_::TCRAMLSZ,
+      McmMemcfgFields::TCRAMLSZ,
       ftl::mmio::Reserved<20, 12>> {
-    using TCRAMUSZ = MCM_MEMCFG_fields_::TCRAMUSZ;
-    using TCRAMLSZ = MCM_MEMCFG_fields_::TCRAMLSZ;
+    using TCRAMUSZ = McmMemcfgFields::TCRAMUSZ;
+    using TCRAMLSZ = McmMemcfgFields::TCRAMLSZ;
   };
 
   // Crossbar Switch (AXBS) Slave Configuration
-  struct MCM_PLASC_fields_ {
+  struct McmPlascFields {
     enum class eASC : std::uint32_t {
       // A bus slave connection to AXBS input port n is absent
       eASC_0 = 0,
@@ -78,21 +78,21 @@ struct Mcm {
 
     // Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
     using ASC = ftl::mmio::Field<8, 0, eASC, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_PLASC_fields_
+  };  // struct McmPlascFields
 
   struct MCM_PLASC : ftl::mmio::Register<
       0xE0080008u,
       std::uint16_t,
       0x001Fu,
       ftl::mmio::RO,
-      MCM_PLASC_fields_::ASC,
+      McmPlascFields::ASC,
       ftl::mmio::Reserved<8, 8>> {
-    using eASC = MCM_PLASC_fields_::eASC;
-    using ASC = MCM_PLASC_fields_::ASC;
+    using eASC = McmPlascFields::eASC;
+    using ASC = McmPlascFields::ASC;
   };
 
   // Crossbar Switch (AXBS) Master Configuration
-  struct MCM_PLAMC_fields_ {
+  struct McmPlamcFields {
     enum class eAMC : std::uint32_t {
       // A bus master connection to AXBS input port n is absent
       eAMC_0 = 0,
@@ -102,21 +102,21 @@ struct Mcm {
 
     // Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
     using AMC = ftl::mmio::Field<8, 0, eAMC, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_PLAMC_fields_
+  };  // struct McmPlamcFields
 
   struct MCM_PLAMC : ftl::mmio::Register<
       0xE008000Au,
       std::uint16_t,
       0x001Fu,
       ftl::mmio::RO,
-      MCM_PLAMC_fields_::AMC,
+      McmPlamcFields::AMC,
       ftl::mmio::Reserved<8, 8>> {
-    using eAMC = MCM_PLAMC_fields_::eAMC;
-    using AMC = MCM_PLAMC_fields_::AMC;
+    using eAMC = McmPlamcFields::eAMC;
+    using AMC = McmPlamcFields::AMC;
   };
 
   // Control Register
-  struct MCM_CR_fields_ {
+  struct McmCrFields {
     enum class eCBRR : std::uint32_t {
       // Fixed-priority arbitration
       eCBRR_0 = 0,
@@ -158,35 +158,35 @@ struct Mcm {
     using CTCMAP = ftl::mmio::Field<2, 28, eCTCMAP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Code TCM Write Protect
     using CTCMWP = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MCM_CR_fields_
+  };  // struct McmCrFields
 
   struct MCM_CR : ftl::mmio::Register<
       0xE008000Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MCM_CR_fields_::STATUS,
-      MCM_CR_fields_::CBRR,
+      McmCrFields::STATUS,
+      McmCrFields::CBRR,
       ftl::mmio::Reserved<14, 10>,
-      MCM_CR_fields_::STCMAP,
-      MCM_CR_fields_::STCMWP,
+      McmCrFields::STCMAP,
+      McmCrFields::STCMWP,
       ftl::mmio::Reserved<1, 27>,
-      MCM_CR_fields_::CTCMAP,
-      MCM_CR_fields_::CTCMWP,
+      McmCrFields::CTCMAP,
+      McmCrFields::CTCMWP,
       ftl::mmio::Reserved<1, 31>> {
-    using eCBRR = MCM_CR_fields_::eCBRR;
-    using eSTCMAP = MCM_CR_fields_::eSTCMAP;
-    using eCTCMAP = MCM_CR_fields_::eCTCMAP;
-    using STATUS = MCM_CR_fields_::STATUS;
-    using CBRR = MCM_CR_fields_::CBRR;
-    using STCMAP = MCM_CR_fields_::STCMAP;
-    using STCMWP = MCM_CR_fields_::STCMWP;
-    using CTCMAP = MCM_CR_fields_::CTCMAP;
-    using CTCMWP = MCM_CR_fields_::CTCMWP;
+    using eCBRR = McmCrFields::eCBRR;
+    using eSTCMAP = McmCrFields::eSTCMAP;
+    using eCTCMAP = McmCrFields::eCTCMAP;
+    using STATUS = McmCrFields::STATUS;
+    using CBRR = McmCrFields::CBRR;
+    using STCMAP = McmCrFields::STCMAP;
+    using STCMWP = McmCrFields::STCMWP;
+    using CTCMAP = McmCrFields::CTCMAP;
+    using CTCMWP = McmCrFields::CTCMWP;
   };
 
   // Interrupt Status and Control Register
-  struct MCM_ISCR_fields_ {
+  struct McmIscrFields {
     enum class eCWBER : std::uint32_t {
       // No error
       eCWBER_0 = 0,
@@ -313,7 +313,7 @@ struct Mcm {
     using FIXCE = ftl::mmio::Field<1, 28, eFIXCE, ftl::mmio::RW, ftl::mmio::Normal>;
     // FPU input denormal interrupt enable
     using FIDCE = ftl::mmio::Field<1, 31, eFIDCE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MCM_ISCR_fields_
+  };  // struct McmIscrFields
 
   struct MCM_ISCR : ftl::mmio::Register<
       0xE0080010u,
@@ -321,72 +321,72 @@ struct Mcm {
       0x00020000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      MCM_ISCR_fields_::CWBER,
+      McmIscrFields::CWBER,
       ftl::mmio::Reserved<3, 5>,
-      MCM_ISCR_fields_::FIOC,
-      MCM_ISCR_fields_::FDZC,
-      MCM_ISCR_fields_::FOFC,
-      MCM_ISCR_fields_::FUFC,
-      MCM_ISCR_fields_::FIXC,
+      McmIscrFields::FIOC,
+      McmIscrFields::FDZC,
+      McmIscrFields::FOFC,
+      McmIscrFields::FUFC,
+      McmIscrFields::FIXC,
       ftl::mmio::Reserved<2, 13>,
-      MCM_ISCR_fields_::FIDC,
+      McmIscrFields::FIDC,
       ftl::mmio::Reserved<4, 16>,
-      MCM_ISCR_fields_::CWBEE,
+      McmIscrFields::CWBEE,
       ftl::mmio::Reserved<3, 21>,
-      MCM_ISCR_fields_::FIOCE,
-      MCM_ISCR_fields_::FDZCE,
-      MCM_ISCR_fields_::FOFCE,
-      MCM_ISCR_fields_::FUFCE,
-      MCM_ISCR_fields_::FIXCE,
+      McmIscrFields::FIOCE,
+      McmIscrFields::FDZCE,
+      McmIscrFields::FOFCE,
+      McmIscrFields::FUFCE,
+      McmIscrFields::FIXCE,
       ftl::mmio::Reserved<2, 29>,
-      MCM_ISCR_fields_::FIDCE> {
-    using eCWBER = MCM_ISCR_fields_::eCWBER;
-    using eFIOC = MCM_ISCR_fields_::eFIOC;
-    using eFDZC = MCM_ISCR_fields_::eFDZC;
-    using eFOFC = MCM_ISCR_fields_::eFOFC;
-    using eFUFC = MCM_ISCR_fields_::eFUFC;
-    using eFIXC = MCM_ISCR_fields_::eFIXC;
-    using eFIDC = MCM_ISCR_fields_::eFIDC;
-    using eCWBEE = MCM_ISCR_fields_::eCWBEE;
-    using eFIOCE = MCM_ISCR_fields_::eFIOCE;
-    using eFDZCE = MCM_ISCR_fields_::eFDZCE;
-    using eFOFCE = MCM_ISCR_fields_::eFOFCE;
-    using eFUFCE = MCM_ISCR_fields_::eFUFCE;
-    using eFIXCE = MCM_ISCR_fields_::eFIXCE;
-    using eFIDCE = MCM_ISCR_fields_::eFIDCE;
-    using CWBER = MCM_ISCR_fields_::CWBER;
-    using FIOC = MCM_ISCR_fields_::FIOC;
-    using FDZC = MCM_ISCR_fields_::FDZC;
-    using FOFC = MCM_ISCR_fields_::FOFC;
-    using FUFC = MCM_ISCR_fields_::FUFC;
-    using FIXC = MCM_ISCR_fields_::FIXC;
-    using FIDC = MCM_ISCR_fields_::FIDC;
-    using CWBEE = MCM_ISCR_fields_::CWBEE;
-    using FIOCE = MCM_ISCR_fields_::FIOCE;
-    using FDZCE = MCM_ISCR_fields_::FDZCE;
-    using FOFCE = MCM_ISCR_fields_::FOFCE;
-    using FUFCE = MCM_ISCR_fields_::FUFCE;
-    using FIXCE = MCM_ISCR_fields_::FIXCE;
-    using FIDCE = MCM_ISCR_fields_::FIDCE;
+      McmIscrFields::FIDCE> {
+    using eCWBER = McmIscrFields::eCWBER;
+    using eFIOC = McmIscrFields::eFIOC;
+    using eFDZC = McmIscrFields::eFDZC;
+    using eFOFC = McmIscrFields::eFOFC;
+    using eFUFC = McmIscrFields::eFUFC;
+    using eFIXC = McmIscrFields::eFIXC;
+    using eFIDC = McmIscrFields::eFIDC;
+    using eCWBEE = McmIscrFields::eCWBEE;
+    using eFIOCE = McmIscrFields::eFIOCE;
+    using eFDZCE = McmIscrFields::eFDZCE;
+    using eFOFCE = McmIscrFields::eFOFCE;
+    using eFUFCE = McmIscrFields::eFUFCE;
+    using eFIXCE = McmIscrFields::eFIXCE;
+    using eFIDCE = McmIscrFields::eFIDCE;
+    using CWBER = McmIscrFields::CWBER;
+    using FIOC = McmIscrFields::FIOC;
+    using FDZC = McmIscrFields::FDZC;
+    using FOFC = McmIscrFields::FOFC;
+    using FUFC = McmIscrFields::FUFC;
+    using FIXC = McmIscrFields::FIXC;
+    using FIDC = McmIscrFields::FIDC;
+    using CWBEE = McmIscrFields::CWBEE;
+    using FIOCE = McmIscrFields::FIOCE;
+    using FDZCE = McmIscrFields::FDZCE;
+    using FOFCE = McmIscrFields::FOFCE;
+    using FUFCE = McmIscrFields::FUFCE;
+    using FIXCE = McmIscrFields::FIXCE;
+    using FIDCE = McmIscrFields::FIDCE;
   };
 
   // Fault address register
-  struct MCM_FADR_fields_ {
+  struct McmFadrFields {
     // Fault address
     using ADDRESS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_FADR_fields_
+  };  // struct McmFadrFields
 
   struct MCM_FADR : ftl::mmio::Register<
       0xE0080020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MCM_FADR_fields_::ADDRESS> {
-    using ADDRESS = MCM_FADR_fields_::ADDRESS;
+      McmFadrFields::ADDRESS> {
+    using ADDRESS = McmFadrFields::ADDRESS;
   };
 
   // Fault attributes register
-  struct MCM_FATR_fields_ {
+  struct McmFatrFields {
     enum class eBEDA : std::uint32_t {
       // Instruction
       eBEDA_0 = 0,
@@ -436,52 +436,52 @@ struct Mcm {
     using BEMN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Bus error overrun
     using BEOVR = ftl::mmio::Field<1, 31, eBEOVR, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_FATR_fields_
+  };  // struct McmFatrFields
 
   struct MCM_FATR : ftl::mmio::Register<
       0xE0080024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MCM_FATR_fields_::BEDA,
-      MCM_FATR_fields_::BEMD,
+      McmFatrFields::BEDA,
+      McmFatrFields::BEMD,
       ftl::mmio::Reserved<2, 2>,
-      MCM_FATR_fields_::BESZ,
+      McmFatrFields::BESZ,
       ftl::mmio::Reserved<1, 6>,
-      MCM_FATR_fields_::BEWT,
-      MCM_FATR_fields_::BEMN,
+      McmFatrFields::BEWT,
+      McmFatrFields::BEMN,
       ftl::mmio::Reserved<19, 12>,
-      MCM_FATR_fields_::BEOVR> {
-    using eBEDA = MCM_FATR_fields_::eBEDA;
-    using eBEMD = MCM_FATR_fields_::eBEMD;
-    using eBESZ = MCM_FATR_fields_::eBESZ;
-    using eBEWT = MCM_FATR_fields_::eBEWT;
-    using eBEOVR = MCM_FATR_fields_::eBEOVR;
-    using BEDA = MCM_FATR_fields_::BEDA;
-    using BEMD = MCM_FATR_fields_::BEMD;
-    using BESZ = MCM_FATR_fields_::BESZ;
-    using BEWT = MCM_FATR_fields_::BEWT;
-    using BEMN = MCM_FATR_fields_::BEMN;
-    using BEOVR = MCM_FATR_fields_::BEOVR;
+      McmFatrFields::BEOVR> {
+    using eBEDA = McmFatrFields::eBEDA;
+    using eBEMD = McmFatrFields::eBEMD;
+    using eBESZ = McmFatrFields::eBESZ;
+    using eBEWT = McmFatrFields::eBEWT;
+    using eBEOVR = McmFatrFields::eBEOVR;
+    using BEDA = McmFatrFields::BEDA;
+    using BEMD = McmFatrFields::BEMD;
+    using BESZ = McmFatrFields::BESZ;
+    using BEWT = McmFatrFields::BEWT;
+    using BEMN = McmFatrFields::BEMN;
+    using BEOVR = McmFatrFields::BEOVR;
   };
 
   // Fault data register
-  struct MCM_FDR_fields_ {
+  struct McmFdrFields {
     // Fault data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_FDR_fields_
+  };  // struct McmFdrFields
 
   struct MCM_FDR : ftl::mmio::Register<
       0xE0080028u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MCM_FDR_fields_::DATA> {
-    using DATA = MCM_FDR_fields_::DATA;
+      McmFdrFields::DATA> {
+    using DATA = McmFdrFields::DATA;
   };
 
   // Local Memory Descriptor Register
-  struct LMDR_fields_ {
+  struct LmdrFields {
     enum class eMT : std::uint32_t {
       // code TCM
       eMT_0 = 0,
@@ -583,7 +583,7 @@ struct Mcm {
     using LMSZH = ftl::mmio::Field<1, 28, eLMSZH, ftl::mmio::RO, ftl::mmio::Normal>;
     // Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     using V = ftl::mmio::Field<1, 31, eV, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LMDR_fields_
+  };  // struct LmdrFields
 
   template<std::uint32_t Index>
   struct LMDR : ftl::mmio::Register<
@@ -591,38 +591,38 @@ struct Mcm {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LMDR_fields_::CF0,
-      LMDR_fields_::CF1,
+      LmdrFields::CF0,
+      LmdrFields::CF1,
       ftl::mmio::Reserved<5, 8>,
-      LMDR_fields_::MT,
-      LMDR_fields_::RO,
-      LMDR_fields_::DPW,
-      LMDR_fields_::WY,
-      LMDR_fields_::LMSZ,
-      LMDR_fields_::LMSZH,
+      LmdrFields::MT,
+      LmdrFields::RO,
+      LmdrFields::DPW,
+      LmdrFields::WY,
+      LmdrFields::LMSZ,
+      LmdrFields::LMSZH,
       ftl::mmio::Reserved<2, 29>,
-      LMDR_fields_::V> {
+      LmdrFields::V> {
     static_assert(Index < 4u, "LMDR: Index out of range");
-    using eMT = LMDR_fields_::eMT;
-    using eRO = LMDR_fields_::eRO;
-    using eDPW = LMDR_fields_::eDPW;
-    using eWY = LMDR_fields_::eWY;
-    using eLMSZ = LMDR_fields_::eLMSZ;
-    using eLMSZH = LMDR_fields_::eLMSZH;
-    using eV = LMDR_fields_::eV;
-    using CF0 = LMDR_fields_::CF0;
-    using CF1 = LMDR_fields_::CF1;
-    using MT = LMDR_fields_::MT;
-    using RO = LMDR_fields_::RO;
-    using DPW = LMDR_fields_::DPW;
-    using WY = LMDR_fields_::WY;
-    using LMSZ = LMDR_fields_::LMSZ;
-    using LMSZH = LMDR_fields_::LMSZH;
-    using V = LMDR_fields_::V;
+    using eMT = LmdrFields::eMT;
+    using eRO = LmdrFields::eRO;
+    using eDPW = LmdrFields::eDPW;
+    using eWY = LmdrFields::eWY;
+    using eLMSZ = LmdrFields::eLMSZ;
+    using eLMSZH = LmdrFields::eLMSZH;
+    using eV = LmdrFields::eV;
+    using CF0 = LmdrFields::CF0;
+    using CF1 = LmdrFields::CF1;
+    using MT = LmdrFields::MT;
+    using RO = LmdrFields::RO;
+    using DPW = LmdrFields::DPW;
+    using WY = LmdrFields::WY;
+    using LMSZ = LmdrFields::LMSZ;
+    using LMSZH = LmdrFields::LMSZH;
+    using V = LmdrFields::V;
   };
 
   // LMEM Parity & ECC Control Register
-  struct MCM_LMPECR_fields_ {
+  struct McmLmpecrFields {
     enum class eERNCR : std::uint32_t {
       // reporting enabled
       eERNCR_0 = 0,
@@ -677,38 +677,38 @@ struct Mcm {
     using ECPR = ftl::mmio::Field<1, 20, eECPR, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Cache Parity IRQ
     using ECPI = ftl::mmio::Field<1, 21, eECPI, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MCM_LMPECR_fields_
+  };  // struct McmLmpecrFields
 
   struct MCM_LMPECR : ftl::mmio::Register<
       0xE0080480u,
       std::uint32_t,
       0x00300003u,
       ftl::mmio::RW,
-      MCM_LMPECR_fields_::ERNCR,
-      MCM_LMPECR_fields_::ERNCI,
+      McmLmpecrFields::ERNCR,
+      McmLmpecrFields::ERNCI,
       ftl::mmio::Reserved<6, 2>,
-      MCM_LMPECR_fields_::ER1BR,
-      MCM_LMPECR_fields_::ER1BI,
+      McmLmpecrFields::ER1BR,
+      McmLmpecrFields::ER1BI,
       ftl::mmio::Reserved<10, 10>,
-      MCM_LMPECR_fields_::ECPR,
-      MCM_LMPECR_fields_::ECPI,
+      McmLmpecrFields::ECPR,
+      McmLmpecrFields::ECPI,
       ftl::mmio::Reserved<10, 22>> {
-    using eERNCR = MCM_LMPECR_fields_::eERNCR;
-    using eERNCI = MCM_LMPECR_fields_::eERNCI;
-    using eER1BR = MCM_LMPECR_fields_::eER1BR;
-    using eER1BI = MCM_LMPECR_fields_::eER1BI;
-    using eECPR = MCM_LMPECR_fields_::eECPR;
-    using eECPI = MCM_LMPECR_fields_::eECPI;
-    using ERNCR = MCM_LMPECR_fields_::ERNCR;
-    using ERNCI = MCM_LMPECR_fields_::ERNCI;
-    using ER1BR = MCM_LMPECR_fields_::ER1BR;
-    using ER1BI = MCM_LMPECR_fields_::ER1BI;
-    using ECPR = MCM_LMPECR_fields_::ECPR;
-    using ECPI = MCM_LMPECR_fields_::ECPI;
+    using eERNCR = McmLmpecrFields::eERNCR;
+    using eERNCI = McmLmpecrFields::eERNCI;
+    using eER1BR = McmLmpecrFields::eER1BR;
+    using eER1BI = McmLmpecrFields::eER1BI;
+    using eECPR = McmLmpecrFields::eECPR;
+    using eECPI = McmLmpecrFields::eECPI;
+    using ERNCR = McmLmpecrFields::ERNCR;
+    using ERNCI = McmLmpecrFields::ERNCI;
+    using ER1BR = McmLmpecrFields::ER1BR;
+    using ER1BI = McmLmpecrFields::ER1BI;
+    using ECPR = McmLmpecrFields::ECPR;
+    using ECPI = McmLmpecrFields::ECPI;
   };
 
   // LMEM Parity & ECC Interrupt Register
-  struct MCM_LMPEIR_fields_ {
+  struct McmLmpeirFields {
     // ENCn = ECC Non-correctable Error n
     using ENC = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // E1Bn = ECC 1-bit Error n
@@ -719,43 +719,43 @@ struct Mcm {
     using PEELOC = ftl::mmio::Field<5, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Valid bit
     using V = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_LMPEIR_fields_
+  };  // struct McmLmpeirFields
 
   struct MCM_LMPEIR : ftl::mmio::Register<
       0xE0080488u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MCM_LMPEIR_fields_::ENC,
-      MCM_LMPEIR_fields_::E1B,
-      MCM_LMPEIR_fields_::PE,
-      MCM_LMPEIR_fields_::PEELOC,
+      McmLmpeirFields::ENC,
+      McmLmpeirFields::E1B,
+      McmLmpeirFields::PE,
+      McmLmpeirFields::PEELOC,
       ftl::mmio::Reserved<2, 29>,
-      MCM_LMPEIR_fields_::V> {
-    using ENC = MCM_LMPEIR_fields_::ENC;
-    using E1B = MCM_LMPEIR_fields_::E1B;
-    using PE = MCM_LMPEIR_fields_::PE;
-    using PEELOC = MCM_LMPEIR_fields_::PEELOC;
-    using V = MCM_LMPEIR_fields_::V;
+      McmLmpeirFields::V> {
+    using ENC = McmLmpeirFields::ENC;
+    using E1B = McmLmpeirFields::E1B;
+    using PE = McmLmpeirFields::PE;
+    using PEELOC = McmLmpeirFields::PEELOC;
+    using V = McmLmpeirFields::V;
   };
 
   // LMEM Fault Address Register
-  struct MCM_LMFAR_fields_ {
+  struct McmLmfarFields {
     // ECC Fault Address
     using EFADD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_LMFAR_fields_
+  };  // struct McmLmfarFields
 
   struct MCM_LMFAR : ftl::mmio::Register<
       0xE0080490u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MCM_LMFAR_fields_::EFADD> {
-    using EFADD = MCM_LMFAR_fields_::EFADD;
+      McmLmfarFields::EFADD> {
+    using EFADD = McmLmfarFields::EFADD;
   };
 
   // LMEM Fault Attribute Register
-  struct MCM_LMFATR_fields_ {
+  struct McmLmfatrFields {
     // Parity/ECC Fault Protection FATR[3] is Cacheable: 0=Non-cacheable, 1=Cacheable FATR[2] is Bufferable: 0=Non-bufferable, 1=Bufferable FATR[1] is Mode: 0=User mode, 1=Supervisor mode FATR[0] is Type: 0=I-Fetch, 1=Data
     using PEFPRT = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Parity/ECC Fault Master Size 3'b000 = 8-bit access 3'b001 = 16-bit access 3'b010 = 32-bit access 3'b011 = 64-bit access 3'b1xx = Reserved
@@ -768,57 +768,57 @@ struct Mcm {
     using WORDID = ftl::mmio::Field<1, 24, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overrun
     using OVR = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_LMFATR_fields_
+  };  // struct McmLmfatrFields
 
   struct MCM_LMFATR : ftl::mmio::Register<
       0xE0080494u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MCM_LMFATR_fields_::PEFPRT,
-      MCM_LMFATR_fields_::PEFSIZE,
-      MCM_LMFATR_fields_::PEFW,
-      MCM_LMFATR_fields_::PEFMST,
+      McmLmfatrFields::PEFPRT,
+      McmLmfatrFields::PEFSIZE,
+      McmLmfatrFields::PEFW,
+      McmLmfatrFields::PEFMST,
       ftl::mmio::Reserved<8, 16>,
-      MCM_LMFATR_fields_::WORDID,
+      McmLmfatrFields::WORDID,
       ftl::mmio::Reserved<6, 25>,
-      MCM_LMFATR_fields_::OVR> {
-    using PEFPRT = MCM_LMFATR_fields_::PEFPRT;
-    using PEFSIZE = MCM_LMFATR_fields_::PEFSIZE;
-    using PEFW = MCM_LMFATR_fields_::PEFW;
-    using PEFMST = MCM_LMFATR_fields_::PEFMST;
-    using WORDID = MCM_LMFATR_fields_::WORDID;
-    using OVR = MCM_LMFATR_fields_::OVR;
+      McmLmfatrFields::OVR> {
+    using PEFPRT = McmLmfatrFields::PEFPRT;
+    using PEFSIZE = McmLmfatrFields::PEFSIZE;
+    using PEFW = McmLmfatrFields::PEFW;
+    using PEFMST = McmLmfatrFields::PEFMST;
+    using WORDID = McmLmfatrFields::WORDID;
+    using OVR = McmLmfatrFields::OVR;
   };
 
   // LMEM Fault Data High Register
-  struct MCM_LMFDHR_fields_ {
+  struct McmLmfdhrFields {
     // Parity or ECC Fault Data High
     using PEFDH = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_LMFDHR_fields_
+  };  // struct McmLmfdhrFields
 
   struct MCM_LMFDHR : ftl::mmio::Register<
       0xE00804A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MCM_LMFDHR_fields_::PEFDH> {
-    using PEFDH = MCM_LMFDHR_fields_::PEFDH;
+      McmLmfdhrFields::PEFDH> {
+    using PEFDH = McmLmfdhrFields::PEFDH;
   };
 
   // LMEM Fault Data Low Register
-  struct MCM_LMFDLR_fields_ {
+  struct McmLmfdlrFields {
     // Parity or ECC Fault Data Low
     using PEFDL = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MCM_LMFDLR_fields_
+  };  // struct McmLmfdlrFields
 
   struct MCM_LMFDLR : ftl::mmio::Register<
       0xE00804A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MCM_LMFDLR_fields_::PEFDL> {
-    using PEFDL = MCM_LMFDLR_fields_::PEFDL;
+      McmLmfdlrFields::PEFDL> {
+    using PEFDL = McmLmfdlrFields::PEFDL;
   };
 
 };

@@ -20,42 +20,42 @@ struct Emvsim {
       0u;
 
   // Version ID Register
-  struct VER_ID_fields_ {
+  struct VerIdFields {
     // Version ID of the module
     using VER = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VER_ID_fields_
+  };  // struct VerIdFields
 
   struct VER_ID : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename VER_ID_fields_::VER> {
-    using VER = typename VER_ID_fields_::VER;
+      typename VerIdFields::VER> {
+    using VER = typename VerIdFields::VER;
   };
 
   // Parameter Register
-  struct PARAM_fields_ {
+  struct ParamFields {
     // Receive FIFO Depth
     using RX_FIFO_DEPTH = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Transmit FIFO Depth
     using TX_FIFO_DEPTH = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PARAM_fields_
+  };  // struct ParamFields
 
   struct PARAM : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00001010u,
       ftl::mmio::RO,
-      typename PARAM_fields_::RX_FIFO_DEPTH,
-      typename PARAM_fields_::TX_FIFO_DEPTH,
+      typename ParamFields::RX_FIFO_DEPTH,
+      typename ParamFields::TX_FIFO_DEPTH,
       ftl::mmio::Reserved<16, 16>> {
-    using RX_FIFO_DEPTH = typename PARAM_fields_::RX_FIFO_DEPTH;
-    using TX_FIFO_DEPTH = typename PARAM_fields_::TX_FIFO_DEPTH;
+    using RX_FIFO_DEPTH = typename ParamFields::RX_FIFO_DEPTH;
+    using TX_FIFO_DEPTH = typename ParamFields::TX_FIFO_DEPTH;
   };
 
   // Clock Configuration Register
-  struct CLKCFG_fields_ {
+  struct ClkcfgFields {
     enum class eGPCNT1_CLK_SEL : std::uint32_t {
       // Disabled / Reset
       edisabled = 0,
@@ -84,26 +84,26 @@ struct Emvsim {
     using GPCNT1_CLK_SEL = ftl::mmio::Field<2, 8, eGPCNT1_CLK_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
     // General Purpose Counter 0 Clock Select
     using GPCNT0_CLK_SEL = ftl::mmio::Field<2, 10, eGPCNT0_CLK_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CLKCFG_fields_
+  };  // struct ClkcfgFields
 
   struct CLKCFG : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CLKCFG_fields_::CLK_PRSC,
-      typename CLKCFG_fields_::GPCNT1_CLK_SEL,
-      typename CLKCFG_fields_::GPCNT0_CLK_SEL,
+      typename ClkcfgFields::CLK_PRSC,
+      typename ClkcfgFields::GPCNT1_CLK_SEL,
+      typename ClkcfgFields::GPCNT0_CLK_SEL,
       ftl::mmio::Reserved<20, 12>> {
-    using eGPCNT1_CLK_SEL = typename CLKCFG_fields_::eGPCNT1_CLK_SEL;
-    using eGPCNT0_CLK_SEL = typename CLKCFG_fields_::eGPCNT0_CLK_SEL;
-    using CLK_PRSC = typename CLKCFG_fields_::CLK_PRSC;
-    using GPCNT1_CLK_SEL = typename CLKCFG_fields_::GPCNT1_CLK_SEL;
-    using GPCNT0_CLK_SEL = typename CLKCFG_fields_::GPCNT0_CLK_SEL;
+    using eGPCNT1_CLK_SEL = typename ClkcfgFields::eGPCNT1_CLK_SEL;
+    using eGPCNT0_CLK_SEL = typename ClkcfgFields::eGPCNT0_CLK_SEL;
+    using CLK_PRSC = typename ClkcfgFields::CLK_PRSC;
+    using GPCNT1_CLK_SEL = typename ClkcfgFields::GPCNT1_CLK_SEL;
+    using GPCNT0_CLK_SEL = typename ClkcfgFields::GPCNT0_CLK_SEL;
   };
 
   // Baud Rate Divisor Register
-  struct DIVISOR_fields_ {
+  struct DivisorFields {
     enum class eDIVISOR_VALUE : std::uint32_t {
       // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
       einvalid_0 = 0,
@@ -129,21 +129,21 @@ struct Emvsim {
 
     // Divisor (F/D) Value
     using DIVISOR_VALUE = ftl::mmio::Field<9, 0, eDIVISOR_VALUE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DIVISOR_fields_
+  };  // struct DivisorFields
 
   struct DIVISOR : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000174u,
       ftl::mmio::RW,
-      typename DIVISOR_fields_::DIVISOR_VALUE,
+      typename DivisorFields::DIVISOR_VALUE,
       ftl::mmio::Reserved<23, 9>> {
-    using eDIVISOR_VALUE = typename DIVISOR_fields_::eDIVISOR_VALUE;
-    using DIVISOR_VALUE = typename DIVISOR_fields_::DIVISOR_VALUE;
+    using eDIVISOR_VALUE = typename DivisorFields::eDIVISOR_VALUE;
+    using DIVISOR_VALUE = typename DivisorFields::DIVISOR_VALUE;
   };
 
   // Control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eIC : std::uint32_t {
       // Direction convention transfers enabled
       edir_convention = 0,
@@ -351,89 +351,89 @@ struct Emvsim {
     using XMT_CRC_LRC = ftl::mmio::Field<1, 30, eXMT_CRC_LRC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Block Wait Time Counter Enable
     using BWT_EN = ftl::mmio::Field<1, 31, eBWT_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x01000006u,
       ftl::mmio::RW,
-      typename CTRL_fields_::IC,
-      typename CTRL_fields_::ICM,
-      typename CTRL_fields_::ANACK,
-      typename CTRL_fields_::ONACK,
+      typename CtrlFields::IC,
+      typename CtrlFields::ICM,
+      typename CtrlFields::ANACK,
+      typename CtrlFields::ONACK,
       ftl::mmio::Reserved<4, 4>,
-      typename CTRL_fields_::FLSH_RX,
-      typename CTRL_fields_::FLSH_TX,
-      typename CTRL_fields_::SW_RST,
-      typename CTRL_fields_::KILL_CLOCKS,
-      typename CTRL_fields_::DOZE_EN,
-      typename CTRL_fields_::STOP_EN,
+      typename CtrlFields::FLSH_RX,
+      typename CtrlFields::FLSH_TX,
+      typename CtrlFields::SW_RST,
+      typename CtrlFields::KILL_CLOCKS,
+      typename CtrlFields::DOZE_EN,
+      typename CtrlFields::STOP_EN,
       ftl::mmio::Reserved<2, 14>,
-      typename CTRL_fields_::RCV_EN,
-      typename CTRL_fields_::XMT_EN,
-      typename CTRL_fields_::RCVR_11,
-      typename CTRL_fields_::RX_DMA_EN,
-      typename CTRL_fields_::TX_DMA_EN,
+      typename CtrlFields::RCV_EN,
+      typename CtrlFields::XMT_EN,
+      typename CtrlFields::RCVR_11,
+      typename CtrlFields::RX_DMA_EN,
+      typename CtrlFields::TX_DMA_EN,
       ftl::mmio::Reserved<3, 21>,
-      typename CTRL_fields_::INV_CRC_VAL,
-      typename CTRL_fields_::CRC_OUT_FLIP,
-      typename CTRL_fields_::CRC_IN_FLIP,
-      typename CTRL_fields_::CWT_EN,
-      typename CTRL_fields_::LRC_EN,
-      typename CTRL_fields_::CRC_EN,
-      typename CTRL_fields_::XMT_CRC_LRC,
-      typename CTRL_fields_::BWT_EN> {
-    using eIC = typename CTRL_fields_::eIC;
-    using eICM = typename CTRL_fields_::eICM;
-    using eANACK = typename CTRL_fields_::eANACK;
-    using eONACK = typename CTRL_fields_::eONACK;
-    using eFLSH_RX = typename CTRL_fields_::eFLSH_RX;
-    using eFLSH_TX = typename CTRL_fields_::eFLSH_TX;
-    using eSW_RST = typename CTRL_fields_::eSW_RST;
-    using eKILL_CLOCKS = typename CTRL_fields_::eKILL_CLOCKS;
-    using eDOZE_EN = typename CTRL_fields_::eDOZE_EN;
-    using eSTOP_EN = typename CTRL_fields_::eSTOP_EN;
-    using eRCV_EN = typename CTRL_fields_::eRCV_EN;
-    using eXMT_EN = typename CTRL_fields_::eXMT_EN;
-    using eRCVR_11 = typename CTRL_fields_::eRCVR_11;
-    using eRX_DMA_EN = typename CTRL_fields_::eRX_DMA_EN;
-    using eTX_DMA_EN = typename CTRL_fields_::eTX_DMA_EN;
-    using eINV_CRC_VAL = typename CTRL_fields_::eINV_CRC_VAL;
-    using eCRC_OUT_FLIP = typename CTRL_fields_::eCRC_OUT_FLIP;
-    using eCRC_IN_FLIP = typename CTRL_fields_::eCRC_IN_FLIP;
-    using eCWT_EN = typename CTRL_fields_::eCWT_EN;
-    using eLRC_EN = typename CTRL_fields_::eLRC_EN;
-    using eCRC_EN = typename CTRL_fields_::eCRC_EN;
-    using eXMT_CRC_LRC = typename CTRL_fields_::eXMT_CRC_LRC;
-    using eBWT_EN = typename CTRL_fields_::eBWT_EN;
-    using IC = typename CTRL_fields_::IC;
-    using ICM = typename CTRL_fields_::ICM;
-    using ANACK = typename CTRL_fields_::ANACK;
-    using ONACK = typename CTRL_fields_::ONACK;
-    using FLSH_RX = typename CTRL_fields_::FLSH_RX;
-    using FLSH_TX = typename CTRL_fields_::FLSH_TX;
-    using SW_RST = typename CTRL_fields_::SW_RST;
-    using KILL_CLOCKS = typename CTRL_fields_::KILL_CLOCKS;
-    using DOZE_EN = typename CTRL_fields_::DOZE_EN;
-    using STOP_EN = typename CTRL_fields_::STOP_EN;
-    using RCV_EN = typename CTRL_fields_::RCV_EN;
-    using XMT_EN = typename CTRL_fields_::XMT_EN;
-    using RCVR_11 = typename CTRL_fields_::RCVR_11;
-    using RX_DMA_EN = typename CTRL_fields_::RX_DMA_EN;
-    using TX_DMA_EN = typename CTRL_fields_::TX_DMA_EN;
-    using INV_CRC_VAL = typename CTRL_fields_::INV_CRC_VAL;
-    using CRC_OUT_FLIP = typename CTRL_fields_::CRC_OUT_FLIP;
-    using CRC_IN_FLIP = typename CTRL_fields_::CRC_IN_FLIP;
-    using CWT_EN = typename CTRL_fields_::CWT_EN;
-    using LRC_EN = typename CTRL_fields_::LRC_EN;
-    using CRC_EN = typename CTRL_fields_::CRC_EN;
-    using XMT_CRC_LRC = typename CTRL_fields_::XMT_CRC_LRC;
-    using BWT_EN = typename CTRL_fields_::BWT_EN;
+      typename CtrlFields::INV_CRC_VAL,
+      typename CtrlFields::CRC_OUT_FLIP,
+      typename CtrlFields::CRC_IN_FLIP,
+      typename CtrlFields::CWT_EN,
+      typename CtrlFields::LRC_EN,
+      typename CtrlFields::CRC_EN,
+      typename CtrlFields::XMT_CRC_LRC,
+      typename CtrlFields::BWT_EN> {
+    using eIC = typename CtrlFields::eIC;
+    using eICM = typename CtrlFields::eICM;
+    using eANACK = typename CtrlFields::eANACK;
+    using eONACK = typename CtrlFields::eONACK;
+    using eFLSH_RX = typename CtrlFields::eFLSH_RX;
+    using eFLSH_TX = typename CtrlFields::eFLSH_TX;
+    using eSW_RST = typename CtrlFields::eSW_RST;
+    using eKILL_CLOCKS = typename CtrlFields::eKILL_CLOCKS;
+    using eDOZE_EN = typename CtrlFields::eDOZE_EN;
+    using eSTOP_EN = typename CtrlFields::eSTOP_EN;
+    using eRCV_EN = typename CtrlFields::eRCV_EN;
+    using eXMT_EN = typename CtrlFields::eXMT_EN;
+    using eRCVR_11 = typename CtrlFields::eRCVR_11;
+    using eRX_DMA_EN = typename CtrlFields::eRX_DMA_EN;
+    using eTX_DMA_EN = typename CtrlFields::eTX_DMA_EN;
+    using eINV_CRC_VAL = typename CtrlFields::eINV_CRC_VAL;
+    using eCRC_OUT_FLIP = typename CtrlFields::eCRC_OUT_FLIP;
+    using eCRC_IN_FLIP = typename CtrlFields::eCRC_IN_FLIP;
+    using eCWT_EN = typename CtrlFields::eCWT_EN;
+    using eLRC_EN = typename CtrlFields::eLRC_EN;
+    using eCRC_EN = typename CtrlFields::eCRC_EN;
+    using eXMT_CRC_LRC = typename CtrlFields::eXMT_CRC_LRC;
+    using eBWT_EN = typename CtrlFields::eBWT_EN;
+    using IC = typename CtrlFields::IC;
+    using ICM = typename CtrlFields::ICM;
+    using ANACK = typename CtrlFields::ANACK;
+    using ONACK = typename CtrlFields::ONACK;
+    using FLSH_RX = typename CtrlFields::FLSH_RX;
+    using FLSH_TX = typename CtrlFields::FLSH_TX;
+    using SW_RST = typename CtrlFields::SW_RST;
+    using KILL_CLOCKS = typename CtrlFields::KILL_CLOCKS;
+    using DOZE_EN = typename CtrlFields::DOZE_EN;
+    using STOP_EN = typename CtrlFields::STOP_EN;
+    using RCV_EN = typename CtrlFields::RCV_EN;
+    using XMT_EN = typename CtrlFields::XMT_EN;
+    using RCVR_11 = typename CtrlFields::RCVR_11;
+    using RX_DMA_EN = typename CtrlFields::RX_DMA_EN;
+    using TX_DMA_EN = typename CtrlFields::TX_DMA_EN;
+    using INV_CRC_VAL = typename CtrlFields::INV_CRC_VAL;
+    using CRC_OUT_FLIP = typename CtrlFields::CRC_OUT_FLIP;
+    using CRC_IN_FLIP = typename CtrlFields::CRC_IN_FLIP;
+    using CWT_EN = typename CtrlFields::CWT_EN;
+    using LRC_EN = typename CtrlFields::LRC_EN;
+    using CRC_EN = typename CtrlFields::CRC_EN;
+    using XMT_CRC_LRC = typename CtrlFields::XMT_CRC_LRC;
+    using BWT_EN = typename CtrlFields::BWT_EN;
   };
 
   // Interrupt Mask Register
-  struct INT_MASK_fields_ {
+  struct IntMaskFields {
     enum class eRDT_IM : std::uint32_t {
       // RDTF interrupt enabled
       eint_enabled = 0,
@@ -578,108 +578,108 @@ struct Emvsim {
     using RX_DATA_IM = ftl::mmio::Field<1, 14, eRX_DATA_IM, ftl::mmio::RW, ftl::mmio::Normal>;
     // Parity Error Interrupt Mask
     using PEF_IM = ftl::mmio::Field<1, 15, ePEF_IM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct INT_MASK_fields_
+  };  // struct IntMaskFields
 
   struct INT_MASK : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename INT_MASK_fields_::RDT_IM,
-      typename INT_MASK_fields_::TC_IM,
-      typename INT_MASK_fields_::RFO_IM,
-      typename INT_MASK_fields_::ETC_IM,
-      typename INT_MASK_fields_::TFE_IM,
-      typename INT_MASK_fields_::TNACK_IM,
-      typename INT_MASK_fields_::TFF_IM,
-      typename INT_MASK_fields_::TDT_IM,
-      typename INT_MASK_fields_::GPCNT0_IM,
-      typename INT_MASK_fields_::CWT_ERR_IM,
-      typename INT_MASK_fields_::RNACK_IM,
-      typename INT_MASK_fields_::BWT_ERR_IM,
-      typename INT_MASK_fields_::BGT_ERR_IM,
-      typename INT_MASK_fields_::GPCNT1_IM,
-      typename INT_MASK_fields_::RX_DATA_IM,
-      typename INT_MASK_fields_::PEF_IM,
+      typename IntMaskFields::RDT_IM,
+      typename IntMaskFields::TC_IM,
+      typename IntMaskFields::RFO_IM,
+      typename IntMaskFields::ETC_IM,
+      typename IntMaskFields::TFE_IM,
+      typename IntMaskFields::TNACK_IM,
+      typename IntMaskFields::TFF_IM,
+      typename IntMaskFields::TDT_IM,
+      typename IntMaskFields::GPCNT0_IM,
+      typename IntMaskFields::CWT_ERR_IM,
+      typename IntMaskFields::RNACK_IM,
+      typename IntMaskFields::BWT_ERR_IM,
+      typename IntMaskFields::BGT_ERR_IM,
+      typename IntMaskFields::GPCNT1_IM,
+      typename IntMaskFields::RX_DATA_IM,
+      typename IntMaskFields::PEF_IM,
       ftl::mmio::Reserved<16, 16>> {
-    using eRDT_IM = typename INT_MASK_fields_::eRDT_IM;
-    using eTC_IM = typename INT_MASK_fields_::eTC_IM;
-    using eRFO_IM = typename INT_MASK_fields_::eRFO_IM;
-    using eETC_IM = typename INT_MASK_fields_::eETC_IM;
-    using eTFE_IM = typename INT_MASK_fields_::eTFE_IM;
-    using eTNACK_IM = typename INT_MASK_fields_::eTNACK_IM;
-    using eTFF_IM = typename INT_MASK_fields_::eTFF_IM;
-    using eTDT_IM = typename INT_MASK_fields_::eTDT_IM;
-    using eGPCNT0_IM = typename INT_MASK_fields_::eGPCNT0_IM;
-    using eCWT_ERR_IM = typename INT_MASK_fields_::eCWT_ERR_IM;
-    using eRNACK_IM = typename INT_MASK_fields_::eRNACK_IM;
-    using eBWT_ERR_IM = typename INT_MASK_fields_::eBWT_ERR_IM;
-    using eBGT_ERR_IM = typename INT_MASK_fields_::eBGT_ERR_IM;
-    using eGPCNT1_IM = typename INT_MASK_fields_::eGPCNT1_IM;
-    using eRX_DATA_IM = typename INT_MASK_fields_::eRX_DATA_IM;
-    using ePEF_IM = typename INT_MASK_fields_::ePEF_IM;
-    using RDT_IM = typename INT_MASK_fields_::RDT_IM;
-    using TC_IM = typename INT_MASK_fields_::TC_IM;
-    using RFO_IM = typename INT_MASK_fields_::RFO_IM;
-    using ETC_IM = typename INT_MASK_fields_::ETC_IM;
-    using TFE_IM = typename INT_MASK_fields_::TFE_IM;
-    using TNACK_IM = typename INT_MASK_fields_::TNACK_IM;
-    using TFF_IM = typename INT_MASK_fields_::TFF_IM;
-    using TDT_IM = typename INT_MASK_fields_::TDT_IM;
-    using GPCNT0_IM = typename INT_MASK_fields_::GPCNT0_IM;
-    using CWT_ERR_IM = typename INT_MASK_fields_::CWT_ERR_IM;
-    using RNACK_IM = typename INT_MASK_fields_::RNACK_IM;
-    using BWT_ERR_IM = typename INT_MASK_fields_::BWT_ERR_IM;
-    using BGT_ERR_IM = typename INT_MASK_fields_::BGT_ERR_IM;
-    using GPCNT1_IM = typename INT_MASK_fields_::GPCNT1_IM;
-    using RX_DATA_IM = typename INT_MASK_fields_::RX_DATA_IM;
-    using PEF_IM = typename INT_MASK_fields_::PEF_IM;
+    using eRDT_IM = typename IntMaskFields::eRDT_IM;
+    using eTC_IM = typename IntMaskFields::eTC_IM;
+    using eRFO_IM = typename IntMaskFields::eRFO_IM;
+    using eETC_IM = typename IntMaskFields::eETC_IM;
+    using eTFE_IM = typename IntMaskFields::eTFE_IM;
+    using eTNACK_IM = typename IntMaskFields::eTNACK_IM;
+    using eTFF_IM = typename IntMaskFields::eTFF_IM;
+    using eTDT_IM = typename IntMaskFields::eTDT_IM;
+    using eGPCNT0_IM = typename IntMaskFields::eGPCNT0_IM;
+    using eCWT_ERR_IM = typename IntMaskFields::eCWT_ERR_IM;
+    using eRNACK_IM = typename IntMaskFields::eRNACK_IM;
+    using eBWT_ERR_IM = typename IntMaskFields::eBWT_ERR_IM;
+    using eBGT_ERR_IM = typename IntMaskFields::eBGT_ERR_IM;
+    using eGPCNT1_IM = typename IntMaskFields::eGPCNT1_IM;
+    using eRX_DATA_IM = typename IntMaskFields::eRX_DATA_IM;
+    using ePEF_IM = typename IntMaskFields::ePEF_IM;
+    using RDT_IM = typename IntMaskFields::RDT_IM;
+    using TC_IM = typename IntMaskFields::TC_IM;
+    using RFO_IM = typename IntMaskFields::RFO_IM;
+    using ETC_IM = typename IntMaskFields::ETC_IM;
+    using TFE_IM = typename IntMaskFields::TFE_IM;
+    using TNACK_IM = typename IntMaskFields::TNACK_IM;
+    using TFF_IM = typename IntMaskFields::TFF_IM;
+    using TDT_IM = typename IntMaskFields::TDT_IM;
+    using GPCNT0_IM = typename IntMaskFields::GPCNT0_IM;
+    using CWT_ERR_IM = typename IntMaskFields::CWT_ERR_IM;
+    using RNACK_IM = typename IntMaskFields::RNACK_IM;
+    using BWT_ERR_IM = typename IntMaskFields::BWT_ERR_IM;
+    using BGT_ERR_IM = typename IntMaskFields::BGT_ERR_IM;
+    using GPCNT1_IM = typename IntMaskFields::GPCNT1_IM;
+    using RX_DATA_IM = typename IntMaskFields::RX_DATA_IM;
+    using PEF_IM = typename IntMaskFields::PEF_IM;
   };
 
   // Receiver Threshold Register
-  struct RX_THD_fields_ {
+  struct RxThdFields {
     // Receiver Data Threshold Value
     using RDT = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receiver NACK Threshold Value
     using RNCK_THD = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RX_THD_fields_
+  };  // struct RxThdFields
 
   struct RX_THD : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x00000001u,
       ftl::mmio::RW,
-      typename RX_THD_fields_::RDT,
+      typename RxThdFields::RDT,
       ftl::mmio::Reserved<4, 4>,
-      typename RX_THD_fields_::RNCK_THD,
+      typename RxThdFields::RNCK_THD,
       ftl::mmio::Reserved<20, 12>> {
-    using RDT = typename RX_THD_fields_::RDT;
-    using RNCK_THD = typename RX_THD_fields_::RNCK_THD;
+    using RDT = typename RxThdFields::RDT;
+    using RNCK_THD = typename RxThdFields::RNCK_THD;
   };
 
   // Transmitter Threshold Register
-  struct TX_THD_fields_ {
+  struct TxThdFields {
     // Transmitter Data Threshold Value
     using TDT = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmitter NACK Threshold Value
     using TNCK_THD = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TX_THD_fields_
+  };  // struct TxThdFields
 
   struct TX_THD : ftl::mmio::Register<
       kBase + 0x1Cu,
       std::uint32_t,
       0x0000000Fu,
       ftl::mmio::RW,
-      typename TX_THD_fields_::TDT,
+      typename TxThdFields::TDT,
       ftl::mmio::Reserved<4, 4>,
-      typename TX_THD_fields_::TNCK_THD,
+      typename TxThdFields::TNCK_THD,
       ftl::mmio::Reserved<20, 12>> {
-    using TDT = typename TX_THD_fields_::TDT;
-    using TNCK_THD = typename TX_THD_fields_::TNCK_THD;
+    using TDT = typename TxThdFields::TDT;
+    using TNCK_THD = typename TxThdFields::TNCK_THD;
   };
 
   // Receive Status Register
-  struct RX_STATUS_fields_ {
+  struct RxStatusFields {
     enum class eRFO : std::uint32_t {
       // No overrun error has occurred
       eno_overrun = 0,
@@ -788,59 +788,59 @@ struct Emvsim {
     using RX_WPTR = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Receive FIFO Byte Count
     using RX_CNT = ftl::mmio::Field<4, 24, eRX_CNT, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RX_STATUS_fields_
+  };  // struct RxStatusFields
 
   struct RX_STATUS : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RX_STATUS_fields_::RFO,
+      typename RxStatusFields::RFO,
       ftl::mmio::Reserved<3, 1>,
-      typename RX_STATUS_fields_::RX_DATA,
-      typename RX_STATUS_fields_::RDTF,
-      typename RX_STATUS_fields_::LRC_OK,
-      typename RX_STATUS_fields_::CRC_OK,
-      typename RX_STATUS_fields_::CWT_ERR,
-      typename RX_STATUS_fields_::RTE,
-      typename RX_STATUS_fields_::BWT_ERR,
-      typename RX_STATUS_fields_::BGT_ERR,
-      typename RX_STATUS_fields_::PEF,
-      typename RX_STATUS_fields_::FEF,
+      typename RxStatusFields::RX_DATA,
+      typename RxStatusFields::RDTF,
+      typename RxStatusFields::LRC_OK,
+      typename RxStatusFields::CRC_OK,
+      typename RxStatusFields::CWT_ERR,
+      typename RxStatusFields::RTE,
+      typename RxStatusFields::BWT_ERR,
+      typename RxStatusFields::BGT_ERR,
+      typename RxStatusFields::PEF,
+      typename RxStatusFields::FEF,
       ftl::mmio::Reserved<2, 14>,
-      typename RX_STATUS_fields_::RX_WPTR,
+      typename RxStatusFields::RX_WPTR,
       ftl::mmio::Reserved<4, 20>,
-      typename RX_STATUS_fields_::RX_CNT,
+      typename RxStatusFields::RX_CNT,
       ftl::mmio::Reserved<4, 28>> {
-    using eRFO = typename RX_STATUS_fields_::eRFO;
-    using eRX_DATA = typename RX_STATUS_fields_::eRX_DATA;
-    using eRDTF = typename RX_STATUS_fields_::eRDTF;
-    using eLRC_OK = typename RX_STATUS_fields_::eLRC_OK;
-    using eCRC_OK = typename RX_STATUS_fields_::eCRC_OK;
-    using eCWT_ERR = typename RX_STATUS_fields_::eCWT_ERR;
-    using eRTE = typename RX_STATUS_fields_::eRTE;
-    using eBWT_ERR = typename RX_STATUS_fields_::eBWT_ERR;
-    using eBGT_ERR = typename RX_STATUS_fields_::eBGT_ERR;
-    using ePEF = typename RX_STATUS_fields_::ePEF;
-    using eFEF = typename RX_STATUS_fields_::eFEF;
-    using eRX_CNT = typename RX_STATUS_fields_::eRX_CNT;
-    using RFO = typename RX_STATUS_fields_::RFO;
-    using RX_DATA = typename RX_STATUS_fields_::RX_DATA;
-    using RDTF = typename RX_STATUS_fields_::RDTF;
-    using LRC_OK = typename RX_STATUS_fields_::LRC_OK;
-    using CRC_OK = typename RX_STATUS_fields_::CRC_OK;
-    using CWT_ERR = typename RX_STATUS_fields_::CWT_ERR;
-    using RTE = typename RX_STATUS_fields_::RTE;
-    using BWT_ERR = typename RX_STATUS_fields_::BWT_ERR;
-    using BGT_ERR = typename RX_STATUS_fields_::BGT_ERR;
-    using PEF = typename RX_STATUS_fields_::PEF;
-    using FEF = typename RX_STATUS_fields_::FEF;
-    using RX_WPTR = typename RX_STATUS_fields_::RX_WPTR;
-    using RX_CNT = typename RX_STATUS_fields_::RX_CNT;
+    using eRFO = typename RxStatusFields::eRFO;
+    using eRX_DATA = typename RxStatusFields::eRX_DATA;
+    using eRDTF = typename RxStatusFields::eRDTF;
+    using eLRC_OK = typename RxStatusFields::eLRC_OK;
+    using eCRC_OK = typename RxStatusFields::eCRC_OK;
+    using eCWT_ERR = typename RxStatusFields::eCWT_ERR;
+    using eRTE = typename RxStatusFields::eRTE;
+    using eBWT_ERR = typename RxStatusFields::eBWT_ERR;
+    using eBGT_ERR = typename RxStatusFields::eBGT_ERR;
+    using ePEF = typename RxStatusFields::ePEF;
+    using eFEF = typename RxStatusFields::eFEF;
+    using eRX_CNT = typename RxStatusFields::eRX_CNT;
+    using RFO = typename RxStatusFields::RFO;
+    using RX_DATA = typename RxStatusFields::RX_DATA;
+    using RDTF = typename RxStatusFields::RDTF;
+    using LRC_OK = typename RxStatusFields::LRC_OK;
+    using CRC_OK = typename RxStatusFields::CRC_OK;
+    using CWT_ERR = typename RxStatusFields::CWT_ERR;
+    using RTE = typename RxStatusFields::RTE;
+    using BWT_ERR = typename RxStatusFields::BWT_ERR;
+    using BGT_ERR = typename RxStatusFields::BGT_ERR;
+    using PEF = typename RxStatusFields::PEF;
+    using FEF = typename RxStatusFields::FEF;
+    using RX_WPTR = typename RxStatusFields::RX_WPTR;
+    using RX_CNT = typename RxStatusFields::RX_CNT;
   };
 
   // Transmitter Status Register
-  struct TX_STATUS_fields_ {
+  struct TxStatusFields {
     enum class eTNTE : std::uint32_t {
       // Transmit NACK threshold has not been reached
       elessthan_nackthresh = 0,
@@ -922,50 +922,50 @@ struct Emvsim {
     using TX_RPTR = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Transmit FIFO Byte Count
     using TX_CNT = ftl::mmio::Field<4, 24, eTX_CNT, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct TX_STATUS_fields_
+  };  // struct TxStatusFields
 
   struct TX_STATUS : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint32_t,
       0x000000B8u,
       ftl::mmio::RW,
-      typename TX_STATUS_fields_::TNTE,
+      typename TxStatusFields::TNTE,
       ftl::mmio::Reserved<2, 1>,
-      typename TX_STATUS_fields_::TFE,
-      typename TX_STATUS_fields_::ETCF,
-      typename TX_STATUS_fields_::TCF,
-      typename TX_STATUS_fields_::TFF,
-      typename TX_STATUS_fields_::TDTF,
-      typename TX_STATUS_fields_::GPCNT0_TO,
-      typename TX_STATUS_fields_::GPCNT1_TO,
+      typename TxStatusFields::TFE,
+      typename TxStatusFields::ETCF,
+      typename TxStatusFields::TCF,
+      typename TxStatusFields::TFF,
+      typename TxStatusFields::TDTF,
+      typename TxStatusFields::GPCNT0_TO,
+      typename TxStatusFields::GPCNT1_TO,
       ftl::mmio::Reserved<6, 10>,
-      typename TX_STATUS_fields_::TX_RPTR,
+      typename TxStatusFields::TX_RPTR,
       ftl::mmio::Reserved<4, 20>,
-      typename TX_STATUS_fields_::TX_CNT,
+      typename TxStatusFields::TX_CNT,
       ftl::mmio::Reserved<4, 28>> {
-    using eTNTE = typename TX_STATUS_fields_::eTNTE;
-    using eTFE = typename TX_STATUS_fields_::eTFE;
-    using eETCF = typename TX_STATUS_fields_::eETCF;
-    using eTCF = typename TX_STATUS_fields_::eTCF;
-    using eTFF = typename TX_STATUS_fields_::eTFF;
-    using eTDTF = typename TX_STATUS_fields_::eTDTF;
-    using eGPCNT0_TO = typename TX_STATUS_fields_::eGPCNT0_TO;
-    using eGPCNT1_TO = typename TX_STATUS_fields_::eGPCNT1_TO;
-    using eTX_CNT = typename TX_STATUS_fields_::eTX_CNT;
-    using TNTE = typename TX_STATUS_fields_::TNTE;
-    using TFE = typename TX_STATUS_fields_::TFE;
-    using ETCF = typename TX_STATUS_fields_::ETCF;
-    using TCF = typename TX_STATUS_fields_::TCF;
-    using TFF = typename TX_STATUS_fields_::TFF;
-    using TDTF = typename TX_STATUS_fields_::TDTF;
-    using GPCNT0_TO = typename TX_STATUS_fields_::GPCNT0_TO;
-    using GPCNT1_TO = typename TX_STATUS_fields_::GPCNT1_TO;
-    using TX_RPTR = typename TX_STATUS_fields_::TX_RPTR;
-    using TX_CNT = typename TX_STATUS_fields_::TX_CNT;
+    using eTNTE = typename TxStatusFields::eTNTE;
+    using eTFE = typename TxStatusFields::eTFE;
+    using eETCF = typename TxStatusFields::eETCF;
+    using eTCF = typename TxStatusFields::eTCF;
+    using eTFF = typename TxStatusFields::eTFF;
+    using eTDTF = typename TxStatusFields::eTDTF;
+    using eGPCNT0_TO = typename TxStatusFields::eGPCNT0_TO;
+    using eGPCNT1_TO = typename TxStatusFields::eGPCNT1_TO;
+    using eTX_CNT = typename TxStatusFields::eTX_CNT;
+    using TNTE = typename TxStatusFields::TNTE;
+    using TFE = typename TxStatusFields::TFE;
+    using ETCF = typename TxStatusFields::ETCF;
+    using TCF = typename TxStatusFields::TCF;
+    using TFF = typename TxStatusFields::TFF;
+    using TDTF = typename TxStatusFields::TDTF;
+    using GPCNT0_TO = typename TxStatusFields::GPCNT0_TO;
+    using GPCNT1_TO = typename TxStatusFields::GPCNT1_TO;
+    using TX_RPTR = typename TxStatusFields::TX_RPTR;
+    using TX_CNT = typename TxStatusFields::TX_CNT;
   };
 
   // Port Control and Status Register
-  struct PCSR_fields_ {
+  struct PcsrFields {
     enum class eSAPD : std::uint32_t {
       // Auto power down disabled
       edisabled = 0,
@@ -1065,176 +1065,176 @@ struct Emvsim {
     using SPDP = ftl::mmio::Field<1, 26, eSPDP, ftl::mmio::RO, ftl::mmio::Normal>;
     // SIM Presence Detect Edge Select
     using SPDES = ftl::mmio::Field<1, 27, eSPDES, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PCSR_fields_
+  };  // struct PcsrFields
 
   struct PCSR : ftl::mmio::Register<
       kBase + 0x28u,
       std::uint32_t,
       0x01000000u,
       ftl::mmio::RW,
-      typename PCSR_fields_::SAPD,
-      typename PCSR_fields_::SVCC_EN,
-      typename PCSR_fields_::VCCENP,
-      typename PCSR_fields_::SRST,
-      typename PCSR_fields_::SCEN,
-      typename PCSR_fields_::SCSP,
+      typename PcsrFields::SAPD,
+      typename PcsrFields::SVCC_EN,
+      typename PcsrFields::VCCENP,
+      typename PcsrFields::SRST,
+      typename PcsrFields::SCEN,
+      typename PcsrFields::SCSP,
       ftl::mmio::Reserved<1, 6>,
-      typename PCSR_fields_::SPD,
+      typename PcsrFields::SPD,
       ftl::mmio::Reserved<16, 8>,
-      typename PCSR_fields_::SPDIM,
-      typename PCSR_fields_::SPDIF,
-      typename PCSR_fields_::SPDP,
-      typename PCSR_fields_::SPDES,
+      typename PcsrFields::SPDIM,
+      typename PcsrFields::SPDIF,
+      typename PcsrFields::SPDP,
+      typename PcsrFields::SPDES,
       ftl::mmio::Reserved<4, 28>> {
-    using eSAPD = typename PCSR_fields_::eSAPD;
-    using eSVCC_EN = typename PCSR_fields_::eSVCC_EN;
-    using eVCCENP = typename PCSR_fields_::eVCCENP;
-    using eSRST = typename PCSR_fields_::eSRST;
-    using eSCEN = typename PCSR_fields_::eSCEN;
-    using eSCSP = typename PCSR_fields_::eSCSP;
-    using eSPD = typename PCSR_fields_::eSPD;
-    using eSPDIM = typename PCSR_fields_::eSPDIM;
-    using eSPDIF = typename PCSR_fields_::eSPDIF;
-    using eSPDP = typename PCSR_fields_::eSPDP;
-    using eSPDES = typename PCSR_fields_::eSPDES;
-    using SAPD = typename PCSR_fields_::SAPD;
-    using SVCC_EN = typename PCSR_fields_::SVCC_EN;
-    using VCCENP = typename PCSR_fields_::VCCENP;
-    using SRST = typename PCSR_fields_::SRST;
-    using SCEN = typename PCSR_fields_::SCEN;
-    using SCSP = typename PCSR_fields_::SCSP;
-    using SPD = typename PCSR_fields_::SPD;
-    using SPDIM = typename PCSR_fields_::SPDIM;
-    using SPDIF = typename PCSR_fields_::SPDIF;
-    using SPDP = typename PCSR_fields_::SPDP;
-    using SPDES = typename PCSR_fields_::SPDES;
+    using eSAPD = typename PcsrFields::eSAPD;
+    using eSVCC_EN = typename PcsrFields::eSVCC_EN;
+    using eVCCENP = typename PcsrFields::eVCCENP;
+    using eSRST = typename PcsrFields::eSRST;
+    using eSCEN = typename PcsrFields::eSCEN;
+    using eSCSP = typename PcsrFields::eSCSP;
+    using eSPD = typename PcsrFields::eSPD;
+    using eSPDIM = typename PcsrFields::eSPDIM;
+    using eSPDIF = typename PcsrFields::eSPDIF;
+    using eSPDP = typename PcsrFields::eSPDP;
+    using eSPDES = typename PcsrFields::eSPDES;
+    using SAPD = typename PcsrFields::SAPD;
+    using SVCC_EN = typename PcsrFields::SVCC_EN;
+    using VCCENP = typename PcsrFields::VCCENP;
+    using SRST = typename PcsrFields::SRST;
+    using SCEN = typename PcsrFields::SCEN;
+    using SCSP = typename PcsrFields::SCSP;
+    using SPD = typename PcsrFields::SPD;
+    using SPDIM = typename PcsrFields::SPDIM;
+    using SPDIF = typename PcsrFields::SPDIF;
+    using SPDP = typename PcsrFields::SPDP;
+    using SPDES = typename PcsrFields::SPDES;
   };
 
   // Receive Data Read Buffer
-  struct RX_BUF_fields_ {
+  struct RxBufFields {
     // Receive Data Byte Read
     using RX_BYTE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RX_BUF_fields_
+  };  // struct RxBufFields
 
   struct RX_BUF : ftl::mmio::Register<
       kBase + 0x2Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename RX_BUF_fields_::RX_BYTE,
+      typename RxBufFields::RX_BYTE,
       ftl::mmio::Reserved<24, 8>> {
-    using RX_BYTE = typename RX_BUF_fields_::RX_BYTE;
+    using RX_BYTE = typename RxBufFields::RX_BYTE;
   };
 
   // Transmit Data Buffer
-  struct TX_BUF_fields_ {
+  struct TxBufFields {
     // Transmit Data Byte
     using TX_BYTE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TX_BUF_fields_
+  };  // struct TxBufFields
 
   struct TX_BUF : ftl::mmio::Register<
       kBase + 0x30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TX_BUF_fields_::TX_BYTE,
+      typename TxBufFields::TX_BYTE,
       ftl::mmio::Reserved<24, 8>> {
-    using TX_BYTE = typename TX_BUF_fields_::TX_BYTE;
+    using TX_BYTE = typename TxBufFields::TX_BYTE;
   };
 
   // Transmitter Guard ETU Value Register
-  struct TX_GETU_fields_ {
+  struct TxGetuFields {
     // Transmitter Guard Time Value in ETU
     using GETU = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TX_GETU_fields_
+  };  // struct TxGetuFields
 
   struct TX_GETU : ftl::mmio::Register<
       kBase + 0x34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TX_GETU_fields_::GETU,
+      typename TxGetuFields::GETU,
       ftl::mmio::Reserved<24, 8>> {
-    using GETU = typename TX_GETU_fields_::GETU;
+    using GETU = typename TxGetuFields::GETU;
   };
 
   // Character Wait Time Value Register
-  struct CWT_VAL_fields_ {
+  struct CwtValFields {
     // Character Wait Time Value
     using CWT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CWT_VAL_fields_
+  };  // struct CwtValFields
 
   struct CWT_VAL : ftl::mmio::Register<
       kBase + 0x38u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CWT_VAL_fields_::CWT,
+      typename CwtValFields::CWT,
       ftl::mmio::Reserved<16, 16>> {
-    using CWT = typename CWT_VAL_fields_::CWT;
+    using CWT = typename CwtValFields::CWT;
   };
 
   // Block Wait Time Value Register
-  struct BWT_VAL_fields_ {
+  struct BwtValFields {
     // Block Wait Time Value
     using BWT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BWT_VAL_fields_
+  };  // struct BwtValFields
 
   struct BWT_VAL : ftl::mmio::Register<
       kBase + 0x3Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      typename BWT_VAL_fields_::BWT> {
-    using BWT = typename BWT_VAL_fields_::BWT;
+      typename BwtValFields::BWT> {
+    using BWT = typename BwtValFields::BWT;
   };
 
   // Block Guard Time Value Register
-  struct BGT_VAL_fields_ {
+  struct BgtValFields {
     // Block Guard Time Value
     using BGT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BGT_VAL_fields_
+  };  // struct BgtValFields
 
   struct BGT_VAL : ftl::mmio::Register<
       kBase + 0x40u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename BGT_VAL_fields_::BGT,
+      typename BgtValFields::BGT,
       ftl::mmio::Reserved<16, 16>> {
-    using BGT = typename BGT_VAL_fields_::BGT;
+    using BGT = typename BgtValFields::BGT;
   };
 
   // General Purpose Counter 0 Timeout Value Register
-  struct GPCNT0_VAL_fields_ {
+  struct Gpcnt0ValFields {
     // General Purpose Counter 0 Timeout Value
     using GPCNT0 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPCNT0_VAL_fields_
+  };  // struct Gpcnt0ValFields
 
   struct GPCNT0_VAL : ftl::mmio::Register<
       kBase + 0x44u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename GPCNT0_VAL_fields_::GPCNT0,
+      typename Gpcnt0ValFields::GPCNT0,
       ftl::mmio::Reserved<16, 16>> {
-    using GPCNT0 = typename GPCNT0_VAL_fields_::GPCNT0;
+    using GPCNT0 = typename Gpcnt0ValFields::GPCNT0;
   };
 
   // General Purpose Counter 1 Timeout Value
-  struct GPCNT1_VAL_fields_ {
+  struct Gpcnt1ValFields {
     // General Purpose Counter 1 Timeout Value
     using GPCNT1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPCNT1_VAL_fields_
+  };  // struct Gpcnt1ValFields
 
   struct GPCNT1_VAL : ftl::mmio::Register<
       kBase + 0x48u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename GPCNT1_VAL_fields_::GPCNT1,
+      typename Gpcnt1ValFields::GPCNT1,
       ftl::mmio::Reserved<16, 16>> {
-    using GPCNT1 = typename GPCNT1_VAL_fields_::GPCNT1;
+    using GPCNT1 = typename Gpcnt1ValFields::GPCNT1;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct VideoMux {
   // Video mux Control Register
-  struct VID_MUX_CTRL_fields_ {
+  struct VidMuxCtrlFields {
     enum class eCSI_SEL : std::uint32_t {
       // CSI sensor data is from Parallel CSI
       ePARALLEL_CSI = 0,
@@ -47,30 +47,30 @@ struct VideoMux {
     using MIPI_DSI_SEL = ftl::mmio::Field<1, 2, eMIPI_DSI_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Parallel LCDIF video data input mux selector
     using PARA_LCD_SEL = ftl::mmio::Field<1, 3, ePARA_LCD_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct VID_MUX_CTRL_fields_
+  };  // struct VidMuxCtrlFields
 
   struct VID_MUX_CTRL : ftl::mmio::Register<
       0x40818000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      VID_MUX_CTRL_fields_::CSI_SEL,
-      VID_MUX_CTRL_fields_::LCDIF2_SEL,
-      VID_MUX_CTRL_fields_::MIPI_DSI_SEL,
-      VID_MUX_CTRL_fields_::PARA_LCD_SEL,
+      VidMuxCtrlFields::CSI_SEL,
+      VidMuxCtrlFields::LCDIF2_SEL,
+      VidMuxCtrlFields::MIPI_DSI_SEL,
+      VidMuxCtrlFields::PARA_LCD_SEL,
       ftl::mmio::Reserved<28, 4>> {
-    using eCSI_SEL = VID_MUX_CTRL_fields_::eCSI_SEL;
-    using eLCDIF2_SEL = VID_MUX_CTRL_fields_::eLCDIF2_SEL;
-    using eMIPI_DSI_SEL = VID_MUX_CTRL_fields_::eMIPI_DSI_SEL;
-    using ePARA_LCD_SEL = VID_MUX_CTRL_fields_::ePARA_LCD_SEL;
-    using CSI_SEL = VID_MUX_CTRL_fields_::CSI_SEL;
-    using LCDIF2_SEL = VID_MUX_CTRL_fields_::LCDIF2_SEL;
-    using MIPI_DSI_SEL = VID_MUX_CTRL_fields_::MIPI_DSI_SEL;
-    using PARA_LCD_SEL = VID_MUX_CTRL_fields_::PARA_LCD_SEL;
+    using eCSI_SEL = VidMuxCtrlFields::eCSI_SEL;
+    using eLCDIF2_SEL = VidMuxCtrlFields::eLCDIF2_SEL;
+    using eMIPI_DSI_SEL = VidMuxCtrlFields::eMIPI_DSI_SEL;
+    using ePARA_LCD_SEL = VidMuxCtrlFields::ePARA_LCD_SEL;
+    using CSI_SEL = VidMuxCtrlFields::CSI_SEL;
+    using LCDIF2_SEL = VidMuxCtrlFields::LCDIF2_SEL;
+    using MIPI_DSI_SEL = VidMuxCtrlFields::MIPI_DSI_SEL;
+    using PARA_LCD_SEL = VidMuxCtrlFields::PARA_LCD_SEL;
   };
 
   // Video mux Control Register
-  struct VID_MUX_CTRL_SET_fields_ {
+  struct VidMuxCtrlSetFields {
     // CSI sensor data input mux selector
     using CSI_SEL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // LCDIF2 sensor data input mux selector
@@ -79,26 +79,26 @@ struct VideoMux {
     using MIPI_DSI_SEL = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Parallel LCDIF video data input mux selector
     using PARA_LCD_SEL = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct VID_MUX_CTRL_SET_fields_
+  };  // struct VidMuxCtrlSetFields
 
   struct VID_MUX_CTRL_SET : ftl::mmio::Register<
       0x40818004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      VID_MUX_CTRL_SET_fields_::CSI_SEL,
-      VID_MUX_CTRL_SET_fields_::LCDIF2_SEL,
-      VID_MUX_CTRL_SET_fields_::MIPI_DSI_SEL,
-      VID_MUX_CTRL_SET_fields_::PARA_LCD_SEL,
+      VidMuxCtrlSetFields::CSI_SEL,
+      VidMuxCtrlSetFields::LCDIF2_SEL,
+      VidMuxCtrlSetFields::MIPI_DSI_SEL,
+      VidMuxCtrlSetFields::PARA_LCD_SEL,
       ftl::mmio::Reserved<28, 4>> {
-    using CSI_SEL = VID_MUX_CTRL_SET_fields_::CSI_SEL;
-    using LCDIF2_SEL = VID_MUX_CTRL_SET_fields_::LCDIF2_SEL;
-    using MIPI_DSI_SEL = VID_MUX_CTRL_SET_fields_::MIPI_DSI_SEL;
-    using PARA_LCD_SEL = VID_MUX_CTRL_SET_fields_::PARA_LCD_SEL;
+    using CSI_SEL = VidMuxCtrlSetFields::CSI_SEL;
+    using LCDIF2_SEL = VidMuxCtrlSetFields::LCDIF2_SEL;
+    using MIPI_DSI_SEL = VidMuxCtrlSetFields::MIPI_DSI_SEL;
+    using PARA_LCD_SEL = VidMuxCtrlSetFields::PARA_LCD_SEL;
   };
 
   // Video mux Control Register
-  struct VID_MUX_CTRL_CLR_fields_ {
+  struct VidMuxCtrlClrFields {
     // CSI sensor data input mux selector
     using CSI_SEL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // LCDIF2 sensor data input mux selector
@@ -107,26 +107,26 @@ struct VideoMux {
     using MIPI_DSI_SEL = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Parallel LCDIF video data input mux selector
     using PARA_LCD_SEL = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct VID_MUX_CTRL_CLR_fields_
+  };  // struct VidMuxCtrlClrFields
 
   struct VID_MUX_CTRL_CLR : ftl::mmio::Register<
       0x40818008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      VID_MUX_CTRL_CLR_fields_::CSI_SEL,
-      VID_MUX_CTRL_CLR_fields_::LCDIF2_SEL,
-      VID_MUX_CTRL_CLR_fields_::MIPI_DSI_SEL,
-      VID_MUX_CTRL_CLR_fields_::PARA_LCD_SEL,
+      VidMuxCtrlClrFields::CSI_SEL,
+      VidMuxCtrlClrFields::LCDIF2_SEL,
+      VidMuxCtrlClrFields::MIPI_DSI_SEL,
+      VidMuxCtrlClrFields::PARA_LCD_SEL,
       ftl::mmio::Reserved<28, 4>> {
-    using CSI_SEL = VID_MUX_CTRL_CLR_fields_::CSI_SEL;
-    using LCDIF2_SEL = VID_MUX_CTRL_CLR_fields_::LCDIF2_SEL;
-    using MIPI_DSI_SEL = VID_MUX_CTRL_CLR_fields_::MIPI_DSI_SEL;
-    using PARA_LCD_SEL = VID_MUX_CTRL_CLR_fields_::PARA_LCD_SEL;
+    using CSI_SEL = VidMuxCtrlClrFields::CSI_SEL;
+    using LCDIF2_SEL = VidMuxCtrlClrFields::LCDIF2_SEL;
+    using MIPI_DSI_SEL = VidMuxCtrlClrFields::MIPI_DSI_SEL;
+    using PARA_LCD_SEL = VidMuxCtrlClrFields::PARA_LCD_SEL;
   };
 
   // Video mux Control Register
-  struct VID_MUX_CTRL_TOG_fields_ {
+  struct VidMuxCtrlTogFields {
     // CSI sensor data input mux selector
     using CSI_SEL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // LCDIF2 sensor data input mux selector
@@ -135,26 +135,26 @@ struct VideoMux {
     using MIPI_DSI_SEL = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Parallel LCDIF video data input mux selector
     using PARA_LCD_SEL = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct VID_MUX_CTRL_TOG_fields_
+  };  // struct VidMuxCtrlTogFields
 
   struct VID_MUX_CTRL_TOG : ftl::mmio::Register<
       0x4081800Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      VID_MUX_CTRL_TOG_fields_::CSI_SEL,
-      VID_MUX_CTRL_TOG_fields_::LCDIF2_SEL,
-      VID_MUX_CTRL_TOG_fields_::MIPI_DSI_SEL,
-      VID_MUX_CTRL_TOG_fields_::PARA_LCD_SEL,
+      VidMuxCtrlTogFields::CSI_SEL,
+      VidMuxCtrlTogFields::LCDIF2_SEL,
+      VidMuxCtrlTogFields::MIPI_DSI_SEL,
+      VidMuxCtrlTogFields::PARA_LCD_SEL,
       ftl::mmio::Reserved<28, 4>> {
-    using CSI_SEL = VID_MUX_CTRL_TOG_fields_::CSI_SEL;
-    using LCDIF2_SEL = VID_MUX_CTRL_TOG_fields_::LCDIF2_SEL;
-    using MIPI_DSI_SEL = VID_MUX_CTRL_TOG_fields_::MIPI_DSI_SEL;
-    using PARA_LCD_SEL = VID_MUX_CTRL_TOG_fields_::PARA_LCD_SEL;
+    using CSI_SEL = VidMuxCtrlTogFields::CSI_SEL;
+    using LCDIF2_SEL = VidMuxCtrlTogFields::LCDIF2_SEL;
+    using MIPI_DSI_SEL = VidMuxCtrlTogFields::MIPI_DSI_SEL;
+    using PARA_LCD_SEL = VidMuxCtrlTogFields::PARA_LCD_SEL;
   };
 
   // Pixel Link Master(PLM) Control Register
-  struct PLM_CTRL_fields_ {
+  struct PlmCtrlFields {
     enum class eENABLE : std::uint32_t {
       // No active HSYNC and VSYNC output
       eNO_ACTIVE = 0,
@@ -200,33 +200,33 @@ struct VideoMux {
     using VALID_OVERRIDE = ftl::mmio::Field<1, 3, eVALID_OVERRIDE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Polarity of HYSNC/VSYNC
     using POLARITY = ftl::mmio::Field<1, 4, ePOLARITY, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PLM_CTRL_fields_
+  };  // struct PlmCtrlFields
 
   struct PLM_CTRL : ftl::mmio::Register<
       0x40818020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PLM_CTRL_fields_::ENABLE,
-      PLM_CTRL_fields_::VSYNC_OVERRIDE,
-      PLM_CTRL_fields_::HSYNC_OVERRIDE,
-      PLM_CTRL_fields_::VALID_OVERRIDE,
-      PLM_CTRL_fields_::POLARITY,
+      PlmCtrlFields::ENABLE,
+      PlmCtrlFields::VSYNC_OVERRIDE,
+      PlmCtrlFields::HSYNC_OVERRIDE,
+      PlmCtrlFields::VALID_OVERRIDE,
+      PlmCtrlFields::POLARITY,
       ftl::mmio::Reserved<27, 5>> {
-    using eENABLE = PLM_CTRL_fields_::eENABLE;
-    using eVSYNC_OVERRIDE = PLM_CTRL_fields_::eVSYNC_OVERRIDE;
-    using eHSYNC_OVERRIDE = PLM_CTRL_fields_::eHSYNC_OVERRIDE;
-    using eVALID_OVERRIDE = PLM_CTRL_fields_::eVALID_OVERRIDE;
-    using ePOLARITY = PLM_CTRL_fields_::ePOLARITY;
-    using ENABLE = PLM_CTRL_fields_::ENABLE;
-    using VSYNC_OVERRIDE = PLM_CTRL_fields_::VSYNC_OVERRIDE;
-    using HSYNC_OVERRIDE = PLM_CTRL_fields_::HSYNC_OVERRIDE;
-    using VALID_OVERRIDE = PLM_CTRL_fields_::VALID_OVERRIDE;
-    using POLARITY = PLM_CTRL_fields_::POLARITY;
+    using eENABLE = PlmCtrlFields::eENABLE;
+    using eVSYNC_OVERRIDE = PlmCtrlFields::eVSYNC_OVERRIDE;
+    using eHSYNC_OVERRIDE = PlmCtrlFields::eHSYNC_OVERRIDE;
+    using eVALID_OVERRIDE = PlmCtrlFields::eVALID_OVERRIDE;
+    using ePOLARITY = PlmCtrlFields::ePOLARITY;
+    using ENABLE = PlmCtrlFields::ENABLE;
+    using VSYNC_OVERRIDE = PlmCtrlFields::VSYNC_OVERRIDE;
+    using HSYNC_OVERRIDE = PlmCtrlFields::HSYNC_OVERRIDE;
+    using VALID_OVERRIDE = PlmCtrlFields::VALID_OVERRIDE;
+    using POLARITY = PlmCtrlFields::POLARITY;
   };
 
   // Pixel Link Master(PLM) Control Register
-  struct PLM_CTRL_SET_fields_ {
+  struct PlmCtrlSetFields {
     // Enable the output of HYSNC and VSYNC
     using ENABLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // VSYNC override
@@ -237,28 +237,28 @@ struct VideoMux {
     using VALID_OVERRIDE = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Polarity of HYSNC/VSYNC
     using POLARITY = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct PLM_CTRL_SET_fields_
+  };  // struct PlmCtrlSetFields
 
   struct PLM_CTRL_SET : ftl::mmio::Register<
       0x40818024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PLM_CTRL_SET_fields_::ENABLE,
-      PLM_CTRL_SET_fields_::VSYNC_OVERRIDE,
-      PLM_CTRL_SET_fields_::HSYNC_OVERRIDE,
-      PLM_CTRL_SET_fields_::VALID_OVERRIDE,
-      PLM_CTRL_SET_fields_::POLARITY,
+      PlmCtrlSetFields::ENABLE,
+      PlmCtrlSetFields::VSYNC_OVERRIDE,
+      PlmCtrlSetFields::HSYNC_OVERRIDE,
+      PlmCtrlSetFields::VALID_OVERRIDE,
+      PlmCtrlSetFields::POLARITY,
       ftl::mmio::Reserved<27, 5>> {
-    using ENABLE = PLM_CTRL_SET_fields_::ENABLE;
-    using VSYNC_OVERRIDE = PLM_CTRL_SET_fields_::VSYNC_OVERRIDE;
-    using HSYNC_OVERRIDE = PLM_CTRL_SET_fields_::HSYNC_OVERRIDE;
-    using VALID_OVERRIDE = PLM_CTRL_SET_fields_::VALID_OVERRIDE;
-    using POLARITY = PLM_CTRL_SET_fields_::POLARITY;
+    using ENABLE = PlmCtrlSetFields::ENABLE;
+    using VSYNC_OVERRIDE = PlmCtrlSetFields::VSYNC_OVERRIDE;
+    using HSYNC_OVERRIDE = PlmCtrlSetFields::HSYNC_OVERRIDE;
+    using VALID_OVERRIDE = PlmCtrlSetFields::VALID_OVERRIDE;
+    using POLARITY = PlmCtrlSetFields::POLARITY;
   };
 
   // Pixel Link Master(PLM) Control Register
-  struct PLM_CTRL_CLR_fields_ {
+  struct PlmCtrlClrFields {
     // Enable the output of HYSNC and VSYNC
     using ENABLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // VSYNC override
@@ -269,28 +269,28 @@ struct VideoMux {
     using VALID_OVERRIDE = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Polarity of HYSNC/VSYNC
     using POLARITY = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct PLM_CTRL_CLR_fields_
+  };  // struct PlmCtrlClrFields
 
   struct PLM_CTRL_CLR : ftl::mmio::Register<
       0x40818028u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PLM_CTRL_CLR_fields_::ENABLE,
-      PLM_CTRL_CLR_fields_::VSYNC_OVERRIDE,
-      PLM_CTRL_CLR_fields_::HSYNC_OVERRIDE,
-      PLM_CTRL_CLR_fields_::VALID_OVERRIDE,
-      PLM_CTRL_CLR_fields_::POLARITY,
+      PlmCtrlClrFields::ENABLE,
+      PlmCtrlClrFields::VSYNC_OVERRIDE,
+      PlmCtrlClrFields::HSYNC_OVERRIDE,
+      PlmCtrlClrFields::VALID_OVERRIDE,
+      PlmCtrlClrFields::POLARITY,
       ftl::mmio::Reserved<27, 5>> {
-    using ENABLE = PLM_CTRL_CLR_fields_::ENABLE;
-    using VSYNC_OVERRIDE = PLM_CTRL_CLR_fields_::VSYNC_OVERRIDE;
-    using HSYNC_OVERRIDE = PLM_CTRL_CLR_fields_::HSYNC_OVERRIDE;
-    using VALID_OVERRIDE = PLM_CTRL_CLR_fields_::VALID_OVERRIDE;
-    using POLARITY = PLM_CTRL_CLR_fields_::POLARITY;
+    using ENABLE = PlmCtrlClrFields::ENABLE;
+    using VSYNC_OVERRIDE = PlmCtrlClrFields::VSYNC_OVERRIDE;
+    using HSYNC_OVERRIDE = PlmCtrlClrFields::HSYNC_OVERRIDE;
+    using VALID_OVERRIDE = PlmCtrlClrFields::VALID_OVERRIDE;
+    using POLARITY = PlmCtrlClrFields::POLARITY;
   };
 
   // Pixel Link Master(PLM) Control Register
-  struct PLM_CTRL_TOG_fields_ {
+  struct PlmCtrlTogFields {
     // Enable the output of HYSNC and VSYNC
     using ENABLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // VSYNC override
@@ -301,28 +301,28 @@ struct VideoMux {
     using VALID_OVERRIDE = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Polarity of HYSNC/VSYNC
     using POLARITY = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct PLM_CTRL_TOG_fields_
+  };  // struct PlmCtrlTogFields
 
   struct PLM_CTRL_TOG : ftl::mmio::Register<
       0x4081802Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PLM_CTRL_TOG_fields_::ENABLE,
-      PLM_CTRL_TOG_fields_::VSYNC_OVERRIDE,
-      PLM_CTRL_TOG_fields_::HSYNC_OVERRIDE,
-      PLM_CTRL_TOG_fields_::VALID_OVERRIDE,
-      PLM_CTRL_TOG_fields_::POLARITY,
+      PlmCtrlTogFields::ENABLE,
+      PlmCtrlTogFields::VSYNC_OVERRIDE,
+      PlmCtrlTogFields::HSYNC_OVERRIDE,
+      PlmCtrlTogFields::VALID_OVERRIDE,
+      PlmCtrlTogFields::POLARITY,
       ftl::mmio::Reserved<27, 5>> {
-    using ENABLE = PLM_CTRL_TOG_fields_::ENABLE;
-    using VSYNC_OVERRIDE = PLM_CTRL_TOG_fields_::VSYNC_OVERRIDE;
-    using HSYNC_OVERRIDE = PLM_CTRL_TOG_fields_::HSYNC_OVERRIDE;
-    using VALID_OVERRIDE = PLM_CTRL_TOG_fields_::VALID_OVERRIDE;
-    using POLARITY = PLM_CTRL_TOG_fields_::POLARITY;
+    using ENABLE = PlmCtrlTogFields::ENABLE;
+    using VSYNC_OVERRIDE = PlmCtrlTogFields::VSYNC_OVERRIDE;
+    using HSYNC_OVERRIDE = PlmCtrlTogFields::HSYNC_OVERRIDE;
+    using VALID_OVERRIDE = PlmCtrlTogFields::VALID_OVERRIDE;
+    using POLARITY = PlmCtrlTogFields::POLARITY;
   };
 
   // YUV420 Control Register
-  struct YUV420_CTRL_fields_ {
+  struct Yuv420CtrlFields {
     enum class eFST_LN_DATA_TYPE : std::uint32_t {
       // Odd (default)
       eODD = 0,
@@ -332,133 +332,133 @@ struct VideoMux {
 
     // Data type of First Line
     using FST_LN_DATA_TYPE = ftl::mmio::Field<1, 0, eFST_LN_DATA_TYPE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct YUV420_CTRL_fields_
+  };  // struct Yuv420CtrlFields
 
   struct YUV420_CTRL : ftl::mmio::Register<
       0x40818030u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      YUV420_CTRL_fields_::FST_LN_DATA_TYPE,
+      Yuv420CtrlFields::FST_LN_DATA_TYPE,
       ftl::mmio::Reserved<31, 1>> {
-    using eFST_LN_DATA_TYPE = YUV420_CTRL_fields_::eFST_LN_DATA_TYPE;
-    using FST_LN_DATA_TYPE = YUV420_CTRL_fields_::FST_LN_DATA_TYPE;
+    using eFST_LN_DATA_TYPE = Yuv420CtrlFields::eFST_LN_DATA_TYPE;
+    using FST_LN_DATA_TYPE = Yuv420CtrlFields::FST_LN_DATA_TYPE;
   };
 
   // YUV420 Control Register
-  struct YUV420_CTRL_SET_fields_ {
+  struct Yuv420CtrlSetFields {
     // Data type of First Line
     using FST_LN_DATA_TYPE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct YUV420_CTRL_SET_fields_
+  };  // struct Yuv420CtrlSetFields
 
   struct YUV420_CTRL_SET : ftl::mmio::Register<
       0x40818034u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      YUV420_CTRL_SET_fields_::FST_LN_DATA_TYPE,
+      Yuv420CtrlSetFields::FST_LN_DATA_TYPE,
       ftl::mmio::Reserved<31, 1>> {
-    using FST_LN_DATA_TYPE = YUV420_CTRL_SET_fields_::FST_LN_DATA_TYPE;
+    using FST_LN_DATA_TYPE = Yuv420CtrlSetFields::FST_LN_DATA_TYPE;
   };
 
   // YUV420 Control Register
-  struct YUV420_CTRL_CLR_fields_ {
+  struct Yuv420CtrlClrFields {
     // Data type of First Line
     using FST_LN_DATA_TYPE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct YUV420_CTRL_CLR_fields_
+  };  // struct Yuv420CtrlClrFields
 
   struct YUV420_CTRL_CLR : ftl::mmio::Register<
       0x40818038u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      YUV420_CTRL_CLR_fields_::FST_LN_DATA_TYPE,
+      Yuv420CtrlClrFields::FST_LN_DATA_TYPE,
       ftl::mmio::Reserved<31, 1>> {
-    using FST_LN_DATA_TYPE = YUV420_CTRL_CLR_fields_::FST_LN_DATA_TYPE;
+    using FST_LN_DATA_TYPE = Yuv420CtrlClrFields::FST_LN_DATA_TYPE;
   };
 
   // YUV420 Control Register
-  struct YUV420_CTRL_TOG_fields_ {
+  struct Yuv420CtrlTogFields {
     // Data type of First Line
     using FST_LN_DATA_TYPE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct YUV420_CTRL_TOG_fields_
+  };  // struct Yuv420CtrlTogFields
 
   struct YUV420_CTRL_TOG : ftl::mmio::Register<
       0x4081803Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      YUV420_CTRL_TOG_fields_::FST_LN_DATA_TYPE,
+      Yuv420CtrlTogFields::FST_LN_DATA_TYPE,
       ftl::mmio::Reserved<31, 1>> {
-    using FST_LN_DATA_TYPE = YUV420_CTRL_TOG_fields_::FST_LN_DATA_TYPE;
+    using FST_LN_DATA_TYPE = Yuv420CtrlTogFields::FST_LN_DATA_TYPE;
   };
 
   // Data Disable Register
-  struct CFG_DT_DISABLE_fields_ {
+  struct CfgDtDisableFields {
     // Data Type Disable
     using CFG_DT_DISABLE = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CFG_DT_DISABLE_fields_
+  };  // struct CfgDtDisableFields
 
   struct CFG_DT_DISABLE : ftl::mmio::Register<
       0x40818050u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CFG_DT_DISABLE_fields_::CFG_DT_DISABLE,
+      CfgDtDisableFields::CFG_DT_DISABLE,
       ftl::mmio::Reserved<8, 24>> {
-    using VALUE = CFG_DT_DISABLE_fields_::CFG_DT_DISABLE;
+    using VALUE = CfgDtDisableFields::CFG_DT_DISABLE;
   };
 
   // Data Disable Register
-  struct CFG_DT_DISABLE_SET_fields_ {
+  struct CfgDtDisableSetFields {
     // Data Type Disable
     using CFG_DT_DISABLE = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct CFG_DT_DISABLE_SET_fields_
+  };  // struct CfgDtDisableSetFields
 
   struct CFG_DT_DISABLE_SET : ftl::mmio::Register<
       0x40818054u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CFG_DT_DISABLE_SET_fields_::CFG_DT_DISABLE,
+      CfgDtDisableSetFields::CFG_DT_DISABLE,
       ftl::mmio::Reserved<8, 24>> {
-    using CFG_DT_DISABLE = CFG_DT_DISABLE_SET_fields_::CFG_DT_DISABLE;
+    using CFG_DT_DISABLE = CfgDtDisableSetFields::CFG_DT_DISABLE;
   };
 
   // Data Disable Register
-  struct CFG_DT_DISABLE_CLR_fields_ {
+  struct CfgDtDisableClrFields {
     // Data Type Disable
     using CFG_DT_DISABLE = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct CFG_DT_DISABLE_CLR_fields_
+  };  // struct CfgDtDisableClrFields
 
   struct CFG_DT_DISABLE_CLR : ftl::mmio::Register<
       0x40818058u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CFG_DT_DISABLE_CLR_fields_::CFG_DT_DISABLE,
+      CfgDtDisableClrFields::CFG_DT_DISABLE,
       ftl::mmio::Reserved<8, 24>> {
-    using CFG_DT_DISABLE = CFG_DT_DISABLE_CLR_fields_::CFG_DT_DISABLE;
+    using CFG_DT_DISABLE = CfgDtDisableClrFields::CFG_DT_DISABLE;
   };
 
   // Data Disable Register
-  struct CFG_DT_DISABLE_TOG_fields_ {
+  struct CfgDtDisableTogFields {
     // Data Type Disable
     using CFG_DT_DISABLE = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct CFG_DT_DISABLE_TOG_fields_
+  };  // struct CfgDtDisableTogFields
 
   struct CFG_DT_DISABLE_TOG : ftl::mmio::Register<
       0x4081805Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CFG_DT_DISABLE_TOG_fields_::CFG_DT_DISABLE,
+      CfgDtDisableTogFields::CFG_DT_DISABLE,
       ftl::mmio::Reserved<8, 24>> {
-    using CFG_DT_DISABLE = CFG_DT_DISABLE_TOG_fields_::CFG_DT_DISABLE;
+    using CFG_DT_DISABLE = CfgDtDisableTogFields::CFG_DT_DISABLE;
   };
 
   // MIPI DSI Control Register
-  struct MIPI_DSI_CTRL_fields_ {
+  struct MipiDsiCtrlFields {
     enum class eDPI_SD : std::uint32_t {
       // No effect
       eNO = 0,
@@ -477,80 +477,80 @@ struct VideoMux {
     using DPI_SD = ftl::mmio::Field<1, 0, eDPI_SD, ftl::mmio::RW, ftl::mmio::Normal>;
     // Color Mode control
     using DPI_CM = ftl::mmio::Field<1, 1, eDPI_CM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MIPI_DSI_CTRL_fields_
+  };  // struct MipiDsiCtrlFields
 
   struct MIPI_DSI_CTRL : ftl::mmio::Register<
       0x40818070u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MIPI_DSI_CTRL_fields_::DPI_SD,
-      MIPI_DSI_CTRL_fields_::DPI_CM,
+      MipiDsiCtrlFields::DPI_SD,
+      MipiDsiCtrlFields::DPI_CM,
       ftl::mmio::Reserved<30, 2>> {
-    using eDPI_SD = MIPI_DSI_CTRL_fields_::eDPI_SD;
-    using eDPI_CM = MIPI_DSI_CTRL_fields_::eDPI_CM;
-    using DPI_SD = MIPI_DSI_CTRL_fields_::DPI_SD;
-    using DPI_CM = MIPI_DSI_CTRL_fields_::DPI_CM;
+    using eDPI_SD = MipiDsiCtrlFields::eDPI_SD;
+    using eDPI_CM = MipiDsiCtrlFields::eDPI_CM;
+    using DPI_SD = MipiDsiCtrlFields::DPI_SD;
+    using DPI_CM = MipiDsiCtrlFields::DPI_CM;
   };
 
   // MIPI DSI Control Register
-  struct MIPI_DSI_CTRL_SET_fields_ {
+  struct MipiDsiCtrlSetFields {
     // Shut Down - Control to shutdown display (type 4 only)
     using DPI_SD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Color Mode control
     using DPI_CM = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct MIPI_DSI_CTRL_SET_fields_
+  };  // struct MipiDsiCtrlSetFields
 
   struct MIPI_DSI_CTRL_SET : ftl::mmio::Register<
       0x40818074u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MIPI_DSI_CTRL_SET_fields_::DPI_SD,
-      MIPI_DSI_CTRL_SET_fields_::DPI_CM,
+      MipiDsiCtrlSetFields::DPI_SD,
+      MipiDsiCtrlSetFields::DPI_CM,
       ftl::mmio::Reserved<30, 2>> {
-    using DPI_SD = MIPI_DSI_CTRL_SET_fields_::DPI_SD;
-    using DPI_CM = MIPI_DSI_CTRL_SET_fields_::DPI_CM;
+    using DPI_SD = MipiDsiCtrlSetFields::DPI_SD;
+    using DPI_CM = MipiDsiCtrlSetFields::DPI_CM;
   };
 
   // MIPI DSI Control Register
-  struct MIPI_DSI_CTRL_CLR_fields_ {
+  struct MipiDsiCtrlClrFields {
     // Shut Down - Control to shutdown display (type 4 only)
     using DPI_SD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Color Mode control
     using DPI_CM = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct MIPI_DSI_CTRL_CLR_fields_
+  };  // struct MipiDsiCtrlClrFields
 
   struct MIPI_DSI_CTRL_CLR : ftl::mmio::Register<
       0x40818078u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MIPI_DSI_CTRL_CLR_fields_::DPI_SD,
-      MIPI_DSI_CTRL_CLR_fields_::DPI_CM,
+      MipiDsiCtrlClrFields::DPI_SD,
+      MipiDsiCtrlClrFields::DPI_CM,
       ftl::mmio::Reserved<30, 2>> {
-    using DPI_SD = MIPI_DSI_CTRL_CLR_fields_::DPI_SD;
-    using DPI_CM = MIPI_DSI_CTRL_CLR_fields_::DPI_CM;
+    using DPI_SD = MipiDsiCtrlClrFields::DPI_SD;
+    using DPI_CM = MipiDsiCtrlClrFields::DPI_CM;
   };
 
   // MIPI DSI Control Register
-  struct MIPI_DSI_CTRL_TOG_fields_ {
+  struct MipiDsiCtrlTogFields {
     // Shut Down - Control to shutdown display (type 4 only)
     using DPI_SD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Color Mode control
     using DPI_CM = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct MIPI_DSI_CTRL_TOG_fields_
+  };  // struct MipiDsiCtrlTogFields
 
   struct MIPI_DSI_CTRL_TOG : ftl::mmio::Register<
       0x4081807Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MIPI_DSI_CTRL_TOG_fields_::DPI_SD,
-      MIPI_DSI_CTRL_TOG_fields_::DPI_CM,
+      MipiDsiCtrlTogFields::DPI_SD,
+      MipiDsiCtrlTogFields::DPI_CM,
       ftl::mmio::Reserved<30, 2>> {
-    using DPI_SD = MIPI_DSI_CTRL_TOG_fields_::DPI_SD;
-    using DPI_CM = MIPI_DSI_CTRL_TOG_fields_::DPI_CM;
+    using DPI_SD = MipiDsiCtrlTogFields::DPI_SD;
+    using DPI_CM = MipiDsiCtrlTogFields::DPI_CM;
   };
 
 };

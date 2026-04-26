@@ -10,7 +10,7 @@ namespace regs {
 
 struct IomuxcLpsrGpr {
   // GPR0 General Purpose Register
-  struct GPR0_fields_ {
+  struct Gpr0Fields {
     enum class eDWP : std::uint32_t {
       // Both cores are allowed
       eforbid_none = 0,
@@ -39,7 +39,7 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR0_fields_
+  };  // struct Gpr0Fields
 
   struct GPR0 : ftl::mmio::Register<
       0x40C0C000u,
@@ -47,19 +47,19 @@ struct IomuxcLpsrGpr {
       0x00000400u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      GPR0_fields_::CM4_INIT_VTOR_LOW,
+      Gpr0Fields::CM4_INIT_VTOR_LOW,
       ftl::mmio::Reserved<12, 16>,
-      GPR0_fields_::DWP,
-      GPR0_fields_::DWP_LOCK> {
-    using eDWP = GPR0_fields_::eDWP;
-    using eDWP_LOCK = GPR0_fields_::eDWP_LOCK;
-    using CM4_INIT_VTOR_LOW = GPR0_fields_::CM4_INIT_VTOR_LOW;
-    using DWP = GPR0_fields_::DWP;
-    using DWP_LOCK = GPR0_fields_::DWP_LOCK;
+      Gpr0Fields::DWP,
+      Gpr0Fields::DWP_LOCK> {
+    using eDWP = Gpr0Fields::eDWP;
+    using eDWP_LOCK = Gpr0Fields::eDWP_LOCK;
+    using CM4_INIT_VTOR_LOW = Gpr0Fields::CM4_INIT_VTOR_LOW;
+    using DWP = Gpr0Fields::DWP;
+    using DWP_LOCK = Gpr0Fields::DWP_LOCK;
   };
 
   // GPR1 General Purpose Register
-  struct GPR1_fields_ {
+  struct Gpr1Fields {
     enum class eDWP : std::uint32_t {
       // Both cores are allowed
       eforbid_none = 0,
@@ -88,26 +88,26 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR1_fields_
+  };  // struct Gpr1Fields
 
   struct GPR1 : ftl::mmio::Register<
       0x40C0C004u,
       std::uint32_t,
       0x00000020u,
       ftl::mmio::RW,
-      GPR1_fields_::CM4_INIT_VTOR_HIGH,
+      Gpr1Fields::CM4_INIT_VTOR_HIGH,
       ftl::mmio::Reserved<12, 16>,
-      GPR1_fields_::DWP,
-      GPR1_fields_::DWP_LOCK> {
-    using eDWP = GPR1_fields_::eDWP;
-    using eDWP_LOCK = GPR1_fields_::eDWP_LOCK;
-    using CM4_INIT_VTOR_HIGH = GPR1_fields_::CM4_INIT_VTOR_HIGH;
-    using DWP = GPR1_fields_::DWP;
-    using DWP_LOCK = GPR1_fields_::DWP_LOCK;
+      Gpr1Fields::DWP,
+      Gpr1Fields::DWP_LOCK> {
+    using eDWP = Gpr1Fields::eDWP;
+    using eDWP_LOCK = Gpr1Fields::eDWP_LOCK;
+    using CM4_INIT_VTOR_HIGH = Gpr1Fields::CM4_INIT_VTOR_HIGH;
+    using DWP = Gpr1Fields::DWP;
+    using DWP_LOCK = Gpr1Fields::DWP_LOCK;
   };
 
   // GPR2 General Purpose Register
-  struct GPR2_fields_ {
+  struct Gpr2Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -119,23 +119,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC start address of memory region-0
     using APC_AC_R0_BOT = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR2_fields_
+  };  // struct Gpr2Fields
 
   struct GPR2 : ftl::mmio::Register<
       0x40C0C008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR2_fields_::LOCK,
+      Gpr2Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR2_fields_::APC_AC_R0_BOT> {
-    using eLOCK = GPR2_fields_::eLOCK;
-    using LOCK = GPR2_fields_::LOCK;
-    using APC_AC_R0_BOT = GPR2_fields_::APC_AC_R0_BOT;
+      Gpr2Fields::APC_AC_R0_BOT> {
+    using eLOCK = Gpr2Fields::eLOCK;
+    using LOCK = Gpr2Fields::LOCK;
+    using APC_AC_R0_BOT = Gpr2Fields::APC_AC_R0_BOT;
   };
 
   // GPR3 General Purpose Register
-  struct GPR3_fields_ {
+  struct Gpr3Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -147,23 +147,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC end address of memory region-0
     using APC_AC_R0_TOP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR3_fields_
+  };  // struct Gpr3Fields
 
   struct GPR3 : ftl::mmio::Register<
       0x40C0C00Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR3_fields_::LOCK,
+      Gpr3Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR3_fields_::APC_AC_R0_TOP> {
-    using eLOCK = GPR3_fields_::eLOCK;
-    using LOCK = GPR3_fields_::LOCK;
-    using APC_AC_R0_TOP = GPR3_fields_::APC_AC_R0_TOP;
+      Gpr3Fields::APC_AC_R0_TOP> {
+    using eLOCK = Gpr3Fields::eLOCK;
+    using LOCK = Gpr3Fields::LOCK;
+    using APC_AC_R0_TOP = Gpr3Fields::APC_AC_R0_TOP;
   };
 
   // GPR4 General Purpose Register
-  struct GPR4_fields_ {
+  struct Gpr4Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -175,23 +175,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC start address of memory region-1
     using APC_AC_R1_BOT = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR4_fields_
+  };  // struct Gpr4Fields
 
   struct GPR4 : ftl::mmio::Register<
       0x40C0C010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR4_fields_::LOCK,
+      Gpr4Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR4_fields_::APC_AC_R1_BOT> {
-    using eLOCK = GPR4_fields_::eLOCK;
-    using LOCK = GPR4_fields_::LOCK;
-    using APC_AC_R1_BOT = GPR4_fields_::APC_AC_R1_BOT;
+      Gpr4Fields::APC_AC_R1_BOT> {
+    using eLOCK = Gpr4Fields::eLOCK;
+    using LOCK = Gpr4Fields::LOCK;
+    using APC_AC_R1_BOT = Gpr4Fields::APC_AC_R1_BOT;
   };
 
   // GPR5 General Purpose Register
-  struct GPR5_fields_ {
+  struct Gpr5Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -203,23 +203,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC end address of memory region-1
     using APC_AC_R1_TOP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR5_fields_
+  };  // struct Gpr5Fields
 
   struct GPR5 : ftl::mmio::Register<
       0x40C0C014u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR5_fields_::LOCK,
+      Gpr5Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR5_fields_::APC_AC_R1_TOP> {
-    using eLOCK = GPR5_fields_::eLOCK;
-    using LOCK = GPR5_fields_::LOCK;
-    using APC_AC_R1_TOP = GPR5_fields_::APC_AC_R1_TOP;
+      Gpr5Fields::APC_AC_R1_TOP> {
+    using eLOCK = Gpr5Fields::eLOCK;
+    using LOCK = Gpr5Fields::LOCK;
+    using APC_AC_R1_TOP = Gpr5Fields::APC_AC_R1_TOP;
   };
 
   // GPR6 General Purpose Register
-  struct GPR6_fields_ {
+  struct Gpr6Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -231,23 +231,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC start address of memory region-2
     using APC_AC_R2_BOT = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR6_fields_
+  };  // struct Gpr6Fields
 
   struct GPR6 : ftl::mmio::Register<
       0x40C0C018u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR6_fields_::LOCK,
+      Gpr6Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR6_fields_::APC_AC_R2_BOT> {
-    using eLOCK = GPR6_fields_::eLOCK;
-    using LOCK = GPR6_fields_::LOCK;
-    using APC_AC_R2_BOT = GPR6_fields_::APC_AC_R2_BOT;
+      Gpr6Fields::APC_AC_R2_BOT> {
+    using eLOCK = Gpr6Fields::eLOCK;
+    using LOCK = Gpr6Fields::LOCK;
+    using APC_AC_R2_BOT = Gpr6Fields::APC_AC_R2_BOT;
   };
 
   // GPR7 General Purpose Register
-  struct GPR7_fields_ {
+  struct Gpr7Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -259,23 +259,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC end address of memory region-2
     using APC_AC_R2_TOP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR7_fields_
+  };  // struct Gpr7Fields
 
   struct GPR7 : ftl::mmio::Register<
       0x40C0C01Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR7_fields_::LOCK,
+      Gpr7Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR7_fields_::APC_AC_R2_TOP> {
-    using eLOCK = GPR7_fields_::eLOCK;
-    using LOCK = GPR7_fields_::LOCK;
-    using APC_AC_R2_TOP = GPR7_fields_::APC_AC_R2_TOP;
+      Gpr7Fields::APC_AC_R2_TOP> {
+    using eLOCK = Gpr7Fields::eLOCK;
+    using LOCK = Gpr7Fields::LOCK;
+    using APC_AC_R2_TOP = Gpr7Fields::APC_AC_R2_TOP;
   };
 
   // GPR8 General Purpose Register
-  struct GPR8_fields_ {
+  struct Gpr8Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -287,23 +287,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC start address of memory region-3
     using APC_AC_R3_BOT = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR8_fields_
+  };  // struct Gpr8Fields
 
   struct GPR8 : ftl::mmio::Register<
       0x40C0C020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR8_fields_::LOCK,
+      Gpr8Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR8_fields_::APC_AC_R3_BOT> {
-    using eLOCK = GPR8_fields_::eLOCK;
-    using LOCK = GPR8_fields_::LOCK;
-    using APC_AC_R3_BOT = GPR8_fields_::APC_AC_R3_BOT;
+      Gpr8Fields::APC_AC_R3_BOT> {
+    using eLOCK = Gpr8Fields::eLOCK;
+    using LOCK = Gpr8Fields::LOCK;
+    using APC_AC_R3_BOT = Gpr8Fields::APC_AC_R3_BOT;
   };
 
   // GPR9 General Purpose Register
-  struct GPR9_fields_ {
+  struct Gpr9Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -315,23 +315,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC end address of memory region-3
     using APC_AC_R3_TOP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR9_fields_
+  };  // struct Gpr9Fields
 
   struct GPR9 : ftl::mmio::Register<
       0x40C0C024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR9_fields_::LOCK,
+      Gpr9Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR9_fields_::APC_AC_R3_TOP> {
-    using eLOCK = GPR9_fields_::eLOCK;
-    using LOCK = GPR9_fields_::LOCK;
-    using APC_AC_R3_TOP = GPR9_fields_::APC_AC_R3_TOP;
+      Gpr9Fields::APC_AC_R3_TOP> {
+    using eLOCK = Gpr9Fields::eLOCK;
+    using LOCK = Gpr9Fields::LOCK;
+    using APC_AC_R3_TOP = Gpr9Fields::APC_AC_R3_TOP;
   };
 
   // GPR10 General Purpose Register
-  struct GPR10_fields_ {
+  struct Gpr10Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -343,23 +343,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC start address of memory region-4
     using APC_AC_R4_BOT = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR10_fields_
+  };  // struct Gpr10Fields
 
   struct GPR10 : ftl::mmio::Register<
       0x40C0C028u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR10_fields_::LOCK,
+      Gpr10Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR10_fields_::APC_AC_R4_BOT> {
-    using eLOCK = GPR10_fields_::eLOCK;
-    using LOCK = GPR10_fields_::LOCK;
-    using APC_AC_R4_BOT = GPR10_fields_::APC_AC_R4_BOT;
+      Gpr10Fields::APC_AC_R4_BOT> {
+    using eLOCK = Gpr10Fields::eLOCK;
+    using LOCK = Gpr10Fields::LOCK;
+    using APC_AC_R4_BOT = Gpr10Fields::APC_AC_R4_BOT;
   };
 
   // GPR11 General Purpose Register
-  struct GPR11_fields_ {
+  struct Gpr11Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -371,23 +371,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC end address of memory region-4
     using APC_AC_R4_TOP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR11_fields_
+  };  // struct Gpr11Fields
 
   struct GPR11 : ftl::mmio::Register<
       0x40C0C02Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR11_fields_::LOCK,
+      Gpr11Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR11_fields_::APC_AC_R4_TOP> {
-    using eLOCK = GPR11_fields_::eLOCK;
-    using LOCK = GPR11_fields_::LOCK;
-    using APC_AC_R4_TOP = GPR11_fields_::APC_AC_R4_TOP;
+      Gpr11Fields::APC_AC_R4_TOP> {
+    using eLOCK = Gpr11Fields::eLOCK;
+    using LOCK = Gpr11Fields::LOCK;
+    using APC_AC_R4_TOP = Gpr11Fields::APC_AC_R4_TOP;
   };
 
   // GPR12 General Purpose Register
-  struct GPR12_fields_ {
+  struct Gpr12Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -399,23 +399,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC start address of memory region-5
     using APC_AC_R5_BOT = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR12_fields_
+  };  // struct Gpr12Fields
 
   struct GPR12 : ftl::mmio::Register<
       0x40C0C030u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR12_fields_::LOCK,
+      Gpr12Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR12_fields_::APC_AC_R5_BOT> {
-    using eLOCK = GPR12_fields_::eLOCK;
-    using LOCK = GPR12_fields_::LOCK;
-    using APC_AC_R5_BOT = GPR12_fields_::APC_AC_R5_BOT;
+      Gpr12Fields::APC_AC_R5_BOT> {
+    using eLOCK = Gpr12Fields::eLOCK;
+    using LOCK = Gpr12Fields::LOCK;
+    using APC_AC_R5_BOT = Gpr12Fields::APC_AC_R5_BOT;
   };
 
   // GPR13 General Purpose Register
-  struct GPR13_fields_ {
+  struct Gpr13Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -427,23 +427,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC end address of memory region-5
     using APC_AC_R5_TOP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR13_fields_
+  };  // struct Gpr13Fields
 
   struct GPR13 : ftl::mmio::Register<
       0x40C0C034u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR13_fields_::LOCK,
+      Gpr13Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR13_fields_::APC_AC_R5_TOP> {
-    using eLOCK = GPR13_fields_::eLOCK;
-    using LOCK = GPR13_fields_::LOCK;
-    using APC_AC_R5_TOP = GPR13_fields_::APC_AC_R5_TOP;
+      Gpr13Fields::APC_AC_R5_TOP> {
+    using eLOCK = Gpr13Fields::eLOCK;
+    using LOCK = Gpr13Fields::LOCK;
+    using APC_AC_R5_TOP = Gpr13Fields::APC_AC_R5_TOP;
   };
 
   // GPR14 General Purpose Register
-  struct GPR14_fields_ {
+  struct Gpr14Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -455,23 +455,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC start address of memory region-6
     using APC_AC_R6_BOT = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR14_fields_
+  };  // struct Gpr14Fields
 
   struct GPR14 : ftl::mmio::Register<
       0x40C0C038u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR14_fields_::LOCK,
+      Gpr14Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR14_fields_::APC_AC_R6_BOT> {
-    using eLOCK = GPR14_fields_::eLOCK;
-    using LOCK = GPR14_fields_::LOCK;
-    using APC_AC_R6_BOT = GPR14_fields_::APC_AC_R6_BOT;
+      Gpr14Fields::APC_AC_R6_BOT> {
+    using eLOCK = Gpr14Fields::eLOCK;
+    using LOCK = Gpr14Fields::LOCK;
+    using APC_AC_R6_BOT = Gpr14Fields::APC_AC_R6_BOT;
   };
 
   // GPR15 General Purpose Register
-  struct GPR15_fields_ {
+  struct Gpr15Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -483,23 +483,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC end address of memory region-6
     using APC_AC_R6_TOP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR15_fields_
+  };  // struct Gpr15Fields
 
   struct GPR15 : ftl::mmio::Register<
       0x40C0C03Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR15_fields_::LOCK,
+      Gpr15Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR15_fields_::APC_AC_R6_TOP> {
-    using eLOCK = GPR15_fields_::eLOCK;
-    using LOCK = GPR15_fields_::LOCK;
-    using APC_AC_R6_TOP = GPR15_fields_::APC_AC_R6_TOP;
+      Gpr15Fields::APC_AC_R6_TOP> {
+    using eLOCK = Gpr15Fields::eLOCK;
+    using LOCK = Gpr15Fields::LOCK;
+    using APC_AC_R6_TOP = Gpr15Fields::APC_AC_R6_TOP;
   };
 
   // GPR16 General Purpose Register
-  struct GPR16_fields_ {
+  struct Gpr16Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -511,23 +511,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC start address of memory region-7
     using APC_AC_R7_BOT = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR16_fields_
+  };  // struct Gpr16Fields
 
   struct GPR16 : ftl::mmio::Register<
       0x40C0C040u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR16_fields_::LOCK,
+      Gpr16Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR16_fields_::APC_AC_R7_BOT> {
-    using eLOCK = GPR16_fields_::eLOCK;
-    using LOCK = GPR16_fields_::LOCK;
-    using APC_AC_R7_BOT = GPR16_fields_::APC_AC_R7_BOT;
+      Gpr16Fields::APC_AC_R7_BOT> {
+    using eLOCK = Gpr16Fields::eLOCK;
+    using LOCK = Gpr16Fields::LOCK;
+    using APC_AC_R7_BOT = Gpr16Fields::APC_AC_R7_BOT;
   };
 
   // GPR17 General Purpose Register
-  struct GPR17_fields_ {
+  struct Gpr17Fields {
     enum class eLOCK : std::uint32_t {
       // Write access to bit 31:1 is not blocked
       eNO = 0,
@@ -539,23 +539,23 @@ struct IomuxcLpsrGpr {
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // APC end address of memory region-7
     using APC_AC_R7_TOP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR17_fields_
+  };  // struct Gpr17Fields
 
   struct GPR17 : ftl::mmio::Register<
       0x40C0C044u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR17_fields_::LOCK,
+      Gpr17Fields::LOCK,
       ftl::mmio::Reserved<2, 1>,
-      GPR17_fields_::APC_AC_R7_TOP> {
-    using eLOCK = GPR17_fields_::eLOCK;
-    using LOCK = GPR17_fields_::LOCK;
-    using APC_AC_R7_TOP = GPR17_fields_::APC_AC_R7_TOP;
+      Gpr17Fields::APC_AC_R7_TOP> {
+    using eLOCK = Gpr17Fields::eLOCK;
+    using LOCK = Gpr17Fields::LOCK;
+    using APC_AC_R7_TOP = Gpr17Fields::APC_AC_R7_TOP;
   };
 
   // GPR18 General Purpose Register
-  struct GPR18_fields_ {
+  struct Gpr18Fields {
     enum class eAPC_R0_ENCRYPT_ENABLE : std::uint32_t {
       // No effect
       eDIS = 0,
@@ -567,7 +567,7 @@ struct IomuxcLpsrGpr {
     using APC_R0_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R0_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock the write to bit 15:0
     using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR18_fields_
+  };  // struct Gpr18Fields
 
   struct GPR18 : ftl::mmio::Register<
       0x40C0C048u,
@@ -575,16 +575,16 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      GPR18_fields_::APC_R0_ENCRYPT_ENABLE,
+      Gpr18Fields::APC_R0_ENCRYPT_ENABLE,
       ftl::mmio::Reserved<11, 5>,
-      GPR18_fields_::LOCK> {
-    using eAPC_R0_ENCRYPT_ENABLE = GPR18_fields_::eAPC_R0_ENCRYPT_ENABLE;
-    using APC_R0_ENCRYPT_ENABLE = GPR18_fields_::APC_R0_ENCRYPT_ENABLE;
-    using LOCK = GPR18_fields_::LOCK;
+      Gpr18Fields::LOCK> {
+    using eAPC_R0_ENCRYPT_ENABLE = Gpr18Fields::eAPC_R0_ENCRYPT_ENABLE;
+    using APC_R0_ENCRYPT_ENABLE = Gpr18Fields::APC_R0_ENCRYPT_ENABLE;
+    using LOCK = Gpr18Fields::LOCK;
   };
 
   // GPR19 General Purpose Register
-  struct GPR19_fields_ {
+  struct Gpr19Fields {
     enum class eAPC_R1_ENCRYPT_ENABLE : std::uint32_t {
       // No effect
       eDIS = 0,
@@ -596,7 +596,7 @@ struct IomuxcLpsrGpr {
     using APC_R1_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R1_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock the write to bit 15:0
     using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR19_fields_
+  };  // struct Gpr19Fields
 
   struct GPR19 : ftl::mmio::Register<
       0x40C0C04Cu,
@@ -604,16 +604,16 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      GPR19_fields_::APC_R1_ENCRYPT_ENABLE,
+      Gpr19Fields::APC_R1_ENCRYPT_ENABLE,
       ftl::mmio::Reserved<11, 5>,
-      GPR19_fields_::LOCK> {
-    using eAPC_R1_ENCRYPT_ENABLE = GPR19_fields_::eAPC_R1_ENCRYPT_ENABLE;
-    using APC_R1_ENCRYPT_ENABLE = GPR19_fields_::APC_R1_ENCRYPT_ENABLE;
-    using LOCK = GPR19_fields_::LOCK;
+      Gpr19Fields::LOCK> {
+    using eAPC_R1_ENCRYPT_ENABLE = Gpr19Fields::eAPC_R1_ENCRYPT_ENABLE;
+    using APC_R1_ENCRYPT_ENABLE = Gpr19Fields::APC_R1_ENCRYPT_ENABLE;
+    using LOCK = Gpr19Fields::LOCK;
   };
 
   // GPR20 General Purpose Register
-  struct GPR20_fields_ {
+  struct Gpr20Fields {
     enum class eAPC_R2_ENCRYPT_ENABLE : std::uint32_t {
       // No effect
       eDIS = 0,
@@ -625,7 +625,7 @@ struct IomuxcLpsrGpr {
     using APC_R2_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R2_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock the write to bit 15:0
     using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR20_fields_
+  };  // struct Gpr20Fields
 
   struct GPR20 : ftl::mmio::Register<
       0x40C0C050u,
@@ -633,16 +633,16 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      GPR20_fields_::APC_R2_ENCRYPT_ENABLE,
+      Gpr20Fields::APC_R2_ENCRYPT_ENABLE,
       ftl::mmio::Reserved<11, 5>,
-      GPR20_fields_::LOCK> {
-    using eAPC_R2_ENCRYPT_ENABLE = GPR20_fields_::eAPC_R2_ENCRYPT_ENABLE;
-    using APC_R2_ENCRYPT_ENABLE = GPR20_fields_::APC_R2_ENCRYPT_ENABLE;
-    using LOCK = GPR20_fields_::LOCK;
+      Gpr20Fields::LOCK> {
+    using eAPC_R2_ENCRYPT_ENABLE = Gpr20Fields::eAPC_R2_ENCRYPT_ENABLE;
+    using APC_R2_ENCRYPT_ENABLE = Gpr20Fields::APC_R2_ENCRYPT_ENABLE;
+    using LOCK = Gpr20Fields::LOCK;
   };
 
   // GPR21 General Purpose Register
-  struct GPR21_fields_ {
+  struct Gpr21Fields {
     enum class eAPC_R3_ENCRYPT_ENABLE : std::uint32_t {
       // No effect
       eDIS = 0,
@@ -654,7 +654,7 @@ struct IomuxcLpsrGpr {
     using APC_R3_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R3_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock the write to bit 15:0
     using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR21_fields_
+  };  // struct Gpr21Fields
 
   struct GPR21 : ftl::mmio::Register<
       0x40C0C054u,
@@ -662,16 +662,16 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      GPR21_fields_::APC_R3_ENCRYPT_ENABLE,
+      Gpr21Fields::APC_R3_ENCRYPT_ENABLE,
       ftl::mmio::Reserved<11, 5>,
-      GPR21_fields_::LOCK> {
-    using eAPC_R3_ENCRYPT_ENABLE = GPR21_fields_::eAPC_R3_ENCRYPT_ENABLE;
-    using APC_R3_ENCRYPT_ENABLE = GPR21_fields_::APC_R3_ENCRYPT_ENABLE;
-    using LOCK = GPR21_fields_::LOCK;
+      Gpr21Fields::LOCK> {
+    using eAPC_R3_ENCRYPT_ENABLE = Gpr21Fields::eAPC_R3_ENCRYPT_ENABLE;
+    using APC_R3_ENCRYPT_ENABLE = Gpr21Fields::APC_R3_ENCRYPT_ENABLE;
+    using LOCK = Gpr21Fields::LOCK;
   };
 
   // GPR22 General Purpose Register
-  struct GPR22_fields_ {
+  struct Gpr22Fields {
     enum class eAPC_R4_ENCRYPT_ENABLE : std::uint32_t {
       // No effect
       eDIS = 0,
@@ -683,7 +683,7 @@ struct IomuxcLpsrGpr {
     using APC_R4_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R4_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock the write to bit 15:0
     using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR22_fields_
+  };  // struct Gpr22Fields
 
   struct GPR22 : ftl::mmio::Register<
       0x40C0C058u,
@@ -691,16 +691,16 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      GPR22_fields_::APC_R4_ENCRYPT_ENABLE,
+      Gpr22Fields::APC_R4_ENCRYPT_ENABLE,
       ftl::mmio::Reserved<11, 5>,
-      GPR22_fields_::LOCK> {
-    using eAPC_R4_ENCRYPT_ENABLE = GPR22_fields_::eAPC_R4_ENCRYPT_ENABLE;
-    using APC_R4_ENCRYPT_ENABLE = GPR22_fields_::APC_R4_ENCRYPT_ENABLE;
-    using LOCK = GPR22_fields_::LOCK;
+      Gpr22Fields::LOCK> {
+    using eAPC_R4_ENCRYPT_ENABLE = Gpr22Fields::eAPC_R4_ENCRYPT_ENABLE;
+    using APC_R4_ENCRYPT_ENABLE = Gpr22Fields::APC_R4_ENCRYPT_ENABLE;
+    using LOCK = Gpr22Fields::LOCK;
   };
 
   // GPR23 General Purpose Register
-  struct GPR23_fields_ {
+  struct Gpr23Fields {
     enum class eAPC_R5_ENCRYPT_ENABLE : std::uint32_t {
       // No effect
       eDIS = 0,
@@ -712,7 +712,7 @@ struct IomuxcLpsrGpr {
     using APC_R5_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R5_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock the write to bit 15:0
     using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR23_fields_
+  };  // struct Gpr23Fields
 
   struct GPR23 : ftl::mmio::Register<
       0x40C0C05Cu,
@@ -720,16 +720,16 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      GPR23_fields_::APC_R5_ENCRYPT_ENABLE,
+      Gpr23Fields::APC_R5_ENCRYPT_ENABLE,
       ftl::mmio::Reserved<11, 5>,
-      GPR23_fields_::LOCK> {
-    using eAPC_R5_ENCRYPT_ENABLE = GPR23_fields_::eAPC_R5_ENCRYPT_ENABLE;
-    using APC_R5_ENCRYPT_ENABLE = GPR23_fields_::APC_R5_ENCRYPT_ENABLE;
-    using LOCK = GPR23_fields_::LOCK;
+      Gpr23Fields::LOCK> {
+    using eAPC_R5_ENCRYPT_ENABLE = Gpr23Fields::eAPC_R5_ENCRYPT_ENABLE;
+    using APC_R5_ENCRYPT_ENABLE = Gpr23Fields::APC_R5_ENCRYPT_ENABLE;
+    using LOCK = Gpr23Fields::LOCK;
   };
 
   // GPR24 General Purpose Register
-  struct GPR24_fields_ {
+  struct Gpr24Fields {
     enum class eAPC_R6_ENCRYPT_ENABLE : std::uint32_t {
       // No effect
       eDIS = 0,
@@ -741,7 +741,7 @@ struct IomuxcLpsrGpr {
     using APC_R6_ENCRYPT_ENABLE = ftl::mmio::Field<1, 4, eAPC_R6_ENCRYPT_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock the write to bit 15:0
     using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR24_fields_
+  };  // struct Gpr24Fields
 
   struct GPR24 : ftl::mmio::Register<
       0x40C0C060u,
@@ -749,16 +749,16 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      GPR24_fields_::APC_R6_ENCRYPT_ENABLE,
+      Gpr24Fields::APC_R6_ENCRYPT_ENABLE,
       ftl::mmio::Reserved<11, 5>,
-      GPR24_fields_::LOCK> {
-    using eAPC_R6_ENCRYPT_ENABLE = GPR24_fields_::eAPC_R6_ENCRYPT_ENABLE;
-    using APC_R6_ENCRYPT_ENABLE = GPR24_fields_::APC_R6_ENCRYPT_ENABLE;
-    using LOCK = GPR24_fields_::LOCK;
+      Gpr24Fields::LOCK> {
+    using eAPC_R6_ENCRYPT_ENABLE = Gpr24Fields::eAPC_R6_ENCRYPT_ENABLE;
+    using APC_R6_ENCRYPT_ENABLE = Gpr24Fields::APC_R6_ENCRYPT_ENABLE;
+    using LOCK = Gpr24Fields::LOCK;
   };
 
   // GPR25 General Purpose Register
-  struct GPR25_fields_ {
+  struct Gpr25Fields {
     enum class eAPC_R7_ENCRYPT_ENABLE : std::uint32_t {
       // No effect
       eDIS = 0,
@@ -779,7 +779,7 @@ struct IomuxcLpsrGpr {
     using APC_VALID = ftl::mmio::Field<1, 5, eAPC_VALID, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock the write to bit 15:0
     using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR25_fields_
+  };  // struct Gpr25Fields
 
   struct GPR25 : ftl::mmio::Register<
       0x40C0C064u,
@@ -787,19 +787,19 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      GPR25_fields_::APC_R7_ENCRYPT_ENABLE,
-      GPR25_fields_::APC_VALID,
+      Gpr25Fields::APC_R7_ENCRYPT_ENABLE,
+      Gpr25Fields::APC_VALID,
       ftl::mmio::Reserved<10, 6>,
-      GPR25_fields_::LOCK> {
-    using eAPC_R7_ENCRYPT_ENABLE = GPR25_fields_::eAPC_R7_ENCRYPT_ENABLE;
-    using eAPC_VALID = GPR25_fields_::eAPC_VALID;
-    using APC_R7_ENCRYPT_ENABLE = GPR25_fields_::APC_R7_ENCRYPT_ENABLE;
-    using APC_VALID = GPR25_fields_::APC_VALID;
-    using LOCK = GPR25_fields_::LOCK;
+      Gpr25Fields::LOCK> {
+    using eAPC_R7_ENCRYPT_ENABLE = Gpr25Fields::eAPC_R7_ENCRYPT_ENABLE;
+    using eAPC_VALID = Gpr25Fields::eAPC_VALID;
+    using APC_R7_ENCRYPT_ENABLE = Gpr25Fields::APC_R7_ENCRYPT_ENABLE;
+    using APC_VALID = Gpr25Fields::APC_VALID;
+    using LOCK = Gpr25Fields::LOCK;
   };
 
   // GPR26 General Purpose Register
-  struct GPR26_fields_ {
+  struct Gpr26Fields {
     enum class eDWP : std::uint32_t {
       // Both cores are allowed
       eforbid_none = 0,
@@ -830,27 +830,27 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR26_fields_
+  };  // struct Gpr26Fields
 
   struct GPR26 : ftl::mmio::Register<
       0x40C0C068u,
       std::uint32_t,
       0x00004000u,
       ftl::mmio::RW,
-      GPR26_fields_::CM7_INIT_VTOR,
-      GPR26_fields_::FIELD_0,
-      GPR26_fields_::DWP,
-      GPR26_fields_::DWP_LOCK> {
-    using eDWP = GPR26_fields_::eDWP;
-    using eDWP_LOCK = GPR26_fields_::eDWP_LOCK;
-    using CM7_INIT_VTOR = GPR26_fields_::CM7_INIT_VTOR;
-    using FIELD_0 = GPR26_fields_::FIELD_0;
-    using DWP = GPR26_fields_::DWP;
-    using DWP_LOCK = GPR26_fields_::DWP_LOCK;
+      Gpr26Fields::CM7_INIT_VTOR,
+      Gpr26Fields::FIELD_0,
+      Gpr26Fields::DWP,
+      Gpr26Fields::DWP_LOCK> {
+    using eDWP = Gpr26Fields::eDWP;
+    using eDWP_LOCK = Gpr26Fields::eDWP_LOCK;
+    using CM7_INIT_VTOR = Gpr26Fields::CM7_INIT_VTOR;
+    using FIELD_0 = Gpr26Fields::FIELD_0;
+    using DWP = Gpr26Fields::DWP;
+    using DWP_LOCK = Gpr26Fields::DWP_LOCK;
   };
 
   // GPR33 General Purpose Register
-  struct GPR33_fields_ {
+  struct Gpr33Fields {
     enum class eDWP : std::uint32_t {
       // Both cores are allowed
       eforbid_none = 0,
@@ -883,31 +883,31 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR33_fields_
+  };  // struct Gpr33Fields
 
   struct GPR33 : ftl::mmio::Register<
       0x40C0C084u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR33_fields_::M4_NMI_CLEAR,
+      Gpr33Fields::M4_NMI_CLEAR,
       ftl::mmio::Reserved<7, 1>,
-      GPR33_fields_::USBPHY1_WAKEUP_IRQ_CLEAR,
-      GPR33_fields_::USBPHY2_WAKEUP_IRQ_CLEAR,
+      Gpr33Fields::USBPHY1_WAKEUP_IRQ_CLEAR,
+      Gpr33Fields::USBPHY2_WAKEUP_IRQ_CLEAR,
       ftl::mmio::Reserved<18, 10>,
-      GPR33_fields_::DWP,
-      GPR33_fields_::DWP_LOCK> {
-    using eDWP = GPR33_fields_::eDWP;
-    using eDWP_LOCK = GPR33_fields_::eDWP_LOCK;
-    using M4_NMI_CLEAR = GPR33_fields_::M4_NMI_CLEAR;
-    using USBPHY1_WAKEUP_IRQ_CLEAR = GPR33_fields_::USBPHY1_WAKEUP_IRQ_CLEAR;
-    using USBPHY2_WAKEUP_IRQ_CLEAR = GPR33_fields_::USBPHY2_WAKEUP_IRQ_CLEAR;
-    using DWP = GPR33_fields_::DWP;
-    using DWP_LOCK = GPR33_fields_::DWP_LOCK;
+      Gpr33Fields::DWP,
+      Gpr33Fields::DWP_LOCK> {
+    using eDWP = Gpr33Fields::eDWP;
+    using eDWP_LOCK = Gpr33Fields::eDWP_LOCK;
+    using M4_NMI_CLEAR = Gpr33Fields::M4_NMI_CLEAR;
+    using USBPHY1_WAKEUP_IRQ_CLEAR = Gpr33Fields::USBPHY1_WAKEUP_IRQ_CLEAR;
+    using USBPHY2_WAKEUP_IRQ_CLEAR = Gpr33Fields::USBPHY2_WAKEUP_IRQ_CLEAR;
+    using DWP = Gpr33Fields::DWP;
+    using DWP_LOCK = Gpr33Fields::DWP_LOCK;
   };
 
   // GPR34 General Purpose Register
-  struct GPR34_fields_ {
+  struct Gpr34Fields {
     enum class eM7_NMI_MASK : std::uint32_t {
       // NMI input from IO to CM7 is not blocked
       eDISABLE = 0,
@@ -974,7 +974,7 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR34_fields_
+  };  // struct Gpr34Fields
 
   struct GPR34 : ftl::mmio::Register<
       0x40C0C088u,
@@ -982,34 +982,34 @@ struct IomuxcLpsrGpr {
       0x00000E00u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      GPR34_fields_::GPIO_LPSR_HIGH_RANGE,
-      GPR34_fields_::GPIO_LPSR_LOW_RANGE,
-      GPR34_fields_::M7_NMI_MASK,
-      GPR34_fields_::M4_NMI_MASK,
-      GPR34_fields_::M4_GPC_SLEEP_SEL,
+      Gpr34Fields::GPIO_LPSR_HIGH_RANGE,
+      Gpr34Fields::GPIO_LPSR_LOW_RANGE,
+      Gpr34Fields::M7_NMI_MASK,
+      Gpr34Fields::M4_NMI_MASK,
+      Gpr34Fields::M4_GPC_SLEEP_SEL,
       ftl::mmio::Reserved<5, 6>,
-      GPR34_fields_::SEC_ERR_RESP,
+      Gpr34Fields::SEC_ERR_RESP,
       ftl::mmio::Reserved<16, 12>,
-      GPR34_fields_::DWP,
-      GPR34_fields_::DWP_LOCK> {
-    using eM7_NMI_MASK = GPR34_fields_::eM7_NMI_MASK;
-    using eM4_NMI_MASK = GPR34_fields_::eM4_NMI_MASK;
-    using eM4_GPC_SLEEP_SEL = GPR34_fields_::eM4_GPC_SLEEP_SEL;
-    using eSEC_ERR_RESP = GPR34_fields_::eSEC_ERR_RESP;
-    using eDWP = GPR34_fields_::eDWP;
-    using eDWP_LOCK = GPR34_fields_::eDWP_LOCK;
-    using GPIO_LPSR_HIGH_RANGE = GPR34_fields_::GPIO_LPSR_HIGH_RANGE;
-    using GPIO_LPSR_LOW_RANGE = GPR34_fields_::GPIO_LPSR_LOW_RANGE;
-    using M7_NMI_MASK = GPR34_fields_::M7_NMI_MASK;
-    using M4_NMI_MASK = GPR34_fields_::M4_NMI_MASK;
-    using M4_GPC_SLEEP_SEL = GPR34_fields_::M4_GPC_SLEEP_SEL;
-    using SEC_ERR_RESP = GPR34_fields_::SEC_ERR_RESP;
-    using DWP = GPR34_fields_::DWP;
-    using DWP_LOCK = GPR34_fields_::DWP_LOCK;
+      Gpr34Fields::DWP,
+      Gpr34Fields::DWP_LOCK> {
+    using eM7_NMI_MASK = Gpr34Fields::eM7_NMI_MASK;
+    using eM4_NMI_MASK = Gpr34Fields::eM4_NMI_MASK;
+    using eM4_GPC_SLEEP_SEL = Gpr34Fields::eM4_GPC_SLEEP_SEL;
+    using eSEC_ERR_RESP = Gpr34Fields::eSEC_ERR_RESP;
+    using eDWP = Gpr34Fields::eDWP;
+    using eDWP_LOCK = Gpr34Fields::eDWP_LOCK;
+    using GPIO_LPSR_HIGH_RANGE = Gpr34Fields::GPIO_LPSR_HIGH_RANGE;
+    using GPIO_LPSR_LOW_RANGE = Gpr34Fields::GPIO_LPSR_LOW_RANGE;
+    using M7_NMI_MASK = Gpr34Fields::M7_NMI_MASK;
+    using M4_NMI_MASK = Gpr34Fields::M4_NMI_MASK;
+    using M4_GPC_SLEEP_SEL = Gpr34Fields::M4_GPC_SLEEP_SEL;
+    using SEC_ERR_RESP = Gpr34Fields::SEC_ERR_RESP;
+    using DWP = Gpr34Fields::DWP;
+    using DWP_LOCK = Gpr34Fields::DWP_LOCK;
   };
 
   // GPR35 General Purpose Register
-  struct GPR35_fields_ {
+  struct Gpr35Fields {
     enum class eADC1_IPG_DOZE : std::uint32_t {
       // Not in doze mode
       eDISABLE = 0,
@@ -1270,103 +1270,103 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR35_fields_
+  };  // struct Gpr35Fields
 
   struct GPR35 : ftl::mmio::Register<
       0x40C0C08Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR35_fields_::ADC1_IPG_DOZE,
-      GPR35_fields_::ADC1_STOP_REQ,
-      GPR35_fields_::ADC1_IPG_STOP_MODE,
-      GPR35_fields_::ADC2_IPG_DOZE,
-      GPR35_fields_::ADC2_STOP_REQ,
-      GPR35_fields_::ADC2_IPG_STOP_MODE,
-      GPR35_fields_::CAAM_IPG_DOZE,
-      GPR35_fields_::CAAM_STOP_REQ,
-      GPR35_fields_::CAN1_IPG_DOZE,
-      GPR35_fields_::CAN1_STOP_REQ,
-      GPR35_fields_::CAN2_IPG_DOZE,
-      GPR35_fields_::CAN2_STOP_REQ,
-      GPR35_fields_::CAN3_IPG_DOZE,
-      GPR35_fields_::CAN3_STOP_REQ,
+      Gpr35Fields::ADC1_IPG_DOZE,
+      Gpr35Fields::ADC1_STOP_REQ,
+      Gpr35Fields::ADC1_IPG_STOP_MODE,
+      Gpr35Fields::ADC2_IPG_DOZE,
+      Gpr35Fields::ADC2_STOP_REQ,
+      Gpr35Fields::ADC2_IPG_STOP_MODE,
+      Gpr35Fields::CAAM_IPG_DOZE,
+      Gpr35Fields::CAAM_STOP_REQ,
+      Gpr35Fields::CAN1_IPG_DOZE,
+      Gpr35Fields::CAN1_STOP_REQ,
+      Gpr35Fields::CAN2_IPG_DOZE,
+      Gpr35Fields::CAN2_STOP_REQ,
+      Gpr35Fields::CAN3_IPG_DOZE,
+      Gpr35Fields::CAN3_STOP_REQ,
       ftl::mmio::Reserved<1, 14>,
-      GPR35_fields_::EDMA_STOP_REQ,
-      GPR35_fields_::EDMA_LPSR_STOP_REQ,
-      GPR35_fields_::ENET_IPG_DOZE,
-      GPR35_fields_::ENET_STOP_REQ,
-      GPR35_fields_::ENET1G_IPG_DOZE,
-      GPR35_fields_::ENET1G_STOP_REQ,
-      GPR35_fields_::FLEXIO1_IPG_DOZE,
-      GPR35_fields_::FLEXIO2_IPG_DOZE,
-      GPR35_fields_::FLEXSPI1_IPG_DOZE,
-      GPR35_fields_::FLEXSPI1_STOP_REQ,
-      GPR35_fields_::FLEXSPI2_IPG_DOZE,
-      GPR35_fields_::FLEXSPI2_STOP_REQ,
+      Gpr35Fields::EDMA_STOP_REQ,
+      Gpr35Fields::EDMA_LPSR_STOP_REQ,
+      Gpr35Fields::ENET_IPG_DOZE,
+      Gpr35Fields::ENET_STOP_REQ,
+      Gpr35Fields::ENET1G_IPG_DOZE,
+      Gpr35Fields::ENET1G_STOP_REQ,
+      Gpr35Fields::FLEXIO1_IPG_DOZE,
+      Gpr35Fields::FLEXIO2_IPG_DOZE,
+      Gpr35Fields::FLEXSPI1_IPG_DOZE,
+      Gpr35Fields::FLEXSPI1_STOP_REQ,
+      Gpr35Fields::FLEXSPI2_IPG_DOZE,
+      Gpr35Fields::FLEXSPI2_STOP_REQ,
       ftl::mmio::Reserved<1, 27>,
-      GPR35_fields_::DWP,
-      GPR35_fields_::DWP_LOCK> {
-    using eADC1_IPG_DOZE = GPR35_fields_::eADC1_IPG_DOZE;
-    using eADC1_STOP_REQ = GPR35_fields_::eADC1_STOP_REQ;
-    using eADC1_IPG_STOP_MODE = GPR35_fields_::eADC1_IPG_STOP_MODE;
-    using eADC2_IPG_DOZE = GPR35_fields_::eADC2_IPG_DOZE;
-    using eADC2_STOP_REQ = GPR35_fields_::eADC2_STOP_REQ;
-    using eADC2_IPG_STOP_MODE = GPR35_fields_::eADC2_IPG_STOP_MODE;
-    using eCAAM_IPG_DOZE = GPR35_fields_::eCAAM_IPG_DOZE;
-    using eCAAM_STOP_REQ = GPR35_fields_::eCAAM_STOP_REQ;
-    using eCAN1_IPG_DOZE = GPR35_fields_::eCAN1_IPG_DOZE;
-    using eCAN1_STOP_REQ = GPR35_fields_::eCAN1_STOP_REQ;
-    using eCAN2_IPG_DOZE = GPR35_fields_::eCAN2_IPG_DOZE;
-    using eCAN2_STOP_REQ = GPR35_fields_::eCAN2_STOP_REQ;
-    using eCAN3_IPG_DOZE = GPR35_fields_::eCAN3_IPG_DOZE;
-    using eCAN3_STOP_REQ = GPR35_fields_::eCAN3_STOP_REQ;
-    using eEDMA_STOP_REQ = GPR35_fields_::eEDMA_STOP_REQ;
-    using eEDMA_LPSR_STOP_REQ = GPR35_fields_::eEDMA_LPSR_STOP_REQ;
-    using eENET_IPG_DOZE = GPR35_fields_::eENET_IPG_DOZE;
-    using eENET_STOP_REQ = GPR35_fields_::eENET_STOP_REQ;
-    using eENET1G_IPG_DOZE = GPR35_fields_::eENET1G_IPG_DOZE;
-    using eENET1G_STOP_REQ = GPR35_fields_::eENET1G_STOP_REQ;
-    using eFLEXIO1_IPG_DOZE = GPR35_fields_::eFLEXIO1_IPG_DOZE;
-    using eFLEXIO2_IPG_DOZE = GPR35_fields_::eFLEXIO2_IPG_DOZE;
-    using eFLEXSPI1_IPG_DOZE = GPR35_fields_::eFLEXSPI1_IPG_DOZE;
-    using eFLEXSPI1_STOP_REQ = GPR35_fields_::eFLEXSPI1_STOP_REQ;
-    using eFLEXSPI2_IPG_DOZE = GPR35_fields_::eFLEXSPI2_IPG_DOZE;
-    using eFLEXSPI2_STOP_REQ = GPR35_fields_::eFLEXSPI2_STOP_REQ;
-    using eDWP = GPR35_fields_::eDWP;
-    using eDWP_LOCK = GPR35_fields_::eDWP_LOCK;
-    using ADC1_IPG_DOZE = GPR35_fields_::ADC1_IPG_DOZE;
-    using ADC1_STOP_REQ = GPR35_fields_::ADC1_STOP_REQ;
-    using ADC1_IPG_STOP_MODE = GPR35_fields_::ADC1_IPG_STOP_MODE;
-    using ADC2_IPG_DOZE = GPR35_fields_::ADC2_IPG_DOZE;
-    using ADC2_STOP_REQ = GPR35_fields_::ADC2_STOP_REQ;
-    using ADC2_IPG_STOP_MODE = GPR35_fields_::ADC2_IPG_STOP_MODE;
-    using CAAM_IPG_DOZE = GPR35_fields_::CAAM_IPG_DOZE;
-    using CAAM_STOP_REQ = GPR35_fields_::CAAM_STOP_REQ;
-    using CAN1_IPG_DOZE = GPR35_fields_::CAN1_IPG_DOZE;
-    using CAN1_STOP_REQ = GPR35_fields_::CAN1_STOP_REQ;
-    using CAN2_IPG_DOZE = GPR35_fields_::CAN2_IPG_DOZE;
-    using CAN2_STOP_REQ = GPR35_fields_::CAN2_STOP_REQ;
-    using CAN3_IPG_DOZE = GPR35_fields_::CAN3_IPG_DOZE;
-    using CAN3_STOP_REQ = GPR35_fields_::CAN3_STOP_REQ;
-    using EDMA_STOP_REQ = GPR35_fields_::EDMA_STOP_REQ;
-    using EDMA_LPSR_STOP_REQ = GPR35_fields_::EDMA_LPSR_STOP_REQ;
-    using ENET_IPG_DOZE = GPR35_fields_::ENET_IPG_DOZE;
-    using ENET_STOP_REQ = GPR35_fields_::ENET_STOP_REQ;
-    using ENET1G_IPG_DOZE = GPR35_fields_::ENET1G_IPG_DOZE;
-    using ENET1G_STOP_REQ = GPR35_fields_::ENET1G_STOP_REQ;
-    using FLEXIO1_IPG_DOZE = GPR35_fields_::FLEXIO1_IPG_DOZE;
-    using FLEXIO2_IPG_DOZE = GPR35_fields_::FLEXIO2_IPG_DOZE;
-    using FLEXSPI1_IPG_DOZE = GPR35_fields_::FLEXSPI1_IPG_DOZE;
-    using FLEXSPI1_STOP_REQ = GPR35_fields_::FLEXSPI1_STOP_REQ;
-    using FLEXSPI2_IPG_DOZE = GPR35_fields_::FLEXSPI2_IPG_DOZE;
-    using FLEXSPI2_STOP_REQ = GPR35_fields_::FLEXSPI2_STOP_REQ;
-    using DWP = GPR35_fields_::DWP;
-    using DWP_LOCK = GPR35_fields_::DWP_LOCK;
+      Gpr35Fields::DWP,
+      Gpr35Fields::DWP_LOCK> {
+    using eADC1_IPG_DOZE = Gpr35Fields::eADC1_IPG_DOZE;
+    using eADC1_STOP_REQ = Gpr35Fields::eADC1_STOP_REQ;
+    using eADC1_IPG_STOP_MODE = Gpr35Fields::eADC1_IPG_STOP_MODE;
+    using eADC2_IPG_DOZE = Gpr35Fields::eADC2_IPG_DOZE;
+    using eADC2_STOP_REQ = Gpr35Fields::eADC2_STOP_REQ;
+    using eADC2_IPG_STOP_MODE = Gpr35Fields::eADC2_IPG_STOP_MODE;
+    using eCAAM_IPG_DOZE = Gpr35Fields::eCAAM_IPG_DOZE;
+    using eCAAM_STOP_REQ = Gpr35Fields::eCAAM_STOP_REQ;
+    using eCAN1_IPG_DOZE = Gpr35Fields::eCAN1_IPG_DOZE;
+    using eCAN1_STOP_REQ = Gpr35Fields::eCAN1_STOP_REQ;
+    using eCAN2_IPG_DOZE = Gpr35Fields::eCAN2_IPG_DOZE;
+    using eCAN2_STOP_REQ = Gpr35Fields::eCAN2_STOP_REQ;
+    using eCAN3_IPG_DOZE = Gpr35Fields::eCAN3_IPG_DOZE;
+    using eCAN3_STOP_REQ = Gpr35Fields::eCAN3_STOP_REQ;
+    using eEDMA_STOP_REQ = Gpr35Fields::eEDMA_STOP_REQ;
+    using eEDMA_LPSR_STOP_REQ = Gpr35Fields::eEDMA_LPSR_STOP_REQ;
+    using eENET_IPG_DOZE = Gpr35Fields::eENET_IPG_DOZE;
+    using eENET_STOP_REQ = Gpr35Fields::eENET_STOP_REQ;
+    using eENET1G_IPG_DOZE = Gpr35Fields::eENET1G_IPG_DOZE;
+    using eENET1G_STOP_REQ = Gpr35Fields::eENET1G_STOP_REQ;
+    using eFLEXIO1_IPG_DOZE = Gpr35Fields::eFLEXIO1_IPG_DOZE;
+    using eFLEXIO2_IPG_DOZE = Gpr35Fields::eFLEXIO2_IPG_DOZE;
+    using eFLEXSPI1_IPG_DOZE = Gpr35Fields::eFLEXSPI1_IPG_DOZE;
+    using eFLEXSPI1_STOP_REQ = Gpr35Fields::eFLEXSPI1_STOP_REQ;
+    using eFLEXSPI2_IPG_DOZE = Gpr35Fields::eFLEXSPI2_IPG_DOZE;
+    using eFLEXSPI2_STOP_REQ = Gpr35Fields::eFLEXSPI2_STOP_REQ;
+    using eDWP = Gpr35Fields::eDWP;
+    using eDWP_LOCK = Gpr35Fields::eDWP_LOCK;
+    using ADC1_IPG_DOZE = Gpr35Fields::ADC1_IPG_DOZE;
+    using ADC1_STOP_REQ = Gpr35Fields::ADC1_STOP_REQ;
+    using ADC1_IPG_STOP_MODE = Gpr35Fields::ADC1_IPG_STOP_MODE;
+    using ADC2_IPG_DOZE = Gpr35Fields::ADC2_IPG_DOZE;
+    using ADC2_STOP_REQ = Gpr35Fields::ADC2_STOP_REQ;
+    using ADC2_IPG_STOP_MODE = Gpr35Fields::ADC2_IPG_STOP_MODE;
+    using CAAM_IPG_DOZE = Gpr35Fields::CAAM_IPG_DOZE;
+    using CAAM_STOP_REQ = Gpr35Fields::CAAM_STOP_REQ;
+    using CAN1_IPG_DOZE = Gpr35Fields::CAN1_IPG_DOZE;
+    using CAN1_STOP_REQ = Gpr35Fields::CAN1_STOP_REQ;
+    using CAN2_IPG_DOZE = Gpr35Fields::CAN2_IPG_DOZE;
+    using CAN2_STOP_REQ = Gpr35Fields::CAN2_STOP_REQ;
+    using CAN3_IPG_DOZE = Gpr35Fields::CAN3_IPG_DOZE;
+    using CAN3_STOP_REQ = Gpr35Fields::CAN3_STOP_REQ;
+    using EDMA_STOP_REQ = Gpr35Fields::EDMA_STOP_REQ;
+    using EDMA_LPSR_STOP_REQ = Gpr35Fields::EDMA_LPSR_STOP_REQ;
+    using ENET_IPG_DOZE = Gpr35Fields::ENET_IPG_DOZE;
+    using ENET_STOP_REQ = Gpr35Fields::ENET_STOP_REQ;
+    using ENET1G_IPG_DOZE = Gpr35Fields::ENET1G_IPG_DOZE;
+    using ENET1G_STOP_REQ = Gpr35Fields::ENET1G_STOP_REQ;
+    using FLEXIO1_IPG_DOZE = Gpr35Fields::FLEXIO1_IPG_DOZE;
+    using FLEXIO2_IPG_DOZE = Gpr35Fields::FLEXIO2_IPG_DOZE;
+    using FLEXSPI1_IPG_DOZE = Gpr35Fields::FLEXSPI1_IPG_DOZE;
+    using FLEXSPI1_STOP_REQ = Gpr35Fields::FLEXSPI1_STOP_REQ;
+    using FLEXSPI2_IPG_DOZE = Gpr35Fields::FLEXSPI2_IPG_DOZE;
+    using FLEXSPI2_STOP_REQ = Gpr35Fields::FLEXSPI2_STOP_REQ;
+    using DWP = Gpr35Fields::DWP;
+    using DWP_LOCK = Gpr35Fields::DWP_LOCK;
   };
 
   // GPR36 General Purpose Register
-  struct GPR36_fields_ {
+  struct Gpr36Fields {
     enum class eGPT1_IPG_DOZE : std::uint32_t {
       // Not in doze mode
       eDISABLE = 0,
@@ -1636,105 +1636,105 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR36_fields_
+  };  // struct Gpr36Fields
 
   struct GPR36 : ftl::mmio::Register<
       0x40C0C090u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR36_fields_::GPT1_IPG_DOZE,
-      GPR36_fields_::GPT2_IPG_DOZE,
-      GPR36_fields_::GPT3_IPG_DOZE,
-      GPR36_fields_::GPT4_IPG_DOZE,
-      GPR36_fields_::GPT5_IPG_DOZE,
-      GPR36_fields_::GPT6_IPG_DOZE,
-      GPR36_fields_::LPI2C1_IPG_DOZE,
-      GPR36_fields_::LPI2C1_STOP_REQ,
-      GPR36_fields_::LPI2C1_IPG_STOP_MODE,
-      GPR36_fields_::LPI2C2_IPG_DOZE,
-      GPR36_fields_::LPI2C2_STOP_REQ,
-      GPR36_fields_::LPI2C2_IPG_STOP_MODE,
-      GPR36_fields_::LPI2C3_IPG_DOZE,
-      GPR36_fields_::LPI2C3_STOP_REQ,
-      GPR36_fields_::LPI2C3_IPG_STOP_MODE,
-      GPR36_fields_::LPI2C4_IPG_DOZE,
-      GPR36_fields_::LPI2C4_STOP_REQ,
-      GPR36_fields_::LPI2C4_IPG_STOP_MODE,
-      GPR36_fields_::LPI2C5_IPG_DOZE,
-      GPR36_fields_::LPI2C5_STOP_REQ,
-      GPR36_fields_::LPI2C5_IPG_STOP_MODE,
-      GPR36_fields_::LPI2C6_IPG_DOZE,
-      GPR36_fields_::LPI2C6_STOP_REQ,
-      GPR36_fields_::LPI2C6_IPG_STOP_MODE,
-      GPR36_fields_::LPSPI1_IPG_DOZE,
-      GPR36_fields_::LPSPI1_STOP_REQ,
-      GPR36_fields_::LPSPI1_IPG_STOP_MODE,
+      Gpr36Fields::GPT1_IPG_DOZE,
+      Gpr36Fields::GPT2_IPG_DOZE,
+      Gpr36Fields::GPT3_IPG_DOZE,
+      Gpr36Fields::GPT4_IPG_DOZE,
+      Gpr36Fields::GPT5_IPG_DOZE,
+      Gpr36Fields::GPT6_IPG_DOZE,
+      Gpr36Fields::LPI2C1_IPG_DOZE,
+      Gpr36Fields::LPI2C1_STOP_REQ,
+      Gpr36Fields::LPI2C1_IPG_STOP_MODE,
+      Gpr36Fields::LPI2C2_IPG_DOZE,
+      Gpr36Fields::LPI2C2_STOP_REQ,
+      Gpr36Fields::LPI2C2_IPG_STOP_MODE,
+      Gpr36Fields::LPI2C3_IPG_DOZE,
+      Gpr36Fields::LPI2C3_STOP_REQ,
+      Gpr36Fields::LPI2C3_IPG_STOP_MODE,
+      Gpr36Fields::LPI2C4_IPG_DOZE,
+      Gpr36Fields::LPI2C4_STOP_REQ,
+      Gpr36Fields::LPI2C4_IPG_STOP_MODE,
+      Gpr36Fields::LPI2C5_IPG_DOZE,
+      Gpr36Fields::LPI2C5_STOP_REQ,
+      Gpr36Fields::LPI2C5_IPG_STOP_MODE,
+      Gpr36Fields::LPI2C6_IPG_DOZE,
+      Gpr36Fields::LPI2C6_STOP_REQ,
+      Gpr36Fields::LPI2C6_IPG_STOP_MODE,
+      Gpr36Fields::LPSPI1_IPG_DOZE,
+      Gpr36Fields::LPSPI1_STOP_REQ,
+      Gpr36Fields::LPSPI1_IPG_STOP_MODE,
       ftl::mmio::Reserved<1, 27>,
-      GPR36_fields_::DWP,
-      GPR36_fields_::DWP_LOCK> {
-    using eGPT1_IPG_DOZE = GPR36_fields_::eGPT1_IPG_DOZE;
-    using eGPT2_IPG_DOZE = GPR36_fields_::eGPT2_IPG_DOZE;
-    using eGPT3_IPG_DOZE = GPR36_fields_::eGPT3_IPG_DOZE;
-    using eGPT4_IPG_DOZE = GPR36_fields_::eGPT4_IPG_DOZE;
-    using eGPT5_IPG_DOZE = GPR36_fields_::eGPT5_IPG_DOZE;
-    using eGPT6_IPG_DOZE = GPR36_fields_::eGPT6_IPG_DOZE;
-    using eLPI2C1_IPG_DOZE = GPR36_fields_::eLPI2C1_IPG_DOZE;
-    using eLPI2C1_STOP_REQ = GPR36_fields_::eLPI2C1_STOP_REQ;
-    using eLPI2C1_IPG_STOP_MODE = GPR36_fields_::eLPI2C1_IPG_STOP_MODE;
-    using eLPI2C2_IPG_DOZE = GPR36_fields_::eLPI2C2_IPG_DOZE;
-    using eLPI2C2_STOP_REQ = GPR36_fields_::eLPI2C2_STOP_REQ;
-    using eLPI2C2_IPG_STOP_MODE = GPR36_fields_::eLPI2C2_IPG_STOP_MODE;
-    using eLPI2C3_IPG_DOZE = GPR36_fields_::eLPI2C3_IPG_DOZE;
-    using eLPI2C3_STOP_REQ = GPR36_fields_::eLPI2C3_STOP_REQ;
-    using eLPI2C3_IPG_STOP_MODE = GPR36_fields_::eLPI2C3_IPG_STOP_MODE;
-    using eLPI2C4_IPG_DOZE = GPR36_fields_::eLPI2C4_IPG_DOZE;
-    using eLPI2C4_STOP_REQ = GPR36_fields_::eLPI2C4_STOP_REQ;
-    using eLPI2C4_IPG_STOP_MODE = GPR36_fields_::eLPI2C4_IPG_STOP_MODE;
-    using eLPI2C5_IPG_DOZE = GPR36_fields_::eLPI2C5_IPG_DOZE;
-    using eLPI2C5_STOP_REQ = GPR36_fields_::eLPI2C5_STOP_REQ;
-    using eLPI2C5_IPG_STOP_MODE = GPR36_fields_::eLPI2C5_IPG_STOP_MODE;
-    using eLPI2C6_IPG_DOZE = GPR36_fields_::eLPI2C6_IPG_DOZE;
-    using eLPI2C6_STOP_REQ = GPR36_fields_::eLPI2C6_STOP_REQ;
-    using eLPI2C6_IPG_STOP_MODE = GPR36_fields_::eLPI2C6_IPG_STOP_MODE;
-    using eLPSPI1_IPG_DOZE = GPR36_fields_::eLPSPI1_IPG_DOZE;
-    using eLPSPI1_STOP_REQ = GPR36_fields_::eLPSPI1_STOP_REQ;
-    using eLPSPI1_IPG_STOP_MODE = GPR36_fields_::eLPSPI1_IPG_STOP_MODE;
-    using eDWP = GPR36_fields_::eDWP;
-    using eDWP_LOCK = GPR36_fields_::eDWP_LOCK;
-    using GPT1_IPG_DOZE = GPR36_fields_::GPT1_IPG_DOZE;
-    using GPT2_IPG_DOZE = GPR36_fields_::GPT2_IPG_DOZE;
-    using GPT3_IPG_DOZE = GPR36_fields_::GPT3_IPG_DOZE;
-    using GPT4_IPG_DOZE = GPR36_fields_::GPT4_IPG_DOZE;
-    using GPT5_IPG_DOZE = GPR36_fields_::GPT5_IPG_DOZE;
-    using GPT6_IPG_DOZE = GPR36_fields_::GPT6_IPG_DOZE;
-    using LPI2C1_IPG_DOZE = GPR36_fields_::LPI2C1_IPG_DOZE;
-    using LPI2C1_STOP_REQ = GPR36_fields_::LPI2C1_STOP_REQ;
-    using LPI2C1_IPG_STOP_MODE = GPR36_fields_::LPI2C1_IPG_STOP_MODE;
-    using LPI2C2_IPG_DOZE = GPR36_fields_::LPI2C2_IPG_DOZE;
-    using LPI2C2_STOP_REQ = GPR36_fields_::LPI2C2_STOP_REQ;
-    using LPI2C2_IPG_STOP_MODE = GPR36_fields_::LPI2C2_IPG_STOP_MODE;
-    using LPI2C3_IPG_DOZE = GPR36_fields_::LPI2C3_IPG_DOZE;
-    using LPI2C3_STOP_REQ = GPR36_fields_::LPI2C3_STOP_REQ;
-    using LPI2C3_IPG_STOP_MODE = GPR36_fields_::LPI2C3_IPG_STOP_MODE;
-    using LPI2C4_IPG_DOZE = GPR36_fields_::LPI2C4_IPG_DOZE;
-    using LPI2C4_STOP_REQ = GPR36_fields_::LPI2C4_STOP_REQ;
-    using LPI2C4_IPG_STOP_MODE = GPR36_fields_::LPI2C4_IPG_STOP_MODE;
-    using LPI2C5_IPG_DOZE = GPR36_fields_::LPI2C5_IPG_DOZE;
-    using LPI2C5_STOP_REQ = GPR36_fields_::LPI2C5_STOP_REQ;
-    using LPI2C5_IPG_STOP_MODE = GPR36_fields_::LPI2C5_IPG_STOP_MODE;
-    using LPI2C6_IPG_DOZE = GPR36_fields_::LPI2C6_IPG_DOZE;
-    using LPI2C6_STOP_REQ = GPR36_fields_::LPI2C6_STOP_REQ;
-    using LPI2C6_IPG_STOP_MODE = GPR36_fields_::LPI2C6_IPG_STOP_MODE;
-    using LPSPI1_IPG_DOZE = GPR36_fields_::LPSPI1_IPG_DOZE;
-    using LPSPI1_STOP_REQ = GPR36_fields_::LPSPI1_STOP_REQ;
-    using LPSPI1_IPG_STOP_MODE = GPR36_fields_::LPSPI1_IPG_STOP_MODE;
-    using DWP = GPR36_fields_::DWP;
-    using DWP_LOCK = GPR36_fields_::DWP_LOCK;
+      Gpr36Fields::DWP,
+      Gpr36Fields::DWP_LOCK> {
+    using eGPT1_IPG_DOZE = Gpr36Fields::eGPT1_IPG_DOZE;
+    using eGPT2_IPG_DOZE = Gpr36Fields::eGPT2_IPG_DOZE;
+    using eGPT3_IPG_DOZE = Gpr36Fields::eGPT3_IPG_DOZE;
+    using eGPT4_IPG_DOZE = Gpr36Fields::eGPT4_IPG_DOZE;
+    using eGPT5_IPG_DOZE = Gpr36Fields::eGPT5_IPG_DOZE;
+    using eGPT6_IPG_DOZE = Gpr36Fields::eGPT6_IPG_DOZE;
+    using eLPI2C1_IPG_DOZE = Gpr36Fields::eLPI2C1_IPG_DOZE;
+    using eLPI2C1_STOP_REQ = Gpr36Fields::eLPI2C1_STOP_REQ;
+    using eLPI2C1_IPG_STOP_MODE = Gpr36Fields::eLPI2C1_IPG_STOP_MODE;
+    using eLPI2C2_IPG_DOZE = Gpr36Fields::eLPI2C2_IPG_DOZE;
+    using eLPI2C2_STOP_REQ = Gpr36Fields::eLPI2C2_STOP_REQ;
+    using eLPI2C2_IPG_STOP_MODE = Gpr36Fields::eLPI2C2_IPG_STOP_MODE;
+    using eLPI2C3_IPG_DOZE = Gpr36Fields::eLPI2C3_IPG_DOZE;
+    using eLPI2C3_STOP_REQ = Gpr36Fields::eLPI2C3_STOP_REQ;
+    using eLPI2C3_IPG_STOP_MODE = Gpr36Fields::eLPI2C3_IPG_STOP_MODE;
+    using eLPI2C4_IPG_DOZE = Gpr36Fields::eLPI2C4_IPG_DOZE;
+    using eLPI2C4_STOP_REQ = Gpr36Fields::eLPI2C4_STOP_REQ;
+    using eLPI2C4_IPG_STOP_MODE = Gpr36Fields::eLPI2C4_IPG_STOP_MODE;
+    using eLPI2C5_IPG_DOZE = Gpr36Fields::eLPI2C5_IPG_DOZE;
+    using eLPI2C5_STOP_REQ = Gpr36Fields::eLPI2C5_STOP_REQ;
+    using eLPI2C5_IPG_STOP_MODE = Gpr36Fields::eLPI2C5_IPG_STOP_MODE;
+    using eLPI2C6_IPG_DOZE = Gpr36Fields::eLPI2C6_IPG_DOZE;
+    using eLPI2C6_STOP_REQ = Gpr36Fields::eLPI2C6_STOP_REQ;
+    using eLPI2C6_IPG_STOP_MODE = Gpr36Fields::eLPI2C6_IPG_STOP_MODE;
+    using eLPSPI1_IPG_DOZE = Gpr36Fields::eLPSPI1_IPG_DOZE;
+    using eLPSPI1_STOP_REQ = Gpr36Fields::eLPSPI1_STOP_REQ;
+    using eLPSPI1_IPG_STOP_MODE = Gpr36Fields::eLPSPI1_IPG_STOP_MODE;
+    using eDWP = Gpr36Fields::eDWP;
+    using eDWP_LOCK = Gpr36Fields::eDWP_LOCK;
+    using GPT1_IPG_DOZE = Gpr36Fields::GPT1_IPG_DOZE;
+    using GPT2_IPG_DOZE = Gpr36Fields::GPT2_IPG_DOZE;
+    using GPT3_IPG_DOZE = Gpr36Fields::GPT3_IPG_DOZE;
+    using GPT4_IPG_DOZE = Gpr36Fields::GPT4_IPG_DOZE;
+    using GPT5_IPG_DOZE = Gpr36Fields::GPT5_IPG_DOZE;
+    using GPT6_IPG_DOZE = Gpr36Fields::GPT6_IPG_DOZE;
+    using LPI2C1_IPG_DOZE = Gpr36Fields::LPI2C1_IPG_DOZE;
+    using LPI2C1_STOP_REQ = Gpr36Fields::LPI2C1_STOP_REQ;
+    using LPI2C1_IPG_STOP_MODE = Gpr36Fields::LPI2C1_IPG_STOP_MODE;
+    using LPI2C2_IPG_DOZE = Gpr36Fields::LPI2C2_IPG_DOZE;
+    using LPI2C2_STOP_REQ = Gpr36Fields::LPI2C2_STOP_REQ;
+    using LPI2C2_IPG_STOP_MODE = Gpr36Fields::LPI2C2_IPG_STOP_MODE;
+    using LPI2C3_IPG_DOZE = Gpr36Fields::LPI2C3_IPG_DOZE;
+    using LPI2C3_STOP_REQ = Gpr36Fields::LPI2C3_STOP_REQ;
+    using LPI2C3_IPG_STOP_MODE = Gpr36Fields::LPI2C3_IPG_STOP_MODE;
+    using LPI2C4_IPG_DOZE = Gpr36Fields::LPI2C4_IPG_DOZE;
+    using LPI2C4_STOP_REQ = Gpr36Fields::LPI2C4_STOP_REQ;
+    using LPI2C4_IPG_STOP_MODE = Gpr36Fields::LPI2C4_IPG_STOP_MODE;
+    using LPI2C5_IPG_DOZE = Gpr36Fields::LPI2C5_IPG_DOZE;
+    using LPI2C5_STOP_REQ = Gpr36Fields::LPI2C5_STOP_REQ;
+    using LPI2C5_IPG_STOP_MODE = Gpr36Fields::LPI2C5_IPG_STOP_MODE;
+    using LPI2C6_IPG_DOZE = Gpr36Fields::LPI2C6_IPG_DOZE;
+    using LPI2C6_STOP_REQ = Gpr36Fields::LPI2C6_STOP_REQ;
+    using LPI2C6_IPG_STOP_MODE = Gpr36Fields::LPI2C6_IPG_STOP_MODE;
+    using LPSPI1_IPG_DOZE = Gpr36Fields::LPSPI1_IPG_DOZE;
+    using LPSPI1_STOP_REQ = Gpr36Fields::LPSPI1_STOP_REQ;
+    using LPSPI1_IPG_STOP_MODE = Gpr36Fields::LPSPI1_IPG_STOP_MODE;
+    using DWP = Gpr36Fields::DWP;
+    using DWP_LOCK = Gpr36Fields::DWP_LOCK;
   };
 
   // GPR37 General Purpose Register
-  struct GPR37_fields_ {
+  struct Gpr37Fields {
     enum class eLPSPI2_IPG_DOZE : std::uint32_t {
       // Not in doze mode
       eDISABLE = 0,
@@ -2004,105 +2004,105 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR37_fields_
+  };  // struct Gpr37Fields
 
   struct GPR37 : ftl::mmio::Register<
       0x40C0C094u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR37_fields_::LPSPI2_IPG_DOZE,
-      GPR37_fields_::LPSPI2_STOP_REQ,
-      GPR37_fields_::LPSPI2_IPG_STOP_MODE,
-      GPR37_fields_::LPSPI3_IPG_DOZE,
-      GPR37_fields_::LPSPI3_STOP_REQ,
-      GPR37_fields_::LPSPI3_IPG_STOP_MODE,
-      GPR37_fields_::LPSPI4_IPG_DOZE,
-      GPR37_fields_::LPSPI4_STOP_REQ,
-      GPR37_fields_::LPSPI4_IPG_STOP_MODE,
-      GPR37_fields_::LPSPI5_IPG_DOZE,
-      GPR37_fields_::LPSPI5_STOP_REQ,
-      GPR37_fields_::LPSPI5_IPG_STOP_MODE,
-      GPR37_fields_::LPSPI6_IPG_DOZE,
-      GPR37_fields_::LPSPI6_STOP_REQ,
-      GPR37_fields_::LPSPI6_IPG_STOP_MODE,
-      GPR37_fields_::LPUART1_IPG_DOZE,
-      GPR37_fields_::LPUART1_STOP_REQ,
-      GPR37_fields_::LPUART1_IPG_STOP_MODE,
-      GPR37_fields_::LPUART2_IPG_DOZE,
-      GPR37_fields_::LPUART2_STOP_REQ,
-      GPR37_fields_::LPUART2_IPG_STOP_MODE,
-      GPR37_fields_::LPUART3_IPG_DOZE,
-      GPR37_fields_::LPUART3_STOP_REQ,
-      GPR37_fields_::LPUART3_IPG_STOP_MODE,
-      GPR37_fields_::LPUART4_IPG_DOZE,
-      GPR37_fields_::LPUART4_STOP_REQ,
-      GPR37_fields_::LPUART4_IPG_STOP_MODE,
+      Gpr37Fields::LPSPI2_IPG_DOZE,
+      Gpr37Fields::LPSPI2_STOP_REQ,
+      Gpr37Fields::LPSPI2_IPG_STOP_MODE,
+      Gpr37Fields::LPSPI3_IPG_DOZE,
+      Gpr37Fields::LPSPI3_STOP_REQ,
+      Gpr37Fields::LPSPI3_IPG_STOP_MODE,
+      Gpr37Fields::LPSPI4_IPG_DOZE,
+      Gpr37Fields::LPSPI4_STOP_REQ,
+      Gpr37Fields::LPSPI4_IPG_STOP_MODE,
+      Gpr37Fields::LPSPI5_IPG_DOZE,
+      Gpr37Fields::LPSPI5_STOP_REQ,
+      Gpr37Fields::LPSPI5_IPG_STOP_MODE,
+      Gpr37Fields::LPSPI6_IPG_DOZE,
+      Gpr37Fields::LPSPI6_STOP_REQ,
+      Gpr37Fields::LPSPI6_IPG_STOP_MODE,
+      Gpr37Fields::LPUART1_IPG_DOZE,
+      Gpr37Fields::LPUART1_STOP_REQ,
+      Gpr37Fields::LPUART1_IPG_STOP_MODE,
+      Gpr37Fields::LPUART2_IPG_DOZE,
+      Gpr37Fields::LPUART2_STOP_REQ,
+      Gpr37Fields::LPUART2_IPG_STOP_MODE,
+      Gpr37Fields::LPUART3_IPG_DOZE,
+      Gpr37Fields::LPUART3_STOP_REQ,
+      Gpr37Fields::LPUART3_IPG_STOP_MODE,
+      Gpr37Fields::LPUART4_IPG_DOZE,
+      Gpr37Fields::LPUART4_STOP_REQ,
+      Gpr37Fields::LPUART4_IPG_STOP_MODE,
       ftl::mmio::Reserved<1, 27>,
-      GPR37_fields_::DWP,
-      GPR37_fields_::DWP_LOCK> {
-    using eLPSPI2_IPG_DOZE = GPR37_fields_::eLPSPI2_IPG_DOZE;
-    using eLPSPI2_STOP_REQ = GPR37_fields_::eLPSPI2_STOP_REQ;
-    using eLPSPI2_IPG_STOP_MODE = GPR37_fields_::eLPSPI2_IPG_STOP_MODE;
-    using eLPSPI3_IPG_DOZE = GPR37_fields_::eLPSPI3_IPG_DOZE;
-    using eLPSPI3_STOP_REQ = GPR37_fields_::eLPSPI3_STOP_REQ;
-    using eLPSPI3_IPG_STOP_MODE = GPR37_fields_::eLPSPI3_IPG_STOP_MODE;
-    using eLPSPI4_IPG_DOZE = GPR37_fields_::eLPSPI4_IPG_DOZE;
-    using eLPSPI4_STOP_REQ = GPR37_fields_::eLPSPI4_STOP_REQ;
-    using eLPSPI4_IPG_STOP_MODE = GPR37_fields_::eLPSPI4_IPG_STOP_MODE;
-    using eLPSPI5_IPG_DOZE = GPR37_fields_::eLPSPI5_IPG_DOZE;
-    using eLPSPI5_STOP_REQ = GPR37_fields_::eLPSPI5_STOP_REQ;
-    using eLPSPI5_IPG_STOP_MODE = GPR37_fields_::eLPSPI5_IPG_STOP_MODE;
-    using eLPSPI6_IPG_DOZE = GPR37_fields_::eLPSPI6_IPG_DOZE;
-    using eLPSPI6_STOP_REQ = GPR37_fields_::eLPSPI6_STOP_REQ;
-    using eLPSPI6_IPG_STOP_MODE = GPR37_fields_::eLPSPI6_IPG_STOP_MODE;
-    using eLPUART1_IPG_DOZE = GPR37_fields_::eLPUART1_IPG_DOZE;
-    using eLPUART1_STOP_REQ = GPR37_fields_::eLPUART1_STOP_REQ;
-    using eLPUART1_IPG_STOP_MODE = GPR37_fields_::eLPUART1_IPG_STOP_MODE;
-    using eLPUART2_IPG_DOZE = GPR37_fields_::eLPUART2_IPG_DOZE;
-    using eLPUART2_STOP_REQ = GPR37_fields_::eLPUART2_STOP_REQ;
-    using eLPUART2_IPG_STOP_MODE = GPR37_fields_::eLPUART2_IPG_STOP_MODE;
-    using eLPUART3_IPG_DOZE = GPR37_fields_::eLPUART3_IPG_DOZE;
-    using eLPUART3_STOP_REQ = GPR37_fields_::eLPUART3_STOP_REQ;
-    using eLPUART3_IPG_STOP_MODE = GPR37_fields_::eLPUART3_IPG_STOP_MODE;
-    using eLPUART4_IPG_DOZE = GPR37_fields_::eLPUART4_IPG_DOZE;
-    using eLPUART4_STOP_REQ = GPR37_fields_::eLPUART4_STOP_REQ;
-    using eLPUART4_IPG_STOP_MODE = GPR37_fields_::eLPUART4_IPG_STOP_MODE;
-    using eDWP = GPR37_fields_::eDWP;
-    using eDWP_LOCK = GPR37_fields_::eDWP_LOCK;
-    using LPSPI2_IPG_DOZE = GPR37_fields_::LPSPI2_IPG_DOZE;
-    using LPSPI2_STOP_REQ = GPR37_fields_::LPSPI2_STOP_REQ;
-    using LPSPI2_IPG_STOP_MODE = GPR37_fields_::LPSPI2_IPG_STOP_MODE;
-    using LPSPI3_IPG_DOZE = GPR37_fields_::LPSPI3_IPG_DOZE;
-    using LPSPI3_STOP_REQ = GPR37_fields_::LPSPI3_STOP_REQ;
-    using LPSPI3_IPG_STOP_MODE = GPR37_fields_::LPSPI3_IPG_STOP_MODE;
-    using LPSPI4_IPG_DOZE = GPR37_fields_::LPSPI4_IPG_DOZE;
-    using LPSPI4_STOP_REQ = GPR37_fields_::LPSPI4_STOP_REQ;
-    using LPSPI4_IPG_STOP_MODE = GPR37_fields_::LPSPI4_IPG_STOP_MODE;
-    using LPSPI5_IPG_DOZE = GPR37_fields_::LPSPI5_IPG_DOZE;
-    using LPSPI5_STOP_REQ = GPR37_fields_::LPSPI5_STOP_REQ;
-    using LPSPI5_IPG_STOP_MODE = GPR37_fields_::LPSPI5_IPG_STOP_MODE;
-    using LPSPI6_IPG_DOZE = GPR37_fields_::LPSPI6_IPG_DOZE;
-    using LPSPI6_STOP_REQ = GPR37_fields_::LPSPI6_STOP_REQ;
-    using LPSPI6_IPG_STOP_MODE = GPR37_fields_::LPSPI6_IPG_STOP_MODE;
-    using LPUART1_IPG_DOZE = GPR37_fields_::LPUART1_IPG_DOZE;
-    using LPUART1_STOP_REQ = GPR37_fields_::LPUART1_STOP_REQ;
-    using LPUART1_IPG_STOP_MODE = GPR37_fields_::LPUART1_IPG_STOP_MODE;
-    using LPUART2_IPG_DOZE = GPR37_fields_::LPUART2_IPG_DOZE;
-    using LPUART2_STOP_REQ = GPR37_fields_::LPUART2_STOP_REQ;
-    using LPUART2_IPG_STOP_MODE = GPR37_fields_::LPUART2_IPG_STOP_MODE;
-    using LPUART3_IPG_DOZE = GPR37_fields_::LPUART3_IPG_DOZE;
-    using LPUART3_STOP_REQ = GPR37_fields_::LPUART3_STOP_REQ;
-    using LPUART3_IPG_STOP_MODE = GPR37_fields_::LPUART3_IPG_STOP_MODE;
-    using LPUART4_IPG_DOZE = GPR37_fields_::LPUART4_IPG_DOZE;
-    using LPUART4_STOP_REQ = GPR37_fields_::LPUART4_STOP_REQ;
-    using LPUART4_IPG_STOP_MODE = GPR37_fields_::LPUART4_IPG_STOP_MODE;
-    using DWP = GPR37_fields_::DWP;
-    using DWP_LOCK = GPR37_fields_::DWP_LOCK;
+      Gpr37Fields::DWP,
+      Gpr37Fields::DWP_LOCK> {
+    using eLPSPI2_IPG_DOZE = Gpr37Fields::eLPSPI2_IPG_DOZE;
+    using eLPSPI2_STOP_REQ = Gpr37Fields::eLPSPI2_STOP_REQ;
+    using eLPSPI2_IPG_STOP_MODE = Gpr37Fields::eLPSPI2_IPG_STOP_MODE;
+    using eLPSPI3_IPG_DOZE = Gpr37Fields::eLPSPI3_IPG_DOZE;
+    using eLPSPI3_STOP_REQ = Gpr37Fields::eLPSPI3_STOP_REQ;
+    using eLPSPI3_IPG_STOP_MODE = Gpr37Fields::eLPSPI3_IPG_STOP_MODE;
+    using eLPSPI4_IPG_DOZE = Gpr37Fields::eLPSPI4_IPG_DOZE;
+    using eLPSPI4_STOP_REQ = Gpr37Fields::eLPSPI4_STOP_REQ;
+    using eLPSPI4_IPG_STOP_MODE = Gpr37Fields::eLPSPI4_IPG_STOP_MODE;
+    using eLPSPI5_IPG_DOZE = Gpr37Fields::eLPSPI5_IPG_DOZE;
+    using eLPSPI5_STOP_REQ = Gpr37Fields::eLPSPI5_STOP_REQ;
+    using eLPSPI5_IPG_STOP_MODE = Gpr37Fields::eLPSPI5_IPG_STOP_MODE;
+    using eLPSPI6_IPG_DOZE = Gpr37Fields::eLPSPI6_IPG_DOZE;
+    using eLPSPI6_STOP_REQ = Gpr37Fields::eLPSPI6_STOP_REQ;
+    using eLPSPI6_IPG_STOP_MODE = Gpr37Fields::eLPSPI6_IPG_STOP_MODE;
+    using eLPUART1_IPG_DOZE = Gpr37Fields::eLPUART1_IPG_DOZE;
+    using eLPUART1_STOP_REQ = Gpr37Fields::eLPUART1_STOP_REQ;
+    using eLPUART1_IPG_STOP_MODE = Gpr37Fields::eLPUART1_IPG_STOP_MODE;
+    using eLPUART2_IPG_DOZE = Gpr37Fields::eLPUART2_IPG_DOZE;
+    using eLPUART2_STOP_REQ = Gpr37Fields::eLPUART2_STOP_REQ;
+    using eLPUART2_IPG_STOP_MODE = Gpr37Fields::eLPUART2_IPG_STOP_MODE;
+    using eLPUART3_IPG_DOZE = Gpr37Fields::eLPUART3_IPG_DOZE;
+    using eLPUART3_STOP_REQ = Gpr37Fields::eLPUART3_STOP_REQ;
+    using eLPUART3_IPG_STOP_MODE = Gpr37Fields::eLPUART3_IPG_STOP_MODE;
+    using eLPUART4_IPG_DOZE = Gpr37Fields::eLPUART4_IPG_DOZE;
+    using eLPUART4_STOP_REQ = Gpr37Fields::eLPUART4_STOP_REQ;
+    using eLPUART4_IPG_STOP_MODE = Gpr37Fields::eLPUART4_IPG_STOP_MODE;
+    using eDWP = Gpr37Fields::eDWP;
+    using eDWP_LOCK = Gpr37Fields::eDWP_LOCK;
+    using LPSPI2_IPG_DOZE = Gpr37Fields::LPSPI2_IPG_DOZE;
+    using LPSPI2_STOP_REQ = Gpr37Fields::LPSPI2_STOP_REQ;
+    using LPSPI2_IPG_STOP_MODE = Gpr37Fields::LPSPI2_IPG_STOP_MODE;
+    using LPSPI3_IPG_DOZE = Gpr37Fields::LPSPI3_IPG_DOZE;
+    using LPSPI3_STOP_REQ = Gpr37Fields::LPSPI3_STOP_REQ;
+    using LPSPI3_IPG_STOP_MODE = Gpr37Fields::LPSPI3_IPG_STOP_MODE;
+    using LPSPI4_IPG_DOZE = Gpr37Fields::LPSPI4_IPG_DOZE;
+    using LPSPI4_STOP_REQ = Gpr37Fields::LPSPI4_STOP_REQ;
+    using LPSPI4_IPG_STOP_MODE = Gpr37Fields::LPSPI4_IPG_STOP_MODE;
+    using LPSPI5_IPG_DOZE = Gpr37Fields::LPSPI5_IPG_DOZE;
+    using LPSPI5_STOP_REQ = Gpr37Fields::LPSPI5_STOP_REQ;
+    using LPSPI5_IPG_STOP_MODE = Gpr37Fields::LPSPI5_IPG_STOP_MODE;
+    using LPSPI6_IPG_DOZE = Gpr37Fields::LPSPI6_IPG_DOZE;
+    using LPSPI6_STOP_REQ = Gpr37Fields::LPSPI6_STOP_REQ;
+    using LPSPI6_IPG_STOP_MODE = Gpr37Fields::LPSPI6_IPG_STOP_MODE;
+    using LPUART1_IPG_DOZE = Gpr37Fields::LPUART1_IPG_DOZE;
+    using LPUART1_STOP_REQ = Gpr37Fields::LPUART1_STOP_REQ;
+    using LPUART1_IPG_STOP_MODE = Gpr37Fields::LPUART1_IPG_STOP_MODE;
+    using LPUART2_IPG_DOZE = Gpr37Fields::LPUART2_IPG_DOZE;
+    using LPUART2_STOP_REQ = Gpr37Fields::LPUART2_STOP_REQ;
+    using LPUART2_IPG_STOP_MODE = Gpr37Fields::LPUART2_IPG_STOP_MODE;
+    using LPUART3_IPG_DOZE = Gpr37Fields::LPUART3_IPG_DOZE;
+    using LPUART3_STOP_REQ = Gpr37Fields::LPUART3_STOP_REQ;
+    using LPUART3_IPG_STOP_MODE = Gpr37Fields::LPUART3_IPG_STOP_MODE;
+    using LPUART4_IPG_DOZE = Gpr37Fields::LPUART4_IPG_DOZE;
+    using LPUART4_STOP_REQ = Gpr37Fields::LPUART4_STOP_REQ;
+    using LPUART4_IPG_STOP_MODE = Gpr37Fields::LPUART4_IPG_STOP_MODE;
+    using DWP = Gpr37Fields::DWP;
+    using DWP_LOCK = Gpr37Fields::DWP_LOCK;
   };
 
   // GPR38 General Purpose Register
-  struct GPR38_fields_ {
+  struct Gpr38Fields {
     enum class eLPUART5_IPG_DOZE : std::uint32_t {
       // Not in doze mode
       eDISABLE = 0,
@@ -2372,105 +2372,105 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR38_fields_
+  };  // struct Gpr38Fields
 
   struct GPR38 : ftl::mmio::Register<
       0x40C0C098u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GPR38_fields_::LPUART5_IPG_DOZE,
-      GPR38_fields_::LPUART5_STOP_REQ,
-      GPR38_fields_::LPUART5_IPG_STOP_MODE,
-      GPR38_fields_::LPUART6_IPG_DOZE,
-      GPR38_fields_::LPUART6_STOP_REQ,
-      GPR38_fields_::LPUART6_IPG_STOP_MODE,
-      GPR38_fields_::LPUART7_IPG_DOZE,
-      GPR38_fields_::LPUART7_STOP_REQ,
-      GPR38_fields_::LPUART7_IPG_STOP_MODE,
-      GPR38_fields_::LPUART8_IPG_DOZE,
-      GPR38_fields_::LPUART8_STOP_REQ,
-      GPR38_fields_::LPUART8_IPG_STOP_MODE,
-      GPR38_fields_::LPUART9_IPG_DOZE,
-      GPR38_fields_::LPUART9_STOP_REQ,
-      GPR38_fields_::LPUART9_IPG_STOP_MODE,
-      GPR38_fields_::LPUART10_IPG_DOZE,
-      GPR38_fields_::LPUART10_STOP_REQ,
-      GPR38_fields_::LPUART10_IPG_STOP_MODE,
-      GPR38_fields_::LPUART11_IPG_DOZE,
-      GPR38_fields_::LPUART11_STOP_REQ,
-      GPR38_fields_::LPUART11_IPG_STOP_MODE,
-      GPR38_fields_::LPUART12_IPG_DOZE,
-      GPR38_fields_::LPUART12_STOP_REQ,
-      GPR38_fields_::LPUART12_IPG_STOP_MODE,
-      GPR38_fields_::MIC_IPG_DOZE,
-      GPR38_fields_::MIC_STOP_REQ,
-      GPR38_fields_::MIC_IPG_STOP_MODE,
+      Gpr38Fields::LPUART5_IPG_DOZE,
+      Gpr38Fields::LPUART5_STOP_REQ,
+      Gpr38Fields::LPUART5_IPG_STOP_MODE,
+      Gpr38Fields::LPUART6_IPG_DOZE,
+      Gpr38Fields::LPUART6_STOP_REQ,
+      Gpr38Fields::LPUART6_IPG_STOP_MODE,
+      Gpr38Fields::LPUART7_IPG_DOZE,
+      Gpr38Fields::LPUART7_STOP_REQ,
+      Gpr38Fields::LPUART7_IPG_STOP_MODE,
+      Gpr38Fields::LPUART8_IPG_DOZE,
+      Gpr38Fields::LPUART8_STOP_REQ,
+      Gpr38Fields::LPUART8_IPG_STOP_MODE,
+      Gpr38Fields::LPUART9_IPG_DOZE,
+      Gpr38Fields::LPUART9_STOP_REQ,
+      Gpr38Fields::LPUART9_IPG_STOP_MODE,
+      Gpr38Fields::LPUART10_IPG_DOZE,
+      Gpr38Fields::LPUART10_STOP_REQ,
+      Gpr38Fields::LPUART10_IPG_STOP_MODE,
+      Gpr38Fields::LPUART11_IPG_DOZE,
+      Gpr38Fields::LPUART11_STOP_REQ,
+      Gpr38Fields::LPUART11_IPG_STOP_MODE,
+      Gpr38Fields::LPUART12_IPG_DOZE,
+      Gpr38Fields::LPUART12_STOP_REQ,
+      Gpr38Fields::LPUART12_IPG_STOP_MODE,
+      Gpr38Fields::MIC_IPG_DOZE,
+      Gpr38Fields::MIC_STOP_REQ,
+      Gpr38Fields::MIC_IPG_STOP_MODE,
       ftl::mmio::Reserved<1, 27>,
-      GPR38_fields_::DWP,
-      GPR38_fields_::DWP_LOCK> {
-    using eLPUART5_IPG_DOZE = GPR38_fields_::eLPUART5_IPG_DOZE;
-    using eLPUART5_STOP_REQ = GPR38_fields_::eLPUART5_STOP_REQ;
-    using eLPUART5_IPG_STOP_MODE = GPR38_fields_::eLPUART5_IPG_STOP_MODE;
-    using eLPUART6_IPG_DOZE = GPR38_fields_::eLPUART6_IPG_DOZE;
-    using eLPUART6_STOP_REQ = GPR38_fields_::eLPUART6_STOP_REQ;
-    using eLPUART6_IPG_STOP_MODE = GPR38_fields_::eLPUART6_IPG_STOP_MODE;
-    using eLPUART7_IPG_DOZE = GPR38_fields_::eLPUART7_IPG_DOZE;
-    using eLPUART7_STOP_REQ = GPR38_fields_::eLPUART7_STOP_REQ;
-    using eLPUART7_IPG_STOP_MODE = GPR38_fields_::eLPUART7_IPG_STOP_MODE;
-    using eLPUART8_IPG_DOZE = GPR38_fields_::eLPUART8_IPG_DOZE;
-    using eLPUART8_STOP_REQ = GPR38_fields_::eLPUART8_STOP_REQ;
-    using eLPUART8_IPG_STOP_MODE = GPR38_fields_::eLPUART8_IPG_STOP_MODE;
-    using eLPUART9_IPG_DOZE = GPR38_fields_::eLPUART9_IPG_DOZE;
-    using eLPUART9_STOP_REQ = GPR38_fields_::eLPUART9_STOP_REQ;
-    using eLPUART9_IPG_STOP_MODE = GPR38_fields_::eLPUART9_IPG_STOP_MODE;
-    using eLPUART10_IPG_DOZE = GPR38_fields_::eLPUART10_IPG_DOZE;
-    using eLPUART10_STOP_REQ = GPR38_fields_::eLPUART10_STOP_REQ;
-    using eLPUART10_IPG_STOP_MODE = GPR38_fields_::eLPUART10_IPG_STOP_MODE;
-    using eLPUART11_IPG_DOZE = GPR38_fields_::eLPUART11_IPG_DOZE;
-    using eLPUART11_STOP_REQ = GPR38_fields_::eLPUART11_STOP_REQ;
-    using eLPUART11_IPG_STOP_MODE = GPR38_fields_::eLPUART11_IPG_STOP_MODE;
-    using eLPUART12_IPG_DOZE = GPR38_fields_::eLPUART12_IPG_DOZE;
-    using eLPUART12_STOP_REQ = GPR38_fields_::eLPUART12_STOP_REQ;
-    using eLPUART12_IPG_STOP_MODE = GPR38_fields_::eLPUART12_IPG_STOP_MODE;
-    using eMIC_IPG_DOZE = GPR38_fields_::eMIC_IPG_DOZE;
-    using eMIC_STOP_REQ = GPR38_fields_::eMIC_STOP_REQ;
-    using eMIC_IPG_STOP_MODE = GPR38_fields_::eMIC_IPG_STOP_MODE;
-    using eDWP = GPR38_fields_::eDWP;
-    using eDWP_LOCK = GPR38_fields_::eDWP_LOCK;
-    using LPUART5_IPG_DOZE = GPR38_fields_::LPUART5_IPG_DOZE;
-    using LPUART5_STOP_REQ = GPR38_fields_::LPUART5_STOP_REQ;
-    using LPUART5_IPG_STOP_MODE = GPR38_fields_::LPUART5_IPG_STOP_MODE;
-    using LPUART6_IPG_DOZE = GPR38_fields_::LPUART6_IPG_DOZE;
-    using LPUART6_STOP_REQ = GPR38_fields_::LPUART6_STOP_REQ;
-    using LPUART6_IPG_STOP_MODE = GPR38_fields_::LPUART6_IPG_STOP_MODE;
-    using LPUART7_IPG_DOZE = GPR38_fields_::LPUART7_IPG_DOZE;
-    using LPUART7_STOP_REQ = GPR38_fields_::LPUART7_STOP_REQ;
-    using LPUART7_IPG_STOP_MODE = GPR38_fields_::LPUART7_IPG_STOP_MODE;
-    using LPUART8_IPG_DOZE = GPR38_fields_::LPUART8_IPG_DOZE;
-    using LPUART8_STOP_REQ = GPR38_fields_::LPUART8_STOP_REQ;
-    using LPUART8_IPG_STOP_MODE = GPR38_fields_::LPUART8_IPG_STOP_MODE;
-    using LPUART9_IPG_DOZE = GPR38_fields_::LPUART9_IPG_DOZE;
-    using LPUART9_STOP_REQ = GPR38_fields_::LPUART9_STOP_REQ;
-    using LPUART9_IPG_STOP_MODE = GPR38_fields_::LPUART9_IPG_STOP_MODE;
-    using LPUART10_IPG_DOZE = GPR38_fields_::LPUART10_IPG_DOZE;
-    using LPUART10_STOP_REQ = GPR38_fields_::LPUART10_STOP_REQ;
-    using LPUART10_IPG_STOP_MODE = GPR38_fields_::LPUART10_IPG_STOP_MODE;
-    using LPUART11_IPG_DOZE = GPR38_fields_::LPUART11_IPG_DOZE;
-    using LPUART11_STOP_REQ = GPR38_fields_::LPUART11_STOP_REQ;
-    using LPUART11_IPG_STOP_MODE = GPR38_fields_::LPUART11_IPG_STOP_MODE;
-    using LPUART12_IPG_DOZE = GPR38_fields_::LPUART12_IPG_DOZE;
-    using LPUART12_STOP_REQ = GPR38_fields_::LPUART12_STOP_REQ;
-    using LPUART12_IPG_STOP_MODE = GPR38_fields_::LPUART12_IPG_STOP_MODE;
-    using MIC_IPG_DOZE = GPR38_fields_::MIC_IPG_DOZE;
-    using MIC_STOP_REQ = GPR38_fields_::MIC_STOP_REQ;
-    using MIC_IPG_STOP_MODE = GPR38_fields_::MIC_IPG_STOP_MODE;
-    using DWP = GPR38_fields_::DWP;
-    using DWP_LOCK = GPR38_fields_::DWP_LOCK;
+      Gpr38Fields::DWP,
+      Gpr38Fields::DWP_LOCK> {
+    using eLPUART5_IPG_DOZE = Gpr38Fields::eLPUART5_IPG_DOZE;
+    using eLPUART5_STOP_REQ = Gpr38Fields::eLPUART5_STOP_REQ;
+    using eLPUART5_IPG_STOP_MODE = Gpr38Fields::eLPUART5_IPG_STOP_MODE;
+    using eLPUART6_IPG_DOZE = Gpr38Fields::eLPUART6_IPG_DOZE;
+    using eLPUART6_STOP_REQ = Gpr38Fields::eLPUART6_STOP_REQ;
+    using eLPUART6_IPG_STOP_MODE = Gpr38Fields::eLPUART6_IPG_STOP_MODE;
+    using eLPUART7_IPG_DOZE = Gpr38Fields::eLPUART7_IPG_DOZE;
+    using eLPUART7_STOP_REQ = Gpr38Fields::eLPUART7_STOP_REQ;
+    using eLPUART7_IPG_STOP_MODE = Gpr38Fields::eLPUART7_IPG_STOP_MODE;
+    using eLPUART8_IPG_DOZE = Gpr38Fields::eLPUART8_IPG_DOZE;
+    using eLPUART8_STOP_REQ = Gpr38Fields::eLPUART8_STOP_REQ;
+    using eLPUART8_IPG_STOP_MODE = Gpr38Fields::eLPUART8_IPG_STOP_MODE;
+    using eLPUART9_IPG_DOZE = Gpr38Fields::eLPUART9_IPG_DOZE;
+    using eLPUART9_STOP_REQ = Gpr38Fields::eLPUART9_STOP_REQ;
+    using eLPUART9_IPG_STOP_MODE = Gpr38Fields::eLPUART9_IPG_STOP_MODE;
+    using eLPUART10_IPG_DOZE = Gpr38Fields::eLPUART10_IPG_DOZE;
+    using eLPUART10_STOP_REQ = Gpr38Fields::eLPUART10_STOP_REQ;
+    using eLPUART10_IPG_STOP_MODE = Gpr38Fields::eLPUART10_IPG_STOP_MODE;
+    using eLPUART11_IPG_DOZE = Gpr38Fields::eLPUART11_IPG_DOZE;
+    using eLPUART11_STOP_REQ = Gpr38Fields::eLPUART11_STOP_REQ;
+    using eLPUART11_IPG_STOP_MODE = Gpr38Fields::eLPUART11_IPG_STOP_MODE;
+    using eLPUART12_IPG_DOZE = Gpr38Fields::eLPUART12_IPG_DOZE;
+    using eLPUART12_STOP_REQ = Gpr38Fields::eLPUART12_STOP_REQ;
+    using eLPUART12_IPG_STOP_MODE = Gpr38Fields::eLPUART12_IPG_STOP_MODE;
+    using eMIC_IPG_DOZE = Gpr38Fields::eMIC_IPG_DOZE;
+    using eMIC_STOP_REQ = Gpr38Fields::eMIC_STOP_REQ;
+    using eMIC_IPG_STOP_MODE = Gpr38Fields::eMIC_IPG_STOP_MODE;
+    using eDWP = Gpr38Fields::eDWP;
+    using eDWP_LOCK = Gpr38Fields::eDWP_LOCK;
+    using LPUART5_IPG_DOZE = Gpr38Fields::LPUART5_IPG_DOZE;
+    using LPUART5_STOP_REQ = Gpr38Fields::LPUART5_STOP_REQ;
+    using LPUART5_IPG_STOP_MODE = Gpr38Fields::LPUART5_IPG_STOP_MODE;
+    using LPUART6_IPG_DOZE = Gpr38Fields::LPUART6_IPG_DOZE;
+    using LPUART6_STOP_REQ = Gpr38Fields::LPUART6_STOP_REQ;
+    using LPUART6_IPG_STOP_MODE = Gpr38Fields::LPUART6_IPG_STOP_MODE;
+    using LPUART7_IPG_DOZE = Gpr38Fields::LPUART7_IPG_DOZE;
+    using LPUART7_STOP_REQ = Gpr38Fields::LPUART7_STOP_REQ;
+    using LPUART7_IPG_STOP_MODE = Gpr38Fields::LPUART7_IPG_STOP_MODE;
+    using LPUART8_IPG_DOZE = Gpr38Fields::LPUART8_IPG_DOZE;
+    using LPUART8_STOP_REQ = Gpr38Fields::LPUART8_STOP_REQ;
+    using LPUART8_IPG_STOP_MODE = Gpr38Fields::LPUART8_IPG_STOP_MODE;
+    using LPUART9_IPG_DOZE = Gpr38Fields::LPUART9_IPG_DOZE;
+    using LPUART9_STOP_REQ = Gpr38Fields::LPUART9_STOP_REQ;
+    using LPUART9_IPG_STOP_MODE = Gpr38Fields::LPUART9_IPG_STOP_MODE;
+    using LPUART10_IPG_DOZE = Gpr38Fields::LPUART10_IPG_DOZE;
+    using LPUART10_STOP_REQ = Gpr38Fields::LPUART10_STOP_REQ;
+    using LPUART10_IPG_STOP_MODE = Gpr38Fields::LPUART10_IPG_STOP_MODE;
+    using LPUART11_IPG_DOZE = Gpr38Fields::LPUART11_IPG_DOZE;
+    using LPUART11_STOP_REQ = Gpr38Fields::LPUART11_STOP_REQ;
+    using LPUART11_IPG_STOP_MODE = Gpr38Fields::LPUART11_IPG_STOP_MODE;
+    using LPUART12_IPG_DOZE = Gpr38Fields::LPUART12_IPG_DOZE;
+    using LPUART12_STOP_REQ = Gpr38Fields::LPUART12_STOP_REQ;
+    using LPUART12_IPG_STOP_MODE = Gpr38Fields::LPUART12_IPG_STOP_MODE;
+    using MIC_IPG_DOZE = Gpr38Fields::MIC_IPG_DOZE;
+    using MIC_STOP_REQ = Gpr38Fields::MIC_STOP_REQ;
+    using MIC_IPG_STOP_MODE = Gpr38Fields::MIC_IPG_STOP_MODE;
+    using DWP = Gpr38Fields::DWP;
+    using DWP_LOCK = Gpr38Fields::DWP_LOCK;
   };
 
   // GPR39 General Purpose Register
-  struct GPR39_fields_ {
+  struct Gpr39Fields {
     enum class ePIT1_STOP_REQ : std::uint32_t {
       // Stop request off
       eDISABLE = 0,
@@ -2650,7 +2650,7 @@ struct IomuxcLpsrGpr {
     using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain write protection lock
     using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPR39_fields_
+  };  // struct Gpr39Fields
 
   struct GPR39 : ftl::mmio::Register<
       0x40C0C09Cu,
@@ -2658,68 +2658,68 @@ struct IomuxcLpsrGpr {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      GPR39_fields_::PIT1_STOP_REQ,
-      GPR39_fields_::PIT2_STOP_REQ,
-      GPR39_fields_::SEMC_STOP_REQ,
-      GPR39_fields_::SIM1_IPG_DOZE,
-      GPR39_fields_::SIM2_IPG_DOZE,
-      GPR39_fields_::SNVS_HP_IPG_DOZE,
-      GPR39_fields_::SNVS_HP_STOP_REQ,
-      GPR39_fields_::WDOG1_IPG_DOZE,
-      GPR39_fields_::WDOG2_IPG_DOZE,
-      GPR39_fields_::SAI1_STOP_REQ,
-      GPR39_fields_::SAI2_STOP_REQ,
-      GPR39_fields_::SAI3_STOP_REQ,
-      GPR39_fields_::SAI4_STOP_REQ,
-      GPR39_fields_::FLEXIO1_STOP_REQ_BUS,
-      GPR39_fields_::FLEXIO1_STOP_REQ_PER,
-      GPR39_fields_::FLEXIO2_STOP_REQ_BUS,
-      GPR39_fields_::FLEXIO2_STOP_REQ_PER,
+      Gpr39Fields::PIT1_STOP_REQ,
+      Gpr39Fields::PIT2_STOP_REQ,
+      Gpr39Fields::SEMC_STOP_REQ,
+      Gpr39Fields::SIM1_IPG_DOZE,
+      Gpr39Fields::SIM2_IPG_DOZE,
+      Gpr39Fields::SNVS_HP_IPG_DOZE,
+      Gpr39Fields::SNVS_HP_STOP_REQ,
+      Gpr39Fields::WDOG1_IPG_DOZE,
+      Gpr39Fields::WDOG2_IPG_DOZE,
+      Gpr39Fields::SAI1_STOP_REQ,
+      Gpr39Fields::SAI2_STOP_REQ,
+      Gpr39Fields::SAI3_STOP_REQ,
+      Gpr39Fields::SAI4_STOP_REQ,
+      Gpr39Fields::FLEXIO1_STOP_REQ_BUS,
+      Gpr39Fields::FLEXIO1_STOP_REQ_PER,
+      Gpr39Fields::FLEXIO2_STOP_REQ_BUS,
+      Gpr39Fields::FLEXIO2_STOP_REQ_PER,
       ftl::mmio::Reserved<10, 18>,
-      GPR39_fields_::DWP,
-      GPR39_fields_::DWP_LOCK> {
-    using ePIT1_STOP_REQ = GPR39_fields_::ePIT1_STOP_REQ;
-    using ePIT2_STOP_REQ = GPR39_fields_::ePIT2_STOP_REQ;
-    using eSEMC_STOP_REQ = GPR39_fields_::eSEMC_STOP_REQ;
-    using eSIM1_IPG_DOZE = GPR39_fields_::eSIM1_IPG_DOZE;
-    using eSIM2_IPG_DOZE = GPR39_fields_::eSIM2_IPG_DOZE;
-    using eSNVS_HP_IPG_DOZE = GPR39_fields_::eSNVS_HP_IPG_DOZE;
-    using eSNVS_HP_STOP_REQ = GPR39_fields_::eSNVS_HP_STOP_REQ;
-    using eWDOG1_IPG_DOZE = GPR39_fields_::eWDOG1_IPG_DOZE;
-    using eWDOG2_IPG_DOZE = GPR39_fields_::eWDOG2_IPG_DOZE;
-    using eSAI1_STOP_REQ = GPR39_fields_::eSAI1_STOP_REQ;
-    using eSAI2_STOP_REQ = GPR39_fields_::eSAI2_STOP_REQ;
-    using eSAI3_STOP_REQ = GPR39_fields_::eSAI3_STOP_REQ;
-    using eSAI4_STOP_REQ = GPR39_fields_::eSAI4_STOP_REQ;
-    using eFLEXIO1_STOP_REQ_BUS = GPR39_fields_::eFLEXIO1_STOP_REQ_BUS;
-    using eFLEXIO1_STOP_REQ_PER = GPR39_fields_::eFLEXIO1_STOP_REQ_PER;
-    using eFLEXIO2_STOP_REQ_BUS = GPR39_fields_::eFLEXIO2_STOP_REQ_BUS;
-    using eFLEXIO2_STOP_REQ_PER = GPR39_fields_::eFLEXIO2_STOP_REQ_PER;
-    using eDWP = GPR39_fields_::eDWP;
-    using eDWP_LOCK = GPR39_fields_::eDWP_LOCK;
-    using PIT1_STOP_REQ = GPR39_fields_::PIT1_STOP_REQ;
-    using PIT2_STOP_REQ = GPR39_fields_::PIT2_STOP_REQ;
-    using SEMC_STOP_REQ = GPR39_fields_::SEMC_STOP_REQ;
-    using SIM1_IPG_DOZE = GPR39_fields_::SIM1_IPG_DOZE;
-    using SIM2_IPG_DOZE = GPR39_fields_::SIM2_IPG_DOZE;
-    using SNVS_HP_IPG_DOZE = GPR39_fields_::SNVS_HP_IPG_DOZE;
-    using SNVS_HP_STOP_REQ = GPR39_fields_::SNVS_HP_STOP_REQ;
-    using WDOG1_IPG_DOZE = GPR39_fields_::WDOG1_IPG_DOZE;
-    using WDOG2_IPG_DOZE = GPR39_fields_::WDOG2_IPG_DOZE;
-    using SAI1_STOP_REQ = GPR39_fields_::SAI1_STOP_REQ;
-    using SAI2_STOP_REQ = GPR39_fields_::SAI2_STOP_REQ;
-    using SAI3_STOP_REQ = GPR39_fields_::SAI3_STOP_REQ;
-    using SAI4_STOP_REQ = GPR39_fields_::SAI4_STOP_REQ;
-    using FLEXIO1_STOP_REQ_BUS = GPR39_fields_::FLEXIO1_STOP_REQ_BUS;
-    using FLEXIO1_STOP_REQ_PER = GPR39_fields_::FLEXIO1_STOP_REQ_PER;
-    using FLEXIO2_STOP_REQ_BUS = GPR39_fields_::FLEXIO2_STOP_REQ_BUS;
-    using FLEXIO2_STOP_REQ_PER = GPR39_fields_::FLEXIO2_STOP_REQ_PER;
-    using DWP = GPR39_fields_::DWP;
-    using DWP_LOCK = GPR39_fields_::DWP_LOCK;
+      Gpr39Fields::DWP,
+      Gpr39Fields::DWP_LOCK> {
+    using ePIT1_STOP_REQ = Gpr39Fields::ePIT1_STOP_REQ;
+    using ePIT2_STOP_REQ = Gpr39Fields::ePIT2_STOP_REQ;
+    using eSEMC_STOP_REQ = Gpr39Fields::eSEMC_STOP_REQ;
+    using eSIM1_IPG_DOZE = Gpr39Fields::eSIM1_IPG_DOZE;
+    using eSIM2_IPG_DOZE = Gpr39Fields::eSIM2_IPG_DOZE;
+    using eSNVS_HP_IPG_DOZE = Gpr39Fields::eSNVS_HP_IPG_DOZE;
+    using eSNVS_HP_STOP_REQ = Gpr39Fields::eSNVS_HP_STOP_REQ;
+    using eWDOG1_IPG_DOZE = Gpr39Fields::eWDOG1_IPG_DOZE;
+    using eWDOG2_IPG_DOZE = Gpr39Fields::eWDOG2_IPG_DOZE;
+    using eSAI1_STOP_REQ = Gpr39Fields::eSAI1_STOP_REQ;
+    using eSAI2_STOP_REQ = Gpr39Fields::eSAI2_STOP_REQ;
+    using eSAI3_STOP_REQ = Gpr39Fields::eSAI3_STOP_REQ;
+    using eSAI4_STOP_REQ = Gpr39Fields::eSAI4_STOP_REQ;
+    using eFLEXIO1_STOP_REQ_BUS = Gpr39Fields::eFLEXIO1_STOP_REQ_BUS;
+    using eFLEXIO1_STOP_REQ_PER = Gpr39Fields::eFLEXIO1_STOP_REQ_PER;
+    using eFLEXIO2_STOP_REQ_BUS = Gpr39Fields::eFLEXIO2_STOP_REQ_BUS;
+    using eFLEXIO2_STOP_REQ_PER = Gpr39Fields::eFLEXIO2_STOP_REQ_PER;
+    using eDWP = Gpr39Fields::eDWP;
+    using eDWP_LOCK = Gpr39Fields::eDWP_LOCK;
+    using PIT1_STOP_REQ = Gpr39Fields::PIT1_STOP_REQ;
+    using PIT2_STOP_REQ = Gpr39Fields::PIT2_STOP_REQ;
+    using SEMC_STOP_REQ = Gpr39Fields::SEMC_STOP_REQ;
+    using SIM1_IPG_DOZE = Gpr39Fields::SIM1_IPG_DOZE;
+    using SIM2_IPG_DOZE = Gpr39Fields::SIM2_IPG_DOZE;
+    using SNVS_HP_IPG_DOZE = Gpr39Fields::SNVS_HP_IPG_DOZE;
+    using SNVS_HP_STOP_REQ = Gpr39Fields::SNVS_HP_STOP_REQ;
+    using WDOG1_IPG_DOZE = Gpr39Fields::WDOG1_IPG_DOZE;
+    using WDOG2_IPG_DOZE = Gpr39Fields::WDOG2_IPG_DOZE;
+    using SAI1_STOP_REQ = Gpr39Fields::SAI1_STOP_REQ;
+    using SAI2_STOP_REQ = Gpr39Fields::SAI2_STOP_REQ;
+    using SAI3_STOP_REQ = Gpr39Fields::SAI3_STOP_REQ;
+    using SAI4_STOP_REQ = Gpr39Fields::SAI4_STOP_REQ;
+    using FLEXIO1_STOP_REQ_BUS = Gpr39Fields::FLEXIO1_STOP_REQ_BUS;
+    using FLEXIO1_STOP_REQ_PER = Gpr39Fields::FLEXIO1_STOP_REQ_PER;
+    using FLEXIO2_STOP_REQ_BUS = Gpr39Fields::FLEXIO2_STOP_REQ_BUS;
+    using FLEXIO2_STOP_REQ_PER = Gpr39Fields::FLEXIO2_STOP_REQ_PER;
+    using DWP = Gpr39Fields::DWP;
+    using DWP_LOCK = Gpr39Fields::DWP_LOCK;
   };
 
   // GPR40 General Purpose Register
-  struct GPR40_fields_ {
+  struct Gpr40Fields {
     // ADC1 stop acknowledge
     using ADC1_STOP_ACK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // ADC2 stop acknowledge
@@ -2784,81 +2784,81 @@ struct IomuxcLpsrGpr {
     using LPUART7_STOP_ACK = ftl::mmio::Field<1, 30, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // LPUART8 stop acknowledge
     using LPUART8_STOP_ACK = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct GPR40_fields_
+  };  // struct Gpr40Fields
 
   struct GPR40 : ftl::mmio::Register<
       0x40C0C0A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      GPR40_fields_::ADC1_STOP_ACK,
-      GPR40_fields_::ADC2_STOP_ACK,
-      GPR40_fields_::CAAM_STOP_ACK,
-      GPR40_fields_::CAN1_STOP_ACK,
-      GPR40_fields_::CAN2_STOP_ACK,
-      GPR40_fields_::CAN3_STOP_ACK,
-      GPR40_fields_::EDMA_STOP_ACK,
-      GPR40_fields_::EDMA_LPSR_STOP_ACK,
-      GPR40_fields_::ENET_STOP_ACK,
-      GPR40_fields_::ENET1G_STOP_ACK,
-      GPR40_fields_::FLEXSPI1_STOP_ACK,
-      GPR40_fields_::FLEXSPI2_STOP_ACK,
-      GPR40_fields_::LPI2C1_STOP_ACK,
-      GPR40_fields_::LPI2C2_STOP_ACK,
-      GPR40_fields_::LPI2C3_STOP_ACK,
-      GPR40_fields_::LPI2C4_STOP_ACK,
-      GPR40_fields_::LPI2C5_STOP_ACK,
-      GPR40_fields_::LPI2C6_STOP_ACK,
-      GPR40_fields_::LPSPI1_STOP_ACK,
-      GPR40_fields_::LPSPI2_STOP_ACK,
-      GPR40_fields_::LPSPI3_STOP_ACK,
-      GPR40_fields_::LPSPI4_STOP_ACK,
-      GPR40_fields_::LPSPI5_STOP_ACK,
-      GPR40_fields_::LPSPI6_STOP_ACK,
-      GPR40_fields_::LPUART1_STOP_ACK,
-      GPR40_fields_::LPUART2_STOP_ACK,
-      GPR40_fields_::LPUART3_STOP_ACK,
-      GPR40_fields_::LPUART4_STOP_ACK,
-      GPR40_fields_::LPUART5_STOP_ACK,
-      GPR40_fields_::LPUART6_STOP_ACK,
-      GPR40_fields_::LPUART7_STOP_ACK,
-      GPR40_fields_::LPUART8_STOP_ACK> {
-    using ADC1_STOP_ACK = GPR40_fields_::ADC1_STOP_ACK;
-    using ADC2_STOP_ACK = GPR40_fields_::ADC2_STOP_ACK;
-    using CAAM_STOP_ACK = GPR40_fields_::CAAM_STOP_ACK;
-    using CAN1_STOP_ACK = GPR40_fields_::CAN1_STOP_ACK;
-    using CAN2_STOP_ACK = GPR40_fields_::CAN2_STOP_ACK;
-    using CAN3_STOP_ACK = GPR40_fields_::CAN3_STOP_ACK;
-    using EDMA_STOP_ACK = GPR40_fields_::EDMA_STOP_ACK;
-    using EDMA_LPSR_STOP_ACK = GPR40_fields_::EDMA_LPSR_STOP_ACK;
-    using ENET_STOP_ACK = GPR40_fields_::ENET_STOP_ACK;
-    using ENET1G_STOP_ACK = GPR40_fields_::ENET1G_STOP_ACK;
-    using FLEXSPI1_STOP_ACK = GPR40_fields_::FLEXSPI1_STOP_ACK;
-    using FLEXSPI2_STOP_ACK = GPR40_fields_::FLEXSPI2_STOP_ACK;
-    using LPI2C1_STOP_ACK = GPR40_fields_::LPI2C1_STOP_ACK;
-    using LPI2C2_STOP_ACK = GPR40_fields_::LPI2C2_STOP_ACK;
-    using LPI2C3_STOP_ACK = GPR40_fields_::LPI2C3_STOP_ACK;
-    using LPI2C4_STOP_ACK = GPR40_fields_::LPI2C4_STOP_ACK;
-    using LPI2C5_STOP_ACK = GPR40_fields_::LPI2C5_STOP_ACK;
-    using LPI2C6_STOP_ACK = GPR40_fields_::LPI2C6_STOP_ACK;
-    using LPSPI1_STOP_ACK = GPR40_fields_::LPSPI1_STOP_ACK;
-    using LPSPI2_STOP_ACK = GPR40_fields_::LPSPI2_STOP_ACK;
-    using LPSPI3_STOP_ACK = GPR40_fields_::LPSPI3_STOP_ACK;
-    using LPSPI4_STOP_ACK = GPR40_fields_::LPSPI4_STOP_ACK;
-    using LPSPI5_STOP_ACK = GPR40_fields_::LPSPI5_STOP_ACK;
-    using LPSPI6_STOP_ACK = GPR40_fields_::LPSPI6_STOP_ACK;
-    using LPUART1_STOP_ACK = GPR40_fields_::LPUART1_STOP_ACK;
-    using LPUART2_STOP_ACK = GPR40_fields_::LPUART2_STOP_ACK;
-    using LPUART3_STOP_ACK = GPR40_fields_::LPUART3_STOP_ACK;
-    using LPUART4_STOP_ACK = GPR40_fields_::LPUART4_STOP_ACK;
-    using LPUART5_STOP_ACK = GPR40_fields_::LPUART5_STOP_ACK;
-    using LPUART6_STOP_ACK = GPR40_fields_::LPUART6_STOP_ACK;
-    using LPUART7_STOP_ACK = GPR40_fields_::LPUART7_STOP_ACK;
-    using LPUART8_STOP_ACK = GPR40_fields_::LPUART8_STOP_ACK;
+      Gpr40Fields::ADC1_STOP_ACK,
+      Gpr40Fields::ADC2_STOP_ACK,
+      Gpr40Fields::CAAM_STOP_ACK,
+      Gpr40Fields::CAN1_STOP_ACK,
+      Gpr40Fields::CAN2_STOP_ACK,
+      Gpr40Fields::CAN3_STOP_ACK,
+      Gpr40Fields::EDMA_STOP_ACK,
+      Gpr40Fields::EDMA_LPSR_STOP_ACK,
+      Gpr40Fields::ENET_STOP_ACK,
+      Gpr40Fields::ENET1G_STOP_ACK,
+      Gpr40Fields::FLEXSPI1_STOP_ACK,
+      Gpr40Fields::FLEXSPI2_STOP_ACK,
+      Gpr40Fields::LPI2C1_STOP_ACK,
+      Gpr40Fields::LPI2C2_STOP_ACK,
+      Gpr40Fields::LPI2C3_STOP_ACK,
+      Gpr40Fields::LPI2C4_STOP_ACK,
+      Gpr40Fields::LPI2C5_STOP_ACK,
+      Gpr40Fields::LPI2C6_STOP_ACK,
+      Gpr40Fields::LPSPI1_STOP_ACK,
+      Gpr40Fields::LPSPI2_STOP_ACK,
+      Gpr40Fields::LPSPI3_STOP_ACK,
+      Gpr40Fields::LPSPI4_STOP_ACK,
+      Gpr40Fields::LPSPI5_STOP_ACK,
+      Gpr40Fields::LPSPI6_STOP_ACK,
+      Gpr40Fields::LPUART1_STOP_ACK,
+      Gpr40Fields::LPUART2_STOP_ACK,
+      Gpr40Fields::LPUART3_STOP_ACK,
+      Gpr40Fields::LPUART4_STOP_ACK,
+      Gpr40Fields::LPUART5_STOP_ACK,
+      Gpr40Fields::LPUART6_STOP_ACK,
+      Gpr40Fields::LPUART7_STOP_ACK,
+      Gpr40Fields::LPUART8_STOP_ACK> {
+    using ADC1_STOP_ACK = Gpr40Fields::ADC1_STOP_ACK;
+    using ADC2_STOP_ACK = Gpr40Fields::ADC2_STOP_ACK;
+    using CAAM_STOP_ACK = Gpr40Fields::CAAM_STOP_ACK;
+    using CAN1_STOP_ACK = Gpr40Fields::CAN1_STOP_ACK;
+    using CAN2_STOP_ACK = Gpr40Fields::CAN2_STOP_ACK;
+    using CAN3_STOP_ACK = Gpr40Fields::CAN3_STOP_ACK;
+    using EDMA_STOP_ACK = Gpr40Fields::EDMA_STOP_ACK;
+    using EDMA_LPSR_STOP_ACK = Gpr40Fields::EDMA_LPSR_STOP_ACK;
+    using ENET_STOP_ACK = Gpr40Fields::ENET_STOP_ACK;
+    using ENET1G_STOP_ACK = Gpr40Fields::ENET1G_STOP_ACK;
+    using FLEXSPI1_STOP_ACK = Gpr40Fields::FLEXSPI1_STOP_ACK;
+    using FLEXSPI2_STOP_ACK = Gpr40Fields::FLEXSPI2_STOP_ACK;
+    using LPI2C1_STOP_ACK = Gpr40Fields::LPI2C1_STOP_ACK;
+    using LPI2C2_STOP_ACK = Gpr40Fields::LPI2C2_STOP_ACK;
+    using LPI2C3_STOP_ACK = Gpr40Fields::LPI2C3_STOP_ACK;
+    using LPI2C4_STOP_ACK = Gpr40Fields::LPI2C4_STOP_ACK;
+    using LPI2C5_STOP_ACK = Gpr40Fields::LPI2C5_STOP_ACK;
+    using LPI2C6_STOP_ACK = Gpr40Fields::LPI2C6_STOP_ACK;
+    using LPSPI1_STOP_ACK = Gpr40Fields::LPSPI1_STOP_ACK;
+    using LPSPI2_STOP_ACK = Gpr40Fields::LPSPI2_STOP_ACK;
+    using LPSPI3_STOP_ACK = Gpr40Fields::LPSPI3_STOP_ACK;
+    using LPSPI4_STOP_ACK = Gpr40Fields::LPSPI4_STOP_ACK;
+    using LPSPI5_STOP_ACK = Gpr40Fields::LPSPI5_STOP_ACK;
+    using LPSPI6_STOP_ACK = Gpr40Fields::LPSPI6_STOP_ACK;
+    using LPUART1_STOP_ACK = Gpr40Fields::LPUART1_STOP_ACK;
+    using LPUART2_STOP_ACK = Gpr40Fields::LPUART2_STOP_ACK;
+    using LPUART3_STOP_ACK = Gpr40Fields::LPUART3_STOP_ACK;
+    using LPUART4_STOP_ACK = Gpr40Fields::LPUART4_STOP_ACK;
+    using LPUART5_STOP_ACK = Gpr40Fields::LPUART5_STOP_ACK;
+    using LPUART6_STOP_ACK = Gpr40Fields::LPUART6_STOP_ACK;
+    using LPUART7_STOP_ACK = Gpr40Fields::LPUART7_STOP_ACK;
+    using LPUART8_STOP_ACK = Gpr40Fields::LPUART8_STOP_ACK;
   };
 
   // GPR41 General Purpose Register
-  struct GPR41_fields_ {
+  struct Gpr41Fields {
     // LPUART9 stop acknowledge
     using LPUART9_STOP_ACK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // LPUART10 stop acknowledge
@@ -2895,51 +2895,51 @@ struct IomuxcLpsrGpr {
     using FLEXIO2_STOP_ACK_PER = ftl::mmio::Field<1, 16, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // ROM read lock status bit
     using ROM_READ_LOCKED = ftl::mmio::Field<1, 24, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct GPR41_fields_
+  };  // struct Gpr41Fields
 
   struct GPR41 : ftl::mmio::Register<
       0x40C0C0A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      GPR41_fields_::LPUART9_STOP_ACK,
-      GPR41_fields_::LPUART10_STOP_ACK,
-      GPR41_fields_::LPUART11_STOP_ACK,
-      GPR41_fields_::LPUART12_STOP_ACK,
-      GPR41_fields_::MIC_STOP_ACK,
-      GPR41_fields_::PIT1_STOP_ACK,
-      GPR41_fields_::PIT2_STOP_ACK,
-      GPR41_fields_::SEMC_STOP_ACK,
-      GPR41_fields_::SNVS_HP_STOP_ACK,
-      GPR41_fields_::SAI1_STOP_ACK,
-      GPR41_fields_::SAI2_STOP_ACK,
-      GPR41_fields_::SAI3_STOP_ACK,
-      GPR41_fields_::SAI4_STOP_ACK,
-      GPR41_fields_::FLEXIO1_STOP_ACK_BUS,
-      GPR41_fields_::FLEXIO1_STOP_ACK_PER,
-      GPR41_fields_::FLEXIO2_STOP_ACK_BUS,
-      GPR41_fields_::FLEXIO2_STOP_ACK_PER,
+      Gpr41Fields::LPUART9_STOP_ACK,
+      Gpr41Fields::LPUART10_STOP_ACK,
+      Gpr41Fields::LPUART11_STOP_ACK,
+      Gpr41Fields::LPUART12_STOP_ACK,
+      Gpr41Fields::MIC_STOP_ACK,
+      Gpr41Fields::PIT1_STOP_ACK,
+      Gpr41Fields::PIT2_STOP_ACK,
+      Gpr41Fields::SEMC_STOP_ACK,
+      Gpr41Fields::SNVS_HP_STOP_ACK,
+      Gpr41Fields::SAI1_STOP_ACK,
+      Gpr41Fields::SAI2_STOP_ACK,
+      Gpr41Fields::SAI3_STOP_ACK,
+      Gpr41Fields::SAI4_STOP_ACK,
+      Gpr41Fields::FLEXIO1_STOP_ACK_BUS,
+      Gpr41Fields::FLEXIO1_STOP_ACK_PER,
+      Gpr41Fields::FLEXIO2_STOP_ACK_BUS,
+      Gpr41Fields::FLEXIO2_STOP_ACK_PER,
       ftl::mmio::Reserved<7, 17>,
-      GPR41_fields_::ROM_READ_LOCKED,
+      Gpr41Fields::ROM_READ_LOCKED,
       ftl::mmio::Reserved<7, 25>> {
-    using LPUART9_STOP_ACK = GPR41_fields_::LPUART9_STOP_ACK;
-    using LPUART10_STOP_ACK = GPR41_fields_::LPUART10_STOP_ACK;
-    using LPUART11_STOP_ACK = GPR41_fields_::LPUART11_STOP_ACK;
-    using LPUART12_STOP_ACK = GPR41_fields_::LPUART12_STOP_ACK;
-    using MIC_STOP_ACK = GPR41_fields_::MIC_STOP_ACK;
-    using PIT1_STOP_ACK = GPR41_fields_::PIT1_STOP_ACK;
-    using PIT2_STOP_ACK = GPR41_fields_::PIT2_STOP_ACK;
-    using SEMC_STOP_ACK = GPR41_fields_::SEMC_STOP_ACK;
-    using SNVS_HP_STOP_ACK = GPR41_fields_::SNVS_HP_STOP_ACK;
-    using SAI1_STOP_ACK = GPR41_fields_::SAI1_STOP_ACK;
-    using SAI2_STOP_ACK = GPR41_fields_::SAI2_STOP_ACK;
-    using SAI3_STOP_ACK = GPR41_fields_::SAI3_STOP_ACK;
-    using SAI4_STOP_ACK = GPR41_fields_::SAI4_STOP_ACK;
-    using FLEXIO1_STOP_ACK_BUS = GPR41_fields_::FLEXIO1_STOP_ACK_BUS;
-    using FLEXIO1_STOP_ACK_PER = GPR41_fields_::FLEXIO1_STOP_ACK_PER;
-    using FLEXIO2_STOP_ACK_BUS = GPR41_fields_::FLEXIO2_STOP_ACK_BUS;
-    using FLEXIO2_STOP_ACK_PER = GPR41_fields_::FLEXIO2_STOP_ACK_PER;
-    using ROM_READ_LOCKED = GPR41_fields_::ROM_READ_LOCKED;
+    using LPUART9_STOP_ACK = Gpr41Fields::LPUART9_STOP_ACK;
+    using LPUART10_STOP_ACK = Gpr41Fields::LPUART10_STOP_ACK;
+    using LPUART11_STOP_ACK = Gpr41Fields::LPUART11_STOP_ACK;
+    using LPUART12_STOP_ACK = Gpr41Fields::LPUART12_STOP_ACK;
+    using MIC_STOP_ACK = Gpr41Fields::MIC_STOP_ACK;
+    using PIT1_STOP_ACK = Gpr41Fields::PIT1_STOP_ACK;
+    using PIT2_STOP_ACK = Gpr41Fields::PIT2_STOP_ACK;
+    using SEMC_STOP_ACK = Gpr41Fields::SEMC_STOP_ACK;
+    using SNVS_HP_STOP_ACK = Gpr41Fields::SNVS_HP_STOP_ACK;
+    using SAI1_STOP_ACK = Gpr41Fields::SAI1_STOP_ACK;
+    using SAI2_STOP_ACK = Gpr41Fields::SAI2_STOP_ACK;
+    using SAI3_STOP_ACK = Gpr41Fields::SAI3_STOP_ACK;
+    using SAI4_STOP_ACK = Gpr41Fields::SAI4_STOP_ACK;
+    using FLEXIO1_STOP_ACK_BUS = Gpr41Fields::FLEXIO1_STOP_ACK_BUS;
+    using FLEXIO1_STOP_ACK_PER = Gpr41Fields::FLEXIO1_STOP_ACK_PER;
+    using FLEXIO2_STOP_ACK_BUS = Gpr41Fields::FLEXIO2_STOP_ACK_BUS;
+    using FLEXIO2_STOP_ACK_PER = Gpr41Fields::FLEXIO2_STOP_ACK_PER;
+    using ROM_READ_LOCKED = Gpr41Fields::ROM_READ_LOCKED;
   };
 
 };

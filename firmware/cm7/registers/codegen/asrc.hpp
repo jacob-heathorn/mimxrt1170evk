@@ -10,7 +10,7 @@ namespace regs {
 
 struct Asrc {
   // ASRC Control Register
-  struct ASRCTR_fields_ {
+  struct AsrctrFields {
     enum class eASRCEN : std::uint32_t {
       // operation of ASRC disabled
       edisabled = 0,
@@ -137,62 +137,62 @@ struct Asrc {
     using ATSB = ftl::mmio::Field<1, 21, eATSB, ftl::mmio::RW, ftl::mmio::Normal>;
     // ATSC
     using ATSC = ftl::mmio::Field<1, 22, eATSC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRCTR_fields_
+  };  // struct AsrctrFields
 
   struct ASRCTR : ftl::mmio::Register<
       0x40414000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRCTR_fields_::ASRCEN,
-      ASRCTR_fields_::ASREA,
-      ASRCTR_fields_::ASREB,
-      ASRCTR_fields_::ASREC,
-      ASRCTR_fields_::SRST,
+      AsrctrFields::ASRCEN,
+      AsrctrFields::ASREA,
+      AsrctrFields::ASREB,
+      AsrctrFields::ASREC,
+      AsrctrFields::SRST,
       ftl::mmio::Reserved<8, 5>,
-      ASRCTR_fields_::IDRA,
-      ASRCTR_fields_::USRA,
-      ASRCTR_fields_::IDRB,
-      ASRCTR_fields_::USRB,
-      ASRCTR_fields_::IDRC,
-      ASRCTR_fields_::USRC,
+      AsrctrFields::IDRA,
+      AsrctrFields::USRA,
+      AsrctrFields::IDRB,
+      AsrctrFields::USRB,
+      AsrctrFields::IDRC,
+      AsrctrFields::USRC,
       ftl::mmio::Reserved<1, 19>,
-      ASRCTR_fields_::ATSA,
-      ASRCTR_fields_::ATSB,
-      ASRCTR_fields_::ATSC,
+      AsrctrFields::ATSA,
+      AsrctrFields::ATSB,
+      AsrctrFields::ATSC,
       ftl::mmio::Reserved<9, 23>> {
-    using eASRCEN = ASRCTR_fields_::eASRCEN;
-    using eASREA = ASRCTR_fields_::eASREA;
-    using eASREB = ASRCTR_fields_::eASREB;
-    using eASREC = ASRCTR_fields_::eASREC;
-    using eSRST = ASRCTR_fields_::eSRST;
-    using eIDRA = ASRCTR_fields_::eIDRA;
-    using eUSRA = ASRCTR_fields_::eUSRA;
-    using eIDRB = ASRCTR_fields_::eIDRB;
-    using eUSRB = ASRCTR_fields_::eUSRB;
-    using eIDRC = ASRCTR_fields_::eIDRC;
-    using eUSRC = ASRCTR_fields_::eUSRC;
-    using eATSA = ASRCTR_fields_::eATSA;
-    using eATSB = ASRCTR_fields_::eATSB;
-    using eATSC = ASRCTR_fields_::eATSC;
-    using ASRCEN = ASRCTR_fields_::ASRCEN;
-    using ASREA = ASRCTR_fields_::ASREA;
-    using ASREB = ASRCTR_fields_::ASREB;
-    using ASREC = ASRCTR_fields_::ASREC;
-    using SRST = ASRCTR_fields_::SRST;
-    using IDRA = ASRCTR_fields_::IDRA;
-    using USRA = ASRCTR_fields_::USRA;
-    using IDRB = ASRCTR_fields_::IDRB;
-    using USRB = ASRCTR_fields_::USRB;
-    using IDRC = ASRCTR_fields_::IDRC;
-    using USRC = ASRCTR_fields_::USRC;
-    using ATSA = ASRCTR_fields_::ATSA;
-    using ATSB = ASRCTR_fields_::ATSB;
-    using ATSC = ASRCTR_fields_::ATSC;
+    using eASRCEN = AsrctrFields::eASRCEN;
+    using eASREA = AsrctrFields::eASREA;
+    using eASREB = AsrctrFields::eASREB;
+    using eASREC = AsrctrFields::eASREC;
+    using eSRST = AsrctrFields::eSRST;
+    using eIDRA = AsrctrFields::eIDRA;
+    using eUSRA = AsrctrFields::eUSRA;
+    using eIDRB = AsrctrFields::eIDRB;
+    using eUSRB = AsrctrFields::eUSRB;
+    using eIDRC = AsrctrFields::eIDRC;
+    using eUSRC = AsrctrFields::eUSRC;
+    using eATSA = AsrctrFields::eATSA;
+    using eATSB = AsrctrFields::eATSB;
+    using eATSC = AsrctrFields::eATSC;
+    using ASRCEN = AsrctrFields::ASRCEN;
+    using ASREA = AsrctrFields::ASREA;
+    using ASREB = AsrctrFields::ASREB;
+    using ASREC = AsrctrFields::ASREC;
+    using SRST = AsrctrFields::SRST;
+    using IDRA = AsrctrFields::IDRA;
+    using USRA = AsrctrFields::USRA;
+    using IDRB = AsrctrFields::IDRB;
+    using USRB = AsrctrFields::USRB;
+    using IDRC = AsrctrFields::IDRC;
+    using USRC = AsrctrFields::USRC;
+    using ATSA = AsrctrFields::ATSA;
+    using ATSB = AsrctrFields::ATSB;
+    using ATSC = AsrctrFields::ATSC;
   };
 
   // ASRC Interrupt Enable Register
-  struct ASRIER_fields_ {
+  struct AsrierFields {
     enum class eADIEA : std::uint32_t {
       // interrupt disabled
       edisabled = 0,
@@ -265,42 +265,42 @@ struct Asrc {
     using AOLIE = ftl::mmio::Field<1, 6, eAOLIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // AFPWE
     using AFPWE = ftl::mmio::Field<1, 7, eAFPWE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRIER_fields_
+  };  // struct AsrierFields
 
   struct ASRIER : ftl::mmio::Register<
       0x40414004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRIER_fields_::ADIEA,
-      ASRIER_fields_::ADIEB,
-      ASRIER_fields_::ADIEC,
-      ASRIER_fields_::ADOEA,
-      ASRIER_fields_::ADOEB,
-      ASRIER_fields_::ADOEC,
-      ASRIER_fields_::AOLIE,
-      ASRIER_fields_::AFPWE,
+      AsrierFields::ADIEA,
+      AsrierFields::ADIEB,
+      AsrierFields::ADIEC,
+      AsrierFields::ADOEA,
+      AsrierFields::ADOEB,
+      AsrierFields::ADOEC,
+      AsrierFields::AOLIE,
+      AsrierFields::AFPWE,
       ftl::mmio::Reserved<24, 8>> {
-    using eADIEA = ASRIER_fields_::eADIEA;
-    using eADIEB = ASRIER_fields_::eADIEB;
-    using eADIEC = ASRIER_fields_::eADIEC;
-    using eADOEA = ASRIER_fields_::eADOEA;
-    using eADOEB = ASRIER_fields_::eADOEB;
-    using eADOEC = ASRIER_fields_::eADOEC;
-    using eAOLIE = ASRIER_fields_::eAOLIE;
-    using eAFPWE = ASRIER_fields_::eAFPWE;
-    using ADIEA = ASRIER_fields_::ADIEA;
-    using ADIEB = ASRIER_fields_::ADIEB;
-    using ADIEC = ASRIER_fields_::ADIEC;
-    using ADOEA = ASRIER_fields_::ADOEA;
-    using ADOEB = ASRIER_fields_::ADOEB;
-    using ADOEC = ASRIER_fields_::ADOEC;
-    using AOLIE = ASRIER_fields_::AOLIE;
-    using AFPWE = ASRIER_fields_::AFPWE;
+    using eADIEA = AsrierFields::eADIEA;
+    using eADIEB = AsrierFields::eADIEB;
+    using eADIEC = AsrierFields::eADIEC;
+    using eADOEA = AsrierFields::eADOEA;
+    using eADOEB = AsrierFields::eADOEB;
+    using eADOEC = AsrierFields::eADOEC;
+    using eAOLIE = AsrierFields::eAOLIE;
+    using eAFPWE = AsrierFields::eAFPWE;
+    using ADIEA = AsrierFields::ADIEA;
+    using ADIEB = AsrierFields::ADIEB;
+    using ADIEC = AsrierFields::ADIEC;
+    using ADOEA = AsrierFields::ADOEA;
+    using ADOEB = AsrierFields::ADOEB;
+    using ADOEC = AsrierFields::ADOEC;
+    using AOLIE = AsrierFields::AOLIE;
+    using AFPWE = AsrierFields::AFPWE;
   };
 
   // ASRC Channel Number Configuration Register
-  struct ASRCNCR_fields_ {
+  struct AsrcncrFields {
     enum class eANCA : std::uint32_t {
       // 0 channels in A (Pair A is disabled)
       ezero_chan = 0,
@@ -412,27 +412,27 @@ struct Asrc {
     using ANCB = ftl::mmio::Field<4, 4, eANCB, ftl::mmio::RW, ftl::mmio::Normal>;
     // ANCC
     using ANCC = ftl::mmio::Field<4, 8, eANCC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRCNCR_fields_
+  };  // struct AsrcncrFields
 
   struct ASRCNCR : ftl::mmio::Register<
       0x4041400Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRCNCR_fields_::ANCA,
-      ASRCNCR_fields_::ANCB,
-      ASRCNCR_fields_::ANCC,
+      AsrcncrFields::ANCA,
+      AsrcncrFields::ANCB,
+      AsrcncrFields::ANCC,
       ftl::mmio::Reserved<20, 12>> {
-    using eANCA = ASRCNCR_fields_::eANCA;
-    using eANCB = ASRCNCR_fields_::eANCB;
-    using eANCC = ASRCNCR_fields_::eANCC;
-    using ANCA = ASRCNCR_fields_::ANCA;
-    using ANCB = ASRCNCR_fields_::ANCB;
-    using ANCC = ASRCNCR_fields_::ANCC;
+    using eANCA = AsrcncrFields::eANCA;
+    using eANCB = AsrcncrFields::eANCB;
+    using eANCC = AsrcncrFields::eANCC;
+    using ANCA = AsrcncrFields::ANCA;
+    using ANCB = AsrcncrFields::ANCB;
+    using ANCC = AsrcncrFields::ANCC;
   };
 
   // ASRC Filter Configuration Status Register
-  struct ASRCFG_fields_ {
+  struct AsrcfgFields {
     enum class ePREMODA : std::uint32_t {
       // Select Upsampling-by-2
       eupsamp_2 = 0,
@@ -559,7 +559,7 @@ struct Asrc {
     using INIRQB = ftl::mmio::Field<1, 22, eINIRQB, ftl::mmio::RO, ftl::mmio::Normal>;
     // INIRQC
     using INIRQC = ftl::mmio::Field<1, 23, eINIRQC, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRCFG_fields_
+  };  // struct AsrcfgFields
 
   struct ASRCFG : ftl::mmio::Register<
       0x40414010u,
@@ -567,47 +567,47 @@ struct Asrc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<6, 0>,
-      ASRCFG_fields_::PREMODA,
-      ASRCFG_fields_::POSTMODA,
-      ASRCFG_fields_::PREMODB,
-      ASRCFG_fields_::POSTMODB,
-      ASRCFG_fields_::PREMODC,
-      ASRCFG_fields_::POSTMODC,
-      ASRCFG_fields_::NDPRA,
-      ASRCFG_fields_::NDPRB,
-      ASRCFG_fields_::NDPRC,
-      ASRCFG_fields_::INIRQA,
-      ASRCFG_fields_::INIRQB,
-      ASRCFG_fields_::INIRQC,
+      AsrcfgFields::PREMODA,
+      AsrcfgFields::POSTMODA,
+      AsrcfgFields::PREMODB,
+      AsrcfgFields::POSTMODB,
+      AsrcfgFields::PREMODC,
+      AsrcfgFields::POSTMODC,
+      AsrcfgFields::NDPRA,
+      AsrcfgFields::NDPRB,
+      AsrcfgFields::NDPRC,
+      AsrcfgFields::INIRQA,
+      AsrcfgFields::INIRQB,
+      AsrcfgFields::INIRQC,
       ftl::mmio::Reserved<8, 24>> {
-    using ePREMODA = ASRCFG_fields_::ePREMODA;
-    using ePOSTMODA = ASRCFG_fields_::ePOSTMODA;
-    using ePREMODB = ASRCFG_fields_::ePREMODB;
-    using ePOSTMODB = ASRCFG_fields_::ePOSTMODB;
-    using ePREMODC = ASRCFG_fields_::ePREMODC;
-    using ePOSTMODC = ASRCFG_fields_::ePOSTMODC;
-    using eNDPRA = ASRCFG_fields_::eNDPRA;
-    using eNDPRB = ASRCFG_fields_::eNDPRB;
-    using eNDPRC = ASRCFG_fields_::eNDPRC;
-    using eINIRQA = ASRCFG_fields_::eINIRQA;
-    using eINIRQB = ASRCFG_fields_::eINIRQB;
-    using eINIRQC = ASRCFG_fields_::eINIRQC;
-    using PREMODA = ASRCFG_fields_::PREMODA;
-    using POSTMODA = ASRCFG_fields_::POSTMODA;
-    using PREMODB = ASRCFG_fields_::PREMODB;
-    using POSTMODB = ASRCFG_fields_::POSTMODB;
-    using PREMODC = ASRCFG_fields_::PREMODC;
-    using POSTMODC = ASRCFG_fields_::POSTMODC;
-    using NDPRA = ASRCFG_fields_::NDPRA;
-    using NDPRB = ASRCFG_fields_::NDPRB;
-    using NDPRC = ASRCFG_fields_::NDPRC;
-    using INIRQA = ASRCFG_fields_::INIRQA;
-    using INIRQB = ASRCFG_fields_::INIRQB;
-    using INIRQC = ASRCFG_fields_::INIRQC;
+    using ePREMODA = AsrcfgFields::ePREMODA;
+    using ePOSTMODA = AsrcfgFields::ePOSTMODA;
+    using ePREMODB = AsrcfgFields::ePREMODB;
+    using ePOSTMODB = AsrcfgFields::ePOSTMODB;
+    using ePREMODC = AsrcfgFields::ePREMODC;
+    using ePOSTMODC = AsrcfgFields::ePOSTMODC;
+    using eNDPRA = AsrcfgFields::eNDPRA;
+    using eNDPRB = AsrcfgFields::eNDPRB;
+    using eNDPRC = AsrcfgFields::eNDPRC;
+    using eINIRQA = AsrcfgFields::eINIRQA;
+    using eINIRQB = AsrcfgFields::eINIRQB;
+    using eINIRQC = AsrcfgFields::eINIRQC;
+    using PREMODA = AsrcfgFields::PREMODA;
+    using POSTMODA = AsrcfgFields::POSTMODA;
+    using PREMODB = AsrcfgFields::PREMODB;
+    using POSTMODB = AsrcfgFields::POSTMODB;
+    using PREMODC = AsrcfgFields::PREMODC;
+    using POSTMODC = AsrcfgFields::POSTMODC;
+    using NDPRA = AsrcfgFields::NDPRA;
+    using NDPRB = AsrcfgFields::NDPRB;
+    using NDPRC = AsrcfgFields::NDPRC;
+    using INIRQA = AsrcfgFields::INIRQA;
+    using INIRQB = AsrcfgFields::INIRQB;
+    using INIRQC = AsrcfgFields::INIRQC;
   };
 
   // ASRC Clock Source Register
-  struct ASRCSR_fields_ {
+  struct AsrcsrFields {
     enum class eAICSA : std::uint32_t {
       // bit clock 0
       ebitclk0 = 0,
@@ -830,36 +830,36 @@ struct Asrc {
     using AOCSB = ftl::mmio::Field<4, 16, eAOCSB, ftl::mmio::RW, ftl::mmio::Normal>;
     // AOCSC
     using AOCSC = ftl::mmio::Field<4, 20, eAOCSC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRCSR_fields_
+  };  // struct AsrcsrFields
 
   struct ASRCSR : ftl::mmio::Register<
       0x40414014u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRCSR_fields_::AICSA,
-      ASRCSR_fields_::AICSB,
-      ASRCSR_fields_::AICSC,
-      ASRCSR_fields_::AOCSA,
-      ASRCSR_fields_::AOCSB,
-      ASRCSR_fields_::AOCSC,
+      AsrcsrFields::AICSA,
+      AsrcsrFields::AICSB,
+      AsrcsrFields::AICSC,
+      AsrcsrFields::AOCSA,
+      AsrcsrFields::AOCSB,
+      AsrcsrFields::AOCSC,
       ftl::mmio::Reserved<8, 24>> {
-    using eAICSA = ASRCSR_fields_::eAICSA;
-    using eAICSB = ASRCSR_fields_::eAICSB;
-    using eAICSC = ASRCSR_fields_::eAICSC;
-    using eAOCSA = ASRCSR_fields_::eAOCSA;
-    using eAOCSB = ASRCSR_fields_::eAOCSB;
-    using eAOCSC = ASRCSR_fields_::eAOCSC;
-    using AICSA = ASRCSR_fields_::AICSA;
-    using AICSB = ASRCSR_fields_::AICSB;
-    using AICSC = ASRCSR_fields_::AICSC;
-    using AOCSA = ASRCSR_fields_::AOCSA;
-    using AOCSB = ASRCSR_fields_::AOCSB;
-    using AOCSC = ASRCSR_fields_::AOCSC;
+    using eAICSA = AsrcsrFields::eAICSA;
+    using eAICSB = AsrcsrFields::eAICSB;
+    using eAICSC = AsrcsrFields::eAICSC;
+    using eAOCSA = AsrcsrFields::eAOCSA;
+    using eAOCSB = AsrcsrFields::eAOCSB;
+    using eAOCSC = AsrcsrFields::eAOCSC;
+    using AICSA = AsrcsrFields::AICSA;
+    using AICSB = AsrcsrFields::AICSB;
+    using AICSC = AsrcsrFields::AICSC;
+    using AOCSA = AsrcsrFields::AOCSA;
+    using AOCSB = AsrcsrFields::AOCSB;
+    using AOCSC = AsrcsrFields::AOCSC;
   };
 
   // ASRC Clock Divider Register 1
-  struct ASRCDR1_fields_ {
+  struct Asrcdr1Fields {
     // AICPA
     using AICPA = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // AICDA
@@ -876,34 +876,34 @@ struct Asrc {
     using AOCPB = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // AOCDB
     using AOCDB = ftl::mmio::Field<3, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRCDR1_fields_
+  };  // struct Asrcdr1Fields
 
   struct ASRCDR1 : ftl::mmio::Register<
       0x40414018u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRCDR1_fields_::AICPA,
-      ASRCDR1_fields_::AICDA,
-      ASRCDR1_fields_::AICPB,
-      ASRCDR1_fields_::AICDB,
-      ASRCDR1_fields_::AOCPA,
-      ASRCDR1_fields_::AOCDA,
-      ASRCDR1_fields_::AOCPB,
-      ASRCDR1_fields_::AOCDB,
+      Asrcdr1Fields::AICPA,
+      Asrcdr1Fields::AICDA,
+      Asrcdr1Fields::AICPB,
+      Asrcdr1Fields::AICDB,
+      Asrcdr1Fields::AOCPA,
+      Asrcdr1Fields::AOCDA,
+      Asrcdr1Fields::AOCPB,
+      Asrcdr1Fields::AOCDB,
       ftl::mmio::Reserved<8, 24>> {
-    using AICPA = ASRCDR1_fields_::AICPA;
-    using AICDA = ASRCDR1_fields_::AICDA;
-    using AICPB = ASRCDR1_fields_::AICPB;
-    using AICDB = ASRCDR1_fields_::AICDB;
-    using AOCPA = ASRCDR1_fields_::AOCPA;
-    using AOCDA = ASRCDR1_fields_::AOCDA;
-    using AOCPB = ASRCDR1_fields_::AOCPB;
-    using AOCDB = ASRCDR1_fields_::AOCDB;
+    using AICPA = Asrcdr1Fields::AICPA;
+    using AICDA = Asrcdr1Fields::AICDA;
+    using AICPB = Asrcdr1Fields::AICPB;
+    using AICDB = Asrcdr1Fields::AICDB;
+    using AOCPA = Asrcdr1Fields::AOCPA;
+    using AOCDA = Asrcdr1Fields::AOCDA;
+    using AOCPB = Asrcdr1Fields::AOCPB;
+    using AOCDB = Asrcdr1Fields::AOCDB;
   };
 
   // ASRC Clock Divider Register 2
-  struct ASRCDR2_fields_ {
+  struct Asrcdr2Fields {
     // AICPC
     using AICPC = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // AICDC
@@ -912,26 +912,26 @@ struct Asrc {
     using AOCPC = ftl::mmio::Field<3, 6, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // AOCDC
     using AOCDC = ftl::mmio::Field<3, 9, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRCDR2_fields_
+  };  // struct Asrcdr2Fields
 
   struct ASRCDR2 : ftl::mmio::Register<
       0x4041401Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRCDR2_fields_::AICPC,
-      ASRCDR2_fields_::AICDC,
-      ASRCDR2_fields_::AOCPC,
-      ASRCDR2_fields_::AOCDC,
+      Asrcdr2Fields::AICPC,
+      Asrcdr2Fields::AICDC,
+      Asrcdr2Fields::AOCPC,
+      Asrcdr2Fields::AOCDC,
       ftl::mmio::Reserved<20, 12>> {
-    using AICPC = ASRCDR2_fields_::AICPC;
-    using AICDC = ASRCDR2_fields_::AICDC;
-    using AOCPC = ASRCDR2_fields_::AOCPC;
-    using AOCDC = ASRCDR2_fields_::AOCDC;
+    using AICPC = Asrcdr2Fields::AICPC;
+    using AICDC = Asrcdr2Fields::AICDC;
+    using AOCPC = Asrcdr2Fields::AOCPC;
+    using AOCDC = Asrcdr2Fields::AOCDC;
   };
 
   // ASRC Status Register
-  struct ASRSTR_fields_ {
+  struct AsrstrFields {
     enum class eAIDEA : std::uint32_t {
       // The threshold has been met and no data input A interrupt is generated
       ethresh_met = 0,
@@ -1130,87 +1130,87 @@ struct Asrc {
     using ATQOL = ftl::mmio::Field<1, 20, eATQOL, ftl::mmio::RO, ftl::mmio::Normal>;
     // DSLCNT
     using DSLCNT = ftl::mmio::Field<1, 21, eDSLCNT, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRSTR_fields_
+  };  // struct AsrstrFields
 
   struct ASRSTR : ftl::mmio::Register<
       0x40414020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ASRSTR_fields_::AIDEA,
-      ASRSTR_fields_::AIDEB,
-      ASRSTR_fields_::AIDEC,
-      ASRSTR_fields_::AODFA,
-      ASRSTR_fields_::AODFB,
-      ASRSTR_fields_::AODFC,
-      ASRSTR_fields_::AOLE,
-      ASRSTR_fields_::FPWT,
-      ASRSTR_fields_::AIDUA,
-      ASRSTR_fields_::AIDUB,
-      ASRSTR_fields_::AIDUC,
-      ASRSTR_fields_::AODOA,
-      ASRSTR_fields_::AODOB,
-      ASRSTR_fields_::AODOC,
-      ASRSTR_fields_::AIOLA,
-      ASRSTR_fields_::AIOLB,
-      ASRSTR_fields_::AIOLC,
-      ASRSTR_fields_::AOOLA,
-      ASRSTR_fields_::AOOLB,
-      ASRSTR_fields_::AOOLC,
-      ASRSTR_fields_::ATQOL,
-      ASRSTR_fields_::DSLCNT,
+      AsrstrFields::AIDEA,
+      AsrstrFields::AIDEB,
+      AsrstrFields::AIDEC,
+      AsrstrFields::AODFA,
+      AsrstrFields::AODFB,
+      AsrstrFields::AODFC,
+      AsrstrFields::AOLE,
+      AsrstrFields::FPWT,
+      AsrstrFields::AIDUA,
+      AsrstrFields::AIDUB,
+      AsrstrFields::AIDUC,
+      AsrstrFields::AODOA,
+      AsrstrFields::AODOB,
+      AsrstrFields::AODOC,
+      AsrstrFields::AIOLA,
+      AsrstrFields::AIOLB,
+      AsrstrFields::AIOLC,
+      AsrstrFields::AOOLA,
+      AsrstrFields::AOOLB,
+      AsrstrFields::AOOLC,
+      AsrstrFields::ATQOL,
+      AsrstrFields::DSLCNT,
       ftl::mmio::Reserved<10, 22>> {
-    using eAIDEA = ASRSTR_fields_::eAIDEA;
-    using eAIDEB = ASRSTR_fields_::eAIDEB;
-    using eAIDEC = ASRSTR_fields_::eAIDEC;
-    using eAODFA = ASRSTR_fields_::eAODFA;
-    using eAODFB = ASRSTR_fields_::eAODFB;
-    using eAODFC = ASRSTR_fields_::eAODFC;
-    using eAOLE = ASRSTR_fields_::eAOLE;
-    using eFPWT = ASRSTR_fields_::eFPWT;
-    using eAIDUA = ASRSTR_fields_::eAIDUA;
-    using eAIDUB = ASRSTR_fields_::eAIDUB;
-    using eAIDUC = ASRSTR_fields_::eAIDUC;
-    using eAODOA = ASRSTR_fields_::eAODOA;
-    using eAODOB = ASRSTR_fields_::eAODOB;
-    using eAODOC = ASRSTR_fields_::eAODOC;
-    using eAIOLA = ASRSTR_fields_::eAIOLA;
-    using eAIOLB = ASRSTR_fields_::eAIOLB;
-    using eAIOLC = ASRSTR_fields_::eAIOLC;
-    using eAOOLA = ASRSTR_fields_::eAOOLA;
-    using eAOOLB = ASRSTR_fields_::eAOOLB;
-    using eAOOLC = ASRSTR_fields_::eAOOLC;
-    using eATQOL = ASRSTR_fields_::eATQOL;
-    using eDSLCNT = ASRSTR_fields_::eDSLCNT;
-    using AIDEA = ASRSTR_fields_::AIDEA;
-    using AIDEB = ASRSTR_fields_::AIDEB;
-    using AIDEC = ASRSTR_fields_::AIDEC;
-    using AODFA = ASRSTR_fields_::AODFA;
-    using AODFB = ASRSTR_fields_::AODFB;
-    using AODFC = ASRSTR_fields_::AODFC;
-    using AOLE = ASRSTR_fields_::AOLE;
-    using FPWT = ASRSTR_fields_::FPWT;
-    using AIDUA = ASRSTR_fields_::AIDUA;
-    using AIDUB = ASRSTR_fields_::AIDUB;
-    using AIDUC = ASRSTR_fields_::AIDUC;
-    using AODOA = ASRSTR_fields_::AODOA;
-    using AODOB = ASRSTR_fields_::AODOB;
-    using AODOC = ASRSTR_fields_::AODOC;
-    using AIOLA = ASRSTR_fields_::AIOLA;
-    using AIOLB = ASRSTR_fields_::AIOLB;
-    using AIOLC = ASRSTR_fields_::AIOLC;
-    using AOOLA = ASRSTR_fields_::AOOLA;
-    using AOOLB = ASRSTR_fields_::AOOLB;
-    using AOOLC = ASRSTR_fields_::AOOLC;
-    using ATQOL = ASRSTR_fields_::ATQOL;
-    using DSLCNT = ASRSTR_fields_::DSLCNT;
+    using eAIDEA = AsrstrFields::eAIDEA;
+    using eAIDEB = AsrstrFields::eAIDEB;
+    using eAIDEC = AsrstrFields::eAIDEC;
+    using eAODFA = AsrstrFields::eAODFA;
+    using eAODFB = AsrstrFields::eAODFB;
+    using eAODFC = AsrstrFields::eAODFC;
+    using eAOLE = AsrstrFields::eAOLE;
+    using eFPWT = AsrstrFields::eFPWT;
+    using eAIDUA = AsrstrFields::eAIDUA;
+    using eAIDUB = AsrstrFields::eAIDUB;
+    using eAIDUC = AsrstrFields::eAIDUC;
+    using eAODOA = AsrstrFields::eAODOA;
+    using eAODOB = AsrstrFields::eAODOB;
+    using eAODOC = AsrstrFields::eAODOC;
+    using eAIOLA = AsrstrFields::eAIOLA;
+    using eAIOLB = AsrstrFields::eAIOLB;
+    using eAIOLC = AsrstrFields::eAIOLC;
+    using eAOOLA = AsrstrFields::eAOOLA;
+    using eAOOLB = AsrstrFields::eAOOLB;
+    using eAOOLC = AsrstrFields::eAOOLC;
+    using eATQOL = AsrstrFields::eATQOL;
+    using eDSLCNT = AsrstrFields::eDSLCNT;
+    using AIDEA = AsrstrFields::AIDEA;
+    using AIDEB = AsrstrFields::AIDEB;
+    using AIDEC = AsrstrFields::AIDEC;
+    using AODFA = AsrstrFields::AODFA;
+    using AODFB = AsrstrFields::AODFB;
+    using AODFC = AsrstrFields::AODFC;
+    using AOLE = AsrstrFields::AOLE;
+    using FPWT = AsrstrFields::FPWT;
+    using AIDUA = AsrstrFields::AIDUA;
+    using AIDUB = AsrstrFields::AIDUB;
+    using AIDUC = AsrstrFields::AIDUC;
+    using AODOA = AsrstrFields::AODOA;
+    using AODOB = AsrstrFields::AODOB;
+    using AODOC = AsrstrFields::AODOC;
+    using AIOLA = AsrstrFields::AIOLA;
+    using AIOLB = AsrstrFields::AIOLB;
+    using AIOLC = AsrstrFields::AIOLC;
+    using AOOLA = AsrstrFields::AOOLA;
+    using AOOLB = AsrstrFields::AOOLB;
+    using AOOLC = AsrstrFields::AOOLC;
+    using ATQOL = AsrstrFields::ATQOL;
+    using DSLCNT = AsrstrFields::DSLCNT;
   };
 
   // ASRC Parameter Register n
-  struct ASRPM_fields_ {
+  struct AsrpmFields {
     // PARAMETER_VALUE
     using PARAMETER_VALUE = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRPM_fields_
+  };  // struct AsrpmFields
 
   template<std::uint32_t Index>
   struct ASRPM : ftl::mmio::Register<
@@ -1218,19 +1218,19 @@ struct Asrc {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRPM_fields_::PARAMETER_VALUE,
+      AsrpmFields::PARAMETER_VALUE,
       ftl::mmio::Reserved<8, 24>> {
     static_assert(Index < 5u, "ASRPM: Index out of range");
-    using PARAMETER_VALUE = ASRPM_fields_::PARAMETER_VALUE;
+    using PARAMETER_VALUE = AsrpmFields::PARAMETER_VALUE;
   };
 
   // ASRC Task Queue FIFO Register 1
-  struct ASRTFR1_fields_ {
+  struct Asrtfr1Fields {
     // TF_BASE
     using TF_BASE = ftl::mmio::Field<7, 6, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // TF_FILL
     using TF_FILL = ftl::mmio::Field<7, 13, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRTFR1_fields_
+  };  // struct Asrtfr1Fields
 
   struct ASRTFR1 : ftl::mmio::Register<
       0x40414054u,
@@ -1238,15 +1238,15 @@ struct Asrc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<6, 0>,
-      ASRTFR1_fields_::TF_BASE,
-      ASRTFR1_fields_::TF_FILL,
+      Asrtfr1Fields::TF_BASE,
+      Asrtfr1Fields::TF_FILL,
       ftl::mmio::Reserved<12, 20>> {
-    using TF_BASE = ASRTFR1_fields_::TF_BASE;
-    using TF_FILL = ASRTFR1_fields_::TF_FILL;
+    using TF_BASE = Asrtfr1Fields::TF_BASE;
+    using TF_FILL = Asrtfr1Fields::TF_FILL;
   };
 
   // ASRC Channel Counter Register
-  struct ASRCCR_fields_ {
+  struct AsrccrFields {
     // ACIA
     using ACIA = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // ACIB
@@ -1259,254 +1259,254 @@ struct Asrc {
     using ACOB = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // ACOC
     using ACOC = ftl::mmio::Field<4, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRCCR_fields_
+  };  // struct AsrccrFields
 
   struct ASRCCR : ftl::mmio::Register<
       0x4041405Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRCCR_fields_::ACIA,
-      ASRCCR_fields_::ACIB,
-      ASRCCR_fields_::ACIC,
-      ASRCCR_fields_::ACOA,
-      ASRCCR_fields_::ACOB,
-      ASRCCR_fields_::ACOC,
+      AsrccrFields::ACIA,
+      AsrccrFields::ACIB,
+      AsrccrFields::ACIC,
+      AsrccrFields::ACOA,
+      AsrccrFields::ACOB,
+      AsrccrFields::ACOC,
       ftl::mmio::Reserved<8, 24>> {
-    using ACIA = ASRCCR_fields_::ACIA;
-    using ACIB = ASRCCR_fields_::ACIB;
-    using ACIC = ASRCCR_fields_::ACIC;
-    using ACOA = ASRCCR_fields_::ACOA;
-    using ACOB = ASRCCR_fields_::ACOB;
-    using ACOC = ASRCCR_fields_::ACOC;
+    using ACIA = AsrccrFields::ACIA;
+    using ACIB = AsrccrFields::ACIB;
+    using ACIC = AsrccrFields::ACIC;
+    using ACOA = AsrccrFields::ACOA;
+    using ACOB = AsrccrFields::ACOB;
+    using ACOC = AsrccrFields::ACOC;
   };
 
   // ASRC Data Input Register for Pair x
-  struct ASRDIA_fields_ {
+  struct AsrdiaFields {
     // DATA
     using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct ASRDIA_fields_
+  };  // struct AsrdiaFields
 
   struct ASRDIA : ftl::mmio::Register<
       0x40414060u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      ASRDIA_fields_::DATA,
+      AsrdiaFields::DATA,
       ftl::mmio::Reserved<8, 24>> {
-    using DATA = ASRDIA_fields_::DATA;
+    using DATA = AsrdiaFields::DATA;
   };
 
   // ASRC Data Output Register for Pair x
-  struct ASRDOA_fields_ {
+  struct AsrdoaFields {
     // DATA
     using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRDOA_fields_
+  };  // struct AsrdoaFields
 
   struct ASRDOA : ftl::mmio::Register<
       0x40414064u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ASRDOA_fields_::DATA,
+      AsrdoaFields::DATA,
       ftl::mmio::Reserved<8, 24>> {
-    using DATA = ASRDOA_fields_::DATA;
+    using DATA = AsrdoaFields::DATA;
   };
 
   // ASRC Data Input Register for Pair x
-  struct ASRDIB_fields_ {
+  struct AsrdibFields {
     // DATA
     using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct ASRDIB_fields_
+  };  // struct AsrdibFields
 
   struct ASRDIB : ftl::mmio::Register<
       0x40414068u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      ASRDIB_fields_::DATA,
+      AsrdibFields::DATA,
       ftl::mmio::Reserved<8, 24>> {
-    using DATA = ASRDIB_fields_::DATA;
+    using DATA = AsrdibFields::DATA;
   };
 
   // ASRC Data Output Register for Pair x
-  struct ASRDOB_fields_ {
+  struct AsrdobFields {
     // DATA
     using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRDOB_fields_
+  };  // struct AsrdobFields
 
   struct ASRDOB : ftl::mmio::Register<
       0x4041406Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ASRDOB_fields_::DATA,
+      AsrdobFields::DATA,
       ftl::mmio::Reserved<8, 24>> {
-    using DATA = ASRDOB_fields_::DATA;
+    using DATA = AsrdobFields::DATA;
   };
 
   // ASRC Data Input Register for Pair x
-  struct ASRDIC_fields_ {
+  struct AsrdicFields {
     // DATA
     using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct ASRDIC_fields_
+  };  // struct AsrdicFields
 
   struct ASRDIC : ftl::mmio::Register<
       0x40414070u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      ASRDIC_fields_::DATA,
+      AsrdicFields::DATA,
       ftl::mmio::Reserved<8, 24>> {
-    using DATA = ASRDIC_fields_::DATA;
+    using DATA = AsrdicFields::DATA;
   };
 
   // ASRC Data Output Register for Pair x
-  struct ASRDOC_fields_ {
+  struct AsrdocFields {
     // DATA
     using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRDOC_fields_
+  };  // struct AsrdocFields
 
   struct ASRDOC : ftl::mmio::Register<
       0x40414074u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ASRDOC_fields_::DATA,
+      AsrdocFields::DATA,
       ftl::mmio::Reserved<8, 24>> {
-    using DATA = ASRDOC_fields_::DATA;
+    using DATA = AsrdocFields::DATA;
   };
 
   // ASRC Ideal Ratio for Pair A-High Part
-  struct ASRIDRHA_fields_ {
+  struct AsridrhaFields {
     // IDRATIOA_H
     using IDRATIOA_H = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRIDRHA_fields_
+  };  // struct AsridrhaFields
 
   struct ASRIDRHA : ftl::mmio::Register<
       0x40414080u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRIDRHA_fields_::IDRATIOA_H,
+      AsridrhaFields::IDRATIOA_H,
       ftl::mmio::Reserved<24, 8>> {
-    using IDRATIOA_H = ASRIDRHA_fields_::IDRATIOA_H;
+    using IDRATIOA_H = AsridrhaFields::IDRATIOA_H;
   };
 
   // ASRC Ideal Ratio for Pair A -Low Part
-  struct ASRIDRLA_fields_ {
+  struct AsridrlaFields {
     // IDRATIOA_L
     using IDRATIOA_L = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRIDRLA_fields_
+  };  // struct AsridrlaFields
 
   struct ASRIDRLA : ftl::mmio::Register<
       0x40414084u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRIDRLA_fields_::IDRATIOA_L,
+      AsridrlaFields::IDRATIOA_L,
       ftl::mmio::Reserved<8, 24>> {
-    using IDRATIOA_L = ASRIDRLA_fields_::IDRATIOA_L;
+    using IDRATIOA_L = AsridrlaFields::IDRATIOA_L;
   };
 
   // ASRC Ideal Ratio for Pair B-High Part
-  struct ASRIDRHB_fields_ {
+  struct AsridrhbFields {
     // IDRATIOB_H
     using IDRATIOB_H = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRIDRHB_fields_
+  };  // struct AsridrhbFields
 
   struct ASRIDRHB : ftl::mmio::Register<
       0x40414088u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRIDRHB_fields_::IDRATIOB_H,
+      AsridrhbFields::IDRATIOB_H,
       ftl::mmio::Reserved<24, 8>> {
-    using IDRATIOB_H = ASRIDRHB_fields_::IDRATIOB_H;
+    using IDRATIOB_H = AsridrhbFields::IDRATIOB_H;
   };
 
   // ASRC Ideal Ratio for Pair B-Low Part
-  struct ASRIDRLB_fields_ {
+  struct AsridrlbFields {
     // IDRATIOB_L
     using IDRATIOB_L = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRIDRLB_fields_
+  };  // struct AsridrlbFields
 
   struct ASRIDRLB : ftl::mmio::Register<
       0x4041408Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRIDRLB_fields_::IDRATIOB_L,
+      AsridrlbFields::IDRATIOB_L,
       ftl::mmio::Reserved<8, 24>> {
-    using IDRATIOB_L = ASRIDRLB_fields_::IDRATIOB_L;
+    using IDRATIOB_L = AsridrlbFields::IDRATIOB_L;
   };
 
   // ASRC Ideal Ratio for Pair C-High Part
-  struct ASRIDRHC_fields_ {
+  struct AsridrhcFields {
     // IDRATIOC_H
     using IDRATIOC_H = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRIDRHC_fields_
+  };  // struct AsridrhcFields
 
   struct ASRIDRHC : ftl::mmio::Register<
       0x40414090u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRIDRHC_fields_::IDRATIOC_H,
+      AsridrhcFields::IDRATIOC_H,
       ftl::mmio::Reserved<24, 8>> {
-    using IDRATIOC_H = ASRIDRHC_fields_::IDRATIOC_H;
+    using IDRATIOC_H = AsridrhcFields::IDRATIOC_H;
   };
 
   // ASRC Ideal Ratio for Pair C-Low Part
-  struct ASRIDRLC_fields_ {
+  struct AsridrlcFields {
     // IDRATIOC_L
     using IDRATIOC_L = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRIDRLC_fields_
+  };  // struct AsridrlcFields
 
   struct ASRIDRLC : ftl::mmio::Register<
       0x40414094u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRIDRLC_fields_::IDRATIOC_L,
+      AsridrlcFields::IDRATIOC_L,
       ftl::mmio::Reserved<8, 24>> {
-    using IDRATIOC_L = ASRIDRLC_fields_::IDRATIOC_L;
+    using IDRATIOC_L = AsridrlcFields::IDRATIOC_L;
   };
 
   // ASRC 76 kHz Period in terms of ASRC processing clock
-  struct ASR76K_fields_ {
+  struct Asr76kFields {
     // ASR76K
     using ASR76K = ftl::mmio::Field<17, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASR76K_fields_
+  };  // struct Asr76kFields
 
   struct ASR76K : ftl::mmio::Register<
       0x40414098u,
       std::uint32_t,
       0x00000A47u,
       ftl::mmio::RW,
-      ASR76K_fields_::ASR76K,
+      Asr76kFields::ASR76K,
       ftl::mmio::Reserved<15, 17>> {
-    using VALUE = ASR76K_fields_::ASR76K;
+    using VALUE = Asr76kFields::ASR76K;
   };
 
   // ASRC 56 kHz Period in terms of ASRC processing clock
-  struct ASR56K_fields_ {
+  struct Asr56kFields {
     // ASR56K
     using ASR56K = ftl::mmio::Field<17, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASR56K_fields_
+  };  // struct Asr56kFields
 
   struct ASR56K : ftl::mmio::Register<
       0x4041409Cu,
       std::uint32_t,
       0x00000DF3u,
       ftl::mmio::RW,
-      ASR56K_fields_::ASR56K,
+      Asr56kFields::ASR56K,
       ftl::mmio::Reserved<15, 17>> {
-    using VALUE = ASR56K_fields_::ASR56K;
+    using VALUE = Asr56kFields::ASR56K;
   };
 
   // ASRC Misc Control Register for Pair A
-  struct ASRMCRA_fields_ {
+  struct AsrmcraFields {
     enum class eRSYNOFA : std::uint32_t {
       // Do not touch ASRCCR[ACOA]
       eno_resync = 0,
@@ -1565,42 +1565,42 @@ struct Asrc {
     using EXTTHRSHA = ftl::mmio::Field<1, 22, eEXTTHRSHA, ftl::mmio::RW, ftl::mmio::Normal>;
     // ZEROBUFA
     using ZEROBUFA = ftl::mmio::Field<1, 23, eZEROBUFA, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRMCRA_fields_
+  };  // struct AsrmcraFields
 
   struct ASRMCRA : ftl::mmio::Register<
       0x404140A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRMCRA_fields_::INFIFO_THRESHOLDA,
+      AsrmcraFields::INFIFO_THRESHOLDA,
       ftl::mmio::Reserved<4, 6>,
-      ASRMCRA_fields_::RSYNOFA,
-      ASRMCRA_fields_::RSYNIFA,
-      ASRMCRA_fields_::OUTFIFO_THRESHOLDA,
+      AsrmcraFields::RSYNOFA,
+      AsrmcraFields::RSYNIFA,
+      AsrmcraFields::OUTFIFO_THRESHOLDA,
       ftl::mmio::Reserved<2, 18>,
-      ASRMCRA_fields_::BYPASSPOLYA,
-      ASRMCRA_fields_::BUFSTALLA,
-      ASRMCRA_fields_::EXTTHRSHA,
-      ASRMCRA_fields_::ZEROBUFA,
+      AsrmcraFields::BYPASSPOLYA,
+      AsrmcraFields::BUFSTALLA,
+      AsrmcraFields::EXTTHRSHA,
+      AsrmcraFields::ZEROBUFA,
       ftl::mmio::Reserved<8, 24>> {
-    using eRSYNOFA = ASRMCRA_fields_::eRSYNOFA;
-    using eRSYNIFA = ASRMCRA_fields_::eRSYNIFA;
-    using eBYPASSPOLYA = ASRMCRA_fields_::eBYPASSPOLYA;
-    using eBUFSTALLA = ASRMCRA_fields_::eBUFSTALLA;
-    using eEXTTHRSHA = ASRMCRA_fields_::eEXTTHRSHA;
-    using eZEROBUFA = ASRMCRA_fields_::eZEROBUFA;
-    using INFIFO_THRESHOLDA = ASRMCRA_fields_::INFIFO_THRESHOLDA;
-    using RSYNOFA = ASRMCRA_fields_::RSYNOFA;
-    using RSYNIFA = ASRMCRA_fields_::RSYNIFA;
-    using OUTFIFO_THRESHOLDA = ASRMCRA_fields_::OUTFIFO_THRESHOLDA;
-    using BYPASSPOLYA = ASRMCRA_fields_::BYPASSPOLYA;
-    using BUFSTALLA = ASRMCRA_fields_::BUFSTALLA;
-    using EXTTHRSHA = ASRMCRA_fields_::EXTTHRSHA;
-    using ZEROBUFA = ASRMCRA_fields_::ZEROBUFA;
+    using eRSYNOFA = AsrmcraFields::eRSYNOFA;
+    using eRSYNIFA = AsrmcraFields::eRSYNIFA;
+    using eBYPASSPOLYA = AsrmcraFields::eBYPASSPOLYA;
+    using eBUFSTALLA = AsrmcraFields::eBUFSTALLA;
+    using eEXTTHRSHA = AsrmcraFields::eEXTTHRSHA;
+    using eZEROBUFA = AsrmcraFields::eZEROBUFA;
+    using INFIFO_THRESHOLDA = AsrmcraFields::INFIFO_THRESHOLDA;
+    using RSYNOFA = AsrmcraFields::RSYNOFA;
+    using RSYNIFA = AsrmcraFields::RSYNIFA;
+    using OUTFIFO_THRESHOLDA = AsrmcraFields::OUTFIFO_THRESHOLDA;
+    using BYPASSPOLYA = AsrmcraFields::BYPASSPOLYA;
+    using BUFSTALLA = AsrmcraFields::BUFSTALLA;
+    using EXTTHRSHA = AsrmcraFields::EXTTHRSHA;
+    using ZEROBUFA = AsrmcraFields::ZEROBUFA;
   };
 
   // ASRC FIFO Status Register for Pair A
-  struct ASRFSTA_fields_ {
+  struct AsrfstaFields {
     enum class eIAEA : std::uint32_t {
       // Input FIFO is not near empty for Pair A
       enot_near_empty = 0,
@@ -1623,30 +1623,30 @@ struct Asrc {
     using OUTFIFO_FILLA = ftl::mmio::Field<7, 12, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // OAFA
     using OAFA = ftl::mmio::Field<1, 23, eOAFA, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRFSTA_fields_
+  };  // struct AsrfstaFields
 
   struct ASRFSTA : ftl::mmio::Register<
       0x404140A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ASRFSTA_fields_::INFIFO_FILLA,
+      AsrfstaFields::INFIFO_FILLA,
       ftl::mmio::Reserved<4, 7>,
-      ASRFSTA_fields_::IAEA,
-      ASRFSTA_fields_::OUTFIFO_FILLA,
+      AsrfstaFields::IAEA,
+      AsrfstaFields::OUTFIFO_FILLA,
       ftl::mmio::Reserved<4, 19>,
-      ASRFSTA_fields_::OAFA,
+      AsrfstaFields::OAFA,
       ftl::mmio::Reserved<8, 24>> {
-    using eIAEA = ASRFSTA_fields_::eIAEA;
-    using eOAFA = ASRFSTA_fields_::eOAFA;
-    using INFIFO_FILLA = ASRFSTA_fields_::INFIFO_FILLA;
-    using IAEA = ASRFSTA_fields_::IAEA;
-    using OUTFIFO_FILLA = ASRFSTA_fields_::OUTFIFO_FILLA;
-    using OAFA = ASRFSTA_fields_::OAFA;
+    using eIAEA = AsrfstaFields::eIAEA;
+    using eOAFA = AsrfstaFields::eOAFA;
+    using INFIFO_FILLA = AsrfstaFields::INFIFO_FILLA;
+    using IAEA = AsrfstaFields::IAEA;
+    using OUTFIFO_FILLA = AsrfstaFields::OUTFIFO_FILLA;
+    using OAFA = AsrfstaFields::OAFA;
   };
 
   // ASRC Misc Control Register for Pair B
-  struct ASRMCRB_fields_ {
+  struct AsrmcrbFields {
     enum class eRSYNOFB : std::uint32_t {
       // Do not touch ASRCCR[ACOB]
       eno_resync = 0,
@@ -1705,42 +1705,42 @@ struct Asrc {
     using EXTTHRSHB = ftl::mmio::Field<1, 22, eEXTTHRSHB, ftl::mmio::RW, ftl::mmio::Normal>;
     // ZEROBUFB
     using ZEROBUFB = ftl::mmio::Field<1, 23, eZEROBUFB, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRMCRB_fields_
+  };  // struct AsrmcrbFields
 
   struct ASRMCRB : ftl::mmio::Register<
       0x404140A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRMCRB_fields_::INFIFO_THRESHOLDB,
+      AsrmcrbFields::INFIFO_THRESHOLDB,
       ftl::mmio::Reserved<4, 6>,
-      ASRMCRB_fields_::RSYNOFB,
-      ASRMCRB_fields_::RSYNIFB,
-      ASRMCRB_fields_::OUTFIFO_THRESHOLDB,
+      AsrmcrbFields::RSYNOFB,
+      AsrmcrbFields::RSYNIFB,
+      AsrmcrbFields::OUTFIFO_THRESHOLDB,
       ftl::mmio::Reserved<2, 18>,
-      ASRMCRB_fields_::BYPASSPOLYB,
-      ASRMCRB_fields_::BUFSTALLB,
-      ASRMCRB_fields_::EXTTHRSHB,
-      ASRMCRB_fields_::ZEROBUFB,
+      AsrmcrbFields::BYPASSPOLYB,
+      AsrmcrbFields::BUFSTALLB,
+      AsrmcrbFields::EXTTHRSHB,
+      AsrmcrbFields::ZEROBUFB,
       ftl::mmio::Reserved<8, 24>> {
-    using eRSYNOFB = ASRMCRB_fields_::eRSYNOFB;
-    using eRSYNIFB = ASRMCRB_fields_::eRSYNIFB;
-    using eBYPASSPOLYB = ASRMCRB_fields_::eBYPASSPOLYB;
-    using eBUFSTALLB = ASRMCRB_fields_::eBUFSTALLB;
-    using eEXTTHRSHB = ASRMCRB_fields_::eEXTTHRSHB;
-    using eZEROBUFB = ASRMCRB_fields_::eZEROBUFB;
-    using INFIFO_THRESHOLDB = ASRMCRB_fields_::INFIFO_THRESHOLDB;
-    using RSYNOFB = ASRMCRB_fields_::RSYNOFB;
-    using RSYNIFB = ASRMCRB_fields_::RSYNIFB;
-    using OUTFIFO_THRESHOLDB = ASRMCRB_fields_::OUTFIFO_THRESHOLDB;
-    using BYPASSPOLYB = ASRMCRB_fields_::BYPASSPOLYB;
-    using BUFSTALLB = ASRMCRB_fields_::BUFSTALLB;
-    using EXTTHRSHB = ASRMCRB_fields_::EXTTHRSHB;
-    using ZEROBUFB = ASRMCRB_fields_::ZEROBUFB;
+    using eRSYNOFB = AsrmcrbFields::eRSYNOFB;
+    using eRSYNIFB = AsrmcrbFields::eRSYNIFB;
+    using eBYPASSPOLYB = AsrmcrbFields::eBYPASSPOLYB;
+    using eBUFSTALLB = AsrmcrbFields::eBUFSTALLB;
+    using eEXTTHRSHB = AsrmcrbFields::eEXTTHRSHB;
+    using eZEROBUFB = AsrmcrbFields::eZEROBUFB;
+    using INFIFO_THRESHOLDB = AsrmcrbFields::INFIFO_THRESHOLDB;
+    using RSYNOFB = AsrmcrbFields::RSYNOFB;
+    using RSYNIFB = AsrmcrbFields::RSYNIFB;
+    using OUTFIFO_THRESHOLDB = AsrmcrbFields::OUTFIFO_THRESHOLDB;
+    using BYPASSPOLYB = AsrmcrbFields::BYPASSPOLYB;
+    using BUFSTALLB = AsrmcrbFields::BUFSTALLB;
+    using EXTTHRSHB = AsrmcrbFields::EXTTHRSHB;
+    using ZEROBUFB = AsrmcrbFields::ZEROBUFB;
   };
 
   // ASRC FIFO Status Register for Pair B
-  struct ASRFSTB_fields_ {
+  struct AsrfstbFields {
     enum class eIAEB : std::uint32_t {
       // Input FIFO is not near empty for Pair B
       enot_near_empty = 0,
@@ -1763,30 +1763,30 @@ struct Asrc {
     using OUTFIFO_FILLB = ftl::mmio::Field<7, 12, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // OAFB
     using OAFB = ftl::mmio::Field<1, 23, eOAFB, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRFSTB_fields_
+  };  // struct AsrfstbFields
 
   struct ASRFSTB : ftl::mmio::Register<
       0x404140ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ASRFSTB_fields_::INFIFO_FILLB,
+      AsrfstbFields::INFIFO_FILLB,
       ftl::mmio::Reserved<4, 7>,
-      ASRFSTB_fields_::IAEB,
-      ASRFSTB_fields_::OUTFIFO_FILLB,
+      AsrfstbFields::IAEB,
+      AsrfstbFields::OUTFIFO_FILLB,
       ftl::mmio::Reserved<4, 19>,
-      ASRFSTB_fields_::OAFB,
+      AsrfstbFields::OAFB,
       ftl::mmio::Reserved<8, 24>> {
-    using eIAEB = ASRFSTB_fields_::eIAEB;
-    using eOAFB = ASRFSTB_fields_::eOAFB;
-    using INFIFO_FILLB = ASRFSTB_fields_::INFIFO_FILLB;
-    using IAEB = ASRFSTB_fields_::IAEB;
-    using OUTFIFO_FILLB = ASRFSTB_fields_::OUTFIFO_FILLB;
-    using OAFB = ASRFSTB_fields_::OAFB;
+    using eIAEB = AsrfstbFields::eIAEB;
+    using eOAFB = AsrfstbFields::eOAFB;
+    using INFIFO_FILLB = AsrfstbFields::INFIFO_FILLB;
+    using IAEB = AsrfstbFields::IAEB;
+    using OUTFIFO_FILLB = AsrfstbFields::OUTFIFO_FILLB;
+    using OAFB = AsrfstbFields::OAFB;
   };
 
   // ASRC Misc Control Register for Pair C
-  struct ASRMCRC_fields_ {
+  struct AsrmcrcFields {
     enum class eRSYNOFC : std::uint32_t {
       // Do not touch ASRCCR[ACOC]
       eno_resync = 0,
@@ -1845,42 +1845,42 @@ struct Asrc {
     using EXTTHRSHC = ftl::mmio::Field<1, 22, eEXTTHRSHC, ftl::mmio::RW, ftl::mmio::Normal>;
     // ZEROBUFC
     using ZEROBUFC = ftl::mmio::Field<1, 23, eZEROBUFC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRMCRC_fields_
+  };  // struct AsrmcrcFields
 
   struct ASRMCRC : ftl::mmio::Register<
       0x404140B0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRMCRC_fields_::INFIFO_THRESHOLDC,
+      AsrmcrcFields::INFIFO_THRESHOLDC,
       ftl::mmio::Reserved<4, 6>,
-      ASRMCRC_fields_::RSYNOFC,
-      ASRMCRC_fields_::RSYNIFC,
-      ASRMCRC_fields_::OUTFIFO_THRESHOLDC,
+      AsrmcrcFields::RSYNOFC,
+      AsrmcrcFields::RSYNIFC,
+      AsrmcrcFields::OUTFIFO_THRESHOLDC,
       ftl::mmio::Reserved<2, 18>,
-      ASRMCRC_fields_::BYPASSPOLYC,
-      ASRMCRC_fields_::BUFSTALLC,
-      ASRMCRC_fields_::EXTTHRSHC,
-      ASRMCRC_fields_::ZEROBUFC,
+      AsrmcrcFields::BYPASSPOLYC,
+      AsrmcrcFields::BUFSTALLC,
+      AsrmcrcFields::EXTTHRSHC,
+      AsrmcrcFields::ZEROBUFC,
       ftl::mmio::Reserved<8, 24>> {
-    using eRSYNOFC = ASRMCRC_fields_::eRSYNOFC;
-    using eRSYNIFC = ASRMCRC_fields_::eRSYNIFC;
-    using eBYPASSPOLYC = ASRMCRC_fields_::eBYPASSPOLYC;
-    using eBUFSTALLC = ASRMCRC_fields_::eBUFSTALLC;
-    using eEXTTHRSHC = ASRMCRC_fields_::eEXTTHRSHC;
-    using eZEROBUFC = ASRMCRC_fields_::eZEROBUFC;
-    using INFIFO_THRESHOLDC = ASRMCRC_fields_::INFIFO_THRESHOLDC;
-    using RSYNOFC = ASRMCRC_fields_::RSYNOFC;
-    using RSYNIFC = ASRMCRC_fields_::RSYNIFC;
-    using OUTFIFO_THRESHOLDC = ASRMCRC_fields_::OUTFIFO_THRESHOLDC;
-    using BYPASSPOLYC = ASRMCRC_fields_::BYPASSPOLYC;
-    using BUFSTALLC = ASRMCRC_fields_::BUFSTALLC;
-    using EXTTHRSHC = ASRMCRC_fields_::EXTTHRSHC;
-    using ZEROBUFC = ASRMCRC_fields_::ZEROBUFC;
+    using eRSYNOFC = AsrmcrcFields::eRSYNOFC;
+    using eRSYNIFC = AsrmcrcFields::eRSYNIFC;
+    using eBYPASSPOLYC = AsrmcrcFields::eBYPASSPOLYC;
+    using eBUFSTALLC = AsrmcrcFields::eBUFSTALLC;
+    using eEXTTHRSHC = AsrmcrcFields::eEXTTHRSHC;
+    using eZEROBUFC = AsrmcrcFields::eZEROBUFC;
+    using INFIFO_THRESHOLDC = AsrmcrcFields::INFIFO_THRESHOLDC;
+    using RSYNOFC = AsrmcrcFields::RSYNOFC;
+    using RSYNIFC = AsrmcrcFields::RSYNIFC;
+    using OUTFIFO_THRESHOLDC = AsrmcrcFields::OUTFIFO_THRESHOLDC;
+    using BYPASSPOLYC = AsrmcrcFields::BYPASSPOLYC;
+    using BUFSTALLC = AsrmcrcFields::BUFSTALLC;
+    using EXTTHRSHC = AsrmcrcFields::EXTTHRSHC;
+    using ZEROBUFC = AsrmcrcFields::ZEROBUFC;
   };
 
   // ASRC FIFO Status Register for Pair C
-  struct ASRFSTC_fields_ {
+  struct AsrfstcFields {
     enum class eIAEC : std::uint32_t {
       // Input FIFO is not near empty for Pair C
       enot_near_empty = 0,
@@ -1903,30 +1903,30 @@ struct Asrc {
     using OUTFIFO_FILLC = ftl::mmio::Field<7, 12, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // OAFC
     using OAFC = ftl::mmio::Field<1, 23, eOAFC, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ASRFSTC_fields_
+  };  // struct AsrfstcFields
 
   struct ASRFSTC : ftl::mmio::Register<
       0x404140B4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ASRFSTC_fields_::INFIFO_FILLC,
+      AsrfstcFields::INFIFO_FILLC,
       ftl::mmio::Reserved<4, 7>,
-      ASRFSTC_fields_::IAEC,
-      ASRFSTC_fields_::OUTFIFO_FILLC,
+      AsrfstcFields::IAEC,
+      AsrfstcFields::OUTFIFO_FILLC,
       ftl::mmio::Reserved<4, 19>,
-      ASRFSTC_fields_::OAFC,
+      AsrfstcFields::OAFC,
       ftl::mmio::Reserved<8, 24>> {
-    using eIAEC = ASRFSTC_fields_::eIAEC;
-    using eOAFC = ASRFSTC_fields_::eOAFC;
-    using INFIFO_FILLC = ASRFSTC_fields_::INFIFO_FILLC;
-    using IAEC = ASRFSTC_fields_::IAEC;
-    using OUTFIFO_FILLC = ASRFSTC_fields_::OUTFIFO_FILLC;
-    using OAFC = ASRFSTC_fields_::OAFC;
+    using eIAEC = AsrfstcFields::eIAEC;
+    using eOAFC = AsrfstcFields::eOAFC;
+    using INFIFO_FILLC = AsrfstcFields::INFIFO_FILLC;
+    using IAEC = AsrfstcFields::IAEC;
+    using OUTFIFO_FILLC = AsrfstcFields::OUTFIFO_FILLC;
+    using OAFC = AsrfstcFields::OAFC;
   };
 
   // ASRC Misc Control Register 1 for Pair X
-  struct ASRMCR1_fields_ {
+  struct Asrmcr1Fields {
     enum class eOW16 : std::uint32_t {
       // 24-bit output data.
       eout_24bit = 0,
@@ -1974,7 +1974,7 @@ struct Asrc {
     using IMSB = ftl::mmio::Field<1, 8, eIMSB, ftl::mmio::RW, ftl::mmio::Normal>;
     // IWD
     using IWD = ftl::mmio::Field<2, 9, eIWD, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASRMCR1_fields_
+  };  // struct Asrmcr1Fields
 
   template<std::uint32_t Index>
   struct ASRMCR1 : ftl::mmio::Register<
@@ -1982,24 +1982,24 @@ struct Asrc {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ASRMCR1_fields_::OW16,
-      ASRMCR1_fields_::OSGN,
-      ASRMCR1_fields_::OMSB,
+      Asrmcr1Fields::OW16,
+      Asrmcr1Fields::OSGN,
+      Asrmcr1Fields::OMSB,
       ftl::mmio::Reserved<5, 3>,
-      ASRMCR1_fields_::IMSB,
-      ASRMCR1_fields_::IWD,
+      Asrmcr1Fields::IMSB,
+      Asrmcr1Fields::IWD,
       ftl::mmio::Reserved<21, 11>> {
     static_assert(Index < 3u, "ASRMCR1: Index out of range");
-    using eOW16 = ASRMCR1_fields_::eOW16;
-    using eOSGN = ASRMCR1_fields_::eOSGN;
-    using eOMSB = ASRMCR1_fields_::eOMSB;
-    using eIMSB = ASRMCR1_fields_::eIMSB;
-    using eIWD = ASRMCR1_fields_::eIWD;
-    using OW16 = ASRMCR1_fields_::OW16;
-    using OSGN = ASRMCR1_fields_::OSGN;
-    using OMSB = ASRMCR1_fields_::OMSB;
-    using IMSB = ASRMCR1_fields_::IMSB;
-    using IWD = ASRMCR1_fields_::IWD;
+    using eOW16 = Asrmcr1Fields::eOW16;
+    using eOSGN = Asrmcr1Fields::eOSGN;
+    using eOMSB = Asrmcr1Fields::eOMSB;
+    using eIMSB = Asrmcr1Fields::eIMSB;
+    using eIWD = Asrmcr1Fields::eIWD;
+    using OW16 = Asrmcr1Fields::OW16;
+    using OSGN = Asrmcr1Fields::OSGN;
+    using OMSB = Asrmcr1Fields::OMSB;
+    using IMSB = Asrmcr1Fields::IMSB;
+    using IWD = Asrmcr1Fields::IWD;
   };
 
 };

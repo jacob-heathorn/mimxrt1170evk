@@ -22,97 +22,97 @@ struct Tmr {
       0u;
 
   // Timer Channel Compare Register 1
-  struct COMP10_fields_ {
+  struct Comp10Fields {
     // Comparison Value 1
     using COMPARISON_1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct COMP10_fields_
+  };  // struct Comp10Fields
 
   struct COMP10 : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename COMP10_fields_::COMPARISON_1> {
-    using COMPARISON_1 = typename COMP10_fields_::COMPARISON_1;
+      typename Comp10Fields::COMPARISON_1> {
+    using COMPARISON_1 = typename Comp10Fields::COMPARISON_1;
   };
 
   // Timer Channel Compare Register 2
-  struct COMP20_fields_ {
+  struct Comp20Fields {
     // Comparison Value 2
     using COMPARISON_2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct COMP20_fields_
+  };  // struct Comp20Fields
 
   struct COMP20 : ftl::mmio::Register<
       kBase + 0x2u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename COMP20_fields_::COMPARISON_2> {
-    using COMPARISON_2 = typename COMP20_fields_::COMPARISON_2;
+      typename Comp20Fields::COMPARISON_2> {
+    using COMPARISON_2 = typename Comp20Fields::COMPARISON_2;
   };
 
   // Timer Channel Capture Register
-  struct CAPT0_fields_ {
+  struct Capt0Fields {
     // Capture Value
     using CAPTURE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CAPT0_fields_
+  };  // struct Capt0Fields
 
   struct CAPT0 : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CAPT0_fields_::CAPTURE> {
-    using CAPTURE = typename CAPT0_fields_::CAPTURE;
+      typename Capt0Fields::CAPTURE> {
+    using CAPTURE = typename Capt0Fields::CAPTURE;
   };
 
   // Timer Channel Load Register
-  struct LOAD0_fields_ {
+  struct Load0Fields {
     // Timer Load Register
     using LOAD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LOAD0_fields_
+  };  // struct Load0Fields
 
   struct LOAD0 : ftl::mmio::Register<
       kBase + 0x6u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename LOAD0_fields_::LOAD> {
-    using LOAD = typename LOAD0_fields_::LOAD;
+      typename Load0Fields::LOAD> {
+    using LOAD = typename Load0Fields::LOAD;
   };
 
   // Timer Channel Hold Register
-  struct HOLD0_fields_ {
+  struct Hold0Fields {
     // HOLD
     using HOLD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HOLD0_fields_
+  };  // struct Hold0Fields
 
   struct HOLD0 : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename HOLD0_fields_::HOLD> {
-    using HOLD = typename HOLD0_fields_::HOLD;
+      typename Hold0Fields::HOLD> {
+    using HOLD = typename Hold0Fields::HOLD;
   };
 
   // Timer Channel Counter Register
-  struct CNTR0_fields_ {
+  struct Cntr0Fields {
     // COUNTER
     using COUNTER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CNTR0_fields_
+  };  // struct Cntr0Fields
 
   struct CNTR0 : ftl::mmio::Register<
       kBase + 0xAu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CNTR0_fields_::COUNTER> {
-    using COUNTER = typename CNTR0_fields_::COUNTER;
+      typename Cntr0Fields::COUNTER> {
+    using COUNTER = typename Cntr0Fields::COUNTER;
   };
 
   // Timer Channel Control Register
-  struct CTRL0_fields_ {
+  struct Ctrl0Fields {
     enum class eOUTMODE : std::uint32_t {
       // Asserted while counter is active
       eCOUNTER_ACTIVE = 0,
@@ -241,41 +241,41 @@ struct Tmr {
     using PCS = ftl::mmio::Field<4, 9, ePCS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Count Mode
     using CM = ftl::mmio::Field<3, 13, eCM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL0_fields_
+  };  // struct Ctrl0Fields
 
   struct CTRL0 : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CTRL0_fields_::OUTMODE,
-      typename CTRL0_fields_::COINIT,
-      typename CTRL0_fields_::DIR,
-      typename CTRL0_fields_::LENGTH,
-      typename CTRL0_fields_::ONCE,
-      typename CTRL0_fields_::SCS,
-      typename CTRL0_fields_::PCS,
-      typename CTRL0_fields_::CM> {
-    using eOUTMODE = typename CTRL0_fields_::eOUTMODE;
-    using eCOINIT = typename CTRL0_fields_::eCOINIT;
-    using eDIR = typename CTRL0_fields_::eDIR;
-    using eLENGTH = typename CTRL0_fields_::eLENGTH;
-    using eONCE = typename CTRL0_fields_::eONCE;
-    using eSCS = typename CTRL0_fields_::eSCS;
-    using ePCS = typename CTRL0_fields_::ePCS;
-    using eCM = typename CTRL0_fields_::eCM;
-    using OUTMODE = typename CTRL0_fields_::OUTMODE;
-    using COINIT = typename CTRL0_fields_::COINIT;
-    using DIR = typename CTRL0_fields_::DIR;
-    using LENGTH = typename CTRL0_fields_::LENGTH;
-    using ONCE = typename CTRL0_fields_::ONCE;
-    using SCS = typename CTRL0_fields_::SCS;
-    using PCS = typename CTRL0_fields_::PCS;
-    using CM = typename CTRL0_fields_::CM;
+      typename Ctrl0Fields::OUTMODE,
+      typename Ctrl0Fields::COINIT,
+      typename Ctrl0Fields::DIR,
+      typename Ctrl0Fields::LENGTH,
+      typename Ctrl0Fields::ONCE,
+      typename Ctrl0Fields::SCS,
+      typename Ctrl0Fields::PCS,
+      typename Ctrl0Fields::CM> {
+    using eOUTMODE = typename Ctrl0Fields::eOUTMODE;
+    using eCOINIT = typename Ctrl0Fields::eCOINIT;
+    using eDIR = typename Ctrl0Fields::eDIR;
+    using eLENGTH = typename Ctrl0Fields::eLENGTH;
+    using eONCE = typename Ctrl0Fields::eONCE;
+    using eSCS = typename Ctrl0Fields::eSCS;
+    using ePCS = typename Ctrl0Fields::ePCS;
+    using eCM = typename Ctrl0Fields::eCM;
+    using OUTMODE = typename Ctrl0Fields::OUTMODE;
+    using COINIT = typename Ctrl0Fields::COINIT;
+    using DIR = typename Ctrl0Fields::DIR;
+    using LENGTH = typename Ctrl0Fields::LENGTH;
+    using ONCE = typename Ctrl0Fields::ONCE;
+    using SCS = typename Ctrl0Fields::SCS;
+    using PCS = typename Ctrl0Fields::PCS;
+    using CM = typename Ctrl0Fields::CM;
   };
 
   // Timer Channel Status and Control Register
-  struct SCTRL0_fields_ {
+  struct Sctrl0Fields {
     enum class eOEN : std::uint32_t {
       // The external pin is configured as an input.
       eINPUT = 0,
@@ -331,80 +331,80 @@ struct Tmr {
     using TCFIE = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Compare Flag
     using TCF = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCTRL0_fields_
+  };  // struct Sctrl0Fields
 
   struct SCTRL0 : ftl::mmio::Register<
       kBase + 0xEu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename SCTRL0_fields_::OEN,
-      typename SCTRL0_fields_::OPS,
-      typename SCTRL0_fields_::FORCE,
-      typename SCTRL0_fields_::VAL,
-      typename SCTRL0_fields_::EEOF,
-      typename SCTRL0_fields_::MSTR,
-      typename SCTRL0_fields_::CAPTURE_MODE,
-      typename SCTRL0_fields_::INPUT,
-      typename SCTRL0_fields_::IPS,
-      typename SCTRL0_fields_::IEFIE,
-      typename SCTRL0_fields_::IEF,
-      typename SCTRL0_fields_::TOFIE,
-      typename SCTRL0_fields_::TOF,
-      typename SCTRL0_fields_::TCFIE,
-      typename SCTRL0_fields_::TCF> {
-    using eOEN = typename SCTRL0_fields_::eOEN;
-    using eOPS = typename SCTRL0_fields_::eOPS;
-    using eCAPTURE_MODE = typename SCTRL0_fields_::eCAPTURE_MODE;
-    using OEN = typename SCTRL0_fields_::OEN;
-    using OPS = typename SCTRL0_fields_::OPS;
-    using FORCE = typename SCTRL0_fields_::FORCE;
-    using VAL = typename SCTRL0_fields_::VAL;
-    using EEOF = typename SCTRL0_fields_::EEOF;
-    using MSTR = typename SCTRL0_fields_::MSTR;
-    using CAPTURE_MODE = typename SCTRL0_fields_::CAPTURE_MODE;
-    using INPUT = typename SCTRL0_fields_::INPUT;
-    using IPS = typename SCTRL0_fields_::IPS;
-    using IEFIE = typename SCTRL0_fields_::IEFIE;
-    using IEF = typename SCTRL0_fields_::IEF;
-    using TOFIE = typename SCTRL0_fields_::TOFIE;
-    using TOF = typename SCTRL0_fields_::TOF;
-    using TCFIE = typename SCTRL0_fields_::TCFIE;
-    using TCF = typename SCTRL0_fields_::TCF;
+      typename Sctrl0Fields::OEN,
+      typename Sctrl0Fields::OPS,
+      typename Sctrl0Fields::FORCE,
+      typename Sctrl0Fields::VAL,
+      typename Sctrl0Fields::EEOF,
+      typename Sctrl0Fields::MSTR,
+      typename Sctrl0Fields::CAPTURE_MODE,
+      typename Sctrl0Fields::INPUT,
+      typename Sctrl0Fields::IPS,
+      typename Sctrl0Fields::IEFIE,
+      typename Sctrl0Fields::IEF,
+      typename Sctrl0Fields::TOFIE,
+      typename Sctrl0Fields::TOF,
+      typename Sctrl0Fields::TCFIE,
+      typename Sctrl0Fields::TCF> {
+    using eOEN = typename Sctrl0Fields::eOEN;
+    using eOPS = typename Sctrl0Fields::eOPS;
+    using eCAPTURE_MODE = typename Sctrl0Fields::eCAPTURE_MODE;
+    using OEN = typename Sctrl0Fields::OEN;
+    using OPS = typename Sctrl0Fields::OPS;
+    using FORCE = typename Sctrl0Fields::FORCE;
+    using VAL = typename Sctrl0Fields::VAL;
+    using EEOF = typename Sctrl0Fields::EEOF;
+    using MSTR = typename Sctrl0Fields::MSTR;
+    using CAPTURE_MODE = typename Sctrl0Fields::CAPTURE_MODE;
+    using INPUT = typename Sctrl0Fields::INPUT;
+    using IPS = typename Sctrl0Fields::IPS;
+    using IEFIE = typename Sctrl0Fields::IEFIE;
+    using IEF = typename Sctrl0Fields::IEF;
+    using TOFIE = typename Sctrl0Fields::TOFIE;
+    using TOF = typename Sctrl0Fields::TOF;
+    using TCFIE = typename Sctrl0Fields::TCFIE;
+    using TCF = typename Sctrl0Fields::TCF;
   };
 
   // Timer Channel Comparator Load Register 1
-  struct CMPLD10_fields_ {
+  struct Cmpld10Fields {
     // COMPARATOR_LOAD_1
     using COMPARATOR_LOAD_1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMPLD10_fields_
+  };  // struct Cmpld10Fields
 
   struct CMPLD10 : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CMPLD10_fields_::COMPARATOR_LOAD_1> {
-    using COMPARATOR_LOAD_1 = typename CMPLD10_fields_::COMPARATOR_LOAD_1;
+      typename Cmpld10Fields::COMPARATOR_LOAD_1> {
+    using COMPARATOR_LOAD_1 = typename Cmpld10Fields::COMPARATOR_LOAD_1;
   };
 
   // Timer Channel Comparator Load Register 2
-  struct CMPLD20_fields_ {
+  struct Cmpld20Fields {
     // COMPARATOR_LOAD_2
     using COMPARATOR_LOAD_2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMPLD20_fields_
+  };  // struct Cmpld20Fields
 
   struct CMPLD20 : ftl::mmio::Register<
       kBase + 0x12u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CMPLD20_fields_::COMPARATOR_LOAD_2> {
-    using COMPARATOR_LOAD_2 = typename CMPLD20_fields_::COMPARATOR_LOAD_2;
+      typename Cmpld20Fields::COMPARATOR_LOAD_2> {
+    using COMPARATOR_LOAD_2 = typename Cmpld20Fields::COMPARATOR_LOAD_2;
   };
 
   // Timer Channel Comparator Status and Control Register
-  struct CSCTRL0_fields_ {
+  struct Csctrl0Fields {
     enum class eCL1 : std::uint32_t {
       // Never preload
       eNEVER = 0,
@@ -495,95 +495,95 @@ struct Tmr {
     using FAULT = ftl::mmio::Field<1, 13, eFAULT, ftl::mmio::RW, ftl::mmio::Normal>;
     // Debug Actions Enable
     using DBG_EN = ftl::mmio::Field<2, 14, eDBG_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSCTRL0_fields_
+  };  // struct Csctrl0Fields
 
   struct CSCTRL0 : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CSCTRL0_fields_::CL1,
-      typename CSCTRL0_fields_::CL2,
-      typename CSCTRL0_fields_::TCF1,
-      typename CSCTRL0_fields_::TCF2,
-      typename CSCTRL0_fields_::TCF1EN,
-      typename CSCTRL0_fields_::TCF2EN,
-      typename CSCTRL0_fields_::OFLAG,
-      typename CSCTRL0_fields_::UP,
-      typename CSCTRL0_fields_::TCI,
-      typename CSCTRL0_fields_::ROC,
-      typename CSCTRL0_fields_::ALT_LOAD,
-      typename CSCTRL0_fields_::FAULT,
-      typename CSCTRL0_fields_::DBG_EN> {
-    using eCL1 = typename CSCTRL0_fields_::eCL1;
-    using eCL2 = typename CSCTRL0_fields_::eCL2;
-    using eUP = typename CSCTRL0_fields_::eUP;
-    using eTCI = typename CSCTRL0_fields_::eTCI;
-    using eROC = typename CSCTRL0_fields_::eROC;
-    using eALT_LOAD = typename CSCTRL0_fields_::eALT_LOAD;
-    using eFAULT = typename CSCTRL0_fields_::eFAULT;
-    using eDBG_EN = typename CSCTRL0_fields_::eDBG_EN;
-    using CL1 = typename CSCTRL0_fields_::CL1;
-    using CL2 = typename CSCTRL0_fields_::CL2;
-    using TCF1 = typename CSCTRL0_fields_::TCF1;
-    using TCF2 = typename CSCTRL0_fields_::TCF2;
-    using TCF1EN = typename CSCTRL0_fields_::TCF1EN;
-    using TCF2EN = typename CSCTRL0_fields_::TCF2EN;
-    using OFLAG = typename CSCTRL0_fields_::OFLAG;
-    using UP = typename CSCTRL0_fields_::UP;
-    using TCI = typename CSCTRL0_fields_::TCI;
-    using ROC = typename CSCTRL0_fields_::ROC;
-    using ALT_LOAD = typename CSCTRL0_fields_::ALT_LOAD;
-    using FAULT = typename CSCTRL0_fields_::FAULT;
-    using DBG_EN = typename CSCTRL0_fields_::DBG_EN;
+      typename Csctrl0Fields::CL1,
+      typename Csctrl0Fields::CL2,
+      typename Csctrl0Fields::TCF1,
+      typename Csctrl0Fields::TCF2,
+      typename Csctrl0Fields::TCF1EN,
+      typename Csctrl0Fields::TCF2EN,
+      typename Csctrl0Fields::OFLAG,
+      typename Csctrl0Fields::UP,
+      typename Csctrl0Fields::TCI,
+      typename Csctrl0Fields::ROC,
+      typename Csctrl0Fields::ALT_LOAD,
+      typename Csctrl0Fields::FAULT,
+      typename Csctrl0Fields::DBG_EN> {
+    using eCL1 = typename Csctrl0Fields::eCL1;
+    using eCL2 = typename Csctrl0Fields::eCL2;
+    using eUP = typename Csctrl0Fields::eUP;
+    using eTCI = typename Csctrl0Fields::eTCI;
+    using eROC = typename Csctrl0Fields::eROC;
+    using eALT_LOAD = typename Csctrl0Fields::eALT_LOAD;
+    using eFAULT = typename Csctrl0Fields::eFAULT;
+    using eDBG_EN = typename Csctrl0Fields::eDBG_EN;
+    using CL1 = typename Csctrl0Fields::CL1;
+    using CL2 = typename Csctrl0Fields::CL2;
+    using TCF1 = typename Csctrl0Fields::TCF1;
+    using TCF2 = typename Csctrl0Fields::TCF2;
+    using TCF1EN = typename Csctrl0Fields::TCF1EN;
+    using TCF2EN = typename Csctrl0Fields::TCF2EN;
+    using OFLAG = typename Csctrl0Fields::OFLAG;
+    using UP = typename Csctrl0Fields::UP;
+    using TCI = typename Csctrl0Fields::TCI;
+    using ROC = typename Csctrl0Fields::ROC;
+    using ALT_LOAD = typename Csctrl0Fields::ALT_LOAD;
+    using FAULT = typename Csctrl0Fields::FAULT;
+    using DBG_EN = typename Csctrl0Fields::DBG_EN;
   };
 
   // Timer Channel Input Filter Register
-  struct FILT0_fields_ {
+  struct Filt0Fields {
     // Input Filter Sample Period
     using FILT_PER = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Input Filter Sample Count
     using FILT_CNT = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FILT0_fields_
+  };  // struct Filt0Fields
 
   struct FILT0 : ftl::mmio::Register<
       kBase + 0x16u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename FILT0_fields_::FILT_PER,
-      typename FILT0_fields_::FILT_CNT,
+      typename Filt0Fields::FILT_PER,
+      typename Filt0Fields::FILT_CNT,
       ftl::mmio::Reserved<5, 11>> {
-    using FILT_PER = typename FILT0_fields_::FILT_PER;
-    using FILT_CNT = typename FILT0_fields_::FILT_CNT;
+    using FILT_PER = typename Filt0Fields::FILT_PER;
+    using FILT_CNT = typename Filt0Fields::FILT_CNT;
   };
 
   // Timer Channel DMA Enable Register
-  struct DMA0_fields_ {
+  struct Dma0Fields {
     // Input Edge Flag DMA Enable
     using IEFDE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Comparator Preload Register 1 DMA Enable
     using CMPLD1DE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Comparator Preload Register 2 DMA Enable
     using CMPLD2DE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA0_fields_
+  };  // struct Dma0Fields
 
   struct DMA0 : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename DMA0_fields_::IEFDE,
-      typename DMA0_fields_::CMPLD1DE,
-      typename DMA0_fields_::CMPLD2DE,
+      typename Dma0Fields::IEFDE,
+      typename Dma0Fields::CMPLD1DE,
+      typename Dma0Fields::CMPLD2DE,
       ftl::mmio::Reserved<13, 3>> {
-    using IEFDE = typename DMA0_fields_::IEFDE;
-    using CMPLD1DE = typename DMA0_fields_::CMPLD1DE;
-    using CMPLD2DE = typename DMA0_fields_::CMPLD2DE;
+    using IEFDE = typename Dma0Fields::IEFDE;
+    using CMPLD1DE = typename Dma0Fields::CMPLD1DE;
+    using CMPLD2DE = typename Dma0Fields::CMPLD2DE;
   };
 
   // Timer Channel Enable Register
-  struct ENBL_fields_ {
+  struct EnblFields {
     enum class eENBL : std::uint32_t {
       // Disables the timer channel.
       eDISABLE = 0,
@@ -593,111 +593,111 @@ struct Tmr {
 
     // Timer Channel Enable
     using ENBL = ftl::mmio::Field<4, 0, eENBL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENBL_fields_
+  };  // struct EnblFields
 
   struct ENBL : ftl::mmio::Register<
       kBase + 0x1Eu,
       std::uint16_t,
       0x000Fu,
       ftl::mmio::RW,
-      typename ENBL_fields_::ENBL,
+      typename EnblFields::ENBL,
       ftl::mmio::Reserved<12, 4>> {
-    using eENBL = typename ENBL_fields_::eENBL;
-    using VALUE = typename ENBL_fields_::ENBL;
+    using eENBL = typename EnblFields::eENBL;
+    using VALUE = typename EnblFields::ENBL;
   };
 
   // Timer Channel Compare Register 1
-  struct COMP11_fields_ {
+  struct Comp11Fields {
     // Comparison Value 1
     using COMPARISON_1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct COMP11_fields_
+  };  // struct Comp11Fields
 
   struct COMP11 : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename COMP11_fields_::COMPARISON_1> {
-    using COMPARISON_1 = typename COMP11_fields_::COMPARISON_1;
+      typename Comp11Fields::COMPARISON_1> {
+    using COMPARISON_1 = typename Comp11Fields::COMPARISON_1;
   };
 
   // Timer Channel Compare Register 2
-  struct COMP21_fields_ {
+  struct Comp21Fields {
     // Comparison Value 2
     using COMPARISON_2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct COMP21_fields_
+  };  // struct Comp21Fields
 
   struct COMP21 : ftl::mmio::Register<
       kBase + 0x22u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename COMP21_fields_::COMPARISON_2> {
-    using COMPARISON_2 = typename COMP21_fields_::COMPARISON_2;
+      typename Comp21Fields::COMPARISON_2> {
+    using COMPARISON_2 = typename Comp21Fields::COMPARISON_2;
   };
 
   // Timer Channel Capture Register
-  struct CAPT1_fields_ {
+  struct Capt1Fields {
     // Capture Value
     using CAPTURE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CAPT1_fields_
+  };  // struct Capt1Fields
 
   struct CAPT1 : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CAPT1_fields_::CAPTURE> {
-    using CAPTURE = typename CAPT1_fields_::CAPTURE;
+      typename Capt1Fields::CAPTURE> {
+    using CAPTURE = typename Capt1Fields::CAPTURE;
   };
 
   // Timer Channel Load Register
-  struct LOAD1_fields_ {
+  struct Load1Fields {
     // Timer Load Register
     using LOAD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LOAD1_fields_
+  };  // struct Load1Fields
 
   struct LOAD1 : ftl::mmio::Register<
       kBase + 0x26u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename LOAD1_fields_::LOAD> {
-    using LOAD = typename LOAD1_fields_::LOAD;
+      typename Load1Fields::LOAD> {
+    using LOAD = typename Load1Fields::LOAD;
   };
 
   // Timer Channel Hold Register
-  struct HOLD1_fields_ {
+  struct Hold1Fields {
     // HOLD
     using HOLD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HOLD1_fields_
+  };  // struct Hold1Fields
 
   struct HOLD1 : ftl::mmio::Register<
       kBase + 0x28u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename HOLD1_fields_::HOLD> {
-    using HOLD = typename HOLD1_fields_::HOLD;
+      typename Hold1Fields::HOLD> {
+    using HOLD = typename Hold1Fields::HOLD;
   };
 
   // Timer Channel Counter Register
-  struct CNTR1_fields_ {
+  struct Cntr1Fields {
     // COUNTER
     using COUNTER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CNTR1_fields_
+  };  // struct Cntr1Fields
 
   struct CNTR1 : ftl::mmio::Register<
       kBase + 0x2Au,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CNTR1_fields_::COUNTER> {
-    using COUNTER = typename CNTR1_fields_::COUNTER;
+      typename Cntr1Fields::COUNTER> {
+    using COUNTER = typename Cntr1Fields::COUNTER;
   };
 
   // Timer Channel Control Register
-  struct CTRL1_fields_ {
+  struct Ctrl1Fields {
     enum class eOUTMODE : std::uint32_t {
       // Asserted while counter is active
       eCOUNTER_ACTIVE = 0,
@@ -826,41 +826,41 @@ struct Tmr {
     using PCS = ftl::mmio::Field<4, 9, ePCS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Count Mode
     using CM = ftl::mmio::Field<3, 13, eCM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL1_fields_
+  };  // struct Ctrl1Fields
 
   struct CTRL1 : ftl::mmio::Register<
       kBase + 0x2Cu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CTRL1_fields_::OUTMODE,
-      typename CTRL1_fields_::COINIT,
-      typename CTRL1_fields_::DIR,
-      typename CTRL1_fields_::LENGTH,
-      typename CTRL1_fields_::ONCE,
-      typename CTRL1_fields_::SCS,
-      typename CTRL1_fields_::PCS,
-      typename CTRL1_fields_::CM> {
-    using eOUTMODE = typename CTRL1_fields_::eOUTMODE;
-    using eCOINIT = typename CTRL1_fields_::eCOINIT;
-    using eDIR = typename CTRL1_fields_::eDIR;
-    using eLENGTH = typename CTRL1_fields_::eLENGTH;
-    using eONCE = typename CTRL1_fields_::eONCE;
-    using eSCS = typename CTRL1_fields_::eSCS;
-    using ePCS = typename CTRL1_fields_::ePCS;
-    using eCM = typename CTRL1_fields_::eCM;
-    using OUTMODE = typename CTRL1_fields_::OUTMODE;
-    using COINIT = typename CTRL1_fields_::COINIT;
-    using DIR = typename CTRL1_fields_::DIR;
-    using LENGTH = typename CTRL1_fields_::LENGTH;
-    using ONCE = typename CTRL1_fields_::ONCE;
-    using SCS = typename CTRL1_fields_::SCS;
-    using PCS = typename CTRL1_fields_::PCS;
-    using CM = typename CTRL1_fields_::CM;
+      typename Ctrl1Fields::OUTMODE,
+      typename Ctrl1Fields::COINIT,
+      typename Ctrl1Fields::DIR,
+      typename Ctrl1Fields::LENGTH,
+      typename Ctrl1Fields::ONCE,
+      typename Ctrl1Fields::SCS,
+      typename Ctrl1Fields::PCS,
+      typename Ctrl1Fields::CM> {
+    using eOUTMODE = typename Ctrl1Fields::eOUTMODE;
+    using eCOINIT = typename Ctrl1Fields::eCOINIT;
+    using eDIR = typename Ctrl1Fields::eDIR;
+    using eLENGTH = typename Ctrl1Fields::eLENGTH;
+    using eONCE = typename Ctrl1Fields::eONCE;
+    using eSCS = typename Ctrl1Fields::eSCS;
+    using ePCS = typename Ctrl1Fields::ePCS;
+    using eCM = typename Ctrl1Fields::eCM;
+    using OUTMODE = typename Ctrl1Fields::OUTMODE;
+    using COINIT = typename Ctrl1Fields::COINIT;
+    using DIR = typename Ctrl1Fields::DIR;
+    using LENGTH = typename Ctrl1Fields::LENGTH;
+    using ONCE = typename Ctrl1Fields::ONCE;
+    using SCS = typename Ctrl1Fields::SCS;
+    using PCS = typename Ctrl1Fields::PCS;
+    using CM = typename Ctrl1Fields::CM;
   };
 
   // Timer Channel Status and Control Register
-  struct SCTRL1_fields_ {
+  struct Sctrl1Fields {
     enum class eOEN : std::uint32_t {
       // The external pin is configured as an input.
       eINPUT = 0,
@@ -916,80 +916,80 @@ struct Tmr {
     using TCFIE = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Compare Flag
     using TCF = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCTRL1_fields_
+  };  // struct Sctrl1Fields
 
   struct SCTRL1 : ftl::mmio::Register<
       kBase + 0x2Eu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename SCTRL1_fields_::OEN,
-      typename SCTRL1_fields_::OPS,
-      typename SCTRL1_fields_::FORCE,
-      typename SCTRL1_fields_::VAL,
-      typename SCTRL1_fields_::EEOF,
-      typename SCTRL1_fields_::MSTR,
-      typename SCTRL1_fields_::CAPTURE_MODE,
-      typename SCTRL1_fields_::INPUT,
-      typename SCTRL1_fields_::IPS,
-      typename SCTRL1_fields_::IEFIE,
-      typename SCTRL1_fields_::IEF,
-      typename SCTRL1_fields_::TOFIE,
-      typename SCTRL1_fields_::TOF,
-      typename SCTRL1_fields_::TCFIE,
-      typename SCTRL1_fields_::TCF> {
-    using eOEN = typename SCTRL1_fields_::eOEN;
-    using eOPS = typename SCTRL1_fields_::eOPS;
-    using eCAPTURE_MODE = typename SCTRL1_fields_::eCAPTURE_MODE;
-    using OEN = typename SCTRL1_fields_::OEN;
-    using OPS = typename SCTRL1_fields_::OPS;
-    using FORCE = typename SCTRL1_fields_::FORCE;
-    using VAL = typename SCTRL1_fields_::VAL;
-    using EEOF = typename SCTRL1_fields_::EEOF;
-    using MSTR = typename SCTRL1_fields_::MSTR;
-    using CAPTURE_MODE = typename SCTRL1_fields_::CAPTURE_MODE;
-    using INPUT = typename SCTRL1_fields_::INPUT;
-    using IPS = typename SCTRL1_fields_::IPS;
-    using IEFIE = typename SCTRL1_fields_::IEFIE;
-    using IEF = typename SCTRL1_fields_::IEF;
-    using TOFIE = typename SCTRL1_fields_::TOFIE;
-    using TOF = typename SCTRL1_fields_::TOF;
-    using TCFIE = typename SCTRL1_fields_::TCFIE;
-    using TCF = typename SCTRL1_fields_::TCF;
+      typename Sctrl1Fields::OEN,
+      typename Sctrl1Fields::OPS,
+      typename Sctrl1Fields::FORCE,
+      typename Sctrl1Fields::VAL,
+      typename Sctrl1Fields::EEOF,
+      typename Sctrl1Fields::MSTR,
+      typename Sctrl1Fields::CAPTURE_MODE,
+      typename Sctrl1Fields::INPUT,
+      typename Sctrl1Fields::IPS,
+      typename Sctrl1Fields::IEFIE,
+      typename Sctrl1Fields::IEF,
+      typename Sctrl1Fields::TOFIE,
+      typename Sctrl1Fields::TOF,
+      typename Sctrl1Fields::TCFIE,
+      typename Sctrl1Fields::TCF> {
+    using eOEN = typename Sctrl1Fields::eOEN;
+    using eOPS = typename Sctrl1Fields::eOPS;
+    using eCAPTURE_MODE = typename Sctrl1Fields::eCAPTURE_MODE;
+    using OEN = typename Sctrl1Fields::OEN;
+    using OPS = typename Sctrl1Fields::OPS;
+    using FORCE = typename Sctrl1Fields::FORCE;
+    using VAL = typename Sctrl1Fields::VAL;
+    using EEOF = typename Sctrl1Fields::EEOF;
+    using MSTR = typename Sctrl1Fields::MSTR;
+    using CAPTURE_MODE = typename Sctrl1Fields::CAPTURE_MODE;
+    using INPUT = typename Sctrl1Fields::INPUT;
+    using IPS = typename Sctrl1Fields::IPS;
+    using IEFIE = typename Sctrl1Fields::IEFIE;
+    using IEF = typename Sctrl1Fields::IEF;
+    using TOFIE = typename Sctrl1Fields::TOFIE;
+    using TOF = typename Sctrl1Fields::TOF;
+    using TCFIE = typename Sctrl1Fields::TCFIE;
+    using TCF = typename Sctrl1Fields::TCF;
   };
 
   // Timer Channel Comparator Load Register 1
-  struct CMPLD11_fields_ {
+  struct Cmpld11Fields {
     // COMPARATOR_LOAD_1
     using COMPARATOR_LOAD_1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMPLD11_fields_
+  };  // struct Cmpld11Fields
 
   struct CMPLD11 : ftl::mmio::Register<
       kBase + 0x30u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CMPLD11_fields_::COMPARATOR_LOAD_1> {
-    using COMPARATOR_LOAD_1 = typename CMPLD11_fields_::COMPARATOR_LOAD_1;
+      typename Cmpld11Fields::COMPARATOR_LOAD_1> {
+    using COMPARATOR_LOAD_1 = typename Cmpld11Fields::COMPARATOR_LOAD_1;
   };
 
   // Timer Channel Comparator Load Register 2
-  struct CMPLD21_fields_ {
+  struct Cmpld21Fields {
     // COMPARATOR_LOAD_2
     using COMPARATOR_LOAD_2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMPLD21_fields_
+  };  // struct Cmpld21Fields
 
   struct CMPLD21 : ftl::mmio::Register<
       kBase + 0x32u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CMPLD21_fields_::COMPARATOR_LOAD_2> {
-    using COMPARATOR_LOAD_2 = typename CMPLD21_fields_::COMPARATOR_LOAD_2;
+      typename Cmpld21Fields::COMPARATOR_LOAD_2> {
+    using COMPARATOR_LOAD_2 = typename Cmpld21Fields::COMPARATOR_LOAD_2;
   };
 
   // Timer Channel Comparator Status and Control Register
-  struct CSCTRL1_fields_ {
+  struct Csctrl1Fields {
     enum class eCL1 : std::uint32_t {
       // Never preload
       eNEVER = 0,
@@ -1080,185 +1080,185 @@ struct Tmr {
     using FAULT = ftl::mmio::Field<1, 13, eFAULT, ftl::mmio::RW, ftl::mmio::Normal>;
     // Debug Actions Enable
     using DBG_EN = ftl::mmio::Field<2, 14, eDBG_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSCTRL1_fields_
+  };  // struct Csctrl1Fields
 
   struct CSCTRL1 : ftl::mmio::Register<
       kBase + 0x34u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CSCTRL1_fields_::CL1,
-      typename CSCTRL1_fields_::CL2,
-      typename CSCTRL1_fields_::TCF1,
-      typename CSCTRL1_fields_::TCF2,
-      typename CSCTRL1_fields_::TCF1EN,
-      typename CSCTRL1_fields_::TCF2EN,
-      typename CSCTRL1_fields_::OFLAG,
-      typename CSCTRL1_fields_::UP,
-      typename CSCTRL1_fields_::TCI,
-      typename CSCTRL1_fields_::ROC,
-      typename CSCTRL1_fields_::ALT_LOAD,
-      typename CSCTRL1_fields_::FAULT,
-      typename CSCTRL1_fields_::DBG_EN> {
-    using eCL1 = typename CSCTRL1_fields_::eCL1;
-    using eCL2 = typename CSCTRL1_fields_::eCL2;
-    using eUP = typename CSCTRL1_fields_::eUP;
-    using eTCI = typename CSCTRL1_fields_::eTCI;
-    using eROC = typename CSCTRL1_fields_::eROC;
-    using eALT_LOAD = typename CSCTRL1_fields_::eALT_LOAD;
-    using eFAULT = typename CSCTRL1_fields_::eFAULT;
-    using eDBG_EN = typename CSCTRL1_fields_::eDBG_EN;
-    using CL1 = typename CSCTRL1_fields_::CL1;
-    using CL2 = typename CSCTRL1_fields_::CL2;
-    using TCF1 = typename CSCTRL1_fields_::TCF1;
-    using TCF2 = typename CSCTRL1_fields_::TCF2;
-    using TCF1EN = typename CSCTRL1_fields_::TCF1EN;
-    using TCF2EN = typename CSCTRL1_fields_::TCF2EN;
-    using OFLAG = typename CSCTRL1_fields_::OFLAG;
-    using UP = typename CSCTRL1_fields_::UP;
-    using TCI = typename CSCTRL1_fields_::TCI;
-    using ROC = typename CSCTRL1_fields_::ROC;
-    using ALT_LOAD = typename CSCTRL1_fields_::ALT_LOAD;
-    using FAULT = typename CSCTRL1_fields_::FAULT;
-    using DBG_EN = typename CSCTRL1_fields_::DBG_EN;
+      typename Csctrl1Fields::CL1,
+      typename Csctrl1Fields::CL2,
+      typename Csctrl1Fields::TCF1,
+      typename Csctrl1Fields::TCF2,
+      typename Csctrl1Fields::TCF1EN,
+      typename Csctrl1Fields::TCF2EN,
+      typename Csctrl1Fields::OFLAG,
+      typename Csctrl1Fields::UP,
+      typename Csctrl1Fields::TCI,
+      typename Csctrl1Fields::ROC,
+      typename Csctrl1Fields::ALT_LOAD,
+      typename Csctrl1Fields::FAULT,
+      typename Csctrl1Fields::DBG_EN> {
+    using eCL1 = typename Csctrl1Fields::eCL1;
+    using eCL2 = typename Csctrl1Fields::eCL2;
+    using eUP = typename Csctrl1Fields::eUP;
+    using eTCI = typename Csctrl1Fields::eTCI;
+    using eROC = typename Csctrl1Fields::eROC;
+    using eALT_LOAD = typename Csctrl1Fields::eALT_LOAD;
+    using eFAULT = typename Csctrl1Fields::eFAULT;
+    using eDBG_EN = typename Csctrl1Fields::eDBG_EN;
+    using CL1 = typename Csctrl1Fields::CL1;
+    using CL2 = typename Csctrl1Fields::CL2;
+    using TCF1 = typename Csctrl1Fields::TCF1;
+    using TCF2 = typename Csctrl1Fields::TCF2;
+    using TCF1EN = typename Csctrl1Fields::TCF1EN;
+    using TCF2EN = typename Csctrl1Fields::TCF2EN;
+    using OFLAG = typename Csctrl1Fields::OFLAG;
+    using UP = typename Csctrl1Fields::UP;
+    using TCI = typename Csctrl1Fields::TCI;
+    using ROC = typename Csctrl1Fields::ROC;
+    using ALT_LOAD = typename Csctrl1Fields::ALT_LOAD;
+    using FAULT = typename Csctrl1Fields::FAULT;
+    using DBG_EN = typename Csctrl1Fields::DBG_EN;
   };
 
   // Timer Channel Input Filter Register
-  struct FILT1_fields_ {
+  struct Filt1Fields {
     // Input Filter Sample Period
     using FILT_PER = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Input Filter Sample Count
     using FILT_CNT = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FILT1_fields_
+  };  // struct Filt1Fields
 
   struct FILT1 : ftl::mmio::Register<
       kBase + 0x36u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename FILT1_fields_::FILT_PER,
-      typename FILT1_fields_::FILT_CNT,
+      typename Filt1Fields::FILT_PER,
+      typename Filt1Fields::FILT_CNT,
       ftl::mmio::Reserved<5, 11>> {
-    using FILT_PER = typename FILT1_fields_::FILT_PER;
-    using FILT_CNT = typename FILT1_fields_::FILT_CNT;
+    using FILT_PER = typename Filt1Fields::FILT_PER;
+    using FILT_CNT = typename Filt1Fields::FILT_CNT;
   };
 
   // Timer Channel DMA Enable Register
-  struct DMA1_fields_ {
+  struct Dma1Fields {
     // Input Edge Flag DMA Enable
     using IEFDE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Comparator Preload Register 1 DMA Enable
     using CMPLD1DE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Comparator Preload Register 2 DMA Enable
     using CMPLD2DE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA1_fields_
+  };  // struct Dma1Fields
 
   struct DMA1 : ftl::mmio::Register<
       kBase + 0x38u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename DMA1_fields_::IEFDE,
-      typename DMA1_fields_::CMPLD1DE,
-      typename DMA1_fields_::CMPLD2DE,
+      typename Dma1Fields::IEFDE,
+      typename Dma1Fields::CMPLD1DE,
+      typename Dma1Fields::CMPLD2DE,
       ftl::mmio::Reserved<13, 3>> {
-    using IEFDE = typename DMA1_fields_::IEFDE;
-    using CMPLD1DE = typename DMA1_fields_::CMPLD1DE;
-    using CMPLD2DE = typename DMA1_fields_::CMPLD2DE;
+    using IEFDE = typename Dma1Fields::IEFDE;
+    using CMPLD1DE = typename Dma1Fields::CMPLD1DE;
+    using CMPLD2DE = typename Dma1Fields::CMPLD2DE;
   };
 
   // Timer Channel Compare Register 1
-  struct COMP12_fields_ {
+  struct Comp12Fields {
     // Comparison Value 1
     using COMPARISON_1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct COMP12_fields_
+  };  // struct Comp12Fields
 
   struct COMP12 : ftl::mmio::Register<
       kBase + 0x40u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename COMP12_fields_::COMPARISON_1> {
-    using COMPARISON_1 = typename COMP12_fields_::COMPARISON_1;
+      typename Comp12Fields::COMPARISON_1> {
+    using COMPARISON_1 = typename Comp12Fields::COMPARISON_1;
   };
 
   // Timer Channel Compare Register 2
-  struct COMP22_fields_ {
+  struct Comp22Fields {
     // Comparison Value 2
     using COMPARISON_2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct COMP22_fields_
+  };  // struct Comp22Fields
 
   struct COMP22 : ftl::mmio::Register<
       kBase + 0x42u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename COMP22_fields_::COMPARISON_2> {
-    using COMPARISON_2 = typename COMP22_fields_::COMPARISON_2;
+      typename Comp22Fields::COMPARISON_2> {
+    using COMPARISON_2 = typename Comp22Fields::COMPARISON_2;
   };
 
   // Timer Channel Capture Register
-  struct CAPT2_fields_ {
+  struct Capt2Fields {
     // Capture Value
     using CAPTURE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CAPT2_fields_
+  };  // struct Capt2Fields
 
   struct CAPT2 : ftl::mmio::Register<
       kBase + 0x44u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CAPT2_fields_::CAPTURE> {
-    using CAPTURE = typename CAPT2_fields_::CAPTURE;
+      typename Capt2Fields::CAPTURE> {
+    using CAPTURE = typename Capt2Fields::CAPTURE;
   };
 
   // Timer Channel Load Register
-  struct LOAD2_fields_ {
+  struct Load2Fields {
     // Timer Load Register
     using LOAD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LOAD2_fields_
+  };  // struct Load2Fields
 
   struct LOAD2 : ftl::mmio::Register<
       kBase + 0x46u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename LOAD2_fields_::LOAD> {
-    using LOAD = typename LOAD2_fields_::LOAD;
+      typename Load2Fields::LOAD> {
+    using LOAD = typename Load2Fields::LOAD;
   };
 
   // Timer Channel Hold Register
-  struct HOLD2_fields_ {
+  struct Hold2Fields {
     // HOLD
     using HOLD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HOLD2_fields_
+  };  // struct Hold2Fields
 
   struct HOLD2 : ftl::mmio::Register<
       kBase + 0x48u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename HOLD2_fields_::HOLD> {
-    using HOLD = typename HOLD2_fields_::HOLD;
+      typename Hold2Fields::HOLD> {
+    using HOLD = typename Hold2Fields::HOLD;
   };
 
   // Timer Channel Counter Register
-  struct CNTR2_fields_ {
+  struct Cntr2Fields {
     // COUNTER
     using COUNTER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CNTR2_fields_
+  };  // struct Cntr2Fields
 
   struct CNTR2 : ftl::mmio::Register<
       kBase + 0x4Au,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CNTR2_fields_::COUNTER> {
-    using COUNTER = typename CNTR2_fields_::COUNTER;
+      typename Cntr2Fields::COUNTER> {
+    using COUNTER = typename Cntr2Fields::COUNTER;
   };
 
   // Timer Channel Control Register
-  struct CTRL2_fields_ {
+  struct Ctrl2Fields {
     enum class eOUTMODE : std::uint32_t {
       // Asserted while counter is active
       eCOUNTER_ACTIVE = 0,
@@ -1387,41 +1387,41 @@ struct Tmr {
     using PCS = ftl::mmio::Field<4, 9, ePCS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Count Mode
     using CM = ftl::mmio::Field<3, 13, eCM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL2_fields_
+  };  // struct Ctrl2Fields
 
   struct CTRL2 : ftl::mmio::Register<
       kBase + 0x4Cu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CTRL2_fields_::OUTMODE,
-      typename CTRL2_fields_::COINIT,
-      typename CTRL2_fields_::DIR,
-      typename CTRL2_fields_::LENGTH,
-      typename CTRL2_fields_::ONCE,
-      typename CTRL2_fields_::SCS,
-      typename CTRL2_fields_::PCS,
-      typename CTRL2_fields_::CM> {
-    using eOUTMODE = typename CTRL2_fields_::eOUTMODE;
-    using eCOINIT = typename CTRL2_fields_::eCOINIT;
-    using eDIR = typename CTRL2_fields_::eDIR;
-    using eLENGTH = typename CTRL2_fields_::eLENGTH;
-    using eONCE = typename CTRL2_fields_::eONCE;
-    using eSCS = typename CTRL2_fields_::eSCS;
-    using ePCS = typename CTRL2_fields_::ePCS;
-    using eCM = typename CTRL2_fields_::eCM;
-    using OUTMODE = typename CTRL2_fields_::OUTMODE;
-    using COINIT = typename CTRL2_fields_::COINIT;
-    using DIR = typename CTRL2_fields_::DIR;
-    using LENGTH = typename CTRL2_fields_::LENGTH;
-    using ONCE = typename CTRL2_fields_::ONCE;
-    using SCS = typename CTRL2_fields_::SCS;
-    using PCS = typename CTRL2_fields_::PCS;
-    using CM = typename CTRL2_fields_::CM;
+      typename Ctrl2Fields::OUTMODE,
+      typename Ctrl2Fields::COINIT,
+      typename Ctrl2Fields::DIR,
+      typename Ctrl2Fields::LENGTH,
+      typename Ctrl2Fields::ONCE,
+      typename Ctrl2Fields::SCS,
+      typename Ctrl2Fields::PCS,
+      typename Ctrl2Fields::CM> {
+    using eOUTMODE = typename Ctrl2Fields::eOUTMODE;
+    using eCOINIT = typename Ctrl2Fields::eCOINIT;
+    using eDIR = typename Ctrl2Fields::eDIR;
+    using eLENGTH = typename Ctrl2Fields::eLENGTH;
+    using eONCE = typename Ctrl2Fields::eONCE;
+    using eSCS = typename Ctrl2Fields::eSCS;
+    using ePCS = typename Ctrl2Fields::ePCS;
+    using eCM = typename Ctrl2Fields::eCM;
+    using OUTMODE = typename Ctrl2Fields::OUTMODE;
+    using COINIT = typename Ctrl2Fields::COINIT;
+    using DIR = typename Ctrl2Fields::DIR;
+    using LENGTH = typename Ctrl2Fields::LENGTH;
+    using ONCE = typename Ctrl2Fields::ONCE;
+    using SCS = typename Ctrl2Fields::SCS;
+    using PCS = typename Ctrl2Fields::PCS;
+    using CM = typename Ctrl2Fields::CM;
   };
 
   // Timer Channel Status and Control Register
-  struct SCTRL2_fields_ {
+  struct Sctrl2Fields {
     enum class eOEN : std::uint32_t {
       // The external pin is configured as an input.
       eINPUT = 0,
@@ -1477,80 +1477,80 @@ struct Tmr {
     using TCFIE = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Compare Flag
     using TCF = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCTRL2_fields_
+  };  // struct Sctrl2Fields
 
   struct SCTRL2 : ftl::mmio::Register<
       kBase + 0x4Eu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename SCTRL2_fields_::OEN,
-      typename SCTRL2_fields_::OPS,
-      typename SCTRL2_fields_::FORCE,
-      typename SCTRL2_fields_::VAL,
-      typename SCTRL2_fields_::EEOF,
-      typename SCTRL2_fields_::MSTR,
-      typename SCTRL2_fields_::CAPTURE_MODE,
-      typename SCTRL2_fields_::INPUT,
-      typename SCTRL2_fields_::IPS,
-      typename SCTRL2_fields_::IEFIE,
-      typename SCTRL2_fields_::IEF,
-      typename SCTRL2_fields_::TOFIE,
-      typename SCTRL2_fields_::TOF,
-      typename SCTRL2_fields_::TCFIE,
-      typename SCTRL2_fields_::TCF> {
-    using eOEN = typename SCTRL2_fields_::eOEN;
-    using eOPS = typename SCTRL2_fields_::eOPS;
-    using eCAPTURE_MODE = typename SCTRL2_fields_::eCAPTURE_MODE;
-    using OEN = typename SCTRL2_fields_::OEN;
-    using OPS = typename SCTRL2_fields_::OPS;
-    using FORCE = typename SCTRL2_fields_::FORCE;
-    using VAL = typename SCTRL2_fields_::VAL;
-    using EEOF = typename SCTRL2_fields_::EEOF;
-    using MSTR = typename SCTRL2_fields_::MSTR;
-    using CAPTURE_MODE = typename SCTRL2_fields_::CAPTURE_MODE;
-    using INPUT = typename SCTRL2_fields_::INPUT;
-    using IPS = typename SCTRL2_fields_::IPS;
-    using IEFIE = typename SCTRL2_fields_::IEFIE;
-    using IEF = typename SCTRL2_fields_::IEF;
-    using TOFIE = typename SCTRL2_fields_::TOFIE;
-    using TOF = typename SCTRL2_fields_::TOF;
-    using TCFIE = typename SCTRL2_fields_::TCFIE;
-    using TCF = typename SCTRL2_fields_::TCF;
+      typename Sctrl2Fields::OEN,
+      typename Sctrl2Fields::OPS,
+      typename Sctrl2Fields::FORCE,
+      typename Sctrl2Fields::VAL,
+      typename Sctrl2Fields::EEOF,
+      typename Sctrl2Fields::MSTR,
+      typename Sctrl2Fields::CAPTURE_MODE,
+      typename Sctrl2Fields::INPUT,
+      typename Sctrl2Fields::IPS,
+      typename Sctrl2Fields::IEFIE,
+      typename Sctrl2Fields::IEF,
+      typename Sctrl2Fields::TOFIE,
+      typename Sctrl2Fields::TOF,
+      typename Sctrl2Fields::TCFIE,
+      typename Sctrl2Fields::TCF> {
+    using eOEN = typename Sctrl2Fields::eOEN;
+    using eOPS = typename Sctrl2Fields::eOPS;
+    using eCAPTURE_MODE = typename Sctrl2Fields::eCAPTURE_MODE;
+    using OEN = typename Sctrl2Fields::OEN;
+    using OPS = typename Sctrl2Fields::OPS;
+    using FORCE = typename Sctrl2Fields::FORCE;
+    using VAL = typename Sctrl2Fields::VAL;
+    using EEOF = typename Sctrl2Fields::EEOF;
+    using MSTR = typename Sctrl2Fields::MSTR;
+    using CAPTURE_MODE = typename Sctrl2Fields::CAPTURE_MODE;
+    using INPUT = typename Sctrl2Fields::INPUT;
+    using IPS = typename Sctrl2Fields::IPS;
+    using IEFIE = typename Sctrl2Fields::IEFIE;
+    using IEF = typename Sctrl2Fields::IEF;
+    using TOFIE = typename Sctrl2Fields::TOFIE;
+    using TOF = typename Sctrl2Fields::TOF;
+    using TCFIE = typename Sctrl2Fields::TCFIE;
+    using TCF = typename Sctrl2Fields::TCF;
   };
 
   // Timer Channel Comparator Load Register 1
-  struct CMPLD12_fields_ {
+  struct Cmpld12Fields {
     // COMPARATOR_LOAD_1
     using COMPARATOR_LOAD_1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMPLD12_fields_
+  };  // struct Cmpld12Fields
 
   struct CMPLD12 : ftl::mmio::Register<
       kBase + 0x50u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CMPLD12_fields_::COMPARATOR_LOAD_1> {
-    using COMPARATOR_LOAD_1 = typename CMPLD12_fields_::COMPARATOR_LOAD_1;
+      typename Cmpld12Fields::COMPARATOR_LOAD_1> {
+    using COMPARATOR_LOAD_1 = typename Cmpld12Fields::COMPARATOR_LOAD_1;
   };
 
   // Timer Channel Comparator Load Register 2
-  struct CMPLD22_fields_ {
+  struct Cmpld22Fields {
     // COMPARATOR_LOAD_2
     using COMPARATOR_LOAD_2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMPLD22_fields_
+  };  // struct Cmpld22Fields
 
   struct CMPLD22 : ftl::mmio::Register<
       kBase + 0x52u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CMPLD22_fields_::COMPARATOR_LOAD_2> {
-    using COMPARATOR_LOAD_2 = typename CMPLD22_fields_::COMPARATOR_LOAD_2;
+      typename Cmpld22Fields::COMPARATOR_LOAD_2> {
+    using COMPARATOR_LOAD_2 = typename Cmpld22Fields::COMPARATOR_LOAD_2;
   };
 
   // Timer Channel Comparator Status and Control Register
-  struct CSCTRL2_fields_ {
+  struct Csctrl2Fields {
     enum class eCL1 : std::uint32_t {
       // Never preload
       eNEVER = 0,
@@ -1641,185 +1641,185 @@ struct Tmr {
     using FAULT = ftl::mmio::Field<1, 13, eFAULT, ftl::mmio::RW, ftl::mmio::Normal>;
     // Debug Actions Enable
     using DBG_EN = ftl::mmio::Field<2, 14, eDBG_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSCTRL2_fields_
+  };  // struct Csctrl2Fields
 
   struct CSCTRL2 : ftl::mmio::Register<
       kBase + 0x54u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CSCTRL2_fields_::CL1,
-      typename CSCTRL2_fields_::CL2,
-      typename CSCTRL2_fields_::TCF1,
-      typename CSCTRL2_fields_::TCF2,
-      typename CSCTRL2_fields_::TCF1EN,
-      typename CSCTRL2_fields_::TCF2EN,
-      typename CSCTRL2_fields_::OFLAG,
-      typename CSCTRL2_fields_::UP,
-      typename CSCTRL2_fields_::TCI,
-      typename CSCTRL2_fields_::ROC,
-      typename CSCTRL2_fields_::ALT_LOAD,
-      typename CSCTRL2_fields_::FAULT,
-      typename CSCTRL2_fields_::DBG_EN> {
-    using eCL1 = typename CSCTRL2_fields_::eCL1;
-    using eCL2 = typename CSCTRL2_fields_::eCL2;
-    using eUP = typename CSCTRL2_fields_::eUP;
-    using eTCI = typename CSCTRL2_fields_::eTCI;
-    using eROC = typename CSCTRL2_fields_::eROC;
-    using eALT_LOAD = typename CSCTRL2_fields_::eALT_LOAD;
-    using eFAULT = typename CSCTRL2_fields_::eFAULT;
-    using eDBG_EN = typename CSCTRL2_fields_::eDBG_EN;
-    using CL1 = typename CSCTRL2_fields_::CL1;
-    using CL2 = typename CSCTRL2_fields_::CL2;
-    using TCF1 = typename CSCTRL2_fields_::TCF1;
-    using TCF2 = typename CSCTRL2_fields_::TCF2;
-    using TCF1EN = typename CSCTRL2_fields_::TCF1EN;
-    using TCF2EN = typename CSCTRL2_fields_::TCF2EN;
-    using OFLAG = typename CSCTRL2_fields_::OFLAG;
-    using UP = typename CSCTRL2_fields_::UP;
-    using TCI = typename CSCTRL2_fields_::TCI;
-    using ROC = typename CSCTRL2_fields_::ROC;
-    using ALT_LOAD = typename CSCTRL2_fields_::ALT_LOAD;
-    using FAULT = typename CSCTRL2_fields_::FAULT;
-    using DBG_EN = typename CSCTRL2_fields_::DBG_EN;
+      typename Csctrl2Fields::CL1,
+      typename Csctrl2Fields::CL2,
+      typename Csctrl2Fields::TCF1,
+      typename Csctrl2Fields::TCF2,
+      typename Csctrl2Fields::TCF1EN,
+      typename Csctrl2Fields::TCF2EN,
+      typename Csctrl2Fields::OFLAG,
+      typename Csctrl2Fields::UP,
+      typename Csctrl2Fields::TCI,
+      typename Csctrl2Fields::ROC,
+      typename Csctrl2Fields::ALT_LOAD,
+      typename Csctrl2Fields::FAULT,
+      typename Csctrl2Fields::DBG_EN> {
+    using eCL1 = typename Csctrl2Fields::eCL1;
+    using eCL2 = typename Csctrl2Fields::eCL2;
+    using eUP = typename Csctrl2Fields::eUP;
+    using eTCI = typename Csctrl2Fields::eTCI;
+    using eROC = typename Csctrl2Fields::eROC;
+    using eALT_LOAD = typename Csctrl2Fields::eALT_LOAD;
+    using eFAULT = typename Csctrl2Fields::eFAULT;
+    using eDBG_EN = typename Csctrl2Fields::eDBG_EN;
+    using CL1 = typename Csctrl2Fields::CL1;
+    using CL2 = typename Csctrl2Fields::CL2;
+    using TCF1 = typename Csctrl2Fields::TCF1;
+    using TCF2 = typename Csctrl2Fields::TCF2;
+    using TCF1EN = typename Csctrl2Fields::TCF1EN;
+    using TCF2EN = typename Csctrl2Fields::TCF2EN;
+    using OFLAG = typename Csctrl2Fields::OFLAG;
+    using UP = typename Csctrl2Fields::UP;
+    using TCI = typename Csctrl2Fields::TCI;
+    using ROC = typename Csctrl2Fields::ROC;
+    using ALT_LOAD = typename Csctrl2Fields::ALT_LOAD;
+    using FAULT = typename Csctrl2Fields::FAULT;
+    using DBG_EN = typename Csctrl2Fields::DBG_EN;
   };
 
   // Timer Channel Input Filter Register
-  struct FILT2_fields_ {
+  struct Filt2Fields {
     // Input Filter Sample Period
     using FILT_PER = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Input Filter Sample Count
     using FILT_CNT = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FILT2_fields_
+  };  // struct Filt2Fields
 
   struct FILT2 : ftl::mmio::Register<
       kBase + 0x56u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename FILT2_fields_::FILT_PER,
-      typename FILT2_fields_::FILT_CNT,
+      typename Filt2Fields::FILT_PER,
+      typename Filt2Fields::FILT_CNT,
       ftl::mmio::Reserved<5, 11>> {
-    using FILT_PER = typename FILT2_fields_::FILT_PER;
-    using FILT_CNT = typename FILT2_fields_::FILT_CNT;
+    using FILT_PER = typename Filt2Fields::FILT_PER;
+    using FILT_CNT = typename Filt2Fields::FILT_CNT;
   };
 
   // Timer Channel DMA Enable Register
-  struct DMA2_fields_ {
+  struct Dma2Fields {
     // Input Edge Flag DMA Enable
     using IEFDE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Comparator Preload Register 1 DMA Enable
     using CMPLD1DE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Comparator Preload Register 2 DMA Enable
     using CMPLD2DE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA2_fields_
+  };  // struct Dma2Fields
 
   struct DMA2 : ftl::mmio::Register<
       kBase + 0x58u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename DMA2_fields_::IEFDE,
-      typename DMA2_fields_::CMPLD1DE,
-      typename DMA2_fields_::CMPLD2DE,
+      typename Dma2Fields::IEFDE,
+      typename Dma2Fields::CMPLD1DE,
+      typename Dma2Fields::CMPLD2DE,
       ftl::mmio::Reserved<13, 3>> {
-    using IEFDE = typename DMA2_fields_::IEFDE;
-    using CMPLD1DE = typename DMA2_fields_::CMPLD1DE;
-    using CMPLD2DE = typename DMA2_fields_::CMPLD2DE;
+    using IEFDE = typename Dma2Fields::IEFDE;
+    using CMPLD1DE = typename Dma2Fields::CMPLD1DE;
+    using CMPLD2DE = typename Dma2Fields::CMPLD2DE;
   };
 
   // Timer Channel Compare Register 1
-  struct COMP13_fields_ {
+  struct Comp13Fields {
     // Comparison Value 1
     using COMPARISON_1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct COMP13_fields_
+  };  // struct Comp13Fields
 
   struct COMP13 : ftl::mmio::Register<
       kBase + 0x60u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename COMP13_fields_::COMPARISON_1> {
-    using COMPARISON_1 = typename COMP13_fields_::COMPARISON_1;
+      typename Comp13Fields::COMPARISON_1> {
+    using COMPARISON_1 = typename Comp13Fields::COMPARISON_1;
   };
 
   // Timer Channel Compare Register 2
-  struct COMP23_fields_ {
+  struct Comp23Fields {
     // Comparison Value 2
     using COMPARISON_2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct COMP23_fields_
+  };  // struct Comp23Fields
 
   struct COMP23 : ftl::mmio::Register<
       kBase + 0x62u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename COMP23_fields_::COMPARISON_2> {
-    using COMPARISON_2 = typename COMP23_fields_::COMPARISON_2;
+      typename Comp23Fields::COMPARISON_2> {
+    using COMPARISON_2 = typename Comp23Fields::COMPARISON_2;
   };
 
   // Timer Channel Capture Register
-  struct CAPT3_fields_ {
+  struct Capt3Fields {
     // Capture Value
     using CAPTURE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CAPT3_fields_
+  };  // struct Capt3Fields
 
   struct CAPT3 : ftl::mmio::Register<
       kBase + 0x64u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CAPT3_fields_::CAPTURE> {
-    using CAPTURE = typename CAPT3_fields_::CAPTURE;
+      typename Capt3Fields::CAPTURE> {
+    using CAPTURE = typename Capt3Fields::CAPTURE;
   };
 
   // Timer Channel Load Register
-  struct LOAD3_fields_ {
+  struct Load3Fields {
     // Timer Load Register
     using LOAD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LOAD3_fields_
+  };  // struct Load3Fields
 
   struct LOAD3 : ftl::mmio::Register<
       kBase + 0x66u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename LOAD3_fields_::LOAD> {
-    using LOAD = typename LOAD3_fields_::LOAD;
+      typename Load3Fields::LOAD> {
+    using LOAD = typename Load3Fields::LOAD;
   };
 
   // Timer Channel Hold Register
-  struct HOLD3_fields_ {
+  struct Hold3Fields {
     // HOLD
     using HOLD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HOLD3_fields_
+  };  // struct Hold3Fields
 
   struct HOLD3 : ftl::mmio::Register<
       kBase + 0x68u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename HOLD3_fields_::HOLD> {
-    using HOLD = typename HOLD3_fields_::HOLD;
+      typename Hold3Fields::HOLD> {
+    using HOLD = typename Hold3Fields::HOLD;
   };
 
   // Timer Channel Counter Register
-  struct CNTR3_fields_ {
+  struct Cntr3Fields {
     // COUNTER
     using COUNTER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CNTR3_fields_
+  };  // struct Cntr3Fields
 
   struct CNTR3 : ftl::mmio::Register<
       kBase + 0x6Au,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CNTR3_fields_::COUNTER> {
-    using COUNTER = typename CNTR3_fields_::COUNTER;
+      typename Cntr3Fields::COUNTER> {
+    using COUNTER = typename Cntr3Fields::COUNTER;
   };
 
   // Timer Channel Control Register
-  struct CTRL3_fields_ {
+  struct Ctrl3Fields {
     enum class eOUTMODE : std::uint32_t {
       // Asserted while counter is active
       eCOUNTER_ACTIVE = 0,
@@ -1948,41 +1948,41 @@ struct Tmr {
     using PCS = ftl::mmio::Field<4, 9, ePCS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Count Mode
     using CM = ftl::mmio::Field<3, 13, eCM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL3_fields_
+  };  // struct Ctrl3Fields
 
   struct CTRL3 : ftl::mmio::Register<
       kBase + 0x6Cu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CTRL3_fields_::OUTMODE,
-      typename CTRL3_fields_::COINIT,
-      typename CTRL3_fields_::DIR,
-      typename CTRL3_fields_::LENGTH,
-      typename CTRL3_fields_::ONCE,
-      typename CTRL3_fields_::SCS,
-      typename CTRL3_fields_::PCS,
-      typename CTRL3_fields_::CM> {
-    using eOUTMODE = typename CTRL3_fields_::eOUTMODE;
-    using eCOINIT = typename CTRL3_fields_::eCOINIT;
-    using eDIR = typename CTRL3_fields_::eDIR;
-    using eLENGTH = typename CTRL3_fields_::eLENGTH;
-    using eONCE = typename CTRL3_fields_::eONCE;
-    using eSCS = typename CTRL3_fields_::eSCS;
-    using ePCS = typename CTRL3_fields_::ePCS;
-    using eCM = typename CTRL3_fields_::eCM;
-    using OUTMODE = typename CTRL3_fields_::OUTMODE;
-    using COINIT = typename CTRL3_fields_::COINIT;
-    using DIR = typename CTRL3_fields_::DIR;
-    using LENGTH = typename CTRL3_fields_::LENGTH;
-    using ONCE = typename CTRL3_fields_::ONCE;
-    using SCS = typename CTRL3_fields_::SCS;
-    using PCS = typename CTRL3_fields_::PCS;
-    using CM = typename CTRL3_fields_::CM;
+      typename Ctrl3Fields::OUTMODE,
+      typename Ctrl3Fields::COINIT,
+      typename Ctrl3Fields::DIR,
+      typename Ctrl3Fields::LENGTH,
+      typename Ctrl3Fields::ONCE,
+      typename Ctrl3Fields::SCS,
+      typename Ctrl3Fields::PCS,
+      typename Ctrl3Fields::CM> {
+    using eOUTMODE = typename Ctrl3Fields::eOUTMODE;
+    using eCOINIT = typename Ctrl3Fields::eCOINIT;
+    using eDIR = typename Ctrl3Fields::eDIR;
+    using eLENGTH = typename Ctrl3Fields::eLENGTH;
+    using eONCE = typename Ctrl3Fields::eONCE;
+    using eSCS = typename Ctrl3Fields::eSCS;
+    using ePCS = typename Ctrl3Fields::ePCS;
+    using eCM = typename Ctrl3Fields::eCM;
+    using OUTMODE = typename Ctrl3Fields::OUTMODE;
+    using COINIT = typename Ctrl3Fields::COINIT;
+    using DIR = typename Ctrl3Fields::DIR;
+    using LENGTH = typename Ctrl3Fields::LENGTH;
+    using ONCE = typename Ctrl3Fields::ONCE;
+    using SCS = typename Ctrl3Fields::SCS;
+    using PCS = typename Ctrl3Fields::PCS;
+    using CM = typename Ctrl3Fields::CM;
   };
 
   // Timer Channel Status and Control Register
-  struct SCTRL3_fields_ {
+  struct Sctrl3Fields {
     enum class eOEN : std::uint32_t {
       // The external pin is configured as an input.
       eINPUT = 0,
@@ -2038,80 +2038,80 @@ struct Tmr {
     using TCFIE = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Compare Flag
     using TCF = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCTRL3_fields_
+  };  // struct Sctrl3Fields
 
   struct SCTRL3 : ftl::mmio::Register<
       kBase + 0x6Eu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename SCTRL3_fields_::OEN,
-      typename SCTRL3_fields_::OPS,
-      typename SCTRL3_fields_::FORCE,
-      typename SCTRL3_fields_::VAL,
-      typename SCTRL3_fields_::EEOF,
-      typename SCTRL3_fields_::MSTR,
-      typename SCTRL3_fields_::CAPTURE_MODE,
-      typename SCTRL3_fields_::INPUT,
-      typename SCTRL3_fields_::IPS,
-      typename SCTRL3_fields_::IEFIE,
-      typename SCTRL3_fields_::IEF,
-      typename SCTRL3_fields_::TOFIE,
-      typename SCTRL3_fields_::TOF,
-      typename SCTRL3_fields_::TCFIE,
-      typename SCTRL3_fields_::TCF> {
-    using eOEN = typename SCTRL3_fields_::eOEN;
-    using eOPS = typename SCTRL3_fields_::eOPS;
-    using eCAPTURE_MODE = typename SCTRL3_fields_::eCAPTURE_MODE;
-    using OEN = typename SCTRL3_fields_::OEN;
-    using OPS = typename SCTRL3_fields_::OPS;
-    using FORCE = typename SCTRL3_fields_::FORCE;
-    using VAL = typename SCTRL3_fields_::VAL;
-    using EEOF = typename SCTRL3_fields_::EEOF;
-    using MSTR = typename SCTRL3_fields_::MSTR;
-    using CAPTURE_MODE = typename SCTRL3_fields_::CAPTURE_MODE;
-    using INPUT = typename SCTRL3_fields_::INPUT;
-    using IPS = typename SCTRL3_fields_::IPS;
-    using IEFIE = typename SCTRL3_fields_::IEFIE;
-    using IEF = typename SCTRL3_fields_::IEF;
-    using TOFIE = typename SCTRL3_fields_::TOFIE;
-    using TOF = typename SCTRL3_fields_::TOF;
-    using TCFIE = typename SCTRL3_fields_::TCFIE;
-    using TCF = typename SCTRL3_fields_::TCF;
+      typename Sctrl3Fields::OEN,
+      typename Sctrl3Fields::OPS,
+      typename Sctrl3Fields::FORCE,
+      typename Sctrl3Fields::VAL,
+      typename Sctrl3Fields::EEOF,
+      typename Sctrl3Fields::MSTR,
+      typename Sctrl3Fields::CAPTURE_MODE,
+      typename Sctrl3Fields::INPUT,
+      typename Sctrl3Fields::IPS,
+      typename Sctrl3Fields::IEFIE,
+      typename Sctrl3Fields::IEF,
+      typename Sctrl3Fields::TOFIE,
+      typename Sctrl3Fields::TOF,
+      typename Sctrl3Fields::TCFIE,
+      typename Sctrl3Fields::TCF> {
+    using eOEN = typename Sctrl3Fields::eOEN;
+    using eOPS = typename Sctrl3Fields::eOPS;
+    using eCAPTURE_MODE = typename Sctrl3Fields::eCAPTURE_MODE;
+    using OEN = typename Sctrl3Fields::OEN;
+    using OPS = typename Sctrl3Fields::OPS;
+    using FORCE = typename Sctrl3Fields::FORCE;
+    using VAL = typename Sctrl3Fields::VAL;
+    using EEOF = typename Sctrl3Fields::EEOF;
+    using MSTR = typename Sctrl3Fields::MSTR;
+    using CAPTURE_MODE = typename Sctrl3Fields::CAPTURE_MODE;
+    using INPUT = typename Sctrl3Fields::INPUT;
+    using IPS = typename Sctrl3Fields::IPS;
+    using IEFIE = typename Sctrl3Fields::IEFIE;
+    using IEF = typename Sctrl3Fields::IEF;
+    using TOFIE = typename Sctrl3Fields::TOFIE;
+    using TOF = typename Sctrl3Fields::TOF;
+    using TCFIE = typename Sctrl3Fields::TCFIE;
+    using TCF = typename Sctrl3Fields::TCF;
   };
 
   // Timer Channel Comparator Load Register 1
-  struct CMPLD13_fields_ {
+  struct Cmpld13Fields {
     // COMPARATOR_LOAD_1
     using COMPARATOR_LOAD_1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMPLD13_fields_
+  };  // struct Cmpld13Fields
 
   struct CMPLD13 : ftl::mmio::Register<
       kBase + 0x70u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CMPLD13_fields_::COMPARATOR_LOAD_1> {
-    using COMPARATOR_LOAD_1 = typename CMPLD13_fields_::COMPARATOR_LOAD_1;
+      typename Cmpld13Fields::COMPARATOR_LOAD_1> {
+    using COMPARATOR_LOAD_1 = typename Cmpld13Fields::COMPARATOR_LOAD_1;
   };
 
   // Timer Channel Comparator Load Register 2
-  struct CMPLD23_fields_ {
+  struct Cmpld23Fields {
     // COMPARATOR_LOAD_2
     using COMPARATOR_LOAD_2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMPLD23_fields_
+  };  // struct Cmpld23Fields
 
   struct CMPLD23 : ftl::mmio::Register<
       kBase + 0x72u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CMPLD23_fields_::COMPARATOR_LOAD_2> {
-    using COMPARATOR_LOAD_2 = typename CMPLD23_fields_::COMPARATOR_LOAD_2;
+      typename Cmpld23Fields::COMPARATOR_LOAD_2> {
+    using COMPARATOR_LOAD_2 = typename Cmpld23Fields::COMPARATOR_LOAD_2;
   };
 
   // Timer Channel Comparator Status and Control Register
-  struct CSCTRL3_fields_ {
+  struct Csctrl3Fields {
     enum class eCL1 : std::uint32_t {
       // Never preload
       eNEVER = 0,
@@ -2202,91 +2202,91 @@ struct Tmr {
     using FAULT = ftl::mmio::Field<1, 13, eFAULT, ftl::mmio::RW, ftl::mmio::Normal>;
     // Debug Actions Enable
     using DBG_EN = ftl::mmio::Field<2, 14, eDBG_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSCTRL3_fields_
+  };  // struct Csctrl3Fields
 
   struct CSCTRL3 : ftl::mmio::Register<
       kBase + 0x74u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CSCTRL3_fields_::CL1,
-      typename CSCTRL3_fields_::CL2,
-      typename CSCTRL3_fields_::TCF1,
-      typename CSCTRL3_fields_::TCF2,
-      typename CSCTRL3_fields_::TCF1EN,
-      typename CSCTRL3_fields_::TCF2EN,
-      typename CSCTRL3_fields_::OFLAG,
-      typename CSCTRL3_fields_::UP,
-      typename CSCTRL3_fields_::TCI,
-      typename CSCTRL3_fields_::ROC,
-      typename CSCTRL3_fields_::ALT_LOAD,
-      typename CSCTRL3_fields_::FAULT,
-      typename CSCTRL3_fields_::DBG_EN> {
-    using eCL1 = typename CSCTRL3_fields_::eCL1;
-    using eCL2 = typename CSCTRL3_fields_::eCL2;
-    using eUP = typename CSCTRL3_fields_::eUP;
-    using eTCI = typename CSCTRL3_fields_::eTCI;
-    using eROC = typename CSCTRL3_fields_::eROC;
-    using eALT_LOAD = typename CSCTRL3_fields_::eALT_LOAD;
-    using eFAULT = typename CSCTRL3_fields_::eFAULT;
-    using eDBG_EN = typename CSCTRL3_fields_::eDBG_EN;
-    using CL1 = typename CSCTRL3_fields_::CL1;
-    using CL2 = typename CSCTRL3_fields_::CL2;
-    using TCF1 = typename CSCTRL3_fields_::TCF1;
-    using TCF2 = typename CSCTRL3_fields_::TCF2;
-    using TCF1EN = typename CSCTRL3_fields_::TCF1EN;
-    using TCF2EN = typename CSCTRL3_fields_::TCF2EN;
-    using OFLAG = typename CSCTRL3_fields_::OFLAG;
-    using UP = typename CSCTRL3_fields_::UP;
-    using TCI = typename CSCTRL3_fields_::TCI;
-    using ROC = typename CSCTRL3_fields_::ROC;
-    using ALT_LOAD = typename CSCTRL3_fields_::ALT_LOAD;
-    using FAULT = typename CSCTRL3_fields_::FAULT;
-    using DBG_EN = typename CSCTRL3_fields_::DBG_EN;
+      typename Csctrl3Fields::CL1,
+      typename Csctrl3Fields::CL2,
+      typename Csctrl3Fields::TCF1,
+      typename Csctrl3Fields::TCF2,
+      typename Csctrl3Fields::TCF1EN,
+      typename Csctrl3Fields::TCF2EN,
+      typename Csctrl3Fields::OFLAG,
+      typename Csctrl3Fields::UP,
+      typename Csctrl3Fields::TCI,
+      typename Csctrl3Fields::ROC,
+      typename Csctrl3Fields::ALT_LOAD,
+      typename Csctrl3Fields::FAULT,
+      typename Csctrl3Fields::DBG_EN> {
+    using eCL1 = typename Csctrl3Fields::eCL1;
+    using eCL2 = typename Csctrl3Fields::eCL2;
+    using eUP = typename Csctrl3Fields::eUP;
+    using eTCI = typename Csctrl3Fields::eTCI;
+    using eROC = typename Csctrl3Fields::eROC;
+    using eALT_LOAD = typename Csctrl3Fields::eALT_LOAD;
+    using eFAULT = typename Csctrl3Fields::eFAULT;
+    using eDBG_EN = typename Csctrl3Fields::eDBG_EN;
+    using CL1 = typename Csctrl3Fields::CL1;
+    using CL2 = typename Csctrl3Fields::CL2;
+    using TCF1 = typename Csctrl3Fields::TCF1;
+    using TCF2 = typename Csctrl3Fields::TCF2;
+    using TCF1EN = typename Csctrl3Fields::TCF1EN;
+    using TCF2EN = typename Csctrl3Fields::TCF2EN;
+    using OFLAG = typename Csctrl3Fields::OFLAG;
+    using UP = typename Csctrl3Fields::UP;
+    using TCI = typename Csctrl3Fields::TCI;
+    using ROC = typename Csctrl3Fields::ROC;
+    using ALT_LOAD = typename Csctrl3Fields::ALT_LOAD;
+    using FAULT = typename Csctrl3Fields::FAULT;
+    using DBG_EN = typename Csctrl3Fields::DBG_EN;
   };
 
   // Timer Channel Input Filter Register
-  struct FILT3_fields_ {
+  struct Filt3Fields {
     // Input Filter Sample Period
     using FILT_PER = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Input Filter Sample Count
     using FILT_CNT = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FILT3_fields_
+  };  // struct Filt3Fields
 
   struct FILT3 : ftl::mmio::Register<
       kBase + 0x76u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename FILT3_fields_::FILT_PER,
-      typename FILT3_fields_::FILT_CNT,
+      typename Filt3Fields::FILT_PER,
+      typename Filt3Fields::FILT_CNT,
       ftl::mmio::Reserved<5, 11>> {
-    using FILT_PER = typename FILT3_fields_::FILT_PER;
-    using FILT_CNT = typename FILT3_fields_::FILT_CNT;
+    using FILT_PER = typename Filt3Fields::FILT_PER;
+    using FILT_CNT = typename Filt3Fields::FILT_CNT;
   };
 
   // Timer Channel DMA Enable Register
-  struct DMA3_fields_ {
+  struct Dma3Fields {
     // Input Edge Flag DMA Enable
     using IEFDE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Comparator Preload Register 1 DMA Enable
     using CMPLD1DE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Comparator Preload Register 2 DMA Enable
     using CMPLD2DE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA3_fields_
+  };  // struct Dma3Fields
 
   struct DMA3 : ftl::mmio::Register<
       kBase + 0x78u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename DMA3_fields_::IEFDE,
-      typename DMA3_fields_::CMPLD1DE,
-      typename DMA3_fields_::CMPLD2DE,
+      typename Dma3Fields::IEFDE,
+      typename Dma3Fields::CMPLD1DE,
+      typename Dma3Fields::CMPLD2DE,
       ftl::mmio::Reserved<13, 3>> {
-    using IEFDE = typename DMA3_fields_::IEFDE;
-    using CMPLD1DE = typename DMA3_fields_::CMPLD1DE;
-    using CMPLD2DE = typename DMA3_fields_::CMPLD2DE;
+    using IEFDE = typename Dma3Fields::IEFDE;
+    using CMPLD1DE = typename Dma3Fields::CMPLD1DE;
+    using CMPLD2DE = typename Dma3Fields::CMPLD2DE;
   };
 
 };

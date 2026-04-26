@@ -11,32 +11,32 @@ namespace regs {
 struct Cm7Mpu {
   // The MPU Type Register indicates how many regions the MPU support. Software can use it to
   // determine if the processor implements an MPU.
-  struct TYPE_fields_ {
+  struct TypeFields {
     // Indicates support for separate instruction and data address maps. RAZ. Armv7-M only supports a unified MPU
     using SEPARATE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of regions supported by the MPU. If this field reads-as-zero the processor does not implement an MPU.
     using DREGION = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Instruction region. RAZ. Armv7-M only supports a unified MPU.
     using IREGION = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct TYPE_fields_
+  };  // struct TypeFields
 
   struct TYPE : ftl::mmio::Register<
       0xE000ED90u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      TYPE_fields_::SEPARATE,
+      TypeFields::SEPARATE,
       ftl::mmio::Reserved<7, 1>,
-      TYPE_fields_::DREGION,
-      TYPE_fields_::IREGION,
+      TypeFields::DREGION,
+      TypeFields::IREGION,
       ftl::mmio::Reserved<8, 24>> {
-    using SEPARATE = TYPE_fields_::SEPARATE;
-    using DREGION = TYPE_fields_::DREGION;
-    using IREGION = TYPE_fields_::IREGION;
+    using SEPARATE = TypeFields::SEPARATE;
+    using DREGION = TypeFields::DREGION;
+    using IREGION = TypeFields::IREGION;
   };
 
   // MPU Control Register.
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eENABLE : std::uint32_t {
       // The MPU is disabled.
       eMPU_DISABLE = 0,
@@ -64,43 +64,43 @@ struct Cm7Mpu {
     using HFNMIENA = ftl::mmio::Field<1, 1, eHFNMIENA, ftl::mmio::RW, ftl::mmio::Normal>;
     // no description available
     using PRIVDEFENA = ftl::mmio::Field<1, 2, ePRIVDEFENA, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       0xE000ED94u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL_fields_::ENABLE,
-      CTRL_fields_::HFNMIENA,
-      CTRL_fields_::PRIVDEFENA,
+      CtrlFields::ENABLE,
+      CtrlFields::HFNMIENA,
+      CtrlFields::PRIVDEFENA,
       ftl::mmio::Reserved<29, 3>> {
-    using eENABLE = CTRL_fields_::eENABLE;
-    using eHFNMIENA = CTRL_fields_::eHFNMIENA;
-    using ePRIVDEFENA = CTRL_fields_::ePRIVDEFENA;
-    using ENABLE = CTRL_fields_::ENABLE;
-    using HFNMIENA = CTRL_fields_::HFNMIENA;
-    using PRIVDEFENA = CTRL_fields_::PRIVDEFENA;
+    using eENABLE = CtrlFields::eENABLE;
+    using eHFNMIENA = CtrlFields::eHFNMIENA;
+    using ePRIVDEFENA = CtrlFields::ePRIVDEFENA;
+    using ENABLE = CtrlFields::ENABLE;
+    using HFNMIENA = CtrlFields::HFNMIENA;
+    using PRIVDEFENA = CtrlFields::PRIVDEFENA;
   };
 
   // MPU Region Number Register.
-  struct RNR_fields_ {
+  struct RnrFields {
     // Indicates the memory region accessed by MPU_RBAR and MPU_RASR.
     using REGION = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RNR_fields_
+  };  // struct RnrFields
 
   struct RNR : ftl::mmio::Register<
       0xE000ED98u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RNR_fields_::REGION,
+      RnrFields::REGION,
       ftl::mmio::Reserved<24, 8>> {
-    using REGION = RNR_fields_::REGION;
+    using REGION = RnrFields::REGION;
   };
 
   // MPU Region Base Address Register.
-  struct RBAR_fields_ {
+  struct RbarFields {
     enum class eVALID : std::uint32_t {
       // Apply the base address update to the region specified by MPU_RNR.REGION. The REGION field value is ignored.
       eIGNORE_RBAR_REGION = 0,
@@ -114,24 +114,24 @@ struct Cm7Mpu {
     using VALID = ftl::mmio::Field<1, 4, eVALID, ftl::mmio::RW, ftl::mmio::Normal>;
     // Base address of the region.
     using ADDR = ftl::mmio::Field<27, 5, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RBAR_fields_
+  };  // struct RbarFields
 
   struct RBAR : ftl::mmio::Register<
       0xE000ED9Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RBAR_fields_::REGION,
-      RBAR_fields_::VALID,
-      RBAR_fields_::ADDR> {
-    using eVALID = RBAR_fields_::eVALID;
-    using REGION = RBAR_fields_::REGION;
-    using VALID = RBAR_fields_::VALID;
-    using ADDR = RBAR_fields_::ADDR;
+      RbarFields::REGION,
+      RbarFields::VALID,
+      RbarFields::ADDR> {
+    using eVALID = RbarFields::eVALID;
+    using REGION = RbarFields::REGION;
+    using VALID = RbarFields::VALID;
+    using ADDR = RbarFields::ADDR;
   };
 
   // MPU Region Attribute and Size Register.
-  struct RASR_fields_ {
+  struct RasrFields {
     enum class eENABLE : std::uint32_t {
       // When the MPU is enabled, this region is disabled.
       eDISABLED = 0,
@@ -188,43 +188,43 @@ struct Cm7Mpu {
     using AP = ftl::mmio::Field<3, 24, eAP, ftl::mmio::RW, ftl::mmio::Normal>;
     // The XN bit is an Execute Never bit, that indicates whether the processor can execute instructions from the region.
     using XN = ftl::mmio::Field<1, 28, eXN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RASR_fields_
+  };  // struct RasrFields
 
   struct RASR : ftl::mmio::Register<
       0xE000EDA0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RASR_fields_::ENABLE,
-      RASR_fields_::SIZE,
+      RasrFields::ENABLE,
+      RasrFields::SIZE,
       ftl::mmio::Reserved<2, 6>,
-      RASR_fields_::SRD,
-      RASR_fields_::B,
-      RASR_fields_::C,
-      RASR_fields_::S,
-      RASR_fields_::TEX,
+      RasrFields::SRD,
+      RasrFields::B,
+      RasrFields::C,
+      RasrFields::S,
+      RasrFields::TEX,
       ftl::mmio::Reserved<2, 22>,
-      RASR_fields_::AP,
+      RasrFields::AP,
       ftl::mmio::Reserved<1, 27>,
-      RASR_fields_::XN,
+      RasrFields::XN,
       ftl::mmio::Reserved<3, 29>> {
-    using eENABLE = RASR_fields_::eENABLE;
-    using eS = RASR_fields_::eS;
-    using eAP = RASR_fields_::eAP;
-    using eXN = RASR_fields_::eXN;
-    using ENABLE = RASR_fields_::ENABLE;
-    using SIZE = RASR_fields_::SIZE;
-    using SRD = RASR_fields_::SRD;
-    using B = RASR_fields_::B;
-    using C = RASR_fields_::C;
-    using S = RASR_fields_::S;
-    using TEX = RASR_fields_::TEX;
-    using AP = RASR_fields_::AP;
-    using XN = RASR_fields_::XN;
+    using eENABLE = RasrFields::eENABLE;
+    using eS = RasrFields::eS;
+    using eAP = RasrFields::eAP;
+    using eXN = RasrFields::eXN;
+    using ENABLE = RasrFields::ENABLE;
+    using SIZE = RasrFields::SIZE;
+    using SRD = RasrFields::SRD;
+    using B = RasrFields::B;
+    using C = RasrFields::C;
+    using S = RasrFields::S;
+    using TEX = RasrFields::TEX;
+    using AP = RasrFields::AP;
+    using XN = RasrFields::XN;
   };
 
   // MPU Region Base Address Register.
-  struct RBAR_A1_fields_ {
+  struct RbarA1Fields {
     enum class eVALID : std::uint32_t {
       // Apply the base address update to the region specified by MPU_RNR.REGION. The REGION field value is ignored.
       eIGNORE_RBAR_REGION = 0,
@@ -238,24 +238,24 @@ struct Cm7Mpu {
     using VALID = ftl::mmio::Field<1, 4, eVALID, ftl::mmio::RW, ftl::mmio::Normal>;
     // Base address of the region.
     using ADDR = ftl::mmio::Field<27, 5, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RBAR_A1_fields_
+  };  // struct RbarA1Fields
 
   struct RBAR_A1 : ftl::mmio::Register<
       0xE000EDA4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RBAR_A1_fields_::REGION,
-      RBAR_A1_fields_::VALID,
-      RBAR_A1_fields_::ADDR> {
-    using eVALID = RBAR_A1_fields_::eVALID;
-    using REGION = RBAR_A1_fields_::REGION;
-    using VALID = RBAR_A1_fields_::VALID;
-    using ADDR = RBAR_A1_fields_::ADDR;
+      RbarA1Fields::REGION,
+      RbarA1Fields::VALID,
+      RbarA1Fields::ADDR> {
+    using eVALID = RbarA1Fields::eVALID;
+    using REGION = RbarA1Fields::REGION;
+    using VALID = RbarA1Fields::VALID;
+    using ADDR = RbarA1Fields::ADDR;
   };
 
   // MPU Region Attribute and Size Register.
-  struct RASR_A1_fields_ {
+  struct RasrA1Fields {
     enum class eENABLE : std::uint32_t {
       // When the MPU is enabled, this region is disabled.
       eDISABLED = 0,
@@ -312,43 +312,43 @@ struct Cm7Mpu {
     using AP = ftl::mmio::Field<3, 24, eAP, ftl::mmio::RW, ftl::mmio::Normal>;
     // The XN bit is an Execute Never bit, that indicates whether the processor can execute instructions from the region.
     using XN = ftl::mmio::Field<1, 28, eXN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RASR_A1_fields_
+  };  // struct RasrA1Fields
 
   struct RASR_A1 : ftl::mmio::Register<
       0xE000EDA8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RASR_A1_fields_::ENABLE,
-      RASR_A1_fields_::SIZE,
+      RasrA1Fields::ENABLE,
+      RasrA1Fields::SIZE,
       ftl::mmio::Reserved<2, 6>,
-      RASR_A1_fields_::SRD,
-      RASR_A1_fields_::B,
-      RASR_A1_fields_::C,
-      RASR_A1_fields_::S,
-      RASR_A1_fields_::TEX,
+      RasrA1Fields::SRD,
+      RasrA1Fields::B,
+      RasrA1Fields::C,
+      RasrA1Fields::S,
+      RasrA1Fields::TEX,
       ftl::mmio::Reserved<2, 22>,
-      RASR_A1_fields_::AP,
+      RasrA1Fields::AP,
       ftl::mmio::Reserved<1, 27>,
-      RASR_A1_fields_::XN,
+      RasrA1Fields::XN,
       ftl::mmio::Reserved<3, 29>> {
-    using eENABLE = RASR_A1_fields_::eENABLE;
-    using eS = RASR_A1_fields_::eS;
-    using eAP = RASR_A1_fields_::eAP;
-    using eXN = RASR_A1_fields_::eXN;
-    using ENABLE = RASR_A1_fields_::ENABLE;
-    using SIZE = RASR_A1_fields_::SIZE;
-    using SRD = RASR_A1_fields_::SRD;
-    using B = RASR_A1_fields_::B;
-    using C = RASR_A1_fields_::C;
-    using S = RASR_A1_fields_::S;
-    using TEX = RASR_A1_fields_::TEX;
-    using AP = RASR_A1_fields_::AP;
-    using XN = RASR_A1_fields_::XN;
+    using eENABLE = RasrA1Fields::eENABLE;
+    using eS = RasrA1Fields::eS;
+    using eAP = RasrA1Fields::eAP;
+    using eXN = RasrA1Fields::eXN;
+    using ENABLE = RasrA1Fields::ENABLE;
+    using SIZE = RasrA1Fields::SIZE;
+    using SRD = RasrA1Fields::SRD;
+    using B = RasrA1Fields::B;
+    using C = RasrA1Fields::C;
+    using S = RasrA1Fields::S;
+    using TEX = RasrA1Fields::TEX;
+    using AP = RasrA1Fields::AP;
+    using XN = RasrA1Fields::XN;
   };
 
   // MPU Region Base Address Register.
-  struct RBAR_A2_fields_ {
+  struct RbarA2Fields {
     enum class eVALID : std::uint32_t {
       // Apply the base address update to the region specified by MPU_RNR.REGION. The REGION field value is ignored.
       eIGNORE_RBAR_REGION = 0,
@@ -362,24 +362,24 @@ struct Cm7Mpu {
     using VALID = ftl::mmio::Field<1, 4, eVALID, ftl::mmio::RW, ftl::mmio::Normal>;
     // Base address of the region.
     using ADDR = ftl::mmio::Field<27, 5, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RBAR_A2_fields_
+  };  // struct RbarA2Fields
 
   struct RBAR_A2 : ftl::mmio::Register<
       0xE000EDACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RBAR_A2_fields_::REGION,
-      RBAR_A2_fields_::VALID,
-      RBAR_A2_fields_::ADDR> {
-    using eVALID = RBAR_A2_fields_::eVALID;
-    using REGION = RBAR_A2_fields_::REGION;
-    using VALID = RBAR_A2_fields_::VALID;
-    using ADDR = RBAR_A2_fields_::ADDR;
+      RbarA2Fields::REGION,
+      RbarA2Fields::VALID,
+      RbarA2Fields::ADDR> {
+    using eVALID = RbarA2Fields::eVALID;
+    using REGION = RbarA2Fields::REGION;
+    using VALID = RbarA2Fields::VALID;
+    using ADDR = RbarA2Fields::ADDR;
   };
 
   // MPU Region Attribute and Size Register.
-  struct RASR_A2_fields_ {
+  struct RasrA2Fields {
     enum class eENABLE : std::uint32_t {
       // When the MPU is enabled, this region is disabled.
       eDISABLED = 0,
@@ -436,43 +436,43 @@ struct Cm7Mpu {
     using AP = ftl::mmio::Field<3, 24, eAP, ftl::mmio::RW, ftl::mmio::Normal>;
     // The XN bit is an Execute Never bit, that indicates whether the processor can execute instructions from the region.
     using XN = ftl::mmio::Field<1, 28, eXN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RASR_A2_fields_
+  };  // struct RasrA2Fields
 
   struct RASR_A2 : ftl::mmio::Register<
       0xE000EDB0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RASR_A2_fields_::ENABLE,
-      RASR_A2_fields_::SIZE,
+      RasrA2Fields::ENABLE,
+      RasrA2Fields::SIZE,
       ftl::mmio::Reserved<2, 6>,
-      RASR_A2_fields_::SRD,
-      RASR_A2_fields_::B,
-      RASR_A2_fields_::C,
-      RASR_A2_fields_::S,
-      RASR_A2_fields_::TEX,
+      RasrA2Fields::SRD,
+      RasrA2Fields::B,
+      RasrA2Fields::C,
+      RasrA2Fields::S,
+      RasrA2Fields::TEX,
       ftl::mmio::Reserved<2, 22>,
-      RASR_A2_fields_::AP,
+      RasrA2Fields::AP,
       ftl::mmio::Reserved<1, 27>,
-      RASR_A2_fields_::XN,
+      RasrA2Fields::XN,
       ftl::mmio::Reserved<3, 29>> {
-    using eENABLE = RASR_A2_fields_::eENABLE;
-    using eS = RASR_A2_fields_::eS;
-    using eAP = RASR_A2_fields_::eAP;
-    using eXN = RASR_A2_fields_::eXN;
-    using ENABLE = RASR_A2_fields_::ENABLE;
-    using SIZE = RASR_A2_fields_::SIZE;
-    using SRD = RASR_A2_fields_::SRD;
-    using B = RASR_A2_fields_::B;
-    using C = RASR_A2_fields_::C;
-    using S = RASR_A2_fields_::S;
-    using TEX = RASR_A2_fields_::TEX;
-    using AP = RASR_A2_fields_::AP;
-    using XN = RASR_A2_fields_::XN;
+    using eENABLE = RasrA2Fields::eENABLE;
+    using eS = RasrA2Fields::eS;
+    using eAP = RasrA2Fields::eAP;
+    using eXN = RasrA2Fields::eXN;
+    using ENABLE = RasrA2Fields::ENABLE;
+    using SIZE = RasrA2Fields::SIZE;
+    using SRD = RasrA2Fields::SRD;
+    using B = RasrA2Fields::B;
+    using C = RasrA2Fields::C;
+    using S = RasrA2Fields::S;
+    using TEX = RasrA2Fields::TEX;
+    using AP = RasrA2Fields::AP;
+    using XN = RasrA2Fields::XN;
   };
 
   // MPU Region Base Address Register.
-  struct RBAR_A3_fields_ {
+  struct RbarA3Fields {
     enum class eVALID : std::uint32_t {
       // Apply the base address update to the region specified by MPU_RNR.REGION. The REGION field value is ignored.
       eIGNORE_RBAR_REGION = 0,
@@ -486,24 +486,24 @@ struct Cm7Mpu {
     using VALID = ftl::mmio::Field<1, 4, eVALID, ftl::mmio::RW, ftl::mmio::Normal>;
     // Base address of the region.
     using ADDR = ftl::mmio::Field<27, 5, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RBAR_A3_fields_
+  };  // struct RbarA3Fields
 
   struct RBAR_A3 : ftl::mmio::Register<
       0xE000EDB4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RBAR_A3_fields_::REGION,
-      RBAR_A3_fields_::VALID,
-      RBAR_A3_fields_::ADDR> {
-    using eVALID = RBAR_A3_fields_::eVALID;
-    using REGION = RBAR_A3_fields_::REGION;
-    using VALID = RBAR_A3_fields_::VALID;
-    using ADDR = RBAR_A3_fields_::ADDR;
+      RbarA3Fields::REGION,
+      RbarA3Fields::VALID,
+      RbarA3Fields::ADDR> {
+    using eVALID = RbarA3Fields::eVALID;
+    using REGION = RbarA3Fields::REGION;
+    using VALID = RbarA3Fields::VALID;
+    using ADDR = RbarA3Fields::ADDR;
   };
 
   // MPU Region Attribute and Size Register.
-  struct RASR_A3_fields_ {
+  struct RasrA3Fields {
     enum class eENABLE : std::uint32_t {
       // When the MPU is enabled, this region is disabled.
       eDISABLED = 0,
@@ -560,39 +560,39 @@ struct Cm7Mpu {
     using AP = ftl::mmio::Field<3, 24, eAP, ftl::mmio::RW, ftl::mmio::Normal>;
     // The XN bit is an Execute Never bit, that indicates whether the processor can execute instructions from the region.
     using XN = ftl::mmio::Field<1, 28, eXN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RASR_A3_fields_
+  };  // struct RasrA3Fields
 
   struct RASR_A3 : ftl::mmio::Register<
       0xE000EDB8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RASR_A3_fields_::ENABLE,
-      RASR_A3_fields_::SIZE,
+      RasrA3Fields::ENABLE,
+      RasrA3Fields::SIZE,
       ftl::mmio::Reserved<2, 6>,
-      RASR_A3_fields_::SRD,
-      RASR_A3_fields_::B,
-      RASR_A3_fields_::C,
-      RASR_A3_fields_::S,
-      RASR_A3_fields_::TEX,
+      RasrA3Fields::SRD,
+      RasrA3Fields::B,
+      RasrA3Fields::C,
+      RasrA3Fields::S,
+      RasrA3Fields::TEX,
       ftl::mmio::Reserved<2, 22>,
-      RASR_A3_fields_::AP,
+      RasrA3Fields::AP,
       ftl::mmio::Reserved<1, 27>,
-      RASR_A3_fields_::XN,
+      RasrA3Fields::XN,
       ftl::mmio::Reserved<3, 29>> {
-    using eENABLE = RASR_A3_fields_::eENABLE;
-    using eS = RASR_A3_fields_::eS;
-    using eAP = RASR_A3_fields_::eAP;
-    using eXN = RASR_A3_fields_::eXN;
-    using ENABLE = RASR_A3_fields_::ENABLE;
-    using SIZE = RASR_A3_fields_::SIZE;
-    using SRD = RASR_A3_fields_::SRD;
-    using B = RASR_A3_fields_::B;
-    using C = RASR_A3_fields_::C;
-    using S = RASR_A3_fields_::S;
-    using TEX = RASR_A3_fields_::TEX;
-    using AP = RASR_A3_fields_::AP;
-    using XN = RASR_A3_fields_::XN;
+    using eENABLE = RasrA3Fields::eENABLE;
+    using eS = RasrA3Fields::eS;
+    using eAP = RasrA3Fields::eAP;
+    using eXN = RasrA3Fields::eXN;
+    using ENABLE = RasrA3Fields::ENABLE;
+    using SIZE = RasrA3Fields::SIZE;
+    using SRD = RasrA3Fields::SRD;
+    using B = RasrA3Fields::B;
+    using C = RasrA3Fields::C;
+    using S = RasrA3Fields::S;
+    using TEX = RasrA3Fields::TEX;
+    using AP = RasrA3Fields::AP;
+    using XN = RasrA3Fields::XN;
   };
 
 };

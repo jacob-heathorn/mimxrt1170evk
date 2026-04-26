@@ -10,7 +10,7 @@ namespace regs {
 
 struct KeyManager {
   // CSR Master Key Control Register
-  struct MASTER_KEY_CTRL_fields_ {
+  struct MasterKeyCtrlFields {
     enum class eSELECT : std::uint32_t {
       // select key from UDF
       eSELECT_FROM_UDF = 0,
@@ -29,25 +29,25 @@ struct KeyManager {
     using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
     // lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
     using LOCK = ftl::mmio::Field<1, 16, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MASTER_KEY_CTRL_fields_
+  };  // struct MasterKeyCtrlFields
 
   struct MASTER_KEY_CTRL : ftl::mmio::Register<
       0x40C80000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MASTER_KEY_CTRL_fields_::SELECT,
+      MasterKeyCtrlFields::SELECT,
       ftl::mmio::Reserved<15, 1>,
-      MASTER_KEY_CTRL_fields_::LOCK,
+      MasterKeyCtrlFields::LOCK,
       ftl::mmio::Reserved<15, 17>> {
-    using eSELECT = MASTER_KEY_CTRL_fields_::eSELECT;
-    using eLOCK = MASTER_KEY_CTRL_fields_::eLOCK;
-    using SELECT = MASTER_KEY_CTRL_fields_::SELECT;
-    using LOCK = MASTER_KEY_CTRL_fields_::LOCK;
+    using eSELECT = MasterKeyCtrlFields::eSELECT;
+    using eLOCK = MasterKeyCtrlFields::eLOCK;
+    using SELECT = MasterKeyCtrlFields::SELECT;
+    using LOCK = MasterKeyCtrlFields::LOCK;
   };
 
   // CSR OTFAD-1 Key Control
-  struct OTFAD1_KEY_CTRL_fields_ {
+  struct Otfad1KeyCtrlFields {
     enum class eSELECT : std::uint32_t {
       // Select key from OCOTP USER_KEY5
       eSELECT_FROM_USER_KEY5 = 0,
@@ -66,25 +66,25 @@ struct KeyManager {
     using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
     // lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
     using LOCK = ftl::mmio::Field<1, 16, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OTFAD1_KEY_CTRL_fields_
+  };  // struct Otfad1KeyCtrlFields
 
   struct OTFAD1_KEY_CTRL : ftl::mmio::Register<
       0x40C80010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OTFAD1_KEY_CTRL_fields_::SELECT,
+      Otfad1KeyCtrlFields::SELECT,
       ftl::mmio::Reserved<15, 1>,
-      OTFAD1_KEY_CTRL_fields_::LOCK,
+      Otfad1KeyCtrlFields::LOCK,
       ftl::mmio::Reserved<15, 17>> {
-    using eSELECT = OTFAD1_KEY_CTRL_fields_::eSELECT;
-    using eLOCK = OTFAD1_KEY_CTRL_fields_::eLOCK;
-    using SELECT = OTFAD1_KEY_CTRL_fields_::SELECT;
-    using LOCK = OTFAD1_KEY_CTRL_fields_::LOCK;
+    using eSELECT = Otfad1KeyCtrlFields::eSELECT;
+    using eLOCK = Otfad1KeyCtrlFields::eLOCK;
+    using SELECT = Otfad1KeyCtrlFields::SELECT;
+    using LOCK = Otfad1KeyCtrlFields::LOCK;
   };
 
   // CSR OTFAD-2 Key Control
-  struct OTFAD2_KEY_CTRL_fields_ {
+  struct Otfad2KeyCtrlFields {
     enum class eSELECT : std::uint32_t {
       // select key from OCOTP USER_KEY5
       eSELECT_FROM_USER_KEY5 = 0,
@@ -103,25 +103,25 @@ struct KeyManager {
     using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
     // lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
     using LOCK = ftl::mmio::Field<1, 16, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OTFAD2_KEY_CTRL_fields_
+  };  // struct Otfad2KeyCtrlFields
 
   struct OTFAD2_KEY_CTRL : ftl::mmio::Register<
       0x40C80018u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OTFAD2_KEY_CTRL_fields_::SELECT,
+      Otfad2KeyCtrlFields::SELECT,
       ftl::mmio::Reserved<15, 1>,
-      OTFAD2_KEY_CTRL_fields_::LOCK,
+      Otfad2KeyCtrlFields::LOCK,
       ftl::mmio::Reserved<15, 17>> {
-    using eSELECT = OTFAD2_KEY_CTRL_fields_::eSELECT;
-    using eLOCK = OTFAD2_KEY_CTRL_fields_::eLOCK;
-    using SELECT = OTFAD2_KEY_CTRL_fields_::SELECT;
-    using LOCK = OTFAD2_KEY_CTRL_fields_::LOCK;
+    using eSELECT = Otfad2KeyCtrlFields::eSELECT;
+    using eLOCK = Otfad2KeyCtrlFields::eLOCK;
+    using SELECT = Otfad2KeyCtrlFields::SELECT;
+    using LOCK = Otfad2KeyCtrlFields::LOCK;
   };
 
   // CSR IEE Key Control
-  struct IEE_KEY_CTRL_fields_ {
+  struct IeeKeyCtrlFields {
     enum class eRELOAD : std::uint32_t {
       // Do nothing
       eIDLE = 0,
@@ -131,21 +131,21 @@ struct KeyManager {
 
     // Restart load key signal for IEE
     using RELOAD = ftl::mmio::Field<1, 0, eRELOAD, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct IEE_KEY_CTRL_fields_
+  };  // struct IeeKeyCtrlFields
 
   struct IEE_KEY_CTRL : ftl::mmio::Register<
       0x40C80020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      IEE_KEY_CTRL_fields_::RELOAD,
+      IeeKeyCtrlFields::RELOAD,
       ftl::mmio::Reserved<31, 1>> {
-    using eRELOAD = IEE_KEY_CTRL_fields_::eRELOAD;
-    using RELOAD = IEE_KEY_CTRL_fields_::RELOAD;
+    using eRELOAD = IeeKeyCtrlFields::eRELOAD;
+    using RELOAD = IeeKeyCtrlFields::RELOAD;
   };
 
   // CSR PUF Key Control
-  struct PUF_KEY_CTRL_fields_ {
+  struct PufKeyCtrlFields {
     enum class eLOCK : std::uint32_t {
       // Do not lock the key select
       eUNLOCK = 0,
@@ -155,21 +155,21 @@ struct KeyManager {
 
     // Lock signal for key select
     using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PUF_KEY_CTRL_fields_
+  };  // struct PufKeyCtrlFields
 
   struct PUF_KEY_CTRL : ftl::mmio::Register<
       0x40C80030u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PUF_KEY_CTRL_fields_::LOCK,
+      PufKeyCtrlFields::LOCK,
       ftl::mmio::Reserved<31, 1>> {
-    using eLOCK = PUF_KEY_CTRL_fields_::eLOCK;
-    using LOCK = PUF_KEY_CTRL_fields_::LOCK;
+    using eLOCK = PufKeyCtrlFields::eLOCK;
+    using LOCK = PufKeyCtrlFields::LOCK;
   };
 
   // Slot 0 Control
-  struct SLOT0_CTRL_fields_ {
+  struct Slot0CtrlFields {
     enum class eLOCK_LIST : std::uint32_t {
       // Whitelist is not locked
       eUNLOCK = 0,
@@ -208,33 +208,33 @@ struct KeyManager {
     using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock control of this slot
     using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SLOT0_CTRL_fields_
+  };  // struct Slot0CtrlFields
 
   struct SLOT0_CTRL : ftl::mmio::Register<
       0x40C80400u,
       std::uint32_t,
       0x0000000Fu,
       ftl::mmio::RW,
-      SLOT0_CTRL_fields_::WHITE_LIST,
+      Slot0CtrlFields::WHITE_LIST,
       ftl::mmio::Reserved<11, 4>,
-      SLOT0_CTRL_fields_::LOCK_LIST,
-      SLOT0_CTRL_fields_::TZ_NS,
-      SLOT0_CTRL_fields_::TZ_USER,
+      Slot0CtrlFields::LOCK_LIST,
+      Slot0CtrlFields::TZ_NS,
+      Slot0CtrlFields::TZ_USER,
       ftl::mmio::Reserved<13, 18>,
-      SLOT0_CTRL_fields_::LOCK_CONTROL> {
-    using eLOCK_LIST = SLOT0_CTRL_fields_::eLOCK_LIST;
-    using eTZ_NS = SLOT0_CTRL_fields_::eTZ_NS;
-    using eTZ_USER = SLOT0_CTRL_fields_::eTZ_USER;
-    using eLOCK_CONTROL = SLOT0_CTRL_fields_::eLOCK_CONTROL;
-    using WHITE_LIST = SLOT0_CTRL_fields_::WHITE_LIST;
-    using LOCK_LIST = SLOT0_CTRL_fields_::LOCK_LIST;
-    using TZ_NS = SLOT0_CTRL_fields_::TZ_NS;
-    using TZ_USER = SLOT0_CTRL_fields_::TZ_USER;
-    using LOCK_CONTROL = SLOT0_CTRL_fields_::LOCK_CONTROL;
+      Slot0CtrlFields::LOCK_CONTROL> {
+    using eLOCK_LIST = Slot0CtrlFields::eLOCK_LIST;
+    using eTZ_NS = Slot0CtrlFields::eTZ_NS;
+    using eTZ_USER = Slot0CtrlFields::eTZ_USER;
+    using eLOCK_CONTROL = Slot0CtrlFields::eLOCK_CONTROL;
+    using WHITE_LIST = Slot0CtrlFields::WHITE_LIST;
+    using LOCK_LIST = Slot0CtrlFields::LOCK_LIST;
+    using TZ_NS = Slot0CtrlFields::TZ_NS;
+    using TZ_USER = Slot0CtrlFields::TZ_USER;
+    using LOCK_CONTROL = Slot0CtrlFields::LOCK_CONTROL;
   };
 
   // Slot1 Control
-  struct SLOT1_CTRL_fields_ {
+  struct Slot1CtrlFields {
     enum class eLOCK_LIST : std::uint32_t {
       // Whitelist is not locked
       eUNLOCK = 0,
@@ -273,33 +273,33 @@ struct KeyManager {
     using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock control of this slot
     using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SLOT1_CTRL_fields_
+  };  // struct Slot1CtrlFields
 
   struct SLOT1_CTRL : ftl::mmio::Register<
       0x40C80404u,
       std::uint32_t,
       0x0000000Fu,
       ftl::mmio::RW,
-      SLOT1_CTRL_fields_::WHITE_LIST,
+      Slot1CtrlFields::WHITE_LIST,
       ftl::mmio::Reserved<11, 4>,
-      SLOT1_CTRL_fields_::LOCK_LIST,
-      SLOT1_CTRL_fields_::TZ_NS,
-      SLOT1_CTRL_fields_::TZ_USER,
+      Slot1CtrlFields::LOCK_LIST,
+      Slot1CtrlFields::TZ_NS,
+      Slot1CtrlFields::TZ_USER,
       ftl::mmio::Reserved<13, 18>,
-      SLOT1_CTRL_fields_::LOCK_CONTROL> {
-    using eLOCK_LIST = SLOT1_CTRL_fields_::eLOCK_LIST;
-    using eTZ_NS = SLOT1_CTRL_fields_::eTZ_NS;
-    using eTZ_USER = SLOT1_CTRL_fields_::eTZ_USER;
-    using eLOCK_CONTROL = SLOT1_CTRL_fields_::eLOCK_CONTROL;
-    using WHITE_LIST = SLOT1_CTRL_fields_::WHITE_LIST;
-    using LOCK_LIST = SLOT1_CTRL_fields_::LOCK_LIST;
-    using TZ_NS = SLOT1_CTRL_fields_::TZ_NS;
-    using TZ_USER = SLOT1_CTRL_fields_::TZ_USER;
-    using LOCK_CONTROL = SLOT1_CTRL_fields_::LOCK_CONTROL;
+      Slot1CtrlFields::LOCK_CONTROL> {
+    using eLOCK_LIST = Slot1CtrlFields::eLOCK_LIST;
+    using eTZ_NS = Slot1CtrlFields::eTZ_NS;
+    using eTZ_USER = Slot1CtrlFields::eTZ_USER;
+    using eLOCK_CONTROL = Slot1CtrlFields::eLOCK_CONTROL;
+    using WHITE_LIST = Slot1CtrlFields::WHITE_LIST;
+    using LOCK_LIST = Slot1CtrlFields::LOCK_LIST;
+    using TZ_NS = Slot1CtrlFields::TZ_NS;
+    using TZ_USER = Slot1CtrlFields::TZ_USER;
+    using LOCK_CONTROL = Slot1CtrlFields::LOCK_CONTROL;
   };
 
   // Slot2 Control
-  struct SLOT2_CTRL_fields_ {
+  struct Slot2CtrlFields {
     enum class eLOCK_LIST : std::uint32_t {
       // Whitelist is not locked
       eUNLOCK = 0,
@@ -338,33 +338,33 @@ struct KeyManager {
     using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock control of this slot
     using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SLOT2_CTRL_fields_
+  };  // struct Slot2CtrlFields
 
   struct SLOT2_CTRL : ftl::mmio::Register<
       0x40C80408u,
       std::uint32_t,
       0x0000000Fu,
       ftl::mmio::RW,
-      SLOT2_CTRL_fields_::WHITE_LIST,
+      Slot2CtrlFields::WHITE_LIST,
       ftl::mmio::Reserved<11, 4>,
-      SLOT2_CTRL_fields_::LOCK_LIST,
-      SLOT2_CTRL_fields_::TZ_NS,
-      SLOT2_CTRL_fields_::TZ_USER,
+      Slot2CtrlFields::LOCK_LIST,
+      Slot2CtrlFields::TZ_NS,
+      Slot2CtrlFields::TZ_USER,
       ftl::mmio::Reserved<13, 18>,
-      SLOT2_CTRL_fields_::LOCK_CONTROL> {
-    using eLOCK_LIST = SLOT2_CTRL_fields_::eLOCK_LIST;
-    using eTZ_NS = SLOT2_CTRL_fields_::eTZ_NS;
-    using eTZ_USER = SLOT2_CTRL_fields_::eTZ_USER;
-    using eLOCK_CONTROL = SLOT2_CTRL_fields_::eLOCK_CONTROL;
-    using WHITE_LIST = SLOT2_CTRL_fields_::WHITE_LIST;
-    using LOCK_LIST = SLOT2_CTRL_fields_::LOCK_LIST;
-    using TZ_NS = SLOT2_CTRL_fields_::TZ_NS;
-    using TZ_USER = SLOT2_CTRL_fields_::TZ_USER;
-    using LOCK_CONTROL = SLOT2_CTRL_fields_::LOCK_CONTROL;
+      Slot2CtrlFields::LOCK_CONTROL> {
+    using eLOCK_LIST = Slot2CtrlFields::eLOCK_LIST;
+    using eTZ_NS = Slot2CtrlFields::eTZ_NS;
+    using eTZ_USER = Slot2CtrlFields::eTZ_USER;
+    using eLOCK_CONTROL = Slot2CtrlFields::eLOCK_CONTROL;
+    using WHITE_LIST = Slot2CtrlFields::WHITE_LIST;
+    using LOCK_LIST = Slot2CtrlFields::LOCK_LIST;
+    using TZ_NS = Slot2CtrlFields::TZ_NS;
+    using TZ_USER = Slot2CtrlFields::TZ_USER;
+    using LOCK_CONTROL = Slot2CtrlFields::LOCK_CONTROL;
   };
 
   // Slot3 Control
-  struct SLOT3_CTRL_fields_ {
+  struct Slot3CtrlFields {
     enum class eLOCK_LIST : std::uint32_t {
       // Whitelist is not locked
       eUNLOCK = 0,
@@ -403,33 +403,33 @@ struct KeyManager {
     using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock control of this slot
     using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SLOT3_CTRL_fields_
+  };  // struct Slot3CtrlFields
 
   struct SLOT3_CTRL : ftl::mmio::Register<
       0x40C8040Cu,
       std::uint32_t,
       0x0000000Fu,
       ftl::mmio::RW,
-      SLOT3_CTRL_fields_::WHITE_LIST,
+      Slot3CtrlFields::WHITE_LIST,
       ftl::mmio::Reserved<11, 4>,
-      SLOT3_CTRL_fields_::LOCK_LIST,
-      SLOT3_CTRL_fields_::TZ_NS,
-      SLOT3_CTRL_fields_::TZ_USER,
+      Slot3CtrlFields::LOCK_LIST,
+      Slot3CtrlFields::TZ_NS,
+      Slot3CtrlFields::TZ_USER,
       ftl::mmio::Reserved<13, 18>,
-      SLOT3_CTRL_fields_::LOCK_CONTROL> {
-    using eLOCK_LIST = SLOT3_CTRL_fields_::eLOCK_LIST;
-    using eTZ_NS = SLOT3_CTRL_fields_::eTZ_NS;
-    using eTZ_USER = SLOT3_CTRL_fields_::eTZ_USER;
-    using eLOCK_CONTROL = SLOT3_CTRL_fields_::eLOCK_CONTROL;
-    using WHITE_LIST = SLOT3_CTRL_fields_::WHITE_LIST;
-    using LOCK_LIST = SLOT3_CTRL_fields_::LOCK_LIST;
-    using TZ_NS = SLOT3_CTRL_fields_::TZ_NS;
-    using TZ_USER = SLOT3_CTRL_fields_::TZ_USER;
-    using LOCK_CONTROL = SLOT3_CTRL_fields_::LOCK_CONTROL;
+      Slot3CtrlFields::LOCK_CONTROL> {
+    using eLOCK_LIST = Slot3CtrlFields::eLOCK_LIST;
+    using eTZ_NS = Slot3CtrlFields::eTZ_NS;
+    using eTZ_USER = Slot3CtrlFields::eTZ_USER;
+    using eLOCK_CONTROL = Slot3CtrlFields::eLOCK_CONTROL;
+    using WHITE_LIST = Slot3CtrlFields::WHITE_LIST;
+    using LOCK_LIST = Slot3CtrlFields::LOCK_LIST;
+    using TZ_NS = Slot3CtrlFields::TZ_NS;
+    using TZ_USER = Slot3CtrlFields::TZ_USER;
+    using LOCK_CONTROL = Slot3CtrlFields::LOCK_CONTROL;
   };
 
   // Slot 4 Control
-  struct SLOT4_CTRL_fields_ {
+  struct Slot4CtrlFields {
     enum class eLOCK_LIST : std::uint32_t {
       // Whitelist is not locked
       eUNLOCK = 0,
@@ -468,29 +468,29 @@ struct KeyManager {
     using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock control of this slot
     using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SLOT4_CTRL_fields_
+  };  // struct Slot4CtrlFields
 
   struct SLOT4_CTRL : ftl::mmio::Register<
       0x40C80410u,
       std::uint32_t,
       0x0000000Fu,
       ftl::mmio::RW,
-      SLOT4_CTRL_fields_::WHITE_LIST,
+      Slot4CtrlFields::WHITE_LIST,
       ftl::mmio::Reserved<11, 4>,
-      SLOT4_CTRL_fields_::LOCK_LIST,
-      SLOT4_CTRL_fields_::TZ_NS,
-      SLOT4_CTRL_fields_::TZ_USER,
+      Slot4CtrlFields::LOCK_LIST,
+      Slot4CtrlFields::TZ_NS,
+      Slot4CtrlFields::TZ_USER,
       ftl::mmio::Reserved<13, 18>,
-      SLOT4_CTRL_fields_::LOCK_CONTROL> {
-    using eLOCK_LIST = SLOT4_CTRL_fields_::eLOCK_LIST;
-    using eTZ_NS = SLOT4_CTRL_fields_::eTZ_NS;
-    using eTZ_USER = SLOT4_CTRL_fields_::eTZ_USER;
-    using eLOCK_CONTROL = SLOT4_CTRL_fields_::eLOCK_CONTROL;
-    using WHITE_LIST = SLOT4_CTRL_fields_::WHITE_LIST;
-    using LOCK_LIST = SLOT4_CTRL_fields_::LOCK_LIST;
-    using TZ_NS = SLOT4_CTRL_fields_::TZ_NS;
-    using TZ_USER = SLOT4_CTRL_fields_::TZ_USER;
-    using LOCK_CONTROL = SLOT4_CTRL_fields_::LOCK_CONTROL;
+      Slot4CtrlFields::LOCK_CONTROL> {
+    using eLOCK_LIST = Slot4CtrlFields::eLOCK_LIST;
+    using eTZ_NS = Slot4CtrlFields::eTZ_NS;
+    using eTZ_USER = Slot4CtrlFields::eTZ_USER;
+    using eLOCK_CONTROL = Slot4CtrlFields::eLOCK_CONTROL;
+    using WHITE_LIST = Slot4CtrlFields::WHITE_LIST;
+    using LOCK_LIST = Slot4CtrlFields::LOCK_LIST;
+    using TZ_NS = Slot4CtrlFields::TZ_NS;
+    using TZ_USER = Slot4CtrlFields::TZ_USER;
+    using LOCK_CONTROL = Slot4CtrlFields::LOCK_CONTROL;
   };
 
 };

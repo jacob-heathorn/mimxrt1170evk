@@ -22,7 +22,7 @@ struct Enc {
       0u;
 
   // Control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eCMPIE : std::uint32_t {
       // Disabled
       eCMPIE_0 = 0,
@@ -167,250 +167,250 @@ struct Enc {
     using HIE = ftl::mmio::Field<1, 14, eHIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // HOME Signal Transition Interrupt Request
     using HIRQ = ftl::mmio::Field<1, 15, eHIRQ, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CTRL_fields_::CMPIE,
-      typename CTRL_fields_::CMPIRQ,
-      typename CTRL_fields_::WDE,
-      typename CTRL_fields_::DIE,
-      typename CTRL_fields_::DIRQ,
-      typename CTRL_fields_::XNE,
-      typename CTRL_fields_::XIP,
-      typename CTRL_fields_::XIE,
-      typename CTRL_fields_::XIRQ,
-      typename CTRL_fields_::PH1,
-      typename CTRL_fields_::REV,
-      typename CTRL_fields_::SWIP,
-      typename CTRL_fields_::HNE,
-      typename CTRL_fields_::HIP,
-      typename CTRL_fields_::HIE,
-      typename CTRL_fields_::HIRQ> {
-    using eCMPIE = typename CTRL_fields_::eCMPIE;
-    using eCMPIRQ = typename CTRL_fields_::eCMPIRQ;
-    using eWDE = typename CTRL_fields_::eWDE;
-    using eDIE = typename CTRL_fields_::eDIE;
-    using eDIRQ = typename CTRL_fields_::eDIRQ;
-    using eXNE = typename CTRL_fields_::eXNE;
-    using eXIP = typename CTRL_fields_::eXIP;
-    using eXIE = typename CTRL_fields_::eXIE;
-    using eXIRQ = typename CTRL_fields_::eXIRQ;
-    using ePH1 = typename CTRL_fields_::ePH1;
-    using eREV = typename CTRL_fields_::eREV;
-    using eSWIP = typename CTRL_fields_::eSWIP;
-    using eHNE = typename CTRL_fields_::eHNE;
-    using eHIP = typename CTRL_fields_::eHIP;
-    using eHIE = typename CTRL_fields_::eHIE;
-    using eHIRQ = typename CTRL_fields_::eHIRQ;
-    using CMPIE = typename CTRL_fields_::CMPIE;
-    using CMPIRQ = typename CTRL_fields_::CMPIRQ;
-    using WDE = typename CTRL_fields_::WDE;
-    using DIE = typename CTRL_fields_::DIE;
-    using DIRQ = typename CTRL_fields_::DIRQ;
-    using XNE = typename CTRL_fields_::XNE;
-    using XIP = typename CTRL_fields_::XIP;
-    using XIE = typename CTRL_fields_::XIE;
-    using XIRQ = typename CTRL_fields_::XIRQ;
-    using PH1 = typename CTRL_fields_::PH1;
-    using REV = typename CTRL_fields_::REV;
-    using SWIP = typename CTRL_fields_::SWIP;
-    using HNE = typename CTRL_fields_::HNE;
-    using HIP = typename CTRL_fields_::HIP;
-    using HIE = typename CTRL_fields_::HIE;
-    using HIRQ = typename CTRL_fields_::HIRQ;
+      typename CtrlFields::CMPIE,
+      typename CtrlFields::CMPIRQ,
+      typename CtrlFields::WDE,
+      typename CtrlFields::DIE,
+      typename CtrlFields::DIRQ,
+      typename CtrlFields::XNE,
+      typename CtrlFields::XIP,
+      typename CtrlFields::XIE,
+      typename CtrlFields::XIRQ,
+      typename CtrlFields::PH1,
+      typename CtrlFields::REV,
+      typename CtrlFields::SWIP,
+      typename CtrlFields::HNE,
+      typename CtrlFields::HIP,
+      typename CtrlFields::HIE,
+      typename CtrlFields::HIRQ> {
+    using eCMPIE = typename CtrlFields::eCMPIE;
+    using eCMPIRQ = typename CtrlFields::eCMPIRQ;
+    using eWDE = typename CtrlFields::eWDE;
+    using eDIE = typename CtrlFields::eDIE;
+    using eDIRQ = typename CtrlFields::eDIRQ;
+    using eXNE = typename CtrlFields::eXNE;
+    using eXIP = typename CtrlFields::eXIP;
+    using eXIE = typename CtrlFields::eXIE;
+    using eXIRQ = typename CtrlFields::eXIRQ;
+    using ePH1 = typename CtrlFields::ePH1;
+    using eREV = typename CtrlFields::eREV;
+    using eSWIP = typename CtrlFields::eSWIP;
+    using eHNE = typename CtrlFields::eHNE;
+    using eHIP = typename CtrlFields::eHIP;
+    using eHIE = typename CtrlFields::eHIE;
+    using eHIRQ = typename CtrlFields::eHIRQ;
+    using CMPIE = typename CtrlFields::CMPIE;
+    using CMPIRQ = typename CtrlFields::CMPIRQ;
+    using WDE = typename CtrlFields::WDE;
+    using DIE = typename CtrlFields::DIE;
+    using DIRQ = typename CtrlFields::DIRQ;
+    using XNE = typename CtrlFields::XNE;
+    using XIP = typename CtrlFields::XIP;
+    using XIE = typename CtrlFields::XIE;
+    using XIRQ = typename CtrlFields::XIRQ;
+    using PH1 = typename CtrlFields::PH1;
+    using REV = typename CtrlFields::REV;
+    using SWIP = typename CtrlFields::SWIP;
+    using HNE = typename CtrlFields::HNE;
+    using HIP = typename CtrlFields::HIP;
+    using HIE = typename CtrlFields::HIE;
+    using HIRQ = typename CtrlFields::HIRQ;
   };
 
   // Input Filter Register
-  struct FILT_fields_ {
+  struct FiltFields {
     // Input Filter Sample Period
     using FILT_PER = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Input Filter Sample Count
     using FILT_CNT = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FILT_fields_
+  };  // struct FiltFields
 
   struct FILT : ftl::mmio::Register<
       kBase + 0x2u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename FILT_fields_::FILT_PER,
-      typename FILT_fields_::FILT_CNT,
+      typename FiltFields::FILT_PER,
+      typename FiltFields::FILT_CNT,
       ftl::mmio::Reserved<5, 11>> {
-    using FILT_PER = typename FILT_fields_::FILT_PER;
-    using FILT_CNT = typename FILT_fields_::FILT_CNT;
+    using FILT_PER = typename FiltFields::FILT_PER;
+    using FILT_CNT = typename FiltFields::FILT_CNT;
   };
 
   // Watchdog Timeout Register
-  struct WTR_fields_ {
+  struct WtrFields {
     // WDOG
     using WDOG = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct WTR_fields_
+  };  // struct WtrFields
 
   struct WTR : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename WTR_fields_::WDOG> {
-    using WDOG = typename WTR_fields_::WDOG;
+      typename WtrFields::WDOG> {
+    using WDOG = typename WtrFields::WDOG;
   };
 
   // Position Difference Counter Register
-  struct POSD_fields_ {
+  struct PosdFields {
     // POSD
     using POSD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct POSD_fields_
+  };  // struct PosdFields
 
   struct POSD : ftl::mmio::Register<
       kBase + 0x6u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename POSD_fields_::POSD> {
-    using VALUE = typename POSD_fields_::POSD;
+      typename PosdFields::POSD> {
+    using VALUE = typename PosdFields::POSD;
   };
 
   // Position Difference Hold Register
-  struct POSDH_fields_ {
+  struct PosdhFields {
     // POSDH
     using POSDH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct POSDH_fields_
+  };  // struct PosdhFields
 
   struct POSDH : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RO,
-      typename POSDH_fields_::POSDH> {
-    using VALUE = typename POSDH_fields_::POSDH;
+      typename PosdhFields::POSDH> {
+    using VALUE = typename PosdhFields::POSDH;
   };
 
   // Revolution Counter Register
-  struct REV_fields_ {
+  struct RevFields {
     // REV
     using REV = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct REV_fields_
+  };  // struct RevFields
 
   struct REV : ftl::mmio::Register<
       kBase + 0xAu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename REV_fields_::REV> {
-    using VALUE = typename REV_fields_::REV;
+      typename RevFields::REV> {
+    using VALUE = typename RevFields::REV;
   };
 
   // Revolution Hold Register
-  struct REVH_fields_ {
+  struct RevhFields {
     // REVH
     using REVH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct REVH_fields_
+  };  // struct RevhFields
 
   struct REVH : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RO,
-      typename REVH_fields_::REVH> {
-    using VALUE = typename REVH_fields_::REVH;
+      typename RevhFields::REVH> {
+    using VALUE = typename RevhFields::REVH;
   };
 
   // Upper Position Counter Register
-  struct UPOS_fields_ {
+  struct UposFields {
     // POS
     using POS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct UPOS_fields_
+  };  // struct UposFields
 
   struct UPOS : ftl::mmio::Register<
       kBase + 0xEu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename UPOS_fields_::POS> {
-    using POS = typename UPOS_fields_::POS;
+      typename UposFields::POS> {
+    using POS = typename UposFields::POS;
   };
 
   // Lower Position Counter Register
-  struct LPOS_fields_ {
+  struct LposFields {
     // POS
     using POS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPOS_fields_
+  };  // struct LposFields
 
   struct LPOS : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename LPOS_fields_::POS> {
-    using POS = typename LPOS_fields_::POS;
+      typename LposFields::POS> {
+    using POS = typename LposFields::POS;
   };
 
   // Upper Position Hold Register
-  struct UPOSH_fields_ {
+  struct UposhFields {
     // POSH
     using POSH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct UPOSH_fields_
+  };  // struct UposhFields
 
   struct UPOSH : ftl::mmio::Register<
       kBase + 0x12u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RO,
-      typename UPOSH_fields_::POSH> {
-    using POSH = typename UPOSH_fields_::POSH;
+      typename UposhFields::POSH> {
+    using POSH = typename UposhFields::POSH;
   };
 
   // Lower Position Hold Register
-  struct LPOSH_fields_ {
+  struct LposhFields {
     // POSH
     using POSH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LPOSH_fields_
+  };  // struct LposhFields
 
   struct LPOSH : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RO,
-      typename LPOSH_fields_::POSH> {
-    using POSH = typename LPOSH_fields_::POSH;
+      typename LposhFields::POSH> {
+    using POSH = typename LposhFields::POSH;
   };
 
   // Upper Initialization Register
-  struct UINIT_fields_ {
+  struct UinitFields {
     // INIT
     using INIT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct UINIT_fields_
+  };  // struct UinitFields
 
   struct UINIT : ftl::mmio::Register<
       kBase + 0x16u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename UINIT_fields_::INIT> {
-    using INIT = typename UINIT_fields_::INIT;
+      typename UinitFields::INIT> {
+    using INIT = typename UinitFields::INIT;
   };
 
   // Lower Initialization Register
-  struct LINIT_fields_ {
+  struct LinitFields {
     // INIT
     using INIT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LINIT_fields_
+  };  // struct LinitFields
 
   struct LINIT : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename LINIT_fields_::INIT> {
-    using INIT = typename LINIT_fields_::INIT;
+      typename LinitFields::INIT> {
+    using INIT = typename LinitFields::INIT;
   };
 
   // Input Monitor Register
-  struct IMR_fields_ {
+  struct ImrFields {
     // HOME
     using HOME = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // INDEX
@@ -427,34 +427,34 @@ struct Enc {
     using FPHB = ftl::mmio::Field<1, 6, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // FPHA
     using FPHA = ftl::mmio::Field<1, 7, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IMR_fields_
+  };  // struct ImrFields
 
   struct IMR : ftl::mmio::Register<
       kBase + 0x1Au,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RO,
-      typename IMR_fields_::HOME,
-      typename IMR_fields_::INDEX,
-      typename IMR_fields_::PHB,
-      typename IMR_fields_::PHA,
-      typename IMR_fields_::FHOM,
-      typename IMR_fields_::FIND,
-      typename IMR_fields_::FPHB,
-      typename IMR_fields_::FPHA,
+      typename ImrFields::HOME,
+      typename ImrFields::INDEX,
+      typename ImrFields::PHB,
+      typename ImrFields::PHA,
+      typename ImrFields::FHOM,
+      typename ImrFields::FIND,
+      typename ImrFields::FPHB,
+      typename ImrFields::FPHA,
       ftl::mmio::Reserved<8, 8>> {
-    using HOME = typename IMR_fields_::HOME;
-    using INDEX = typename IMR_fields_::INDEX;
-    using PHB = typename IMR_fields_::PHB;
-    using PHA = typename IMR_fields_::PHA;
-    using FHOM = typename IMR_fields_::FHOM;
-    using FIND = typename IMR_fields_::FIND;
-    using FPHB = typename IMR_fields_::FPHB;
-    using FPHA = typename IMR_fields_::FPHA;
+    using HOME = typename ImrFields::HOME;
+    using INDEX = typename ImrFields::INDEX;
+    using PHB = typename ImrFields::PHB;
+    using PHA = typename ImrFields::PHA;
+    using FHOM = typename ImrFields::FHOM;
+    using FIND = typename ImrFields::FIND;
+    using FPHB = typename ImrFields::FPHB;
+    using FPHA = typename ImrFields::FPHA;
   };
 
   // Test Register
-  struct TST_fields_ {
+  struct TstFields {
     enum class eQDN : std::uint32_t {
       // Generates a positive quadrature decoder signal
       eQDN_0 = 0,
@@ -486,30 +486,30 @@ struct Enc {
     using TCE = ftl::mmio::Field<1, 14, eTCE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Test Mode Enable
     using TEN = ftl::mmio::Field<1, 15, eTEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TST_fields_
+  };  // struct TstFields
 
   struct TST : ftl::mmio::Register<
       kBase + 0x1Cu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename TST_fields_::TEST_COUNT,
-      typename TST_fields_::TEST_PERIOD,
-      typename TST_fields_::QDN,
-      typename TST_fields_::TCE,
-      typename TST_fields_::TEN> {
-    using eQDN = typename TST_fields_::eQDN;
-    using eTCE = typename TST_fields_::eTCE;
-    using eTEN = typename TST_fields_::eTEN;
-    using TEST_COUNT = typename TST_fields_::TEST_COUNT;
-    using TEST_PERIOD = typename TST_fields_::TEST_PERIOD;
-    using QDN = typename TST_fields_::QDN;
-    using TCE = typename TST_fields_::TCE;
-    using TEN = typename TST_fields_::TEN;
+      typename TstFields::TEST_COUNT,
+      typename TstFields::TEST_PERIOD,
+      typename TstFields::QDN,
+      typename TstFields::TCE,
+      typename TstFields::TEN> {
+    using eQDN = typename TstFields::eQDN;
+    using eTCE = typename TstFields::eTCE;
+    using eTEN = typename TstFields::eTEN;
+    using TEST_COUNT = typename TstFields::TEST_COUNT;
+    using TEST_PERIOD = typename TstFields::TEST_PERIOD;
+    using QDN = typename TstFields::QDN;
+    using TCE = typename TstFields::TCE;
+    using TEN = typename TstFields::TEN;
   };
 
   // Control 2 Register
-  struct CTRL2_fields_ {
+  struct Ctrl2Fields {
     enum class eUPDHLD : std::uint32_t {
       // Disable updates of hold registers on the rising edge of TRIGGER input signal
       eUPDHLD_0 = 0,
@@ -618,189 +618,189 @@ struct Enc {
     using SABIE = ftl::mmio::Field<1, 10, eSABIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Simultaneous PHASEA and PHASEB Change Interrupt Request
     using SABIRQ = ftl::mmio::Field<1, 11, eSABIRQ, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct CTRL2_fields_
+  };  // struct Ctrl2Fields
 
   struct CTRL2 : ftl::mmio::Register<
       kBase + 0x1Eu,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CTRL2_fields_::UPDHLD,
-      typename CTRL2_fields_::UPDPOS,
-      typename CTRL2_fields_::MOD,
-      typename CTRL2_fields_::DIR,
-      typename CTRL2_fields_::RUIE,
-      typename CTRL2_fields_::RUIRQ,
-      typename CTRL2_fields_::ROIE,
-      typename CTRL2_fields_::ROIRQ,
-      typename CTRL2_fields_::REVMOD,
-      typename CTRL2_fields_::OUTCTL,
-      typename CTRL2_fields_::SABIE,
-      typename CTRL2_fields_::SABIRQ,
+      typename Ctrl2Fields::UPDHLD,
+      typename Ctrl2Fields::UPDPOS,
+      typename Ctrl2Fields::MOD,
+      typename Ctrl2Fields::DIR,
+      typename Ctrl2Fields::RUIE,
+      typename Ctrl2Fields::RUIRQ,
+      typename Ctrl2Fields::ROIE,
+      typename Ctrl2Fields::ROIRQ,
+      typename Ctrl2Fields::REVMOD,
+      typename Ctrl2Fields::OUTCTL,
+      typename Ctrl2Fields::SABIE,
+      typename Ctrl2Fields::SABIRQ,
       ftl::mmio::Reserved<4, 12>> {
-    using eUPDHLD = typename CTRL2_fields_::eUPDHLD;
-    using eUPDPOS = typename CTRL2_fields_::eUPDPOS;
-    using eMOD = typename CTRL2_fields_::eMOD;
-    using eDIR = typename CTRL2_fields_::eDIR;
-    using eRUIE = typename CTRL2_fields_::eRUIE;
-    using eRUIRQ = typename CTRL2_fields_::eRUIRQ;
-    using eROIE = typename CTRL2_fields_::eROIE;
-    using eROIRQ = typename CTRL2_fields_::eROIRQ;
-    using eREVMOD = typename CTRL2_fields_::eREVMOD;
-    using eOUTCTL = typename CTRL2_fields_::eOUTCTL;
-    using eSABIE = typename CTRL2_fields_::eSABIE;
-    using eSABIRQ = typename CTRL2_fields_::eSABIRQ;
-    using UPDHLD = typename CTRL2_fields_::UPDHLD;
-    using UPDPOS = typename CTRL2_fields_::UPDPOS;
-    using MOD = typename CTRL2_fields_::MOD;
-    using DIR = typename CTRL2_fields_::DIR;
-    using RUIE = typename CTRL2_fields_::RUIE;
-    using RUIRQ = typename CTRL2_fields_::RUIRQ;
-    using ROIE = typename CTRL2_fields_::ROIE;
-    using ROIRQ = typename CTRL2_fields_::ROIRQ;
-    using REVMOD = typename CTRL2_fields_::REVMOD;
-    using OUTCTL = typename CTRL2_fields_::OUTCTL;
-    using SABIE = typename CTRL2_fields_::SABIE;
-    using SABIRQ = typename CTRL2_fields_::SABIRQ;
+    using eUPDHLD = typename Ctrl2Fields::eUPDHLD;
+    using eUPDPOS = typename Ctrl2Fields::eUPDPOS;
+    using eMOD = typename Ctrl2Fields::eMOD;
+    using eDIR = typename Ctrl2Fields::eDIR;
+    using eRUIE = typename Ctrl2Fields::eRUIE;
+    using eRUIRQ = typename Ctrl2Fields::eRUIRQ;
+    using eROIE = typename Ctrl2Fields::eROIE;
+    using eROIRQ = typename Ctrl2Fields::eROIRQ;
+    using eREVMOD = typename Ctrl2Fields::eREVMOD;
+    using eOUTCTL = typename Ctrl2Fields::eOUTCTL;
+    using eSABIE = typename Ctrl2Fields::eSABIE;
+    using eSABIRQ = typename Ctrl2Fields::eSABIRQ;
+    using UPDHLD = typename Ctrl2Fields::UPDHLD;
+    using UPDPOS = typename Ctrl2Fields::UPDPOS;
+    using MOD = typename Ctrl2Fields::MOD;
+    using DIR = typename Ctrl2Fields::DIR;
+    using RUIE = typename Ctrl2Fields::RUIE;
+    using RUIRQ = typename Ctrl2Fields::RUIRQ;
+    using ROIE = typename Ctrl2Fields::ROIE;
+    using ROIRQ = typename Ctrl2Fields::ROIRQ;
+    using REVMOD = typename Ctrl2Fields::REVMOD;
+    using OUTCTL = typename Ctrl2Fields::OUTCTL;
+    using SABIE = typename Ctrl2Fields::SABIE;
+    using SABIRQ = typename Ctrl2Fields::SABIRQ;
   };
 
   // Upper Modulus Register
-  struct UMOD_fields_ {
+  struct UmodFields {
     // MOD
     using MOD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct UMOD_fields_
+  };  // struct UmodFields
 
   struct UMOD : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename UMOD_fields_::MOD> {
-    using MOD = typename UMOD_fields_::MOD;
+      typename UmodFields::MOD> {
+    using MOD = typename UmodFields::MOD;
   };
 
   // Lower Modulus Register
-  struct LMOD_fields_ {
+  struct LmodFields {
     // MOD
     using MOD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LMOD_fields_
+  };  // struct LmodFields
 
   struct LMOD : ftl::mmio::Register<
       kBase + 0x22u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename LMOD_fields_::MOD> {
-    using MOD = typename LMOD_fields_::MOD;
+      typename LmodFields::MOD> {
+    using MOD = typename LmodFields::MOD;
   };
 
   // Upper Position Compare Register
-  struct UCOMP_fields_ {
+  struct UcompFields {
     // COMP
     using COMP = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct UCOMP_fields_
+  };  // struct UcompFields
 
   struct UCOMP : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint16_t,
       0xFFFFu,
       ftl::mmio::RW,
-      typename UCOMP_fields_::COMP> {
-    using COMP = typename UCOMP_fields_::COMP;
+      typename UcompFields::COMP> {
+    using COMP = typename UcompFields::COMP;
   };
 
   // Lower Position Compare Register
-  struct LCOMP_fields_ {
+  struct LcompFields {
     // COMP
     using COMP = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LCOMP_fields_
+  };  // struct LcompFields
 
   struct LCOMP : ftl::mmio::Register<
       kBase + 0x26u,
       std::uint16_t,
       0xFFFFu,
       ftl::mmio::RW,
-      typename LCOMP_fields_::COMP> {
-    using COMP = typename LCOMP_fields_::COMP;
+      typename LcompFields::COMP> {
+    using COMP = typename LcompFields::COMP;
   };
 
   // Last Edge Time Register
-  struct LASTEDGE_fields_ {
+  struct LastedgeFields {
     // Last Edge Time Counter
     using LASTEDGE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LASTEDGE_fields_
+  };  // struct LastedgeFields
 
   struct LASTEDGE : ftl::mmio::Register<
       kBase + 0x28u,
       std::uint16_t,
       0xFFFFu,
       ftl::mmio::RO,
-      typename LASTEDGE_fields_::LASTEDGE> {
-    using VALUE = typename LASTEDGE_fields_::LASTEDGE;
+      typename LastedgeFields::LASTEDGE> {
+    using VALUE = typename LastedgeFields::LASTEDGE;
   };
 
   // Last Edge Time Hold Register
-  struct LASTEDGEH_fields_ {
+  struct LastedgehFields {
     // Last Edge Time Hold
     using LASTEDGEH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LASTEDGEH_fields_
+  };  // struct LastedgehFields
 
   struct LASTEDGEH : ftl::mmio::Register<
       kBase + 0x2Au,
       std::uint16_t,
       0xFFFFu,
       ftl::mmio::RO,
-      typename LASTEDGEH_fields_::LASTEDGEH> {
-    using VALUE = typename LASTEDGEH_fields_::LASTEDGEH;
+      typename LastedgehFields::LASTEDGEH> {
+    using VALUE = typename LastedgehFields::LASTEDGEH;
   };
 
   // Position Difference Period Counter Register
-  struct POSDPER_fields_ {
+  struct PosdperFields {
     // Position difference period
     using POSDPER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct POSDPER_fields_
+  };  // struct PosdperFields
 
   struct POSDPER : ftl::mmio::Register<
       kBase + 0x2Cu,
       std::uint16_t,
       0xFFFFu,
       ftl::mmio::RO,
-      typename POSDPER_fields_::POSDPER> {
-    using VALUE = typename POSDPER_fields_::POSDPER;
+      typename PosdperFields::POSDPER> {
+    using VALUE = typename PosdperFields::POSDPER;
   };
 
   // Position Difference Period Buffer Register
-  struct POSDPERBFR_fields_ {
+  struct PosdperbfrFields {
     // Position difference period buffer
     using POSDPERBFR = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct POSDPERBFR_fields_
+  };  // struct PosdperbfrFields
 
   struct POSDPERBFR : ftl::mmio::Register<
       kBase + 0x2Eu,
       std::uint16_t,
       0xFFFFu,
       ftl::mmio::RO,
-      typename POSDPERBFR_fields_::POSDPERBFR> {
-    using VALUE = typename POSDPERBFR_fields_::POSDPERBFR;
+      typename PosdperbfrFields::POSDPERBFR> {
+    using VALUE = typename PosdperbfrFields::POSDPERBFR;
   };
 
   // Position Difference Period Hold Register
-  struct POSDPERH_fields_ {
+  struct PosdperhFields {
     // Position difference period hold
     using POSDPERH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct POSDPERH_fields_
+  };  // struct PosdperhFields
 
   struct POSDPERH : ftl::mmio::Register<
       kBase + 0x30u,
       std::uint16_t,
       0xFFFFu,
       ftl::mmio::RO,
-      typename POSDPERH_fields_::POSDPERH> {
-    using VALUE = typename POSDPERH_fields_::POSDPERH;
+      typename PosdperhFields::POSDPERH> {
+    using VALUE = typename PosdperhFields::POSDPERH;
   };
 
   // Control 3 Register
-  struct CTRL3_fields_ {
+  struct Ctrl3Fields {
     enum class ePMEN : std::uint32_t {
       // Period measurement functions are not used. POSD is loaded to POSDH and then cleared whenever POSD, UPOS, LPOS, or REV is read.
       ePMEN_0 = 0,
@@ -812,20 +812,20 @@ struct Enc {
     using PMEN = ftl::mmio::Field<1, 0, ePMEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Prescaler
     using PRSC = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL3_fields_
+  };  // struct Ctrl3Fields
 
   struct CTRL3 : ftl::mmio::Register<
       kBase + 0x32u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename CTRL3_fields_::PMEN,
+      typename Ctrl3Fields::PMEN,
       ftl::mmio::Reserved<3, 1>,
-      typename CTRL3_fields_::PRSC,
+      typename Ctrl3Fields::PRSC,
       ftl::mmio::Reserved<8, 8>> {
-    using ePMEN = typename CTRL3_fields_::ePMEN;
-    using PMEN = typename CTRL3_fields_::PMEN;
-    using PRSC = typename CTRL3_fields_::PRSC;
+    using ePMEN = typename Ctrl3Fields::ePMEN;
+    using PMEN = typename Ctrl3Fields::PMEN;
+    using PRSC = typename Ctrl3Fields::PRSC;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct Enet1g {
   // Interrupt Event Register
-  struct EIR_fields_ {
+  struct EirFields {
     // Receive buffer interrupt, class 1
     using RXB1 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Receive frame interrupt, class 1
@@ -65,73 +65,73 @@ struct Enet1g {
     using BABT = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Babbling Receive Error
     using BABR = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct EIR_fields_
+  };  // struct EirFields
 
   struct EIR : ftl::mmio::Register<
       0x40420004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      EIR_fields_::RXB1,
-      EIR_fields_::RXF1,
-      EIR_fields_::TXB1,
-      EIR_fields_::TXF1,
-      EIR_fields_::RXB2,
-      EIR_fields_::RXF2,
-      EIR_fields_::TXB2,
-      EIR_fields_::TXF2,
+      EirFields::RXB1,
+      EirFields::RXF1,
+      EirFields::TXB1,
+      EirFields::TXF1,
+      EirFields::RXB2,
+      EirFields::RXF2,
+      EirFields::TXB2,
+      EirFields::TXF2,
       ftl::mmio::Reserved<4, 8>,
-      EIR_fields_::RXFLUSH_0,
-      EIR_fields_::RXFLUSH_1,
-      EIR_fields_::RXFLUSH_2,
-      EIR_fields_::TS_TIMER,
-      EIR_fields_::TS_AVAIL,
-      EIR_fields_::WAKEUP,
-      EIR_fields_::PLR,
-      EIR_fields_::UN,
-      EIR_fields_::RL,
-      EIR_fields_::LC,
-      EIR_fields_::EBERR,
-      EIR_fields_::MII,
-      EIR_fields_::RXB,
-      EIR_fields_::RXF,
-      EIR_fields_::TXB,
-      EIR_fields_::TXF,
-      EIR_fields_::GRA,
-      EIR_fields_::BABT,
-      EIR_fields_::BABR,
+      EirFields::RXFLUSH_0,
+      EirFields::RXFLUSH_1,
+      EirFields::RXFLUSH_2,
+      EirFields::TS_TIMER,
+      EirFields::TS_AVAIL,
+      EirFields::WAKEUP,
+      EirFields::PLR,
+      EirFields::UN,
+      EirFields::RL,
+      EirFields::LC,
+      EirFields::EBERR,
+      EirFields::MII,
+      EirFields::RXB,
+      EirFields::RXF,
+      EirFields::TXB,
+      EirFields::TXF,
+      EirFields::GRA,
+      EirFields::BABT,
+      EirFields::BABR,
       ftl::mmio::Reserved<1, 31>> {
-    using RXB1 = EIR_fields_::RXB1;
-    using RXF1 = EIR_fields_::RXF1;
-    using TXB1 = EIR_fields_::TXB1;
-    using TXF1 = EIR_fields_::TXF1;
-    using RXB2 = EIR_fields_::RXB2;
-    using RXF2 = EIR_fields_::RXF2;
-    using TXB2 = EIR_fields_::TXB2;
-    using TXF2 = EIR_fields_::TXF2;
-    using RXFLUSH_0 = EIR_fields_::RXFLUSH_0;
-    using RXFLUSH_1 = EIR_fields_::RXFLUSH_1;
-    using RXFLUSH_2 = EIR_fields_::RXFLUSH_2;
-    using TS_TIMER = EIR_fields_::TS_TIMER;
-    using TS_AVAIL = EIR_fields_::TS_AVAIL;
-    using WAKEUP = EIR_fields_::WAKEUP;
-    using PLR = EIR_fields_::PLR;
-    using UN = EIR_fields_::UN;
-    using RL = EIR_fields_::RL;
-    using LC = EIR_fields_::LC;
-    using EBERR = EIR_fields_::EBERR;
-    using MII = EIR_fields_::MII;
-    using RXB = EIR_fields_::RXB;
-    using RXF = EIR_fields_::RXF;
-    using TXB = EIR_fields_::TXB;
-    using TXF = EIR_fields_::TXF;
-    using GRA = EIR_fields_::GRA;
-    using BABT = EIR_fields_::BABT;
-    using BABR = EIR_fields_::BABR;
+    using RXB1 = EirFields::RXB1;
+    using RXF1 = EirFields::RXF1;
+    using TXB1 = EirFields::TXB1;
+    using TXF1 = EirFields::TXF1;
+    using RXB2 = EirFields::RXB2;
+    using RXF2 = EirFields::RXF2;
+    using TXB2 = EirFields::TXB2;
+    using TXF2 = EirFields::TXF2;
+    using RXFLUSH_0 = EirFields::RXFLUSH_0;
+    using RXFLUSH_1 = EirFields::RXFLUSH_1;
+    using RXFLUSH_2 = EirFields::RXFLUSH_2;
+    using TS_TIMER = EirFields::TS_TIMER;
+    using TS_AVAIL = EirFields::TS_AVAIL;
+    using WAKEUP = EirFields::WAKEUP;
+    using PLR = EirFields::PLR;
+    using UN = EirFields::UN;
+    using RL = EirFields::RL;
+    using LC = EirFields::LC;
+    using EBERR = EirFields::EBERR;
+    using MII = EirFields::MII;
+    using RXB = EirFields::RXB;
+    using RXF = EirFields::RXF;
+    using TXB = EirFields::TXB;
+    using TXF = EirFields::TXF;
+    using GRA = EirFields::GRA;
+    using BABT = EirFields::BABT;
+    using BABR = EirFields::BABR;
   };
 
   // Interrupt Mask Register
-  struct EIMR_fields_ {
+  struct EimrFields {
     enum class eRXB1 : std::uint32_t {
       // The corresponding interrupt source is masked.
       eZERO = 0,
@@ -375,103 +375,103 @@ struct Enet1g {
     using BABT = ftl::mmio::Field<1, 29, eBABT, ftl::mmio::RW, ftl::mmio::Normal>;
     // BABR Interrupt Mask
     using BABR = ftl::mmio::Field<1, 30, eBABR, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct EIMR_fields_
+  };  // struct EimrFields
 
   struct EIMR : ftl::mmio::Register<
       0x40420008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      EIMR_fields_::RXB1,
-      EIMR_fields_::RXF1,
-      EIMR_fields_::TXB1,
-      EIMR_fields_::TXF1,
-      EIMR_fields_::RXB2,
-      EIMR_fields_::RXF2,
-      EIMR_fields_::TXB2,
-      EIMR_fields_::TXF2,
+      EimrFields::RXB1,
+      EimrFields::RXF1,
+      EimrFields::TXB1,
+      EimrFields::TXF1,
+      EimrFields::RXB2,
+      EimrFields::RXF2,
+      EimrFields::TXB2,
+      EimrFields::TXF2,
       ftl::mmio::Reserved<4, 8>,
-      EIMR_fields_::RXFLUSH_0,
-      EIMR_fields_::RXFLUSH_1,
-      EIMR_fields_::RXFLUSH_2,
-      EIMR_fields_::TS_TIMER,
-      EIMR_fields_::TS_AVAIL,
-      EIMR_fields_::WAKEUP,
-      EIMR_fields_::PLR,
-      EIMR_fields_::UN,
-      EIMR_fields_::RL,
-      EIMR_fields_::LC,
-      EIMR_fields_::EBERR,
-      EIMR_fields_::MII,
-      EIMR_fields_::RXB,
-      EIMR_fields_::RXF,
-      EIMR_fields_::TXB,
-      EIMR_fields_::TXF,
-      EIMR_fields_::GRA,
-      EIMR_fields_::BABT,
-      EIMR_fields_::BABR,
+      EimrFields::RXFLUSH_0,
+      EimrFields::RXFLUSH_1,
+      EimrFields::RXFLUSH_2,
+      EimrFields::TS_TIMER,
+      EimrFields::TS_AVAIL,
+      EimrFields::WAKEUP,
+      EimrFields::PLR,
+      EimrFields::UN,
+      EimrFields::RL,
+      EimrFields::LC,
+      EimrFields::EBERR,
+      EimrFields::MII,
+      EimrFields::RXB,
+      EimrFields::RXF,
+      EimrFields::TXB,
+      EimrFields::TXF,
+      EimrFields::GRA,
+      EimrFields::BABT,
+      EimrFields::BABR,
       ftl::mmio::Reserved<1, 31>> {
-    using eRXB1 = EIMR_fields_::eRXB1;
-    using eRXF1 = EIMR_fields_::eRXF1;
-    using eTXB1 = EIMR_fields_::eTXB1;
-    using eTXF1 = EIMR_fields_::eTXF1;
-    using eRXB2 = EIMR_fields_::eRXB2;
-    using eRXF2 = EIMR_fields_::eRXF2;
-    using eTXB2 = EIMR_fields_::eTXB2;
-    using eTXF2 = EIMR_fields_::eTXF2;
-    using eRXFLUSH_0 = EIMR_fields_::eRXFLUSH_0;
-    using eRXFLUSH_1 = EIMR_fields_::eRXFLUSH_1;
-    using eRXFLUSH_2 = EIMR_fields_::eRXFLUSH_2;
-    using eTS_TIMER = EIMR_fields_::eTS_TIMER;
-    using eTS_AVAIL = EIMR_fields_::eTS_AVAIL;
-    using eWAKEUP = EIMR_fields_::eWAKEUP;
-    using ePLR = EIMR_fields_::ePLR;
-    using eUN = EIMR_fields_::eUN;
-    using eRL = EIMR_fields_::eRL;
-    using eLC = EIMR_fields_::eLC;
-    using eEBERR = EIMR_fields_::eEBERR;
-    using eMII = EIMR_fields_::eMII;
-    using eRXB = EIMR_fields_::eRXB;
-    using eRXF = EIMR_fields_::eRXF;
-    using eTXB = EIMR_fields_::eTXB;
-    using eTXF = EIMR_fields_::eTXF;
-    using eGRA = EIMR_fields_::eGRA;
-    using eBABT = EIMR_fields_::eBABT;
-    using eBABR = EIMR_fields_::eBABR;
-    using RXB1 = EIMR_fields_::RXB1;
-    using RXF1 = EIMR_fields_::RXF1;
-    using TXB1 = EIMR_fields_::TXB1;
-    using TXF1 = EIMR_fields_::TXF1;
-    using RXB2 = EIMR_fields_::RXB2;
-    using RXF2 = EIMR_fields_::RXF2;
-    using TXB2 = EIMR_fields_::TXB2;
-    using TXF2 = EIMR_fields_::TXF2;
-    using RXFLUSH_0 = EIMR_fields_::RXFLUSH_0;
-    using RXFLUSH_1 = EIMR_fields_::RXFLUSH_1;
-    using RXFLUSH_2 = EIMR_fields_::RXFLUSH_2;
-    using TS_TIMER = EIMR_fields_::TS_TIMER;
-    using TS_AVAIL = EIMR_fields_::TS_AVAIL;
-    using WAKEUP = EIMR_fields_::WAKEUP;
-    using PLR = EIMR_fields_::PLR;
-    using UN = EIMR_fields_::UN;
-    using RL = EIMR_fields_::RL;
-    using LC = EIMR_fields_::LC;
-    using EBERR = EIMR_fields_::EBERR;
-    using MII = EIMR_fields_::MII;
-    using RXB = EIMR_fields_::RXB;
-    using RXF = EIMR_fields_::RXF;
-    using TXB = EIMR_fields_::TXB;
-    using TXF = EIMR_fields_::TXF;
-    using GRA = EIMR_fields_::GRA;
-    using BABT = EIMR_fields_::BABT;
-    using BABR = EIMR_fields_::BABR;
+    using eRXB1 = EimrFields::eRXB1;
+    using eRXF1 = EimrFields::eRXF1;
+    using eTXB1 = EimrFields::eTXB1;
+    using eTXF1 = EimrFields::eTXF1;
+    using eRXB2 = EimrFields::eRXB2;
+    using eRXF2 = EimrFields::eRXF2;
+    using eTXB2 = EimrFields::eTXB2;
+    using eTXF2 = EimrFields::eTXF2;
+    using eRXFLUSH_0 = EimrFields::eRXFLUSH_0;
+    using eRXFLUSH_1 = EimrFields::eRXFLUSH_1;
+    using eRXFLUSH_2 = EimrFields::eRXFLUSH_2;
+    using eTS_TIMER = EimrFields::eTS_TIMER;
+    using eTS_AVAIL = EimrFields::eTS_AVAIL;
+    using eWAKEUP = EimrFields::eWAKEUP;
+    using ePLR = EimrFields::ePLR;
+    using eUN = EimrFields::eUN;
+    using eRL = EimrFields::eRL;
+    using eLC = EimrFields::eLC;
+    using eEBERR = EimrFields::eEBERR;
+    using eMII = EimrFields::eMII;
+    using eRXB = EimrFields::eRXB;
+    using eRXF = EimrFields::eRXF;
+    using eTXB = EimrFields::eTXB;
+    using eTXF = EimrFields::eTXF;
+    using eGRA = EimrFields::eGRA;
+    using eBABT = EimrFields::eBABT;
+    using eBABR = EimrFields::eBABR;
+    using RXB1 = EimrFields::RXB1;
+    using RXF1 = EimrFields::RXF1;
+    using TXB1 = EimrFields::TXB1;
+    using TXF1 = EimrFields::TXF1;
+    using RXB2 = EimrFields::RXB2;
+    using RXF2 = EimrFields::RXF2;
+    using TXB2 = EimrFields::TXB2;
+    using TXF2 = EimrFields::TXF2;
+    using RXFLUSH_0 = EimrFields::RXFLUSH_0;
+    using RXFLUSH_1 = EimrFields::RXFLUSH_1;
+    using RXFLUSH_2 = EimrFields::RXFLUSH_2;
+    using TS_TIMER = EimrFields::TS_TIMER;
+    using TS_AVAIL = EimrFields::TS_AVAIL;
+    using WAKEUP = EimrFields::WAKEUP;
+    using PLR = EimrFields::PLR;
+    using UN = EimrFields::UN;
+    using RL = EimrFields::RL;
+    using LC = EimrFields::LC;
+    using EBERR = EimrFields::EBERR;
+    using MII = EimrFields::MII;
+    using RXB = EimrFields::RXB;
+    using RXF = EimrFields::RXF;
+    using TXB = EimrFields::TXB;
+    using TXF = EimrFields::TXF;
+    using GRA = EimrFields::GRA;
+    using BABT = EimrFields::BABT;
+    using BABR = EimrFields::BABR;
   };
 
   // Receive Descriptor Active Register - Ring 0
-  struct RDAR_fields_ {
+  struct RdarFields {
     // Receive Descriptor Active
     using RDAR = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RDAR_fields_
+  };  // struct RdarFields
 
   struct RDAR : ftl::mmio::Register<
       0x40420010u,
@@ -479,16 +479,16 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<24, 0>,
-      RDAR_fields_::RDAR,
+      RdarFields::RDAR,
       ftl::mmio::Reserved<7, 25>> {
-    using VALUE = RDAR_fields_::RDAR;
+    using VALUE = RdarFields::RDAR;
   };
 
   // Transmit Descriptor Active Register - Ring 0
-  struct TDAR_fields_ {
+  struct TdarFields {
     // Transmit Descriptor Active
     using TDAR = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TDAR_fields_
+  };  // struct TdarFields
 
   struct TDAR : ftl::mmio::Register<
       0x40420014u,
@@ -496,13 +496,13 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<24, 0>,
-      TDAR_fields_::TDAR,
+      TdarFields::TDAR,
       ftl::mmio::Reserved<7, 25>> {
-    using VALUE = TDAR_fields_::TDAR;
+    using VALUE = TdarFields::TDAR;
   };
 
   // Ethernet Control Register
-  struct ECR_fields_ {
+  struct EcrFields {
     enum class eETHEREN : std::uint32_t {
       // Reception immediately stops and transmission stops after a bad CRC is appended to any currently transmitted frame.
       eZERO = 0,
@@ -604,55 +604,55 @@ struct Enet1g {
     using SVLANDBL = ftl::mmio::Field<1, 11, eSVLANDBL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit clock delay
     using TXC_DLY = ftl::mmio::Field<1, 16, eTXC_DLY, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ECR_fields_
+  };  // struct EcrFields
 
   struct ECR : ftl::mmio::Register<
       0x40420024u,
       std::uint32_t,
       0x70000000u,
       ftl::mmio::RW,
-      ECR_fields_::RESET,
-      ECR_fields_::ETHEREN,
-      ECR_fields_::MAGICEN,
-      ECR_fields_::SLEEP,
-      ECR_fields_::EN1588,
-      ECR_fields_::SPEED,
-      ECR_fields_::DBGEN,
+      EcrFields::RESET,
+      EcrFields::ETHEREN,
+      EcrFields::MAGICEN,
+      EcrFields::SLEEP,
+      EcrFields::EN1588,
+      EcrFields::SPEED,
+      EcrFields::DBGEN,
       ftl::mmio::Reserved<1, 7>,
-      ECR_fields_::DBSWP,
-      ECR_fields_::SVLANEN,
-      ECR_fields_::VLANUSE2ND,
-      ECR_fields_::SVLANDBL,
+      EcrFields::DBSWP,
+      EcrFields::SVLANEN,
+      EcrFields::VLANUSE2ND,
+      EcrFields::SVLANDBL,
       ftl::mmio::Reserved<4, 12>,
-      ECR_fields_::TXC_DLY,
+      EcrFields::TXC_DLY,
       ftl::mmio::Reserved<15, 17>> {
-    using eETHEREN = ECR_fields_::eETHEREN;
-    using eMAGICEN = ECR_fields_::eMAGICEN;
-    using eSLEEP = ECR_fields_::eSLEEP;
-    using eEN1588 = ECR_fields_::eEN1588;
-    using eSPEED = ECR_fields_::eSPEED;
-    using eDBGEN = ECR_fields_::eDBGEN;
-    using eDBSWP = ECR_fields_::eDBSWP;
-    using eSVLANEN = ECR_fields_::eSVLANEN;
-    using eVLANUSE2ND = ECR_fields_::eVLANUSE2ND;
-    using eSVLANDBL = ECR_fields_::eSVLANDBL;
-    using eTXC_DLY = ECR_fields_::eTXC_DLY;
-    using RESET = ECR_fields_::RESET;
-    using ETHEREN = ECR_fields_::ETHEREN;
-    using MAGICEN = ECR_fields_::MAGICEN;
-    using SLEEP = ECR_fields_::SLEEP;
-    using EN1588 = ECR_fields_::EN1588;
-    using SPEED = ECR_fields_::SPEED;
-    using DBGEN = ECR_fields_::DBGEN;
-    using DBSWP = ECR_fields_::DBSWP;
-    using SVLANEN = ECR_fields_::SVLANEN;
-    using VLANUSE2ND = ECR_fields_::VLANUSE2ND;
-    using SVLANDBL = ECR_fields_::SVLANDBL;
-    using TXC_DLY = ECR_fields_::TXC_DLY;
+    using eETHEREN = EcrFields::eETHEREN;
+    using eMAGICEN = EcrFields::eMAGICEN;
+    using eSLEEP = EcrFields::eSLEEP;
+    using eEN1588 = EcrFields::eEN1588;
+    using eSPEED = EcrFields::eSPEED;
+    using eDBGEN = EcrFields::eDBGEN;
+    using eDBSWP = EcrFields::eDBSWP;
+    using eSVLANEN = EcrFields::eSVLANEN;
+    using eVLANUSE2ND = EcrFields::eVLANUSE2ND;
+    using eSVLANDBL = EcrFields::eSVLANDBL;
+    using eTXC_DLY = EcrFields::eTXC_DLY;
+    using RESET = EcrFields::RESET;
+    using ETHEREN = EcrFields::ETHEREN;
+    using MAGICEN = EcrFields::MAGICEN;
+    using SLEEP = EcrFields::SLEEP;
+    using EN1588 = EcrFields::EN1588;
+    using SPEED = EcrFields::SPEED;
+    using DBGEN = EcrFields::DBGEN;
+    using DBSWP = EcrFields::DBSWP;
+    using SVLANEN = EcrFields::SVLANEN;
+    using VLANUSE2ND = EcrFields::VLANUSE2ND;
+    using SVLANDBL = EcrFields::SVLANDBL;
+    using TXC_DLY = EcrFields::TXC_DLY;
   };
 
   // MII Management Frame Register
-  struct MMFR_fields_ {
+  struct MmfrFields {
     // Management Frame Data
     using DATA = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Turn Around
@@ -665,29 +665,29 @@ struct Enet1g {
     using OP = ftl::mmio::Field<2, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Start Of Frame Delimiter
     using ST = ftl::mmio::Field<2, 30, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MMFR_fields_
+  };  // struct MmfrFields
 
   struct MMFR : ftl::mmio::Register<
       0x40420040u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MMFR_fields_::DATA,
-      MMFR_fields_::TA,
-      MMFR_fields_::RA,
-      MMFR_fields_::PA,
-      MMFR_fields_::OP,
-      MMFR_fields_::ST> {
-    using DATA = MMFR_fields_::DATA;
-    using TA = MMFR_fields_::TA;
-    using RA = MMFR_fields_::RA;
-    using PA = MMFR_fields_::PA;
-    using OP = MMFR_fields_::OP;
-    using ST = MMFR_fields_::ST;
+      MmfrFields::DATA,
+      MmfrFields::TA,
+      MmfrFields::RA,
+      MmfrFields::PA,
+      MmfrFields::OP,
+      MmfrFields::ST> {
+    using DATA = MmfrFields::DATA;
+    using TA = MmfrFields::TA;
+    using RA = MmfrFields::RA;
+    using PA = MmfrFields::PA;
+    using OP = MmfrFields::OP;
+    using ST = MmfrFields::ST;
   };
 
   // MII Speed Control Register
-  struct MSCR_fields_ {
+  struct MscrFields {
     enum class eDIS_PRE : std::uint32_t {
       // Preamble enabled.
       eZERO = 0,
@@ -712,7 +712,7 @@ struct Enet1g {
     using DIS_PRE = ftl::mmio::Field<1, 7, eDIS_PRE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Hold time On MDIO Output
     using HOLDTIME = ftl::mmio::Field<3, 8, eHOLDTIME, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MSCR_fields_
+  };  // struct MscrFields
 
   struct MSCR : ftl::mmio::Register<
       0x40420044u,
@@ -720,19 +720,19 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      MSCR_fields_::MII_SPEED,
-      MSCR_fields_::DIS_PRE,
-      MSCR_fields_::HOLDTIME,
+      MscrFields::MII_SPEED,
+      MscrFields::DIS_PRE,
+      MscrFields::HOLDTIME,
       ftl::mmio::Reserved<21, 11>> {
-    using eDIS_PRE = MSCR_fields_::eDIS_PRE;
-    using eHOLDTIME = MSCR_fields_::eHOLDTIME;
-    using MII_SPEED = MSCR_fields_::MII_SPEED;
-    using DIS_PRE = MSCR_fields_::DIS_PRE;
-    using HOLDTIME = MSCR_fields_::HOLDTIME;
+    using eDIS_PRE = MscrFields::eDIS_PRE;
+    using eHOLDTIME = MscrFields::eHOLDTIME;
+    using MII_SPEED = MscrFields::MII_SPEED;
+    using DIS_PRE = MscrFields::DIS_PRE;
+    using HOLDTIME = MscrFields::HOLDTIME;
   };
 
   // MIB Control Register
-  struct MIBC_fields_ {
+  struct MibcFields {
     enum class eMIB_CLEAR : std::uint32_t {
       // See note above.
       eZERO = 0,
@@ -760,7 +760,7 @@ struct Enet1g {
     using MIB_IDLE = ftl::mmio::Field<1, 30, eMIB_IDLE, ftl::mmio::RO, ftl::mmio::Normal>;
     // Disable MIB Logic
     using MIB_DIS = ftl::mmio::Field<1, 31, eMIB_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MIBC_fields_
+  };  // struct MibcFields
 
   struct MIBC : ftl::mmio::Register<
       0x40420064u,
@@ -768,19 +768,19 @@ struct Enet1g {
       0xC0000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<29, 0>,
-      MIBC_fields_::MIB_CLEAR,
-      MIBC_fields_::MIB_IDLE,
-      MIBC_fields_::MIB_DIS> {
-    using eMIB_CLEAR = MIBC_fields_::eMIB_CLEAR;
-    using eMIB_IDLE = MIBC_fields_::eMIB_IDLE;
-    using eMIB_DIS = MIBC_fields_::eMIB_DIS;
-    using MIB_CLEAR = MIBC_fields_::MIB_CLEAR;
-    using MIB_IDLE = MIBC_fields_::MIB_IDLE;
-    using MIB_DIS = MIBC_fields_::MIB_DIS;
+      MibcFields::MIB_CLEAR,
+      MibcFields::MIB_IDLE,
+      MibcFields::MIB_DIS> {
+    using eMIB_CLEAR = MibcFields::eMIB_CLEAR;
+    using eMIB_IDLE = MibcFields::eMIB_IDLE;
+    using eMIB_DIS = MibcFields::eMIB_DIS;
+    using MIB_CLEAR = MibcFields::MIB_CLEAR;
+    using MIB_IDLE = MibcFields::MIB_IDLE;
+    using MIB_DIS = MibcFields::MIB_DIS;
   };
 
   // Receive Control Register
-  struct RCR_fields_ {
+  struct RcrFields {
     enum class eLOOP : std::uint32_t {
       // Loopback disabled.
       eZERO = 0,
@@ -916,66 +916,66 @@ struct Enet1g {
     using NLC = ftl::mmio::Field<1, 30, eNLC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Graceful Receive Stopped
     using GRS = ftl::mmio::Field<1, 31, eGRS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RCR_fields_
+  };  // struct RcrFields
 
   struct RCR : ftl::mmio::Register<
       0x40420084u,
       std::uint32_t,
       0x05EE0001u,
       ftl::mmio::RW,
-      RCR_fields_::LOOP,
-      RCR_fields_::DRT,
-      RCR_fields_::MII_MODE,
-      RCR_fields_::PROM,
-      RCR_fields_::BC_REJ,
-      RCR_fields_::FCE,
-      RCR_fields_::RGMII_EN,
+      RcrFields::LOOP,
+      RcrFields::DRT,
+      RcrFields::MII_MODE,
+      RcrFields::PROM,
+      RcrFields::BC_REJ,
+      RcrFields::FCE,
+      RcrFields::RGMII_EN,
       ftl::mmio::Reserved<1, 7>,
-      RCR_fields_::RMII_MODE,
-      RCR_fields_::RMII_10T,
+      RcrFields::RMII_MODE,
+      RcrFields::RMII_10T,
       ftl::mmio::Reserved<2, 10>,
-      RCR_fields_::PADEN,
-      RCR_fields_::PAUFWD,
-      RCR_fields_::CRCFWD,
-      RCR_fields_::CFEN,
-      RCR_fields_::MAX_FL,
-      RCR_fields_::NLC,
-      RCR_fields_::GRS> {
-    using eLOOP = RCR_fields_::eLOOP;
-    using eDRT = RCR_fields_::eDRT;
-    using eMII_MODE = RCR_fields_::eMII_MODE;
-    using ePROM = RCR_fields_::ePROM;
-    using eBC_REJ = RCR_fields_::eBC_REJ;
-    using eFCE = RCR_fields_::eFCE;
-    using eRGMII_EN = RCR_fields_::eRGMII_EN;
-    using eRMII_MODE = RCR_fields_::eRMII_MODE;
-    using eRMII_10T = RCR_fields_::eRMII_10T;
-    using ePADEN = RCR_fields_::ePADEN;
-    using ePAUFWD = RCR_fields_::ePAUFWD;
-    using eCRCFWD = RCR_fields_::eCRCFWD;
-    using eCFEN = RCR_fields_::eCFEN;
-    using eNLC = RCR_fields_::eNLC;
-    using eGRS = RCR_fields_::eGRS;
-    using LOOP = RCR_fields_::LOOP;
-    using DRT = RCR_fields_::DRT;
-    using MII_MODE = RCR_fields_::MII_MODE;
-    using PROM = RCR_fields_::PROM;
-    using BC_REJ = RCR_fields_::BC_REJ;
-    using FCE = RCR_fields_::FCE;
-    using RGMII_EN = RCR_fields_::RGMII_EN;
-    using RMII_MODE = RCR_fields_::RMII_MODE;
-    using RMII_10T = RCR_fields_::RMII_10T;
-    using PADEN = RCR_fields_::PADEN;
-    using PAUFWD = RCR_fields_::PAUFWD;
-    using CRCFWD = RCR_fields_::CRCFWD;
-    using CFEN = RCR_fields_::CFEN;
-    using MAX_FL = RCR_fields_::MAX_FL;
-    using NLC = RCR_fields_::NLC;
-    using GRS = RCR_fields_::GRS;
+      RcrFields::PADEN,
+      RcrFields::PAUFWD,
+      RcrFields::CRCFWD,
+      RcrFields::CFEN,
+      RcrFields::MAX_FL,
+      RcrFields::NLC,
+      RcrFields::GRS> {
+    using eLOOP = RcrFields::eLOOP;
+    using eDRT = RcrFields::eDRT;
+    using eMII_MODE = RcrFields::eMII_MODE;
+    using ePROM = RcrFields::ePROM;
+    using eBC_REJ = RcrFields::eBC_REJ;
+    using eFCE = RcrFields::eFCE;
+    using eRGMII_EN = RcrFields::eRGMII_EN;
+    using eRMII_MODE = RcrFields::eRMII_MODE;
+    using eRMII_10T = RcrFields::eRMII_10T;
+    using ePADEN = RcrFields::ePADEN;
+    using ePAUFWD = RcrFields::ePAUFWD;
+    using eCRCFWD = RcrFields::eCRCFWD;
+    using eCFEN = RcrFields::eCFEN;
+    using eNLC = RcrFields::eNLC;
+    using eGRS = RcrFields::eGRS;
+    using LOOP = RcrFields::LOOP;
+    using DRT = RcrFields::DRT;
+    using MII_MODE = RcrFields::MII_MODE;
+    using PROM = RcrFields::PROM;
+    using BC_REJ = RcrFields::BC_REJ;
+    using FCE = RcrFields::FCE;
+    using RGMII_EN = RcrFields::RGMII_EN;
+    using RMII_MODE = RcrFields::RMII_MODE;
+    using RMII_10T = RcrFields::RMII_10T;
+    using PADEN = RcrFields::PADEN;
+    using PAUFWD = RcrFields::PAUFWD;
+    using CRCFWD = RcrFields::CRCFWD;
+    using CFEN = RcrFields::CFEN;
+    using MAX_FL = RcrFields::MAX_FL;
+    using NLC = RcrFields::NLC;
+    using GRS = RcrFields::GRS;
   };
 
   // Transmit Control Register
-  struct TCR_fields_ {
+  struct TcrFields {
     enum class eGTS : std::uint32_t {
       // Disable graceful transmit stop
       eZERO = 0,
@@ -1030,92 +1030,92 @@ struct Enet1g {
     using ADDINS = ftl::mmio::Field<1, 8, eADDINS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Forward Frame From Application With CRC
     using CRCFWD = ftl::mmio::Field<1, 9, eCRCFWD, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCR_fields_
+  };  // struct TcrFields
 
   struct TCR : ftl::mmio::Register<
       0x404200C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCR_fields_::GTS,
+      TcrFields::GTS,
       ftl::mmio::Reserved<1, 1>,
-      TCR_fields_::FDEN,
-      TCR_fields_::TFC_PAUSE,
-      TCR_fields_::RFC_PAUSE,
-      TCR_fields_::ADDSEL,
-      TCR_fields_::ADDINS,
-      TCR_fields_::CRCFWD,
+      TcrFields::FDEN,
+      TcrFields::TFC_PAUSE,
+      TcrFields::RFC_PAUSE,
+      TcrFields::ADDSEL,
+      TcrFields::ADDINS,
+      TcrFields::CRCFWD,
       ftl::mmio::Reserved<22, 10>> {
-    using eGTS = TCR_fields_::eGTS;
-    using eFDEN = TCR_fields_::eFDEN;
-    using eTFC_PAUSE = TCR_fields_::eTFC_PAUSE;
-    using eADDSEL = TCR_fields_::eADDSEL;
-    using eADDINS = TCR_fields_::eADDINS;
-    using eCRCFWD = TCR_fields_::eCRCFWD;
-    using GTS = TCR_fields_::GTS;
-    using FDEN = TCR_fields_::FDEN;
-    using TFC_PAUSE = TCR_fields_::TFC_PAUSE;
-    using RFC_PAUSE = TCR_fields_::RFC_PAUSE;
-    using ADDSEL = TCR_fields_::ADDSEL;
-    using ADDINS = TCR_fields_::ADDINS;
-    using CRCFWD = TCR_fields_::CRCFWD;
+    using eGTS = TcrFields::eGTS;
+    using eFDEN = TcrFields::eFDEN;
+    using eTFC_PAUSE = TcrFields::eTFC_PAUSE;
+    using eADDSEL = TcrFields::eADDSEL;
+    using eADDINS = TcrFields::eADDINS;
+    using eCRCFWD = TcrFields::eCRCFWD;
+    using GTS = TcrFields::GTS;
+    using FDEN = TcrFields::FDEN;
+    using TFC_PAUSE = TcrFields::TFC_PAUSE;
+    using RFC_PAUSE = TcrFields::RFC_PAUSE;
+    using ADDSEL = TcrFields::ADDSEL;
+    using ADDINS = TcrFields::ADDINS;
+    using CRCFWD = TcrFields::CRCFWD;
   };
 
   // Physical Address Lower Register
-  struct PALR_fields_ {
+  struct PalrFields {
     // Pause Address
     using PADDR1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PALR_fields_
+  };  // struct PalrFields
 
   struct PALR : ftl::mmio::Register<
       0x404200E4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PALR_fields_::PADDR1> {
-    using PADDR1 = PALR_fields_::PADDR1;
+      PalrFields::PADDR1> {
+    using PADDR1 = PalrFields::PADDR1;
   };
 
   // Physical Address Upper Register
-  struct PAUR_fields_ {
+  struct PaurFields {
     // Type Field In PAUSE Frames
     using TYPE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Bytes 4 (bits 31:24) and 5 (bits 23:16) of the 6-byte individual address used for exact match, and the source address field in PAUSE frames
     using PADDR2 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PAUR_fields_
+  };  // struct PaurFields
 
   struct PAUR : ftl::mmio::Register<
       0x404200E8u,
       std::uint32_t,
       0x00008808u,
       ftl::mmio::RW,
-      PAUR_fields_::TYPE,
-      PAUR_fields_::PADDR2> {
-    using TYPE = PAUR_fields_::TYPE;
-    using PADDR2 = PAUR_fields_::PADDR2;
+      PaurFields::TYPE,
+      PaurFields::PADDR2> {
+    using TYPE = PaurFields::TYPE;
+    using PADDR2 = PaurFields::PADDR2;
   };
 
   // Opcode/Pause Duration Register
-  struct OPD_fields_ {
+  struct OpdFields {
     // Pause Duration
     using PAUSE_DUR = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Opcode Field In PAUSE Frames
     using OPCODE = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct OPD_fields_
+  };  // struct OpdFields
 
   struct OPD : ftl::mmio::Register<
       0x404200ECu,
       std::uint32_t,
       0x00010000u,
       ftl::mmio::RW,
-      OPD_fields_::PAUSE_DUR,
-      OPD_fields_::OPCODE> {
-    using PAUSE_DUR = OPD_fields_::PAUSE_DUR;
-    using OPCODE = OPD_fields_::OPCODE;
+      OpdFields::PAUSE_DUR,
+      OpdFields::OPCODE> {
+    using PAUSE_DUR = OpdFields::PAUSE_DUR;
+    using OPCODE = OpdFields::OPCODE;
   };
 
   // Transmit Interrupt Coalescing Register
-  struct TXIC_fields_ {
+  struct TxicFields {
     enum class eICCS : std::uint32_t {
       // Use MII/GMII TX clocks.
       eZERO = 0,
@@ -1138,7 +1138,7 @@ struct Enet1g {
     using ICCS = ftl::mmio::Field<1, 30, eICCS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Interrupt Coalescing Enable
     using ICEN = ftl::mmio::Field<1, 31, eICEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TXIC_fields_
+  };  // struct TxicFields
 
   template<std::uint32_t Index>
   struct TXIC : ftl::mmio::Register<
@@ -1146,23 +1146,23 @@ struct Enet1g {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TXIC_fields_::ICTT,
+      TxicFields::ICTT,
       ftl::mmio::Reserved<4, 16>,
-      TXIC_fields_::ICFT,
+      TxicFields::ICFT,
       ftl::mmio::Reserved<2, 28>,
-      TXIC_fields_::ICCS,
-      TXIC_fields_::ICEN> {
+      TxicFields::ICCS,
+      TxicFields::ICEN> {
     static_assert(Index < 3u, "TXIC: Index out of range");
-    using eICCS = TXIC_fields_::eICCS;
-    using eICEN = TXIC_fields_::eICEN;
-    using ICTT = TXIC_fields_::ICTT;
-    using ICFT = TXIC_fields_::ICFT;
-    using ICCS = TXIC_fields_::ICCS;
-    using ICEN = TXIC_fields_::ICEN;
+    using eICCS = TxicFields::eICCS;
+    using eICEN = TxicFields::eICEN;
+    using ICTT = TxicFields::ICTT;
+    using ICFT = TxicFields::ICFT;
+    using ICCS = TxicFields::ICCS;
+    using ICEN = TxicFields::ICEN;
   };
 
   // Receive Interrupt Coalescing Register
-  struct RXIC_fields_ {
+  struct RxicFields {
     enum class eICCS : std::uint32_t {
       // Use MII/GMII TX clocks.
       eZERO = 0,
@@ -1185,7 +1185,7 @@ struct Enet1g {
     using ICCS = ftl::mmio::Field<1, 30, eICCS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Interrupt Coalescing Enable
     using ICEN = ftl::mmio::Field<1, 31, eICEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RXIC_fields_
+  };  // struct RxicFields
 
   template<std::uint32_t Index>
   struct RXIC : ftl::mmio::Register<
@@ -1193,83 +1193,83 @@ struct Enet1g {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RXIC_fields_::ICTT,
+      RxicFields::ICTT,
       ftl::mmio::Reserved<4, 16>,
-      RXIC_fields_::ICFT,
+      RxicFields::ICFT,
       ftl::mmio::Reserved<2, 28>,
-      RXIC_fields_::ICCS,
-      RXIC_fields_::ICEN> {
+      RxicFields::ICCS,
+      RxicFields::ICEN> {
     static_assert(Index < 3u, "RXIC: Index out of range");
-    using eICCS = RXIC_fields_::eICCS;
-    using eICEN = RXIC_fields_::eICEN;
-    using ICTT = RXIC_fields_::ICTT;
-    using ICFT = RXIC_fields_::ICFT;
-    using ICCS = RXIC_fields_::ICCS;
-    using ICEN = RXIC_fields_::ICEN;
+    using eICCS = RxicFields::eICCS;
+    using eICEN = RxicFields::eICEN;
+    using ICTT = RxicFields::ICTT;
+    using ICFT = RxicFields::ICFT;
+    using ICCS = RxicFields::ICCS;
+    using ICEN = RxicFields::ICEN;
   };
 
   // Descriptor Individual Upper Address Register
-  struct IAUR_fields_ {
+  struct IaurFields {
     // Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a unicast address
     using IADDR1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct IAUR_fields_
+  };  // struct IaurFields
 
   struct IAUR : ftl::mmio::Register<
       0x40420118u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      IAUR_fields_::IADDR1> {
-    using IADDR1 = IAUR_fields_::IADDR1;
+      IaurFields::IADDR1> {
+    using IADDR1 = IaurFields::IADDR1;
   };
 
   // Descriptor Individual Lower Address Register
-  struct IALR_fields_ {
+  struct IalrFields {
     // Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a unicast address
     using IADDR2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct IALR_fields_
+  };  // struct IalrFields
 
   struct IALR : ftl::mmio::Register<
       0x4042011Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      IALR_fields_::IADDR2> {
-    using IADDR2 = IALR_fields_::IADDR2;
+      IalrFields::IADDR2> {
+    using IADDR2 = IalrFields::IADDR2;
   };
 
   // Descriptor Group Upper Address Register
-  struct GAUR_fields_ {
+  struct GaurFields {
     // Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address
     using GADDR1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GAUR_fields_
+  };  // struct GaurFields
 
   struct GAUR : ftl::mmio::Register<
       0x40420120u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GAUR_fields_::GADDR1> {
-    using GADDR1 = GAUR_fields_::GADDR1;
+      GaurFields::GADDR1> {
+    using GADDR1 = GaurFields::GADDR1;
   };
 
   // Descriptor Group Lower Address Register
-  struct GALR_fields_ {
+  struct GalrFields {
     // Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address
     using GADDR2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GALR_fields_
+  };  // struct GalrFields
 
   struct GALR : ftl::mmio::Register<
       0x40420124u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      GALR_fields_::GADDR2> {
-    using GADDR2 = GALR_fields_::GADDR2;
+      GalrFields::GADDR2> {
+    using GADDR2 = GalrFields::GADDR2;
   };
 
   // Transmit FIFO Watermark Register
-  struct TFWR_fields_ {
+  struct TfwrFields {
     enum class eTFWR : std::uint32_t {
       // 64 bytes written.
       eVAL64_0 = 0,
@@ -1294,28 +1294,28 @@ struct Enet1g {
     using TFWR = ftl::mmio::Field<6, 0, eTFWR, ftl::mmio::RW, ftl::mmio::Normal>;
     // Store And Forward Enable
     using STRFWD = ftl::mmio::Field<1, 8, eSTRFWD, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TFWR_fields_
+  };  // struct TfwrFields
 
   struct TFWR : ftl::mmio::Register<
       0x40420144u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TFWR_fields_::TFWR,
+      TfwrFields::TFWR,
       ftl::mmio::Reserved<2, 6>,
-      TFWR_fields_::STRFWD,
+      TfwrFields::STRFWD,
       ftl::mmio::Reserved<23, 9>> {
-    using eTFWR = TFWR_fields_::eTFWR;
-    using eSTRFWD = TFWR_fields_::eSTRFWD;
-    using VALUE = TFWR_fields_::TFWR;
-    using STRFWD = TFWR_fields_::STRFWD;
+    using eTFWR = TfwrFields::eTFWR;
+    using eSTRFWD = TfwrFields::eSTRFWD;
+    using VALUE = TfwrFields::TFWR;
+    using STRFWD = TfwrFields::STRFWD;
   };
 
   // Receive Descriptor Ring 1 Start Register
-  struct RDSR1_fields_ {
+  struct Rdsr1Fields {
     // Pointer to the beginning of the receive buffer descriptor queue 1.
     using R_DES_START = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RDSR1_fields_
+  };  // struct Rdsr1Fields
 
   struct RDSR1 : ftl::mmio::Register<
       0x40420160u,
@@ -1323,15 +1323,15 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      RDSR1_fields_::R_DES_START> {
-    using R_DES_START = RDSR1_fields_::R_DES_START;
+      Rdsr1Fields::R_DES_START> {
+    using R_DES_START = Rdsr1Fields::R_DES_START;
   };
 
   // Transmit Buffer Descriptor Ring 1 Start Register
-  struct TDSR1_fields_ {
+  struct Tdsr1Fields {
     // Pointer to the beginning of transmit buffer descriptor queue 1.
     using X_DES_START = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TDSR1_fields_
+  };  // struct Tdsr1Fields
 
   struct TDSR1 : ftl::mmio::Register<
       0x40420164u,
@@ -1339,15 +1339,15 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      TDSR1_fields_::X_DES_START> {
-    using X_DES_START = TDSR1_fields_::X_DES_START;
+      Tdsr1Fields::X_DES_START> {
+    using X_DES_START = Tdsr1Fields::X_DES_START;
   };
 
   // Maximum Receive Buffer Size Register - Ring 1
-  struct MRBR1_fields_ {
+  struct Mrbr1Fields {
     // Receive buffer size (in bytes)
     using R_BUF_SIZE = ftl::mmio::Field<7, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MRBR1_fields_
+  };  // struct Mrbr1Fields
 
   struct MRBR1 : ftl::mmio::Register<
       0x40420168u,
@@ -1355,16 +1355,16 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      MRBR1_fields_::R_BUF_SIZE,
+      Mrbr1Fields::R_BUF_SIZE,
       ftl::mmio::Reserved<21, 11>> {
-    using R_BUF_SIZE = MRBR1_fields_::R_BUF_SIZE;
+    using R_BUF_SIZE = Mrbr1Fields::R_BUF_SIZE;
   };
 
   // Receive Descriptor Ring 2 Start Register
-  struct RDSR2_fields_ {
+  struct Rdsr2Fields {
     // Pointer to the beginning of receive buffer descriptor queue 2.
     using R_DES_START = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RDSR2_fields_
+  };  // struct Rdsr2Fields
 
   struct RDSR2 : ftl::mmio::Register<
       0x4042016Cu,
@@ -1372,15 +1372,15 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      RDSR2_fields_::R_DES_START> {
-    using R_DES_START = RDSR2_fields_::R_DES_START;
+      Rdsr2Fields::R_DES_START> {
+    using R_DES_START = Rdsr2Fields::R_DES_START;
   };
 
   // Transmit Buffer Descriptor Ring 2 Start Register
-  struct TDSR2_fields_ {
+  struct Tdsr2Fields {
     // Pointer to the beginning of transmit buffer descriptor queue 2.
     using X_DES_START = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TDSR2_fields_
+  };  // struct Tdsr2Fields
 
   struct TDSR2 : ftl::mmio::Register<
       0x40420170u,
@@ -1388,15 +1388,15 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      TDSR2_fields_::X_DES_START> {
-    using X_DES_START = TDSR2_fields_::X_DES_START;
+      Tdsr2Fields::X_DES_START> {
+    using X_DES_START = Tdsr2Fields::X_DES_START;
   };
 
   // Maximum Receive Buffer Size Register - Ring 2
-  struct MRBR2_fields_ {
+  struct Mrbr2Fields {
     // Receive buffer size (in bytes)
     using R_BUF_SIZE = ftl::mmio::Field<7, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MRBR2_fields_
+  };  // struct Mrbr2Fields
 
   struct MRBR2 : ftl::mmio::Register<
       0x40420174u,
@@ -1404,16 +1404,16 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      MRBR2_fields_::R_BUF_SIZE,
+      Mrbr2Fields::R_BUF_SIZE,
       ftl::mmio::Reserved<21, 11>> {
-    using R_BUF_SIZE = MRBR2_fields_::R_BUF_SIZE;
+    using R_BUF_SIZE = Mrbr2Fields::R_BUF_SIZE;
   };
 
   // Receive Descriptor Ring 0 Start Register
-  struct RDSR_fields_ {
+  struct RdsrFields {
     // Pointer to the beginning of the receive buffer descriptor queue. 0
     using R_DES_START = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RDSR_fields_
+  };  // struct RdsrFields
 
   struct RDSR : ftl::mmio::Register<
       0x40420180u,
@@ -1421,15 +1421,15 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      RDSR_fields_::R_DES_START> {
-    using R_DES_START = RDSR_fields_::R_DES_START;
+      RdsrFields::R_DES_START> {
+    using R_DES_START = RdsrFields::R_DES_START;
   };
 
   // Transmit Buffer Descriptor Ring 0 Start Register
-  struct TDSR_fields_ {
+  struct TdsrFields {
     // Pointer to the beginning of the transmit buffer descriptor queue.
     using X_DES_START = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TDSR_fields_
+  };  // struct TdsrFields
 
   struct TDSR : ftl::mmio::Register<
       0x40420184u,
@@ -1437,15 +1437,15 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      TDSR_fields_::X_DES_START> {
-    using X_DES_START = TDSR_fields_::X_DES_START;
+      TdsrFields::X_DES_START> {
+    using X_DES_START = TdsrFields::X_DES_START;
   };
 
   // Maximum Receive Buffer Size Register - Ring 0
-  struct MRBR_fields_ {
+  struct MrbrFields {
     // Receive buffer size in bytes
     using R_BUF_SIZE = ftl::mmio::Field<7, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MRBR_fields_
+  };  // struct MrbrFields
 
   struct MRBR : ftl::mmio::Register<
       0x40420188u,
@@ -1453,162 +1453,162 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      MRBR_fields_::R_BUF_SIZE,
+      MrbrFields::R_BUF_SIZE,
       ftl::mmio::Reserved<21, 11>> {
-    using R_BUF_SIZE = MRBR_fields_::R_BUF_SIZE;
+    using R_BUF_SIZE = MrbrFields::R_BUF_SIZE;
   };
 
   // Receive FIFO Section Full Threshold
-  struct RSFL_fields_ {
+  struct RsflFields {
     // Value Of Receive FIFO Section Full Threshold
     using RX_SECTION_FULL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RSFL_fields_
+  };  // struct RsflFields
 
   struct RSFL : ftl::mmio::Register<
       0x40420190u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RSFL_fields_::RX_SECTION_FULL,
+      RsflFields::RX_SECTION_FULL,
       ftl::mmio::Reserved<22, 10>> {
-    using RX_SECTION_FULL = RSFL_fields_::RX_SECTION_FULL;
+    using RX_SECTION_FULL = RsflFields::RX_SECTION_FULL;
   };
 
   // Receive FIFO Section Empty Threshold
-  struct RSEM_fields_ {
+  struct RsemFields {
     // Value Of The Receive FIFO Section Empty Threshold
     using RX_SECTION_EMPTY = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // RX Status FIFO Section Empty Threshold
     using STAT_SECTION_EMPTY = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RSEM_fields_
+  };  // struct RsemFields
 
   struct RSEM : ftl::mmio::Register<
       0x40420194u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RSEM_fields_::RX_SECTION_EMPTY,
+      RsemFields::RX_SECTION_EMPTY,
       ftl::mmio::Reserved<6, 10>,
-      RSEM_fields_::STAT_SECTION_EMPTY,
+      RsemFields::STAT_SECTION_EMPTY,
       ftl::mmio::Reserved<11, 21>> {
-    using RX_SECTION_EMPTY = RSEM_fields_::RX_SECTION_EMPTY;
-    using STAT_SECTION_EMPTY = RSEM_fields_::STAT_SECTION_EMPTY;
+    using RX_SECTION_EMPTY = RsemFields::RX_SECTION_EMPTY;
+    using STAT_SECTION_EMPTY = RsemFields::STAT_SECTION_EMPTY;
   };
 
   // Receive FIFO Almost Empty Threshold
-  struct RAEM_fields_ {
+  struct RaemFields {
     // Value Of The Receive FIFO Almost Empty Threshold
     using RX_ALMOST_EMPTY = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RAEM_fields_
+  };  // struct RaemFields
 
   struct RAEM : ftl::mmio::Register<
       0x40420198u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      RAEM_fields_::RX_ALMOST_EMPTY,
+      RaemFields::RX_ALMOST_EMPTY,
       ftl::mmio::Reserved<22, 10>> {
-    using RX_ALMOST_EMPTY = RAEM_fields_::RX_ALMOST_EMPTY;
+    using RX_ALMOST_EMPTY = RaemFields::RX_ALMOST_EMPTY;
   };
 
   // Receive FIFO Almost Full Threshold
-  struct RAFL_fields_ {
+  struct RaflFields {
     // Value Of The Receive FIFO Almost Full Threshold
     using RX_ALMOST_FULL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RAFL_fields_
+  };  // struct RaflFields
 
   struct RAFL : ftl::mmio::Register<
       0x4042019Cu,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      RAFL_fields_::RX_ALMOST_FULL,
+      RaflFields::RX_ALMOST_FULL,
       ftl::mmio::Reserved<22, 10>> {
-    using RX_ALMOST_FULL = RAFL_fields_::RX_ALMOST_FULL;
+    using RX_ALMOST_FULL = RaflFields::RX_ALMOST_FULL;
   };
 
   // Transmit FIFO Section Empty Threshold
-  struct TSEM_fields_ {
+  struct TsemFields {
     // Value Of The Transmit FIFO Section Empty Threshold
     using TX_SECTION_EMPTY = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TSEM_fields_
+  };  // struct TsemFields
 
   struct TSEM : ftl::mmio::Register<
       0x404201A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TSEM_fields_::TX_SECTION_EMPTY,
+      TsemFields::TX_SECTION_EMPTY,
       ftl::mmio::Reserved<22, 10>> {
-    using TX_SECTION_EMPTY = TSEM_fields_::TX_SECTION_EMPTY;
+    using TX_SECTION_EMPTY = TsemFields::TX_SECTION_EMPTY;
   };
 
   // Transmit FIFO Almost Empty Threshold
-  struct TAEM_fields_ {
+  struct TaemFields {
     // Value of Transmit FIFO Almost Empty Threshold
     using TX_ALMOST_EMPTY = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TAEM_fields_
+  };  // struct TaemFields
 
   struct TAEM : ftl::mmio::Register<
       0x404201A4u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      TAEM_fields_::TX_ALMOST_EMPTY,
+      TaemFields::TX_ALMOST_EMPTY,
       ftl::mmio::Reserved<22, 10>> {
-    using TX_ALMOST_EMPTY = TAEM_fields_::TX_ALMOST_EMPTY;
+    using TX_ALMOST_EMPTY = TaemFields::TX_ALMOST_EMPTY;
   };
 
   // Transmit FIFO Almost Full Threshold
-  struct TAFL_fields_ {
+  struct TaflFields {
     // Value Of The Transmit FIFO Almost Full Threshold
     using TX_ALMOST_FULL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TAFL_fields_
+  };  // struct TaflFields
 
   struct TAFL : ftl::mmio::Register<
       0x404201A8u,
       std::uint32_t,
       0x00000008u,
       ftl::mmio::RW,
-      TAFL_fields_::TX_ALMOST_FULL,
+      TaflFields::TX_ALMOST_FULL,
       ftl::mmio::Reserved<22, 10>> {
-    using TX_ALMOST_FULL = TAFL_fields_::TX_ALMOST_FULL;
+    using TX_ALMOST_FULL = TaflFields::TX_ALMOST_FULL;
   };
 
   // Transmit Inter-Packet Gap
-  struct TIPG_fields_ {
+  struct TipgFields {
     // Transmit Inter-Packet Gap
     using IPG = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TIPG_fields_
+  };  // struct TipgFields
 
   struct TIPG : ftl::mmio::Register<
       0x404201ACu,
       std::uint32_t,
       0x0000000Cu,
       ftl::mmio::RW,
-      TIPG_fields_::IPG,
+      TipgFields::IPG,
       ftl::mmio::Reserved<27, 5>> {
-    using IPG = TIPG_fields_::IPG;
+    using IPG = TipgFields::IPG;
   };
 
   // Frame Truncation Length
-  struct FTRL_fields_ {
+  struct FtrlFields {
     // Frame Truncation Length
     using TRUNC_FL = ftl::mmio::Field<14, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FTRL_fields_
+  };  // struct FtrlFields
 
   struct FTRL : ftl::mmio::Register<
       0x404201B0u,
       std::uint32_t,
       0x000007FFu,
       ftl::mmio::RW,
-      FTRL_fields_::TRUNC_FL,
+      FtrlFields::TRUNC_FL,
       ftl::mmio::Reserved<18, 14>> {
-    using TRUNC_FL = FTRL_fields_::TRUNC_FL;
+    using TRUNC_FL = FtrlFields::TRUNC_FL;
   };
 
   // Transmit Accelerator Function Configuration
-  struct TACC_fields_ {
+  struct TaccFields {
     enum class eSHIFT16 : std::uint32_t {
       // Disabled.
       eZERO = 0,
@@ -1636,28 +1636,28 @@ struct Enet1g {
     using IPCHK = ftl::mmio::Field<1, 3, eIPCHK, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enables insertion of protocol checksum.
     using PROCHK = ftl::mmio::Field<1, 4, ePROCHK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TACC_fields_
+  };  // struct TaccFields
 
   struct TACC : ftl::mmio::Register<
       0x404201C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TACC_fields_::SHIFT16,
+      TaccFields::SHIFT16,
       ftl::mmio::Reserved<2, 1>,
-      TACC_fields_::IPCHK,
-      TACC_fields_::PROCHK,
+      TaccFields::IPCHK,
+      TaccFields::PROCHK,
       ftl::mmio::Reserved<27, 5>> {
-    using eSHIFT16 = TACC_fields_::eSHIFT16;
-    using eIPCHK = TACC_fields_::eIPCHK;
-    using ePROCHK = TACC_fields_::ePROCHK;
-    using SHIFT16 = TACC_fields_::SHIFT16;
-    using IPCHK = TACC_fields_::IPCHK;
-    using PROCHK = TACC_fields_::PROCHK;
+    using eSHIFT16 = TaccFields::eSHIFT16;
+    using eIPCHK = TaccFields::eIPCHK;
+    using ePROCHK = TaccFields::ePROCHK;
+    using SHIFT16 = TaccFields::SHIFT16;
+    using IPCHK = TaccFields::IPCHK;
+    using PROCHK = TaccFields::PROCHK;
   };
 
   // Receive Accelerator Function Configuration
-  struct RACC_fields_ {
+  struct RaccFields {
     enum class ePADREM : std::uint32_t {
       // Padding not removed.
       eZERO = 0,
@@ -1703,34 +1703,34 @@ struct Enet1g {
     using LINEDIS = ftl::mmio::Field<1, 6, eLINEDIS, ftl::mmio::RW, ftl::mmio::Normal>;
     // RX FIFO Shift-16
     using SHIFT16 = ftl::mmio::Field<1, 7, eSHIFT16, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RACC_fields_
+  };  // struct RaccFields
 
   struct RACC : ftl::mmio::Register<
       0x404201C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RACC_fields_::PADREM,
-      RACC_fields_::IPDIS,
-      RACC_fields_::PRODIS,
+      RaccFields::PADREM,
+      RaccFields::IPDIS,
+      RaccFields::PRODIS,
       ftl::mmio::Reserved<3, 3>,
-      RACC_fields_::LINEDIS,
-      RACC_fields_::SHIFT16,
+      RaccFields::LINEDIS,
+      RaccFields::SHIFT16,
       ftl::mmio::Reserved<24, 8>> {
-    using ePADREM = RACC_fields_::ePADREM;
-    using eIPDIS = RACC_fields_::eIPDIS;
-    using ePRODIS = RACC_fields_::ePRODIS;
-    using eLINEDIS = RACC_fields_::eLINEDIS;
-    using eSHIFT16 = RACC_fields_::eSHIFT16;
-    using PADREM = RACC_fields_::PADREM;
-    using IPDIS = RACC_fields_::IPDIS;
-    using PRODIS = RACC_fields_::PRODIS;
-    using LINEDIS = RACC_fields_::LINEDIS;
-    using SHIFT16 = RACC_fields_::SHIFT16;
+    using ePADREM = RaccFields::ePADREM;
+    using eIPDIS = RaccFields::eIPDIS;
+    using ePRODIS = RaccFields::ePRODIS;
+    using eLINEDIS = RaccFields::eLINEDIS;
+    using eSHIFT16 = RaccFields::eSHIFT16;
+    using PADREM = RaccFields::PADREM;
+    using IPDIS = RaccFields::IPDIS;
+    using PRODIS = RaccFields::PRODIS;
+    using LINEDIS = RaccFields::LINEDIS;
+    using SHIFT16 = RaccFields::SHIFT16;
   };
 
   // Receive Classification Match Register for Class n
-  struct RCMR_fields_ {
+  struct RcmrFields {
     enum class eMATCHEN : std::uint32_t {
       // Disabled (default): no compares will occur and the classification indicator for this class will never assert.
       eZERO = 0,
@@ -1748,7 +1748,7 @@ struct Enet1g {
     using CMP3 = ftl::mmio::Field<3, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Match Enable
     using MATCHEN = ftl::mmio::Field<1, 16, eMATCHEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RCMR_fields_
+  };  // struct RcmrFields
 
   template<std::uint32_t Index>
   struct RCMR : ftl::mmio::Register<
@@ -1756,27 +1756,27 @@ struct Enet1g {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      RCMR_fields_::CMP0,
+      RcmrFields::CMP0,
       ftl::mmio::Reserved<1, 3>,
-      RCMR_fields_::CMP1,
+      RcmrFields::CMP1,
       ftl::mmio::Reserved<1, 7>,
-      RCMR_fields_::CMP2,
+      RcmrFields::CMP2,
       ftl::mmio::Reserved<1, 11>,
-      RCMR_fields_::CMP3,
+      RcmrFields::CMP3,
       ftl::mmio::Reserved<1, 15>,
-      RCMR_fields_::MATCHEN,
+      RcmrFields::MATCHEN,
       ftl::mmio::Reserved<15, 17>> {
     static_assert(Index < 2u, "RCMR: Index out of range");
-    using eMATCHEN = RCMR_fields_::eMATCHEN;
-    using CMP0 = RCMR_fields_::CMP0;
-    using CMP1 = RCMR_fields_::CMP1;
-    using CMP2 = RCMR_fields_::CMP2;
-    using CMP3 = RCMR_fields_::CMP3;
-    using MATCHEN = RCMR_fields_::MATCHEN;
+    using eMATCHEN = RcmrFields::eMATCHEN;
+    using CMP0 = RcmrFields::CMP0;
+    using CMP1 = RcmrFields::CMP1;
+    using CMP2 = RcmrFields::CMP2;
+    using CMP3 = RcmrFields::CMP3;
+    using MATCHEN = RcmrFields::MATCHEN;
   };
 
   // DMA Class Based Configuration
-  struct DMACFG_fields_ {
+  struct DmacfgFields {
     enum class eDMA_CLASS_EN : std::uint32_t {
       // The DMA controller's channel for the class is not used. Disabling the DMA controller of a class also requires disabling the class match comparator for the class (see registers RCMRn). When class 1 and class 2 queues are disabled then their frames will be placed in queue 0.
       eZERO = 0,
@@ -1797,7 +1797,7 @@ struct Enet1g {
     using DMA_CLASS_EN = ftl::mmio::Field<1, 16, eDMA_CLASS_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Calculate no IPG
     using CALC_NOIPG = ftl::mmio::Field<1, 17, eCALC_NOIPG, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMACFG_fields_
+  };  // struct DmacfgFields
 
   template<std::uint32_t Index>
   struct DMACFG : ftl::mmio::Register<
@@ -1805,23 +1805,23 @@ struct Enet1g {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMACFG_fields_::IDLE_SLOPE,
-      DMACFG_fields_::DMA_CLASS_EN,
-      DMACFG_fields_::CALC_NOIPG,
+      DmacfgFields::IDLE_SLOPE,
+      DmacfgFields::DMA_CLASS_EN,
+      DmacfgFields::CALC_NOIPG,
       ftl::mmio::Reserved<14, 18>> {
     static_assert(Index < 2u, "DMACFG: Index out of range");
-    using eDMA_CLASS_EN = DMACFG_fields_::eDMA_CLASS_EN;
-    using eCALC_NOIPG = DMACFG_fields_::eCALC_NOIPG;
-    using IDLE_SLOPE = DMACFG_fields_::IDLE_SLOPE;
-    using DMA_CLASS_EN = DMACFG_fields_::DMA_CLASS_EN;
-    using CALC_NOIPG = DMACFG_fields_::CALC_NOIPG;
+    using eDMA_CLASS_EN = DmacfgFields::eDMA_CLASS_EN;
+    using eCALC_NOIPG = DmacfgFields::eCALC_NOIPG;
+    using IDLE_SLOPE = DmacfgFields::IDLE_SLOPE;
+    using DMA_CLASS_EN = DmacfgFields::DMA_CLASS_EN;
+    using CALC_NOIPG = DmacfgFields::CALC_NOIPG;
   };
 
   // Receive Descriptor Active Register - Ring 1
-  struct RDAR1_fields_ {
+  struct Rdar1Fields {
     // Receive Descriptor Active
     using RDAR = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RDAR1_fields_
+  };  // struct Rdar1Fields
 
   struct RDAR1 : ftl::mmio::Register<
       0x404201E0u,
@@ -1829,16 +1829,16 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<24, 0>,
-      RDAR1_fields_::RDAR,
+      Rdar1Fields::RDAR,
       ftl::mmio::Reserved<7, 25>> {
-    using RDAR = RDAR1_fields_::RDAR;
+    using RDAR = Rdar1Fields::RDAR;
   };
 
   // Transmit Descriptor Active Register - Ring 1
-  struct TDAR1_fields_ {
+  struct Tdar1Fields {
     // Transmit Descriptor Active
     using TDAR = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TDAR1_fields_
+  };  // struct Tdar1Fields
 
   struct TDAR1 : ftl::mmio::Register<
       0x404201E4u,
@@ -1846,16 +1846,16 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<24, 0>,
-      TDAR1_fields_::TDAR,
+      Tdar1Fields::TDAR,
       ftl::mmio::Reserved<7, 25>> {
-    using TDAR = TDAR1_fields_::TDAR;
+    using TDAR = Tdar1Fields::TDAR;
   };
 
   // Receive Descriptor Active Register - Ring 2
-  struct RDAR2_fields_ {
+  struct Rdar2Fields {
     // Receive Descriptor Active
     using RDAR = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RDAR2_fields_
+  };  // struct Rdar2Fields
 
   struct RDAR2 : ftl::mmio::Register<
       0x404201E8u,
@@ -1863,16 +1863,16 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<24, 0>,
-      RDAR2_fields_::RDAR,
+      Rdar2Fields::RDAR,
       ftl::mmio::Reserved<7, 25>> {
-    using RDAR = RDAR2_fields_::RDAR;
+    using RDAR = Rdar2Fields::RDAR;
   };
 
   // Transmit Descriptor Active Register - Ring 2
-  struct TDAR2_fields_ {
+  struct Tdar2Fields {
     // Transmit Descriptor Active
     using TDAR = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TDAR2_fields_
+  };  // struct Tdar2Fields
 
   struct TDAR2 : ftl::mmio::Register<
       0x404201ECu,
@@ -1880,13 +1880,13 @@ struct Enet1g {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<24, 0>,
-      TDAR2_fields_::TDAR,
+      Tdar2Fields::TDAR,
       ftl::mmio::Reserved<7, 25>> {
-    using TDAR = TDAR2_fields_::TDAR;
+    using TDAR = Tdar2Fields::TDAR;
   };
 
   // QOS Scheme
-  struct QOS_fields_ {
+  struct QosFields {
     enum class eTX_SCHEME : std::uint32_t {
       // Credit-based scheme
       eCREDIT = 0,
@@ -1923,842 +1923,842 @@ struct Enet1g {
     using RX_FLUSH1 = ftl::mmio::Field<1, 4, eRX_FLUSH1, ftl::mmio::RW, ftl::mmio::Normal>;
     // RX Flush Ring 2
     using RX_FLUSH2 = ftl::mmio::Field<1, 5, eRX_FLUSH2, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct QOS_fields_
+  };  // struct QosFields
 
   struct QOS : ftl::mmio::Register<
       0x404201F0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      QOS_fields_::TX_SCHEME,
-      QOS_fields_::RX_FLUSH0,
-      QOS_fields_::RX_FLUSH1,
-      QOS_fields_::RX_FLUSH2,
+      QosFields::TX_SCHEME,
+      QosFields::RX_FLUSH0,
+      QosFields::RX_FLUSH1,
+      QosFields::RX_FLUSH2,
       ftl::mmio::Reserved<26, 6>> {
-    using eTX_SCHEME = QOS_fields_::eTX_SCHEME;
-    using eRX_FLUSH0 = QOS_fields_::eRX_FLUSH0;
-    using eRX_FLUSH1 = QOS_fields_::eRX_FLUSH1;
-    using eRX_FLUSH2 = QOS_fields_::eRX_FLUSH2;
-    using TX_SCHEME = QOS_fields_::TX_SCHEME;
-    using RX_FLUSH0 = QOS_fields_::RX_FLUSH0;
-    using RX_FLUSH1 = QOS_fields_::RX_FLUSH1;
-    using RX_FLUSH2 = QOS_fields_::RX_FLUSH2;
+    using eTX_SCHEME = QosFields::eTX_SCHEME;
+    using eRX_FLUSH0 = QosFields::eRX_FLUSH0;
+    using eRX_FLUSH1 = QosFields::eRX_FLUSH1;
+    using eRX_FLUSH2 = QosFields::eRX_FLUSH2;
+    using TX_SCHEME = QosFields::TX_SCHEME;
+    using RX_FLUSH0 = QosFields::RX_FLUSH0;
+    using RX_FLUSH1 = QosFields::RX_FLUSH1;
+    using RX_FLUSH2 = QosFields::RX_FLUSH2;
   };
 
   // Tx Packet Count Statistic Register
-  struct RMON_T_PACKETS_fields_ {
+  struct RmonTPacketsFields {
     // Packet count
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_PACKETS_fields_
+  };  // struct RmonTPacketsFields
 
   struct RMON_T_PACKETS : ftl::mmio::Register<
       0x40420204u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_PACKETS_fields_::TXPKTS,
+      RmonTPacketsFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_PACKETS_fields_::TXPKTS;
+    using TXPKTS = RmonTPacketsFields::TXPKTS;
   };
 
   // Tx Broadcast Packets Statistic Register
-  struct RMON_T_BC_PKT_fields_ {
+  struct RmonTBcPktFields {
     // Number of broadcast packets
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_BC_PKT_fields_
+  };  // struct RmonTBcPktFields
 
   struct RMON_T_BC_PKT : ftl::mmio::Register<
       0x40420208u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_BC_PKT_fields_::TXPKTS,
+      RmonTBcPktFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_BC_PKT_fields_::TXPKTS;
+    using TXPKTS = RmonTBcPktFields::TXPKTS;
   };
 
   // Tx Multicast Packets Statistic Register
-  struct RMON_T_MC_PKT_fields_ {
+  struct RmonTMcPktFields {
     // Number of multicast packets
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_MC_PKT_fields_
+  };  // struct RmonTMcPktFields
 
   struct RMON_T_MC_PKT : ftl::mmio::Register<
       0x4042020Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_MC_PKT_fields_::TXPKTS,
+      RmonTMcPktFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_MC_PKT_fields_::TXPKTS;
+    using TXPKTS = RmonTMcPktFields::TXPKTS;
   };
 
   // Tx Packets with CRC/Align Error Statistic Register
-  struct RMON_T_CRC_ALIGN_fields_ {
+  struct RmonTCrcAlignFields {
     // Number of packets with CRC/align error
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_CRC_ALIGN_fields_
+  };  // struct RmonTCrcAlignFields
 
   struct RMON_T_CRC_ALIGN : ftl::mmio::Register<
       0x40420210u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_CRC_ALIGN_fields_::TXPKTS,
+      RmonTCrcAlignFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_CRC_ALIGN_fields_::TXPKTS;
+    using TXPKTS = RmonTCrcAlignFields::TXPKTS;
   };
 
   // Tx Packets Less Than Bytes and Good CRC Statistic Register
-  struct RMON_T_UNDERSIZE_fields_ {
+  struct RmonTUndersizeFields {
     // Number of transmit packets less than 64 bytes with good CRC
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_UNDERSIZE_fields_
+  };  // struct RmonTUndersizeFields
 
   struct RMON_T_UNDERSIZE : ftl::mmio::Register<
       0x40420214u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_UNDERSIZE_fields_::TXPKTS,
+      RmonTUndersizeFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_UNDERSIZE_fields_::TXPKTS;
+    using TXPKTS = RmonTUndersizeFields::TXPKTS;
   };
 
   // Tx Packets GT MAX_FL bytes and Good CRC Statistic Register
-  struct RMON_T_OVERSIZE_fields_ {
+  struct RmonTOversizeFields {
     // Number of transmit packets greater than MAX_FL bytes with good CRC
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_OVERSIZE_fields_
+  };  // struct RmonTOversizeFields
 
   struct RMON_T_OVERSIZE : ftl::mmio::Register<
       0x40420218u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_OVERSIZE_fields_::TXPKTS,
+      RmonTOversizeFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_OVERSIZE_fields_::TXPKTS;
+    using TXPKTS = RmonTOversizeFields::TXPKTS;
   };
 
   // Tx Packets Less Than 64 Bytes and Bad CRC Statistic Register
-  struct RMON_T_FRAG_fields_ {
+  struct RmonTFragFields {
     // Number of packets less than 64 bytes with bad CRC
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_FRAG_fields_
+  };  // struct RmonTFragFields
 
   struct RMON_T_FRAG : ftl::mmio::Register<
       0x4042021Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_FRAG_fields_::TXPKTS,
+      RmonTFragFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_FRAG_fields_::TXPKTS;
+    using TXPKTS = RmonTFragFields::TXPKTS;
   };
 
   // Tx Packets Greater Than MAX_FL bytes and Bad CRC Statistic Register
-  struct RMON_T_JAB_fields_ {
+  struct RmonTJabFields {
     // Number of transmit packets greater than MAX_FL bytes and bad CRC
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_JAB_fields_
+  };  // struct RmonTJabFields
 
   struct RMON_T_JAB : ftl::mmio::Register<
       0x40420220u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_JAB_fields_::TXPKTS,
+      RmonTJabFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_JAB_fields_::TXPKTS;
+    using TXPKTS = RmonTJabFields::TXPKTS;
   };
 
   // Tx Collision Count Statistic Register
-  struct RMON_T_COL_fields_ {
+  struct RmonTColFields {
     // Number of transmit collisions
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_COL_fields_
+  };  // struct RmonTColFields
 
   struct RMON_T_COL : ftl::mmio::Register<
       0x40420224u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_COL_fields_::TXPKTS,
+      RmonTColFields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_COL_fields_::TXPKTS;
+    using TXPKTS = RmonTColFields::TXPKTS;
   };
 
   // Tx 64-Byte Packets Statistic Register
-  struct RMON_T_P64_fields_ {
+  struct RmonTP64Fields {
     // Number of 64-byte transmit packets
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_P64_fields_
+  };  // struct RmonTP64Fields
 
   struct RMON_T_P64 : ftl::mmio::Register<
       0x40420228u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_P64_fields_::TXPKTS,
+      RmonTP64Fields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_P64_fields_::TXPKTS;
+    using TXPKTS = RmonTP64Fields::TXPKTS;
   };
 
   // Tx 65- to 127-byte Packets Statistic Register
-  struct RMON_T_P65TO127_fields_ {
+  struct RmonTP65to127Fields {
     // Number of 65- to 127-byte transmit packets
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_P65TO127_fields_
+  };  // struct RmonTP65to127Fields
 
   struct RMON_T_P65TO127 : ftl::mmio::Register<
       0x4042022Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_P65TO127_fields_::TXPKTS,
+      RmonTP65to127Fields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_P65TO127_fields_::TXPKTS;
+    using TXPKTS = RmonTP65to127Fields::TXPKTS;
   };
 
   // Tx 128- to 255-byte Packets Statistic Register
-  struct RMON_T_P128TO255_fields_ {
+  struct RmonTP128to255Fields {
     // Number of 128- to 255-byte transmit packets
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_P128TO255_fields_
+  };  // struct RmonTP128to255Fields
 
   struct RMON_T_P128TO255 : ftl::mmio::Register<
       0x40420230u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_P128TO255_fields_::TXPKTS,
+      RmonTP128to255Fields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_P128TO255_fields_::TXPKTS;
+    using TXPKTS = RmonTP128to255Fields::TXPKTS;
   };
 
   // Tx 256- to 511-byte Packets Statistic Register
-  struct RMON_T_P256TO511_fields_ {
+  struct RmonTP256to511Fields {
     // Number of 256- to 511-byte transmit packets
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_P256TO511_fields_
+  };  // struct RmonTP256to511Fields
 
   struct RMON_T_P256TO511 : ftl::mmio::Register<
       0x40420234u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_P256TO511_fields_::TXPKTS,
+      RmonTP256to511Fields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_P256TO511_fields_::TXPKTS;
+    using TXPKTS = RmonTP256to511Fields::TXPKTS;
   };
 
   // Tx 512- to 1023-byte Packets Statistic Register
-  struct RMON_T_P512TO1023_fields_ {
+  struct RmonTP512to1023Fields {
     // Number of 512- to 1023-byte transmit packets
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_P512TO1023_fields_
+  };  // struct RmonTP512to1023Fields
 
   struct RMON_T_P512TO1023 : ftl::mmio::Register<
       0x40420238u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_P512TO1023_fields_::TXPKTS,
+      RmonTP512to1023Fields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_P512TO1023_fields_::TXPKTS;
+    using TXPKTS = RmonTP512to1023Fields::TXPKTS;
   };
 
   // Tx 1024- to 2047-byte Packets Statistic Register
-  struct RMON_T_P1024TO2047_fields_ {
+  struct RmonTP1024to2047Fields {
     // Number of 1024- to 2047-byte transmit packets
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_P1024TO2047_fields_
+  };  // struct RmonTP1024to2047Fields
 
   struct RMON_T_P1024TO2047 : ftl::mmio::Register<
       0x4042023Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_P1024TO2047_fields_::TXPKTS,
+      RmonTP1024to2047Fields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_P1024TO2047_fields_::TXPKTS;
+    using TXPKTS = RmonTP1024to2047Fields::TXPKTS;
   };
 
   // Tx Packets Greater Than 2048 Bytes Statistic Register
-  struct RMON_T_P_GTE2048_fields_ {
+  struct RmonTPGte2048Fields {
     // Number of transmit packets greater than 2048 bytes
     using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_P_GTE2048_fields_
+  };  // struct RmonTPGte2048Fields
 
   struct RMON_T_P_GTE2048 : ftl::mmio::Register<
       0x40420240u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_P_GTE2048_fields_::TXPKTS,
+      RmonTPGte2048Fields::TXPKTS,
       ftl::mmio::Reserved<16, 16>> {
-    using TXPKTS = RMON_T_P_GTE2048_fields_::TXPKTS;
+    using TXPKTS = RmonTPGte2048Fields::TXPKTS;
   };
 
   // Tx Octets Statistic Register
-  struct RMON_T_OCTETS_fields_ {
+  struct RmonTOctetsFields {
     // Number of transmit octets
     using TXOCTS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_T_OCTETS_fields_
+  };  // struct RmonTOctetsFields
 
   struct RMON_T_OCTETS : ftl::mmio::Register<
       0x40420244u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_T_OCTETS_fields_::TXOCTS> {
-    using TXOCTS = RMON_T_OCTETS_fields_::TXOCTS;
+      RmonTOctetsFields::TXOCTS> {
+    using TXOCTS = RmonTOctetsFields::TXOCTS;
   };
 
   // Frames Transmitted OK Statistic Register
-  struct IEEE_T_FRAME_OK_fields_ {
+  struct IeeeTFrameOkFields {
     // Number of frames transmitted OK
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_FRAME_OK_fields_
+  };  // struct IeeeTFrameOkFields
 
   struct IEEE_T_FRAME_OK : ftl::mmio::Register<
       0x4042024Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_FRAME_OK_fields_::COUNT,
+      IeeeTFrameOkFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_FRAME_OK_fields_::COUNT;
+    using COUNT = IeeeTFrameOkFields::COUNT;
   };
 
   // Frames Transmitted with Single Collision Statistic Register
-  struct IEEE_T_1COL_fields_ {
+  struct IeeeT1colFields {
     // Number of frames transmitted with one collision
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_1COL_fields_
+  };  // struct IeeeT1colFields
 
   struct IEEE_T_1COL : ftl::mmio::Register<
       0x40420250u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_1COL_fields_::COUNT,
+      IeeeT1colFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_1COL_fields_::COUNT;
+    using COUNT = IeeeT1colFields::COUNT;
   };
 
   // Frames Transmitted with Multiple Collisions Statistic Register
-  struct IEEE_T_MCOL_fields_ {
+  struct IeeeTMcolFields {
     // Number of frames transmitted with multiple collisions
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_MCOL_fields_
+  };  // struct IeeeTMcolFields
 
   struct IEEE_T_MCOL : ftl::mmio::Register<
       0x40420254u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_MCOL_fields_::COUNT,
+      IeeeTMcolFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_MCOL_fields_::COUNT;
+    using COUNT = IeeeTMcolFields::COUNT;
   };
 
   // Frames Transmitted after Deferral Delay Statistic Register
-  struct IEEE_T_DEF_fields_ {
+  struct IeeeTDefFields {
     // Number of frames transmitted with deferral delay
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_DEF_fields_
+  };  // struct IeeeTDefFields
 
   struct IEEE_T_DEF : ftl::mmio::Register<
       0x40420258u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_DEF_fields_::COUNT,
+      IeeeTDefFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_DEF_fields_::COUNT;
+    using COUNT = IeeeTDefFields::COUNT;
   };
 
   // Frames Transmitted with Late Collision Statistic Register
-  struct IEEE_T_LCOL_fields_ {
+  struct IeeeTLcolFields {
     // Number of frames transmitted with late collision
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_LCOL_fields_
+  };  // struct IeeeTLcolFields
 
   struct IEEE_T_LCOL : ftl::mmio::Register<
       0x4042025Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_LCOL_fields_::COUNT,
+      IeeeTLcolFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_LCOL_fields_::COUNT;
+    using COUNT = IeeeTLcolFields::COUNT;
   };
 
   // Frames Transmitted with Excessive Collisions Statistic Register
-  struct IEEE_T_EXCOL_fields_ {
+  struct IeeeTExcolFields {
     // Number of frames transmitted with excessive collisions
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_EXCOL_fields_
+  };  // struct IeeeTExcolFields
 
   struct IEEE_T_EXCOL : ftl::mmio::Register<
       0x40420260u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_EXCOL_fields_::COUNT,
+      IeeeTExcolFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_EXCOL_fields_::COUNT;
+    using COUNT = IeeeTExcolFields::COUNT;
   };
 
   // Frames Transmitted with Tx FIFO Underrun Statistic Register
-  struct IEEE_T_MACERR_fields_ {
+  struct IeeeTMacerrFields {
     // Number of frames transmitted with transmit FIFO underrun
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_MACERR_fields_
+  };  // struct IeeeTMacerrFields
 
   struct IEEE_T_MACERR : ftl::mmio::Register<
       0x40420264u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_MACERR_fields_::COUNT,
+      IeeeTMacerrFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_MACERR_fields_::COUNT;
+    using COUNT = IeeeTMacerrFields::COUNT;
   };
 
   // Frames Transmitted with Carrier Sense Error Statistic Register
-  struct IEEE_T_CSERR_fields_ {
+  struct IeeeTCserrFields {
     // Number of frames transmitted with carrier sense error
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_CSERR_fields_
+  };  // struct IeeeTCserrFields
 
   struct IEEE_T_CSERR : ftl::mmio::Register<
       0x40420268u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_CSERR_fields_::COUNT,
+      IeeeTCserrFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_CSERR_fields_::COUNT;
+    using COUNT = IeeeTCserrFields::COUNT;
   };
 
   // Reserved Statistic Register
-  struct IEEE_T_SQE_fields_ {
+  struct IeeeTSqeFields {
     // This read-only field is reserved and always has the value 0
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_SQE_fields_
+  };  // struct IeeeTSqeFields
 
   struct IEEE_T_SQE : ftl::mmio::Register<
       0x4042026Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_SQE_fields_::COUNT,
+      IeeeTSqeFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_SQE_fields_::COUNT;
+    using COUNT = IeeeTSqeFields::COUNT;
   };
 
   // Flow Control Pause Frames Transmitted Statistic Register
-  struct IEEE_T_FDXFC_fields_ {
+  struct IeeeTFdxfcFields {
     // Number of flow-control pause frames transmitted
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_FDXFC_fields_
+  };  // struct IeeeTFdxfcFields
 
   struct IEEE_T_FDXFC : ftl::mmio::Register<
       0x40420270u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_FDXFC_fields_::COUNT,
+      IeeeTFdxfcFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_T_FDXFC_fields_::COUNT;
+    using COUNT = IeeeTFdxfcFields::COUNT;
   };
 
   // Octet Count for Frames Transmitted w/o Error Statistic Register
-  struct IEEE_T_OCTETS_OK_fields_ {
+  struct IeeeTOctetsOkFields {
     // Octet count for frames transmitted without error Counts total octets (includes header and FCS fields).
     using COUNT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_T_OCTETS_OK_fields_
+  };  // struct IeeeTOctetsOkFields
 
   struct IEEE_T_OCTETS_OK : ftl::mmio::Register<
       0x40420274u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_T_OCTETS_OK_fields_::COUNT> {
-    using COUNT = IEEE_T_OCTETS_OK_fields_::COUNT;
+      IeeeTOctetsOkFields::COUNT> {
+    using COUNT = IeeeTOctetsOkFields::COUNT;
   };
 
   // Rx Packet Count Statistic Register
-  struct RMON_R_PACKETS_fields_ {
+  struct RmonRPacketsFields {
     // Number of packets received
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_PACKETS_fields_
+  };  // struct RmonRPacketsFields
 
   struct RMON_R_PACKETS : ftl::mmio::Register<
       0x40420284u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_PACKETS_fields_::COUNT,
+      RmonRPacketsFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_PACKETS_fields_::COUNT;
+    using COUNT = RmonRPacketsFields::COUNT;
   };
 
   // Rx Broadcast Packets Statistic Register
-  struct RMON_R_BC_PKT_fields_ {
+  struct RmonRBcPktFields {
     // Number of receive broadcast packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_BC_PKT_fields_
+  };  // struct RmonRBcPktFields
 
   struct RMON_R_BC_PKT : ftl::mmio::Register<
       0x40420288u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_BC_PKT_fields_::COUNT,
+      RmonRBcPktFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_BC_PKT_fields_::COUNT;
+    using COUNT = RmonRBcPktFields::COUNT;
   };
 
   // Rx Multicast Packets Statistic Register
-  struct RMON_R_MC_PKT_fields_ {
+  struct RmonRMcPktFields {
     // Number of receive multicast packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_MC_PKT_fields_
+  };  // struct RmonRMcPktFields
 
   struct RMON_R_MC_PKT : ftl::mmio::Register<
       0x4042028Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_MC_PKT_fields_::COUNT,
+      RmonRMcPktFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_MC_PKT_fields_::COUNT;
+    using COUNT = RmonRMcPktFields::COUNT;
   };
 
   // Rx Packets with CRC/Align Error Statistic Register
-  struct RMON_R_CRC_ALIGN_fields_ {
+  struct RmonRCrcAlignFields {
     // Number of receive packets with CRC or align error
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_CRC_ALIGN_fields_
+  };  // struct RmonRCrcAlignFields
 
   struct RMON_R_CRC_ALIGN : ftl::mmio::Register<
       0x40420290u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_CRC_ALIGN_fields_::COUNT,
+      RmonRCrcAlignFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_CRC_ALIGN_fields_::COUNT;
+    using COUNT = RmonRCrcAlignFields::COUNT;
   };
 
   // Rx Packets with Less Than 64 Bytes and Good CRC Statistic Register
-  struct RMON_R_UNDERSIZE_fields_ {
+  struct RmonRUndersizeFields {
     // Number of receive packets with less than 64 bytes and good CRC
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_UNDERSIZE_fields_
+  };  // struct RmonRUndersizeFields
 
   struct RMON_R_UNDERSIZE : ftl::mmio::Register<
       0x40420294u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_UNDERSIZE_fields_::COUNT,
+      RmonRUndersizeFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_UNDERSIZE_fields_::COUNT;
+    using COUNT = RmonRUndersizeFields::COUNT;
   };
 
   // Rx Packets Greater Than MAX_FL and Good CRC Statistic Register
-  struct RMON_R_OVERSIZE_fields_ {
+  struct RmonROversizeFields {
     // Number of receive packets greater than MAX_FL and good CRC
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_OVERSIZE_fields_
+  };  // struct RmonROversizeFields
 
   struct RMON_R_OVERSIZE : ftl::mmio::Register<
       0x40420298u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_OVERSIZE_fields_::COUNT,
+      RmonROversizeFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_OVERSIZE_fields_::COUNT;
+    using COUNT = RmonROversizeFields::COUNT;
   };
 
   // Rx Packets Less Than 64 Bytes and Bad CRC Statistic Register
-  struct RMON_R_FRAG_fields_ {
+  struct RmonRFragFields {
     // Number of receive packets with less than 64 bytes and bad CRC
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_FRAG_fields_
+  };  // struct RmonRFragFields
 
   struct RMON_R_FRAG : ftl::mmio::Register<
       0x4042029Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_FRAG_fields_::COUNT,
+      RmonRFragFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_FRAG_fields_::COUNT;
+    using COUNT = RmonRFragFields::COUNT;
   };
 
   // Rx Packets Greater Than MAX_FL Bytes and Bad CRC Statistic Register
-  struct RMON_R_JAB_fields_ {
+  struct RmonRJabFields {
     // Number of receive packets greater than MAX_FL and bad CRC
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_JAB_fields_
+  };  // struct RmonRJabFields
 
   struct RMON_R_JAB : ftl::mmio::Register<
       0x404202A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_JAB_fields_::COUNT,
+      RmonRJabFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_JAB_fields_::COUNT;
+    using COUNT = RmonRJabFields::COUNT;
   };
 
   // Rx 64-Byte Packets Statistic Register
-  struct RMON_R_P64_fields_ {
+  struct RmonRP64Fields {
     // Number of 64-byte receive packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_P64_fields_
+  };  // struct RmonRP64Fields
 
   struct RMON_R_P64 : ftl::mmio::Register<
       0x404202A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_P64_fields_::COUNT,
+      RmonRP64Fields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_P64_fields_::COUNT;
+    using COUNT = RmonRP64Fields::COUNT;
   };
 
   // Rx 65- to 127-Byte Packets Statistic Register
-  struct RMON_R_P65TO127_fields_ {
+  struct RmonRP65to127Fields {
     // Number of 65- to 127-byte receive packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_P65TO127_fields_
+  };  // struct RmonRP65to127Fields
 
   struct RMON_R_P65TO127 : ftl::mmio::Register<
       0x404202ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_P65TO127_fields_::COUNT,
+      RmonRP65to127Fields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_P65TO127_fields_::COUNT;
+    using COUNT = RmonRP65to127Fields::COUNT;
   };
 
   // Rx 128- to 255-Byte Packets Statistic Register
-  struct RMON_R_P128TO255_fields_ {
+  struct RmonRP128to255Fields {
     // Number of 128- to 255-byte receive packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_P128TO255_fields_
+  };  // struct RmonRP128to255Fields
 
   struct RMON_R_P128TO255 : ftl::mmio::Register<
       0x404202B0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_P128TO255_fields_::COUNT,
+      RmonRP128to255Fields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_P128TO255_fields_::COUNT;
+    using COUNT = RmonRP128to255Fields::COUNT;
   };
 
   // Rx 256- to 511-Byte Packets Statistic Register
-  struct RMON_R_P256TO511_fields_ {
+  struct RmonRP256to511Fields {
     // Number of 256- to 511-byte receive packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_P256TO511_fields_
+  };  // struct RmonRP256to511Fields
 
   struct RMON_R_P256TO511 : ftl::mmio::Register<
       0x404202B4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_P256TO511_fields_::COUNT,
+      RmonRP256to511Fields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_P256TO511_fields_::COUNT;
+    using COUNT = RmonRP256to511Fields::COUNT;
   };
 
   // Rx 512- to 1023-Byte Packets Statistic Register
-  struct RMON_R_P512TO1023_fields_ {
+  struct RmonRP512to1023Fields {
     // Number of 512- to 1023-byte receive packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_P512TO1023_fields_
+  };  // struct RmonRP512to1023Fields
 
   struct RMON_R_P512TO1023 : ftl::mmio::Register<
       0x404202B8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_P512TO1023_fields_::COUNT,
+      RmonRP512to1023Fields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_P512TO1023_fields_::COUNT;
+    using COUNT = RmonRP512to1023Fields::COUNT;
   };
 
   // Rx 1024- to 2047-Byte Packets Statistic Register
-  struct RMON_R_P1024TO2047_fields_ {
+  struct RmonRP1024to2047Fields {
     // Number of 1024- to 2047-byte receive packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_P1024TO2047_fields_
+  };  // struct RmonRP1024to2047Fields
 
   struct RMON_R_P1024TO2047 : ftl::mmio::Register<
       0x404202BCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_P1024TO2047_fields_::COUNT,
+      RmonRP1024to2047Fields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_P1024TO2047_fields_::COUNT;
+    using COUNT = RmonRP1024to2047Fields::COUNT;
   };
 
   // Rx Packets Greater than 2048 Bytes Statistic Register
-  struct RMON_R_P_GTE2048_fields_ {
+  struct RmonRPGte2048Fields {
     // Number of greater-than-2048-byte receive packets
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_P_GTE2048_fields_
+  };  // struct RmonRPGte2048Fields
 
   struct RMON_R_P_GTE2048 : ftl::mmio::Register<
       0x404202C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_P_GTE2048_fields_::COUNT,
+      RmonRPGte2048Fields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = RMON_R_P_GTE2048_fields_::COUNT;
+    using COUNT = RmonRPGte2048Fields::COUNT;
   };
 
   // Rx Octets Statistic Register
-  struct RMON_R_OCTETS_fields_ {
+  struct RmonROctetsFields {
     // Number of receive octets
     using COUNT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RMON_R_OCTETS_fields_
+  };  // struct RmonROctetsFields
 
   struct RMON_R_OCTETS : ftl::mmio::Register<
       0x404202C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RMON_R_OCTETS_fields_::COUNT> {
-    using COUNT = RMON_R_OCTETS_fields_::COUNT;
+      RmonROctetsFields::COUNT> {
+    using COUNT = RmonROctetsFields::COUNT;
   };
 
   // Frames not Counted Correctly Statistic Register
-  struct IEEE_R_DROP_fields_ {
+  struct IeeeRDropFields {
     // Frame count
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_R_DROP_fields_
+  };  // struct IeeeRDropFields
 
   struct IEEE_R_DROP : ftl::mmio::Register<
       0x404202C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_R_DROP_fields_::COUNT,
+      IeeeRDropFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_R_DROP_fields_::COUNT;
+    using COUNT = IeeeRDropFields::COUNT;
   };
 
   // Frames Received OK Statistic Register
-  struct IEEE_R_FRAME_OK_fields_ {
+  struct IeeeRFrameOkFields {
     // Number of frames received OK
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_R_FRAME_OK_fields_
+  };  // struct IeeeRFrameOkFields
 
   struct IEEE_R_FRAME_OK : ftl::mmio::Register<
       0x404202CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_R_FRAME_OK_fields_::COUNT,
+      IeeeRFrameOkFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_R_FRAME_OK_fields_::COUNT;
+    using COUNT = IeeeRFrameOkFields::COUNT;
   };
 
   // Frames Received with CRC Error Statistic Register
-  struct IEEE_R_CRC_fields_ {
+  struct IeeeRCrcFields {
     // Number of frames received with CRC error
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_R_CRC_fields_
+  };  // struct IeeeRCrcFields
 
   struct IEEE_R_CRC : ftl::mmio::Register<
       0x404202D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_R_CRC_fields_::COUNT,
+      IeeeRCrcFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_R_CRC_fields_::COUNT;
+    using COUNT = IeeeRCrcFields::COUNT;
   };
 
   // Frames Received with Alignment Error Statistic Register
-  struct IEEE_R_ALIGN_fields_ {
+  struct IeeeRAlignFields {
     // Number of frames received with alignment error
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_R_ALIGN_fields_
+  };  // struct IeeeRAlignFields
 
   struct IEEE_R_ALIGN : ftl::mmio::Register<
       0x404202D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_R_ALIGN_fields_::COUNT,
+      IeeeRAlignFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_R_ALIGN_fields_::COUNT;
+    using COUNT = IeeeRAlignFields::COUNT;
   };
 
   // Receive FIFO Overflow Count Statistic Register
-  struct IEEE_R_MACERR_fields_ {
+  struct IeeeRMacerrFields {
     // Receive FIFO overflow count
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_R_MACERR_fields_
+  };  // struct IeeeRMacerrFields
 
   struct IEEE_R_MACERR : ftl::mmio::Register<
       0x404202D8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_R_MACERR_fields_::COUNT,
+      IeeeRMacerrFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_R_MACERR_fields_::COUNT;
+    using COUNT = IeeeRMacerrFields::COUNT;
   };
 
   // Flow Control Pause Frames Received Statistic Register
-  struct IEEE_R_FDXFC_fields_ {
+  struct IeeeRFdxfcFields {
     // Number of flow-control pause frames received
     using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_R_FDXFC_fields_
+  };  // struct IeeeRFdxfcFields
 
   struct IEEE_R_FDXFC : ftl::mmio::Register<
       0x404202DCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_R_FDXFC_fields_::COUNT,
+      IeeeRFdxfcFields::COUNT,
       ftl::mmio::Reserved<16, 16>> {
-    using COUNT = IEEE_R_FDXFC_fields_::COUNT;
+    using COUNT = IeeeRFdxfcFields::COUNT;
   };
 
   // Octet Count for Frames Received without Error Statistic Register
-  struct IEEE_R_OCTETS_OK_fields_ {
+  struct IeeeROctetsOkFields {
     // Number of octets for frames received without error
     using COUNT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct IEEE_R_OCTETS_OK_fields_
+  };  // struct IeeeROctetsOkFields
 
   struct IEEE_R_OCTETS_OK : ftl::mmio::Register<
       0x404202E0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      IEEE_R_OCTETS_OK_fields_::COUNT> {
-    using COUNT = IEEE_R_OCTETS_OK_fields_::COUNT;
+      IeeeROctetsOkFields::COUNT> {
+    using COUNT = IeeeROctetsOkFields::COUNT;
   };
 
   // Adjustable Timer Control Register
-  struct ATCR_fields_ {
+  struct AtcrFields {
     enum class eEN : std::uint32_t {
       // The timer stops at the current value.
       eZERO = 0,
@@ -2824,143 +2824,143 @@ struct Enet1g {
     using CAPTURE = ftl::mmio::Field<1, 11, eCAPTURE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Timer Slave Mode
     using SLAVE = ftl::mmio::Field<1, 13, eSLAVE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ATCR_fields_
+  };  // struct AtcrFields
 
   struct ATCR : ftl::mmio::Register<
       0x40420400u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ATCR_fields_::EN,
+      AtcrFields::EN,
       ftl::mmio::Reserved<1, 1>,
-      ATCR_fields_::OFFEN,
-      ATCR_fields_::OFFRST,
-      ATCR_fields_::PEREN,
+      AtcrFields::OFFEN,
+      AtcrFields::OFFRST,
+      AtcrFields::PEREN,
       ftl::mmio::Reserved<2, 5>,
-      ATCR_fields_::PINPER,
+      AtcrFields::PINPER,
       ftl::mmio::Reserved<1, 8>,
-      ATCR_fields_::RESTART,
+      AtcrFields::RESTART,
       ftl::mmio::Reserved<1, 10>,
-      ATCR_fields_::CAPTURE,
+      AtcrFields::CAPTURE,
       ftl::mmio::Reserved<1, 12>,
-      ATCR_fields_::SLAVE,
+      AtcrFields::SLAVE,
       ftl::mmio::Reserved<18, 14>> {
-    using eEN = ATCR_fields_::eEN;
-    using eOFFEN = ATCR_fields_::eOFFEN;
-    using eOFFRST = ATCR_fields_::eOFFRST;
-    using ePEREN = ATCR_fields_::ePEREN;
-    using ePINPER = ATCR_fields_::ePINPER;
-    using eCAPTURE = ATCR_fields_::eCAPTURE;
-    using eSLAVE = ATCR_fields_::eSLAVE;
-    using EN = ATCR_fields_::EN;
-    using OFFEN = ATCR_fields_::OFFEN;
-    using OFFRST = ATCR_fields_::OFFRST;
-    using PEREN = ATCR_fields_::PEREN;
-    using PINPER = ATCR_fields_::PINPER;
-    using RESTART = ATCR_fields_::RESTART;
-    using CAPTURE = ATCR_fields_::CAPTURE;
-    using SLAVE = ATCR_fields_::SLAVE;
+    using eEN = AtcrFields::eEN;
+    using eOFFEN = AtcrFields::eOFFEN;
+    using eOFFRST = AtcrFields::eOFFRST;
+    using ePEREN = AtcrFields::ePEREN;
+    using ePINPER = AtcrFields::ePINPER;
+    using eCAPTURE = AtcrFields::eCAPTURE;
+    using eSLAVE = AtcrFields::eSLAVE;
+    using EN = AtcrFields::EN;
+    using OFFEN = AtcrFields::OFFEN;
+    using OFFRST = AtcrFields::OFFRST;
+    using PEREN = AtcrFields::PEREN;
+    using PINPER = AtcrFields::PINPER;
+    using RESTART = AtcrFields::RESTART;
+    using CAPTURE = AtcrFields::CAPTURE;
+    using SLAVE = AtcrFields::SLAVE;
   };
 
   // Timer Value Register
-  struct ATVR_fields_ {
+  struct AtvrFields {
     // A write sets the timer
     using ATIME = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ATVR_fields_
+  };  // struct AtvrFields
 
   struct ATVR : ftl::mmio::Register<
       0x40420404u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ATVR_fields_::ATIME> {
-    using ATIME = ATVR_fields_::ATIME;
+      AtvrFields::ATIME> {
+    using ATIME = AtvrFields::ATIME;
   };
 
   // Timer Offset Register
-  struct ATOFF_fields_ {
+  struct AtoffFields {
     // Offset value for one-shot event generation
     using OFFSET = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ATOFF_fields_
+  };  // struct AtoffFields
 
   struct ATOFF : ftl::mmio::Register<
       0x40420408u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ATOFF_fields_::OFFSET> {
-    using OFFSET = ATOFF_fields_::OFFSET;
+      AtoffFields::OFFSET> {
+    using OFFSET = AtoffFields::OFFSET;
   };
 
   // Timer Period Register
-  struct ATPER_fields_ {
+  struct AtperFields {
     // Value for generating periodic events
     using PERIOD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ATPER_fields_
+  };  // struct AtperFields
 
   struct ATPER : ftl::mmio::Register<
       0x4042040Cu,
       std::uint32_t,
       0x3B9ACA00u,
       ftl::mmio::RW,
-      ATPER_fields_::PERIOD> {
-    using PERIOD = ATPER_fields_::PERIOD;
+      AtperFields::PERIOD> {
+    using PERIOD = AtperFields::PERIOD;
   };
 
   // Timer Correction Register
-  struct ATCOR_fields_ {
+  struct AtcorFields {
     // Correction Counter Wrap-Around Value
     using COR = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ATCOR_fields_
+  };  // struct AtcorFields
 
   struct ATCOR : ftl::mmio::Register<
       0x40420410u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ATCOR_fields_::COR,
+      AtcorFields::COR,
       ftl::mmio::Reserved<1, 31>> {
-    using COR = ATCOR_fields_::COR;
+    using COR = AtcorFields::COR;
   };
 
   // Time-Stamping Clock Period Register
-  struct ATINC_fields_ {
+  struct AtincFields {
     // Clock Period Of The Timestamping Clock (ts_clk) In Nanoseconds
     using INC = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Correction Increment Value
     using INC_CORR = ftl::mmio::Field<7, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ATINC_fields_
+  };  // struct AtincFields
 
   struct ATINC : ftl::mmio::Register<
       0x40420414u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ATINC_fields_::INC,
+      AtincFields::INC,
       ftl::mmio::Reserved<1, 7>,
-      ATINC_fields_::INC_CORR,
+      AtincFields::INC_CORR,
       ftl::mmio::Reserved<17, 15>> {
-    using INC = ATINC_fields_::INC;
-    using INC_CORR = ATINC_fields_::INC_CORR;
+    using INC = AtincFields::INC;
+    using INC_CORR = AtincFields::INC_CORR;
   };
 
   // Timestamp of Last Transmitted Frame
-  struct ATSTMP_fields_ {
+  struct AtstmpFields {
     // Timestamp of the last frame transmitted by the core that had TxBD[TS] set the ff_tx_ts_frm signal asserted from the user application
     using TIMESTAMP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ATSTMP_fields_
+  };  // struct AtstmpFields
 
   struct ATSTMP : ftl::mmio::Register<
       0x40420418u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ATSTMP_fields_::TIMESTAMP> {
-    using TIMESTAMP = ATSTMP_fields_::TIMESTAMP;
+      AtstmpFields::TIMESTAMP> {
+    using TIMESTAMP = AtstmpFields::TIMESTAMP;
   };
 
   // Timer Global Status Register
-  struct TGSR_fields_ {
+  struct TgsrFields {
     enum class eTF0 : std::uint32_t {
       // Timer Flag for Channel 0 is clear
       eZERO = 0,
@@ -2997,30 +2997,30 @@ struct Enet1g {
     using TF2 = ftl::mmio::Field<1, 2, eTF2, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Copy Of Timer Flag For Channel 3
     using TF3 = ftl::mmio::Field<1, 3, eTF3, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct TGSR_fields_
+  };  // struct TgsrFields
 
   struct TGSR : ftl::mmio::Register<
       0x40420604u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TGSR_fields_::TF0,
-      TGSR_fields_::TF1,
-      TGSR_fields_::TF2,
-      TGSR_fields_::TF3,
+      TgsrFields::TF0,
+      TgsrFields::TF1,
+      TgsrFields::TF2,
+      TgsrFields::TF3,
       ftl::mmio::Reserved<28, 4>> {
-    using eTF0 = TGSR_fields_::eTF0;
-    using eTF1 = TGSR_fields_::eTF1;
-    using eTF2 = TGSR_fields_::eTF2;
-    using eTF3 = TGSR_fields_::eTF3;
-    using TF0 = TGSR_fields_::TF0;
-    using TF1 = TGSR_fields_::TF1;
-    using TF2 = TGSR_fields_::TF2;
-    using TF3 = TGSR_fields_::TF3;
+    using eTF0 = TgsrFields::eTF0;
+    using eTF1 = TgsrFields::eTF1;
+    using eTF2 = TgsrFields::eTF2;
+    using eTF3 = TgsrFields::eTF3;
+    using TF0 = TgsrFields::TF0;
+    using TF1 = TgsrFields::TF1;
+    using TF2 = TgsrFields::TF2;
+    using TF3 = TgsrFields::TF3;
   };
 
   // Timer Control Status Register
-  struct TCSR0_fields_ {
+  struct Tcsr0Fields {
     enum class eTDRE : std::uint32_t {
       // DMA request is disabled
       eZERO = 0,
@@ -3077,46 +3077,46 @@ struct Enet1g {
     using TIE = ftl::mmio::Field<1, 6, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Flag
     using TF = ftl::mmio::Field<1, 7, eTF, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct TCSR0_fields_
+  };  // struct Tcsr0Fields
 
   struct TCSR0 : ftl::mmio::Register<
       0x40420608u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCSR0_fields_::TDRE,
+      Tcsr0Fields::TDRE,
       ftl::mmio::Reserved<1, 1>,
-      TCSR0_fields_::TMODE,
-      TCSR0_fields_::TIE,
-      TCSR0_fields_::TF,
+      Tcsr0Fields::TMODE,
+      Tcsr0Fields::TIE,
+      Tcsr0Fields::TF,
       ftl::mmio::Reserved<24, 8>> {
-    using eTDRE = TCSR0_fields_::eTDRE;
-    using eTMODE = TCSR0_fields_::eTMODE;
-    using eTIE = TCSR0_fields_::eTIE;
-    using eTF = TCSR0_fields_::eTF;
-    using TDRE = TCSR0_fields_::TDRE;
-    using TMODE = TCSR0_fields_::TMODE;
-    using TIE = TCSR0_fields_::TIE;
-    using TF = TCSR0_fields_::TF;
+    using eTDRE = Tcsr0Fields::eTDRE;
+    using eTMODE = Tcsr0Fields::eTMODE;
+    using eTIE = Tcsr0Fields::eTIE;
+    using eTF = Tcsr0Fields::eTF;
+    using TDRE = Tcsr0Fields::TDRE;
+    using TMODE = Tcsr0Fields::TMODE;
+    using TIE = Tcsr0Fields::TIE;
+    using TF = Tcsr0Fields::TF;
   };
 
   // Timer Compare Capture Register
-  struct TCCR0_fields_ {
+  struct Tccr0Fields {
     // Timer Capture Compare
     using TCC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCCR0_fields_
+  };  // struct Tccr0Fields
 
   struct TCCR0 : ftl::mmio::Register<
       0x4042060Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCCR0_fields_::TCC> {
-    using TCC = TCCR0_fields_::TCC;
+      Tccr0Fields::TCC> {
+    using TCC = Tccr0Fields::TCC;
   };
 
   // Timer Control Status Register
-  struct TCSR1_fields_ {
+  struct Tcsr1Fields {
     enum class eTDRE : std::uint32_t {
       // DMA request is disabled
       eZERO = 0,
@@ -3173,46 +3173,46 @@ struct Enet1g {
     using TIE = ftl::mmio::Field<1, 6, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Flag
     using TF = ftl::mmio::Field<1, 7, eTF, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct TCSR1_fields_
+  };  // struct Tcsr1Fields
 
   struct TCSR1 : ftl::mmio::Register<
       0x40420610u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCSR1_fields_::TDRE,
+      Tcsr1Fields::TDRE,
       ftl::mmio::Reserved<1, 1>,
-      TCSR1_fields_::TMODE,
-      TCSR1_fields_::TIE,
-      TCSR1_fields_::TF,
+      Tcsr1Fields::TMODE,
+      Tcsr1Fields::TIE,
+      Tcsr1Fields::TF,
       ftl::mmio::Reserved<24, 8>> {
-    using eTDRE = TCSR1_fields_::eTDRE;
-    using eTMODE = TCSR1_fields_::eTMODE;
-    using eTIE = TCSR1_fields_::eTIE;
-    using eTF = TCSR1_fields_::eTF;
-    using TDRE = TCSR1_fields_::TDRE;
-    using TMODE = TCSR1_fields_::TMODE;
-    using TIE = TCSR1_fields_::TIE;
-    using TF = TCSR1_fields_::TF;
+    using eTDRE = Tcsr1Fields::eTDRE;
+    using eTMODE = Tcsr1Fields::eTMODE;
+    using eTIE = Tcsr1Fields::eTIE;
+    using eTF = Tcsr1Fields::eTF;
+    using TDRE = Tcsr1Fields::TDRE;
+    using TMODE = Tcsr1Fields::TMODE;
+    using TIE = Tcsr1Fields::TIE;
+    using TF = Tcsr1Fields::TF;
   };
 
   // Timer Compare Capture Register
-  struct TCCR1_fields_ {
+  struct Tccr1Fields {
     // Timer Capture Compare
     using TCC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCCR1_fields_
+  };  // struct Tccr1Fields
 
   struct TCCR1 : ftl::mmio::Register<
       0x40420614u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCCR1_fields_::TCC> {
-    using TCC = TCCR1_fields_::TCC;
+      Tccr1Fields::TCC> {
+    using TCC = Tccr1Fields::TCC;
   };
 
   // Timer Control Status Register
-  struct TCSR2_fields_ {
+  struct Tcsr2Fields {
     enum class eTDRE : std::uint32_t {
       // DMA request is disabled
       eZERO = 0,
@@ -3269,46 +3269,46 @@ struct Enet1g {
     using TIE = ftl::mmio::Field<1, 6, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Flag
     using TF = ftl::mmio::Field<1, 7, eTF, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct TCSR2_fields_
+  };  // struct Tcsr2Fields
 
   struct TCSR2 : ftl::mmio::Register<
       0x40420618u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCSR2_fields_::TDRE,
+      Tcsr2Fields::TDRE,
       ftl::mmio::Reserved<1, 1>,
-      TCSR2_fields_::TMODE,
-      TCSR2_fields_::TIE,
-      TCSR2_fields_::TF,
+      Tcsr2Fields::TMODE,
+      Tcsr2Fields::TIE,
+      Tcsr2Fields::TF,
       ftl::mmio::Reserved<24, 8>> {
-    using eTDRE = TCSR2_fields_::eTDRE;
-    using eTMODE = TCSR2_fields_::eTMODE;
-    using eTIE = TCSR2_fields_::eTIE;
-    using eTF = TCSR2_fields_::eTF;
-    using TDRE = TCSR2_fields_::TDRE;
-    using TMODE = TCSR2_fields_::TMODE;
-    using TIE = TCSR2_fields_::TIE;
-    using TF = TCSR2_fields_::TF;
+    using eTDRE = Tcsr2Fields::eTDRE;
+    using eTMODE = Tcsr2Fields::eTMODE;
+    using eTIE = Tcsr2Fields::eTIE;
+    using eTF = Tcsr2Fields::eTF;
+    using TDRE = Tcsr2Fields::TDRE;
+    using TMODE = Tcsr2Fields::TMODE;
+    using TIE = Tcsr2Fields::TIE;
+    using TF = Tcsr2Fields::TF;
   };
 
   // Timer Compare Capture Register
-  struct TCCR2_fields_ {
+  struct Tccr2Fields {
     // Timer Capture Compare
     using TCC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCCR2_fields_
+  };  // struct Tccr2Fields
 
   struct TCCR2 : ftl::mmio::Register<
       0x4042061Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCCR2_fields_::TCC> {
-    using TCC = TCCR2_fields_::TCC;
+      Tccr2Fields::TCC> {
+    using TCC = Tccr2Fields::TCC;
   };
 
   // Timer Control Status Register
-  struct TCSR3_fields_ {
+  struct Tcsr3Fields {
     enum class eTDRE : std::uint32_t {
       // DMA request is disabled
       eZERO = 0,
@@ -3365,42 +3365,42 @@ struct Enet1g {
     using TIE = ftl::mmio::Field<1, 6, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Flag
     using TF = ftl::mmio::Field<1, 7, eTF, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct TCSR3_fields_
+  };  // struct Tcsr3Fields
 
   struct TCSR3 : ftl::mmio::Register<
       0x40420620u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCSR3_fields_::TDRE,
+      Tcsr3Fields::TDRE,
       ftl::mmio::Reserved<1, 1>,
-      TCSR3_fields_::TMODE,
-      TCSR3_fields_::TIE,
-      TCSR3_fields_::TF,
+      Tcsr3Fields::TMODE,
+      Tcsr3Fields::TIE,
+      Tcsr3Fields::TF,
       ftl::mmio::Reserved<24, 8>> {
-    using eTDRE = TCSR3_fields_::eTDRE;
-    using eTMODE = TCSR3_fields_::eTMODE;
-    using eTIE = TCSR3_fields_::eTIE;
-    using eTF = TCSR3_fields_::eTF;
-    using TDRE = TCSR3_fields_::TDRE;
-    using TMODE = TCSR3_fields_::TMODE;
-    using TIE = TCSR3_fields_::TIE;
-    using TF = TCSR3_fields_::TF;
+    using eTDRE = Tcsr3Fields::eTDRE;
+    using eTMODE = Tcsr3Fields::eTMODE;
+    using eTIE = Tcsr3Fields::eTIE;
+    using eTF = Tcsr3Fields::eTF;
+    using TDRE = Tcsr3Fields::TDRE;
+    using TMODE = Tcsr3Fields::TMODE;
+    using TIE = Tcsr3Fields::TIE;
+    using TF = Tcsr3Fields::TF;
   };
 
   // Timer Compare Capture Register
-  struct TCCR3_fields_ {
+  struct Tccr3Fields {
     // Timer Capture Compare
     using TCC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCCR3_fields_
+  };  // struct Tccr3Fields
 
   struct TCCR3 : ftl::mmio::Register<
       0x40420624u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCCR3_fields_::TCC> {
-    using TCC = TCCR3_fields_::TCC;
+      Tccr3Fields::TCC> {
+    using TCC = Tccr3Fields::TCC;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct SsarcLp {
   // Descriptor Control0 0 Register
-  struct DESC_CTRL0_0_fields_ {
+  struct DescCtrl00Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -33,28 +33,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_0_fields_
+  };  // struct DescCtrl00Fields
 
   struct DESC_CTRL0_0 : ftl::mmio::Register<
       0x40CB8000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_0_fields_::START,
-      DESC_CTRL0_0_fields_::END,
-      DESC_CTRL0_0_fields_::SV_ORDER,
-      DESC_CTRL0_0_fields_::RT_ORDER,
+      DescCtrl00Fields::START,
+      DescCtrl00Fields::END,
+      DescCtrl00Fields::SV_ORDER,
+      DescCtrl00Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_0_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_0_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_0_fields_::START;
-    using END = DESC_CTRL0_0_fields_::END;
-    using SV_ORDER = DESC_CTRL0_0_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_0_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl00Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl00Fields::eRT_ORDER;
+    using START = DescCtrl00Fields::START;
+    using END = DescCtrl00Fields::END;
+    using SV_ORDER = DescCtrl00Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl00Fields::RT_ORDER;
   };
 
   // Descriptor Control1 0 Register
-  struct DESC_CTRL1_0_fields_ {
+  struct DescCtrl10Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -136,76 +136,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_0_fields_
+  };  // struct DescCtrl10Fields
 
   struct DESC_CTRL1_0 : ftl::mmio::Register<
       0x40CB8004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_0_fields_::SW_TRIG_SV,
-      DESC_CTRL1_0_fields_::SW_TRIG_RT,
+      DescCtrl10Fields::SW_TRIG_SV,
+      DescCtrl10Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_0_fields_::POWER_DOMAIN,
-      DESC_CTRL1_0_fields_::GP_EN,
-      DESC_CTRL1_0_fields_::SV_PRIORITY,
-      DESC_CTRL1_0_fields_::RT_PRIORITY,
-      DESC_CTRL1_0_fields_::CPUD,
-      DESC_CTRL1_0_fields_::RL,
-      DESC_CTRL1_0_fields_::WL,
-      DESC_CTRL1_0_fields_::DL,
+      DescCtrl10Fields::POWER_DOMAIN,
+      DescCtrl10Fields::GP_EN,
+      DescCtrl10Fields::SV_PRIORITY,
+      DescCtrl10Fields::RT_PRIORITY,
+      DescCtrl10Fields::CPUD,
+      DescCtrl10Fields::RL,
+      DescCtrl10Fields::WL,
+      DescCtrl10Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_0_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_0_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_0_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_0_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_0_fields_::eRL;
-    using eWL = DESC_CTRL1_0_fields_::eWL;
-    using eDL = DESC_CTRL1_0_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_0_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_0_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_0_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_0_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_0_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_0_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_0_fields_::CPUD;
-    using RL = DESC_CTRL1_0_fields_::RL;
-    using WL = DESC_CTRL1_0_fields_::WL;
-    using DL = DESC_CTRL1_0_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl10Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl10Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl10Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl10Fields::eGP_EN;
+    using eRL = DescCtrl10Fields::eRL;
+    using eWL = DescCtrl10Fields::eWL;
+    using eDL = DescCtrl10Fields::eDL;
+    using SW_TRIG_SV = DescCtrl10Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl10Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl10Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl10Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl10Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl10Fields::RT_PRIORITY;
+    using CPUD = DescCtrl10Fields::CPUD;
+    using RL = DescCtrl10Fields::RL;
+    using WL = DescCtrl10Fields::WL;
+    using DL = DescCtrl10Fields::DL;
   };
 
   // Descriptor Address Up 0 Register
-  struct DESC_ADDR_UP_0_fields_ {
+  struct DescAddrUp0Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_0_fields_
+  };  // struct DescAddrUp0Fields
 
   struct DESC_ADDR_UP_0 : ftl::mmio::Register<
       0x40CB8008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_0_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_0_fields_::ADDR_UP;
+      DescAddrUp0Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp0Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 0 Register
-  struct DESC_ADDR_DOWN_0_fields_ {
+  struct DescAddrDown0Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_0_fields_
+  };  // struct DescAddrDown0Fields
 
   struct DESC_ADDR_DOWN_0 : ftl::mmio::Register<
       0x40CB800Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_0_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_0_fields_::ADDR_DOWN;
+      DescAddrDown0Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown0Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 1 Register
-  struct DESC_CTRL0_1_fields_ {
+  struct DescCtrl01Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -228,28 +228,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_1_fields_
+  };  // struct DescCtrl01Fields
 
   struct DESC_CTRL0_1 : ftl::mmio::Register<
       0x40CB8020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_1_fields_::START,
-      DESC_CTRL0_1_fields_::END,
-      DESC_CTRL0_1_fields_::SV_ORDER,
-      DESC_CTRL0_1_fields_::RT_ORDER,
+      DescCtrl01Fields::START,
+      DescCtrl01Fields::END,
+      DescCtrl01Fields::SV_ORDER,
+      DescCtrl01Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_1_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_1_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_1_fields_::START;
-    using END = DESC_CTRL0_1_fields_::END;
-    using SV_ORDER = DESC_CTRL0_1_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_1_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl01Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl01Fields::eRT_ORDER;
+    using START = DescCtrl01Fields::START;
+    using END = DescCtrl01Fields::END;
+    using SV_ORDER = DescCtrl01Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl01Fields::RT_ORDER;
   };
 
   // Descriptor Control1 1 Register
-  struct DESC_CTRL1_1_fields_ {
+  struct DescCtrl11Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -331,76 +331,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_1_fields_
+  };  // struct DescCtrl11Fields
 
   struct DESC_CTRL1_1 : ftl::mmio::Register<
       0x40CB8024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_1_fields_::SW_TRIG_SV,
-      DESC_CTRL1_1_fields_::SW_TRIG_RT,
+      DescCtrl11Fields::SW_TRIG_SV,
+      DescCtrl11Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_1_fields_::POWER_DOMAIN,
-      DESC_CTRL1_1_fields_::GP_EN,
-      DESC_CTRL1_1_fields_::SV_PRIORITY,
-      DESC_CTRL1_1_fields_::RT_PRIORITY,
-      DESC_CTRL1_1_fields_::CPUD,
-      DESC_CTRL1_1_fields_::RL,
-      DESC_CTRL1_1_fields_::WL,
-      DESC_CTRL1_1_fields_::DL,
+      DescCtrl11Fields::POWER_DOMAIN,
+      DescCtrl11Fields::GP_EN,
+      DescCtrl11Fields::SV_PRIORITY,
+      DescCtrl11Fields::RT_PRIORITY,
+      DescCtrl11Fields::CPUD,
+      DescCtrl11Fields::RL,
+      DescCtrl11Fields::WL,
+      DescCtrl11Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_1_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_1_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_1_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_1_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_1_fields_::eRL;
-    using eWL = DESC_CTRL1_1_fields_::eWL;
-    using eDL = DESC_CTRL1_1_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_1_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_1_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_1_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_1_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_1_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_1_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_1_fields_::CPUD;
-    using RL = DESC_CTRL1_1_fields_::RL;
-    using WL = DESC_CTRL1_1_fields_::WL;
-    using DL = DESC_CTRL1_1_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl11Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl11Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl11Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl11Fields::eGP_EN;
+    using eRL = DescCtrl11Fields::eRL;
+    using eWL = DescCtrl11Fields::eWL;
+    using eDL = DescCtrl11Fields::eDL;
+    using SW_TRIG_SV = DescCtrl11Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl11Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl11Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl11Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl11Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl11Fields::RT_PRIORITY;
+    using CPUD = DescCtrl11Fields::CPUD;
+    using RL = DescCtrl11Fields::RL;
+    using WL = DescCtrl11Fields::WL;
+    using DL = DescCtrl11Fields::DL;
   };
 
   // Descriptor Address Up 1 Register
-  struct DESC_ADDR_UP_1_fields_ {
+  struct DescAddrUp1Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_1_fields_
+  };  // struct DescAddrUp1Fields
 
   struct DESC_ADDR_UP_1 : ftl::mmio::Register<
       0x40CB8028u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_1_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_1_fields_::ADDR_UP;
+      DescAddrUp1Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp1Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 1 Register
-  struct DESC_ADDR_DOWN_1_fields_ {
+  struct DescAddrDown1Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_1_fields_
+  };  // struct DescAddrDown1Fields
 
   struct DESC_ADDR_DOWN_1 : ftl::mmio::Register<
       0x40CB802Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_1_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_1_fields_::ADDR_DOWN;
+      DescAddrDown1Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown1Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 2 Register
-  struct DESC_CTRL0_2_fields_ {
+  struct DescCtrl02Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -423,28 +423,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_2_fields_
+  };  // struct DescCtrl02Fields
 
   struct DESC_CTRL0_2 : ftl::mmio::Register<
       0x40CB8040u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_2_fields_::START,
-      DESC_CTRL0_2_fields_::END,
-      DESC_CTRL0_2_fields_::SV_ORDER,
-      DESC_CTRL0_2_fields_::RT_ORDER,
+      DescCtrl02Fields::START,
+      DescCtrl02Fields::END,
+      DescCtrl02Fields::SV_ORDER,
+      DescCtrl02Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_2_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_2_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_2_fields_::START;
-    using END = DESC_CTRL0_2_fields_::END;
-    using SV_ORDER = DESC_CTRL0_2_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_2_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl02Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl02Fields::eRT_ORDER;
+    using START = DescCtrl02Fields::START;
+    using END = DescCtrl02Fields::END;
+    using SV_ORDER = DescCtrl02Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl02Fields::RT_ORDER;
   };
 
   // Descriptor Control1 2 Register
-  struct DESC_CTRL1_2_fields_ {
+  struct DescCtrl12Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -526,76 +526,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_2_fields_
+  };  // struct DescCtrl12Fields
 
   struct DESC_CTRL1_2 : ftl::mmio::Register<
       0x40CB8044u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_2_fields_::SW_TRIG_SV,
-      DESC_CTRL1_2_fields_::SW_TRIG_RT,
+      DescCtrl12Fields::SW_TRIG_SV,
+      DescCtrl12Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_2_fields_::POWER_DOMAIN,
-      DESC_CTRL1_2_fields_::GP_EN,
-      DESC_CTRL1_2_fields_::SV_PRIORITY,
-      DESC_CTRL1_2_fields_::RT_PRIORITY,
-      DESC_CTRL1_2_fields_::CPUD,
-      DESC_CTRL1_2_fields_::RL,
-      DESC_CTRL1_2_fields_::WL,
-      DESC_CTRL1_2_fields_::DL,
+      DescCtrl12Fields::POWER_DOMAIN,
+      DescCtrl12Fields::GP_EN,
+      DescCtrl12Fields::SV_PRIORITY,
+      DescCtrl12Fields::RT_PRIORITY,
+      DescCtrl12Fields::CPUD,
+      DescCtrl12Fields::RL,
+      DescCtrl12Fields::WL,
+      DescCtrl12Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_2_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_2_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_2_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_2_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_2_fields_::eRL;
-    using eWL = DESC_CTRL1_2_fields_::eWL;
-    using eDL = DESC_CTRL1_2_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_2_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_2_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_2_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_2_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_2_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_2_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_2_fields_::CPUD;
-    using RL = DESC_CTRL1_2_fields_::RL;
-    using WL = DESC_CTRL1_2_fields_::WL;
-    using DL = DESC_CTRL1_2_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl12Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl12Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl12Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl12Fields::eGP_EN;
+    using eRL = DescCtrl12Fields::eRL;
+    using eWL = DescCtrl12Fields::eWL;
+    using eDL = DescCtrl12Fields::eDL;
+    using SW_TRIG_SV = DescCtrl12Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl12Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl12Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl12Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl12Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl12Fields::RT_PRIORITY;
+    using CPUD = DescCtrl12Fields::CPUD;
+    using RL = DescCtrl12Fields::RL;
+    using WL = DescCtrl12Fields::WL;
+    using DL = DescCtrl12Fields::DL;
   };
 
   // Descriptor Address Up 2 Register
-  struct DESC_ADDR_UP_2_fields_ {
+  struct DescAddrUp2Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_2_fields_
+  };  // struct DescAddrUp2Fields
 
   struct DESC_ADDR_UP_2 : ftl::mmio::Register<
       0x40CB8048u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_2_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_2_fields_::ADDR_UP;
+      DescAddrUp2Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp2Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 2 Register
-  struct DESC_ADDR_DOWN_2_fields_ {
+  struct DescAddrDown2Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_2_fields_
+  };  // struct DescAddrDown2Fields
 
   struct DESC_ADDR_DOWN_2 : ftl::mmio::Register<
       0x40CB804Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_2_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_2_fields_::ADDR_DOWN;
+      DescAddrDown2Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown2Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 3 Register
-  struct DESC_CTRL0_3_fields_ {
+  struct DescCtrl03Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -618,28 +618,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_3_fields_
+  };  // struct DescCtrl03Fields
 
   struct DESC_CTRL0_3 : ftl::mmio::Register<
       0x40CB8060u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_3_fields_::START,
-      DESC_CTRL0_3_fields_::END,
-      DESC_CTRL0_3_fields_::SV_ORDER,
-      DESC_CTRL0_3_fields_::RT_ORDER,
+      DescCtrl03Fields::START,
+      DescCtrl03Fields::END,
+      DescCtrl03Fields::SV_ORDER,
+      DescCtrl03Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_3_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_3_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_3_fields_::START;
-    using END = DESC_CTRL0_3_fields_::END;
-    using SV_ORDER = DESC_CTRL0_3_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_3_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl03Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl03Fields::eRT_ORDER;
+    using START = DescCtrl03Fields::START;
+    using END = DescCtrl03Fields::END;
+    using SV_ORDER = DescCtrl03Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl03Fields::RT_ORDER;
   };
 
   // Descriptor Control1 3 Register
-  struct DESC_CTRL1_3_fields_ {
+  struct DescCtrl13Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -721,76 +721,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_3_fields_
+  };  // struct DescCtrl13Fields
 
   struct DESC_CTRL1_3 : ftl::mmio::Register<
       0x40CB8064u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_3_fields_::SW_TRIG_SV,
-      DESC_CTRL1_3_fields_::SW_TRIG_RT,
+      DescCtrl13Fields::SW_TRIG_SV,
+      DescCtrl13Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_3_fields_::POWER_DOMAIN,
-      DESC_CTRL1_3_fields_::GP_EN,
-      DESC_CTRL1_3_fields_::SV_PRIORITY,
-      DESC_CTRL1_3_fields_::RT_PRIORITY,
-      DESC_CTRL1_3_fields_::CPUD,
-      DESC_CTRL1_3_fields_::RL,
-      DESC_CTRL1_3_fields_::WL,
-      DESC_CTRL1_3_fields_::DL,
+      DescCtrl13Fields::POWER_DOMAIN,
+      DescCtrl13Fields::GP_EN,
+      DescCtrl13Fields::SV_PRIORITY,
+      DescCtrl13Fields::RT_PRIORITY,
+      DescCtrl13Fields::CPUD,
+      DescCtrl13Fields::RL,
+      DescCtrl13Fields::WL,
+      DescCtrl13Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_3_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_3_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_3_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_3_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_3_fields_::eRL;
-    using eWL = DESC_CTRL1_3_fields_::eWL;
-    using eDL = DESC_CTRL1_3_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_3_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_3_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_3_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_3_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_3_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_3_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_3_fields_::CPUD;
-    using RL = DESC_CTRL1_3_fields_::RL;
-    using WL = DESC_CTRL1_3_fields_::WL;
-    using DL = DESC_CTRL1_3_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl13Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl13Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl13Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl13Fields::eGP_EN;
+    using eRL = DescCtrl13Fields::eRL;
+    using eWL = DescCtrl13Fields::eWL;
+    using eDL = DescCtrl13Fields::eDL;
+    using SW_TRIG_SV = DescCtrl13Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl13Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl13Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl13Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl13Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl13Fields::RT_PRIORITY;
+    using CPUD = DescCtrl13Fields::CPUD;
+    using RL = DescCtrl13Fields::RL;
+    using WL = DescCtrl13Fields::WL;
+    using DL = DescCtrl13Fields::DL;
   };
 
   // Descriptor Address Up 3 Register
-  struct DESC_ADDR_UP_3_fields_ {
+  struct DescAddrUp3Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_3_fields_
+  };  // struct DescAddrUp3Fields
 
   struct DESC_ADDR_UP_3 : ftl::mmio::Register<
       0x40CB8068u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_3_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_3_fields_::ADDR_UP;
+      DescAddrUp3Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp3Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 3 Register
-  struct DESC_ADDR_DOWN_3_fields_ {
+  struct DescAddrDown3Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_3_fields_
+  };  // struct DescAddrDown3Fields
 
   struct DESC_ADDR_DOWN_3 : ftl::mmio::Register<
       0x40CB806Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_3_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_3_fields_::ADDR_DOWN;
+      DescAddrDown3Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown3Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 4 Register
-  struct DESC_CTRL0_4_fields_ {
+  struct DescCtrl04Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -813,28 +813,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_4_fields_
+  };  // struct DescCtrl04Fields
 
   struct DESC_CTRL0_4 : ftl::mmio::Register<
       0x40CB8080u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_4_fields_::START,
-      DESC_CTRL0_4_fields_::END,
-      DESC_CTRL0_4_fields_::SV_ORDER,
-      DESC_CTRL0_4_fields_::RT_ORDER,
+      DescCtrl04Fields::START,
+      DescCtrl04Fields::END,
+      DescCtrl04Fields::SV_ORDER,
+      DescCtrl04Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_4_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_4_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_4_fields_::START;
-    using END = DESC_CTRL0_4_fields_::END;
-    using SV_ORDER = DESC_CTRL0_4_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_4_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl04Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl04Fields::eRT_ORDER;
+    using START = DescCtrl04Fields::START;
+    using END = DescCtrl04Fields::END;
+    using SV_ORDER = DescCtrl04Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl04Fields::RT_ORDER;
   };
 
   // Descriptor Control1 4 Register
-  struct DESC_CTRL1_4_fields_ {
+  struct DescCtrl14Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -916,76 +916,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_4_fields_
+  };  // struct DescCtrl14Fields
 
   struct DESC_CTRL1_4 : ftl::mmio::Register<
       0x40CB8084u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_4_fields_::SW_TRIG_SV,
-      DESC_CTRL1_4_fields_::SW_TRIG_RT,
+      DescCtrl14Fields::SW_TRIG_SV,
+      DescCtrl14Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_4_fields_::POWER_DOMAIN,
-      DESC_CTRL1_4_fields_::GP_EN,
-      DESC_CTRL1_4_fields_::SV_PRIORITY,
-      DESC_CTRL1_4_fields_::RT_PRIORITY,
-      DESC_CTRL1_4_fields_::CPUD,
-      DESC_CTRL1_4_fields_::RL,
-      DESC_CTRL1_4_fields_::WL,
-      DESC_CTRL1_4_fields_::DL,
+      DescCtrl14Fields::POWER_DOMAIN,
+      DescCtrl14Fields::GP_EN,
+      DescCtrl14Fields::SV_PRIORITY,
+      DescCtrl14Fields::RT_PRIORITY,
+      DescCtrl14Fields::CPUD,
+      DescCtrl14Fields::RL,
+      DescCtrl14Fields::WL,
+      DescCtrl14Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_4_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_4_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_4_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_4_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_4_fields_::eRL;
-    using eWL = DESC_CTRL1_4_fields_::eWL;
-    using eDL = DESC_CTRL1_4_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_4_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_4_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_4_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_4_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_4_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_4_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_4_fields_::CPUD;
-    using RL = DESC_CTRL1_4_fields_::RL;
-    using WL = DESC_CTRL1_4_fields_::WL;
-    using DL = DESC_CTRL1_4_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl14Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl14Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl14Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl14Fields::eGP_EN;
+    using eRL = DescCtrl14Fields::eRL;
+    using eWL = DescCtrl14Fields::eWL;
+    using eDL = DescCtrl14Fields::eDL;
+    using SW_TRIG_SV = DescCtrl14Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl14Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl14Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl14Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl14Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl14Fields::RT_PRIORITY;
+    using CPUD = DescCtrl14Fields::CPUD;
+    using RL = DescCtrl14Fields::RL;
+    using WL = DescCtrl14Fields::WL;
+    using DL = DescCtrl14Fields::DL;
   };
 
   // Descriptor Address Up 4 Register
-  struct DESC_ADDR_UP_4_fields_ {
+  struct DescAddrUp4Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_4_fields_
+  };  // struct DescAddrUp4Fields
 
   struct DESC_ADDR_UP_4 : ftl::mmio::Register<
       0x40CB8088u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_4_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_4_fields_::ADDR_UP;
+      DescAddrUp4Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp4Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 4 Register
-  struct DESC_ADDR_DOWN_4_fields_ {
+  struct DescAddrDown4Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_4_fields_
+  };  // struct DescAddrDown4Fields
 
   struct DESC_ADDR_DOWN_4 : ftl::mmio::Register<
       0x40CB808Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_4_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_4_fields_::ADDR_DOWN;
+      DescAddrDown4Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown4Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 5 Register
-  struct DESC_CTRL0_5_fields_ {
+  struct DescCtrl05Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -1008,28 +1008,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_5_fields_
+  };  // struct DescCtrl05Fields
 
   struct DESC_CTRL0_5 : ftl::mmio::Register<
       0x40CB80A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_5_fields_::START,
-      DESC_CTRL0_5_fields_::END,
-      DESC_CTRL0_5_fields_::SV_ORDER,
-      DESC_CTRL0_5_fields_::RT_ORDER,
+      DescCtrl05Fields::START,
+      DescCtrl05Fields::END,
+      DescCtrl05Fields::SV_ORDER,
+      DescCtrl05Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_5_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_5_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_5_fields_::START;
-    using END = DESC_CTRL0_5_fields_::END;
-    using SV_ORDER = DESC_CTRL0_5_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_5_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl05Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl05Fields::eRT_ORDER;
+    using START = DescCtrl05Fields::START;
+    using END = DescCtrl05Fields::END;
+    using SV_ORDER = DescCtrl05Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl05Fields::RT_ORDER;
   };
 
   // Descriptor Control1 5 Register
-  struct DESC_CTRL1_5_fields_ {
+  struct DescCtrl15Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -1111,76 +1111,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_5_fields_
+  };  // struct DescCtrl15Fields
 
   struct DESC_CTRL1_5 : ftl::mmio::Register<
       0x40CB80A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_5_fields_::SW_TRIG_SV,
-      DESC_CTRL1_5_fields_::SW_TRIG_RT,
+      DescCtrl15Fields::SW_TRIG_SV,
+      DescCtrl15Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_5_fields_::POWER_DOMAIN,
-      DESC_CTRL1_5_fields_::GP_EN,
-      DESC_CTRL1_5_fields_::SV_PRIORITY,
-      DESC_CTRL1_5_fields_::RT_PRIORITY,
-      DESC_CTRL1_5_fields_::CPUD,
-      DESC_CTRL1_5_fields_::RL,
-      DESC_CTRL1_5_fields_::WL,
-      DESC_CTRL1_5_fields_::DL,
+      DescCtrl15Fields::POWER_DOMAIN,
+      DescCtrl15Fields::GP_EN,
+      DescCtrl15Fields::SV_PRIORITY,
+      DescCtrl15Fields::RT_PRIORITY,
+      DescCtrl15Fields::CPUD,
+      DescCtrl15Fields::RL,
+      DescCtrl15Fields::WL,
+      DescCtrl15Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_5_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_5_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_5_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_5_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_5_fields_::eRL;
-    using eWL = DESC_CTRL1_5_fields_::eWL;
-    using eDL = DESC_CTRL1_5_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_5_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_5_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_5_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_5_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_5_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_5_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_5_fields_::CPUD;
-    using RL = DESC_CTRL1_5_fields_::RL;
-    using WL = DESC_CTRL1_5_fields_::WL;
-    using DL = DESC_CTRL1_5_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl15Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl15Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl15Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl15Fields::eGP_EN;
+    using eRL = DescCtrl15Fields::eRL;
+    using eWL = DescCtrl15Fields::eWL;
+    using eDL = DescCtrl15Fields::eDL;
+    using SW_TRIG_SV = DescCtrl15Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl15Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl15Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl15Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl15Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl15Fields::RT_PRIORITY;
+    using CPUD = DescCtrl15Fields::CPUD;
+    using RL = DescCtrl15Fields::RL;
+    using WL = DescCtrl15Fields::WL;
+    using DL = DescCtrl15Fields::DL;
   };
 
   // Descriptor Address Up 5 Register
-  struct DESC_ADDR_UP_5_fields_ {
+  struct DescAddrUp5Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_5_fields_
+  };  // struct DescAddrUp5Fields
 
   struct DESC_ADDR_UP_5 : ftl::mmio::Register<
       0x40CB80A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_5_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_5_fields_::ADDR_UP;
+      DescAddrUp5Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp5Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 5 Register
-  struct DESC_ADDR_DOWN_5_fields_ {
+  struct DescAddrDown5Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_5_fields_
+  };  // struct DescAddrDown5Fields
 
   struct DESC_ADDR_DOWN_5 : ftl::mmio::Register<
       0x40CB80ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_5_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_5_fields_::ADDR_DOWN;
+      DescAddrDown5Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown5Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 6 Register
-  struct DESC_CTRL0_6_fields_ {
+  struct DescCtrl06Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -1203,28 +1203,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_6_fields_
+  };  // struct DescCtrl06Fields
 
   struct DESC_CTRL0_6 : ftl::mmio::Register<
       0x40CB80C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_6_fields_::START,
-      DESC_CTRL0_6_fields_::END,
-      DESC_CTRL0_6_fields_::SV_ORDER,
-      DESC_CTRL0_6_fields_::RT_ORDER,
+      DescCtrl06Fields::START,
+      DescCtrl06Fields::END,
+      DescCtrl06Fields::SV_ORDER,
+      DescCtrl06Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_6_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_6_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_6_fields_::START;
-    using END = DESC_CTRL0_6_fields_::END;
-    using SV_ORDER = DESC_CTRL0_6_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_6_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl06Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl06Fields::eRT_ORDER;
+    using START = DescCtrl06Fields::START;
+    using END = DescCtrl06Fields::END;
+    using SV_ORDER = DescCtrl06Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl06Fields::RT_ORDER;
   };
 
   // Descriptor Control1 6 Register
-  struct DESC_CTRL1_6_fields_ {
+  struct DescCtrl16Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -1306,76 +1306,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_6_fields_
+  };  // struct DescCtrl16Fields
 
   struct DESC_CTRL1_6 : ftl::mmio::Register<
       0x40CB80C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_6_fields_::SW_TRIG_SV,
-      DESC_CTRL1_6_fields_::SW_TRIG_RT,
+      DescCtrl16Fields::SW_TRIG_SV,
+      DescCtrl16Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_6_fields_::POWER_DOMAIN,
-      DESC_CTRL1_6_fields_::GP_EN,
-      DESC_CTRL1_6_fields_::SV_PRIORITY,
-      DESC_CTRL1_6_fields_::RT_PRIORITY,
-      DESC_CTRL1_6_fields_::CPUD,
-      DESC_CTRL1_6_fields_::RL,
-      DESC_CTRL1_6_fields_::WL,
-      DESC_CTRL1_6_fields_::DL,
+      DescCtrl16Fields::POWER_DOMAIN,
+      DescCtrl16Fields::GP_EN,
+      DescCtrl16Fields::SV_PRIORITY,
+      DescCtrl16Fields::RT_PRIORITY,
+      DescCtrl16Fields::CPUD,
+      DescCtrl16Fields::RL,
+      DescCtrl16Fields::WL,
+      DescCtrl16Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_6_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_6_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_6_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_6_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_6_fields_::eRL;
-    using eWL = DESC_CTRL1_6_fields_::eWL;
-    using eDL = DESC_CTRL1_6_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_6_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_6_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_6_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_6_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_6_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_6_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_6_fields_::CPUD;
-    using RL = DESC_CTRL1_6_fields_::RL;
-    using WL = DESC_CTRL1_6_fields_::WL;
-    using DL = DESC_CTRL1_6_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl16Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl16Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl16Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl16Fields::eGP_EN;
+    using eRL = DescCtrl16Fields::eRL;
+    using eWL = DescCtrl16Fields::eWL;
+    using eDL = DescCtrl16Fields::eDL;
+    using SW_TRIG_SV = DescCtrl16Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl16Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl16Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl16Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl16Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl16Fields::RT_PRIORITY;
+    using CPUD = DescCtrl16Fields::CPUD;
+    using RL = DescCtrl16Fields::RL;
+    using WL = DescCtrl16Fields::WL;
+    using DL = DescCtrl16Fields::DL;
   };
 
   // Descriptor Address Up 6 Register
-  struct DESC_ADDR_UP_6_fields_ {
+  struct DescAddrUp6Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_6_fields_
+  };  // struct DescAddrUp6Fields
 
   struct DESC_ADDR_UP_6 : ftl::mmio::Register<
       0x40CB80C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_6_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_6_fields_::ADDR_UP;
+      DescAddrUp6Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp6Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 6 Register
-  struct DESC_ADDR_DOWN_6_fields_ {
+  struct DescAddrDown6Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_6_fields_
+  };  // struct DescAddrDown6Fields
 
   struct DESC_ADDR_DOWN_6 : ftl::mmio::Register<
       0x40CB80CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_6_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_6_fields_::ADDR_DOWN;
+      DescAddrDown6Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown6Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 7 Register
-  struct DESC_CTRL0_7_fields_ {
+  struct DescCtrl07Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -1398,28 +1398,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_7_fields_
+  };  // struct DescCtrl07Fields
 
   struct DESC_CTRL0_7 : ftl::mmio::Register<
       0x40CB80E0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_7_fields_::START,
-      DESC_CTRL0_7_fields_::END,
-      DESC_CTRL0_7_fields_::SV_ORDER,
-      DESC_CTRL0_7_fields_::RT_ORDER,
+      DescCtrl07Fields::START,
+      DescCtrl07Fields::END,
+      DescCtrl07Fields::SV_ORDER,
+      DescCtrl07Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_7_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_7_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_7_fields_::START;
-    using END = DESC_CTRL0_7_fields_::END;
-    using SV_ORDER = DESC_CTRL0_7_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_7_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl07Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl07Fields::eRT_ORDER;
+    using START = DescCtrl07Fields::START;
+    using END = DescCtrl07Fields::END;
+    using SV_ORDER = DescCtrl07Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl07Fields::RT_ORDER;
   };
 
   // Descriptor Control1 7 Register
-  struct DESC_CTRL1_7_fields_ {
+  struct DescCtrl17Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -1501,76 +1501,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_7_fields_
+  };  // struct DescCtrl17Fields
 
   struct DESC_CTRL1_7 : ftl::mmio::Register<
       0x40CB80E4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_7_fields_::SW_TRIG_SV,
-      DESC_CTRL1_7_fields_::SW_TRIG_RT,
+      DescCtrl17Fields::SW_TRIG_SV,
+      DescCtrl17Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_7_fields_::POWER_DOMAIN,
-      DESC_CTRL1_7_fields_::GP_EN,
-      DESC_CTRL1_7_fields_::SV_PRIORITY,
-      DESC_CTRL1_7_fields_::RT_PRIORITY,
-      DESC_CTRL1_7_fields_::CPUD,
-      DESC_CTRL1_7_fields_::RL,
-      DESC_CTRL1_7_fields_::WL,
-      DESC_CTRL1_7_fields_::DL,
+      DescCtrl17Fields::POWER_DOMAIN,
+      DescCtrl17Fields::GP_EN,
+      DescCtrl17Fields::SV_PRIORITY,
+      DescCtrl17Fields::RT_PRIORITY,
+      DescCtrl17Fields::CPUD,
+      DescCtrl17Fields::RL,
+      DescCtrl17Fields::WL,
+      DescCtrl17Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_7_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_7_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_7_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_7_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_7_fields_::eRL;
-    using eWL = DESC_CTRL1_7_fields_::eWL;
-    using eDL = DESC_CTRL1_7_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_7_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_7_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_7_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_7_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_7_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_7_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_7_fields_::CPUD;
-    using RL = DESC_CTRL1_7_fields_::RL;
-    using WL = DESC_CTRL1_7_fields_::WL;
-    using DL = DESC_CTRL1_7_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl17Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl17Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl17Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl17Fields::eGP_EN;
+    using eRL = DescCtrl17Fields::eRL;
+    using eWL = DescCtrl17Fields::eWL;
+    using eDL = DescCtrl17Fields::eDL;
+    using SW_TRIG_SV = DescCtrl17Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl17Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl17Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl17Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl17Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl17Fields::RT_PRIORITY;
+    using CPUD = DescCtrl17Fields::CPUD;
+    using RL = DescCtrl17Fields::RL;
+    using WL = DescCtrl17Fields::WL;
+    using DL = DescCtrl17Fields::DL;
   };
 
   // Descriptor Address Up 7 Register
-  struct DESC_ADDR_UP_7_fields_ {
+  struct DescAddrUp7Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_7_fields_
+  };  // struct DescAddrUp7Fields
 
   struct DESC_ADDR_UP_7 : ftl::mmio::Register<
       0x40CB80E8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_7_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_7_fields_::ADDR_UP;
+      DescAddrUp7Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp7Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 7 Register
-  struct DESC_ADDR_DOWN_7_fields_ {
+  struct DescAddrDown7Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_7_fields_
+  };  // struct DescAddrDown7Fields
 
   struct DESC_ADDR_DOWN_7 : ftl::mmio::Register<
       0x40CB80ECu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_7_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_7_fields_::ADDR_DOWN;
+      DescAddrDown7Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown7Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 8 Register
-  struct DESC_CTRL0_8_fields_ {
+  struct DescCtrl08Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -1593,28 +1593,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_8_fields_
+  };  // struct DescCtrl08Fields
 
   struct DESC_CTRL0_8 : ftl::mmio::Register<
       0x40CB8100u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_8_fields_::START,
-      DESC_CTRL0_8_fields_::END,
-      DESC_CTRL0_8_fields_::SV_ORDER,
-      DESC_CTRL0_8_fields_::RT_ORDER,
+      DescCtrl08Fields::START,
+      DescCtrl08Fields::END,
+      DescCtrl08Fields::SV_ORDER,
+      DescCtrl08Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_8_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_8_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_8_fields_::START;
-    using END = DESC_CTRL0_8_fields_::END;
-    using SV_ORDER = DESC_CTRL0_8_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_8_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl08Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl08Fields::eRT_ORDER;
+    using START = DescCtrl08Fields::START;
+    using END = DescCtrl08Fields::END;
+    using SV_ORDER = DescCtrl08Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl08Fields::RT_ORDER;
   };
 
   // Descriptor Control1 8 Register
-  struct DESC_CTRL1_8_fields_ {
+  struct DescCtrl18Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -1696,76 +1696,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_8_fields_
+  };  // struct DescCtrl18Fields
 
   struct DESC_CTRL1_8 : ftl::mmio::Register<
       0x40CB8104u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_8_fields_::SW_TRIG_SV,
-      DESC_CTRL1_8_fields_::SW_TRIG_RT,
+      DescCtrl18Fields::SW_TRIG_SV,
+      DescCtrl18Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_8_fields_::POWER_DOMAIN,
-      DESC_CTRL1_8_fields_::GP_EN,
-      DESC_CTRL1_8_fields_::SV_PRIORITY,
-      DESC_CTRL1_8_fields_::RT_PRIORITY,
-      DESC_CTRL1_8_fields_::CPUD,
-      DESC_CTRL1_8_fields_::RL,
-      DESC_CTRL1_8_fields_::WL,
-      DESC_CTRL1_8_fields_::DL,
+      DescCtrl18Fields::POWER_DOMAIN,
+      DescCtrl18Fields::GP_EN,
+      DescCtrl18Fields::SV_PRIORITY,
+      DescCtrl18Fields::RT_PRIORITY,
+      DescCtrl18Fields::CPUD,
+      DescCtrl18Fields::RL,
+      DescCtrl18Fields::WL,
+      DescCtrl18Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_8_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_8_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_8_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_8_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_8_fields_::eRL;
-    using eWL = DESC_CTRL1_8_fields_::eWL;
-    using eDL = DESC_CTRL1_8_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_8_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_8_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_8_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_8_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_8_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_8_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_8_fields_::CPUD;
-    using RL = DESC_CTRL1_8_fields_::RL;
-    using WL = DESC_CTRL1_8_fields_::WL;
-    using DL = DESC_CTRL1_8_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl18Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl18Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl18Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl18Fields::eGP_EN;
+    using eRL = DescCtrl18Fields::eRL;
+    using eWL = DescCtrl18Fields::eWL;
+    using eDL = DescCtrl18Fields::eDL;
+    using SW_TRIG_SV = DescCtrl18Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl18Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl18Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl18Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl18Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl18Fields::RT_PRIORITY;
+    using CPUD = DescCtrl18Fields::CPUD;
+    using RL = DescCtrl18Fields::RL;
+    using WL = DescCtrl18Fields::WL;
+    using DL = DescCtrl18Fields::DL;
   };
 
   // Descriptor Address Up 8 Register
-  struct DESC_ADDR_UP_8_fields_ {
+  struct DescAddrUp8Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_8_fields_
+  };  // struct DescAddrUp8Fields
 
   struct DESC_ADDR_UP_8 : ftl::mmio::Register<
       0x40CB8108u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_8_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_8_fields_::ADDR_UP;
+      DescAddrUp8Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp8Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 8 Register
-  struct DESC_ADDR_DOWN_8_fields_ {
+  struct DescAddrDown8Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_8_fields_
+  };  // struct DescAddrDown8Fields
 
   struct DESC_ADDR_DOWN_8 : ftl::mmio::Register<
       0x40CB810Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_8_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_8_fields_::ADDR_DOWN;
+      DescAddrDown8Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown8Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 9 Register
-  struct DESC_CTRL0_9_fields_ {
+  struct DescCtrl09Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -1788,28 +1788,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_9_fields_
+  };  // struct DescCtrl09Fields
 
   struct DESC_CTRL0_9 : ftl::mmio::Register<
       0x40CB8120u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_9_fields_::START,
-      DESC_CTRL0_9_fields_::END,
-      DESC_CTRL0_9_fields_::SV_ORDER,
-      DESC_CTRL0_9_fields_::RT_ORDER,
+      DescCtrl09Fields::START,
+      DescCtrl09Fields::END,
+      DescCtrl09Fields::SV_ORDER,
+      DescCtrl09Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_9_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_9_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_9_fields_::START;
-    using END = DESC_CTRL0_9_fields_::END;
-    using SV_ORDER = DESC_CTRL0_9_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_9_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl09Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl09Fields::eRT_ORDER;
+    using START = DescCtrl09Fields::START;
+    using END = DescCtrl09Fields::END;
+    using SV_ORDER = DescCtrl09Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl09Fields::RT_ORDER;
   };
 
   // Descriptor Control1 9 Register
-  struct DESC_CTRL1_9_fields_ {
+  struct DescCtrl19Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -1891,76 +1891,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_9_fields_
+  };  // struct DescCtrl19Fields
 
   struct DESC_CTRL1_9 : ftl::mmio::Register<
       0x40CB8124u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_9_fields_::SW_TRIG_SV,
-      DESC_CTRL1_9_fields_::SW_TRIG_RT,
+      DescCtrl19Fields::SW_TRIG_SV,
+      DescCtrl19Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_9_fields_::POWER_DOMAIN,
-      DESC_CTRL1_9_fields_::GP_EN,
-      DESC_CTRL1_9_fields_::SV_PRIORITY,
-      DESC_CTRL1_9_fields_::RT_PRIORITY,
-      DESC_CTRL1_9_fields_::CPUD,
-      DESC_CTRL1_9_fields_::RL,
-      DESC_CTRL1_9_fields_::WL,
-      DESC_CTRL1_9_fields_::DL,
+      DescCtrl19Fields::POWER_DOMAIN,
+      DescCtrl19Fields::GP_EN,
+      DescCtrl19Fields::SV_PRIORITY,
+      DescCtrl19Fields::RT_PRIORITY,
+      DescCtrl19Fields::CPUD,
+      DescCtrl19Fields::RL,
+      DescCtrl19Fields::WL,
+      DescCtrl19Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_9_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_9_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_9_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_9_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_9_fields_::eRL;
-    using eWL = DESC_CTRL1_9_fields_::eWL;
-    using eDL = DESC_CTRL1_9_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_9_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_9_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_9_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_9_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_9_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_9_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_9_fields_::CPUD;
-    using RL = DESC_CTRL1_9_fields_::RL;
-    using WL = DESC_CTRL1_9_fields_::WL;
-    using DL = DESC_CTRL1_9_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl19Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl19Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl19Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl19Fields::eGP_EN;
+    using eRL = DescCtrl19Fields::eRL;
+    using eWL = DescCtrl19Fields::eWL;
+    using eDL = DescCtrl19Fields::eDL;
+    using SW_TRIG_SV = DescCtrl19Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl19Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl19Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl19Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl19Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl19Fields::RT_PRIORITY;
+    using CPUD = DescCtrl19Fields::CPUD;
+    using RL = DescCtrl19Fields::RL;
+    using WL = DescCtrl19Fields::WL;
+    using DL = DescCtrl19Fields::DL;
   };
 
   // Descriptor Address Up 9 Register
-  struct DESC_ADDR_UP_9_fields_ {
+  struct DescAddrUp9Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_9_fields_
+  };  // struct DescAddrUp9Fields
 
   struct DESC_ADDR_UP_9 : ftl::mmio::Register<
       0x40CB8128u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_9_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_9_fields_::ADDR_UP;
+      DescAddrUp9Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp9Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 9 Register
-  struct DESC_ADDR_DOWN_9_fields_ {
+  struct DescAddrDown9Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_9_fields_
+  };  // struct DescAddrDown9Fields
 
   struct DESC_ADDR_DOWN_9 : ftl::mmio::Register<
       0x40CB812Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_9_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_9_fields_::ADDR_DOWN;
+      DescAddrDown9Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown9Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 10 Register
-  struct DESC_CTRL0_10_fields_ {
+  struct DescCtrl010Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -1983,28 +1983,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_10_fields_
+  };  // struct DescCtrl010Fields
 
   struct DESC_CTRL0_10 : ftl::mmio::Register<
       0x40CB8140u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_10_fields_::START,
-      DESC_CTRL0_10_fields_::END,
-      DESC_CTRL0_10_fields_::SV_ORDER,
-      DESC_CTRL0_10_fields_::RT_ORDER,
+      DescCtrl010Fields::START,
+      DescCtrl010Fields::END,
+      DescCtrl010Fields::SV_ORDER,
+      DescCtrl010Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_10_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_10_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_10_fields_::START;
-    using END = DESC_CTRL0_10_fields_::END;
-    using SV_ORDER = DESC_CTRL0_10_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_10_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl010Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl010Fields::eRT_ORDER;
+    using START = DescCtrl010Fields::START;
+    using END = DescCtrl010Fields::END;
+    using SV_ORDER = DescCtrl010Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl010Fields::RT_ORDER;
   };
 
   // Descriptor Control1 10 Register
-  struct DESC_CTRL1_10_fields_ {
+  struct DescCtrl110Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -2086,76 +2086,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_10_fields_
+  };  // struct DescCtrl110Fields
 
   struct DESC_CTRL1_10 : ftl::mmio::Register<
       0x40CB8144u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_10_fields_::SW_TRIG_SV,
-      DESC_CTRL1_10_fields_::SW_TRIG_RT,
+      DescCtrl110Fields::SW_TRIG_SV,
+      DescCtrl110Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_10_fields_::POWER_DOMAIN,
-      DESC_CTRL1_10_fields_::GP_EN,
-      DESC_CTRL1_10_fields_::SV_PRIORITY,
-      DESC_CTRL1_10_fields_::RT_PRIORITY,
-      DESC_CTRL1_10_fields_::CPUD,
-      DESC_CTRL1_10_fields_::RL,
-      DESC_CTRL1_10_fields_::WL,
-      DESC_CTRL1_10_fields_::DL,
+      DescCtrl110Fields::POWER_DOMAIN,
+      DescCtrl110Fields::GP_EN,
+      DescCtrl110Fields::SV_PRIORITY,
+      DescCtrl110Fields::RT_PRIORITY,
+      DescCtrl110Fields::CPUD,
+      DescCtrl110Fields::RL,
+      DescCtrl110Fields::WL,
+      DescCtrl110Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_10_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_10_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_10_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_10_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_10_fields_::eRL;
-    using eWL = DESC_CTRL1_10_fields_::eWL;
-    using eDL = DESC_CTRL1_10_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_10_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_10_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_10_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_10_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_10_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_10_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_10_fields_::CPUD;
-    using RL = DESC_CTRL1_10_fields_::RL;
-    using WL = DESC_CTRL1_10_fields_::WL;
-    using DL = DESC_CTRL1_10_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl110Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl110Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl110Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl110Fields::eGP_EN;
+    using eRL = DescCtrl110Fields::eRL;
+    using eWL = DescCtrl110Fields::eWL;
+    using eDL = DescCtrl110Fields::eDL;
+    using SW_TRIG_SV = DescCtrl110Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl110Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl110Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl110Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl110Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl110Fields::RT_PRIORITY;
+    using CPUD = DescCtrl110Fields::CPUD;
+    using RL = DescCtrl110Fields::RL;
+    using WL = DescCtrl110Fields::WL;
+    using DL = DescCtrl110Fields::DL;
   };
 
   // Descriptor Address Up 10 Register
-  struct DESC_ADDR_UP_10_fields_ {
+  struct DescAddrUp10Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_10_fields_
+  };  // struct DescAddrUp10Fields
 
   struct DESC_ADDR_UP_10 : ftl::mmio::Register<
       0x40CB8148u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_10_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_10_fields_::ADDR_UP;
+      DescAddrUp10Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp10Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 10 Register
-  struct DESC_ADDR_DOWN_10_fields_ {
+  struct DescAddrDown10Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_10_fields_
+  };  // struct DescAddrDown10Fields
 
   struct DESC_ADDR_DOWN_10 : ftl::mmio::Register<
       0x40CB814Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_10_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_10_fields_::ADDR_DOWN;
+      DescAddrDown10Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown10Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 11 Register
-  struct DESC_CTRL0_11_fields_ {
+  struct DescCtrl011Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -2178,28 +2178,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_11_fields_
+  };  // struct DescCtrl011Fields
 
   struct DESC_CTRL0_11 : ftl::mmio::Register<
       0x40CB8160u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_11_fields_::START,
-      DESC_CTRL0_11_fields_::END,
-      DESC_CTRL0_11_fields_::SV_ORDER,
-      DESC_CTRL0_11_fields_::RT_ORDER,
+      DescCtrl011Fields::START,
+      DescCtrl011Fields::END,
+      DescCtrl011Fields::SV_ORDER,
+      DescCtrl011Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_11_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_11_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_11_fields_::START;
-    using END = DESC_CTRL0_11_fields_::END;
-    using SV_ORDER = DESC_CTRL0_11_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_11_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl011Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl011Fields::eRT_ORDER;
+    using START = DescCtrl011Fields::START;
+    using END = DescCtrl011Fields::END;
+    using SV_ORDER = DescCtrl011Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl011Fields::RT_ORDER;
   };
 
   // Descriptor Control1 11 Register
-  struct DESC_CTRL1_11_fields_ {
+  struct DescCtrl111Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -2281,76 +2281,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_11_fields_
+  };  // struct DescCtrl111Fields
 
   struct DESC_CTRL1_11 : ftl::mmio::Register<
       0x40CB8164u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_11_fields_::SW_TRIG_SV,
-      DESC_CTRL1_11_fields_::SW_TRIG_RT,
+      DescCtrl111Fields::SW_TRIG_SV,
+      DescCtrl111Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_11_fields_::POWER_DOMAIN,
-      DESC_CTRL1_11_fields_::GP_EN,
-      DESC_CTRL1_11_fields_::SV_PRIORITY,
-      DESC_CTRL1_11_fields_::RT_PRIORITY,
-      DESC_CTRL1_11_fields_::CPUD,
-      DESC_CTRL1_11_fields_::RL,
-      DESC_CTRL1_11_fields_::WL,
-      DESC_CTRL1_11_fields_::DL,
+      DescCtrl111Fields::POWER_DOMAIN,
+      DescCtrl111Fields::GP_EN,
+      DescCtrl111Fields::SV_PRIORITY,
+      DescCtrl111Fields::RT_PRIORITY,
+      DescCtrl111Fields::CPUD,
+      DescCtrl111Fields::RL,
+      DescCtrl111Fields::WL,
+      DescCtrl111Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_11_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_11_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_11_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_11_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_11_fields_::eRL;
-    using eWL = DESC_CTRL1_11_fields_::eWL;
-    using eDL = DESC_CTRL1_11_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_11_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_11_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_11_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_11_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_11_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_11_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_11_fields_::CPUD;
-    using RL = DESC_CTRL1_11_fields_::RL;
-    using WL = DESC_CTRL1_11_fields_::WL;
-    using DL = DESC_CTRL1_11_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl111Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl111Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl111Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl111Fields::eGP_EN;
+    using eRL = DescCtrl111Fields::eRL;
+    using eWL = DescCtrl111Fields::eWL;
+    using eDL = DescCtrl111Fields::eDL;
+    using SW_TRIG_SV = DescCtrl111Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl111Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl111Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl111Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl111Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl111Fields::RT_PRIORITY;
+    using CPUD = DescCtrl111Fields::CPUD;
+    using RL = DescCtrl111Fields::RL;
+    using WL = DescCtrl111Fields::WL;
+    using DL = DescCtrl111Fields::DL;
   };
 
   // Descriptor Address Up 11 Register
-  struct DESC_ADDR_UP_11_fields_ {
+  struct DescAddrUp11Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_11_fields_
+  };  // struct DescAddrUp11Fields
 
   struct DESC_ADDR_UP_11 : ftl::mmio::Register<
       0x40CB8168u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_11_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_11_fields_::ADDR_UP;
+      DescAddrUp11Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp11Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 11 Register
-  struct DESC_ADDR_DOWN_11_fields_ {
+  struct DescAddrDown11Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_11_fields_
+  };  // struct DescAddrDown11Fields
 
   struct DESC_ADDR_DOWN_11 : ftl::mmio::Register<
       0x40CB816Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_11_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_11_fields_::ADDR_DOWN;
+      DescAddrDown11Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown11Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 12 Register
-  struct DESC_CTRL0_12_fields_ {
+  struct DescCtrl012Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -2373,28 +2373,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_12_fields_
+  };  // struct DescCtrl012Fields
 
   struct DESC_CTRL0_12 : ftl::mmio::Register<
       0x40CB8180u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_12_fields_::START,
-      DESC_CTRL0_12_fields_::END,
-      DESC_CTRL0_12_fields_::SV_ORDER,
-      DESC_CTRL0_12_fields_::RT_ORDER,
+      DescCtrl012Fields::START,
+      DescCtrl012Fields::END,
+      DescCtrl012Fields::SV_ORDER,
+      DescCtrl012Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_12_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_12_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_12_fields_::START;
-    using END = DESC_CTRL0_12_fields_::END;
-    using SV_ORDER = DESC_CTRL0_12_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_12_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl012Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl012Fields::eRT_ORDER;
+    using START = DescCtrl012Fields::START;
+    using END = DescCtrl012Fields::END;
+    using SV_ORDER = DescCtrl012Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl012Fields::RT_ORDER;
   };
 
   // Descriptor Control1 12 Register
-  struct DESC_CTRL1_12_fields_ {
+  struct DescCtrl112Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -2476,76 +2476,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_12_fields_
+  };  // struct DescCtrl112Fields
 
   struct DESC_CTRL1_12 : ftl::mmio::Register<
       0x40CB8184u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_12_fields_::SW_TRIG_SV,
-      DESC_CTRL1_12_fields_::SW_TRIG_RT,
+      DescCtrl112Fields::SW_TRIG_SV,
+      DescCtrl112Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_12_fields_::POWER_DOMAIN,
-      DESC_CTRL1_12_fields_::GP_EN,
-      DESC_CTRL1_12_fields_::SV_PRIORITY,
-      DESC_CTRL1_12_fields_::RT_PRIORITY,
-      DESC_CTRL1_12_fields_::CPUD,
-      DESC_CTRL1_12_fields_::RL,
-      DESC_CTRL1_12_fields_::WL,
-      DESC_CTRL1_12_fields_::DL,
+      DescCtrl112Fields::POWER_DOMAIN,
+      DescCtrl112Fields::GP_EN,
+      DescCtrl112Fields::SV_PRIORITY,
+      DescCtrl112Fields::RT_PRIORITY,
+      DescCtrl112Fields::CPUD,
+      DescCtrl112Fields::RL,
+      DescCtrl112Fields::WL,
+      DescCtrl112Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_12_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_12_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_12_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_12_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_12_fields_::eRL;
-    using eWL = DESC_CTRL1_12_fields_::eWL;
-    using eDL = DESC_CTRL1_12_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_12_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_12_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_12_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_12_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_12_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_12_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_12_fields_::CPUD;
-    using RL = DESC_CTRL1_12_fields_::RL;
-    using WL = DESC_CTRL1_12_fields_::WL;
-    using DL = DESC_CTRL1_12_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl112Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl112Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl112Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl112Fields::eGP_EN;
+    using eRL = DescCtrl112Fields::eRL;
+    using eWL = DescCtrl112Fields::eWL;
+    using eDL = DescCtrl112Fields::eDL;
+    using SW_TRIG_SV = DescCtrl112Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl112Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl112Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl112Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl112Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl112Fields::RT_PRIORITY;
+    using CPUD = DescCtrl112Fields::CPUD;
+    using RL = DescCtrl112Fields::RL;
+    using WL = DescCtrl112Fields::WL;
+    using DL = DescCtrl112Fields::DL;
   };
 
   // Descriptor Address Up 12 Register
-  struct DESC_ADDR_UP_12_fields_ {
+  struct DescAddrUp12Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_12_fields_
+  };  // struct DescAddrUp12Fields
 
   struct DESC_ADDR_UP_12 : ftl::mmio::Register<
       0x40CB8188u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_12_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_12_fields_::ADDR_UP;
+      DescAddrUp12Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp12Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 12 Register
-  struct DESC_ADDR_DOWN_12_fields_ {
+  struct DescAddrDown12Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_12_fields_
+  };  // struct DescAddrDown12Fields
 
   struct DESC_ADDR_DOWN_12 : ftl::mmio::Register<
       0x40CB818Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_12_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_12_fields_::ADDR_DOWN;
+      DescAddrDown12Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown12Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 13 Register
-  struct DESC_CTRL0_13_fields_ {
+  struct DescCtrl013Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -2568,28 +2568,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_13_fields_
+  };  // struct DescCtrl013Fields
 
   struct DESC_CTRL0_13 : ftl::mmio::Register<
       0x40CB81A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_13_fields_::START,
-      DESC_CTRL0_13_fields_::END,
-      DESC_CTRL0_13_fields_::SV_ORDER,
-      DESC_CTRL0_13_fields_::RT_ORDER,
+      DescCtrl013Fields::START,
+      DescCtrl013Fields::END,
+      DescCtrl013Fields::SV_ORDER,
+      DescCtrl013Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_13_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_13_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_13_fields_::START;
-    using END = DESC_CTRL0_13_fields_::END;
-    using SV_ORDER = DESC_CTRL0_13_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_13_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl013Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl013Fields::eRT_ORDER;
+    using START = DescCtrl013Fields::START;
+    using END = DescCtrl013Fields::END;
+    using SV_ORDER = DescCtrl013Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl013Fields::RT_ORDER;
   };
 
   // Descriptor Control1 13 Register
-  struct DESC_CTRL1_13_fields_ {
+  struct DescCtrl113Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -2671,76 +2671,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_13_fields_
+  };  // struct DescCtrl113Fields
 
   struct DESC_CTRL1_13 : ftl::mmio::Register<
       0x40CB81A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_13_fields_::SW_TRIG_SV,
-      DESC_CTRL1_13_fields_::SW_TRIG_RT,
+      DescCtrl113Fields::SW_TRIG_SV,
+      DescCtrl113Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_13_fields_::POWER_DOMAIN,
-      DESC_CTRL1_13_fields_::GP_EN,
-      DESC_CTRL1_13_fields_::SV_PRIORITY,
-      DESC_CTRL1_13_fields_::RT_PRIORITY,
-      DESC_CTRL1_13_fields_::CPUD,
-      DESC_CTRL1_13_fields_::RL,
-      DESC_CTRL1_13_fields_::WL,
-      DESC_CTRL1_13_fields_::DL,
+      DescCtrl113Fields::POWER_DOMAIN,
+      DescCtrl113Fields::GP_EN,
+      DescCtrl113Fields::SV_PRIORITY,
+      DescCtrl113Fields::RT_PRIORITY,
+      DescCtrl113Fields::CPUD,
+      DescCtrl113Fields::RL,
+      DescCtrl113Fields::WL,
+      DescCtrl113Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_13_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_13_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_13_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_13_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_13_fields_::eRL;
-    using eWL = DESC_CTRL1_13_fields_::eWL;
-    using eDL = DESC_CTRL1_13_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_13_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_13_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_13_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_13_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_13_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_13_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_13_fields_::CPUD;
-    using RL = DESC_CTRL1_13_fields_::RL;
-    using WL = DESC_CTRL1_13_fields_::WL;
-    using DL = DESC_CTRL1_13_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl113Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl113Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl113Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl113Fields::eGP_EN;
+    using eRL = DescCtrl113Fields::eRL;
+    using eWL = DescCtrl113Fields::eWL;
+    using eDL = DescCtrl113Fields::eDL;
+    using SW_TRIG_SV = DescCtrl113Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl113Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl113Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl113Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl113Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl113Fields::RT_PRIORITY;
+    using CPUD = DescCtrl113Fields::CPUD;
+    using RL = DescCtrl113Fields::RL;
+    using WL = DescCtrl113Fields::WL;
+    using DL = DescCtrl113Fields::DL;
   };
 
   // Descriptor Address Up 13 Register
-  struct DESC_ADDR_UP_13_fields_ {
+  struct DescAddrUp13Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_13_fields_
+  };  // struct DescAddrUp13Fields
 
   struct DESC_ADDR_UP_13 : ftl::mmio::Register<
       0x40CB81A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_13_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_13_fields_::ADDR_UP;
+      DescAddrUp13Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp13Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 13 Register
-  struct DESC_ADDR_DOWN_13_fields_ {
+  struct DescAddrDown13Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_13_fields_
+  };  // struct DescAddrDown13Fields
 
   struct DESC_ADDR_DOWN_13 : ftl::mmio::Register<
       0x40CB81ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_13_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_13_fields_::ADDR_DOWN;
+      DescAddrDown13Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown13Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 14 Register
-  struct DESC_CTRL0_14_fields_ {
+  struct DescCtrl014Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -2763,28 +2763,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_14_fields_
+  };  // struct DescCtrl014Fields
 
   struct DESC_CTRL0_14 : ftl::mmio::Register<
       0x40CB81C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_14_fields_::START,
-      DESC_CTRL0_14_fields_::END,
-      DESC_CTRL0_14_fields_::SV_ORDER,
-      DESC_CTRL0_14_fields_::RT_ORDER,
+      DescCtrl014Fields::START,
+      DescCtrl014Fields::END,
+      DescCtrl014Fields::SV_ORDER,
+      DescCtrl014Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_14_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_14_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_14_fields_::START;
-    using END = DESC_CTRL0_14_fields_::END;
-    using SV_ORDER = DESC_CTRL0_14_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_14_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl014Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl014Fields::eRT_ORDER;
+    using START = DescCtrl014Fields::START;
+    using END = DescCtrl014Fields::END;
+    using SV_ORDER = DescCtrl014Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl014Fields::RT_ORDER;
   };
 
   // Descriptor Control1 14 Register
-  struct DESC_CTRL1_14_fields_ {
+  struct DescCtrl114Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -2866,76 +2866,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_14_fields_
+  };  // struct DescCtrl114Fields
 
   struct DESC_CTRL1_14 : ftl::mmio::Register<
       0x40CB81C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_14_fields_::SW_TRIG_SV,
-      DESC_CTRL1_14_fields_::SW_TRIG_RT,
+      DescCtrl114Fields::SW_TRIG_SV,
+      DescCtrl114Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_14_fields_::POWER_DOMAIN,
-      DESC_CTRL1_14_fields_::GP_EN,
-      DESC_CTRL1_14_fields_::SV_PRIORITY,
-      DESC_CTRL1_14_fields_::RT_PRIORITY,
-      DESC_CTRL1_14_fields_::CPUD,
-      DESC_CTRL1_14_fields_::RL,
-      DESC_CTRL1_14_fields_::WL,
-      DESC_CTRL1_14_fields_::DL,
+      DescCtrl114Fields::POWER_DOMAIN,
+      DescCtrl114Fields::GP_EN,
+      DescCtrl114Fields::SV_PRIORITY,
+      DescCtrl114Fields::RT_PRIORITY,
+      DescCtrl114Fields::CPUD,
+      DescCtrl114Fields::RL,
+      DescCtrl114Fields::WL,
+      DescCtrl114Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_14_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_14_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_14_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_14_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_14_fields_::eRL;
-    using eWL = DESC_CTRL1_14_fields_::eWL;
-    using eDL = DESC_CTRL1_14_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_14_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_14_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_14_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_14_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_14_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_14_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_14_fields_::CPUD;
-    using RL = DESC_CTRL1_14_fields_::RL;
-    using WL = DESC_CTRL1_14_fields_::WL;
-    using DL = DESC_CTRL1_14_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl114Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl114Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl114Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl114Fields::eGP_EN;
+    using eRL = DescCtrl114Fields::eRL;
+    using eWL = DescCtrl114Fields::eWL;
+    using eDL = DescCtrl114Fields::eDL;
+    using SW_TRIG_SV = DescCtrl114Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl114Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl114Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl114Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl114Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl114Fields::RT_PRIORITY;
+    using CPUD = DescCtrl114Fields::CPUD;
+    using RL = DescCtrl114Fields::RL;
+    using WL = DescCtrl114Fields::WL;
+    using DL = DescCtrl114Fields::DL;
   };
 
   // Descriptor Address Up 14 Register
-  struct DESC_ADDR_UP_14_fields_ {
+  struct DescAddrUp14Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_14_fields_
+  };  // struct DescAddrUp14Fields
 
   struct DESC_ADDR_UP_14 : ftl::mmio::Register<
       0x40CB81C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_14_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_14_fields_::ADDR_UP;
+      DescAddrUp14Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp14Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 14 Register
-  struct DESC_ADDR_DOWN_14_fields_ {
+  struct DescAddrDown14Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_14_fields_
+  };  // struct DescAddrDown14Fields
 
   struct DESC_ADDR_DOWN_14 : ftl::mmio::Register<
       0x40CB81CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_14_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_14_fields_::ADDR_DOWN;
+      DescAddrDown14Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown14Fields::ADDR_DOWN;
   };
 
   // Descriptor Control0 15 Register
-  struct DESC_CTRL0_15_fields_ {
+  struct DescCtrl015Fields {
     enum class eSV_ORDER : std::uint32_t {
       // Descriptors within the group are processed from start to end
       eSV_START_END = 0,
@@ -2958,28 +2958,28 @@ struct SsarcLp {
     using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore order
     using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL0_15_fields_
+  };  // struct DescCtrl015Fields
 
   struct DESC_CTRL0_15 : ftl::mmio::Register<
       0x40CB81E0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL0_15_fields_::START,
-      DESC_CTRL0_15_fields_::END,
-      DESC_CTRL0_15_fields_::SV_ORDER,
-      DESC_CTRL0_15_fields_::RT_ORDER,
+      DescCtrl015Fields::START,
+      DescCtrl015Fields::END,
+      DescCtrl015Fields::SV_ORDER,
+      DescCtrl015Fields::RT_ORDER,
       ftl::mmio::Reserved<10, 22>> {
-    using eSV_ORDER = DESC_CTRL0_15_fields_::eSV_ORDER;
-    using eRT_ORDER = DESC_CTRL0_15_fields_::eRT_ORDER;
-    using START = DESC_CTRL0_15_fields_::START;
-    using END = DESC_CTRL0_15_fields_::END;
-    using SV_ORDER = DESC_CTRL0_15_fields_::SV_ORDER;
-    using RT_ORDER = DESC_CTRL0_15_fields_::RT_ORDER;
+    using eSV_ORDER = DescCtrl015Fields::eSV_ORDER;
+    using eRT_ORDER = DescCtrl015Fields::eRT_ORDER;
+    using START = DescCtrl015Fields::START;
+    using END = DescCtrl015Fields::END;
+    using SV_ORDER = DescCtrl015Fields::SV_ORDER;
+    using RT_ORDER = DescCtrl015Fields::RT_ORDER;
   };
 
   // Descriptor Control1 15 Register
-  struct DESC_CTRL1_15_fields_ {
+  struct DescCtrl115Fields {
     enum class eSW_TRIG_SV : std::uint32_t {
       // No software save request/software restore request complete
       eREQ_NO = 0,
@@ -3061,76 +3061,76 @@ struct SsarcLp {
     using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain lock
     using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_CTRL1_15_fields_
+  };  // struct DescCtrl115Fields
 
   struct DESC_CTRL1_15 : ftl::mmio::Register<
       0x40CB81E4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_CTRL1_15_fields_::SW_TRIG_SV,
-      DESC_CTRL1_15_fields_::SW_TRIG_RT,
+      DescCtrl115Fields::SW_TRIG_SV,
+      DescCtrl115Fields::SW_TRIG_RT,
       ftl::mmio::Reserved<2, 2>,
-      DESC_CTRL1_15_fields_::POWER_DOMAIN,
-      DESC_CTRL1_15_fields_::GP_EN,
-      DESC_CTRL1_15_fields_::SV_PRIORITY,
-      DESC_CTRL1_15_fields_::RT_PRIORITY,
-      DESC_CTRL1_15_fields_::CPUD,
-      DESC_CTRL1_15_fields_::RL,
-      DESC_CTRL1_15_fields_::WL,
-      DESC_CTRL1_15_fields_::DL,
+      DescCtrl115Fields::POWER_DOMAIN,
+      DescCtrl115Fields::GP_EN,
+      DescCtrl115Fields::SV_PRIORITY,
+      DescCtrl115Fields::RT_PRIORITY,
+      DescCtrl115Fields::CPUD,
+      DescCtrl115Fields::RL,
+      DescCtrl115Fields::WL,
+      DescCtrl115Fields::DL,
       ftl::mmio::Reserved<11, 21>> {
-    using eSW_TRIG_SV = DESC_CTRL1_15_fields_::eSW_TRIG_SV;
-    using eSW_TRIG_RT = DESC_CTRL1_15_fields_::eSW_TRIG_RT;
-    using ePOWER_DOMAIN = DESC_CTRL1_15_fields_::ePOWER_DOMAIN;
-    using eGP_EN = DESC_CTRL1_15_fields_::eGP_EN;
-    using eRL = DESC_CTRL1_15_fields_::eRL;
-    using eWL = DESC_CTRL1_15_fields_::eWL;
-    using eDL = DESC_CTRL1_15_fields_::eDL;
-    using SW_TRIG_SV = DESC_CTRL1_15_fields_::SW_TRIG_SV;
-    using SW_TRIG_RT = DESC_CTRL1_15_fields_::SW_TRIG_RT;
-    using POWER_DOMAIN = DESC_CTRL1_15_fields_::POWER_DOMAIN;
-    using GP_EN = DESC_CTRL1_15_fields_::GP_EN;
-    using SV_PRIORITY = DESC_CTRL1_15_fields_::SV_PRIORITY;
-    using RT_PRIORITY = DESC_CTRL1_15_fields_::RT_PRIORITY;
-    using CPUD = DESC_CTRL1_15_fields_::CPUD;
-    using RL = DESC_CTRL1_15_fields_::RL;
-    using WL = DESC_CTRL1_15_fields_::WL;
-    using DL = DESC_CTRL1_15_fields_::DL;
+    using eSW_TRIG_SV = DescCtrl115Fields::eSW_TRIG_SV;
+    using eSW_TRIG_RT = DescCtrl115Fields::eSW_TRIG_RT;
+    using ePOWER_DOMAIN = DescCtrl115Fields::ePOWER_DOMAIN;
+    using eGP_EN = DescCtrl115Fields::eGP_EN;
+    using eRL = DescCtrl115Fields::eRL;
+    using eWL = DescCtrl115Fields::eWL;
+    using eDL = DescCtrl115Fields::eDL;
+    using SW_TRIG_SV = DescCtrl115Fields::SW_TRIG_SV;
+    using SW_TRIG_RT = DescCtrl115Fields::SW_TRIG_RT;
+    using POWER_DOMAIN = DescCtrl115Fields::POWER_DOMAIN;
+    using GP_EN = DescCtrl115Fields::GP_EN;
+    using SV_PRIORITY = DescCtrl115Fields::SV_PRIORITY;
+    using RT_PRIORITY = DescCtrl115Fields::RT_PRIORITY;
+    using CPUD = DescCtrl115Fields::CPUD;
+    using RL = DescCtrl115Fields::RL;
+    using WL = DescCtrl115Fields::WL;
+    using DL = DescCtrl115Fields::DL;
   };
 
   // Descriptor Address Up 15 Register
-  struct DESC_ADDR_UP_15_fields_ {
+  struct DescAddrUp15Fields {
     // Address field (High)
     using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_UP_15_fields_
+  };  // struct DescAddrUp15Fields
 
   struct DESC_ADDR_UP_15 : ftl::mmio::Register<
       0x40CB81E8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_UP_15_fields_::ADDR_UP> {
-    using ADDR_UP = DESC_ADDR_UP_15_fields_::ADDR_UP;
+      DescAddrUp15Fields::ADDR_UP> {
+    using ADDR_UP = DescAddrUp15Fields::ADDR_UP;
   };
 
   // Descriptor Address Down 15 Register
-  struct DESC_ADDR_DOWN_15_fields_ {
+  struct DescAddrDown15Fields {
     // Address field (Low)
     using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DESC_ADDR_DOWN_15_fields_
+  };  // struct DescAddrDown15Fields
 
   struct DESC_ADDR_DOWN_15 : ftl::mmio::Register<
       0x40CB81ECu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DESC_ADDR_DOWN_15_fields_::ADDR_DOWN> {
-    using ADDR_DOWN = DESC_ADDR_DOWN_15_fields_::ADDR_DOWN;
+      DescAddrDown15Fields::ADDR_DOWN> {
+    using ADDR_DOWN = DescAddrDown15Fields::ADDR_DOWN;
   };
 
   // Control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eDIS_HW_REQ : std::uint32_t {
       // PGMC save/restore requests enabled
       eENABLE_PGMC = 0,
@@ -3142,7 +3142,7 @@ struct SsarcLp {
     using DIS_HW_REQ = ftl::mmio::Field<1, 27, eDIS_HW_REQ, ftl::mmio::RW, ftl::mmio::Normal>;
     // Software reset
     using SW_RESET = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       0x40CB8200u,
@@ -3150,16 +3150,16 @@ struct SsarcLp {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<27, 0>,
-      CTRL_fields_::DIS_HW_REQ,
+      CtrlFields::DIS_HW_REQ,
       ftl::mmio::Reserved<3, 28>,
-      CTRL_fields_::SW_RESET> {
-    using eDIS_HW_REQ = CTRL_fields_::eDIS_HW_REQ;
-    using DIS_HW_REQ = CTRL_fields_::DIS_HW_REQ;
-    using SW_RESET = CTRL_fields_::SW_RESET;
+      CtrlFields::SW_RESET> {
+    using eDIS_HW_REQ = CtrlFields::eDIS_HW_REQ;
+    using DIS_HW_REQ = CtrlFields::DIS_HW_REQ;
+    using SW_RESET = CtrlFields::SW_RESET;
   };
 
   // Interrupt Status Register
-  struct INT_STATUS_fields_ {
+  struct IntStatusFields {
     enum class eGROUP_CONFLICT : std::uint32_t {
       // No group conflict error
       eGRP_CONFLICT_ERR_NO = 0,
@@ -3209,86 +3209,86 @@ struct SsarcLp {
     using AHB_ERR = ftl::mmio::Field<1, 30, eAHB_ERR, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Address Error field
     using ADDR_ERR = ftl::mmio::Field<1, 31, eADDR_ERR, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct INT_STATUS_fields_
+  };  // struct IntStatusFields
 
   struct INT_STATUS : ftl::mmio::Register<
       0x40CB8204u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      INT_STATUS_fields_::ERR_INDEX,
-      INT_STATUS_fields_::AHB_RESP,
+      IntStatusFields::ERR_INDEX,
+      IntStatusFields::AHB_RESP,
       ftl::mmio::Reserved<15, 12>,
-      INT_STATUS_fields_::GROUP_CONFLICT,
-      INT_STATUS_fields_::TIMEOUT,
-      INT_STATUS_fields_::SW_REQ_DONE,
-      INT_STATUS_fields_::AHB_ERR,
-      INT_STATUS_fields_::ADDR_ERR> {
-    using eGROUP_CONFLICT = INT_STATUS_fields_::eGROUP_CONFLICT;
-    using eTIMEOUT = INT_STATUS_fields_::eTIMEOUT;
-    using eSW_REQ_DONE = INT_STATUS_fields_::eSW_REQ_DONE;
-    using eAHB_ERR = INT_STATUS_fields_::eAHB_ERR;
-    using eADDR_ERR = INT_STATUS_fields_::eADDR_ERR;
-    using ERR_INDEX = INT_STATUS_fields_::ERR_INDEX;
-    using AHB_RESP = INT_STATUS_fields_::AHB_RESP;
-    using GROUP_CONFLICT = INT_STATUS_fields_::GROUP_CONFLICT;
-    using TIMEOUT = INT_STATUS_fields_::TIMEOUT;
-    using SW_REQ_DONE = INT_STATUS_fields_::SW_REQ_DONE;
-    using AHB_ERR = INT_STATUS_fields_::AHB_ERR;
-    using ADDR_ERR = INT_STATUS_fields_::ADDR_ERR;
+      IntStatusFields::GROUP_CONFLICT,
+      IntStatusFields::TIMEOUT,
+      IntStatusFields::SW_REQ_DONE,
+      IntStatusFields::AHB_ERR,
+      IntStatusFields::ADDR_ERR> {
+    using eGROUP_CONFLICT = IntStatusFields::eGROUP_CONFLICT;
+    using eTIMEOUT = IntStatusFields::eTIMEOUT;
+    using eSW_REQ_DONE = IntStatusFields::eSW_REQ_DONE;
+    using eAHB_ERR = IntStatusFields::eAHB_ERR;
+    using eADDR_ERR = IntStatusFields::eADDR_ERR;
+    using ERR_INDEX = IntStatusFields::ERR_INDEX;
+    using AHB_RESP = IntStatusFields::AHB_RESP;
+    using GROUP_CONFLICT = IntStatusFields::GROUP_CONFLICT;
+    using TIMEOUT = IntStatusFields::TIMEOUT;
+    using SW_REQ_DONE = IntStatusFields::SW_REQ_DONE;
+    using AHB_ERR = IntStatusFields::AHB_ERR;
+    using ADDR_ERR = IntStatusFields::ADDR_ERR;
   };
 
   // HP Timeout Register
-  struct HP_TIMEOUT_fields_ {
+  struct HpTimeoutFields {
     // Time out value
     using TIMEOUT_VALUE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HP_TIMEOUT_fields_
+  };  // struct HpTimeoutFields
 
   struct HP_TIMEOUT : ftl::mmio::Register<
       0x40CB820Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HP_TIMEOUT_fields_::TIMEOUT_VALUE> {
-    using TIMEOUT_VALUE = HP_TIMEOUT_fields_::TIMEOUT_VALUE;
+      HpTimeoutFields::TIMEOUT_VALUE> {
+    using TIMEOUT_VALUE = HpTimeoutFields::TIMEOUT_VALUE;
   };
 
   // Hardware Request Pending Register
-  struct HW_GROUP_PENDING_fields_ {
+  struct HwGroupPendingFields {
     // This field indicates which groups are pending for save from hardware request
     using HW_SAVE_PENDING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // This field indicates which groups are pending for restore from hardware request
     using HW_RESTORE_PENDING = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HW_GROUP_PENDING_fields_
+  };  // struct HwGroupPendingFields
 
   struct HW_GROUP_PENDING : ftl::mmio::Register<
       0x40CB821Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      HW_GROUP_PENDING_fields_::HW_SAVE_PENDING,
-      HW_GROUP_PENDING_fields_::HW_RESTORE_PENDING> {
-    using HW_SAVE_PENDING = HW_GROUP_PENDING_fields_::HW_SAVE_PENDING;
-    using HW_RESTORE_PENDING = HW_GROUP_PENDING_fields_::HW_RESTORE_PENDING;
+      HwGroupPendingFields::HW_SAVE_PENDING,
+      HwGroupPendingFields::HW_RESTORE_PENDING> {
+    using HW_SAVE_PENDING = HwGroupPendingFields::HW_SAVE_PENDING;
+    using HW_RESTORE_PENDING = HwGroupPendingFields::HW_RESTORE_PENDING;
   };
 
   // Software Request Pending Register
-  struct SW_GROUP_PENDING_fields_ {
+  struct SwGroupPendingFields {
     // This field indicates which groups are pending for save from software request
     using SW_SAVE_PENDING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // This field indicates which groups are pending for restore from software request
     using SW_RESTORE_PENDING = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SW_GROUP_PENDING_fields_
+  };  // struct SwGroupPendingFields
 
   struct SW_GROUP_PENDING : ftl::mmio::Register<
       0x40CB8220u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SW_GROUP_PENDING_fields_::SW_SAVE_PENDING,
-      SW_GROUP_PENDING_fields_::SW_RESTORE_PENDING> {
-    using SW_SAVE_PENDING = SW_GROUP_PENDING_fields_::SW_SAVE_PENDING;
-    using SW_RESTORE_PENDING = SW_GROUP_PENDING_fields_::SW_RESTORE_PENDING;
+      SwGroupPendingFields::SW_SAVE_PENDING,
+      SwGroupPendingFields::SW_RESTORE_PENDING> {
+    using SW_SAVE_PENDING = SwGroupPendingFields::SW_SAVE_PENDING;
+    using SW_RESTORE_PENDING = SwGroupPendingFields::SW_RESTORE_PENDING;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct Dma1 {
   // Control
-  struct CR_fields_ {
+  struct CrFields {
     enum class eEDBG : std::uint32_t {
       // When the chip is in Debug mode, the eDMA continues to operate.
       eDISABLED = 0,
@@ -107,7 +107,7 @@ struct Dma1 {
     using VERSION = ftl::mmio::Field<7, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // eDMA Active Status
     using ACTIVE = ftl::mmio::Field<1, 31, eACTIVE, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CR_fields_
+  };  // struct CrFields
 
   struct CR : ftl::mmio::Register<
       0x40C14000u,
@@ -115,49 +115,49 @@ struct Dma1 {
       0x00000400u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      CR_fields_::EDBG,
-      CR_fields_::ERCA,
-      CR_fields_::ERGA,
-      CR_fields_::HOE,
-      CR_fields_::HALT,
-      CR_fields_::CLM,
-      CR_fields_::EMLM,
-      CR_fields_::GRP0PRI,
+      CrFields::EDBG,
+      CrFields::ERCA,
+      CrFields::ERGA,
+      CrFields::HOE,
+      CrFields::HALT,
+      CrFields::CLM,
+      CrFields::EMLM,
+      CrFields::GRP0PRI,
       ftl::mmio::Reserved<1, 9>,
-      CR_fields_::GRP1PRI,
+      CrFields::GRP1PRI,
       ftl::mmio::Reserved<5, 11>,
-      CR_fields_::ECX,
-      CR_fields_::CX,
+      CrFields::ECX,
+      CrFields::CX,
       ftl::mmio::Reserved<6, 18>,
-      CR_fields_::VERSION,
-      CR_fields_::ACTIVE> {
-    using eEDBG = CR_fields_::eEDBG;
-    using eERCA = CR_fields_::eERCA;
-    using eERGA = CR_fields_::eERGA;
-    using eHOE = CR_fields_::eHOE;
-    using eHALT = CR_fields_::eHALT;
-    using eCLM = CR_fields_::eCLM;
-    using eEMLM = CR_fields_::eEMLM;
-    using eECX = CR_fields_::eECX;
-    using eCX = CR_fields_::eCX;
-    using eACTIVE = CR_fields_::eACTIVE;
-    using EDBG = CR_fields_::EDBG;
-    using ERCA = CR_fields_::ERCA;
-    using ERGA = CR_fields_::ERGA;
-    using HOE = CR_fields_::HOE;
-    using HALT = CR_fields_::HALT;
-    using CLM = CR_fields_::CLM;
-    using EMLM = CR_fields_::EMLM;
-    using GRP0PRI = CR_fields_::GRP0PRI;
-    using GRP1PRI = CR_fields_::GRP1PRI;
-    using ECX = CR_fields_::ECX;
-    using CX = CR_fields_::CX;
-    using VERSION = CR_fields_::VERSION;
-    using ACTIVE = CR_fields_::ACTIVE;
+      CrFields::VERSION,
+      CrFields::ACTIVE> {
+    using eEDBG = CrFields::eEDBG;
+    using eERCA = CrFields::eERCA;
+    using eERGA = CrFields::eERGA;
+    using eHOE = CrFields::eHOE;
+    using eHALT = CrFields::eHALT;
+    using eCLM = CrFields::eCLM;
+    using eEMLM = CrFields::eEMLM;
+    using eECX = CrFields::eECX;
+    using eCX = CrFields::eCX;
+    using eACTIVE = CrFields::eACTIVE;
+    using EDBG = CrFields::EDBG;
+    using ERCA = CrFields::ERCA;
+    using ERGA = CrFields::ERGA;
+    using HOE = CrFields::HOE;
+    using HALT = CrFields::HALT;
+    using CLM = CrFields::CLM;
+    using EMLM = CrFields::EMLM;
+    using GRP0PRI = CrFields::GRP0PRI;
+    using GRP1PRI = CrFields::GRP1PRI;
+    using ECX = CrFields::ECX;
+    using CX = CrFields::CX;
+    using VERSION = CrFields::VERSION;
+    using ACTIVE = CrFields::ACTIVE;
   };
 
   // Error Status
-  struct ES_fields_ {
+  struct EsFields {
     enum class eDBE : std::uint32_t {
       // No destination bus error.
       eNO_ERROR = 0,
@@ -268,57 +268,57 @@ struct Dma1 {
     using ECX = ftl::mmio::Field<1, 16, eECX, ftl::mmio::RO, ftl::mmio::Normal>;
     // Logical OR of all ERR status fields
     using VLD = ftl::mmio::Field<1, 31, eVLD, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ES_fields_
+  };  // struct EsFields
 
   struct ES : ftl::mmio::Register<
       0x40C14004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      ES_fields_::DBE,
-      ES_fields_::SBE,
-      ES_fields_::SGE,
-      ES_fields_::NCE,
-      ES_fields_::DOE,
-      ES_fields_::DAE,
-      ES_fields_::SOE,
-      ES_fields_::SAE,
-      ES_fields_::ERRCHN,
+      EsFields::DBE,
+      EsFields::SBE,
+      EsFields::SGE,
+      EsFields::NCE,
+      EsFields::DOE,
+      EsFields::DAE,
+      EsFields::SOE,
+      EsFields::SAE,
+      EsFields::ERRCHN,
       ftl::mmio::Reserved<1, 13>,
-      ES_fields_::CPE,
-      ES_fields_::GPE,
-      ES_fields_::ECX,
+      EsFields::CPE,
+      EsFields::GPE,
+      EsFields::ECX,
       ftl::mmio::Reserved<14, 17>,
-      ES_fields_::VLD> {
-    using eDBE = ES_fields_::eDBE;
-    using eSBE = ES_fields_::eSBE;
-    using eSGE = ES_fields_::eSGE;
-    using eNCE = ES_fields_::eNCE;
-    using eDOE = ES_fields_::eDOE;
-    using eDAE = ES_fields_::eDAE;
-    using eSOE = ES_fields_::eSOE;
-    using eSAE = ES_fields_::eSAE;
-    using eCPE = ES_fields_::eCPE;
-    using eGPE = ES_fields_::eGPE;
-    using eECX = ES_fields_::eECX;
-    using eVLD = ES_fields_::eVLD;
-    using DBE = ES_fields_::DBE;
-    using SBE = ES_fields_::SBE;
-    using SGE = ES_fields_::SGE;
-    using NCE = ES_fields_::NCE;
-    using DOE = ES_fields_::DOE;
-    using DAE = ES_fields_::DAE;
-    using SOE = ES_fields_::SOE;
-    using SAE = ES_fields_::SAE;
-    using ERRCHN = ES_fields_::ERRCHN;
-    using CPE = ES_fields_::CPE;
-    using GPE = ES_fields_::GPE;
-    using ECX = ES_fields_::ECX;
-    using VLD = ES_fields_::VLD;
+      EsFields::VLD> {
+    using eDBE = EsFields::eDBE;
+    using eSBE = EsFields::eSBE;
+    using eSGE = EsFields::eSGE;
+    using eNCE = EsFields::eNCE;
+    using eDOE = EsFields::eDOE;
+    using eDAE = EsFields::eDAE;
+    using eSOE = EsFields::eSOE;
+    using eSAE = EsFields::eSAE;
+    using eCPE = EsFields::eCPE;
+    using eGPE = EsFields::eGPE;
+    using eECX = EsFields::eECX;
+    using eVLD = EsFields::eVLD;
+    using DBE = EsFields::DBE;
+    using SBE = EsFields::SBE;
+    using SGE = EsFields::SGE;
+    using NCE = EsFields::NCE;
+    using DOE = EsFields::DOE;
+    using DAE = EsFields::DAE;
+    using SOE = EsFields::SOE;
+    using SAE = EsFields::SAE;
+    using ERRCHN = EsFields::ERRCHN;
+    using CPE = EsFields::CPE;
+    using GPE = EsFields::GPE;
+    using ECX = EsFields::ECX;
+    using VLD = EsFields::VLD;
   };
 
   // Enable Request
-  struct ERQ_fields_ {
+  struct ErqFields {
     enum class eERQ0 : std::uint32_t {
       // The DMA request signal for channel 0 is disabled
       eDISABLE = 0,
@@ -607,113 +607,113 @@ struct Dma1 {
     using ERQ30 = ftl::mmio::Field<1, 30, eERQ30, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable DMA Request 31
     using ERQ31 = ftl::mmio::Field<1, 31, eERQ31, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ERQ_fields_
+  };  // struct ErqFields
 
   struct ERQ : ftl::mmio::Register<
       0x40C1400Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ERQ_fields_::ERQ0,
-      ERQ_fields_::ERQ1,
-      ERQ_fields_::ERQ2,
-      ERQ_fields_::ERQ3,
-      ERQ_fields_::ERQ4,
-      ERQ_fields_::ERQ5,
-      ERQ_fields_::ERQ6,
-      ERQ_fields_::ERQ7,
-      ERQ_fields_::ERQ8,
-      ERQ_fields_::ERQ9,
-      ERQ_fields_::ERQ10,
-      ERQ_fields_::ERQ11,
-      ERQ_fields_::ERQ12,
-      ERQ_fields_::ERQ13,
-      ERQ_fields_::ERQ14,
-      ERQ_fields_::ERQ15,
-      ERQ_fields_::ERQ16,
-      ERQ_fields_::ERQ17,
-      ERQ_fields_::ERQ18,
-      ERQ_fields_::ERQ19,
-      ERQ_fields_::ERQ20,
-      ERQ_fields_::ERQ21,
-      ERQ_fields_::ERQ22,
-      ERQ_fields_::ERQ23,
-      ERQ_fields_::ERQ24,
-      ERQ_fields_::ERQ25,
-      ERQ_fields_::ERQ26,
-      ERQ_fields_::ERQ27,
-      ERQ_fields_::ERQ28,
-      ERQ_fields_::ERQ29,
-      ERQ_fields_::ERQ30,
-      ERQ_fields_::ERQ31> {
-    using eERQ0 = ERQ_fields_::eERQ0;
-    using eERQ1 = ERQ_fields_::eERQ1;
-    using eERQ2 = ERQ_fields_::eERQ2;
-    using eERQ3 = ERQ_fields_::eERQ3;
-    using eERQ4 = ERQ_fields_::eERQ4;
-    using eERQ5 = ERQ_fields_::eERQ5;
-    using eERQ6 = ERQ_fields_::eERQ6;
-    using eERQ7 = ERQ_fields_::eERQ7;
-    using eERQ8 = ERQ_fields_::eERQ8;
-    using eERQ9 = ERQ_fields_::eERQ9;
-    using eERQ10 = ERQ_fields_::eERQ10;
-    using eERQ11 = ERQ_fields_::eERQ11;
-    using eERQ12 = ERQ_fields_::eERQ12;
-    using eERQ13 = ERQ_fields_::eERQ13;
-    using eERQ14 = ERQ_fields_::eERQ14;
-    using eERQ15 = ERQ_fields_::eERQ15;
-    using eERQ16 = ERQ_fields_::eERQ16;
-    using eERQ17 = ERQ_fields_::eERQ17;
-    using eERQ18 = ERQ_fields_::eERQ18;
-    using eERQ19 = ERQ_fields_::eERQ19;
-    using eERQ20 = ERQ_fields_::eERQ20;
-    using eERQ21 = ERQ_fields_::eERQ21;
-    using eERQ22 = ERQ_fields_::eERQ22;
-    using eERQ23 = ERQ_fields_::eERQ23;
-    using eERQ24 = ERQ_fields_::eERQ24;
-    using eERQ25 = ERQ_fields_::eERQ25;
-    using eERQ26 = ERQ_fields_::eERQ26;
-    using eERQ27 = ERQ_fields_::eERQ27;
-    using eERQ28 = ERQ_fields_::eERQ28;
-    using eERQ29 = ERQ_fields_::eERQ29;
-    using eERQ30 = ERQ_fields_::eERQ30;
-    using eERQ31 = ERQ_fields_::eERQ31;
-    using ERQ0 = ERQ_fields_::ERQ0;
-    using ERQ1 = ERQ_fields_::ERQ1;
-    using ERQ2 = ERQ_fields_::ERQ2;
-    using ERQ3 = ERQ_fields_::ERQ3;
-    using ERQ4 = ERQ_fields_::ERQ4;
-    using ERQ5 = ERQ_fields_::ERQ5;
-    using ERQ6 = ERQ_fields_::ERQ6;
-    using ERQ7 = ERQ_fields_::ERQ7;
-    using ERQ8 = ERQ_fields_::ERQ8;
-    using ERQ9 = ERQ_fields_::ERQ9;
-    using ERQ10 = ERQ_fields_::ERQ10;
-    using ERQ11 = ERQ_fields_::ERQ11;
-    using ERQ12 = ERQ_fields_::ERQ12;
-    using ERQ13 = ERQ_fields_::ERQ13;
-    using ERQ14 = ERQ_fields_::ERQ14;
-    using ERQ15 = ERQ_fields_::ERQ15;
-    using ERQ16 = ERQ_fields_::ERQ16;
-    using ERQ17 = ERQ_fields_::ERQ17;
-    using ERQ18 = ERQ_fields_::ERQ18;
-    using ERQ19 = ERQ_fields_::ERQ19;
-    using ERQ20 = ERQ_fields_::ERQ20;
-    using ERQ21 = ERQ_fields_::ERQ21;
-    using ERQ22 = ERQ_fields_::ERQ22;
-    using ERQ23 = ERQ_fields_::ERQ23;
-    using ERQ24 = ERQ_fields_::ERQ24;
-    using ERQ25 = ERQ_fields_::ERQ25;
-    using ERQ26 = ERQ_fields_::ERQ26;
-    using ERQ27 = ERQ_fields_::ERQ27;
-    using ERQ28 = ERQ_fields_::ERQ28;
-    using ERQ29 = ERQ_fields_::ERQ29;
-    using ERQ30 = ERQ_fields_::ERQ30;
-    using ERQ31 = ERQ_fields_::ERQ31;
+      ErqFields::ERQ0,
+      ErqFields::ERQ1,
+      ErqFields::ERQ2,
+      ErqFields::ERQ3,
+      ErqFields::ERQ4,
+      ErqFields::ERQ5,
+      ErqFields::ERQ6,
+      ErqFields::ERQ7,
+      ErqFields::ERQ8,
+      ErqFields::ERQ9,
+      ErqFields::ERQ10,
+      ErqFields::ERQ11,
+      ErqFields::ERQ12,
+      ErqFields::ERQ13,
+      ErqFields::ERQ14,
+      ErqFields::ERQ15,
+      ErqFields::ERQ16,
+      ErqFields::ERQ17,
+      ErqFields::ERQ18,
+      ErqFields::ERQ19,
+      ErqFields::ERQ20,
+      ErqFields::ERQ21,
+      ErqFields::ERQ22,
+      ErqFields::ERQ23,
+      ErqFields::ERQ24,
+      ErqFields::ERQ25,
+      ErqFields::ERQ26,
+      ErqFields::ERQ27,
+      ErqFields::ERQ28,
+      ErqFields::ERQ29,
+      ErqFields::ERQ30,
+      ErqFields::ERQ31> {
+    using eERQ0 = ErqFields::eERQ0;
+    using eERQ1 = ErqFields::eERQ1;
+    using eERQ2 = ErqFields::eERQ2;
+    using eERQ3 = ErqFields::eERQ3;
+    using eERQ4 = ErqFields::eERQ4;
+    using eERQ5 = ErqFields::eERQ5;
+    using eERQ6 = ErqFields::eERQ6;
+    using eERQ7 = ErqFields::eERQ7;
+    using eERQ8 = ErqFields::eERQ8;
+    using eERQ9 = ErqFields::eERQ9;
+    using eERQ10 = ErqFields::eERQ10;
+    using eERQ11 = ErqFields::eERQ11;
+    using eERQ12 = ErqFields::eERQ12;
+    using eERQ13 = ErqFields::eERQ13;
+    using eERQ14 = ErqFields::eERQ14;
+    using eERQ15 = ErqFields::eERQ15;
+    using eERQ16 = ErqFields::eERQ16;
+    using eERQ17 = ErqFields::eERQ17;
+    using eERQ18 = ErqFields::eERQ18;
+    using eERQ19 = ErqFields::eERQ19;
+    using eERQ20 = ErqFields::eERQ20;
+    using eERQ21 = ErqFields::eERQ21;
+    using eERQ22 = ErqFields::eERQ22;
+    using eERQ23 = ErqFields::eERQ23;
+    using eERQ24 = ErqFields::eERQ24;
+    using eERQ25 = ErqFields::eERQ25;
+    using eERQ26 = ErqFields::eERQ26;
+    using eERQ27 = ErqFields::eERQ27;
+    using eERQ28 = ErqFields::eERQ28;
+    using eERQ29 = ErqFields::eERQ29;
+    using eERQ30 = ErqFields::eERQ30;
+    using eERQ31 = ErqFields::eERQ31;
+    using ERQ0 = ErqFields::ERQ0;
+    using ERQ1 = ErqFields::ERQ1;
+    using ERQ2 = ErqFields::ERQ2;
+    using ERQ3 = ErqFields::ERQ3;
+    using ERQ4 = ErqFields::ERQ4;
+    using ERQ5 = ErqFields::ERQ5;
+    using ERQ6 = ErqFields::ERQ6;
+    using ERQ7 = ErqFields::ERQ7;
+    using ERQ8 = ErqFields::ERQ8;
+    using ERQ9 = ErqFields::ERQ9;
+    using ERQ10 = ErqFields::ERQ10;
+    using ERQ11 = ErqFields::ERQ11;
+    using ERQ12 = ErqFields::ERQ12;
+    using ERQ13 = ErqFields::ERQ13;
+    using ERQ14 = ErqFields::ERQ14;
+    using ERQ15 = ErqFields::ERQ15;
+    using ERQ16 = ErqFields::ERQ16;
+    using ERQ17 = ErqFields::ERQ17;
+    using ERQ18 = ErqFields::ERQ18;
+    using ERQ19 = ErqFields::ERQ19;
+    using ERQ20 = ErqFields::ERQ20;
+    using ERQ21 = ErqFields::ERQ21;
+    using ERQ22 = ErqFields::ERQ22;
+    using ERQ23 = ErqFields::ERQ23;
+    using ERQ24 = ErqFields::ERQ24;
+    using ERQ25 = ErqFields::ERQ25;
+    using ERQ26 = ErqFields::ERQ26;
+    using ERQ27 = ErqFields::ERQ27;
+    using ERQ28 = ErqFields::ERQ28;
+    using ERQ29 = ErqFields::ERQ29;
+    using ERQ30 = ErqFields::ERQ30;
+    using ERQ31 = ErqFields::ERQ31;
   };
 
   // Enable Error Interrupt
-  struct EEI_fields_ {
+  struct EeiFields {
     enum class eEEI0 : std::uint32_t {
       // An error on channel 0 does not generate an error interrupt
       eNO_INTERRUPT = 0,
@@ -1002,113 +1002,113 @@ struct Dma1 {
     using EEI30 = ftl::mmio::Field<1, 30, eEEI30, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Error Interrupt 31
     using EEI31 = ftl::mmio::Field<1, 31, eEEI31, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct EEI_fields_
+  };  // struct EeiFields
 
   struct EEI : ftl::mmio::Register<
       0x40C14014u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      EEI_fields_::EEI0,
-      EEI_fields_::EEI1,
-      EEI_fields_::EEI2,
-      EEI_fields_::EEI3,
-      EEI_fields_::EEI4,
-      EEI_fields_::EEI5,
-      EEI_fields_::EEI6,
-      EEI_fields_::EEI7,
-      EEI_fields_::EEI8,
-      EEI_fields_::EEI9,
-      EEI_fields_::EEI10,
-      EEI_fields_::EEI11,
-      EEI_fields_::EEI12,
-      EEI_fields_::EEI13,
-      EEI_fields_::EEI14,
-      EEI_fields_::EEI15,
-      EEI_fields_::EEI16,
-      EEI_fields_::EEI17,
-      EEI_fields_::EEI18,
-      EEI_fields_::EEI19,
-      EEI_fields_::EEI20,
-      EEI_fields_::EEI21,
-      EEI_fields_::EEI22,
-      EEI_fields_::EEI23,
-      EEI_fields_::EEI24,
-      EEI_fields_::EEI25,
-      EEI_fields_::EEI26,
-      EEI_fields_::EEI27,
-      EEI_fields_::EEI28,
-      EEI_fields_::EEI29,
-      EEI_fields_::EEI30,
-      EEI_fields_::EEI31> {
-    using eEEI0 = EEI_fields_::eEEI0;
-    using eEEI1 = EEI_fields_::eEEI1;
-    using eEEI2 = EEI_fields_::eEEI2;
-    using eEEI3 = EEI_fields_::eEEI3;
-    using eEEI4 = EEI_fields_::eEEI4;
-    using eEEI5 = EEI_fields_::eEEI5;
-    using eEEI6 = EEI_fields_::eEEI6;
-    using eEEI7 = EEI_fields_::eEEI7;
-    using eEEI8 = EEI_fields_::eEEI8;
-    using eEEI9 = EEI_fields_::eEEI9;
-    using eEEI10 = EEI_fields_::eEEI10;
-    using eEEI11 = EEI_fields_::eEEI11;
-    using eEEI12 = EEI_fields_::eEEI12;
-    using eEEI13 = EEI_fields_::eEEI13;
-    using eEEI14 = EEI_fields_::eEEI14;
-    using eEEI15 = EEI_fields_::eEEI15;
-    using eEEI16 = EEI_fields_::eEEI16;
-    using eEEI17 = EEI_fields_::eEEI17;
-    using eEEI18 = EEI_fields_::eEEI18;
-    using eEEI19 = EEI_fields_::eEEI19;
-    using eEEI20 = EEI_fields_::eEEI20;
-    using eEEI21 = EEI_fields_::eEEI21;
-    using eEEI22 = EEI_fields_::eEEI22;
-    using eEEI23 = EEI_fields_::eEEI23;
-    using eEEI24 = EEI_fields_::eEEI24;
-    using eEEI25 = EEI_fields_::eEEI25;
-    using eEEI26 = EEI_fields_::eEEI26;
-    using eEEI27 = EEI_fields_::eEEI27;
-    using eEEI28 = EEI_fields_::eEEI28;
-    using eEEI29 = EEI_fields_::eEEI29;
-    using eEEI30 = EEI_fields_::eEEI30;
-    using eEEI31 = EEI_fields_::eEEI31;
-    using EEI0 = EEI_fields_::EEI0;
-    using EEI1 = EEI_fields_::EEI1;
-    using EEI2 = EEI_fields_::EEI2;
-    using EEI3 = EEI_fields_::EEI3;
-    using EEI4 = EEI_fields_::EEI4;
-    using EEI5 = EEI_fields_::EEI5;
-    using EEI6 = EEI_fields_::EEI6;
-    using EEI7 = EEI_fields_::EEI7;
-    using EEI8 = EEI_fields_::EEI8;
-    using EEI9 = EEI_fields_::EEI9;
-    using EEI10 = EEI_fields_::EEI10;
-    using EEI11 = EEI_fields_::EEI11;
-    using EEI12 = EEI_fields_::EEI12;
-    using EEI13 = EEI_fields_::EEI13;
-    using EEI14 = EEI_fields_::EEI14;
-    using EEI15 = EEI_fields_::EEI15;
-    using EEI16 = EEI_fields_::EEI16;
-    using EEI17 = EEI_fields_::EEI17;
-    using EEI18 = EEI_fields_::EEI18;
-    using EEI19 = EEI_fields_::EEI19;
-    using EEI20 = EEI_fields_::EEI20;
-    using EEI21 = EEI_fields_::EEI21;
-    using EEI22 = EEI_fields_::EEI22;
-    using EEI23 = EEI_fields_::EEI23;
-    using EEI24 = EEI_fields_::EEI24;
-    using EEI25 = EEI_fields_::EEI25;
-    using EEI26 = EEI_fields_::EEI26;
-    using EEI27 = EEI_fields_::EEI27;
-    using EEI28 = EEI_fields_::EEI28;
-    using EEI29 = EEI_fields_::EEI29;
-    using EEI30 = EEI_fields_::EEI30;
-    using EEI31 = EEI_fields_::EEI31;
+      EeiFields::EEI0,
+      EeiFields::EEI1,
+      EeiFields::EEI2,
+      EeiFields::EEI3,
+      EeiFields::EEI4,
+      EeiFields::EEI5,
+      EeiFields::EEI6,
+      EeiFields::EEI7,
+      EeiFields::EEI8,
+      EeiFields::EEI9,
+      EeiFields::EEI10,
+      EeiFields::EEI11,
+      EeiFields::EEI12,
+      EeiFields::EEI13,
+      EeiFields::EEI14,
+      EeiFields::EEI15,
+      EeiFields::EEI16,
+      EeiFields::EEI17,
+      EeiFields::EEI18,
+      EeiFields::EEI19,
+      EeiFields::EEI20,
+      EeiFields::EEI21,
+      EeiFields::EEI22,
+      EeiFields::EEI23,
+      EeiFields::EEI24,
+      EeiFields::EEI25,
+      EeiFields::EEI26,
+      EeiFields::EEI27,
+      EeiFields::EEI28,
+      EeiFields::EEI29,
+      EeiFields::EEI30,
+      EeiFields::EEI31> {
+    using eEEI0 = EeiFields::eEEI0;
+    using eEEI1 = EeiFields::eEEI1;
+    using eEEI2 = EeiFields::eEEI2;
+    using eEEI3 = EeiFields::eEEI3;
+    using eEEI4 = EeiFields::eEEI4;
+    using eEEI5 = EeiFields::eEEI5;
+    using eEEI6 = EeiFields::eEEI6;
+    using eEEI7 = EeiFields::eEEI7;
+    using eEEI8 = EeiFields::eEEI8;
+    using eEEI9 = EeiFields::eEEI9;
+    using eEEI10 = EeiFields::eEEI10;
+    using eEEI11 = EeiFields::eEEI11;
+    using eEEI12 = EeiFields::eEEI12;
+    using eEEI13 = EeiFields::eEEI13;
+    using eEEI14 = EeiFields::eEEI14;
+    using eEEI15 = EeiFields::eEEI15;
+    using eEEI16 = EeiFields::eEEI16;
+    using eEEI17 = EeiFields::eEEI17;
+    using eEEI18 = EeiFields::eEEI18;
+    using eEEI19 = EeiFields::eEEI19;
+    using eEEI20 = EeiFields::eEEI20;
+    using eEEI21 = EeiFields::eEEI21;
+    using eEEI22 = EeiFields::eEEI22;
+    using eEEI23 = EeiFields::eEEI23;
+    using eEEI24 = EeiFields::eEEI24;
+    using eEEI25 = EeiFields::eEEI25;
+    using eEEI26 = EeiFields::eEEI26;
+    using eEEI27 = EeiFields::eEEI27;
+    using eEEI28 = EeiFields::eEEI28;
+    using eEEI29 = EeiFields::eEEI29;
+    using eEEI30 = EeiFields::eEEI30;
+    using eEEI31 = EeiFields::eEEI31;
+    using EEI0 = EeiFields::EEI0;
+    using EEI1 = EeiFields::EEI1;
+    using EEI2 = EeiFields::EEI2;
+    using EEI3 = EeiFields::EEI3;
+    using EEI4 = EeiFields::EEI4;
+    using EEI5 = EeiFields::EEI5;
+    using EEI6 = EeiFields::EEI6;
+    using EEI7 = EeiFields::EEI7;
+    using EEI8 = EeiFields::EEI8;
+    using EEI9 = EeiFields::EEI9;
+    using EEI10 = EeiFields::EEI10;
+    using EEI11 = EeiFields::EEI11;
+    using EEI12 = EeiFields::EEI12;
+    using EEI13 = EeiFields::EEI13;
+    using EEI14 = EeiFields::EEI14;
+    using EEI15 = EeiFields::EEI15;
+    using EEI16 = EeiFields::EEI16;
+    using EEI17 = EeiFields::EEI17;
+    using EEI18 = EeiFields::EEI18;
+    using EEI19 = EeiFields::EEI19;
+    using EEI20 = EeiFields::EEI20;
+    using EEI21 = EeiFields::EEI21;
+    using EEI22 = EeiFields::EEI22;
+    using EEI23 = EeiFields::EEI23;
+    using EEI24 = EeiFields::EEI24;
+    using EEI25 = EeiFields::EEI25;
+    using EEI26 = EeiFields::EEI26;
+    using EEI27 = EeiFields::EEI27;
+    using EEI28 = EeiFields::EEI28;
+    using EEI29 = EeiFields::EEI29;
+    using EEI30 = EeiFields::EEI30;
+    using EEI31 = EeiFields::EEI31;
   };
 
   // Clear Enable Error Interrupt
-  struct CEEI_fields_ {
+  struct CeeiFields {
     enum class eCAEE : std::uint32_t {
       // Write 0 only to the EEI field specified in the CEEI field
       eCLEAR_EEI = 0,
@@ -1129,26 +1129,26 @@ struct Dma1 {
     using CAEE = ftl::mmio::Field<1, 6, eCAEE, ftl::mmio::RW, ftl::mmio::Normal>;
     // No Op Enable
     using NOP = ftl::mmio::Field<1, 7, eNOP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CEEI_fields_
+  };  // struct CeeiFields
 
   struct CEEI : ftl::mmio::Register<
       0x40C14018u,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      CEEI_fields_::CEEI,
+      CeeiFields::CEEI,
       ftl::mmio::Reserved<1, 5>,
-      CEEI_fields_::CAEE,
-      CEEI_fields_::NOP> {
-    using eCAEE = CEEI_fields_::eCAEE;
-    using eNOP = CEEI_fields_::eNOP;
-    using VALUE = CEEI_fields_::CEEI;
-    using CAEE = CEEI_fields_::CAEE;
-    using NOP = CEEI_fields_::NOP;
+      CeeiFields::CAEE,
+      CeeiFields::NOP> {
+    using eCAEE = CeeiFields::eCAEE;
+    using eNOP = CeeiFields::eNOP;
+    using VALUE = CeeiFields::CEEI;
+    using CAEE = CeeiFields::CAEE;
+    using NOP = CeeiFields::NOP;
   };
 
   // Set Enable Error Interrupt
-  struct SEEI_fields_ {
+  struct SeeiFields {
     enum class eSAEE : std::uint32_t {
       // Write 1 only to the EEI field specified in the SEEI field
       eSET_EEI = 0,
@@ -1169,26 +1169,26 @@ struct Dma1 {
     using SAEE = ftl::mmio::Field<1, 6, eSAEE, ftl::mmio::RW, ftl::mmio::Normal>;
     // No Op Enable
     using NOP = ftl::mmio::Field<1, 7, eNOP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SEEI_fields_
+  };  // struct SeeiFields
 
   struct SEEI : ftl::mmio::Register<
       0x40C14019u,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      SEEI_fields_::SEEI,
+      SeeiFields::SEEI,
       ftl::mmio::Reserved<1, 5>,
-      SEEI_fields_::SAEE,
-      SEEI_fields_::NOP> {
-    using eSAEE = SEEI_fields_::eSAEE;
-    using eNOP = SEEI_fields_::eNOP;
-    using VALUE = SEEI_fields_::SEEI;
-    using SAEE = SEEI_fields_::SAEE;
-    using NOP = SEEI_fields_::NOP;
+      SeeiFields::SAEE,
+      SeeiFields::NOP> {
+    using eSAEE = SeeiFields::eSAEE;
+    using eNOP = SeeiFields::eNOP;
+    using VALUE = SeeiFields::SEEI;
+    using SAEE = SeeiFields::SAEE;
+    using NOP = SeeiFields::NOP;
   };
 
   // Clear Enable Request
-  struct CERQ_fields_ {
+  struct CerqFields {
     enum class eCAER : std::uint32_t {
       // Write 0 to only the ERQ field specified in the CERQ field
       eCLEAR_ERQ = 0,
@@ -1209,26 +1209,26 @@ struct Dma1 {
     using CAER = ftl::mmio::Field<1, 6, eCAER, ftl::mmio::RW, ftl::mmio::Normal>;
     // No Op Enable
     using NOP = ftl::mmio::Field<1, 7, eNOP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CERQ_fields_
+  };  // struct CerqFields
 
   struct CERQ : ftl::mmio::Register<
       0x40C1401Au,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      CERQ_fields_::CERQ,
+      CerqFields::CERQ,
       ftl::mmio::Reserved<1, 5>,
-      CERQ_fields_::CAER,
-      CERQ_fields_::NOP> {
-    using eCAER = CERQ_fields_::eCAER;
-    using eNOP = CERQ_fields_::eNOP;
-    using VALUE = CERQ_fields_::CERQ;
-    using CAER = CERQ_fields_::CAER;
-    using NOP = CERQ_fields_::NOP;
+      CerqFields::CAER,
+      CerqFields::NOP> {
+    using eCAER = CerqFields::eCAER;
+    using eNOP = CerqFields::eNOP;
+    using VALUE = CerqFields::CERQ;
+    using CAER = CerqFields::CAER;
+    using NOP = CerqFields::NOP;
   };
 
   // Set Enable Request
-  struct SERQ_fields_ {
+  struct SerqFields {
     enum class eSAER : std::uint32_t {
       // Write 1 to only the ERQ field specified in the SERQ field
       eSET_ERQ = 0,
@@ -1249,26 +1249,26 @@ struct Dma1 {
     using SAER = ftl::mmio::Field<1, 6, eSAER, ftl::mmio::RW, ftl::mmio::Normal>;
     // No Op Enable
     using NOP = ftl::mmio::Field<1, 7, eNOP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SERQ_fields_
+  };  // struct SerqFields
 
   struct SERQ : ftl::mmio::Register<
       0x40C1401Bu,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      SERQ_fields_::SERQ,
+      SerqFields::SERQ,
       ftl::mmio::Reserved<1, 5>,
-      SERQ_fields_::SAER,
-      SERQ_fields_::NOP> {
-    using eSAER = SERQ_fields_::eSAER;
-    using eNOP = SERQ_fields_::eNOP;
-    using VALUE = SERQ_fields_::SERQ;
-    using SAER = SERQ_fields_::SAER;
-    using NOP = SERQ_fields_::NOP;
+      SerqFields::SAER,
+      SerqFields::NOP> {
+    using eSAER = SerqFields::eSAER;
+    using eNOP = SerqFields::eNOP;
+    using VALUE = SerqFields::SERQ;
+    using SAER = SerqFields::SAER;
+    using NOP = SerqFields::NOP;
   };
 
   // Clear DONE Status Bit
-  struct CDNE_fields_ {
+  struct CdneFields {
     enum class eCADN : std::uint32_t {
       // Writes 0 to only the TCDn_CSR[DONE] field specified in the CDNE field
       eCLEAR_DONE = 0,
@@ -1289,26 +1289,26 @@ struct Dma1 {
     using CADN = ftl::mmio::Field<1, 6, eCADN, ftl::mmio::RW, ftl::mmio::Normal>;
     // No Op Enable
     using NOP = ftl::mmio::Field<1, 7, eNOP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CDNE_fields_
+  };  // struct CdneFields
 
   struct CDNE : ftl::mmio::Register<
       0x40C1401Cu,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      CDNE_fields_::CDNE,
+      CdneFields::CDNE,
       ftl::mmio::Reserved<1, 5>,
-      CDNE_fields_::CADN,
-      CDNE_fields_::NOP> {
-    using eCADN = CDNE_fields_::eCADN;
-    using eNOP = CDNE_fields_::eNOP;
-    using VALUE = CDNE_fields_::CDNE;
-    using CADN = CDNE_fields_::CADN;
-    using NOP = CDNE_fields_::NOP;
+      CdneFields::CADN,
+      CdneFields::NOP> {
+    using eCADN = CdneFields::eCADN;
+    using eNOP = CdneFields::eNOP;
+    using VALUE = CdneFields::CDNE;
+    using CADN = CdneFields::CADN;
+    using NOP = CdneFields::NOP;
   };
 
   // Set START Bit
-  struct SSRT_fields_ {
+  struct SsrtFields {
     enum class eSAST : std::uint32_t {
       // Write 1 to only the TCDn_CSR[START] field specified in the SSRT field
       eSET_START = 0,
@@ -1329,26 +1329,26 @@ struct Dma1 {
     using SAST = ftl::mmio::Field<1, 6, eSAST, ftl::mmio::RW, ftl::mmio::Normal>;
     // No Op Enable
     using NOP = ftl::mmio::Field<1, 7, eNOP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SSRT_fields_
+  };  // struct SsrtFields
 
   struct SSRT : ftl::mmio::Register<
       0x40C1401Du,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      SSRT_fields_::SSRT,
+      SsrtFields::SSRT,
       ftl::mmio::Reserved<1, 5>,
-      SSRT_fields_::SAST,
-      SSRT_fields_::NOP> {
-    using eSAST = SSRT_fields_::eSAST;
-    using eNOP = SSRT_fields_::eNOP;
-    using VALUE = SSRT_fields_::SSRT;
-    using SAST = SSRT_fields_::SAST;
-    using NOP = SSRT_fields_::NOP;
+      SsrtFields::SAST,
+      SsrtFields::NOP> {
+    using eSAST = SsrtFields::eSAST;
+    using eNOP = SsrtFields::eNOP;
+    using VALUE = SsrtFields::SSRT;
+    using SAST = SsrtFields::SAST;
+    using NOP = SsrtFields::NOP;
   };
 
   // Clear Error
-  struct CERR_fields_ {
+  struct CerrFields {
     enum class eCAEI : std::uint32_t {
       // Write 0 to only the ERR field specified in the CERR field
       eCLEAR_ERR = 0,
@@ -1369,26 +1369,26 @@ struct Dma1 {
     using CAEI = ftl::mmio::Field<1, 6, eCAEI, ftl::mmio::RW, ftl::mmio::Normal>;
     // No Op Enable
     using NOP = ftl::mmio::Field<1, 7, eNOP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CERR_fields_
+  };  // struct CerrFields
 
   struct CERR : ftl::mmio::Register<
       0x40C1401Eu,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      CERR_fields_::CERR,
+      CerrFields::CERR,
       ftl::mmio::Reserved<1, 5>,
-      CERR_fields_::CAEI,
-      CERR_fields_::NOP> {
-    using eCAEI = CERR_fields_::eCAEI;
-    using eNOP = CERR_fields_::eNOP;
-    using VALUE = CERR_fields_::CERR;
-    using CAEI = CERR_fields_::CAEI;
-    using NOP = CERR_fields_::NOP;
+      CerrFields::CAEI,
+      CerrFields::NOP> {
+    using eCAEI = CerrFields::eCAEI;
+    using eNOP = CerrFields::eNOP;
+    using VALUE = CerrFields::CERR;
+    using CAEI = CerrFields::CAEI;
+    using NOP = CerrFields::NOP;
   };
 
   // Clear Interrupt Request
-  struct CINT_fields_ {
+  struct CintFields {
     enum class eCAIR : std::uint32_t {
       // Clear only the INT field specified in the CINT field
       eCLEAR_INT = 0,
@@ -1409,26 +1409,26 @@ struct Dma1 {
     using CAIR = ftl::mmio::Field<1, 6, eCAIR, ftl::mmio::RW, ftl::mmio::Normal>;
     // No Op Enable
     using NOP = ftl::mmio::Field<1, 7, eNOP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CINT_fields_
+  };  // struct CintFields
 
   struct CINT : ftl::mmio::Register<
       0x40C1401Fu,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      CINT_fields_::CINT,
+      CintFields::CINT,
       ftl::mmio::Reserved<1, 5>,
-      CINT_fields_::CAIR,
-      CINT_fields_::NOP> {
-    using eCAIR = CINT_fields_::eCAIR;
-    using eNOP = CINT_fields_::eNOP;
-    using VALUE = CINT_fields_::CINT;
-    using CAIR = CINT_fields_::CAIR;
-    using NOP = CINT_fields_::NOP;
+      CintFields::CAIR,
+      CintFields::NOP> {
+    using eCAIR = CintFields::eCAIR;
+    using eNOP = CintFields::eNOP;
+    using VALUE = CintFields::CINT;
+    using CAIR = CintFields::CAIR;
+    using NOP = CintFields::NOP;
   };
 
   // Interrupt Request
-  struct INT_fields_ {
+  struct IntFields {
     enum class eINT0 : std::uint32_t {
       // The interrupt request for channel 0 is cleared
       eNOT_ACTIVE = 0,
@@ -1717,113 +1717,113 @@ struct Dma1 {
     using INT30 = ftl::mmio::Field<1, 30, eINT30, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Interrupt Request 31
     using INT31 = ftl::mmio::Field<1, 31, eINT31, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct INT_fields_
+  };  // struct IntFields
 
   struct INT : ftl::mmio::Register<
       0x40C14024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      INT_fields_::INT0,
-      INT_fields_::INT1,
-      INT_fields_::INT2,
-      INT_fields_::INT3,
-      INT_fields_::INT4,
-      INT_fields_::INT5,
-      INT_fields_::INT6,
-      INT_fields_::INT7,
-      INT_fields_::INT8,
-      INT_fields_::INT9,
-      INT_fields_::INT10,
-      INT_fields_::INT11,
-      INT_fields_::INT12,
-      INT_fields_::INT13,
-      INT_fields_::INT14,
-      INT_fields_::INT15,
-      INT_fields_::INT16,
-      INT_fields_::INT17,
-      INT_fields_::INT18,
-      INT_fields_::INT19,
-      INT_fields_::INT20,
-      INT_fields_::INT21,
-      INT_fields_::INT22,
-      INT_fields_::INT23,
-      INT_fields_::INT24,
-      INT_fields_::INT25,
-      INT_fields_::INT26,
-      INT_fields_::INT27,
-      INT_fields_::INT28,
-      INT_fields_::INT29,
-      INT_fields_::INT30,
-      INT_fields_::INT31> {
-    using eINT0 = INT_fields_::eINT0;
-    using eINT1 = INT_fields_::eINT1;
-    using eINT2 = INT_fields_::eINT2;
-    using eINT3 = INT_fields_::eINT3;
-    using eINT4 = INT_fields_::eINT4;
-    using eINT5 = INT_fields_::eINT5;
-    using eINT6 = INT_fields_::eINT6;
-    using eINT7 = INT_fields_::eINT7;
-    using eINT8 = INT_fields_::eINT8;
-    using eINT9 = INT_fields_::eINT9;
-    using eINT10 = INT_fields_::eINT10;
-    using eINT11 = INT_fields_::eINT11;
-    using eINT12 = INT_fields_::eINT12;
-    using eINT13 = INT_fields_::eINT13;
-    using eINT14 = INT_fields_::eINT14;
-    using eINT15 = INT_fields_::eINT15;
-    using eINT16 = INT_fields_::eINT16;
-    using eINT17 = INT_fields_::eINT17;
-    using eINT18 = INT_fields_::eINT18;
-    using eINT19 = INT_fields_::eINT19;
-    using eINT20 = INT_fields_::eINT20;
-    using eINT21 = INT_fields_::eINT21;
-    using eINT22 = INT_fields_::eINT22;
-    using eINT23 = INT_fields_::eINT23;
-    using eINT24 = INT_fields_::eINT24;
-    using eINT25 = INT_fields_::eINT25;
-    using eINT26 = INT_fields_::eINT26;
-    using eINT27 = INT_fields_::eINT27;
-    using eINT28 = INT_fields_::eINT28;
-    using eINT29 = INT_fields_::eINT29;
-    using eINT30 = INT_fields_::eINT30;
-    using eINT31 = INT_fields_::eINT31;
-    using INT0 = INT_fields_::INT0;
-    using INT1 = INT_fields_::INT1;
-    using INT2 = INT_fields_::INT2;
-    using INT3 = INT_fields_::INT3;
-    using INT4 = INT_fields_::INT4;
-    using INT5 = INT_fields_::INT5;
-    using INT6 = INT_fields_::INT6;
-    using INT7 = INT_fields_::INT7;
-    using INT8 = INT_fields_::INT8;
-    using INT9 = INT_fields_::INT9;
-    using INT10 = INT_fields_::INT10;
-    using INT11 = INT_fields_::INT11;
-    using INT12 = INT_fields_::INT12;
-    using INT13 = INT_fields_::INT13;
-    using INT14 = INT_fields_::INT14;
-    using INT15 = INT_fields_::INT15;
-    using INT16 = INT_fields_::INT16;
-    using INT17 = INT_fields_::INT17;
-    using INT18 = INT_fields_::INT18;
-    using INT19 = INT_fields_::INT19;
-    using INT20 = INT_fields_::INT20;
-    using INT21 = INT_fields_::INT21;
-    using INT22 = INT_fields_::INT22;
-    using INT23 = INT_fields_::INT23;
-    using INT24 = INT_fields_::INT24;
-    using INT25 = INT_fields_::INT25;
-    using INT26 = INT_fields_::INT26;
-    using INT27 = INT_fields_::INT27;
-    using INT28 = INT_fields_::INT28;
-    using INT29 = INT_fields_::INT29;
-    using INT30 = INT_fields_::INT30;
-    using INT31 = INT_fields_::INT31;
+      IntFields::INT0,
+      IntFields::INT1,
+      IntFields::INT2,
+      IntFields::INT3,
+      IntFields::INT4,
+      IntFields::INT5,
+      IntFields::INT6,
+      IntFields::INT7,
+      IntFields::INT8,
+      IntFields::INT9,
+      IntFields::INT10,
+      IntFields::INT11,
+      IntFields::INT12,
+      IntFields::INT13,
+      IntFields::INT14,
+      IntFields::INT15,
+      IntFields::INT16,
+      IntFields::INT17,
+      IntFields::INT18,
+      IntFields::INT19,
+      IntFields::INT20,
+      IntFields::INT21,
+      IntFields::INT22,
+      IntFields::INT23,
+      IntFields::INT24,
+      IntFields::INT25,
+      IntFields::INT26,
+      IntFields::INT27,
+      IntFields::INT28,
+      IntFields::INT29,
+      IntFields::INT30,
+      IntFields::INT31> {
+    using eINT0 = IntFields::eINT0;
+    using eINT1 = IntFields::eINT1;
+    using eINT2 = IntFields::eINT2;
+    using eINT3 = IntFields::eINT3;
+    using eINT4 = IntFields::eINT4;
+    using eINT5 = IntFields::eINT5;
+    using eINT6 = IntFields::eINT6;
+    using eINT7 = IntFields::eINT7;
+    using eINT8 = IntFields::eINT8;
+    using eINT9 = IntFields::eINT9;
+    using eINT10 = IntFields::eINT10;
+    using eINT11 = IntFields::eINT11;
+    using eINT12 = IntFields::eINT12;
+    using eINT13 = IntFields::eINT13;
+    using eINT14 = IntFields::eINT14;
+    using eINT15 = IntFields::eINT15;
+    using eINT16 = IntFields::eINT16;
+    using eINT17 = IntFields::eINT17;
+    using eINT18 = IntFields::eINT18;
+    using eINT19 = IntFields::eINT19;
+    using eINT20 = IntFields::eINT20;
+    using eINT21 = IntFields::eINT21;
+    using eINT22 = IntFields::eINT22;
+    using eINT23 = IntFields::eINT23;
+    using eINT24 = IntFields::eINT24;
+    using eINT25 = IntFields::eINT25;
+    using eINT26 = IntFields::eINT26;
+    using eINT27 = IntFields::eINT27;
+    using eINT28 = IntFields::eINT28;
+    using eINT29 = IntFields::eINT29;
+    using eINT30 = IntFields::eINT30;
+    using eINT31 = IntFields::eINT31;
+    using INT0 = IntFields::INT0;
+    using INT1 = IntFields::INT1;
+    using INT2 = IntFields::INT2;
+    using INT3 = IntFields::INT3;
+    using INT4 = IntFields::INT4;
+    using INT5 = IntFields::INT5;
+    using INT6 = IntFields::INT6;
+    using INT7 = IntFields::INT7;
+    using INT8 = IntFields::INT8;
+    using INT9 = IntFields::INT9;
+    using INT10 = IntFields::INT10;
+    using INT11 = IntFields::INT11;
+    using INT12 = IntFields::INT12;
+    using INT13 = IntFields::INT13;
+    using INT14 = IntFields::INT14;
+    using INT15 = IntFields::INT15;
+    using INT16 = IntFields::INT16;
+    using INT17 = IntFields::INT17;
+    using INT18 = IntFields::INT18;
+    using INT19 = IntFields::INT19;
+    using INT20 = IntFields::INT20;
+    using INT21 = IntFields::INT21;
+    using INT22 = IntFields::INT22;
+    using INT23 = IntFields::INT23;
+    using INT24 = IntFields::INT24;
+    using INT25 = IntFields::INT25;
+    using INT26 = IntFields::INT26;
+    using INT27 = IntFields::INT27;
+    using INT28 = IntFields::INT28;
+    using INT29 = IntFields::INT29;
+    using INT30 = IntFields::INT30;
+    using INT31 = IntFields::INT31;
   };
 
   // Error
-  struct ERR_fields_ {
+  struct ErrFields {
     enum class eERR0 : std::uint32_t {
       // No error in this channel has occurred
       eNO_ERR = 0,
@@ -2112,113 +2112,113 @@ struct Dma1 {
     using ERR30 = ftl::mmio::Field<1, 30, eERR30, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Error In Channel 31
     using ERR31 = ftl::mmio::Field<1, 31, eERR31, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct ERR_fields_
+  };  // struct ErrFields
 
   struct ERR : ftl::mmio::Register<
       0x40C1402Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      ERR_fields_::ERR0,
-      ERR_fields_::ERR1,
-      ERR_fields_::ERR2,
-      ERR_fields_::ERR3,
-      ERR_fields_::ERR4,
-      ERR_fields_::ERR5,
-      ERR_fields_::ERR6,
-      ERR_fields_::ERR7,
-      ERR_fields_::ERR8,
-      ERR_fields_::ERR9,
-      ERR_fields_::ERR10,
-      ERR_fields_::ERR11,
-      ERR_fields_::ERR12,
-      ERR_fields_::ERR13,
-      ERR_fields_::ERR14,
-      ERR_fields_::ERR15,
-      ERR_fields_::ERR16,
-      ERR_fields_::ERR17,
-      ERR_fields_::ERR18,
-      ERR_fields_::ERR19,
-      ERR_fields_::ERR20,
-      ERR_fields_::ERR21,
-      ERR_fields_::ERR22,
-      ERR_fields_::ERR23,
-      ERR_fields_::ERR24,
-      ERR_fields_::ERR25,
-      ERR_fields_::ERR26,
-      ERR_fields_::ERR27,
-      ERR_fields_::ERR28,
-      ERR_fields_::ERR29,
-      ERR_fields_::ERR30,
-      ERR_fields_::ERR31> {
-    using eERR0 = ERR_fields_::eERR0;
-    using eERR1 = ERR_fields_::eERR1;
-    using eERR2 = ERR_fields_::eERR2;
-    using eERR3 = ERR_fields_::eERR3;
-    using eERR4 = ERR_fields_::eERR4;
-    using eERR5 = ERR_fields_::eERR5;
-    using eERR6 = ERR_fields_::eERR6;
-    using eERR7 = ERR_fields_::eERR7;
-    using eERR8 = ERR_fields_::eERR8;
-    using eERR9 = ERR_fields_::eERR9;
-    using eERR10 = ERR_fields_::eERR10;
-    using eERR11 = ERR_fields_::eERR11;
-    using eERR12 = ERR_fields_::eERR12;
-    using eERR13 = ERR_fields_::eERR13;
-    using eERR14 = ERR_fields_::eERR14;
-    using eERR15 = ERR_fields_::eERR15;
-    using eERR16 = ERR_fields_::eERR16;
-    using eERR17 = ERR_fields_::eERR17;
-    using eERR18 = ERR_fields_::eERR18;
-    using eERR19 = ERR_fields_::eERR19;
-    using eERR20 = ERR_fields_::eERR20;
-    using eERR21 = ERR_fields_::eERR21;
-    using eERR22 = ERR_fields_::eERR22;
-    using eERR23 = ERR_fields_::eERR23;
-    using eERR24 = ERR_fields_::eERR24;
-    using eERR25 = ERR_fields_::eERR25;
-    using eERR26 = ERR_fields_::eERR26;
-    using eERR27 = ERR_fields_::eERR27;
-    using eERR28 = ERR_fields_::eERR28;
-    using eERR29 = ERR_fields_::eERR29;
-    using eERR30 = ERR_fields_::eERR30;
-    using eERR31 = ERR_fields_::eERR31;
-    using ERR0 = ERR_fields_::ERR0;
-    using ERR1 = ERR_fields_::ERR1;
-    using ERR2 = ERR_fields_::ERR2;
-    using ERR3 = ERR_fields_::ERR3;
-    using ERR4 = ERR_fields_::ERR4;
-    using ERR5 = ERR_fields_::ERR5;
-    using ERR6 = ERR_fields_::ERR6;
-    using ERR7 = ERR_fields_::ERR7;
-    using ERR8 = ERR_fields_::ERR8;
-    using ERR9 = ERR_fields_::ERR9;
-    using ERR10 = ERR_fields_::ERR10;
-    using ERR11 = ERR_fields_::ERR11;
-    using ERR12 = ERR_fields_::ERR12;
-    using ERR13 = ERR_fields_::ERR13;
-    using ERR14 = ERR_fields_::ERR14;
-    using ERR15 = ERR_fields_::ERR15;
-    using ERR16 = ERR_fields_::ERR16;
-    using ERR17 = ERR_fields_::ERR17;
-    using ERR18 = ERR_fields_::ERR18;
-    using ERR19 = ERR_fields_::ERR19;
-    using ERR20 = ERR_fields_::ERR20;
-    using ERR21 = ERR_fields_::ERR21;
-    using ERR22 = ERR_fields_::ERR22;
-    using ERR23 = ERR_fields_::ERR23;
-    using ERR24 = ERR_fields_::ERR24;
-    using ERR25 = ERR_fields_::ERR25;
-    using ERR26 = ERR_fields_::ERR26;
-    using ERR27 = ERR_fields_::ERR27;
-    using ERR28 = ERR_fields_::ERR28;
-    using ERR29 = ERR_fields_::ERR29;
-    using ERR30 = ERR_fields_::ERR30;
-    using ERR31 = ERR_fields_::ERR31;
+      ErrFields::ERR0,
+      ErrFields::ERR1,
+      ErrFields::ERR2,
+      ErrFields::ERR3,
+      ErrFields::ERR4,
+      ErrFields::ERR5,
+      ErrFields::ERR6,
+      ErrFields::ERR7,
+      ErrFields::ERR8,
+      ErrFields::ERR9,
+      ErrFields::ERR10,
+      ErrFields::ERR11,
+      ErrFields::ERR12,
+      ErrFields::ERR13,
+      ErrFields::ERR14,
+      ErrFields::ERR15,
+      ErrFields::ERR16,
+      ErrFields::ERR17,
+      ErrFields::ERR18,
+      ErrFields::ERR19,
+      ErrFields::ERR20,
+      ErrFields::ERR21,
+      ErrFields::ERR22,
+      ErrFields::ERR23,
+      ErrFields::ERR24,
+      ErrFields::ERR25,
+      ErrFields::ERR26,
+      ErrFields::ERR27,
+      ErrFields::ERR28,
+      ErrFields::ERR29,
+      ErrFields::ERR30,
+      ErrFields::ERR31> {
+    using eERR0 = ErrFields::eERR0;
+    using eERR1 = ErrFields::eERR1;
+    using eERR2 = ErrFields::eERR2;
+    using eERR3 = ErrFields::eERR3;
+    using eERR4 = ErrFields::eERR4;
+    using eERR5 = ErrFields::eERR5;
+    using eERR6 = ErrFields::eERR6;
+    using eERR7 = ErrFields::eERR7;
+    using eERR8 = ErrFields::eERR8;
+    using eERR9 = ErrFields::eERR9;
+    using eERR10 = ErrFields::eERR10;
+    using eERR11 = ErrFields::eERR11;
+    using eERR12 = ErrFields::eERR12;
+    using eERR13 = ErrFields::eERR13;
+    using eERR14 = ErrFields::eERR14;
+    using eERR15 = ErrFields::eERR15;
+    using eERR16 = ErrFields::eERR16;
+    using eERR17 = ErrFields::eERR17;
+    using eERR18 = ErrFields::eERR18;
+    using eERR19 = ErrFields::eERR19;
+    using eERR20 = ErrFields::eERR20;
+    using eERR21 = ErrFields::eERR21;
+    using eERR22 = ErrFields::eERR22;
+    using eERR23 = ErrFields::eERR23;
+    using eERR24 = ErrFields::eERR24;
+    using eERR25 = ErrFields::eERR25;
+    using eERR26 = ErrFields::eERR26;
+    using eERR27 = ErrFields::eERR27;
+    using eERR28 = ErrFields::eERR28;
+    using eERR29 = ErrFields::eERR29;
+    using eERR30 = ErrFields::eERR30;
+    using eERR31 = ErrFields::eERR31;
+    using ERR0 = ErrFields::ERR0;
+    using ERR1 = ErrFields::ERR1;
+    using ERR2 = ErrFields::ERR2;
+    using ERR3 = ErrFields::ERR3;
+    using ERR4 = ErrFields::ERR4;
+    using ERR5 = ErrFields::ERR5;
+    using ERR6 = ErrFields::ERR6;
+    using ERR7 = ErrFields::ERR7;
+    using ERR8 = ErrFields::ERR8;
+    using ERR9 = ErrFields::ERR9;
+    using ERR10 = ErrFields::ERR10;
+    using ERR11 = ErrFields::ERR11;
+    using ERR12 = ErrFields::ERR12;
+    using ERR13 = ErrFields::ERR13;
+    using ERR14 = ErrFields::ERR14;
+    using ERR15 = ErrFields::ERR15;
+    using ERR16 = ErrFields::ERR16;
+    using ERR17 = ErrFields::ERR17;
+    using ERR18 = ErrFields::ERR18;
+    using ERR19 = ErrFields::ERR19;
+    using ERR20 = ErrFields::ERR20;
+    using ERR21 = ErrFields::ERR21;
+    using ERR22 = ErrFields::ERR22;
+    using ERR23 = ErrFields::ERR23;
+    using ERR24 = ErrFields::ERR24;
+    using ERR25 = ErrFields::ERR25;
+    using ERR26 = ErrFields::ERR26;
+    using ERR27 = ErrFields::ERR27;
+    using ERR28 = ErrFields::ERR28;
+    using ERR29 = ErrFields::ERR29;
+    using ERR30 = ErrFields::ERR30;
+    using ERR31 = ErrFields::ERR31;
   };
 
   // Hardware Request Status
-  struct HRS_fields_ {
+  struct HrsFields {
     enum class eHRS0 : std::uint32_t {
       // A hardware service request for channel 0 is not present
       eNO_HWRQST = 0,
@@ -2507,113 +2507,113 @@ struct Dma1 {
     using HRS30 = ftl::mmio::Field<1, 30, eHRS30, ftl::mmio::RO, ftl::mmio::Normal>;
     // Hardware Request Status Channel 31
     using HRS31 = ftl::mmio::Field<1, 31, eHRS31, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HRS_fields_
+  };  // struct HrsFields
 
   struct HRS : ftl::mmio::Register<
       0x40C14034u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      HRS_fields_::HRS0,
-      HRS_fields_::HRS1,
-      HRS_fields_::HRS2,
-      HRS_fields_::HRS3,
-      HRS_fields_::HRS4,
-      HRS_fields_::HRS5,
-      HRS_fields_::HRS6,
-      HRS_fields_::HRS7,
-      HRS_fields_::HRS8,
-      HRS_fields_::HRS9,
-      HRS_fields_::HRS10,
-      HRS_fields_::HRS11,
-      HRS_fields_::HRS12,
-      HRS_fields_::HRS13,
-      HRS_fields_::HRS14,
-      HRS_fields_::HRS15,
-      HRS_fields_::HRS16,
-      HRS_fields_::HRS17,
-      HRS_fields_::HRS18,
-      HRS_fields_::HRS19,
-      HRS_fields_::HRS20,
-      HRS_fields_::HRS21,
-      HRS_fields_::HRS22,
-      HRS_fields_::HRS23,
-      HRS_fields_::HRS24,
-      HRS_fields_::HRS25,
-      HRS_fields_::HRS26,
-      HRS_fields_::HRS27,
-      HRS_fields_::HRS28,
-      HRS_fields_::HRS29,
-      HRS_fields_::HRS30,
-      HRS_fields_::HRS31> {
-    using eHRS0 = HRS_fields_::eHRS0;
-    using eHRS1 = HRS_fields_::eHRS1;
-    using eHRS2 = HRS_fields_::eHRS2;
-    using eHRS3 = HRS_fields_::eHRS3;
-    using eHRS4 = HRS_fields_::eHRS4;
-    using eHRS5 = HRS_fields_::eHRS5;
-    using eHRS6 = HRS_fields_::eHRS6;
-    using eHRS7 = HRS_fields_::eHRS7;
-    using eHRS8 = HRS_fields_::eHRS8;
-    using eHRS9 = HRS_fields_::eHRS9;
-    using eHRS10 = HRS_fields_::eHRS10;
-    using eHRS11 = HRS_fields_::eHRS11;
-    using eHRS12 = HRS_fields_::eHRS12;
-    using eHRS13 = HRS_fields_::eHRS13;
-    using eHRS14 = HRS_fields_::eHRS14;
-    using eHRS15 = HRS_fields_::eHRS15;
-    using eHRS16 = HRS_fields_::eHRS16;
-    using eHRS17 = HRS_fields_::eHRS17;
-    using eHRS18 = HRS_fields_::eHRS18;
-    using eHRS19 = HRS_fields_::eHRS19;
-    using eHRS20 = HRS_fields_::eHRS20;
-    using eHRS21 = HRS_fields_::eHRS21;
-    using eHRS22 = HRS_fields_::eHRS22;
-    using eHRS23 = HRS_fields_::eHRS23;
-    using eHRS24 = HRS_fields_::eHRS24;
-    using eHRS25 = HRS_fields_::eHRS25;
-    using eHRS26 = HRS_fields_::eHRS26;
-    using eHRS27 = HRS_fields_::eHRS27;
-    using eHRS28 = HRS_fields_::eHRS28;
-    using eHRS29 = HRS_fields_::eHRS29;
-    using eHRS30 = HRS_fields_::eHRS30;
-    using eHRS31 = HRS_fields_::eHRS31;
-    using HRS0 = HRS_fields_::HRS0;
-    using HRS1 = HRS_fields_::HRS1;
-    using HRS2 = HRS_fields_::HRS2;
-    using HRS3 = HRS_fields_::HRS3;
-    using HRS4 = HRS_fields_::HRS4;
-    using HRS5 = HRS_fields_::HRS5;
-    using HRS6 = HRS_fields_::HRS6;
-    using HRS7 = HRS_fields_::HRS7;
-    using HRS8 = HRS_fields_::HRS8;
-    using HRS9 = HRS_fields_::HRS9;
-    using HRS10 = HRS_fields_::HRS10;
-    using HRS11 = HRS_fields_::HRS11;
-    using HRS12 = HRS_fields_::HRS12;
-    using HRS13 = HRS_fields_::HRS13;
-    using HRS14 = HRS_fields_::HRS14;
-    using HRS15 = HRS_fields_::HRS15;
-    using HRS16 = HRS_fields_::HRS16;
-    using HRS17 = HRS_fields_::HRS17;
-    using HRS18 = HRS_fields_::HRS18;
-    using HRS19 = HRS_fields_::HRS19;
-    using HRS20 = HRS_fields_::HRS20;
-    using HRS21 = HRS_fields_::HRS21;
-    using HRS22 = HRS_fields_::HRS22;
-    using HRS23 = HRS_fields_::HRS23;
-    using HRS24 = HRS_fields_::HRS24;
-    using HRS25 = HRS_fields_::HRS25;
-    using HRS26 = HRS_fields_::HRS26;
-    using HRS27 = HRS_fields_::HRS27;
-    using HRS28 = HRS_fields_::HRS28;
-    using HRS29 = HRS_fields_::HRS29;
-    using HRS30 = HRS_fields_::HRS30;
-    using HRS31 = HRS_fields_::HRS31;
+      HrsFields::HRS0,
+      HrsFields::HRS1,
+      HrsFields::HRS2,
+      HrsFields::HRS3,
+      HrsFields::HRS4,
+      HrsFields::HRS5,
+      HrsFields::HRS6,
+      HrsFields::HRS7,
+      HrsFields::HRS8,
+      HrsFields::HRS9,
+      HrsFields::HRS10,
+      HrsFields::HRS11,
+      HrsFields::HRS12,
+      HrsFields::HRS13,
+      HrsFields::HRS14,
+      HrsFields::HRS15,
+      HrsFields::HRS16,
+      HrsFields::HRS17,
+      HrsFields::HRS18,
+      HrsFields::HRS19,
+      HrsFields::HRS20,
+      HrsFields::HRS21,
+      HrsFields::HRS22,
+      HrsFields::HRS23,
+      HrsFields::HRS24,
+      HrsFields::HRS25,
+      HrsFields::HRS26,
+      HrsFields::HRS27,
+      HrsFields::HRS28,
+      HrsFields::HRS29,
+      HrsFields::HRS30,
+      HrsFields::HRS31> {
+    using eHRS0 = HrsFields::eHRS0;
+    using eHRS1 = HrsFields::eHRS1;
+    using eHRS2 = HrsFields::eHRS2;
+    using eHRS3 = HrsFields::eHRS3;
+    using eHRS4 = HrsFields::eHRS4;
+    using eHRS5 = HrsFields::eHRS5;
+    using eHRS6 = HrsFields::eHRS6;
+    using eHRS7 = HrsFields::eHRS7;
+    using eHRS8 = HrsFields::eHRS8;
+    using eHRS9 = HrsFields::eHRS9;
+    using eHRS10 = HrsFields::eHRS10;
+    using eHRS11 = HrsFields::eHRS11;
+    using eHRS12 = HrsFields::eHRS12;
+    using eHRS13 = HrsFields::eHRS13;
+    using eHRS14 = HrsFields::eHRS14;
+    using eHRS15 = HrsFields::eHRS15;
+    using eHRS16 = HrsFields::eHRS16;
+    using eHRS17 = HrsFields::eHRS17;
+    using eHRS18 = HrsFields::eHRS18;
+    using eHRS19 = HrsFields::eHRS19;
+    using eHRS20 = HrsFields::eHRS20;
+    using eHRS21 = HrsFields::eHRS21;
+    using eHRS22 = HrsFields::eHRS22;
+    using eHRS23 = HrsFields::eHRS23;
+    using eHRS24 = HrsFields::eHRS24;
+    using eHRS25 = HrsFields::eHRS25;
+    using eHRS26 = HrsFields::eHRS26;
+    using eHRS27 = HrsFields::eHRS27;
+    using eHRS28 = HrsFields::eHRS28;
+    using eHRS29 = HrsFields::eHRS29;
+    using eHRS30 = HrsFields::eHRS30;
+    using eHRS31 = HrsFields::eHRS31;
+    using HRS0 = HrsFields::HRS0;
+    using HRS1 = HrsFields::HRS1;
+    using HRS2 = HrsFields::HRS2;
+    using HRS3 = HrsFields::HRS3;
+    using HRS4 = HrsFields::HRS4;
+    using HRS5 = HrsFields::HRS5;
+    using HRS6 = HrsFields::HRS6;
+    using HRS7 = HrsFields::HRS7;
+    using HRS8 = HrsFields::HRS8;
+    using HRS9 = HrsFields::HRS9;
+    using HRS10 = HrsFields::HRS10;
+    using HRS11 = HrsFields::HRS11;
+    using HRS12 = HrsFields::HRS12;
+    using HRS13 = HrsFields::HRS13;
+    using HRS14 = HrsFields::HRS14;
+    using HRS15 = HrsFields::HRS15;
+    using HRS16 = HrsFields::HRS16;
+    using HRS17 = HrsFields::HRS17;
+    using HRS18 = HrsFields::HRS18;
+    using HRS19 = HrsFields::HRS19;
+    using HRS20 = HrsFields::HRS20;
+    using HRS21 = HrsFields::HRS21;
+    using HRS22 = HrsFields::HRS22;
+    using HRS23 = HrsFields::HRS23;
+    using HRS24 = HrsFields::HRS24;
+    using HRS25 = HrsFields::HRS25;
+    using HRS26 = HrsFields::HRS26;
+    using HRS27 = HrsFields::HRS27;
+    using HRS28 = HrsFields::HRS28;
+    using HRS29 = HrsFields::HRS29;
+    using HRS30 = HrsFields::HRS30;
+    using HRS31 = HrsFields::HRS31;
   };
 
   // Enable Asynchronous Request in Stop
-  struct EARS_fields_ {
+  struct EarsFields {
     enum class eEDREQ_0 : std::uint32_t {
       // Disable asynchronous DMA request for channel 0
       eDISABLE = 0,
@@ -2902,113 +2902,113 @@ struct Dma1 {
     using EDREQ_30 = ftl::mmio::Field<1, 30, eEDREQ_30, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable asynchronous DMA request in stop mode for channel 31.
     using EDREQ_31 = ftl::mmio::Field<1, 31, eEDREQ_31, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct EARS_fields_
+  };  // struct EarsFields
 
   struct EARS : ftl::mmio::Register<
       0x40C14044u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      EARS_fields_::EDREQ_0,
-      EARS_fields_::EDREQ_1,
-      EARS_fields_::EDREQ_2,
-      EARS_fields_::EDREQ_3,
-      EARS_fields_::EDREQ_4,
-      EARS_fields_::EDREQ_5,
-      EARS_fields_::EDREQ_6,
-      EARS_fields_::EDREQ_7,
-      EARS_fields_::EDREQ_8,
-      EARS_fields_::EDREQ_9,
-      EARS_fields_::EDREQ_10,
-      EARS_fields_::EDREQ_11,
-      EARS_fields_::EDREQ_12,
-      EARS_fields_::EDREQ_13,
-      EARS_fields_::EDREQ_14,
-      EARS_fields_::EDREQ_15,
-      EARS_fields_::EDREQ_16,
-      EARS_fields_::EDREQ_17,
-      EARS_fields_::EDREQ_18,
-      EARS_fields_::EDREQ_19,
-      EARS_fields_::EDREQ_20,
-      EARS_fields_::EDREQ_21,
-      EARS_fields_::EDREQ_22,
-      EARS_fields_::EDREQ_23,
-      EARS_fields_::EDREQ_24,
-      EARS_fields_::EDREQ_25,
-      EARS_fields_::EDREQ_26,
-      EARS_fields_::EDREQ_27,
-      EARS_fields_::EDREQ_28,
-      EARS_fields_::EDREQ_29,
-      EARS_fields_::EDREQ_30,
-      EARS_fields_::EDREQ_31> {
-    using eEDREQ_0 = EARS_fields_::eEDREQ_0;
-    using eEDREQ_1 = EARS_fields_::eEDREQ_1;
-    using eEDREQ_2 = EARS_fields_::eEDREQ_2;
-    using eEDREQ_3 = EARS_fields_::eEDREQ_3;
-    using eEDREQ_4 = EARS_fields_::eEDREQ_4;
-    using eEDREQ_5 = EARS_fields_::eEDREQ_5;
-    using eEDREQ_6 = EARS_fields_::eEDREQ_6;
-    using eEDREQ_7 = EARS_fields_::eEDREQ_7;
-    using eEDREQ_8 = EARS_fields_::eEDREQ_8;
-    using eEDREQ_9 = EARS_fields_::eEDREQ_9;
-    using eEDREQ_10 = EARS_fields_::eEDREQ_10;
-    using eEDREQ_11 = EARS_fields_::eEDREQ_11;
-    using eEDREQ_12 = EARS_fields_::eEDREQ_12;
-    using eEDREQ_13 = EARS_fields_::eEDREQ_13;
-    using eEDREQ_14 = EARS_fields_::eEDREQ_14;
-    using eEDREQ_15 = EARS_fields_::eEDREQ_15;
-    using eEDREQ_16 = EARS_fields_::eEDREQ_16;
-    using eEDREQ_17 = EARS_fields_::eEDREQ_17;
-    using eEDREQ_18 = EARS_fields_::eEDREQ_18;
-    using eEDREQ_19 = EARS_fields_::eEDREQ_19;
-    using eEDREQ_20 = EARS_fields_::eEDREQ_20;
-    using eEDREQ_21 = EARS_fields_::eEDREQ_21;
-    using eEDREQ_22 = EARS_fields_::eEDREQ_22;
-    using eEDREQ_23 = EARS_fields_::eEDREQ_23;
-    using eEDREQ_24 = EARS_fields_::eEDREQ_24;
-    using eEDREQ_25 = EARS_fields_::eEDREQ_25;
-    using eEDREQ_26 = EARS_fields_::eEDREQ_26;
-    using eEDREQ_27 = EARS_fields_::eEDREQ_27;
-    using eEDREQ_28 = EARS_fields_::eEDREQ_28;
-    using eEDREQ_29 = EARS_fields_::eEDREQ_29;
-    using eEDREQ_30 = EARS_fields_::eEDREQ_30;
-    using eEDREQ_31 = EARS_fields_::eEDREQ_31;
-    using EDREQ_0 = EARS_fields_::EDREQ_0;
-    using EDREQ_1 = EARS_fields_::EDREQ_1;
-    using EDREQ_2 = EARS_fields_::EDREQ_2;
-    using EDREQ_3 = EARS_fields_::EDREQ_3;
-    using EDREQ_4 = EARS_fields_::EDREQ_4;
-    using EDREQ_5 = EARS_fields_::EDREQ_5;
-    using EDREQ_6 = EARS_fields_::EDREQ_6;
-    using EDREQ_7 = EARS_fields_::EDREQ_7;
-    using EDREQ_8 = EARS_fields_::EDREQ_8;
-    using EDREQ_9 = EARS_fields_::EDREQ_9;
-    using EDREQ_10 = EARS_fields_::EDREQ_10;
-    using EDREQ_11 = EARS_fields_::EDREQ_11;
-    using EDREQ_12 = EARS_fields_::EDREQ_12;
-    using EDREQ_13 = EARS_fields_::EDREQ_13;
-    using EDREQ_14 = EARS_fields_::EDREQ_14;
-    using EDREQ_15 = EARS_fields_::EDREQ_15;
-    using EDREQ_16 = EARS_fields_::EDREQ_16;
-    using EDREQ_17 = EARS_fields_::EDREQ_17;
-    using EDREQ_18 = EARS_fields_::EDREQ_18;
-    using EDREQ_19 = EARS_fields_::EDREQ_19;
-    using EDREQ_20 = EARS_fields_::EDREQ_20;
-    using EDREQ_21 = EARS_fields_::EDREQ_21;
-    using EDREQ_22 = EARS_fields_::EDREQ_22;
-    using EDREQ_23 = EARS_fields_::EDREQ_23;
-    using EDREQ_24 = EARS_fields_::EDREQ_24;
-    using EDREQ_25 = EARS_fields_::EDREQ_25;
-    using EDREQ_26 = EARS_fields_::EDREQ_26;
-    using EDREQ_27 = EARS_fields_::EDREQ_27;
-    using EDREQ_28 = EARS_fields_::EDREQ_28;
-    using EDREQ_29 = EARS_fields_::EDREQ_29;
-    using EDREQ_30 = EARS_fields_::EDREQ_30;
-    using EDREQ_31 = EARS_fields_::EDREQ_31;
+      EarsFields::EDREQ_0,
+      EarsFields::EDREQ_1,
+      EarsFields::EDREQ_2,
+      EarsFields::EDREQ_3,
+      EarsFields::EDREQ_4,
+      EarsFields::EDREQ_5,
+      EarsFields::EDREQ_6,
+      EarsFields::EDREQ_7,
+      EarsFields::EDREQ_8,
+      EarsFields::EDREQ_9,
+      EarsFields::EDREQ_10,
+      EarsFields::EDREQ_11,
+      EarsFields::EDREQ_12,
+      EarsFields::EDREQ_13,
+      EarsFields::EDREQ_14,
+      EarsFields::EDREQ_15,
+      EarsFields::EDREQ_16,
+      EarsFields::EDREQ_17,
+      EarsFields::EDREQ_18,
+      EarsFields::EDREQ_19,
+      EarsFields::EDREQ_20,
+      EarsFields::EDREQ_21,
+      EarsFields::EDREQ_22,
+      EarsFields::EDREQ_23,
+      EarsFields::EDREQ_24,
+      EarsFields::EDREQ_25,
+      EarsFields::EDREQ_26,
+      EarsFields::EDREQ_27,
+      EarsFields::EDREQ_28,
+      EarsFields::EDREQ_29,
+      EarsFields::EDREQ_30,
+      EarsFields::EDREQ_31> {
+    using eEDREQ_0 = EarsFields::eEDREQ_0;
+    using eEDREQ_1 = EarsFields::eEDREQ_1;
+    using eEDREQ_2 = EarsFields::eEDREQ_2;
+    using eEDREQ_3 = EarsFields::eEDREQ_3;
+    using eEDREQ_4 = EarsFields::eEDREQ_4;
+    using eEDREQ_5 = EarsFields::eEDREQ_5;
+    using eEDREQ_6 = EarsFields::eEDREQ_6;
+    using eEDREQ_7 = EarsFields::eEDREQ_7;
+    using eEDREQ_8 = EarsFields::eEDREQ_8;
+    using eEDREQ_9 = EarsFields::eEDREQ_9;
+    using eEDREQ_10 = EarsFields::eEDREQ_10;
+    using eEDREQ_11 = EarsFields::eEDREQ_11;
+    using eEDREQ_12 = EarsFields::eEDREQ_12;
+    using eEDREQ_13 = EarsFields::eEDREQ_13;
+    using eEDREQ_14 = EarsFields::eEDREQ_14;
+    using eEDREQ_15 = EarsFields::eEDREQ_15;
+    using eEDREQ_16 = EarsFields::eEDREQ_16;
+    using eEDREQ_17 = EarsFields::eEDREQ_17;
+    using eEDREQ_18 = EarsFields::eEDREQ_18;
+    using eEDREQ_19 = EarsFields::eEDREQ_19;
+    using eEDREQ_20 = EarsFields::eEDREQ_20;
+    using eEDREQ_21 = EarsFields::eEDREQ_21;
+    using eEDREQ_22 = EarsFields::eEDREQ_22;
+    using eEDREQ_23 = EarsFields::eEDREQ_23;
+    using eEDREQ_24 = EarsFields::eEDREQ_24;
+    using eEDREQ_25 = EarsFields::eEDREQ_25;
+    using eEDREQ_26 = EarsFields::eEDREQ_26;
+    using eEDREQ_27 = EarsFields::eEDREQ_27;
+    using eEDREQ_28 = EarsFields::eEDREQ_28;
+    using eEDREQ_29 = EarsFields::eEDREQ_29;
+    using eEDREQ_30 = EarsFields::eEDREQ_30;
+    using eEDREQ_31 = EarsFields::eEDREQ_31;
+    using EDREQ_0 = EarsFields::EDREQ_0;
+    using EDREQ_1 = EarsFields::EDREQ_1;
+    using EDREQ_2 = EarsFields::EDREQ_2;
+    using EDREQ_3 = EarsFields::EDREQ_3;
+    using EDREQ_4 = EarsFields::EDREQ_4;
+    using EDREQ_5 = EarsFields::EDREQ_5;
+    using EDREQ_6 = EarsFields::EDREQ_6;
+    using EDREQ_7 = EarsFields::EDREQ_7;
+    using EDREQ_8 = EarsFields::EDREQ_8;
+    using EDREQ_9 = EarsFields::EDREQ_9;
+    using EDREQ_10 = EarsFields::EDREQ_10;
+    using EDREQ_11 = EarsFields::EDREQ_11;
+    using EDREQ_12 = EarsFields::EDREQ_12;
+    using EDREQ_13 = EarsFields::EDREQ_13;
+    using EDREQ_14 = EarsFields::EDREQ_14;
+    using EDREQ_15 = EarsFields::EDREQ_15;
+    using EDREQ_16 = EarsFields::EDREQ_16;
+    using EDREQ_17 = EarsFields::EDREQ_17;
+    using EDREQ_18 = EarsFields::EDREQ_18;
+    using EDREQ_19 = EarsFields::EDREQ_19;
+    using EDREQ_20 = EarsFields::EDREQ_20;
+    using EDREQ_21 = EarsFields::EDREQ_21;
+    using EDREQ_22 = EarsFields::EDREQ_22;
+    using EDREQ_23 = EarsFields::EDREQ_23;
+    using EDREQ_24 = EarsFields::EDREQ_24;
+    using EDREQ_25 = EarsFields::EDREQ_25;
+    using EDREQ_26 = EarsFields::EDREQ_26;
+    using EDREQ_27 = EarsFields::EDREQ_27;
+    using EDREQ_28 = EarsFields::EDREQ_28;
+    using EDREQ_29 = EarsFields::EDREQ_29;
+    using EDREQ_30 = EarsFields::EDREQ_30;
+    using EDREQ_31 = EarsFields::EDREQ_31;
   };
 
   // Channel Priority
-  struct DCHPRI3_fields_ {
+  struct Dchpri3Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3031,27 +3031,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI3_fields_
+  };  // struct Dchpri3Fields
 
   struct DCHPRI3 : ftl::mmio::Register<
       0x40C14100u,
       std::uint8_t,
       0x03u,
       ftl::mmio::RW,
-      DCHPRI3_fields_::CHPRI,
-      DCHPRI3_fields_::GRPPRI,
-      DCHPRI3_fields_::DPA,
-      DCHPRI3_fields_::ECP> {
-    using eDPA = DCHPRI3_fields_::eDPA;
-    using eECP = DCHPRI3_fields_::eECP;
-    using CHPRI = DCHPRI3_fields_::CHPRI;
-    using GRPPRI = DCHPRI3_fields_::GRPPRI;
-    using DPA = DCHPRI3_fields_::DPA;
-    using ECP = DCHPRI3_fields_::ECP;
+      Dchpri3Fields::CHPRI,
+      Dchpri3Fields::GRPPRI,
+      Dchpri3Fields::DPA,
+      Dchpri3Fields::ECP> {
+    using eDPA = Dchpri3Fields::eDPA;
+    using eECP = Dchpri3Fields::eECP;
+    using CHPRI = Dchpri3Fields::CHPRI;
+    using GRPPRI = Dchpri3Fields::GRPPRI;
+    using DPA = Dchpri3Fields::DPA;
+    using ECP = Dchpri3Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI2_fields_ {
+  struct Dchpri2Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3074,27 +3074,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI2_fields_
+  };  // struct Dchpri2Fields
 
   struct DCHPRI2 : ftl::mmio::Register<
       0x40C14101u,
       std::uint8_t,
       0x02u,
       ftl::mmio::RW,
-      DCHPRI2_fields_::CHPRI,
-      DCHPRI2_fields_::GRPPRI,
-      DCHPRI2_fields_::DPA,
-      DCHPRI2_fields_::ECP> {
-    using eDPA = DCHPRI2_fields_::eDPA;
-    using eECP = DCHPRI2_fields_::eECP;
-    using CHPRI = DCHPRI2_fields_::CHPRI;
-    using GRPPRI = DCHPRI2_fields_::GRPPRI;
-    using DPA = DCHPRI2_fields_::DPA;
-    using ECP = DCHPRI2_fields_::ECP;
+      Dchpri2Fields::CHPRI,
+      Dchpri2Fields::GRPPRI,
+      Dchpri2Fields::DPA,
+      Dchpri2Fields::ECP> {
+    using eDPA = Dchpri2Fields::eDPA;
+    using eECP = Dchpri2Fields::eECP;
+    using CHPRI = Dchpri2Fields::CHPRI;
+    using GRPPRI = Dchpri2Fields::GRPPRI;
+    using DPA = Dchpri2Fields::DPA;
+    using ECP = Dchpri2Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI1_fields_ {
+  struct Dchpri1Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3117,27 +3117,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI1_fields_
+  };  // struct Dchpri1Fields
 
   struct DCHPRI1 : ftl::mmio::Register<
       0x40C14102u,
       std::uint8_t,
       0x01u,
       ftl::mmio::RW,
-      DCHPRI1_fields_::CHPRI,
-      DCHPRI1_fields_::GRPPRI,
-      DCHPRI1_fields_::DPA,
-      DCHPRI1_fields_::ECP> {
-    using eDPA = DCHPRI1_fields_::eDPA;
-    using eECP = DCHPRI1_fields_::eECP;
-    using CHPRI = DCHPRI1_fields_::CHPRI;
-    using GRPPRI = DCHPRI1_fields_::GRPPRI;
-    using DPA = DCHPRI1_fields_::DPA;
-    using ECP = DCHPRI1_fields_::ECP;
+      Dchpri1Fields::CHPRI,
+      Dchpri1Fields::GRPPRI,
+      Dchpri1Fields::DPA,
+      Dchpri1Fields::ECP> {
+    using eDPA = Dchpri1Fields::eDPA;
+    using eECP = Dchpri1Fields::eECP;
+    using CHPRI = Dchpri1Fields::CHPRI;
+    using GRPPRI = Dchpri1Fields::GRPPRI;
+    using DPA = Dchpri1Fields::DPA;
+    using ECP = Dchpri1Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI0_fields_ {
+  struct Dchpri0Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3160,27 +3160,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI0_fields_
+  };  // struct Dchpri0Fields
 
   struct DCHPRI0 : ftl::mmio::Register<
       0x40C14103u,
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      DCHPRI0_fields_::CHPRI,
-      DCHPRI0_fields_::GRPPRI,
-      DCHPRI0_fields_::DPA,
-      DCHPRI0_fields_::ECP> {
-    using eDPA = DCHPRI0_fields_::eDPA;
-    using eECP = DCHPRI0_fields_::eECP;
-    using CHPRI = DCHPRI0_fields_::CHPRI;
-    using GRPPRI = DCHPRI0_fields_::GRPPRI;
-    using DPA = DCHPRI0_fields_::DPA;
-    using ECP = DCHPRI0_fields_::ECP;
+      Dchpri0Fields::CHPRI,
+      Dchpri0Fields::GRPPRI,
+      Dchpri0Fields::DPA,
+      Dchpri0Fields::ECP> {
+    using eDPA = Dchpri0Fields::eDPA;
+    using eECP = Dchpri0Fields::eECP;
+    using CHPRI = Dchpri0Fields::CHPRI;
+    using GRPPRI = Dchpri0Fields::GRPPRI;
+    using DPA = Dchpri0Fields::DPA;
+    using ECP = Dchpri0Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI7_fields_ {
+  struct Dchpri7Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3203,27 +3203,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI7_fields_
+  };  // struct Dchpri7Fields
 
   struct DCHPRI7 : ftl::mmio::Register<
       0x40C14104u,
       std::uint8_t,
       0x07u,
       ftl::mmio::RW,
-      DCHPRI7_fields_::CHPRI,
-      DCHPRI7_fields_::GRPPRI,
-      DCHPRI7_fields_::DPA,
-      DCHPRI7_fields_::ECP> {
-    using eDPA = DCHPRI7_fields_::eDPA;
-    using eECP = DCHPRI7_fields_::eECP;
-    using CHPRI = DCHPRI7_fields_::CHPRI;
-    using GRPPRI = DCHPRI7_fields_::GRPPRI;
-    using DPA = DCHPRI7_fields_::DPA;
-    using ECP = DCHPRI7_fields_::ECP;
+      Dchpri7Fields::CHPRI,
+      Dchpri7Fields::GRPPRI,
+      Dchpri7Fields::DPA,
+      Dchpri7Fields::ECP> {
+    using eDPA = Dchpri7Fields::eDPA;
+    using eECP = Dchpri7Fields::eECP;
+    using CHPRI = Dchpri7Fields::CHPRI;
+    using GRPPRI = Dchpri7Fields::GRPPRI;
+    using DPA = Dchpri7Fields::DPA;
+    using ECP = Dchpri7Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI6_fields_ {
+  struct Dchpri6Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3246,27 +3246,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI6_fields_
+  };  // struct Dchpri6Fields
 
   struct DCHPRI6 : ftl::mmio::Register<
       0x40C14105u,
       std::uint8_t,
       0x06u,
       ftl::mmio::RW,
-      DCHPRI6_fields_::CHPRI,
-      DCHPRI6_fields_::GRPPRI,
-      DCHPRI6_fields_::DPA,
-      DCHPRI6_fields_::ECP> {
-    using eDPA = DCHPRI6_fields_::eDPA;
-    using eECP = DCHPRI6_fields_::eECP;
-    using CHPRI = DCHPRI6_fields_::CHPRI;
-    using GRPPRI = DCHPRI6_fields_::GRPPRI;
-    using DPA = DCHPRI6_fields_::DPA;
-    using ECP = DCHPRI6_fields_::ECP;
+      Dchpri6Fields::CHPRI,
+      Dchpri6Fields::GRPPRI,
+      Dchpri6Fields::DPA,
+      Dchpri6Fields::ECP> {
+    using eDPA = Dchpri6Fields::eDPA;
+    using eECP = Dchpri6Fields::eECP;
+    using CHPRI = Dchpri6Fields::CHPRI;
+    using GRPPRI = Dchpri6Fields::GRPPRI;
+    using DPA = Dchpri6Fields::DPA;
+    using ECP = Dchpri6Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI5_fields_ {
+  struct Dchpri5Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3289,27 +3289,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI5_fields_
+  };  // struct Dchpri5Fields
 
   struct DCHPRI5 : ftl::mmio::Register<
       0x40C14106u,
       std::uint8_t,
       0x05u,
       ftl::mmio::RW,
-      DCHPRI5_fields_::CHPRI,
-      DCHPRI5_fields_::GRPPRI,
-      DCHPRI5_fields_::DPA,
-      DCHPRI5_fields_::ECP> {
-    using eDPA = DCHPRI5_fields_::eDPA;
-    using eECP = DCHPRI5_fields_::eECP;
-    using CHPRI = DCHPRI5_fields_::CHPRI;
-    using GRPPRI = DCHPRI5_fields_::GRPPRI;
-    using DPA = DCHPRI5_fields_::DPA;
-    using ECP = DCHPRI5_fields_::ECP;
+      Dchpri5Fields::CHPRI,
+      Dchpri5Fields::GRPPRI,
+      Dchpri5Fields::DPA,
+      Dchpri5Fields::ECP> {
+    using eDPA = Dchpri5Fields::eDPA;
+    using eECP = Dchpri5Fields::eECP;
+    using CHPRI = Dchpri5Fields::CHPRI;
+    using GRPPRI = Dchpri5Fields::GRPPRI;
+    using DPA = Dchpri5Fields::DPA;
+    using ECP = Dchpri5Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI4_fields_ {
+  struct Dchpri4Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3332,27 +3332,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI4_fields_
+  };  // struct Dchpri4Fields
 
   struct DCHPRI4 : ftl::mmio::Register<
       0x40C14107u,
       std::uint8_t,
       0x04u,
       ftl::mmio::RW,
-      DCHPRI4_fields_::CHPRI,
-      DCHPRI4_fields_::GRPPRI,
-      DCHPRI4_fields_::DPA,
-      DCHPRI4_fields_::ECP> {
-    using eDPA = DCHPRI4_fields_::eDPA;
-    using eECP = DCHPRI4_fields_::eECP;
-    using CHPRI = DCHPRI4_fields_::CHPRI;
-    using GRPPRI = DCHPRI4_fields_::GRPPRI;
-    using DPA = DCHPRI4_fields_::DPA;
-    using ECP = DCHPRI4_fields_::ECP;
+      Dchpri4Fields::CHPRI,
+      Dchpri4Fields::GRPPRI,
+      Dchpri4Fields::DPA,
+      Dchpri4Fields::ECP> {
+    using eDPA = Dchpri4Fields::eDPA;
+    using eECP = Dchpri4Fields::eECP;
+    using CHPRI = Dchpri4Fields::CHPRI;
+    using GRPPRI = Dchpri4Fields::GRPPRI;
+    using DPA = Dchpri4Fields::DPA;
+    using ECP = Dchpri4Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI11_fields_ {
+  struct Dchpri11Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3375,27 +3375,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI11_fields_
+  };  // struct Dchpri11Fields
 
   struct DCHPRI11 : ftl::mmio::Register<
       0x40C14108u,
       std::uint8_t,
       0x0Bu,
       ftl::mmio::RW,
-      DCHPRI11_fields_::CHPRI,
-      DCHPRI11_fields_::GRPPRI,
-      DCHPRI11_fields_::DPA,
-      DCHPRI11_fields_::ECP> {
-    using eDPA = DCHPRI11_fields_::eDPA;
-    using eECP = DCHPRI11_fields_::eECP;
-    using CHPRI = DCHPRI11_fields_::CHPRI;
-    using GRPPRI = DCHPRI11_fields_::GRPPRI;
-    using DPA = DCHPRI11_fields_::DPA;
-    using ECP = DCHPRI11_fields_::ECP;
+      Dchpri11Fields::CHPRI,
+      Dchpri11Fields::GRPPRI,
+      Dchpri11Fields::DPA,
+      Dchpri11Fields::ECP> {
+    using eDPA = Dchpri11Fields::eDPA;
+    using eECP = Dchpri11Fields::eECP;
+    using CHPRI = Dchpri11Fields::CHPRI;
+    using GRPPRI = Dchpri11Fields::GRPPRI;
+    using DPA = Dchpri11Fields::DPA;
+    using ECP = Dchpri11Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI10_fields_ {
+  struct Dchpri10Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3418,27 +3418,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI10_fields_
+  };  // struct Dchpri10Fields
 
   struct DCHPRI10 : ftl::mmio::Register<
       0x40C14109u,
       std::uint8_t,
       0x0Au,
       ftl::mmio::RW,
-      DCHPRI10_fields_::CHPRI,
-      DCHPRI10_fields_::GRPPRI,
-      DCHPRI10_fields_::DPA,
-      DCHPRI10_fields_::ECP> {
-    using eDPA = DCHPRI10_fields_::eDPA;
-    using eECP = DCHPRI10_fields_::eECP;
-    using CHPRI = DCHPRI10_fields_::CHPRI;
-    using GRPPRI = DCHPRI10_fields_::GRPPRI;
-    using DPA = DCHPRI10_fields_::DPA;
-    using ECP = DCHPRI10_fields_::ECP;
+      Dchpri10Fields::CHPRI,
+      Dchpri10Fields::GRPPRI,
+      Dchpri10Fields::DPA,
+      Dchpri10Fields::ECP> {
+    using eDPA = Dchpri10Fields::eDPA;
+    using eECP = Dchpri10Fields::eECP;
+    using CHPRI = Dchpri10Fields::CHPRI;
+    using GRPPRI = Dchpri10Fields::GRPPRI;
+    using DPA = Dchpri10Fields::DPA;
+    using ECP = Dchpri10Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI9_fields_ {
+  struct Dchpri9Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3461,27 +3461,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI9_fields_
+  };  // struct Dchpri9Fields
 
   struct DCHPRI9 : ftl::mmio::Register<
       0x40C1410Au,
       std::uint8_t,
       0x09u,
       ftl::mmio::RW,
-      DCHPRI9_fields_::CHPRI,
-      DCHPRI9_fields_::GRPPRI,
-      DCHPRI9_fields_::DPA,
-      DCHPRI9_fields_::ECP> {
-    using eDPA = DCHPRI9_fields_::eDPA;
-    using eECP = DCHPRI9_fields_::eECP;
-    using CHPRI = DCHPRI9_fields_::CHPRI;
-    using GRPPRI = DCHPRI9_fields_::GRPPRI;
-    using DPA = DCHPRI9_fields_::DPA;
-    using ECP = DCHPRI9_fields_::ECP;
+      Dchpri9Fields::CHPRI,
+      Dchpri9Fields::GRPPRI,
+      Dchpri9Fields::DPA,
+      Dchpri9Fields::ECP> {
+    using eDPA = Dchpri9Fields::eDPA;
+    using eECP = Dchpri9Fields::eECP;
+    using CHPRI = Dchpri9Fields::CHPRI;
+    using GRPPRI = Dchpri9Fields::GRPPRI;
+    using DPA = Dchpri9Fields::DPA;
+    using ECP = Dchpri9Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI8_fields_ {
+  struct Dchpri8Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3504,27 +3504,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI8_fields_
+  };  // struct Dchpri8Fields
 
   struct DCHPRI8 : ftl::mmio::Register<
       0x40C1410Bu,
       std::uint8_t,
       0x08u,
       ftl::mmio::RW,
-      DCHPRI8_fields_::CHPRI,
-      DCHPRI8_fields_::GRPPRI,
-      DCHPRI8_fields_::DPA,
-      DCHPRI8_fields_::ECP> {
-    using eDPA = DCHPRI8_fields_::eDPA;
-    using eECP = DCHPRI8_fields_::eECP;
-    using CHPRI = DCHPRI8_fields_::CHPRI;
-    using GRPPRI = DCHPRI8_fields_::GRPPRI;
-    using DPA = DCHPRI8_fields_::DPA;
-    using ECP = DCHPRI8_fields_::ECP;
+      Dchpri8Fields::CHPRI,
+      Dchpri8Fields::GRPPRI,
+      Dchpri8Fields::DPA,
+      Dchpri8Fields::ECP> {
+    using eDPA = Dchpri8Fields::eDPA;
+    using eECP = Dchpri8Fields::eECP;
+    using CHPRI = Dchpri8Fields::CHPRI;
+    using GRPPRI = Dchpri8Fields::GRPPRI;
+    using DPA = Dchpri8Fields::DPA;
+    using ECP = Dchpri8Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI15_fields_ {
+  struct Dchpri15Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3547,27 +3547,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI15_fields_
+  };  // struct Dchpri15Fields
 
   struct DCHPRI15 : ftl::mmio::Register<
       0x40C1410Cu,
       std::uint8_t,
       0x0Fu,
       ftl::mmio::RW,
-      DCHPRI15_fields_::CHPRI,
-      DCHPRI15_fields_::GRPPRI,
-      DCHPRI15_fields_::DPA,
-      DCHPRI15_fields_::ECP> {
-    using eDPA = DCHPRI15_fields_::eDPA;
-    using eECP = DCHPRI15_fields_::eECP;
-    using CHPRI = DCHPRI15_fields_::CHPRI;
-    using GRPPRI = DCHPRI15_fields_::GRPPRI;
-    using DPA = DCHPRI15_fields_::DPA;
-    using ECP = DCHPRI15_fields_::ECP;
+      Dchpri15Fields::CHPRI,
+      Dchpri15Fields::GRPPRI,
+      Dchpri15Fields::DPA,
+      Dchpri15Fields::ECP> {
+    using eDPA = Dchpri15Fields::eDPA;
+    using eECP = Dchpri15Fields::eECP;
+    using CHPRI = Dchpri15Fields::CHPRI;
+    using GRPPRI = Dchpri15Fields::GRPPRI;
+    using DPA = Dchpri15Fields::DPA;
+    using ECP = Dchpri15Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI14_fields_ {
+  struct Dchpri14Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3590,27 +3590,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI14_fields_
+  };  // struct Dchpri14Fields
 
   struct DCHPRI14 : ftl::mmio::Register<
       0x40C1410Du,
       std::uint8_t,
       0x0Eu,
       ftl::mmio::RW,
-      DCHPRI14_fields_::CHPRI,
-      DCHPRI14_fields_::GRPPRI,
-      DCHPRI14_fields_::DPA,
-      DCHPRI14_fields_::ECP> {
-    using eDPA = DCHPRI14_fields_::eDPA;
-    using eECP = DCHPRI14_fields_::eECP;
-    using CHPRI = DCHPRI14_fields_::CHPRI;
-    using GRPPRI = DCHPRI14_fields_::GRPPRI;
-    using DPA = DCHPRI14_fields_::DPA;
-    using ECP = DCHPRI14_fields_::ECP;
+      Dchpri14Fields::CHPRI,
+      Dchpri14Fields::GRPPRI,
+      Dchpri14Fields::DPA,
+      Dchpri14Fields::ECP> {
+    using eDPA = Dchpri14Fields::eDPA;
+    using eECP = Dchpri14Fields::eECP;
+    using CHPRI = Dchpri14Fields::CHPRI;
+    using GRPPRI = Dchpri14Fields::GRPPRI;
+    using DPA = Dchpri14Fields::DPA;
+    using ECP = Dchpri14Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI13_fields_ {
+  struct Dchpri13Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3633,27 +3633,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI13_fields_
+  };  // struct Dchpri13Fields
 
   struct DCHPRI13 : ftl::mmio::Register<
       0x40C1410Eu,
       std::uint8_t,
       0x0Du,
       ftl::mmio::RW,
-      DCHPRI13_fields_::CHPRI,
-      DCHPRI13_fields_::GRPPRI,
-      DCHPRI13_fields_::DPA,
-      DCHPRI13_fields_::ECP> {
-    using eDPA = DCHPRI13_fields_::eDPA;
-    using eECP = DCHPRI13_fields_::eECP;
-    using CHPRI = DCHPRI13_fields_::CHPRI;
-    using GRPPRI = DCHPRI13_fields_::GRPPRI;
-    using DPA = DCHPRI13_fields_::DPA;
-    using ECP = DCHPRI13_fields_::ECP;
+      Dchpri13Fields::CHPRI,
+      Dchpri13Fields::GRPPRI,
+      Dchpri13Fields::DPA,
+      Dchpri13Fields::ECP> {
+    using eDPA = Dchpri13Fields::eDPA;
+    using eECP = Dchpri13Fields::eECP;
+    using CHPRI = Dchpri13Fields::CHPRI;
+    using GRPPRI = Dchpri13Fields::GRPPRI;
+    using DPA = Dchpri13Fields::DPA;
+    using ECP = Dchpri13Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI12_fields_ {
+  struct Dchpri12Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3676,27 +3676,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI12_fields_
+  };  // struct Dchpri12Fields
 
   struct DCHPRI12 : ftl::mmio::Register<
       0x40C1410Fu,
       std::uint8_t,
       0x0Cu,
       ftl::mmio::RW,
-      DCHPRI12_fields_::CHPRI,
-      DCHPRI12_fields_::GRPPRI,
-      DCHPRI12_fields_::DPA,
-      DCHPRI12_fields_::ECP> {
-    using eDPA = DCHPRI12_fields_::eDPA;
-    using eECP = DCHPRI12_fields_::eECP;
-    using CHPRI = DCHPRI12_fields_::CHPRI;
-    using GRPPRI = DCHPRI12_fields_::GRPPRI;
-    using DPA = DCHPRI12_fields_::DPA;
-    using ECP = DCHPRI12_fields_::ECP;
+      Dchpri12Fields::CHPRI,
+      Dchpri12Fields::GRPPRI,
+      Dchpri12Fields::DPA,
+      Dchpri12Fields::ECP> {
+    using eDPA = Dchpri12Fields::eDPA;
+    using eECP = Dchpri12Fields::eECP;
+    using CHPRI = Dchpri12Fields::CHPRI;
+    using GRPPRI = Dchpri12Fields::GRPPRI;
+    using DPA = Dchpri12Fields::DPA;
+    using ECP = Dchpri12Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI19_fields_ {
+  struct Dchpri19Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3719,27 +3719,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI19_fields_
+  };  // struct Dchpri19Fields
 
   struct DCHPRI19 : ftl::mmio::Register<
       0x40C14110u,
       std::uint8_t,
       0x13u,
       ftl::mmio::RW,
-      DCHPRI19_fields_::CHPRI,
-      DCHPRI19_fields_::GRPPRI,
-      DCHPRI19_fields_::DPA,
-      DCHPRI19_fields_::ECP> {
-    using eDPA = DCHPRI19_fields_::eDPA;
-    using eECP = DCHPRI19_fields_::eECP;
-    using CHPRI = DCHPRI19_fields_::CHPRI;
-    using GRPPRI = DCHPRI19_fields_::GRPPRI;
-    using DPA = DCHPRI19_fields_::DPA;
-    using ECP = DCHPRI19_fields_::ECP;
+      Dchpri19Fields::CHPRI,
+      Dchpri19Fields::GRPPRI,
+      Dchpri19Fields::DPA,
+      Dchpri19Fields::ECP> {
+    using eDPA = Dchpri19Fields::eDPA;
+    using eECP = Dchpri19Fields::eECP;
+    using CHPRI = Dchpri19Fields::CHPRI;
+    using GRPPRI = Dchpri19Fields::GRPPRI;
+    using DPA = Dchpri19Fields::DPA;
+    using ECP = Dchpri19Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI18_fields_ {
+  struct Dchpri18Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3762,27 +3762,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI18_fields_
+  };  // struct Dchpri18Fields
 
   struct DCHPRI18 : ftl::mmio::Register<
       0x40C14111u,
       std::uint8_t,
       0x12u,
       ftl::mmio::RW,
-      DCHPRI18_fields_::CHPRI,
-      DCHPRI18_fields_::GRPPRI,
-      DCHPRI18_fields_::DPA,
-      DCHPRI18_fields_::ECP> {
-    using eDPA = DCHPRI18_fields_::eDPA;
-    using eECP = DCHPRI18_fields_::eECP;
-    using CHPRI = DCHPRI18_fields_::CHPRI;
-    using GRPPRI = DCHPRI18_fields_::GRPPRI;
-    using DPA = DCHPRI18_fields_::DPA;
-    using ECP = DCHPRI18_fields_::ECP;
+      Dchpri18Fields::CHPRI,
+      Dchpri18Fields::GRPPRI,
+      Dchpri18Fields::DPA,
+      Dchpri18Fields::ECP> {
+    using eDPA = Dchpri18Fields::eDPA;
+    using eECP = Dchpri18Fields::eECP;
+    using CHPRI = Dchpri18Fields::CHPRI;
+    using GRPPRI = Dchpri18Fields::GRPPRI;
+    using DPA = Dchpri18Fields::DPA;
+    using ECP = Dchpri18Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI17_fields_ {
+  struct Dchpri17Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3805,27 +3805,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI17_fields_
+  };  // struct Dchpri17Fields
 
   struct DCHPRI17 : ftl::mmio::Register<
       0x40C14112u,
       std::uint8_t,
       0x11u,
       ftl::mmio::RW,
-      DCHPRI17_fields_::CHPRI,
-      DCHPRI17_fields_::GRPPRI,
-      DCHPRI17_fields_::DPA,
-      DCHPRI17_fields_::ECP> {
-    using eDPA = DCHPRI17_fields_::eDPA;
-    using eECP = DCHPRI17_fields_::eECP;
-    using CHPRI = DCHPRI17_fields_::CHPRI;
-    using GRPPRI = DCHPRI17_fields_::GRPPRI;
-    using DPA = DCHPRI17_fields_::DPA;
-    using ECP = DCHPRI17_fields_::ECP;
+      Dchpri17Fields::CHPRI,
+      Dchpri17Fields::GRPPRI,
+      Dchpri17Fields::DPA,
+      Dchpri17Fields::ECP> {
+    using eDPA = Dchpri17Fields::eDPA;
+    using eECP = Dchpri17Fields::eECP;
+    using CHPRI = Dchpri17Fields::CHPRI;
+    using GRPPRI = Dchpri17Fields::GRPPRI;
+    using DPA = Dchpri17Fields::DPA;
+    using ECP = Dchpri17Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI16_fields_ {
+  struct Dchpri16Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3848,27 +3848,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI16_fields_
+  };  // struct Dchpri16Fields
 
   struct DCHPRI16 : ftl::mmio::Register<
       0x40C14113u,
       std::uint8_t,
       0x10u,
       ftl::mmio::RW,
-      DCHPRI16_fields_::CHPRI,
-      DCHPRI16_fields_::GRPPRI,
-      DCHPRI16_fields_::DPA,
-      DCHPRI16_fields_::ECP> {
-    using eDPA = DCHPRI16_fields_::eDPA;
-    using eECP = DCHPRI16_fields_::eECP;
-    using CHPRI = DCHPRI16_fields_::CHPRI;
-    using GRPPRI = DCHPRI16_fields_::GRPPRI;
-    using DPA = DCHPRI16_fields_::DPA;
-    using ECP = DCHPRI16_fields_::ECP;
+      Dchpri16Fields::CHPRI,
+      Dchpri16Fields::GRPPRI,
+      Dchpri16Fields::DPA,
+      Dchpri16Fields::ECP> {
+    using eDPA = Dchpri16Fields::eDPA;
+    using eECP = Dchpri16Fields::eECP;
+    using CHPRI = Dchpri16Fields::CHPRI;
+    using GRPPRI = Dchpri16Fields::GRPPRI;
+    using DPA = Dchpri16Fields::DPA;
+    using ECP = Dchpri16Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI23_fields_ {
+  struct Dchpri23Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3891,27 +3891,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI23_fields_
+  };  // struct Dchpri23Fields
 
   struct DCHPRI23 : ftl::mmio::Register<
       0x40C14114u,
       std::uint8_t,
       0x17u,
       ftl::mmio::RW,
-      DCHPRI23_fields_::CHPRI,
-      DCHPRI23_fields_::GRPPRI,
-      DCHPRI23_fields_::DPA,
-      DCHPRI23_fields_::ECP> {
-    using eDPA = DCHPRI23_fields_::eDPA;
-    using eECP = DCHPRI23_fields_::eECP;
-    using CHPRI = DCHPRI23_fields_::CHPRI;
-    using GRPPRI = DCHPRI23_fields_::GRPPRI;
-    using DPA = DCHPRI23_fields_::DPA;
-    using ECP = DCHPRI23_fields_::ECP;
+      Dchpri23Fields::CHPRI,
+      Dchpri23Fields::GRPPRI,
+      Dchpri23Fields::DPA,
+      Dchpri23Fields::ECP> {
+    using eDPA = Dchpri23Fields::eDPA;
+    using eECP = Dchpri23Fields::eECP;
+    using CHPRI = Dchpri23Fields::CHPRI;
+    using GRPPRI = Dchpri23Fields::GRPPRI;
+    using DPA = Dchpri23Fields::DPA;
+    using ECP = Dchpri23Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI22_fields_ {
+  struct Dchpri22Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3934,27 +3934,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI22_fields_
+  };  // struct Dchpri22Fields
 
   struct DCHPRI22 : ftl::mmio::Register<
       0x40C14115u,
       std::uint8_t,
       0x16u,
       ftl::mmio::RW,
-      DCHPRI22_fields_::CHPRI,
-      DCHPRI22_fields_::GRPPRI,
-      DCHPRI22_fields_::DPA,
-      DCHPRI22_fields_::ECP> {
-    using eDPA = DCHPRI22_fields_::eDPA;
-    using eECP = DCHPRI22_fields_::eECP;
-    using CHPRI = DCHPRI22_fields_::CHPRI;
-    using GRPPRI = DCHPRI22_fields_::GRPPRI;
-    using DPA = DCHPRI22_fields_::DPA;
-    using ECP = DCHPRI22_fields_::ECP;
+      Dchpri22Fields::CHPRI,
+      Dchpri22Fields::GRPPRI,
+      Dchpri22Fields::DPA,
+      Dchpri22Fields::ECP> {
+    using eDPA = Dchpri22Fields::eDPA;
+    using eECP = Dchpri22Fields::eECP;
+    using CHPRI = Dchpri22Fields::CHPRI;
+    using GRPPRI = Dchpri22Fields::GRPPRI;
+    using DPA = Dchpri22Fields::DPA;
+    using ECP = Dchpri22Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI21_fields_ {
+  struct Dchpri21Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -3977,27 +3977,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI21_fields_
+  };  // struct Dchpri21Fields
 
   struct DCHPRI21 : ftl::mmio::Register<
       0x40C14116u,
       std::uint8_t,
       0x15u,
       ftl::mmio::RW,
-      DCHPRI21_fields_::CHPRI,
-      DCHPRI21_fields_::GRPPRI,
-      DCHPRI21_fields_::DPA,
-      DCHPRI21_fields_::ECP> {
-    using eDPA = DCHPRI21_fields_::eDPA;
-    using eECP = DCHPRI21_fields_::eECP;
-    using CHPRI = DCHPRI21_fields_::CHPRI;
-    using GRPPRI = DCHPRI21_fields_::GRPPRI;
-    using DPA = DCHPRI21_fields_::DPA;
-    using ECP = DCHPRI21_fields_::ECP;
+      Dchpri21Fields::CHPRI,
+      Dchpri21Fields::GRPPRI,
+      Dchpri21Fields::DPA,
+      Dchpri21Fields::ECP> {
+    using eDPA = Dchpri21Fields::eDPA;
+    using eECP = Dchpri21Fields::eECP;
+    using CHPRI = Dchpri21Fields::CHPRI;
+    using GRPPRI = Dchpri21Fields::GRPPRI;
+    using DPA = Dchpri21Fields::DPA;
+    using ECP = Dchpri21Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI20_fields_ {
+  struct Dchpri20Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4020,27 +4020,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI20_fields_
+  };  // struct Dchpri20Fields
 
   struct DCHPRI20 : ftl::mmio::Register<
       0x40C14117u,
       std::uint8_t,
       0x14u,
       ftl::mmio::RW,
-      DCHPRI20_fields_::CHPRI,
-      DCHPRI20_fields_::GRPPRI,
-      DCHPRI20_fields_::DPA,
-      DCHPRI20_fields_::ECP> {
-    using eDPA = DCHPRI20_fields_::eDPA;
-    using eECP = DCHPRI20_fields_::eECP;
-    using CHPRI = DCHPRI20_fields_::CHPRI;
-    using GRPPRI = DCHPRI20_fields_::GRPPRI;
-    using DPA = DCHPRI20_fields_::DPA;
-    using ECP = DCHPRI20_fields_::ECP;
+      Dchpri20Fields::CHPRI,
+      Dchpri20Fields::GRPPRI,
+      Dchpri20Fields::DPA,
+      Dchpri20Fields::ECP> {
+    using eDPA = Dchpri20Fields::eDPA;
+    using eECP = Dchpri20Fields::eECP;
+    using CHPRI = Dchpri20Fields::CHPRI;
+    using GRPPRI = Dchpri20Fields::GRPPRI;
+    using DPA = Dchpri20Fields::DPA;
+    using ECP = Dchpri20Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI27_fields_ {
+  struct Dchpri27Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4063,27 +4063,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI27_fields_
+  };  // struct Dchpri27Fields
 
   struct DCHPRI27 : ftl::mmio::Register<
       0x40C14118u,
       std::uint8_t,
       0x1Bu,
       ftl::mmio::RW,
-      DCHPRI27_fields_::CHPRI,
-      DCHPRI27_fields_::GRPPRI,
-      DCHPRI27_fields_::DPA,
-      DCHPRI27_fields_::ECP> {
-    using eDPA = DCHPRI27_fields_::eDPA;
-    using eECP = DCHPRI27_fields_::eECP;
-    using CHPRI = DCHPRI27_fields_::CHPRI;
-    using GRPPRI = DCHPRI27_fields_::GRPPRI;
-    using DPA = DCHPRI27_fields_::DPA;
-    using ECP = DCHPRI27_fields_::ECP;
+      Dchpri27Fields::CHPRI,
+      Dchpri27Fields::GRPPRI,
+      Dchpri27Fields::DPA,
+      Dchpri27Fields::ECP> {
+    using eDPA = Dchpri27Fields::eDPA;
+    using eECP = Dchpri27Fields::eECP;
+    using CHPRI = Dchpri27Fields::CHPRI;
+    using GRPPRI = Dchpri27Fields::GRPPRI;
+    using DPA = Dchpri27Fields::DPA;
+    using ECP = Dchpri27Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI26_fields_ {
+  struct Dchpri26Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4106,27 +4106,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI26_fields_
+  };  // struct Dchpri26Fields
 
   struct DCHPRI26 : ftl::mmio::Register<
       0x40C14119u,
       std::uint8_t,
       0x1Au,
       ftl::mmio::RW,
-      DCHPRI26_fields_::CHPRI,
-      DCHPRI26_fields_::GRPPRI,
-      DCHPRI26_fields_::DPA,
-      DCHPRI26_fields_::ECP> {
-    using eDPA = DCHPRI26_fields_::eDPA;
-    using eECP = DCHPRI26_fields_::eECP;
-    using CHPRI = DCHPRI26_fields_::CHPRI;
-    using GRPPRI = DCHPRI26_fields_::GRPPRI;
-    using DPA = DCHPRI26_fields_::DPA;
-    using ECP = DCHPRI26_fields_::ECP;
+      Dchpri26Fields::CHPRI,
+      Dchpri26Fields::GRPPRI,
+      Dchpri26Fields::DPA,
+      Dchpri26Fields::ECP> {
+    using eDPA = Dchpri26Fields::eDPA;
+    using eECP = Dchpri26Fields::eECP;
+    using CHPRI = Dchpri26Fields::CHPRI;
+    using GRPPRI = Dchpri26Fields::GRPPRI;
+    using DPA = Dchpri26Fields::DPA;
+    using ECP = Dchpri26Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI25_fields_ {
+  struct Dchpri25Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4149,27 +4149,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI25_fields_
+  };  // struct Dchpri25Fields
 
   struct DCHPRI25 : ftl::mmio::Register<
       0x40C1411Au,
       std::uint8_t,
       0x19u,
       ftl::mmio::RW,
-      DCHPRI25_fields_::CHPRI,
-      DCHPRI25_fields_::GRPPRI,
-      DCHPRI25_fields_::DPA,
-      DCHPRI25_fields_::ECP> {
-    using eDPA = DCHPRI25_fields_::eDPA;
-    using eECP = DCHPRI25_fields_::eECP;
-    using CHPRI = DCHPRI25_fields_::CHPRI;
-    using GRPPRI = DCHPRI25_fields_::GRPPRI;
-    using DPA = DCHPRI25_fields_::DPA;
-    using ECP = DCHPRI25_fields_::ECP;
+      Dchpri25Fields::CHPRI,
+      Dchpri25Fields::GRPPRI,
+      Dchpri25Fields::DPA,
+      Dchpri25Fields::ECP> {
+    using eDPA = Dchpri25Fields::eDPA;
+    using eECP = Dchpri25Fields::eECP;
+    using CHPRI = Dchpri25Fields::CHPRI;
+    using GRPPRI = Dchpri25Fields::GRPPRI;
+    using DPA = Dchpri25Fields::DPA;
+    using ECP = Dchpri25Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI24_fields_ {
+  struct Dchpri24Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4192,27 +4192,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI24_fields_
+  };  // struct Dchpri24Fields
 
   struct DCHPRI24 : ftl::mmio::Register<
       0x40C1411Bu,
       std::uint8_t,
       0x18u,
       ftl::mmio::RW,
-      DCHPRI24_fields_::CHPRI,
-      DCHPRI24_fields_::GRPPRI,
-      DCHPRI24_fields_::DPA,
-      DCHPRI24_fields_::ECP> {
-    using eDPA = DCHPRI24_fields_::eDPA;
-    using eECP = DCHPRI24_fields_::eECP;
-    using CHPRI = DCHPRI24_fields_::CHPRI;
-    using GRPPRI = DCHPRI24_fields_::GRPPRI;
-    using DPA = DCHPRI24_fields_::DPA;
-    using ECP = DCHPRI24_fields_::ECP;
+      Dchpri24Fields::CHPRI,
+      Dchpri24Fields::GRPPRI,
+      Dchpri24Fields::DPA,
+      Dchpri24Fields::ECP> {
+    using eDPA = Dchpri24Fields::eDPA;
+    using eECP = Dchpri24Fields::eECP;
+    using CHPRI = Dchpri24Fields::CHPRI;
+    using GRPPRI = Dchpri24Fields::GRPPRI;
+    using DPA = Dchpri24Fields::DPA;
+    using ECP = Dchpri24Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI31_fields_ {
+  struct Dchpri31Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4235,27 +4235,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI31_fields_
+  };  // struct Dchpri31Fields
 
   struct DCHPRI31 : ftl::mmio::Register<
       0x40C1411Cu,
       std::uint8_t,
       0x1Fu,
       ftl::mmio::RW,
-      DCHPRI31_fields_::CHPRI,
-      DCHPRI31_fields_::GRPPRI,
-      DCHPRI31_fields_::DPA,
-      DCHPRI31_fields_::ECP> {
-    using eDPA = DCHPRI31_fields_::eDPA;
-    using eECP = DCHPRI31_fields_::eECP;
-    using CHPRI = DCHPRI31_fields_::CHPRI;
-    using GRPPRI = DCHPRI31_fields_::GRPPRI;
-    using DPA = DCHPRI31_fields_::DPA;
-    using ECP = DCHPRI31_fields_::ECP;
+      Dchpri31Fields::CHPRI,
+      Dchpri31Fields::GRPPRI,
+      Dchpri31Fields::DPA,
+      Dchpri31Fields::ECP> {
+    using eDPA = Dchpri31Fields::eDPA;
+    using eECP = Dchpri31Fields::eECP;
+    using CHPRI = Dchpri31Fields::CHPRI;
+    using GRPPRI = Dchpri31Fields::GRPPRI;
+    using DPA = Dchpri31Fields::DPA;
+    using ECP = Dchpri31Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI30_fields_ {
+  struct Dchpri30Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4278,27 +4278,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI30_fields_
+  };  // struct Dchpri30Fields
 
   struct DCHPRI30 : ftl::mmio::Register<
       0x40C1411Du,
       std::uint8_t,
       0x1Eu,
       ftl::mmio::RW,
-      DCHPRI30_fields_::CHPRI,
-      DCHPRI30_fields_::GRPPRI,
-      DCHPRI30_fields_::DPA,
-      DCHPRI30_fields_::ECP> {
-    using eDPA = DCHPRI30_fields_::eDPA;
-    using eECP = DCHPRI30_fields_::eECP;
-    using CHPRI = DCHPRI30_fields_::CHPRI;
-    using GRPPRI = DCHPRI30_fields_::GRPPRI;
-    using DPA = DCHPRI30_fields_::DPA;
-    using ECP = DCHPRI30_fields_::ECP;
+      Dchpri30Fields::CHPRI,
+      Dchpri30Fields::GRPPRI,
+      Dchpri30Fields::DPA,
+      Dchpri30Fields::ECP> {
+    using eDPA = Dchpri30Fields::eDPA;
+    using eECP = Dchpri30Fields::eECP;
+    using CHPRI = Dchpri30Fields::CHPRI;
+    using GRPPRI = Dchpri30Fields::GRPPRI;
+    using DPA = Dchpri30Fields::DPA;
+    using ECP = Dchpri30Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI29_fields_ {
+  struct Dchpri29Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4321,27 +4321,27 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI29_fields_
+  };  // struct Dchpri29Fields
 
   struct DCHPRI29 : ftl::mmio::Register<
       0x40C1411Eu,
       std::uint8_t,
       0x1Du,
       ftl::mmio::RW,
-      DCHPRI29_fields_::CHPRI,
-      DCHPRI29_fields_::GRPPRI,
-      DCHPRI29_fields_::DPA,
-      DCHPRI29_fields_::ECP> {
-    using eDPA = DCHPRI29_fields_::eDPA;
-    using eECP = DCHPRI29_fields_::eECP;
-    using CHPRI = DCHPRI29_fields_::CHPRI;
-    using GRPPRI = DCHPRI29_fields_::GRPPRI;
-    using DPA = DCHPRI29_fields_::DPA;
-    using ECP = DCHPRI29_fields_::ECP;
+      Dchpri29Fields::CHPRI,
+      Dchpri29Fields::GRPPRI,
+      Dchpri29Fields::DPA,
+      Dchpri29Fields::ECP> {
+    using eDPA = Dchpri29Fields::eDPA;
+    using eECP = Dchpri29Fields::eECP;
+    using CHPRI = Dchpri29Fields::CHPRI;
+    using GRPPRI = Dchpri29Fields::GRPPRI;
+    using DPA = Dchpri29Fields::DPA;
+    using ECP = Dchpri29Fields::ECP;
   };
 
   // Channel Priority
-  struct DCHPRI28_fields_ {
+  struct Dchpri28Fields {
     enum class eDPA : std::uint32_t {
       // Channel n can suspend a lower priority channel
       eENABLED = 0,
@@ -4364,30 +4364,30 @@ struct Dma1 {
     using DPA = ftl::mmio::Field<1, 6, eDPA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Channel Preemption. This field resets to 0.
     using ECP = ftl::mmio::Field<1, 7, eECP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DCHPRI28_fields_
+  };  // struct Dchpri28Fields
 
   struct DCHPRI28 : ftl::mmio::Register<
       0x40C1411Fu,
       std::uint8_t,
       0x1Cu,
       ftl::mmio::RW,
-      DCHPRI28_fields_::CHPRI,
-      DCHPRI28_fields_::GRPPRI,
-      DCHPRI28_fields_::DPA,
-      DCHPRI28_fields_::ECP> {
-    using eDPA = DCHPRI28_fields_::eDPA;
-    using eECP = DCHPRI28_fields_::eECP;
-    using CHPRI = DCHPRI28_fields_::CHPRI;
-    using GRPPRI = DCHPRI28_fields_::GRPPRI;
-    using DPA = DCHPRI28_fields_::DPA;
-    using ECP = DCHPRI28_fields_::ECP;
+      Dchpri28Fields::CHPRI,
+      Dchpri28Fields::GRPPRI,
+      Dchpri28Fields::DPA,
+      Dchpri28Fields::ECP> {
+    using eDPA = Dchpri28Fields::eDPA;
+    using eECP = Dchpri28Fields::eECP;
+    using CHPRI = Dchpri28Fields::CHPRI;
+    using GRPPRI = Dchpri28Fields::GRPPRI;
+    using DPA = Dchpri28Fields::DPA;
+    using ECP = Dchpri28Fields::ECP;
   };
 
   // TCD Source Address
-  struct TCD_SADDR_fields_ {
+  struct TcdSaddrFields {
     // Source Address
     using SADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_SADDR_fields_
+  };  // struct TcdSaddrFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_SADDR : ftl::mmio::Register<
@@ -4395,16 +4395,16 @@ struct Dma1 {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCD_SADDR_fields_::SADDR> {
+      TcdSaddrFields::SADDR> {
     static_assert(ClusterIndex < 32u, "TCD_SADDR: ClusterIndex out of range");
-    using SADDR = TCD_SADDR_fields_::SADDR;
+    using SADDR = TcdSaddrFields::SADDR;
   };
 
   // TCD Signed Source Address Offset
-  struct TCD_SOFF_fields_ {
+  struct TcdSoffFields {
     // Source address signed offset
     using SOFF = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_SOFF_fields_
+  };  // struct TcdSoffFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_SOFF : ftl::mmio::Register<
@@ -4412,13 +4412,13 @@ struct Dma1 {
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      TCD_SOFF_fields_::SOFF> {
+      TcdSoffFields::SOFF> {
     static_assert(ClusterIndex < 32u, "TCD_SOFF: ClusterIndex out of range");
-    using SOFF = TCD_SOFF_fields_::SOFF;
+    using SOFF = TcdSoffFields::SOFF;
   };
 
   // TCD Transfer Attributes
-  struct TCD_ATTR_fields_ {
+  struct TcdAttrFields {
     enum class eSSIZE : std::uint32_t {
       // 8-bit
       eEIGHT = 0,
@@ -4463,7 +4463,7 @@ struct Dma1 {
     using SSIZE = ftl::mmio::Field<3, 8, eSSIZE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Source Address Modulo
     using SMOD = ftl::mmio::Field<5, 11, eSMOD, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_ATTR_fields_
+  };  // struct TcdAttrFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_ATTR : ftl::mmio::Register<
@@ -4471,24 +4471,24 @@ struct Dma1 {
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      TCD_ATTR_fields_::DSIZE,
-      TCD_ATTR_fields_::DMOD,
-      TCD_ATTR_fields_::SSIZE,
-      TCD_ATTR_fields_::SMOD> {
+      TcdAttrFields::DSIZE,
+      TcdAttrFields::DMOD,
+      TcdAttrFields::SSIZE,
+      TcdAttrFields::SMOD> {
     static_assert(ClusterIndex < 32u, "TCD_ATTR: ClusterIndex out of range");
-    using eSSIZE = TCD_ATTR_fields_::eSSIZE;
-    using eSMOD = TCD_ATTR_fields_::eSMOD;
-    using DSIZE = TCD_ATTR_fields_::DSIZE;
-    using DMOD = TCD_ATTR_fields_::DMOD;
-    using SSIZE = TCD_ATTR_fields_::SSIZE;
-    using SMOD = TCD_ATTR_fields_::SMOD;
+    using eSSIZE = TcdAttrFields::eSSIZE;
+    using eSMOD = TcdAttrFields::eSMOD;
+    using DSIZE = TcdAttrFields::DSIZE;
+    using DMOD = TcdAttrFields::DMOD;
+    using SSIZE = TcdAttrFields::SSIZE;
+    using SMOD = TcdAttrFields::SMOD;
   };
 
   // TCD Last Source Address Adjustment
-  struct TCD_SLAST_fields_ {
+  struct TcdSlastFields {
     // Last Source Address Adjustment
     using SLAST = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_SLAST_fields_
+  };  // struct TcdSlastFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_SLAST : ftl::mmio::Register<
@@ -4496,16 +4496,16 @@ struct Dma1 {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCD_SLAST_fields_::SLAST> {
+      TcdSlastFields::SLAST> {
     static_assert(ClusterIndex < 32u, "TCD_SLAST: ClusterIndex out of range");
-    using SLAST = TCD_SLAST_fields_::SLAST;
+    using SLAST = TcdSlastFields::SLAST;
   };
 
   // TCD Destination Address
-  struct TCD_DADDR_fields_ {
+  struct TcdDaddrFields {
     // Destination Address
     using DADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_DADDR_fields_
+  };  // struct TcdDaddrFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_DADDR : ftl::mmio::Register<
@@ -4513,16 +4513,16 @@ struct Dma1 {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCD_DADDR_fields_::DADDR> {
+      TcdDaddrFields::DADDR> {
     static_assert(ClusterIndex < 32u, "TCD_DADDR: ClusterIndex out of range");
-    using DADDR = TCD_DADDR_fields_::DADDR;
+    using DADDR = TcdDaddrFields::DADDR;
   };
 
   // TCD Signed Destination Address Offset
-  struct TCD_DOFF_fields_ {
+  struct TcdDoffFields {
     // Destination Address Signed Offset
     using DOFF = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_DOFF_fields_
+  };  // struct TcdDoffFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_DOFF : ftl::mmio::Register<
@@ -4530,16 +4530,16 @@ struct Dma1 {
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      TCD_DOFF_fields_::DOFF> {
+      TcdDoffFields::DOFF> {
     static_assert(ClusterIndex < 32u, "TCD_DOFF: ClusterIndex out of range");
-    using DOFF = TCD_DOFF_fields_::DOFF;
+    using DOFF = TcdDoffFields::DOFF;
   };
 
   // TCD Last Destination Address Adjustment/Scatter Gather Address
-  struct TCD_DLASTSGA_fields_ {
+  struct TcdDlastsgaFields {
     // Destination last address adjustment, or next memory address TCD for channel (scatter/gather)
     using DLASTSGA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_DLASTSGA_fields_
+  };  // struct TcdDlastsgaFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_DLASTSGA : ftl::mmio::Register<
@@ -4547,13 +4547,13 @@ struct Dma1 {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCD_DLASTSGA_fields_::DLASTSGA> {
+      TcdDlastsgaFields::DLASTSGA> {
     static_assert(ClusterIndex < 32u, "TCD_DLASTSGA: ClusterIndex out of range");
-    using DLASTSGA = TCD_DLASTSGA_fields_::DLASTSGA;
+    using DLASTSGA = TcdDlastsgaFields::DLASTSGA;
   };
 
   // TCD Control and Status
-  struct TCD_CSR_fields_ {
+  struct TcdCsrFields {
     enum class eSTART : std::uint32_t {
       // Channel is not explicitly started
       eNO_START = 0,
@@ -4625,7 +4625,7 @@ struct Dma1 {
     using MAJORLINKCH = ftl::mmio::Field<5, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Bandwidth Control
     using BWC = ftl::mmio::Field<2, 14, eBWC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_CSR_fields_
+  };  // struct TcdCsrFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_CSR : ftl::mmio::Register<
@@ -4633,42 +4633,42 @@ struct Dma1 {
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      TCD_CSR_fields_::START,
-      TCD_CSR_fields_::INTMAJOR,
-      TCD_CSR_fields_::INTHALF,
-      TCD_CSR_fields_::DREQ,
-      TCD_CSR_fields_::ESG,
-      TCD_CSR_fields_::MAJORELINK,
-      TCD_CSR_fields_::ACTIVE,
-      TCD_CSR_fields_::DONE,
-      TCD_CSR_fields_::MAJORLINKCH,
+      TcdCsrFields::START,
+      TcdCsrFields::INTMAJOR,
+      TcdCsrFields::INTHALF,
+      TcdCsrFields::DREQ,
+      TcdCsrFields::ESG,
+      TcdCsrFields::MAJORELINK,
+      TcdCsrFields::ACTIVE,
+      TcdCsrFields::DONE,
+      TcdCsrFields::MAJORLINKCH,
       ftl::mmio::Reserved<1, 13>,
-      TCD_CSR_fields_::BWC> {
+      TcdCsrFields::BWC> {
     static_assert(ClusterIndex < 32u, "TCD_CSR: ClusterIndex out of range");
-    using eSTART = TCD_CSR_fields_::eSTART;
-    using eINTMAJOR = TCD_CSR_fields_::eINTMAJOR;
-    using eINTHALF = TCD_CSR_fields_::eINTHALF;
-    using eDREQ = TCD_CSR_fields_::eDREQ;
-    using eESG = TCD_CSR_fields_::eESG;
-    using eMAJORELINK = TCD_CSR_fields_::eMAJORELINK;
-    using eBWC = TCD_CSR_fields_::eBWC;
-    using START = TCD_CSR_fields_::START;
-    using INTMAJOR = TCD_CSR_fields_::INTMAJOR;
-    using INTHALF = TCD_CSR_fields_::INTHALF;
-    using DREQ = TCD_CSR_fields_::DREQ;
-    using ESG = TCD_CSR_fields_::ESG;
-    using MAJORELINK = TCD_CSR_fields_::MAJORELINK;
-    using ACTIVE = TCD_CSR_fields_::ACTIVE;
-    using DONE = TCD_CSR_fields_::DONE;
-    using MAJORLINKCH = TCD_CSR_fields_::MAJORLINKCH;
-    using BWC = TCD_CSR_fields_::BWC;
+    using eSTART = TcdCsrFields::eSTART;
+    using eINTMAJOR = TcdCsrFields::eINTMAJOR;
+    using eINTHALF = TcdCsrFields::eINTHALF;
+    using eDREQ = TcdCsrFields::eDREQ;
+    using eESG = TcdCsrFields::eESG;
+    using eMAJORELINK = TcdCsrFields::eMAJORELINK;
+    using eBWC = TcdCsrFields::eBWC;
+    using START = TcdCsrFields::START;
+    using INTMAJOR = TcdCsrFields::INTMAJOR;
+    using INTHALF = TcdCsrFields::INTHALF;
+    using DREQ = TcdCsrFields::DREQ;
+    using ESG = TcdCsrFields::ESG;
+    using MAJORELINK = TcdCsrFields::MAJORELINK;
+    using ACTIVE = TcdCsrFields::ACTIVE;
+    using DONE = TcdCsrFields::DONE;
+    using MAJORLINKCH = TcdCsrFields::MAJORLINKCH;
+    using BWC = TcdCsrFields::BWC;
   };
 
   // TCD Minor Byte Count (Minor Loop Mapping Disabled)
-  struct TCD_NBYTES_MLNO_fields_ {
+  struct TcdNbytesMlnoFields {
     // Minor Byte Transfer Count
     using NBYTES = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_NBYTES_MLNO_fields_
+  };  // struct TcdNbytesMlnoFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_NBYTES_MLNO : ftl::mmio::Register<
@@ -4676,13 +4676,13 @@ struct Dma1 {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCD_NBYTES_MLNO_fields_::NBYTES> {
+      TcdNbytesMlnoFields::NBYTES> {
     static_assert(ClusterIndex < 32u, "TCD_NBYTES_MLNO: ClusterIndex out of range");
-    using NBYTES = TCD_NBYTES_MLNO_fields_::NBYTES;
+    using NBYTES = TcdNbytesMlnoFields::NBYTES;
   };
 
   // TCD Signed Minor Loop Offset (Minor Loop Mapping Enabled and Offset Disabled)
-  struct TCD_NBYTES_MLOFFNO_fields_ {
+  struct TcdNbytesMloffnoFields {
     enum class eDMLOE : std::uint32_t {
       // The minor loop offset is not applied to the DADDR
       eDISABLED = 0,
@@ -4703,7 +4703,7 @@ struct Dma1 {
     using DMLOE = ftl::mmio::Field<1, 30, eDMLOE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Source Minor Loop Offset Enable
     using SMLOE = ftl::mmio::Field<1, 31, eSMLOE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_NBYTES_MLOFFNO_fields_
+  };  // struct TcdNbytesMloffnoFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_NBYTES_MLOFFNO : ftl::mmio::Register<
@@ -4711,19 +4711,19 @@ struct Dma1 {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCD_NBYTES_MLOFFNO_fields_::NBYTES,
-      TCD_NBYTES_MLOFFNO_fields_::DMLOE,
-      TCD_NBYTES_MLOFFNO_fields_::SMLOE> {
+      TcdNbytesMloffnoFields::NBYTES,
+      TcdNbytesMloffnoFields::DMLOE,
+      TcdNbytesMloffnoFields::SMLOE> {
     static_assert(ClusterIndex < 32u, "TCD_NBYTES_MLOFFNO: ClusterIndex out of range");
-    using eDMLOE = TCD_NBYTES_MLOFFNO_fields_::eDMLOE;
-    using eSMLOE = TCD_NBYTES_MLOFFNO_fields_::eSMLOE;
-    using NBYTES = TCD_NBYTES_MLOFFNO_fields_::NBYTES;
-    using DMLOE = TCD_NBYTES_MLOFFNO_fields_::DMLOE;
-    using SMLOE = TCD_NBYTES_MLOFFNO_fields_::SMLOE;
+    using eDMLOE = TcdNbytesMloffnoFields::eDMLOE;
+    using eSMLOE = TcdNbytesMloffnoFields::eSMLOE;
+    using NBYTES = TcdNbytesMloffnoFields::NBYTES;
+    using DMLOE = TcdNbytesMloffnoFields::DMLOE;
+    using SMLOE = TcdNbytesMloffnoFields::SMLOE;
   };
 
   // TCD Signed Minor Loop Offset (Minor Loop Mapping and Offset Enabled)
-  struct TCD_NBYTES_MLOFFYES_fields_ {
+  struct TcdNbytesMloffyesFields {
     enum class eDMLOE : std::uint32_t {
       // The minor loop offset is not applied to the DADDR
       eDISABLED = 0,
@@ -4746,7 +4746,7 @@ struct Dma1 {
     using DMLOE = ftl::mmio::Field<1, 30, eDMLOE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Source Minor Loop Offset Enable
     using SMLOE = ftl::mmio::Field<1, 31, eSMLOE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_NBYTES_MLOFFYES_fields_
+  };  // struct TcdNbytesMloffyesFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_NBYTES_MLOFFYES : ftl::mmio::Register<
@@ -4754,21 +4754,21 @@ struct Dma1 {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TCD_NBYTES_MLOFFYES_fields_::NBYTES,
-      TCD_NBYTES_MLOFFYES_fields_::MLOFF,
-      TCD_NBYTES_MLOFFYES_fields_::DMLOE,
-      TCD_NBYTES_MLOFFYES_fields_::SMLOE> {
+      TcdNbytesMloffyesFields::NBYTES,
+      TcdNbytesMloffyesFields::MLOFF,
+      TcdNbytesMloffyesFields::DMLOE,
+      TcdNbytesMloffyesFields::SMLOE> {
     static_assert(ClusterIndex < 32u, "TCD_NBYTES_MLOFFYES: ClusterIndex out of range");
-    using eDMLOE = TCD_NBYTES_MLOFFYES_fields_::eDMLOE;
-    using eSMLOE = TCD_NBYTES_MLOFFYES_fields_::eSMLOE;
-    using NBYTES = TCD_NBYTES_MLOFFYES_fields_::NBYTES;
-    using MLOFF = TCD_NBYTES_MLOFFYES_fields_::MLOFF;
-    using DMLOE = TCD_NBYTES_MLOFFYES_fields_::DMLOE;
-    using SMLOE = TCD_NBYTES_MLOFFYES_fields_::SMLOE;
+    using eDMLOE = TcdNbytesMloffyesFields::eDMLOE;
+    using eSMLOE = TcdNbytesMloffyesFields::eSMLOE;
+    using NBYTES = TcdNbytesMloffyesFields::NBYTES;
+    using MLOFF = TcdNbytesMloffyesFields::MLOFF;
+    using DMLOE = TcdNbytesMloffyesFields::DMLOE;
+    using SMLOE = TcdNbytesMloffyesFields::SMLOE;
   };
 
   // TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
-  struct TCD_CITER_ELINKNO_fields_ {
+  struct TcdCiterElinknoFields {
     enum class eELINK : std::uint32_t {
       // Channel-to-channel linking is disabled
       eDISABLED = 0,
@@ -4780,7 +4780,7 @@ struct Dma1 {
     using CITER = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable channel-to-channel linking on minor-loop complete
     using ELINK = ftl::mmio::Field<1, 15, eELINK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_CITER_ELINKNO_fields_
+  };  // struct TcdCiterElinknoFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_CITER_ELINKNO : ftl::mmio::Register<
@@ -4788,16 +4788,16 @@ struct Dma1 {
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      TCD_CITER_ELINKNO_fields_::CITER,
-      TCD_CITER_ELINKNO_fields_::ELINK> {
+      TcdCiterElinknoFields::CITER,
+      TcdCiterElinknoFields::ELINK> {
     static_assert(ClusterIndex < 32u, "TCD_CITER_ELINKNO: ClusterIndex out of range");
-    using eELINK = TCD_CITER_ELINKNO_fields_::eELINK;
-    using CITER = TCD_CITER_ELINKNO_fields_::CITER;
-    using ELINK = TCD_CITER_ELINKNO_fields_::ELINK;
+    using eELINK = TcdCiterElinknoFields::eELINK;
+    using CITER = TcdCiterElinknoFields::CITER;
+    using ELINK = TcdCiterElinknoFields::ELINK;
   };
 
   // TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
-  struct TCD_CITER_ELINKYES_fields_ {
+  struct TcdCiterElinkyesFields {
     enum class eELINK : std::uint32_t {
       // Channel-to-channel linking is disabled
       eDISABLED = 0,
@@ -4811,7 +4811,7 @@ struct Dma1 {
     using LINKCH = ftl::mmio::Field<5, 9, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable channel-to-channel linking on minor-loop complete
     using ELINK = ftl::mmio::Field<1, 15, eELINK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_CITER_ELINKYES_fields_
+  };  // struct TcdCiterElinkyesFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_CITER_ELINKYES : ftl::mmio::Register<
@@ -4819,19 +4819,19 @@ struct Dma1 {
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      TCD_CITER_ELINKYES_fields_::CITER,
-      TCD_CITER_ELINKYES_fields_::LINKCH,
+      TcdCiterElinkyesFields::CITER,
+      TcdCiterElinkyesFields::LINKCH,
       ftl::mmio::Reserved<1, 14>,
-      TCD_CITER_ELINKYES_fields_::ELINK> {
+      TcdCiterElinkyesFields::ELINK> {
     static_assert(ClusterIndex < 32u, "TCD_CITER_ELINKYES: ClusterIndex out of range");
-    using eELINK = TCD_CITER_ELINKYES_fields_::eELINK;
-    using CITER = TCD_CITER_ELINKYES_fields_::CITER;
-    using LINKCH = TCD_CITER_ELINKYES_fields_::LINKCH;
-    using ELINK = TCD_CITER_ELINKYES_fields_::ELINK;
+    using eELINK = TcdCiterElinkyesFields::eELINK;
+    using CITER = TcdCiterElinkyesFields::CITER;
+    using LINKCH = TcdCiterElinkyesFields::LINKCH;
+    using ELINK = TcdCiterElinkyesFields::ELINK;
   };
 
   // TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
-  struct TCD_BITER_ELINKNO_fields_ {
+  struct TcdBiterElinknoFields {
     enum class eELINK : std::uint32_t {
       // Channel-to-channel linking is disabled
       eDISABLED = 0,
@@ -4843,7 +4843,7 @@ struct Dma1 {
     using BITER = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enables channel-to-channel linking on minor loop complete
     using ELINK = ftl::mmio::Field<1, 15, eELINK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_BITER_ELINKNO_fields_
+  };  // struct TcdBiterElinknoFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_BITER_ELINKNO : ftl::mmio::Register<
@@ -4851,16 +4851,16 @@ struct Dma1 {
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      TCD_BITER_ELINKNO_fields_::BITER,
-      TCD_BITER_ELINKNO_fields_::ELINK> {
+      TcdBiterElinknoFields::BITER,
+      TcdBiterElinknoFields::ELINK> {
     static_assert(ClusterIndex < 32u, "TCD_BITER_ELINKNO: ClusterIndex out of range");
-    using eELINK = TCD_BITER_ELINKNO_fields_::eELINK;
-    using BITER = TCD_BITER_ELINKNO_fields_::BITER;
-    using ELINK = TCD_BITER_ELINKNO_fields_::ELINK;
+    using eELINK = TcdBiterElinknoFields::eELINK;
+    using BITER = TcdBiterElinknoFields::BITER;
+    using ELINK = TcdBiterElinknoFields::ELINK;
   };
 
   // TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
-  struct TCD_BITER_ELINKYES_fields_ {
+  struct TcdBiterElinkyesFields {
     enum class eELINK : std::uint32_t {
       // Channel-to-channel linking is disabled
       eDISABLED = 0,
@@ -4874,7 +4874,7 @@ struct Dma1 {
     using LINKCH = ftl::mmio::Field<5, 9, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enables channel-to-channel linking on minor loop complete
     using ELINK = ftl::mmio::Field<1, 15, eELINK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCD_BITER_ELINKYES_fields_
+  };  // struct TcdBiterElinkyesFields
 
   template<std::uint32_t ClusterIndex>
   struct TCD_BITER_ELINKYES : ftl::mmio::Register<
@@ -4882,15 +4882,15 @@ struct Dma1 {
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      TCD_BITER_ELINKYES_fields_::BITER,
-      TCD_BITER_ELINKYES_fields_::LINKCH,
+      TcdBiterElinkyesFields::BITER,
+      TcdBiterElinkyesFields::LINKCH,
       ftl::mmio::Reserved<1, 14>,
-      TCD_BITER_ELINKYES_fields_::ELINK> {
+      TcdBiterElinkyesFields::ELINK> {
     static_assert(ClusterIndex < 32u, "TCD_BITER_ELINKYES: ClusterIndex out of range");
-    using eELINK = TCD_BITER_ELINKYES_fields_::eELINK;
-    using BITER = TCD_BITER_ELINKYES_fields_::BITER;
-    using LINKCH = TCD_BITER_ELINKYES_fields_::LINKCH;
-    using ELINK = TCD_BITER_ELINKYES_fields_::ELINK;
+    using eELINK = TcdBiterElinkyesFields::eELINK;
+    using BITER = TcdBiterElinkyesFields::BITER;
+    using LINKCH = TcdBiterElinkyesFields::LINKCH;
+    using ELINK = TcdBiterElinkyesFields::ELINK;
   };
 
 };

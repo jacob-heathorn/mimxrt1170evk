@@ -20,7 +20,7 @@ struct Xrdc2D {
       0u;
 
   // Module Control Register
-  struct MCR_fields_ {
+  struct McrFields {
     enum class eGVLDM : std::uint32_t {
       // MDACs are disabled.
       edisabled = 0,
@@ -52,52 +52,52 @@ struct Xrdc2D {
     using GVLDC = ftl::mmio::Field<1, 1, eGVLDC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Global Configuration Lock
     using GCL = ftl::mmio::Field<2, 4, eGCL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MCR_fields_
+  };  // struct McrFields
 
   struct MCR : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename MCR_fields_::GVLDM,
-      typename MCR_fields_::GVLDC,
+      typename McrFields::GVLDM,
+      typename McrFields::GVLDC,
       ftl::mmio::Reserved<2, 2>,
-      typename MCR_fields_::GCL,
+      typename McrFields::GCL,
       ftl::mmio::Reserved<26, 6>> {
-    using eGVLDM = typename MCR_fields_::eGVLDM;
-    using eGVLDC = typename MCR_fields_::eGVLDC;
-    using eGCL = typename MCR_fields_::eGCL;
-    using GVLDM = typename MCR_fields_::GVLDM;
-    using GVLDC = typename MCR_fields_::GVLDC;
-    using GCL = typename MCR_fields_::GCL;
+    using eGVLDM = typename McrFields::eGVLDM;
+    using eGVLDC = typename McrFields::eGVLDC;
+    using eGCL = typename McrFields::eGCL;
+    using GVLDM = typename McrFields::GVLDM;
+    using GVLDC = typename McrFields::GVLDC;
+    using GCL = typename McrFields::GCL;
   };
 
   // Status Register
-  struct SR_fields_ {
+  struct SrFields {
     // Domain Identifier Number
     using DIN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Hardware Revision Level
     using HRL = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Global Configuration Lock Owner
     using GCLO = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SR_fields_
+  };  // struct SrFields
 
   struct SR : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00000010u,
       ftl::mmio::RO,
-      typename SR_fields_::DIN,
-      typename SR_fields_::HRL,
-      typename SR_fields_::GCLO,
+      typename SrFields::DIN,
+      typename SrFields::HRL,
+      typename SrFields::GCLO,
       ftl::mmio::Reserved<20, 12>> {
-    using DIN = typename SR_fields_::DIN;
-    using HRL = typename SR_fields_::HRL;
-    using GCLO = typename SR_fields_::GCLO;
+    using DIN = typename SrFields::DIN;
+    using HRL = typename SrFields::HRL;
+    using GCLO = typename SrFields::GCLO;
   };
 
   // Memory Slot Access Control
-  struct MSC_MSAC_W0_fields_ {
+  struct MscMsacW0Fields {
     // Domain "x" access control policy
     using D0ACP = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain "x" access control policy
@@ -116,7 +116,7 @@ struct Xrdc2D {
     using D7ACP = ftl::mmio::Field<3, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Exclusive Access Lock Owner
     using EALO = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MSC_MSAC_W0_fields_
+  };  // struct MscMsacW0Fields
 
   template<std::uint32_t ClusterIndex>
   struct MSC_MSAC_W0 : ftl::mmio::Register<
@@ -124,30 +124,30 @@ struct Xrdc2D {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename MSC_MSAC_W0_fields_::D0ACP,
-      typename MSC_MSAC_W0_fields_::D1ACP,
-      typename MSC_MSAC_W0_fields_::D2ACP,
-      typename MSC_MSAC_W0_fields_::D3ACP,
-      typename MSC_MSAC_W0_fields_::D4ACP,
-      typename MSC_MSAC_W0_fields_::D5ACP,
-      typename MSC_MSAC_W0_fields_::D6ACP,
-      typename MSC_MSAC_W0_fields_::D7ACP,
-      typename MSC_MSAC_W0_fields_::EALO,
+      typename MscMsacW0Fields::D0ACP,
+      typename MscMsacW0Fields::D1ACP,
+      typename MscMsacW0Fields::D2ACP,
+      typename MscMsacW0Fields::D3ACP,
+      typename MscMsacW0Fields::D4ACP,
+      typename MscMsacW0Fields::D5ACP,
+      typename MscMsacW0Fields::D6ACP,
+      typename MscMsacW0Fields::D7ACP,
+      typename MscMsacW0Fields::EALO,
       ftl::mmio::Reserved<4, 28>> {
     static_assert(ClusterIndex < 128u, "MSC_MSAC_W0: ClusterIndex out of range");
-    using D0ACP = typename MSC_MSAC_W0_fields_::D0ACP;
-    using D1ACP = typename MSC_MSAC_W0_fields_::D1ACP;
-    using D2ACP = typename MSC_MSAC_W0_fields_::D2ACP;
-    using D3ACP = typename MSC_MSAC_W0_fields_::D3ACP;
-    using D4ACP = typename MSC_MSAC_W0_fields_::D4ACP;
-    using D5ACP = typename MSC_MSAC_W0_fields_::D5ACP;
-    using D6ACP = typename MSC_MSAC_W0_fields_::D6ACP;
-    using D7ACP = typename MSC_MSAC_W0_fields_::D7ACP;
-    using EALO = typename MSC_MSAC_W0_fields_::EALO;
+    using D0ACP = typename MscMsacW0Fields::D0ACP;
+    using D1ACP = typename MscMsacW0Fields::D1ACP;
+    using D2ACP = typename MscMsacW0Fields::D2ACP;
+    using D3ACP = typename MscMsacW0Fields::D3ACP;
+    using D4ACP = typename MscMsacW0Fields::D4ACP;
+    using D5ACP = typename MscMsacW0Fields::D5ACP;
+    using D6ACP = typename MscMsacW0Fields::D6ACP;
+    using D7ACP = typename MscMsacW0Fields::D7ACP;
+    using EALO = typename MscMsacW0Fields::EALO;
   };
 
   // Memory Slot Access Control
-  struct MSC_MSAC_W1_fields_ {
+  struct MscMsacW1Fields {
     enum class eEAL : std::uint32_t {
       // Lock disabled.
       edisabled_00 = 0,
@@ -199,7 +199,7 @@ struct Xrdc2D {
     using DL2 = ftl::mmio::Field<2, 29, eDL2, ftl::mmio::RW, ftl::mmio::Normal>;
     // Valid
     using VLD = ftl::mmio::Field<1, 31, eVLD, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MSC_MSAC_W1_fields_
+  };  // struct MscMsacW1Fields
 
   template<std::uint32_t ClusterIndex>
   struct MSC_MSAC_W1 : ftl::mmio::Register<
@@ -207,33 +207,33 @@ struct Xrdc2D {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename MSC_MSAC_W1_fields_::D8ACP,
-      typename MSC_MSAC_W1_fields_::D9ACP,
-      typename MSC_MSAC_W1_fields_::D10ACP,
-      typename MSC_MSAC_W1_fields_::D11ACP,
-      typename MSC_MSAC_W1_fields_::D12ACP,
-      typename MSC_MSAC_W1_fields_::D13ACP,
-      typename MSC_MSAC_W1_fields_::D14ACP,
-      typename MSC_MSAC_W1_fields_::D15ACP,
-      typename MSC_MSAC_W1_fields_::EAL,
+      typename MscMsacW1Fields::D8ACP,
+      typename MscMsacW1Fields::D9ACP,
+      typename MscMsacW1Fields::D10ACP,
+      typename MscMsacW1Fields::D11ACP,
+      typename MscMsacW1Fields::D12ACP,
+      typename MscMsacW1Fields::D13ACP,
+      typename MscMsacW1Fields::D14ACP,
+      typename MscMsacW1Fields::D15ACP,
+      typename MscMsacW1Fields::EAL,
       ftl::mmio::Reserved<3, 26>,
-      typename MSC_MSAC_W1_fields_::DL2,
-      typename MSC_MSAC_W1_fields_::VLD> {
+      typename MscMsacW1Fields::DL2,
+      typename MscMsacW1Fields::VLD> {
     static_assert(ClusterIndex < 128u, "MSC_MSAC_W1: ClusterIndex out of range");
-    using eEAL = typename MSC_MSAC_W1_fields_::eEAL;
-    using eDL2 = typename MSC_MSAC_W1_fields_::eDL2;
-    using eVLD = typename MSC_MSAC_W1_fields_::eVLD;
-    using D8ACP = typename MSC_MSAC_W1_fields_::D8ACP;
-    using D9ACP = typename MSC_MSAC_W1_fields_::D9ACP;
-    using D10ACP = typename MSC_MSAC_W1_fields_::D10ACP;
-    using D11ACP = typename MSC_MSAC_W1_fields_::D11ACP;
-    using D12ACP = typename MSC_MSAC_W1_fields_::D12ACP;
-    using D13ACP = typename MSC_MSAC_W1_fields_::D13ACP;
-    using D14ACP = typename MSC_MSAC_W1_fields_::D14ACP;
-    using D15ACP = typename MSC_MSAC_W1_fields_::D15ACP;
-    using EAL = typename MSC_MSAC_W1_fields_::EAL;
-    using DL2 = typename MSC_MSAC_W1_fields_::DL2;
-    using VLD = typename MSC_MSAC_W1_fields_::VLD;
+    using eEAL = typename MscMsacW1Fields::eEAL;
+    using eDL2 = typename MscMsacW1Fields::eDL2;
+    using eVLD = typename MscMsacW1Fields::eVLD;
+    using D8ACP = typename MscMsacW1Fields::D8ACP;
+    using D9ACP = typename MscMsacW1Fields::D9ACP;
+    using D10ACP = typename MscMsacW1Fields::D10ACP;
+    using D11ACP = typename MscMsacW1Fields::D11ACP;
+    using D12ACP = typename MscMsacW1Fields::D12ACP;
+    using D13ACP = typename MscMsacW1Fields::D13ACP;
+    using D14ACP = typename MscMsacW1Fields::D14ACP;
+    using D15ACP = typename MscMsacW1Fields::D15ACP;
+    using EAL = typename MscMsacW1Fields::EAL;
+    using DL2 = typename MscMsacW1Fields::DL2;
+    using VLD = typename MscMsacW1Fields::VLD;
   };
 
 };

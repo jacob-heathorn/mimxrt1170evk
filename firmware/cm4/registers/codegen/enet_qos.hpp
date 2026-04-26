@@ -10,7 +10,7 @@ namespace regs {
 
 struct EnetQos {
   // MAC Configuration Register
-  struct MAC_CONFIGURATION_fields_ {
+  struct MacConfigurationFields {
     enum class eRE : std::uint32_t {
       // Receiver is disabled
       eDISABLE = 0,
@@ -251,91 +251,91 @@ struct EnetQos {
     using IPC = ftl::mmio::Field<1, 27, eIPC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Source Address Insertion or Replacement Control
     using SARC = ftl::mmio::Field<3, 28, eSARC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_CONFIGURATION_fields_
+  };  // struct MacConfigurationFields
 
   struct MAC_CONFIGURATION : ftl::mmio::Register<
       0x4043C000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_CONFIGURATION_fields_::RE,
-      MAC_CONFIGURATION_fields_::TE,
-      MAC_CONFIGURATION_fields_::PRELEN,
-      MAC_CONFIGURATION_fields_::DC,
-      MAC_CONFIGURATION_fields_::BL,
+      MacConfigurationFields::RE,
+      MacConfigurationFields::TE,
+      MacConfigurationFields::PRELEN,
+      MacConfigurationFields::DC,
+      MacConfigurationFields::BL,
       ftl::mmio::Reserved<1, 7>,
-      MAC_CONFIGURATION_fields_::DR,
-      MAC_CONFIGURATION_fields_::DCRS,
-      MAC_CONFIGURATION_fields_::DO,
-      MAC_CONFIGURATION_fields_::ECRSFD,
-      MAC_CONFIGURATION_fields_::LM,
-      MAC_CONFIGURATION_fields_::DM,
-      MAC_CONFIGURATION_fields_::FES,
-      MAC_CONFIGURATION_fields_::PS,
-      MAC_CONFIGURATION_fields_::JE,
-      MAC_CONFIGURATION_fields_::JD,
-      MAC_CONFIGURATION_fields_::BE,
-      MAC_CONFIGURATION_fields_::WD,
-      MAC_CONFIGURATION_fields_::ACS,
-      MAC_CONFIGURATION_fields_::CST,
-      MAC_CONFIGURATION_fields_::S2KP,
-      MAC_CONFIGURATION_fields_::GPSLCE,
-      MAC_CONFIGURATION_fields_::IPG,
-      MAC_CONFIGURATION_fields_::IPC,
-      MAC_CONFIGURATION_fields_::SARC,
+      MacConfigurationFields::DR,
+      MacConfigurationFields::DCRS,
+      MacConfigurationFields::DO,
+      MacConfigurationFields::ECRSFD,
+      MacConfigurationFields::LM,
+      MacConfigurationFields::DM,
+      MacConfigurationFields::FES,
+      MacConfigurationFields::PS,
+      MacConfigurationFields::JE,
+      MacConfigurationFields::JD,
+      MacConfigurationFields::BE,
+      MacConfigurationFields::WD,
+      MacConfigurationFields::ACS,
+      MacConfigurationFields::CST,
+      MacConfigurationFields::S2KP,
+      MacConfigurationFields::GPSLCE,
+      MacConfigurationFields::IPG,
+      MacConfigurationFields::IPC,
+      MacConfigurationFields::SARC,
       ftl::mmio::Reserved<1, 31>> {
-    using eRE = MAC_CONFIGURATION_fields_::eRE;
-    using eTE = MAC_CONFIGURATION_fields_::eTE;
-    using ePRELEN = MAC_CONFIGURATION_fields_::ePRELEN;
-    using eDC = MAC_CONFIGURATION_fields_::eDC;
-    using eBL = MAC_CONFIGURATION_fields_::eBL;
-    using eDR = MAC_CONFIGURATION_fields_::eDR;
-    using eDCRS = MAC_CONFIGURATION_fields_::eDCRS;
-    using eDO = MAC_CONFIGURATION_fields_::eDO;
-    using eECRSFD = MAC_CONFIGURATION_fields_::eECRSFD;
-    using eLM = MAC_CONFIGURATION_fields_::eLM;
-    using eDM = MAC_CONFIGURATION_fields_::eDM;
-    using eFES = MAC_CONFIGURATION_fields_::eFES;
-    using ePS = MAC_CONFIGURATION_fields_::ePS;
-    using eJE = MAC_CONFIGURATION_fields_::eJE;
-    using eJD = MAC_CONFIGURATION_fields_::eJD;
-    using eBE = MAC_CONFIGURATION_fields_::eBE;
-    using eWD = MAC_CONFIGURATION_fields_::eWD;
-    using eACS = MAC_CONFIGURATION_fields_::eACS;
-    using eCST = MAC_CONFIGURATION_fields_::eCST;
-    using eS2KP = MAC_CONFIGURATION_fields_::eS2KP;
-    using eGPSLCE = MAC_CONFIGURATION_fields_::eGPSLCE;
-    using eIPG = MAC_CONFIGURATION_fields_::eIPG;
-    using eIPC = MAC_CONFIGURATION_fields_::eIPC;
-    using eSARC = MAC_CONFIGURATION_fields_::eSARC;
-    using RE = MAC_CONFIGURATION_fields_::RE;
-    using TE = MAC_CONFIGURATION_fields_::TE;
-    using PRELEN = MAC_CONFIGURATION_fields_::PRELEN;
-    using DC = MAC_CONFIGURATION_fields_::DC;
-    using BL = MAC_CONFIGURATION_fields_::BL;
-    using DR = MAC_CONFIGURATION_fields_::DR;
-    using DCRS = MAC_CONFIGURATION_fields_::DCRS;
-    using DO = MAC_CONFIGURATION_fields_::DO;
-    using ECRSFD = MAC_CONFIGURATION_fields_::ECRSFD;
-    using LM = MAC_CONFIGURATION_fields_::LM;
-    using DM = MAC_CONFIGURATION_fields_::DM;
-    using FES = MAC_CONFIGURATION_fields_::FES;
-    using PS = MAC_CONFIGURATION_fields_::PS;
-    using JE = MAC_CONFIGURATION_fields_::JE;
-    using JD = MAC_CONFIGURATION_fields_::JD;
-    using BE = MAC_CONFIGURATION_fields_::BE;
-    using WD = MAC_CONFIGURATION_fields_::WD;
-    using ACS = MAC_CONFIGURATION_fields_::ACS;
-    using CST = MAC_CONFIGURATION_fields_::CST;
-    using S2KP = MAC_CONFIGURATION_fields_::S2KP;
-    using GPSLCE = MAC_CONFIGURATION_fields_::GPSLCE;
-    using IPG = MAC_CONFIGURATION_fields_::IPG;
-    using IPC = MAC_CONFIGURATION_fields_::IPC;
-    using SARC = MAC_CONFIGURATION_fields_::SARC;
+    using eRE = MacConfigurationFields::eRE;
+    using eTE = MacConfigurationFields::eTE;
+    using ePRELEN = MacConfigurationFields::ePRELEN;
+    using eDC = MacConfigurationFields::eDC;
+    using eBL = MacConfigurationFields::eBL;
+    using eDR = MacConfigurationFields::eDR;
+    using eDCRS = MacConfigurationFields::eDCRS;
+    using eDO = MacConfigurationFields::eDO;
+    using eECRSFD = MacConfigurationFields::eECRSFD;
+    using eLM = MacConfigurationFields::eLM;
+    using eDM = MacConfigurationFields::eDM;
+    using eFES = MacConfigurationFields::eFES;
+    using ePS = MacConfigurationFields::ePS;
+    using eJE = MacConfigurationFields::eJE;
+    using eJD = MacConfigurationFields::eJD;
+    using eBE = MacConfigurationFields::eBE;
+    using eWD = MacConfigurationFields::eWD;
+    using eACS = MacConfigurationFields::eACS;
+    using eCST = MacConfigurationFields::eCST;
+    using eS2KP = MacConfigurationFields::eS2KP;
+    using eGPSLCE = MacConfigurationFields::eGPSLCE;
+    using eIPG = MacConfigurationFields::eIPG;
+    using eIPC = MacConfigurationFields::eIPC;
+    using eSARC = MacConfigurationFields::eSARC;
+    using RE = MacConfigurationFields::RE;
+    using TE = MacConfigurationFields::TE;
+    using PRELEN = MacConfigurationFields::PRELEN;
+    using DC = MacConfigurationFields::DC;
+    using BL = MacConfigurationFields::BL;
+    using DR = MacConfigurationFields::DR;
+    using DCRS = MacConfigurationFields::DCRS;
+    using DO = MacConfigurationFields::DO;
+    using ECRSFD = MacConfigurationFields::ECRSFD;
+    using LM = MacConfigurationFields::LM;
+    using DM = MacConfigurationFields::DM;
+    using FES = MacConfigurationFields::FES;
+    using PS = MacConfigurationFields::PS;
+    using JE = MacConfigurationFields::JE;
+    using JD = MacConfigurationFields::JD;
+    using BE = MacConfigurationFields::BE;
+    using WD = MacConfigurationFields::WD;
+    using ACS = MacConfigurationFields::ACS;
+    using CST = MacConfigurationFields::CST;
+    using S2KP = MacConfigurationFields::S2KP;
+    using GPSLCE = MacConfigurationFields::GPSLCE;
+    using IPG = MacConfigurationFields::IPG;
+    using IPC = MacConfigurationFields::IPC;
+    using SARC = MacConfigurationFields::SARC;
   };
 
   // MAC Extended Configuration Register
-  struct MAC_EXT_CONFIGURATION_fields_ {
+  struct MacExtConfigurationFields {
     enum class eDCRCC : std::uint32_t {
       // CRC Checking is enabled
       eENABLE = 0,
@@ -385,39 +385,39 @@ struct EnetQos {
     using EIPGEN = ftl::mmio::Field<1, 24, eEIPGEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Extended Inter-Packet Gap
     using EIPG = ftl::mmio::Field<5, 25, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_EXT_CONFIGURATION_fields_
+  };  // struct MacExtConfigurationFields
 
   struct MAC_EXT_CONFIGURATION : ftl::mmio::Register<
       0x4043C004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_EXT_CONFIGURATION_fields_::GPSL,
+      MacExtConfigurationFields::GPSL,
       ftl::mmio::Reserved<2, 14>,
-      MAC_EXT_CONFIGURATION_fields_::DCRCC,
-      MAC_EXT_CONFIGURATION_fields_::SPEN,
-      MAC_EXT_CONFIGURATION_fields_::USP,
-      MAC_EXT_CONFIGURATION_fields_::PDC,
+      MacExtConfigurationFields::DCRCC,
+      MacExtConfigurationFields::SPEN,
+      MacExtConfigurationFields::USP,
+      MacExtConfigurationFields::PDC,
       ftl::mmio::Reserved<4, 20>,
-      MAC_EXT_CONFIGURATION_fields_::EIPGEN,
-      MAC_EXT_CONFIGURATION_fields_::EIPG,
+      MacExtConfigurationFields::EIPGEN,
+      MacExtConfigurationFields::EIPG,
       ftl::mmio::Reserved<2, 30>> {
-    using eDCRCC = MAC_EXT_CONFIGURATION_fields_::eDCRCC;
-    using eSPEN = MAC_EXT_CONFIGURATION_fields_::eSPEN;
-    using eUSP = MAC_EXT_CONFIGURATION_fields_::eUSP;
-    using ePDC = MAC_EXT_CONFIGURATION_fields_::ePDC;
-    using eEIPGEN = MAC_EXT_CONFIGURATION_fields_::eEIPGEN;
-    using GPSL = MAC_EXT_CONFIGURATION_fields_::GPSL;
-    using DCRCC = MAC_EXT_CONFIGURATION_fields_::DCRCC;
-    using SPEN = MAC_EXT_CONFIGURATION_fields_::SPEN;
-    using USP = MAC_EXT_CONFIGURATION_fields_::USP;
-    using PDC = MAC_EXT_CONFIGURATION_fields_::PDC;
-    using EIPGEN = MAC_EXT_CONFIGURATION_fields_::EIPGEN;
-    using EIPG = MAC_EXT_CONFIGURATION_fields_::EIPG;
+    using eDCRCC = MacExtConfigurationFields::eDCRCC;
+    using eSPEN = MacExtConfigurationFields::eSPEN;
+    using eUSP = MacExtConfigurationFields::eUSP;
+    using ePDC = MacExtConfigurationFields::ePDC;
+    using eEIPGEN = MacExtConfigurationFields::eEIPGEN;
+    using GPSL = MacExtConfigurationFields::GPSL;
+    using DCRCC = MacExtConfigurationFields::DCRCC;
+    using SPEN = MacExtConfigurationFields::SPEN;
+    using USP = MacExtConfigurationFields::USP;
+    using PDC = MacExtConfigurationFields::PDC;
+    using EIPGEN = MacExtConfigurationFields::EIPGEN;
+    using EIPG = MacExtConfigurationFields::EIPG;
   };
 
   // MAC Packet Filter
-  struct MAC_PACKET_FILTER_fields_ {
+  struct MacPacketFilterFields {
     enum class ePR : std::uint32_t {
       // Promiscuous Mode is disabled
       eDISABLE = 0,
@@ -548,62 +548,62 @@ struct EnetQos {
     using DNTU = ftl::mmio::Field<1, 21, eDNTU, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive All
     using RA = ftl::mmio::Field<1, 31, eRA, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PACKET_FILTER_fields_
+  };  // struct MacPacketFilterFields
 
   struct MAC_PACKET_FILTER : ftl::mmio::Register<
       0x4043C008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PACKET_FILTER_fields_::PR,
-      MAC_PACKET_FILTER_fields_::HUC,
-      MAC_PACKET_FILTER_fields_::HMC,
-      MAC_PACKET_FILTER_fields_::DAIF,
-      MAC_PACKET_FILTER_fields_::PM,
-      MAC_PACKET_FILTER_fields_::DBF,
-      MAC_PACKET_FILTER_fields_::PCF,
-      MAC_PACKET_FILTER_fields_::SAIF,
-      MAC_PACKET_FILTER_fields_::SAF,
-      MAC_PACKET_FILTER_fields_::HPF,
+      MacPacketFilterFields::PR,
+      MacPacketFilterFields::HUC,
+      MacPacketFilterFields::HMC,
+      MacPacketFilterFields::DAIF,
+      MacPacketFilterFields::PM,
+      MacPacketFilterFields::DBF,
+      MacPacketFilterFields::PCF,
+      MacPacketFilterFields::SAIF,
+      MacPacketFilterFields::SAF,
+      MacPacketFilterFields::HPF,
       ftl::mmio::Reserved<5, 11>,
-      MAC_PACKET_FILTER_fields_::VTFE,
+      MacPacketFilterFields::VTFE,
       ftl::mmio::Reserved<3, 17>,
-      MAC_PACKET_FILTER_fields_::IPFE,
-      MAC_PACKET_FILTER_fields_::DNTU,
+      MacPacketFilterFields::IPFE,
+      MacPacketFilterFields::DNTU,
       ftl::mmio::Reserved<9, 22>,
-      MAC_PACKET_FILTER_fields_::RA> {
-    using ePR = MAC_PACKET_FILTER_fields_::ePR;
-    using eHUC = MAC_PACKET_FILTER_fields_::eHUC;
-    using eHMC = MAC_PACKET_FILTER_fields_::eHMC;
-    using eDAIF = MAC_PACKET_FILTER_fields_::eDAIF;
-    using ePM = MAC_PACKET_FILTER_fields_::ePM;
-    using eDBF = MAC_PACKET_FILTER_fields_::eDBF;
-    using ePCF = MAC_PACKET_FILTER_fields_::ePCF;
-    using eSAIF = MAC_PACKET_FILTER_fields_::eSAIF;
-    using eSAF = MAC_PACKET_FILTER_fields_::eSAF;
-    using eHPF = MAC_PACKET_FILTER_fields_::eHPF;
-    using eVTFE = MAC_PACKET_FILTER_fields_::eVTFE;
-    using eIPFE = MAC_PACKET_FILTER_fields_::eIPFE;
-    using eDNTU = MAC_PACKET_FILTER_fields_::eDNTU;
-    using eRA = MAC_PACKET_FILTER_fields_::eRA;
-    using PR = MAC_PACKET_FILTER_fields_::PR;
-    using HUC = MAC_PACKET_FILTER_fields_::HUC;
-    using HMC = MAC_PACKET_FILTER_fields_::HMC;
-    using DAIF = MAC_PACKET_FILTER_fields_::DAIF;
-    using PM = MAC_PACKET_FILTER_fields_::PM;
-    using DBF = MAC_PACKET_FILTER_fields_::DBF;
-    using PCF = MAC_PACKET_FILTER_fields_::PCF;
-    using SAIF = MAC_PACKET_FILTER_fields_::SAIF;
-    using SAF = MAC_PACKET_FILTER_fields_::SAF;
-    using HPF = MAC_PACKET_FILTER_fields_::HPF;
-    using VTFE = MAC_PACKET_FILTER_fields_::VTFE;
-    using IPFE = MAC_PACKET_FILTER_fields_::IPFE;
-    using DNTU = MAC_PACKET_FILTER_fields_::DNTU;
-    using RA = MAC_PACKET_FILTER_fields_::RA;
+      MacPacketFilterFields::RA> {
+    using ePR = MacPacketFilterFields::ePR;
+    using eHUC = MacPacketFilterFields::eHUC;
+    using eHMC = MacPacketFilterFields::eHMC;
+    using eDAIF = MacPacketFilterFields::eDAIF;
+    using ePM = MacPacketFilterFields::ePM;
+    using eDBF = MacPacketFilterFields::eDBF;
+    using ePCF = MacPacketFilterFields::ePCF;
+    using eSAIF = MacPacketFilterFields::eSAIF;
+    using eSAF = MacPacketFilterFields::eSAF;
+    using eHPF = MacPacketFilterFields::eHPF;
+    using eVTFE = MacPacketFilterFields::eVTFE;
+    using eIPFE = MacPacketFilterFields::eIPFE;
+    using eDNTU = MacPacketFilterFields::eDNTU;
+    using eRA = MacPacketFilterFields::eRA;
+    using PR = MacPacketFilterFields::PR;
+    using HUC = MacPacketFilterFields::HUC;
+    using HMC = MacPacketFilterFields::HMC;
+    using DAIF = MacPacketFilterFields::DAIF;
+    using PM = MacPacketFilterFields::PM;
+    using DBF = MacPacketFilterFields::DBF;
+    using PCF = MacPacketFilterFields::PCF;
+    using SAIF = MacPacketFilterFields::SAIF;
+    using SAF = MacPacketFilterFields::SAF;
+    using HPF = MacPacketFilterFields::HPF;
+    using VTFE = MacPacketFilterFields::VTFE;
+    using IPFE = MacPacketFilterFields::IPFE;
+    using DNTU = MacPacketFilterFields::DNTU;
+    using RA = MacPacketFilterFields::RA;
   };
 
   // Watchdog Timeout
-  struct MAC_WATCHDOG_TIMEOUT_fields_ {
+  struct MacWatchdogTimeoutFields {
     enum class eWTO : std::uint32_t {
       // 2 KB
       ebf_2KBYTES = 0,
@@ -648,55 +648,55 @@ struct EnetQos {
     using WTO = ftl::mmio::Field<4, 0, eWTO, ftl::mmio::RW, ftl::mmio::Normal>;
     // Programmable Watchdog Enable
     using PWE = ftl::mmio::Field<1, 8, ePWE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_WATCHDOG_TIMEOUT_fields_
+  };  // struct MacWatchdogTimeoutFields
 
   struct MAC_WATCHDOG_TIMEOUT : ftl::mmio::Register<
       0x4043C00Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_WATCHDOG_TIMEOUT_fields_::WTO,
+      MacWatchdogTimeoutFields::WTO,
       ftl::mmio::Reserved<4, 4>,
-      MAC_WATCHDOG_TIMEOUT_fields_::PWE,
+      MacWatchdogTimeoutFields::PWE,
       ftl::mmio::Reserved<23, 9>> {
-    using eWTO = MAC_WATCHDOG_TIMEOUT_fields_::eWTO;
-    using ePWE = MAC_WATCHDOG_TIMEOUT_fields_::ePWE;
-    using WTO = MAC_WATCHDOG_TIMEOUT_fields_::WTO;
-    using PWE = MAC_WATCHDOG_TIMEOUT_fields_::PWE;
+    using eWTO = MacWatchdogTimeoutFields::eWTO;
+    using ePWE = MacWatchdogTimeoutFields::ePWE;
+    using WTO = MacWatchdogTimeoutFields::WTO;
+    using PWE = MacWatchdogTimeoutFields::PWE;
   };
 
   // MAC Hash Table Register 0
-  struct MAC_HASH_TABLE_REG0_fields_ {
+  struct MacHashTableReg0Fields {
     // MAC Hash Table First 32 Bits This field contains the first 32 Bits [31:0] of the Hash table.
     using HT31T0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_HASH_TABLE_REG0_fields_
+  };  // struct MacHashTableReg0Fields
 
   struct MAC_HASH_TABLE_REG0 : ftl::mmio::Register<
       0x4043C010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_HASH_TABLE_REG0_fields_::HT31T0> {
-    using HT31T0 = MAC_HASH_TABLE_REG0_fields_::HT31T0;
+      MacHashTableReg0Fields::HT31T0> {
+    using HT31T0 = MacHashTableReg0Fields::HT31T0;
   };
 
   // MAC Hash Table Register 1
-  struct MAC_HASH_TABLE_REG1_fields_ {
+  struct MacHashTableReg1Fields {
     // MAC Hash Table Second 32 Bits This field contains the second 32 Bits [63:32] of the Hash table.
     using HT63T32 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_HASH_TABLE_REG1_fields_
+  };  // struct MacHashTableReg1Fields
 
   struct MAC_HASH_TABLE_REG1 : ftl::mmio::Register<
       0x4043C014u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_HASH_TABLE_REG1_fields_::HT63T32> {
-    using HT63T32 = MAC_HASH_TABLE_REG1_fields_::HT63T32;
+      MacHashTableReg1Fields::HT63T32> {
+    using HT63T32 = MacHashTableReg1Fields::HT63T32;
   };
 
   // MAC VLAN Tag Control
-  struct MAC_VLAN_TAG_CTRL_fields_ {
+  struct MacVlanTagCtrlFields {
     enum class eOB : std::uint32_t {
       // Operation Busy is disabled
       eDISABLE = 0,
@@ -806,56 +806,56 @@ struct EnetQos {
     using EIVLS = ftl::mmio::Field<2, 28, eEIVLS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Inner VLAN Tag in Rx Status
     using EIVLRXS = ftl::mmio::Field<1, 31, eEIVLRXS, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_VLAN_TAG_CTRL_fields_
+  };  // struct MacVlanTagCtrlFields
 
   struct MAC_VLAN_TAG_CTRL : ftl::mmio::Register<
       0x4043C050u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_VLAN_TAG_CTRL_fields_::OB,
-      MAC_VLAN_TAG_CTRL_fields_::CT,
-      MAC_VLAN_TAG_CTRL_fields_::OFS,
+      MacVlanTagCtrlFields::OB,
+      MacVlanTagCtrlFields::CT,
+      MacVlanTagCtrlFields::OFS,
       ftl::mmio::Reserved<10, 7>,
-      MAC_VLAN_TAG_CTRL_fields_::VTIM,
-      MAC_VLAN_TAG_CTRL_fields_::ESVL,
+      MacVlanTagCtrlFields::VTIM,
+      MacVlanTagCtrlFields::ESVL,
       ftl::mmio::Reserved<2, 19>,
-      MAC_VLAN_TAG_CTRL_fields_::EVLS,
+      MacVlanTagCtrlFields::EVLS,
       ftl::mmio::Reserved<1, 23>,
-      MAC_VLAN_TAG_CTRL_fields_::EVLRXS,
-      MAC_VLAN_TAG_CTRL_fields_::VTHM,
-      MAC_VLAN_TAG_CTRL_fields_::EDVLP,
-      MAC_VLAN_TAG_CTRL_fields_::ERIVLT,
-      MAC_VLAN_TAG_CTRL_fields_::EIVLS,
+      MacVlanTagCtrlFields::EVLRXS,
+      MacVlanTagCtrlFields::VTHM,
+      MacVlanTagCtrlFields::EDVLP,
+      MacVlanTagCtrlFields::ERIVLT,
+      MacVlanTagCtrlFields::EIVLS,
       ftl::mmio::Reserved<1, 30>,
-      MAC_VLAN_TAG_CTRL_fields_::EIVLRXS> {
-    using eOB = MAC_VLAN_TAG_CTRL_fields_::eOB;
-    using eCT = MAC_VLAN_TAG_CTRL_fields_::eCT;
-    using eVTIM = MAC_VLAN_TAG_CTRL_fields_::eVTIM;
-    using eESVL = MAC_VLAN_TAG_CTRL_fields_::eESVL;
-    using eEVLS = MAC_VLAN_TAG_CTRL_fields_::eEVLS;
-    using eEVLRXS = MAC_VLAN_TAG_CTRL_fields_::eEVLRXS;
-    using eVTHM = MAC_VLAN_TAG_CTRL_fields_::eVTHM;
-    using eEDVLP = MAC_VLAN_TAG_CTRL_fields_::eEDVLP;
-    using eERIVLT = MAC_VLAN_TAG_CTRL_fields_::eERIVLT;
-    using eEIVLS = MAC_VLAN_TAG_CTRL_fields_::eEIVLS;
-    using eEIVLRXS = MAC_VLAN_TAG_CTRL_fields_::eEIVLRXS;
-    using OB = MAC_VLAN_TAG_CTRL_fields_::OB;
-    using CT = MAC_VLAN_TAG_CTRL_fields_::CT;
-    using OFS = MAC_VLAN_TAG_CTRL_fields_::OFS;
-    using VTIM = MAC_VLAN_TAG_CTRL_fields_::VTIM;
-    using ESVL = MAC_VLAN_TAG_CTRL_fields_::ESVL;
-    using EVLS = MAC_VLAN_TAG_CTRL_fields_::EVLS;
-    using EVLRXS = MAC_VLAN_TAG_CTRL_fields_::EVLRXS;
-    using VTHM = MAC_VLAN_TAG_CTRL_fields_::VTHM;
-    using EDVLP = MAC_VLAN_TAG_CTRL_fields_::EDVLP;
-    using ERIVLT = MAC_VLAN_TAG_CTRL_fields_::ERIVLT;
-    using EIVLS = MAC_VLAN_TAG_CTRL_fields_::EIVLS;
-    using EIVLRXS = MAC_VLAN_TAG_CTRL_fields_::EIVLRXS;
+      MacVlanTagCtrlFields::EIVLRXS> {
+    using eOB = MacVlanTagCtrlFields::eOB;
+    using eCT = MacVlanTagCtrlFields::eCT;
+    using eVTIM = MacVlanTagCtrlFields::eVTIM;
+    using eESVL = MacVlanTagCtrlFields::eESVL;
+    using eEVLS = MacVlanTagCtrlFields::eEVLS;
+    using eEVLRXS = MacVlanTagCtrlFields::eEVLRXS;
+    using eVTHM = MacVlanTagCtrlFields::eVTHM;
+    using eEDVLP = MacVlanTagCtrlFields::eEDVLP;
+    using eERIVLT = MacVlanTagCtrlFields::eERIVLT;
+    using eEIVLS = MacVlanTagCtrlFields::eEIVLS;
+    using eEIVLRXS = MacVlanTagCtrlFields::eEIVLRXS;
+    using OB = MacVlanTagCtrlFields::OB;
+    using CT = MacVlanTagCtrlFields::CT;
+    using OFS = MacVlanTagCtrlFields::OFS;
+    using VTIM = MacVlanTagCtrlFields::VTIM;
+    using ESVL = MacVlanTagCtrlFields::ESVL;
+    using EVLS = MacVlanTagCtrlFields::EVLS;
+    using EVLRXS = MacVlanTagCtrlFields::EVLRXS;
+    using VTHM = MacVlanTagCtrlFields::VTHM;
+    using EDVLP = MacVlanTagCtrlFields::EDVLP;
+    using ERIVLT = MacVlanTagCtrlFields::ERIVLT;
+    using EIVLS = MacVlanTagCtrlFields::EIVLS;
+    using EIVLRXS = MacVlanTagCtrlFields::EIVLRXS;
   };
 
   // MAC VLAN Tag Data
-  struct MAC_VLAN_TAG_DATA_fields_ {
+  struct MacVlanTagDataFields {
     enum class eVEN : std::uint32_t {
       // VLAN Tag is disabled
       eDISABLE = 0,
@@ -914,57 +914,57 @@ struct EnetQos {
     using DMACHEN = ftl::mmio::Field<1, 24, eDMACHEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Number
     using DMACHN = ftl::mmio::Field<3, 25, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_VLAN_TAG_DATA_fields_
+  };  // struct MacVlanTagDataFields
 
   struct MAC_VLAN_TAG_DATA : ftl::mmio::Register<
       0x4043C054u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_VLAN_TAG_DATA_fields_::VID,
-      MAC_VLAN_TAG_DATA_fields_::VEN,
-      MAC_VLAN_TAG_DATA_fields_::ETV,
-      MAC_VLAN_TAG_DATA_fields_::DOVLTC,
-      MAC_VLAN_TAG_DATA_fields_::ERSVLM,
-      MAC_VLAN_TAG_DATA_fields_::ERIVLT,
+      MacVlanTagDataFields::VID,
+      MacVlanTagDataFields::VEN,
+      MacVlanTagDataFields::ETV,
+      MacVlanTagDataFields::DOVLTC,
+      MacVlanTagDataFields::ERSVLM,
+      MacVlanTagDataFields::ERIVLT,
       ftl::mmio::Reserved<3, 21>,
-      MAC_VLAN_TAG_DATA_fields_::DMACHEN,
-      MAC_VLAN_TAG_DATA_fields_::DMACHN,
+      MacVlanTagDataFields::DMACHEN,
+      MacVlanTagDataFields::DMACHN,
       ftl::mmio::Reserved<4, 28>> {
-    using eVEN = MAC_VLAN_TAG_DATA_fields_::eVEN;
-    using eETV = MAC_VLAN_TAG_DATA_fields_::eETV;
-    using eDOVLTC = MAC_VLAN_TAG_DATA_fields_::eDOVLTC;
-    using eERSVLM = MAC_VLAN_TAG_DATA_fields_::eERSVLM;
-    using eERIVLT = MAC_VLAN_TAG_DATA_fields_::eERIVLT;
-    using eDMACHEN = MAC_VLAN_TAG_DATA_fields_::eDMACHEN;
-    using VID = MAC_VLAN_TAG_DATA_fields_::VID;
-    using VEN = MAC_VLAN_TAG_DATA_fields_::VEN;
-    using ETV = MAC_VLAN_TAG_DATA_fields_::ETV;
-    using DOVLTC = MAC_VLAN_TAG_DATA_fields_::DOVLTC;
-    using ERSVLM = MAC_VLAN_TAG_DATA_fields_::ERSVLM;
-    using ERIVLT = MAC_VLAN_TAG_DATA_fields_::ERIVLT;
-    using DMACHEN = MAC_VLAN_TAG_DATA_fields_::DMACHEN;
-    using DMACHN = MAC_VLAN_TAG_DATA_fields_::DMACHN;
+    using eVEN = MacVlanTagDataFields::eVEN;
+    using eETV = MacVlanTagDataFields::eETV;
+    using eDOVLTC = MacVlanTagDataFields::eDOVLTC;
+    using eERSVLM = MacVlanTagDataFields::eERSVLM;
+    using eERIVLT = MacVlanTagDataFields::eERIVLT;
+    using eDMACHEN = MacVlanTagDataFields::eDMACHEN;
+    using VID = MacVlanTagDataFields::VID;
+    using VEN = MacVlanTagDataFields::VEN;
+    using ETV = MacVlanTagDataFields::ETV;
+    using DOVLTC = MacVlanTagDataFields::DOVLTC;
+    using ERSVLM = MacVlanTagDataFields::ERSVLM;
+    using ERIVLT = MacVlanTagDataFields::ERIVLT;
+    using DMACHEN = MacVlanTagDataFields::DMACHEN;
+    using DMACHN = MacVlanTagDataFields::DMACHN;
   };
 
   // MAC VLAN Hash Table
-  struct MAC_VLAN_HASH_TABLE_fields_ {
+  struct MacVlanHashTableFields {
     // VLAN Hash Table This field contains the 16-bit VLAN Hash Table.
     using VLHT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_VLAN_HASH_TABLE_fields_
+  };  // struct MacVlanHashTableFields
 
   struct MAC_VLAN_HASH_TABLE : ftl::mmio::Register<
       0x4043C058u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_VLAN_HASH_TABLE_fields_::VLHT,
+      MacVlanHashTableFields::VLHT,
       ftl::mmio::Reserved<16, 16>> {
-    using VLHT = MAC_VLAN_HASH_TABLE_fields_::VLHT;
+    using VLHT = MacVlanHashTableFields::VLHT;
   };
 
   // VLAN Tag Inclusion or Replacement
-  struct MAC_VLAN_INCL_fields_ {
+  struct MacVlanInclFields {
     enum class eVLC : std::uint32_t {
       // No VLAN tag deletion, insertion, or replacement
       eNONE = 0,
@@ -1036,44 +1036,44 @@ struct EnetQos {
     using RDWR = ftl::mmio::Field<1, 30, eRDWR, ftl::mmio::RW, ftl::mmio::Normal>;
     // Busy
     using BUSY = ftl::mmio::Field<1, 31, eBUSY, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_VLAN_INCL_fields_
+  };  // struct MacVlanInclFields
 
   struct MAC_VLAN_INCL : ftl::mmio::Register<
       0x4043C060u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_VLAN_INCL_fields_::VLT,
-      MAC_VLAN_INCL_fields_::VLC,
-      MAC_VLAN_INCL_fields_::VLP,
-      MAC_VLAN_INCL_fields_::CSVL,
-      MAC_VLAN_INCL_fields_::VLTI,
-      MAC_VLAN_INCL_fields_::CBTI,
+      MacVlanInclFields::VLT,
+      MacVlanInclFields::VLC,
+      MacVlanInclFields::VLP,
+      MacVlanInclFields::CSVL,
+      MacVlanInclFields::VLTI,
+      MacVlanInclFields::CBTI,
       ftl::mmio::Reserved<2, 22>,
-      MAC_VLAN_INCL_fields_::ADDR,
+      MacVlanInclFields::ADDR,
       ftl::mmio::Reserved<3, 27>,
-      MAC_VLAN_INCL_fields_::RDWR,
-      MAC_VLAN_INCL_fields_::BUSY> {
-    using eVLC = MAC_VLAN_INCL_fields_::eVLC;
-    using eVLP = MAC_VLAN_INCL_fields_::eVLP;
-    using eCSVL = MAC_VLAN_INCL_fields_::eCSVL;
-    using eVLTI = MAC_VLAN_INCL_fields_::eVLTI;
-    using eCBTI = MAC_VLAN_INCL_fields_::eCBTI;
-    using eRDWR = MAC_VLAN_INCL_fields_::eRDWR;
-    using eBUSY = MAC_VLAN_INCL_fields_::eBUSY;
-    using VLT = MAC_VLAN_INCL_fields_::VLT;
-    using VLC = MAC_VLAN_INCL_fields_::VLC;
-    using VLP = MAC_VLAN_INCL_fields_::VLP;
-    using CSVL = MAC_VLAN_INCL_fields_::CSVL;
-    using VLTI = MAC_VLAN_INCL_fields_::VLTI;
-    using CBTI = MAC_VLAN_INCL_fields_::CBTI;
-    using ADDR = MAC_VLAN_INCL_fields_::ADDR;
-    using RDWR = MAC_VLAN_INCL_fields_::RDWR;
-    using BUSY = MAC_VLAN_INCL_fields_::BUSY;
+      MacVlanInclFields::RDWR,
+      MacVlanInclFields::BUSY> {
+    using eVLC = MacVlanInclFields::eVLC;
+    using eVLP = MacVlanInclFields::eVLP;
+    using eCSVL = MacVlanInclFields::eCSVL;
+    using eVLTI = MacVlanInclFields::eVLTI;
+    using eCBTI = MacVlanInclFields::eCBTI;
+    using eRDWR = MacVlanInclFields::eRDWR;
+    using eBUSY = MacVlanInclFields::eBUSY;
+    using VLT = MacVlanInclFields::VLT;
+    using VLC = MacVlanInclFields::VLC;
+    using VLP = MacVlanInclFields::VLP;
+    using CSVL = MacVlanInclFields::CSVL;
+    using VLTI = MacVlanInclFields::VLTI;
+    using CBTI = MacVlanInclFields::CBTI;
+    using ADDR = MacVlanInclFields::ADDR;
+    using RDWR = MacVlanInclFields::RDWR;
+    using BUSY = MacVlanInclFields::BUSY;
   };
 
   // MAC Inner VLAN Tag Inclusion or Replacement
-  struct MAC_INNER_VLAN_INCL_fields_ {
+  struct MacInnerVlanInclFields {
     enum class eVLC : std::uint32_t {
       // No VLAN tag deletion, insertion, or replacement
       eNONE = 0,
@@ -1116,32 +1116,32 @@ struct EnetQos {
     using CSVL = ftl::mmio::Field<1, 19, eCSVL, ftl::mmio::RW, ftl::mmio::Normal>;
     // VLAN Tag Input When this bit is set, it indicates that the VLAN tag to be inserted or replaced in Tx packet should be taken from: - The Tx descriptor
     using VLTI = ftl::mmio::Field<1, 20, eVLTI, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_INNER_VLAN_INCL_fields_
+  };  // struct MacInnerVlanInclFields
 
   struct MAC_INNER_VLAN_INCL : ftl::mmio::Register<
       0x4043C064u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_INNER_VLAN_INCL_fields_::VLT,
-      MAC_INNER_VLAN_INCL_fields_::VLC,
-      MAC_INNER_VLAN_INCL_fields_::VLP,
-      MAC_INNER_VLAN_INCL_fields_::CSVL,
-      MAC_INNER_VLAN_INCL_fields_::VLTI,
+      MacInnerVlanInclFields::VLT,
+      MacInnerVlanInclFields::VLC,
+      MacInnerVlanInclFields::VLP,
+      MacInnerVlanInclFields::CSVL,
+      MacInnerVlanInclFields::VLTI,
       ftl::mmio::Reserved<11, 21>> {
-    using eVLC = MAC_INNER_VLAN_INCL_fields_::eVLC;
-    using eVLP = MAC_INNER_VLAN_INCL_fields_::eVLP;
-    using eCSVL = MAC_INNER_VLAN_INCL_fields_::eCSVL;
-    using eVLTI = MAC_INNER_VLAN_INCL_fields_::eVLTI;
-    using VLT = MAC_INNER_VLAN_INCL_fields_::VLT;
-    using VLC = MAC_INNER_VLAN_INCL_fields_::VLC;
-    using VLP = MAC_INNER_VLAN_INCL_fields_::VLP;
-    using CSVL = MAC_INNER_VLAN_INCL_fields_::CSVL;
-    using VLTI = MAC_INNER_VLAN_INCL_fields_::VLTI;
+    using eVLC = MacInnerVlanInclFields::eVLC;
+    using eVLP = MacInnerVlanInclFields::eVLP;
+    using eCSVL = MacInnerVlanInclFields::eCSVL;
+    using eVLTI = MacInnerVlanInclFields::eVLTI;
+    using VLT = MacInnerVlanInclFields::VLT;
+    using VLC = MacInnerVlanInclFields::VLC;
+    using VLP = MacInnerVlanInclFields::VLP;
+    using CSVL = MacInnerVlanInclFields::CSVL;
+    using VLTI = MacInnerVlanInclFields::VLTI;
   };
 
   // MAC Q0 Tx Flow Control
-  struct MAC_Q0_TX_FLOW_CTRL_fields_ {
+  struct MacQ0TxFlowCtrlFields {
     enum class eFCB_BPA : std::uint32_t {
       // Flow Control Busy or Backpressure Activate is disabled
       eDISABLE = 0,
@@ -1188,33 +1188,33 @@ struct EnetQos {
     using DZPQ = ftl::mmio::Field<1, 7, eDZPQ, ftl::mmio::RW, ftl::mmio::Normal>;
     // Pause Time
     using PT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_Q0_TX_FLOW_CTRL_fields_
+  };  // struct MacQ0TxFlowCtrlFields
 
   struct MAC_Q0_TX_FLOW_CTRL : ftl::mmio::Register<
       0x4043C070u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_Q0_TX_FLOW_CTRL_fields_::FCB_BPA,
-      MAC_Q0_TX_FLOW_CTRL_fields_::TFE,
+      MacQ0TxFlowCtrlFields::FCB_BPA,
+      MacQ0TxFlowCtrlFields::TFE,
       ftl::mmio::Reserved<2, 2>,
-      MAC_Q0_TX_FLOW_CTRL_fields_::PLT,
-      MAC_Q0_TX_FLOW_CTRL_fields_::DZPQ,
+      MacQ0TxFlowCtrlFields::PLT,
+      MacQ0TxFlowCtrlFields::DZPQ,
       ftl::mmio::Reserved<8, 8>,
-      MAC_Q0_TX_FLOW_CTRL_fields_::PT> {
-    using eFCB_BPA = MAC_Q0_TX_FLOW_CTRL_fields_::eFCB_BPA;
-    using eTFE = MAC_Q0_TX_FLOW_CTRL_fields_::eTFE;
-    using ePLT = MAC_Q0_TX_FLOW_CTRL_fields_::ePLT;
-    using eDZPQ = MAC_Q0_TX_FLOW_CTRL_fields_::eDZPQ;
-    using FCB_BPA = MAC_Q0_TX_FLOW_CTRL_fields_::FCB_BPA;
-    using TFE = MAC_Q0_TX_FLOW_CTRL_fields_::TFE;
-    using PLT = MAC_Q0_TX_FLOW_CTRL_fields_::PLT;
-    using DZPQ = MAC_Q0_TX_FLOW_CTRL_fields_::DZPQ;
-    using PT = MAC_Q0_TX_FLOW_CTRL_fields_::PT;
+      MacQ0TxFlowCtrlFields::PT> {
+    using eFCB_BPA = MacQ0TxFlowCtrlFields::eFCB_BPA;
+    using eTFE = MacQ0TxFlowCtrlFields::eTFE;
+    using ePLT = MacQ0TxFlowCtrlFields::ePLT;
+    using eDZPQ = MacQ0TxFlowCtrlFields::eDZPQ;
+    using FCB_BPA = MacQ0TxFlowCtrlFields::FCB_BPA;
+    using TFE = MacQ0TxFlowCtrlFields::TFE;
+    using PLT = MacQ0TxFlowCtrlFields::PLT;
+    using DZPQ = MacQ0TxFlowCtrlFields::DZPQ;
+    using PT = MacQ0TxFlowCtrlFields::PT;
   };
 
   // MAC Q1 Tx Flow Control
-  struct MAC_Q1_TX_FLOW_CTRL_fields_ {
+  struct MacQ1TxFlowCtrlFields {
     enum class eFCB_BPA : std::uint32_t {
       // Flow Control Busy or Backpressure Activate is disabled
       eDISABLE = 0,
@@ -1261,33 +1261,33 @@ struct EnetQos {
     using DZPQ = ftl::mmio::Field<1, 7, eDZPQ, ftl::mmio::RW, ftl::mmio::Normal>;
     // Pause Time
     using PT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_Q1_TX_FLOW_CTRL_fields_
+  };  // struct MacQ1TxFlowCtrlFields
 
   struct MAC_Q1_TX_FLOW_CTRL : ftl::mmio::Register<
       0x4043C074u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_Q1_TX_FLOW_CTRL_fields_::FCB_BPA,
-      MAC_Q1_TX_FLOW_CTRL_fields_::TFE,
+      MacQ1TxFlowCtrlFields::FCB_BPA,
+      MacQ1TxFlowCtrlFields::TFE,
       ftl::mmio::Reserved<2, 2>,
-      MAC_Q1_TX_FLOW_CTRL_fields_::PLT,
-      MAC_Q1_TX_FLOW_CTRL_fields_::DZPQ,
+      MacQ1TxFlowCtrlFields::PLT,
+      MacQ1TxFlowCtrlFields::DZPQ,
       ftl::mmio::Reserved<8, 8>,
-      MAC_Q1_TX_FLOW_CTRL_fields_::PT> {
-    using eFCB_BPA = MAC_Q1_TX_FLOW_CTRL_fields_::eFCB_BPA;
-    using eTFE = MAC_Q1_TX_FLOW_CTRL_fields_::eTFE;
-    using ePLT = MAC_Q1_TX_FLOW_CTRL_fields_::ePLT;
-    using eDZPQ = MAC_Q1_TX_FLOW_CTRL_fields_::eDZPQ;
-    using FCB_BPA = MAC_Q1_TX_FLOW_CTRL_fields_::FCB_BPA;
-    using TFE = MAC_Q1_TX_FLOW_CTRL_fields_::TFE;
-    using PLT = MAC_Q1_TX_FLOW_CTRL_fields_::PLT;
-    using DZPQ = MAC_Q1_TX_FLOW_CTRL_fields_::DZPQ;
-    using PT = MAC_Q1_TX_FLOW_CTRL_fields_::PT;
+      MacQ1TxFlowCtrlFields::PT> {
+    using eFCB_BPA = MacQ1TxFlowCtrlFields::eFCB_BPA;
+    using eTFE = MacQ1TxFlowCtrlFields::eTFE;
+    using ePLT = MacQ1TxFlowCtrlFields::ePLT;
+    using eDZPQ = MacQ1TxFlowCtrlFields::eDZPQ;
+    using FCB_BPA = MacQ1TxFlowCtrlFields::FCB_BPA;
+    using TFE = MacQ1TxFlowCtrlFields::TFE;
+    using PLT = MacQ1TxFlowCtrlFields::PLT;
+    using DZPQ = MacQ1TxFlowCtrlFields::DZPQ;
+    using PT = MacQ1TxFlowCtrlFields::PT;
   };
 
   // MAC Q2 Tx Flow Control
-  struct MAC_Q2_TX_FLOW_CTRL_fields_ {
+  struct MacQ2TxFlowCtrlFields {
     enum class eFCB_BPA : std::uint32_t {
       // Flow Control Busy or Backpressure Activate is disabled
       eDISABLE = 0,
@@ -1334,33 +1334,33 @@ struct EnetQos {
     using DZPQ = ftl::mmio::Field<1, 7, eDZPQ, ftl::mmio::RW, ftl::mmio::Normal>;
     // Pause Time
     using PT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_Q2_TX_FLOW_CTRL_fields_
+  };  // struct MacQ2TxFlowCtrlFields
 
   struct MAC_Q2_TX_FLOW_CTRL : ftl::mmio::Register<
       0x4043C078u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_Q2_TX_FLOW_CTRL_fields_::FCB_BPA,
-      MAC_Q2_TX_FLOW_CTRL_fields_::TFE,
+      MacQ2TxFlowCtrlFields::FCB_BPA,
+      MacQ2TxFlowCtrlFields::TFE,
       ftl::mmio::Reserved<2, 2>,
-      MAC_Q2_TX_FLOW_CTRL_fields_::PLT,
-      MAC_Q2_TX_FLOW_CTRL_fields_::DZPQ,
+      MacQ2TxFlowCtrlFields::PLT,
+      MacQ2TxFlowCtrlFields::DZPQ,
       ftl::mmio::Reserved<8, 8>,
-      MAC_Q2_TX_FLOW_CTRL_fields_::PT> {
-    using eFCB_BPA = MAC_Q2_TX_FLOW_CTRL_fields_::eFCB_BPA;
-    using eTFE = MAC_Q2_TX_FLOW_CTRL_fields_::eTFE;
-    using ePLT = MAC_Q2_TX_FLOW_CTRL_fields_::ePLT;
-    using eDZPQ = MAC_Q2_TX_FLOW_CTRL_fields_::eDZPQ;
-    using FCB_BPA = MAC_Q2_TX_FLOW_CTRL_fields_::FCB_BPA;
-    using TFE = MAC_Q2_TX_FLOW_CTRL_fields_::TFE;
-    using PLT = MAC_Q2_TX_FLOW_CTRL_fields_::PLT;
-    using DZPQ = MAC_Q2_TX_FLOW_CTRL_fields_::DZPQ;
-    using PT = MAC_Q2_TX_FLOW_CTRL_fields_::PT;
+      MacQ2TxFlowCtrlFields::PT> {
+    using eFCB_BPA = MacQ2TxFlowCtrlFields::eFCB_BPA;
+    using eTFE = MacQ2TxFlowCtrlFields::eTFE;
+    using ePLT = MacQ2TxFlowCtrlFields::ePLT;
+    using eDZPQ = MacQ2TxFlowCtrlFields::eDZPQ;
+    using FCB_BPA = MacQ2TxFlowCtrlFields::FCB_BPA;
+    using TFE = MacQ2TxFlowCtrlFields::TFE;
+    using PLT = MacQ2TxFlowCtrlFields::PLT;
+    using DZPQ = MacQ2TxFlowCtrlFields::DZPQ;
+    using PT = MacQ2TxFlowCtrlFields::PT;
   };
 
   // MAC Q3 Tx Flow Control
-  struct MAC_Q3_TX_FLOW_CTRL_fields_ {
+  struct MacQ3TxFlowCtrlFields {
     enum class eFCB_BPA : std::uint32_t {
       // Flow Control Busy or Backpressure Activate is disabled
       eDISABLE = 0,
@@ -1407,33 +1407,33 @@ struct EnetQos {
     using DZPQ = ftl::mmio::Field<1, 7, eDZPQ, ftl::mmio::RW, ftl::mmio::Normal>;
     // Pause Time
     using PT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_Q3_TX_FLOW_CTRL_fields_
+  };  // struct MacQ3TxFlowCtrlFields
 
   struct MAC_Q3_TX_FLOW_CTRL : ftl::mmio::Register<
       0x4043C07Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_Q3_TX_FLOW_CTRL_fields_::FCB_BPA,
-      MAC_Q3_TX_FLOW_CTRL_fields_::TFE,
+      MacQ3TxFlowCtrlFields::FCB_BPA,
+      MacQ3TxFlowCtrlFields::TFE,
       ftl::mmio::Reserved<2, 2>,
-      MAC_Q3_TX_FLOW_CTRL_fields_::PLT,
-      MAC_Q3_TX_FLOW_CTRL_fields_::DZPQ,
+      MacQ3TxFlowCtrlFields::PLT,
+      MacQ3TxFlowCtrlFields::DZPQ,
       ftl::mmio::Reserved<8, 8>,
-      MAC_Q3_TX_FLOW_CTRL_fields_::PT> {
-    using eFCB_BPA = MAC_Q3_TX_FLOW_CTRL_fields_::eFCB_BPA;
-    using eTFE = MAC_Q3_TX_FLOW_CTRL_fields_::eTFE;
-    using ePLT = MAC_Q3_TX_FLOW_CTRL_fields_::ePLT;
-    using eDZPQ = MAC_Q3_TX_FLOW_CTRL_fields_::eDZPQ;
-    using FCB_BPA = MAC_Q3_TX_FLOW_CTRL_fields_::FCB_BPA;
-    using TFE = MAC_Q3_TX_FLOW_CTRL_fields_::TFE;
-    using PLT = MAC_Q3_TX_FLOW_CTRL_fields_::PLT;
-    using DZPQ = MAC_Q3_TX_FLOW_CTRL_fields_::DZPQ;
-    using PT = MAC_Q3_TX_FLOW_CTRL_fields_::PT;
+      MacQ3TxFlowCtrlFields::PT> {
+    using eFCB_BPA = MacQ3TxFlowCtrlFields::eFCB_BPA;
+    using eTFE = MacQ3TxFlowCtrlFields::eTFE;
+    using ePLT = MacQ3TxFlowCtrlFields::ePLT;
+    using eDZPQ = MacQ3TxFlowCtrlFields::eDZPQ;
+    using FCB_BPA = MacQ3TxFlowCtrlFields::FCB_BPA;
+    using TFE = MacQ3TxFlowCtrlFields::TFE;
+    using PLT = MacQ3TxFlowCtrlFields::PLT;
+    using DZPQ = MacQ3TxFlowCtrlFields::DZPQ;
+    using PT = MacQ3TxFlowCtrlFields::PT;
   };
 
   // MAC Q4 Tx Flow Control
-  struct MAC_Q4_TX_FLOW_CTRL_fields_ {
+  struct MacQ4TxFlowCtrlFields {
     enum class eFCB_BPA : std::uint32_t {
       // Flow Control Busy or Backpressure Activate is disabled
       eDISABLE = 0,
@@ -1480,33 +1480,33 @@ struct EnetQos {
     using DZPQ = ftl::mmio::Field<1, 7, eDZPQ, ftl::mmio::RW, ftl::mmio::Normal>;
     // Pause Time
     using PT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_Q4_TX_FLOW_CTRL_fields_
+  };  // struct MacQ4TxFlowCtrlFields
 
   struct MAC_Q4_TX_FLOW_CTRL : ftl::mmio::Register<
       0x4043C080u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_Q4_TX_FLOW_CTRL_fields_::FCB_BPA,
-      MAC_Q4_TX_FLOW_CTRL_fields_::TFE,
+      MacQ4TxFlowCtrlFields::FCB_BPA,
+      MacQ4TxFlowCtrlFields::TFE,
       ftl::mmio::Reserved<2, 2>,
-      MAC_Q4_TX_FLOW_CTRL_fields_::PLT,
-      MAC_Q4_TX_FLOW_CTRL_fields_::DZPQ,
+      MacQ4TxFlowCtrlFields::PLT,
+      MacQ4TxFlowCtrlFields::DZPQ,
       ftl::mmio::Reserved<8, 8>,
-      MAC_Q4_TX_FLOW_CTRL_fields_::PT> {
-    using eFCB_BPA = MAC_Q4_TX_FLOW_CTRL_fields_::eFCB_BPA;
-    using eTFE = MAC_Q4_TX_FLOW_CTRL_fields_::eTFE;
-    using ePLT = MAC_Q4_TX_FLOW_CTRL_fields_::ePLT;
-    using eDZPQ = MAC_Q4_TX_FLOW_CTRL_fields_::eDZPQ;
-    using FCB_BPA = MAC_Q4_TX_FLOW_CTRL_fields_::FCB_BPA;
-    using TFE = MAC_Q4_TX_FLOW_CTRL_fields_::TFE;
-    using PLT = MAC_Q4_TX_FLOW_CTRL_fields_::PLT;
-    using DZPQ = MAC_Q4_TX_FLOW_CTRL_fields_::DZPQ;
-    using PT = MAC_Q4_TX_FLOW_CTRL_fields_::PT;
+      MacQ4TxFlowCtrlFields::PT> {
+    using eFCB_BPA = MacQ4TxFlowCtrlFields::eFCB_BPA;
+    using eTFE = MacQ4TxFlowCtrlFields::eTFE;
+    using ePLT = MacQ4TxFlowCtrlFields::ePLT;
+    using eDZPQ = MacQ4TxFlowCtrlFields::eDZPQ;
+    using FCB_BPA = MacQ4TxFlowCtrlFields::FCB_BPA;
+    using TFE = MacQ4TxFlowCtrlFields::TFE;
+    using PLT = MacQ4TxFlowCtrlFields::PLT;
+    using DZPQ = MacQ4TxFlowCtrlFields::DZPQ;
+    using PT = MacQ4TxFlowCtrlFields::PT;
   };
 
   // MAC Rx Flow Control
-  struct MAC_RX_FLOW_CTRL_fields_ {
+  struct MacRxFlowCtrlFields {
     enum class eRFE : std::uint32_t {
       // Receive Flow Control is disabled
       eDISABLE = 0,
@@ -1534,28 +1534,28 @@ struct EnetQos {
     using UP = ftl::mmio::Field<1, 1, eUP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Priority Based Flow Control Enable
     using PFCE = ftl::mmio::Field<1, 8, ePFCE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_RX_FLOW_CTRL_fields_
+  };  // struct MacRxFlowCtrlFields
 
   struct MAC_RX_FLOW_CTRL : ftl::mmio::Register<
       0x4043C090u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_RX_FLOW_CTRL_fields_::RFE,
-      MAC_RX_FLOW_CTRL_fields_::UP,
+      MacRxFlowCtrlFields::RFE,
+      MacRxFlowCtrlFields::UP,
       ftl::mmio::Reserved<6, 2>,
-      MAC_RX_FLOW_CTRL_fields_::PFCE,
+      MacRxFlowCtrlFields::PFCE,
       ftl::mmio::Reserved<23, 9>> {
-    using eRFE = MAC_RX_FLOW_CTRL_fields_::eRFE;
-    using eUP = MAC_RX_FLOW_CTRL_fields_::eUP;
-    using ePFCE = MAC_RX_FLOW_CTRL_fields_::ePFCE;
-    using RFE = MAC_RX_FLOW_CTRL_fields_::RFE;
-    using UP = MAC_RX_FLOW_CTRL_fields_::UP;
-    using PFCE = MAC_RX_FLOW_CTRL_fields_::PFCE;
+    using eRFE = MacRxFlowCtrlFields::eRFE;
+    using eUP = MacRxFlowCtrlFields::eUP;
+    using ePFCE = MacRxFlowCtrlFields::ePFCE;
+    using RFE = MacRxFlowCtrlFields::RFE;
+    using UP = MacRxFlowCtrlFields::UP;
+    using PFCE = MacRxFlowCtrlFields::PFCE;
   };
 
   // Receive Queue Control 4
-  struct MAC_RXQ_CTRL4_fields_ {
+  struct MacRxqCtrl4Fields {
     enum class eUFFQE : std::uint32_t {
       // Unicast Address Filter Fail Packets Queuing is disabled
       eDISABLE = 0,
@@ -1589,35 +1589,35 @@ struct EnetQos {
     using VFFQE = ftl::mmio::Field<1, 16, eVFFQE, ftl::mmio::RW, ftl::mmio::Normal>;
     // VLAN Tag Filter Fail Packets Queue
     using VFFQ = ftl::mmio::Field<3, 17, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_RXQ_CTRL4_fields_
+  };  // struct MacRxqCtrl4Fields
 
   struct MAC_RXQ_CTRL4 : ftl::mmio::Register<
       0x4043C094u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_RXQ_CTRL4_fields_::UFFQE,
-      MAC_RXQ_CTRL4_fields_::UFFQ,
+      MacRxqCtrl4Fields::UFFQE,
+      MacRxqCtrl4Fields::UFFQ,
       ftl::mmio::Reserved<4, 4>,
-      MAC_RXQ_CTRL4_fields_::MFFQE,
-      MAC_RXQ_CTRL4_fields_::MFFQ,
+      MacRxqCtrl4Fields::MFFQE,
+      MacRxqCtrl4Fields::MFFQ,
       ftl::mmio::Reserved<4, 12>,
-      MAC_RXQ_CTRL4_fields_::VFFQE,
-      MAC_RXQ_CTRL4_fields_::VFFQ,
+      MacRxqCtrl4Fields::VFFQE,
+      MacRxqCtrl4Fields::VFFQ,
       ftl::mmio::Reserved<12, 20>> {
-    using eUFFQE = MAC_RXQ_CTRL4_fields_::eUFFQE;
-    using eMFFQE = MAC_RXQ_CTRL4_fields_::eMFFQE;
-    using eVFFQE = MAC_RXQ_CTRL4_fields_::eVFFQE;
-    using UFFQE = MAC_RXQ_CTRL4_fields_::UFFQE;
-    using UFFQ = MAC_RXQ_CTRL4_fields_::UFFQ;
-    using MFFQE = MAC_RXQ_CTRL4_fields_::MFFQE;
-    using MFFQ = MAC_RXQ_CTRL4_fields_::MFFQ;
-    using VFFQE = MAC_RXQ_CTRL4_fields_::VFFQE;
-    using VFFQ = MAC_RXQ_CTRL4_fields_::VFFQ;
+    using eUFFQE = MacRxqCtrl4Fields::eUFFQE;
+    using eMFFQE = MacRxqCtrl4Fields::eMFFQE;
+    using eVFFQE = MacRxqCtrl4Fields::eVFFQE;
+    using UFFQE = MacRxqCtrl4Fields::UFFQE;
+    using UFFQ = MacRxqCtrl4Fields::UFFQ;
+    using MFFQE = MacRxqCtrl4Fields::MFFQE;
+    using MFFQ = MacRxqCtrl4Fields::MFFQ;
+    using VFFQE = MacRxqCtrl4Fields::VFFQE;
+    using VFFQ = MacRxqCtrl4Fields::VFFQ;
   };
 
   // Transmit Queue Priority Mapping 0
-  struct MAC_TXQ_PRTY_MAP0_fields_ {
+  struct MacTxqPrtyMap0Fields {
     // Priorities Selected in Transmit Queue 0
     using PSTQ0 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Priorities Selected in Transmit Queue 1 This bit is similar to the PSTQ0 bit.
@@ -1626,41 +1626,41 @@ struct EnetQos {
     using PSTQ2 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Priorities Selected in Transmit Queue 3 This bit is similar to the PSTQ0 bit.
     using PSTQ3 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TXQ_PRTY_MAP0_fields_
+  };  // struct MacTxqPrtyMap0Fields
 
   struct MAC_TXQ_PRTY_MAP0 : ftl::mmio::Register<
       0x4043C098u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_TXQ_PRTY_MAP0_fields_::PSTQ0,
-      MAC_TXQ_PRTY_MAP0_fields_::PSTQ1,
-      MAC_TXQ_PRTY_MAP0_fields_::PSTQ2,
-      MAC_TXQ_PRTY_MAP0_fields_::PSTQ3> {
-    using PSTQ0 = MAC_TXQ_PRTY_MAP0_fields_::PSTQ0;
-    using PSTQ1 = MAC_TXQ_PRTY_MAP0_fields_::PSTQ1;
-    using PSTQ2 = MAC_TXQ_PRTY_MAP0_fields_::PSTQ2;
-    using PSTQ3 = MAC_TXQ_PRTY_MAP0_fields_::PSTQ3;
+      MacTxqPrtyMap0Fields::PSTQ0,
+      MacTxqPrtyMap0Fields::PSTQ1,
+      MacTxqPrtyMap0Fields::PSTQ2,
+      MacTxqPrtyMap0Fields::PSTQ3> {
+    using PSTQ0 = MacTxqPrtyMap0Fields::PSTQ0;
+    using PSTQ1 = MacTxqPrtyMap0Fields::PSTQ1;
+    using PSTQ2 = MacTxqPrtyMap0Fields::PSTQ2;
+    using PSTQ3 = MacTxqPrtyMap0Fields::PSTQ3;
   };
 
   // Transmit Queue Priority Mapping 1
-  struct MAC_TXQ_PRTY_MAP1_fields_ {
+  struct MacTxqPrtyMap1Fields {
     // Priorities Selected in Transmit Queue 4
     using PSTQ4 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TXQ_PRTY_MAP1_fields_
+  };  // struct MacTxqPrtyMap1Fields
 
   struct MAC_TXQ_PRTY_MAP1 : ftl::mmio::Register<
       0x4043C09Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_TXQ_PRTY_MAP1_fields_::PSTQ4,
+      MacTxqPrtyMap1Fields::PSTQ4,
       ftl::mmio::Reserved<24, 8>> {
-    using PSTQ4 = MAC_TXQ_PRTY_MAP1_fields_::PSTQ4;
+    using PSTQ4 = MacTxqPrtyMap1Fields::PSTQ4;
   };
 
   // Receive Queue Control 0
-  struct MAC_RXQ_CTRL0_fields_ {
+  struct MacRxqCtrl0Fields {
     enum class eRXQ0EN : std::uint32_t {
       // Queue not enabled
       eDISABLE = 0,
@@ -1716,33 +1716,33 @@ struct EnetQos {
     using RXQ3EN = ftl::mmio::Field<2, 6, eRXQ3EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue 4 Enable This field is similar to the RXQ0EN field.
     using RXQ4EN = ftl::mmio::Field<2, 8, eRXQ4EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_RXQ_CTRL0_fields_
+  };  // struct MacRxqCtrl0Fields
 
   struct MAC_RXQ_CTRL0 : ftl::mmio::Register<
       0x4043C0A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_RXQ_CTRL0_fields_::RXQ0EN,
-      MAC_RXQ_CTRL0_fields_::RXQ1EN,
-      MAC_RXQ_CTRL0_fields_::RXQ2EN,
-      MAC_RXQ_CTRL0_fields_::RXQ3EN,
-      MAC_RXQ_CTRL0_fields_::RXQ4EN,
+      MacRxqCtrl0Fields::RXQ0EN,
+      MacRxqCtrl0Fields::RXQ1EN,
+      MacRxqCtrl0Fields::RXQ2EN,
+      MacRxqCtrl0Fields::RXQ3EN,
+      MacRxqCtrl0Fields::RXQ4EN,
       ftl::mmio::Reserved<22, 10>> {
-    using eRXQ0EN = MAC_RXQ_CTRL0_fields_::eRXQ0EN;
-    using eRXQ1EN = MAC_RXQ_CTRL0_fields_::eRXQ1EN;
-    using eRXQ2EN = MAC_RXQ_CTRL0_fields_::eRXQ2EN;
-    using eRXQ3EN = MAC_RXQ_CTRL0_fields_::eRXQ3EN;
-    using eRXQ4EN = MAC_RXQ_CTRL0_fields_::eRXQ4EN;
-    using RXQ0EN = MAC_RXQ_CTRL0_fields_::RXQ0EN;
-    using RXQ1EN = MAC_RXQ_CTRL0_fields_::RXQ1EN;
-    using RXQ2EN = MAC_RXQ_CTRL0_fields_::RXQ2EN;
-    using RXQ3EN = MAC_RXQ_CTRL0_fields_::RXQ3EN;
-    using RXQ4EN = MAC_RXQ_CTRL0_fields_::RXQ4EN;
+    using eRXQ0EN = MacRxqCtrl0Fields::eRXQ0EN;
+    using eRXQ1EN = MacRxqCtrl0Fields::eRXQ1EN;
+    using eRXQ2EN = MacRxqCtrl0Fields::eRXQ2EN;
+    using eRXQ3EN = MacRxqCtrl0Fields::eRXQ3EN;
+    using eRXQ4EN = MacRxqCtrl0Fields::eRXQ4EN;
+    using RXQ0EN = MacRxqCtrl0Fields::RXQ0EN;
+    using RXQ1EN = MacRxqCtrl0Fields::RXQ1EN;
+    using RXQ2EN = MacRxqCtrl0Fields::RXQ2EN;
+    using RXQ3EN = MacRxqCtrl0Fields::RXQ3EN;
+    using RXQ4EN = MacRxqCtrl0Fields::RXQ4EN;
   };
 
   // Receive Queue Control 1
-  struct MAC_RXQ_CTRL1_fields_ {
+  struct MacRxqCtrl1Fields {
     enum class eAVCPQ : std::uint32_t {
       // Receive Queue 0
       eQUEUE0 = 0,
@@ -1840,48 +1840,48 @@ struct EnetQos {
     using TPQC = ftl::mmio::Field<2, 22, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Frame Preemption Residue Queue
     using FPRQ = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_RXQ_CTRL1_fields_
+  };  // struct MacRxqCtrl1Fields
 
   struct MAC_RXQ_CTRL1 : ftl::mmio::Register<
       0x4043C0A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_RXQ_CTRL1_fields_::AVCPQ,
+      MacRxqCtrl1Fields::AVCPQ,
       ftl::mmio::Reserved<1, 3>,
-      MAC_RXQ_CTRL1_fields_::PTPQ,
+      MacRxqCtrl1Fields::PTPQ,
       ftl::mmio::Reserved<1, 7>,
-      MAC_RXQ_CTRL1_fields_::DCBCPQ,
+      MacRxqCtrl1Fields::DCBCPQ,
       ftl::mmio::Reserved<1, 11>,
-      MAC_RXQ_CTRL1_fields_::UPQ,
+      MacRxqCtrl1Fields::UPQ,
       ftl::mmio::Reserved<1, 15>,
-      MAC_RXQ_CTRL1_fields_::MCBCQ,
+      MacRxqCtrl1Fields::MCBCQ,
       ftl::mmio::Reserved<1, 19>,
-      MAC_RXQ_CTRL1_fields_::MCBCQEN,
-      MAC_RXQ_CTRL1_fields_::TACPQE,
-      MAC_RXQ_CTRL1_fields_::TPQC,
-      MAC_RXQ_CTRL1_fields_::FPRQ,
+      MacRxqCtrl1Fields::MCBCQEN,
+      MacRxqCtrl1Fields::TACPQE,
+      MacRxqCtrl1Fields::TPQC,
+      MacRxqCtrl1Fields::FPRQ,
       ftl::mmio::Reserved<5, 27>> {
-    using eAVCPQ = MAC_RXQ_CTRL1_fields_::eAVCPQ;
-    using ePTPQ = MAC_RXQ_CTRL1_fields_::ePTPQ;
-    using eDCBCPQ = MAC_RXQ_CTRL1_fields_::eDCBCPQ;
-    using eUPQ = MAC_RXQ_CTRL1_fields_::eUPQ;
-    using eMCBCQ = MAC_RXQ_CTRL1_fields_::eMCBCQ;
-    using eMCBCQEN = MAC_RXQ_CTRL1_fields_::eMCBCQEN;
-    using eTACPQE = MAC_RXQ_CTRL1_fields_::eTACPQE;
-    using AVCPQ = MAC_RXQ_CTRL1_fields_::AVCPQ;
-    using PTPQ = MAC_RXQ_CTRL1_fields_::PTPQ;
-    using DCBCPQ = MAC_RXQ_CTRL1_fields_::DCBCPQ;
-    using UPQ = MAC_RXQ_CTRL1_fields_::UPQ;
-    using MCBCQ = MAC_RXQ_CTRL1_fields_::MCBCQ;
-    using MCBCQEN = MAC_RXQ_CTRL1_fields_::MCBCQEN;
-    using TACPQE = MAC_RXQ_CTRL1_fields_::TACPQE;
-    using TPQC = MAC_RXQ_CTRL1_fields_::TPQC;
-    using FPRQ = MAC_RXQ_CTRL1_fields_::FPRQ;
+    using eAVCPQ = MacRxqCtrl1Fields::eAVCPQ;
+    using ePTPQ = MacRxqCtrl1Fields::ePTPQ;
+    using eDCBCPQ = MacRxqCtrl1Fields::eDCBCPQ;
+    using eUPQ = MacRxqCtrl1Fields::eUPQ;
+    using eMCBCQ = MacRxqCtrl1Fields::eMCBCQ;
+    using eMCBCQEN = MacRxqCtrl1Fields::eMCBCQEN;
+    using eTACPQE = MacRxqCtrl1Fields::eTACPQE;
+    using AVCPQ = MacRxqCtrl1Fields::AVCPQ;
+    using PTPQ = MacRxqCtrl1Fields::PTPQ;
+    using DCBCPQ = MacRxqCtrl1Fields::DCBCPQ;
+    using UPQ = MacRxqCtrl1Fields::UPQ;
+    using MCBCQ = MacRxqCtrl1Fields::MCBCQ;
+    using MCBCQEN = MacRxqCtrl1Fields::MCBCQEN;
+    using TACPQE = MacRxqCtrl1Fields::TACPQE;
+    using TPQC = MacRxqCtrl1Fields::TPQC;
+    using FPRQ = MacRxqCtrl1Fields::FPRQ;
   };
 
   // Receive Queue Control 2
-  struct MAC_RXQ_CTRL2_fields_ {
+  struct MacRxqCtrl2Fields {
     // Priorities Selected in the Receive Queue 0
     using PSRQ0 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Priorities Selected in the Receive Queue 1
@@ -1890,41 +1890,41 @@ struct EnetQos {
     using PSRQ2 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Priorities Selected in the Receive Queue 3
     using PSRQ3 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_RXQ_CTRL2_fields_
+  };  // struct MacRxqCtrl2Fields
 
   struct MAC_RXQ_CTRL2 : ftl::mmio::Register<
       0x4043C0A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_RXQ_CTRL2_fields_::PSRQ0,
-      MAC_RXQ_CTRL2_fields_::PSRQ1,
-      MAC_RXQ_CTRL2_fields_::PSRQ2,
-      MAC_RXQ_CTRL2_fields_::PSRQ3> {
-    using PSRQ0 = MAC_RXQ_CTRL2_fields_::PSRQ0;
-    using PSRQ1 = MAC_RXQ_CTRL2_fields_::PSRQ1;
-    using PSRQ2 = MAC_RXQ_CTRL2_fields_::PSRQ2;
-    using PSRQ3 = MAC_RXQ_CTRL2_fields_::PSRQ3;
+      MacRxqCtrl2Fields::PSRQ0,
+      MacRxqCtrl2Fields::PSRQ1,
+      MacRxqCtrl2Fields::PSRQ2,
+      MacRxqCtrl2Fields::PSRQ3> {
+    using PSRQ0 = MacRxqCtrl2Fields::PSRQ0;
+    using PSRQ1 = MacRxqCtrl2Fields::PSRQ1;
+    using PSRQ2 = MacRxqCtrl2Fields::PSRQ2;
+    using PSRQ3 = MacRxqCtrl2Fields::PSRQ3;
   };
 
   // Receive Queue Control 3
-  struct MAC_RXQ_CTRL3_fields_ {
+  struct MacRxqCtrl3Fields {
     // Priorities Selected in the Receive Queue 4
     using PSRQ4 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_RXQ_CTRL3_fields_
+  };  // struct MacRxqCtrl3Fields
 
   struct MAC_RXQ_CTRL3 : ftl::mmio::Register<
       0x4043C0ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_RXQ_CTRL3_fields_::PSRQ4,
+      MacRxqCtrl3Fields::PSRQ4,
       ftl::mmio::Reserved<24, 8>> {
-    using PSRQ4 = MAC_RXQ_CTRL3_fields_::PSRQ4;
+    using PSRQ4 = MacRxqCtrl3Fields::PSRQ4;
   };
 
   // Interrupt Status
-  struct MAC_INTERRUPT_STATUS_fields_ {
+  struct MacInterruptStatusFields {
     enum class eRGSMIIIS : std::uint32_t {
       // RGMII or SMII Interrupt Status is not active
       eINACTIVE = 0,
@@ -2060,66 +2060,66 @@ struct EnetQos {
     using MFTIS = ftl::mmio::Field<1, 19, eMFTIS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MMC FPE Receive Interrupt Status
     using MFRIS = ftl::mmio::Field<1, 20, eMFRIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_INTERRUPT_STATUS_fields_
+  };  // struct MacInterruptStatusFields
 
   struct MAC_INTERRUPT_STATUS : ftl::mmio::Register<
       0x4043C0B0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_INTERRUPT_STATUS_fields_::RGSMIIIS,
+      MacInterruptStatusFields::RGSMIIIS,
       ftl::mmio::Reserved<2, 1>,
-      MAC_INTERRUPT_STATUS_fields_::PHYIS,
-      MAC_INTERRUPT_STATUS_fields_::PMTIS,
-      MAC_INTERRUPT_STATUS_fields_::LPIIS,
+      MacInterruptStatusFields::PHYIS,
+      MacInterruptStatusFields::PMTIS,
+      MacInterruptStatusFields::LPIIS,
       ftl::mmio::Reserved<2, 6>,
-      MAC_INTERRUPT_STATUS_fields_::MMCIS,
-      MAC_INTERRUPT_STATUS_fields_::MMCRXIS,
-      MAC_INTERRUPT_STATUS_fields_::MMCTXIS,
-      MAC_INTERRUPT_STATUS_fields_::MMCRXIPIS,
-      MAC_INTERRUPT_STATUS_fields_::TSIS,
-      MAC_INTERRUPT_STATUS_fields_::TXSTSIS,
-      MAC_INTERRUPT_STATUS_fields_::RXSTSIS,
+      MacInterruptStatusFields::MMCIS,
+      MacInterruptStatusFields::MMCRXIS,
+      MacInterruptStatusFields::MMCTXIS,
+      MacInterruptStatusFields::MMCRXIPIS,
+      MacInterruptStatusFields::TSIS,
+      MacInterruptStatusFields::TXSTSIS,
+      MacInterruptStatusFields::RXSTSIS,
       ftl::mmio::Reserved<2, 15>,
-      MAC_INTERRUPT_STATUS_fields_::FPEIS,
-      MAC_INTERRUPT_STATUS_fields_::MDIOIS,
-      MAC_INTERRUPT_STATUS_fields_::MFTIS,
-      MAC_INTERRUPT_STATUS_fields_::MFRIS,
+      MacInterruptStatusFields::FPEIS,
+      MacInterruptStatusFields::MDIOIS,
+      MacInterruptStatusFields::MFTIS,
+      MacInterruptStatusFields::MFRIS,
       ftl::mmio::Reserved<11, 21>> {
-    using eRGSMIIIS = MAC_INTERRUPT_STATUS_fields_::eRGSMIIIS;
-    using ePHYIS = MAC_INTERRUPT_STATUS_fields_::ePHYIS;
-    using ePMTIS = MAC_INTERRUPT_STATUS_fields_::ePMTIS;
-    using eLPIIS = MAC_INTERRUPT_STATUS_fields_::eLPIIS;
-    using eMMCIS = MAC_INTERRUPT_STATUS_fields_::eMMCIS;
-    using eMMCRXIS = MAC_INTERRUPT_STATUS_fields_::eMMCRXIS;
-    using eMMCTXIS = MAC_INTERRUPT_STATUS_fields_::eMMCTXIS;
-    using eMMCRXIPIS = MAC_INTERRUPT_STATUS_fields_::eMMCRXIPIS;
-    using eTSIS = MAC_INTERRUPT_STATUS_fields_::eTSIS;
-    using eTXSTSIS = MAC_INTERRUPT_STATUS_fields_::eTXSTSIS;
-    using eRXSTSIS = MAC_INTERRUPT_STATUS_fields_::eRXSTSIS;
-    using eFPEIS = MAC_INTERRUPT_STATUS_fields_::eFPEIS;
-    using eMDIOIS = MAC_INTERRUPT_STATUS_fields_::eMDIOIS;
-    using eMFTIS = MAC_INTERRUPT_STATUS_fields_::eMFTIS;
-    using eMFRIS = MAC_INTERRUPT_STATUS_fields_::eMFRIS;
-    using RGSMIIIS = MAC_INTERRUPT_STATUS_fields_::RGSMIIIS;
-    using PHYIS = MAC_INTERRUPT_STATUS_fields_::PHYIS;
-    using PMTIS = MAC_INTERRUPT_STATUS_fields_::PMTIS;
-    using LPIIS = MAC_INTERRUPT_STATUS_fields_::LPIIS;
-    using MMCIS = MAC_INTERRUPT_STATUS_fields_::MMCIS;
-    using MMCRXIS = MAC_INTERRUPT_STATUS_fields_::MMCRXIS;
-    using MMCTXIS = MAC_INTERRUPT_STATUS_fields_::MMCTXIS;
-    using MMCRXIPIS = MAC_INTERRUPT_STATUS_fields_::MMCRXIPIS;
-    using TSIS = MAC_INTERRUPT_STATUS_fields_::TSIS;
-    using TXSTSIS = MAC_INTERRUPT_STATUS_fields_::TXSTSIS;
-    using RXSTSIS = MAC_INTERRUPT_STATUS_fields_::RXSTSIS;
-    using FPEIS = MAC_INTERRUPT_STATUS_fields_::FPEIS;
-    using MDIOIS = MAC_INTERRUPT_STATUS_fields_::MDIOIS;
-    using MFTIS = MAC_INTERRUPT_STATUS_fields_::MFTIS;
-    using MFRIS = MAC_INTERRUPT_STATUS_fields_::MFRIS;
+    using eRGSMIIIS = MacInterruptStatusFields::eRGSMIIIS;
+    using ePHYIS = MacInterruptStatusFields::ePHYIS;
+    using ePMTIS = MacInterruptStatusFields::ePMTIS;
+    using eLPIIS = MacInterruptStatusFields::eLPIIS;
+    using eMMCIS = MacInterruptStatusFields::eMMCIS;
+    using eMMCRXIS = MacInterruptStatusFields::eMMCRXIS;
+    using eMMCTXIS = MacInterruptStatusFields::eMMCTXIS;
+    using eMMCRXIPIS = MacInterruptStatusFields::eMMCRXIPIS;
+    using eTSIS = MacInterruptStatusFields::eTSIS;
+    using eTXSTSIS = MacInterruptStatusFields::eTXSTSIS;
+    using eRXSTSIS = MacInterruptStatusFields::eRXSTSIS;
+    using eFPEIS = MacInterruptStatusFields::eFPEIS;
+    using eMDIOIS = MacInterruptStatusFields::eMDIOIS;
+    using eMFTIS = MacInterruptStatusFields::eMFTIS;
+    using eMFRIS = MacInterruptStatusFields::eMFRIS;
+    using RGSMIIIS = MacInterruptStatusFields::RGSMIIIS;
+    using PHYIS = MacInterruptStatusFields::PHYIS;
+    using PMTIS = MacInterruptStatusFields::PMTIS;
+    using LPIIS = MacInterruptStatusFields::LPIIS;
+    using MMCIS = MacInterruptStatusFields::MMCIS;
+    using MMCRXIS = MacInterruptStatusFields::MMCRXIS;
+    using MMCTXIS = MacInterruptStatusFields::MMCTXIS;
+    using MMCRXIPIS = MacInterruptStatusFields::MMCRXIPIS;
+    using TSIS = MacInterruptStatusFields::TSIS;
+    using TXSTSIS = MacInterruptStatusFields::TXSTSIS;
+    using RXSTSIS = MacInterruptStatusFields::RXSTSIS;
+    using FPEIS = MacInterruptStatusFields::FPEIS;
+    using MDIOIS = MacInterruptStatusFields::MDIOIS;
+    using MFTIS = MacInterruptStatusFields::MFTIS;
+    using MFRIS = MacInterruptStatusFields::MFRIS;
   };
 
   // Interrupt Enable
-  struct MAC_INTERRUPT_ENABLE_fields_ {
+  struct MacInterruptEnableFields {
     enum class eRGSMIIIE : std::uint32_t {
       // RGMII or SMII Interrupt is disabled
       eDISABLE = 0,
@@ -2201,48 +2201,48 @@ struct EnetQos {
     using FPEIE = ftl::mmio::Field<1, 17, eFPEIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // MDIO Interrupt Enable When this bit is set, it enables the assertion of the interrupt when MDIOIS field is set in the MAC_INTERRUPT_STATUS register.
     using MDIOIE = ftl::mmio::Field<1, 18, eMDIOIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_INTERRUPT_ENABLE_fields_
+  };  // struct MacInterruptEnableFields
 
   struct MAC_INTERRUPT_ENABLE : ftl::mmio::Register<
       0x4043C0B4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_INTERRUPT_ENABLE_fields_::RGSMIIIE,
+      MacInterruptEnableFields::RGSMIIIE,
       ftl::mmio::Reserved<2, 1>,
-      MAC_INTERRUPT_ENABLE_fields_::PHYIE,
-      MAC_INTERRUPT_ENABLE_fields_::PMTIE,
-      MAC_INTERRUPT_ENABLE_fields_::LPIIE,
+      MacInterruptEnableFields::PHYIE,
+      MacInterruptEnableFields::PMTIE,
+      MacInterruptEnableFields::LPIIE,
       ftl::mmio::Reserved<6, 6>,
-      MAC_INTERRUPT_ENABLE_fields_::TSIE,
-      MAC_INTERRUPT_ENABLE_fields_::TXSTSIE,
-      MAC_INTERRUPT_ENABLE_fields_::RXSTSIE,
+      MacInterruptEnableFields::TSIE,
+      MacInterruptEnableFields::TXSTSIE,
+      MacInterruptEnableFields::RXSTSIE,
       ftl::mmio::Reserved<2, 15>,
-      MAC_INTERRUPT_ENABLE_fields_::FPEIE,
-      MAC_INTERRUPT_ENABLE_fields_::MDIOIE,
+      MacInterruptEnableFields::FPEIE,
+      MacInterruptEnableFields::MDIOIE,
       ftl::mmio::Reserved<13, 19>> {
-    using eRGSMIIIE = MAC_INTERRUPT_ENABLE_fields_::eRGSMIIIE;
-    using ePHYIE = MAC_INTERRUPT_ENABLE_fields_::ePHYIE;
-    using ePMTIE = MAC_INTERRUPT_ENABLE_fields_::ePMTIE;
-    using eLPIIE = MAC_INTERRUPT_ENABLE_fields_::eLPIIE;
-    using eTSIE = MAC_INTERRUPT_ENABLE_fields_::eTSIE;
-    using eTXSTSIE = MAC_INTERRUPT_ENABLE_fields_::eTXSTSIE;
-    using eRXSTSIE = MAC_INTERRUPT_ENABLE_fields_::eRXSTSIE;
-    using eFPEIE = MAC_INTERRUPT_ENABLE_fields_::eFPEIE;
-    using eMDIOIE = MAC_INTERRUPT_ENABLE_fields_::eMDIOIE;
-    using RGSMIIIE = MAC_INTERRUPT_ENABLE_fields_::RGSMIIIE;
-    using PHYIE = MAC_INTERRUPT_ENABLE_fields_::PHYIE;
-    using PMTIE = MAC_INTERRUPT_ENABLE_fields_::PMTIE;
-    using LPIIE = MAC_INTERRUPT_ENABLE_fields_::LPIIE;
-    using TSIE = MAC_INTERRUPT_ENABLE_fields_::TSIE;
-    using TXSTSIE = MAC_INTERRUPT_ENABLE_fields_::TXSTSIE;
-    using RXSTSIE = MAC_INTERRUPT_ENABLE_fields_::RXSTSIE;
-    using FPEIE = MAC_INTERRUPT_ENABLE_fields_::FPEIE;
-    using MDIOIE = MAC_INTERRUPT_ENABLE_fields_::MDIOIE;
+    using eRGSMIIIE = MacInterruptEnableFields::eRGSMIIIE;
+    using ePHYIE = MacInterruptEnableFields::ePHYIE;
+    using ePMTIE = MacInterruptEnableFields::ePMTIE;
+    using eLPIIE = MacInterruptEnableFields::eLPIIE;
+    using eTSIE = MacInterruptEnableFields::eTSIE;
+    using eTXSTSIE = MacInterruptEnableFields::eTXSTSIE;
+    using eRXSTSIE = MacInterruptEnableFields::eRXSTSIE;
+    using eFPEIE = MacInterruptEnableFields::eFPEIE;
+    using eMDIOIE = MacInterruptEnableFields::eMDIOIE;
+    using RGSMIIIE = MacInterruptEnableFields::RGSMIIIE;
+    using PHYIE = MacInterruptEnableFields::PHYIE;
+    using PMTIE = MacInterruptEnableFields::PMTIE;
+    using LPIIE = MacInterruptEnableFields::LPIIE;
+    using TSIE = MacInterruptEnableFields::TSIE;
+    using TXSTSIE = MacInterruptEnableFields::TXSTSIE;
+    using RXSTSIE = MacInterruptEnableFields::RXSTSIE;
+    using FPEIE = MacInterruptEnableFields::FPEIE;
+    using MDIOIE = MacInterruptEnableFields::MDIOIE;
   };
 
   // Receive Transmit Status
-  struct MAC_RX_TX_STATUS_fields_ {
+  struct MacRxTxStatusFields {
     enum class eTJT : std::uint32_t {
       // No Transmit Jabber Timeout
       eINACTIVE = 0,
@@ -2306,40 +2306,40 @@ struct EnetQos {
     using EXCOL = ftl::mmio::Field<1, 5, eEXCOL, ftl::mmio::RO, ftl::mmio::Normal>;
     // Receive Watchdog Timeout This bit is set when a packet with length greater than 2,048 bytes is received (10, 240 bytes when Jumbo Packet mode is enabled) and the WD bit is reset in the MAC_CONFIGURATION register.
     using RWT = ftl::mmio::Field<1, 8, eRWT, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_TX_STATUS_fields_
+  };  // struct MacRxTxStatusFields
 
   struct MAC_RX_TX_STATUS : ftl::mmio::Register<
       0x4043C0B8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_TX_STATUS_fields_::TJT,
-      MAC_RX_TX_STATUS_fields_::NCARR,
-      MAC_RX_TX_STATUS_fields_::LCARR,
-      MAC_RX_TX_STATUS_fields_::EXDEF,
-      MAC_RX_TX_STATUS_fields_::LCOL,
-      MAC_RX_TX_STATUS_fields_::EXCOL,
+      MacRxTxStatusFields::TJT,
+      MacRxTxStatusFields::NCARR,
+      MacRxTxStatusFields::LCARR,
+      MacRxTxStatusFields::EXDEF,
+      MacRxTxStatusFields::LCOL,
+      MacRxTxStatusFields::EXCOL,
       ftl::mmio::Reserved<2, 6>,
-      MAC_RX_TX_STATUS_fields_::RWT,
+      MacRxTxStatusFields::RWT,
       ftl::mmio::Reserved<23, 9>> {
-    using eTJT = MAC_RX_TX_STATUS_fields_::eTJT;
-    using eNCARR = MAC_RX_TX_STATUS_fields_::eNCARR;
-    using eLCARR = MAC_RX_TX_STATUS_fields_::eLCARR;
-    using eEXDEF = MAC_RX_TX_STATUS_fields_::eEXDEF;
-    using eLCOL = MAC_RX_TX_STATUS_fields_::eLCOL;
-    using eEXCOL = MAC_RX_TX_STATUS_fields_::eEXCOL;
-    using eRWT = MAC_RX_TX_STATUS_fields_::eRWT;
-    using TJT = MAC_RX_TX_STATUS_fields_::TJT;
-    using NCARR = MAC_RX_TX_STATUS_fields_::NCARR;
-    using LCARR = MAC_RX_TX_STATUS_fields_::LCARR;
-    using EXDEF = MAC_RX_TX_STATUS_fields_::EXDEF;
-    using LCOL = MAC_RX_TX_STATUS_fields_::LCOL;
-    using EXCOL = MAC_RX_TX_STATUS_fields_::EXCOL;
-    using RWT = MAC_RX_TX_STATUS_fields_::RWT;
+    using eTJT = MacRxTxStatusFields::eTJT;
+    using eNCARR = MacRxTxStatusFields::eNCARR;
+    using eLCARR = MacRxTxStatusFields::eLCARR;
+    using eEXDEF = MacRxTxStatusFields::eEXDEF;
+    using eLCOL = MacRxTxStatusFields::eLCOL;
+    using eEXCOL = MacRxTxStatusFields::eEXCOL;
+    using eRWT = MacRxTxStatusFields::eRWT;
+    using TJT = MacRxTxStatusFields::TJT;
+    using NCARR = MacRxTxStatusFields::NCARR;
+    using LCARR = MacRxTxStatusFields::LCARR;
+    using EXDEF = MacRxTxStatusFields::EXDEF;
+    using LCOL = MacRxTxStatusFields::LCOL;
+    using EXCOL = MacRxTxStatusFields::EXCOL;
+    using RWT = MacRxTxStatusFields::RWT;
   };
 
   // PMT Control and Status
-  struct MAC_PMT_CONTROL_STATUS_fields_ {
+  struct MacPmtControlStatusFields {
     enum class ePWRDWN : std::uint32_t {
       // Power down is disabled
       eDISABLE = 0,
@@ -2414,62 +2414,62 @@ struct EnetQos {
     using RWKPTR = ftl::mmio::Field<5, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Remote Wake-Up Packet Filter Register Pointer Reset When this bit is set, the remote wake-up packet filter register pointer is reset to 3'b000.
     using RWKFILTRST = ftl::mmio::Field<1, 31, eRWKFILTRST, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PMT_CONTROL_STATUS_fields_
+  };  // struct MacPmtControlStatusFields
 
   struct MAC_PMT_CONTROL_STATUS : ftl::mmio::Register<
       0x4043C0C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PMT_CONTROL_STATUS_fields_::PWRDWN,
-      MAC_PMT_CONTROL_STATUS_fields_::MGKPKTEN,
-      MAC_PMT_CONTROL_STATUS_fields_::RWKPKTEN,
+      MacPmtControlStatusFields::PWRDWN,
+      MacPmtControlStatusFields::MGKPKTEN,
+      MacPmtControlStatusFields::RWKPKTEN,
       ftl::mmio::Reserved<2, 3>,
-      MAC_PMT_CONTROL_STATUS_fields_::MGKPRCVD,
-      MAC_PMT_CONTROL_STATUS_fields_::RWKPRCVD,
+      MacPmtControlStatusFields::MGKPRCVD,
+      MacPmtControlStatusFields::RWKPRCVD,
       ftl::mmio::Reserved<2, 7>,
-      MAC_PMT_CONTROL_STATUS_fields_::GLBLUCAST,
-      MAC_PMT_CONTROL_STATUS_fields_::RWKPFE,
+      MacPmtControlStatusFields::GLBLUCAST,
+      MacPmtControlStatusFields::RWKPFE,
       ftl::mmio::Reserved<13, 11>,
-      MAC_PMT_CONTROL_STATUS_fields_::RWKPTR,
+      MacPmtControlStatusFields::RWKPTR,
       ftl::mmio::Reserved<2, 29>,
-      MAC_PMT_CONTROL_STATUS_fields_::RWKFILTRST> {
-    using ePWRDWN = MAC_PMT_CONTROL_STATUS_fields_::ePWRDWN;
-    using eMGKPKTEN = MAC_PMT_CONTROL_STATUS_fields_::eMGKPKTEN;
-    using eRWKPKTEN = MAC_PMT_CONTROL_STATUS_fields_::eRWKPKTEN;
-    using eMGKPRCVD = MAC_PMT_CONTROL_STATUS_fields_::eMGKPRCVD;
-    using eRWKPRCVD = MAC_PMT_CONTROL_STATUS_fields_::eRWKPRCVD;
-    using eGLBLUCAST = MAC_PMT_CONTROL_STATUS_fields_::eGLBLUCAST;
-    using eRWKPFE = MAC_PMT_CONTROL_STATUS_fields_::eRWKPFE;
-    using eRWKFILTRST = MAC_PMT_CONTROL_STATUS_fields_::eRWKFILTRST;
-    using PWRDWN = MAC_PMT_CONTROL_STATUS_fields_::PWRDWN;
-    using MGKPKTEN = MAC_PMT_CONTROL_STATUS_fields_::MGKPKTEN;
-    using RWKPKTEN = MAC_PMT_CONTROL_STATUS_fields_::RWKPKTEN;
-    using MGKPRCVD = MAC_PMT_CONTROL_STATUS_fields_::MGKPRCVD;
-    using RWKPRCVD = MAC_PMT_CONTROL_STATUS_fields_::RWKPRCVD;
-    using GLBLUCAST = MAC_PMT_CONTROL_STATUS_fields_::GLBLUCAST;
-    using RWKPFE = MAC_PMT_CONTROL_STATUS_fields_::RWKPFE;
-    using RWKPTR = MAC_PMT_CONTROL_STATUS_fields_::RWKPTR;
-    using RWKFILTRST = MAC_PMT_CONTROL_STATUS_fields_::RWKFILTRST;
+      MacPmtControlStatusFields::RWKFILTRST> {
+    using ePWRDWN = MacPmtControlStatusFields::ePWRDWN;
+    using eMGKPKTEN = MacPmtControlStatusFields::eMGKPKTEN;
+    using eRWKPKTEN = MacPmtControlStatusFields::eRWKPKTEN;
+    using eMGKPRCVD = MacPmtControlStatusFields::eMGKPRCVD;
+    using eRWKPRCVD = MacPmtControlStatusFields::eRWKPRCVD;
+    using eGLBLUCAST = MacPmtControlStatusFields::eGLBLUCAST;
+    using eRWKPFE = MacPmtControlStatusFields::eRWKPFE;
+    using eRWKFILTRST = MacPmtControlStatusFields::eRWKFILTRST;
+    using PWRDWN = MacPmtControlStatusFields::PWRDWN;
+    using MGKPKTEN = MacPmtControlStatusFields::MGKPKTEN;
+    using RWKPKTEN = MacPmtControlStatusFields::RWKPKTEN;
+    using MGKPRCVD = MacPmtControlStatusFields::MGKPRCVD;
+    using RWKPRCVD = MacPmtControlStatusFields::RWKPRCVD;
+    using GLBLUCAST = MacPmtControlStatusFields::GLBLUCAST;
+    using RWKPFE = MacPmtControlStatusFields::RWKPFE;
+    using RWKPTR = MacPmtControlStatusFields::RWKPTR;
+    using RWKFILTRST = MacPmtControlStatusFields::RWKFILTRST;
   };
 
   // Remote Wakeup Filter
-  struct MAC_RWK_PACKET_FILTER_fields_ {
+  struct MacRwkPacketFilterFields {
     // RWK Packet Filter This field contains the various controls of RWK Packet filter.
     using WKUPFRMFTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_RWK_PACKET_FILTER_fields_
+  };  // struct MacRwkPacketFilterFields
 
   struct MAC_RWK_PACKET_FILTER : ftl::mmio::Register<
       0x4043C0C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_RWK_PACKET_FILTER_fields_::WKUPFRMFTR> {
-    using WKUPFRMFTR = MAC_RWK_PACKET_FILTER_fields_::WKUPFRMFTR;
+      MacRwkPacketFilterFields::WKUPFRMFTR> {
+    using WKUPFRMFTR = MacRwkPacketFilterFields::WKUPFRMFTR;
   };
 
   // LPI Control and Status
-  struct MAC_LPI_CONTROL_STATUS_fields_ {
+  struct MacLpiControlStatusFields {
     enum class eTLPIEN : std::uint32_t {
       // Transmit LPI entry not detected
       eINACTIVE = 0,
@@ -2578,79 +2578,79 @@ struct EnetQos {
     using LPIATE = ftl::mmio::Field<1, 20, eLPIATE, ftl::mmio::RW, ftl::mmio::Normal>;
     // LPI Tx Clock Stop Enable When this bit is set, the MAC asserts sbd_tx_clk_gating_ctrl_o signal high after it enters Tx LPI mode to indicate that the Tx clock to MAC can be stopped.
     using LPITCSE = ftl::mmio::Field<1, 21, eLPITCSE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LPI_CONTROL_STATUS_fields_
+  };  // struct MacLpiControlStatusFields
 
   struct MAC_LPI_CONTROL_STATUS : ftl::mmio::Register<
       0x4043C0D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LPI_CONTROL_STATUS_fields_::TLPIEN,
-      MAC_LPI_CONTROL_STATUS_fields_::TLPIEX,
-      MAC_LPI_CONTROL_STATUS_fields_::RLPIEN,
-      MAC_LPI_CONTROL_STATUS_fields_::RLPIEX,
+      MacLpiControlStatusFields::TLPIEN,
+      MacLpiControlStatusFields::TLPIEX,
+      MacLpiControlStatusFields::RLPIEN,
+      MacLpiControlStatusFields::RLPIEX,
       ftl::mmio::Reserved<4, 4>,
-      MAC_LPI_CONTROL_STATUS_fields_::TLPIST,
-      MAC_LPI_CONTROL_STATUS_fields_::RLPIST,
+      MacLpiControlStatusFields::TLPIST,
+      MacLpiControlStatusFields::RLPIST,
       ftl::mmio::Reserved<6, 10>,
-      MAC_LPI_CONTROL_STATUS_fields_::LPIEN,
-      MAC_LPI_CONTROL_STATUS_fields_::PLS,
-      MAC_LPI_CONTROL_STATUS_fields_::PLSEN,
-      MAC_LPI_CONTROL_STATUS_fields_::LPITXA,
-      MAC_LPI_CONTROL_STATUS_fields_::LPIATE,
-      MAC_LPI_CONTROL_STATUS_fields_::LPITCSE,
+      MacLpiControlStatusFields::LPIEN,
+      MacLpiControlStatusFields::PLS,
+      MacLpiControlStatusFields::PLSEN,
+      MacLpiControlStatusFields::LPITXA,
+      MacLpiControlStatusFields::LPIATE,
+      MacLpiControlStatusFields::LPITCSE,
       ftl::mmio::Reserved<10, 22>> {
-    using eTLPIEN = MAC_LPI_CONTROL_STATUS_fields_::eTLPIEN;
-    using eTLPIEX = MAC_LPI_CONTROL_STATUS_fields_::eTLPIEX;
-    using eRLPIEN = MAC_LPI_CONTROL_STATUS_fields_::eRLPIEN;
-    using eRLPIEX = MAC_LPI_CONTROL_STATUS_fields_::eRLPIEX;
-    using eTLPIST = MAC_LPI_CONTROL_STATUS_fields_::eTLPIST;
-    using eRLPIST = MAC_LPI_CONTROL_STATUS_fields_::eRLPIST;
-    using eLPIEN = MAC_LPI_CONTROL_STATUS_fields_::eLPIEN;
-    using ePLS = MAC_LPI_CONTROL_STATUS_fields_::ePLS;
-    using ePLSEN = MAC_LPI_CONTROL_STATUS_fields_::ePLSEN;
-    using eLPITXA = MAC_LPI_CONTROL_STATUS_fields_::eLPITXA;
-    using eLPIATE = MAC_LPI_CONTROL_STATUS_fields_::eLPIATE;
-    using eLPITCSE = MAC_LPI_CONTROL_STATUS_fields_::eLPITCSE;
-    using TLPIEN = MAC_LPI_CONTROL_STATUS_fields_::TLPIEN;
-    using TLPIEX = MAC_LPI_CONTROL_STATUS_fields_::TLPIEX;
-    using RLPIEN = MAC_LPI_CONTROL_STATUS_fields_::RLPIEN;
-    using RLPIEX = MAC_LPI_CONTROL_STATUS_fields_::RLPIEX;
-    using TLPIST = MAC_LPI_CONTROL_STATUS_fields_::TLPIST;
-    using RLPIST = MAC_LPI_CONTROL_STATUS_fields_::RLPIST;
-    using LPIEN = MAC_LPI_CONTROL_STATUS_fields_::LPIEN;
-    using PLS = MAC_LPI_CONTROL_STATUS_fields_::PLS;
-    using PLSEN = MAC_LPI_CONTROL_STATUS_fields_::PLSEN;
-    using LPITXA = MAC_LPI_CONTROL_STATUS_fields_::LPITXA;
-    using LPIATE = MAC_LPI_CONTROL_STATUS_fields_::LPIATE;
-    using LPITCSE = MAC_LPI_CONTROL_STATUS_fields_::LPITCSE;
+    using eTLPIEN = MacLpiControlStatusFields::eTLPIEN;
+    using eTLPIEX = MacLpiControlStatusFields::eTLPIEX;
+    using eRLPIEN = MacLpiControlStatusFields::eRLPIEN;
+    using eRLPIEX = MacLpiControlStatusFields::eRLPIEX;
+    using eTLPIST = MacLpiControlStatusFields::eTLPIST;
+    using eRLPIST = MacLpiControlStatusFields::eRLPIST;
+    using eLPIEN = MacLpiControlStatusFields::eLPIEN;
+    using ePLS = MacLpiControlStatusFields::ePLS;
+    using ePLSEN = MacLpiControlStatusFields::ePLSEN;
+    using eLPITXA = MacLpiControlStatusFields::eLPITXA;
+    using eLPIATE = MacLpiControlStatusFields::eLPIATE;
+    using eLPITCSE = MacLpiControlStatusFields::eLPITCSE;
+    using TLPIEN = MacLpiControlStatusFields::TLPIEN;
+    using TLPIEX = MacLpiControlStatusFields::TLPIEX;
+    using RLPIEN = MacLpiControlStatusFields::RLPIEN;
+    using RLPIEX = MacLpiControlStatusFields::RLPIEX;
+    using TLPIST = MacLpiControlStatusFields::TLPIST;
+    using RLPIST = MacLpiControlStatusFields::RLPIST;
+    using LPIEN = MacLpiControlStatusFields::LPIEN;
+    using PLS = MacLpiControlStatusFields::PLS;
+    using PLSEN = MacLpiControlStatusFields::PLSEN;
+    using LPITXA = MacLpiControlStatusFields::LPITXA;
+    using LPIATE = MacLpiControlStatusFields::LPIATE;
+    using LPITCSE = MacLpiControlStatusFields::LPITCSE;
   };
 
   // LPI Timers Control
-  struct MAC_LPI_TIMERS_CONTROL_fields_ {
+  struct MacLpiTimersControlFields {
     // LPI TW Timer This field specifies the minimum time (in microseconds) for which the MAC waits after it stops transmitting the LPI pattern to the PHY and before it resumes the normal transmission.
     using TWT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // LPI LS Timer This field specifies the minimum time (in milliseconds) for which the link status from the PHY should be up (OKAY) before the LPI pattern can be transmitted to the PHY.
     using LST = ftl::mmio::Field<10, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LPI_TIMERS_CONTROL_fields_
+  };  // struct MacLpiTimersControlFields
 
   struct MAC_LPI_TIMERS_CONTROL : ftl::mmio::Register<
       0x4043C0D4u,
       std::uint32_t,
       0x03E80000u,
       ftl::mmio::RW,
-      MAC_LPI_TIMERS_CONTROL_fields_::TWT,
-      MAC_LPI_TIMERS_CONTROL_fields_::LST,
+      MacLpiTimersControlFields::TWT,
+      MacLpiTimersControlFields::LST,
       ftl::mmio::Reserved<6, 26>> {
-    using TWT = MAC_LPI_TIMERS_CONTROL_fields_::TWT;
-    using LST = MAC_LPI_TIMERS_CONTROL_fields_::LST;
+    using TWT = MacLpiTimersControlFields::TWT;
+    using LST = MacLpiTimersControlFields::LST;
   };
 
   // Tx LPI Entry Timer Control
-  struct MAC_LPI_ENTRY_TIMER_fields_ {
+  struct MacLpiEntryTimerFields {
     // LPI Entry Timer This field specifies the time in microseconds the MAC waits to enter LPI mode, after it has transmitted all the frames.
     using LPIET = ftl::mmio::Field<17, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LPI_ENTRY_TIMER_fields_
+  };  // struct MacLpiEntryTimerFields
 
   struct MAC_LPI_ENTRY_TIMER : ftl::mmio::Register<
       0x4043C0D8u,
@@ -2658,29 +2658,29 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      MAC_LPI_ENTRY_TIMER_fields_::LPIET,
+      MacLpiEntryTimerFields::LPIET,
       ftl::mmio::Reserved<12, 20>> {
-    using LPIET = MAC_LPI_ENTRY_TIMER_fields_::LPIET;
+    using LPIET = MacLpiEntryTimerFields::LPIET;
   };
 
   // One-microsecond Reference Timer
-  struct MAC_ONEUS_TIC_COUNTER_fields_ {
+  struct MacOneusTicCounterFields {
     // 1US TIC Counter The application must program this counter so that the number of clock cycles of CSR clock is 1us.
     using TIC_1US_CNTR = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ONEUS_TIC_COUNTER_fields_
+  };  // struct MacOneusTicCounterFields
 
   struct MAC_ONEUS_TIC_COUNTER : ftl::mmio::Register<
       0x4043C0DCu,
       std::uint32_t,
       0x00000063u,
       ftl::mmio::RW,
-      MAC_ONEUS_TIC_COUNTER_fields_::TIC_1US_CNTR,
+      MacOneusTicCounterFields::TIC_1US_CNTR,
       ftl::mmio::Reserved<20, 12>> {
-    using TIC_1US_CNTR = MAC_ONEUS_TIC_COUNTER_fields_::TIC_1US_CNTR;
+    using TIC_1US_CNTR = MacOneusTicCounterFields::TIC_1US_CNTR;
   };
 
   // PHY Interface Control and Status
-  struct MAC_PHYIF_CONTROL_STATUS_fields_ {
+  struct MacPhyifControlStatusFields {
     enum class eTC : std::uint32_t {
       // Disable Transmit Configuration in RGMII, SGMII, or SMII
       eDISABLE = 0,
@@ -2728,54 +2728,54 @@ struct EnetQos {
     using LNKSPEED = ftl::mmio::Field<2, 17, eLNKSPEED, ftl::mmio::RO, ftl::mmio::Normal>;
     // Link Status This bit indicates whether the link is up (1'b1) or down (1'b0).
     using LNKSTS = ftl::mmio::Field<1, 19, eLNKSTS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_PHYIF_CONTROL_STATUS_fields_
+  };  // struct MacPhyifControlStatusFields
 
   struct MAC_PHYIF_CONTROL_STATUS : ftl::mmio::Register<
       0x4043C0F8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PHYIF_CONTROL_STATUS_fields_::TC,
-      MAC_PHYIF_CONTROL_STATUS_fields_::LUD,
+      MacPhyifControlStatusFields::TC,
+      MacPhyifControlStatusFields::LUD,
       ftl::mmio::Reserved<14, 2>,
-      MAC_PHYIF_CONTROL_STATUS_fields_::LNKMOD,
-      MAC_PHYIF_CONTROL_STATUS_fields_::LNKSPEED,
-      MAC_PHYIF_CONTROL_STATUS_fields_::LNKSTS,
+      MacPhyifControlStatusFields::LNKMOD,
+      MacPhyifControlStatusFields::LNKSPEED,
+      MacPhyifControlStatusFields::LNKSTS,
       ftl::mmio::Reserved<12, 20>> {
-    using eTC = MAC_PHYIF_CONTROL_STATUS_fields_::eTC;
-    using eLUD = MAC_PHYIF_CONTROL_STATUS_fields_::eLUD;
-    using eLNKMOD = MAC_PHYIF_CONTROL_STATUS_fields_::eLNKMOD;
-    using eLNKSPEED = MAC_PHYIF_CONTROL_STATUS_fields_::eLNKSPEED;
-    using eLNKSTS = MAC_PHYIF_CONTROL_STATUS_fields_::eLNKSTS;
-    using TC = MAC_PHYIF_CONTROL_STATUS_fields_::TC;
-    using LUD = MAC_PHYIF_CONTROL_STATUS_fields_::LUD;
-    using LNKMOD = MAC_PHYIF_CONTROL_STATUS_fields_::LNKMOD;
-    using LNKSPEED = MAC_PHYIF_CONTROL_STATUS_fields_::LNKSPEED;
-    using LNKSTS = MAC_PHYIF_CONTROL_STATUS_fields_::LNKSTS;
+    using eTC = MacPhyifControlStatusFields::eTC;
+    using eLUD = MacPhyifControlStatusFields::eLUD;
+    using eLNKMOD = MacPhyifControlStatusFields::eLNKMOD;
+    using eLNKSPEED = MacPhyifControlStatusFields::eLNKSPEED;
+    using eLNKSTS = MacPhyifControlStatusFields::eLNKSTS;
+    using TC = MacPhyifControlStatusFields::TC;
+    using LUD = MacPhyifControlStatusFields::LUD;
+    using LNKMOD = MacPhyifControlStatusFields::LNKMOD;
+    using LNKSPEED = MacPhyifControlStatusFields::LNKSPEED;
+    using LNKSTS = MacPhyifControlStatusFields::LNKSTS;
   };
 
   // MAC Version
-  struct MAC_VERSION_fields_ {
+  struct MacVersionFields {
     // Synopsys-defined Version
     using SNPSVER = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // User-defined Version (8'h10)
     using USERVER = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_VERSION_fields_
+  };  // struct MacVersionFields
 
   struct MAC_VERSION : ftl::mmio::Register<
       0x4043C110u,
       std::uint32_t,
       0x00001051u,
       ftl::mmio::RO,
-      MAC_VERSION_fields_::SNPSVER,
-      MAC_VERSION_fields_::USERVER,
+      MacVersionFields::SNPSVER,
+      MacVersionFields::USERVER,
       ftl::mmio::Reserved<16, 16>> {
-    using SNPSVER = MAC_VERSION_fields_::SNPSVER;
-    using USERVER = MAC_VERSION_fields_::USERVER;
+    using SNPSVER = MacVersionFields::SNPSVER;
+    using USERVER = MacVersionFields::USERVER;
   };
 
   // MAC Debug
-  struct MAC_DEBUG_fields_ {
+  struct MacDebugFields {
     enum class eRPESTS : std::uint32_t {
       // MAC GMII or MII Receive Protocol Engine Status not detected
       eINACTIVE = 0,
@@ -2809,30 +2809,30 @@ struct EnetQos {
     using TPESTS = ftl::mmio::Field<1, 16, eTPESTS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MAC Transmit Packet Controller Status This field indicates the state of the MAC Transmit Packet Controller module.
     using TFCSTS = ftl::mmio::Field<2, 17, eTFCSTS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_DEBUG_fields_
+  };  // struct MacDebugFields
 
   struct MAC_DEBUG : ftl::mmio::Register<
       0x4043C114u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_DEBUG_fields_::RPESTS,
-      MAC_DEBUG_fields_::RFCFCSTS,
+      MacDebugFields::RPESTS,
+      MacDebugFields::RFCFCSTS,
       ftl::mmio::Reserved<13, 3>,
-      MAC_DEBUG_fields_::TPESTS,
-      MAC_DEBUG_fields_::TFCSTS,
+      MacDebugFields::TPESTS,
+      MacDebugFields::TFCSTS,
       ftl::mmio::Reserved<13, 19>> {
-    using eRPESTS = MAC_DEBUG_fields_::eRPESTS;
-    using eTPESTS = MAC_DEBUG_fields_::eTPESTS;
-    using eTFCSTS = MAC_DEBUG_fields_::eTFCSTS;
-    using RPESTS = MAC_DEBUG_fields_::RPESTS;
-    using RFCFCSTS = MAC_DEBUG_fields_::RFCFCSTS;
-    using TPESTS = MAC_DEBUG_fields_::TPESTS;
-    using TFCSTS = MAC_DEBUG_fields_::TFCSTS;
+    using eRPESTS = MacDebugFields::eRPESTS;
+    using eTPESTS = MacDebugFields::eTPESTS;
+    using eTFCSTS = MacDebugFields::eTFCSTS;
+    using RPESTS = MacDebugFields::RPESTS;
+    using RFCFCSTS = MacDebugFields::RFCFCSTS;
+    using TPESTS = MacDebugFields::TPESTS;
+    using TFCSTS = MacDebugFields::TFCSTS;
   };
 
   // Optional Features or Functions 0
-  struct MAC_HW_FEATURE0_fields_ {
+  struct MacHwFeature0Fields {
     enum class eMIISEL : std::uint32_t {
       // No 10 or 100 Mbps support
       eINACTIVE = 0,
@@ -3020,80 +3020,80 @@ struct EnetQos {
     using SAVLANINS = ftl::mmio::Field<1, 27, eSAVLANINS, ftl::mmio::RO, ftl::mmio::Normal>;
     // Active PHY Selected When you have multiple PHY interfaces in your configuration, this field indicates the sampled value of phy_intf_sel_i during reset de-assertion.
     using ACTPHYSEL = ftl::mmio::Field<3, 28, eACTPHYSEL, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_HW_FEATURE0_fields_
+  };  // struct MacHwFeature0Fields
 
   struct MAC_HW_FEATURE0 : ftl::mmio::Register<
       0x4043C11Cu,
       std::uint32_t,
       0x0EFD71F7u,
       ftl::mmio::RO,
-      MAC_HW_FEATURE0_fields_::MIISEL,
-      MAC_HW_FEATURE0_fields_::GMIISEL,
-      MAC_HW_FEATURE0_fields_::HDSEL,
-      MAC_HW_FEATURE0_fields_::PCSSEL,
-      MAC_HW_FEATURE0_fields_::VLHASH,
-      MAC_HW_FEATURE0_fields_::SMASEL,
-      MAC_HW_FEATURE0_fields_::RWKSEL,
-      MAC_HW_FEATURE0_fields_::MGKSEL,
-      MAC_HW_FEATURE0_fields_::MMCSEL,
-      MAC_HW_FEATURE0_fields_::ARPOFFSEL,
+      MacHwFeature0Fields::MIISEL,
+      MacHwFeature0Fields::GMIISEL,
+      MacHwFeature0Fields::HDSEL,
+      MacHwFeature0Fields::PCSSEL,
+      MacHwFeature0Fields::VLHASH,
+      MacHwFeature0Fields::SMASEL,
+      MacHwFeature0Fields::RWKSEL,
+      MacHwFeature0Fields::MGKSEL,
+      MacHwFeature0Fields::MMCSEL,
+      MacHwFeature0Fields::ARPOFFSEL,
       ftl::mmio::Reserved<2, 10>,
-      MAC_HW_FEATURE0_fields_::TSSEL,
-      MAC_HW_FEATURE0_fields_::EEESEL,
-      MAC_HW_FEATURE0_fields_::TXCOESEL,
+      MacHwFeature0Fields::TSSEL,
+      MacHwFeature0Fields::EEESEL,
+      MacHwFeature0Fields::TXCOESEL,
       ftl::mmio::Reserved<1, 15>,
-      MAC_HW_FEATURE0_fields_::RXCOESEL,
+      MacHwFeature0Fields::RXCOESEL,
       ftl::mmio::Reserved<1, 17>,
-      MAC_HW_FEATURE0_fields_::ADDMACADRSEL,
-      MAC_HW_FEATURE0_fields_::MACADR32SEL,
-      MAC_HW_FEATURE0_fields_::MACADR64SEL,
-      MAC_HW_FEATURE0_fields_::TSSTSSEL,
-      MAC_HW_FEATURE0_fields_::SAVLANINS,
-      MAC_HW_FEATURE0_fields_::ACTPHYSEL,
+      MacHwFeature0Fields::ADDMACADRSEL,
+      MacHwFeature0Fields::MACADR32SEL,
+      MacHwFeature0Fields::MACADR64SEL,
+      MacHwFeature0Fields::TSSTSSEL,
+      MacHwFeature0Fields::SAVLANINS,
+      MacHwFeature0Fields::ACTPHYSEL,
       ftl::mmio::Reserved<1, 31>> {
-    using eMIISEL = MAC_HW_FEATURE0_fields_::eMIISEL;
-    using eGMIISEL = MAC_HW_FEATURE0_fields_::eGMIISEL;
-    using eHDSEL = MAC_HW_FEATURE0_fields_::eHDSEL;
-    using ePCSSEL = MAC_HW_FEATURE0_fields_::ePCSSEL;
-    using eVLHASH = MAC_HW_FEATURE0_fields_::eVLHASH;
-    using eSMASEL = MAC_HW_FEATURE0_fields_::eSMASEL;
-    using eRWKSEL = MAC_HW_FEATURE0_fields_::eRWKSEL;
-    using eMGKSEL = MAC_HW_FEATURE0_fields_::eMGKSEL;
-    using eMMCSEL = MAC_HW_FEATURE0_fields_::eMMCSEL;
-    using eARPOFFSEL = MAC_HW_FEATURE0_fields_::eARPOFFSEL;
-    using eTSSEL = MAC_HW_FEATURE0_fields_::eTSSEL;
-    using eEEESEL = MAC_HW_FEATURE0_fields_::eEEESEL;
-    using eTXCOESEL = MAC_HW_FEATURE0_fields_::eTXCOESEL;
-    using eRXCOESEL = MAC_HW_FEATURE0_fields_::eRXCOESEL;
-    using eMACADR32SEL = MAC_HW_FEATURE0_fields_::eMACADR32SEL;
-    using eMACADR64SEL = MAC_HW_FEATURE0_fields_::eMACADR64SEL;
-    using eTSSTSSEL = MAC_HW_FEATURE0_fields_::eTSSTSSEL;
-    using eSAVLANINS = MAC_HW_FEATURE0_fields_::eSAVLANINS;
-    using eACTPHYSEL = MAC_HW_FEATURE0_fields_::eACTPHYSEL;
-    using MIISEL = MAC_HW_FEATURE0_fields_::MIISEL;
-    using GMIISEL = MAC_HW_FEATURE0_fields_::GMIISEL;
-    using HDSEL = MAC_HW_FEATURE0_fields_::HDSEL;
-    using PCSSEL = MAC_HW_FEATURE0_fields_::PCSSEL;
-    using VLHASH = MAC_HW_FEATURE0_fields_::VLHASH;
-    using SMASEL = MAC_HW_FEATURE0_fields_::SMASEL;
-    using RWKSEL = MAC_HW_FEATURE0_fields_::RWKSEL;
-    using MGKSEL = MAC_HW_FEATURE0_fields_::MGKSEL;
-    using MMCSEL = MAC_HW_FEATURE0_fields_::MMCSEL;
-    using ARPOFFSEL = MAC_HW_FEATURE0_fields_::ARPOFFSEL;
-    using TSSEL = MAC_HW_FEATURE0_fields_::TSSEL;
-    using EEESEL = MAC_HW_FEATURE0_fields_::EEESEL;
-    using TXCOESEL = MAC_HW_FEATURE0_fields_::TXCOESEL;
-    using RXCOESEL = MAC_HW_FEATURE0_fields_::RXCOESEL;
-    using ADDMACADRSEL = MAC_HW_FEATURE0_fields_::ADDMACADRSEL;
-    using MACADR32SEL = MAC_HW_FEATURE0_fields_::MACADR32SEL;
-    using MACADR64SEL = MAC_HW_FEATURE0_fields_::MACADR64SEL;
-    using TSSTSSEL = MAC_HW_FEATURE0_fields_::TSSTSSEL;
-    using SAVLANINS = MAC_HW_FEATURE0_fields_::SAVLANINS;
-    using ACTPHYSEL = MAC_HW_FEATURE0_fields_::ACTPHYSEL;
+    using eMIISEL = MacHwFeature0Fields::eMIISEL;
+    using eGMIISEL = MacHwFeature0Fields::eGMIISEL;
+    using eHDSEL = MacHwFeature0Fields::eHDSEL;
+    using ePCSSEL = MacHwFeature0Fields::ePCSSEL;
+    using eVLHASH = MacHwFeature0Fields::eVLHASH;
+    using eSMASEL = MacHwFeature0Fields::eSMASEL;
+    using eRWKSEL = MacHwFeature0Fields::eRWKSEL;
+    using eMGKSEL = MacHwFeature0Fields::eMGKSEL;
+    using eMMCSEL = MacHwFeature0Fields::eMMCSEL;
+    using eARPOFFSEL = MacHwFeature0Fields::eARPOFFSEL;
+    using eTSSEL = MacHwFeature0Fields::eTSSEL;
+    using eEEESEL = MacHwFeature0Fields::eEEESEL;
+    using eTXCOESEL = MacHwFeature0Fields::eTXCOESEL;
+    using eRXCOESEL = MacHwFeature0Fields::eRXCOESEL;
+    using eMACADR32SEL = MacHwFeature0Fields::eMACADR32SEL;
+    using eMACADR64SEL = MacHwFeature0Fields::eMACADR64SEL;
+    using eTSSTSSEL = MacHwFeature0Fields::eTSSTSSEL;
+    using eSAVLANINS = MacHwFeature0Fields::eSAVLANINS;
+    using eACTPHYSEL = MacHwFeature0Fields::eACTPHYSEL;
+    using MIISEL = MacHwFeature0Fields::MIISEL;
+    using GMIISEL = MacHwFeature0Fields::GMIISEL;
+    using HDSEL = MacHwFeature0Fields::HDSEL;
+    using PCSSEL = MacHwFeature0Fields::PCSSEL;
+    using VLHASH = MacHwFeature0Fields::VLHASH;
+    using SMASEL = MacHwFeature0Fields::SMASEL;
+    using RWKSEL = MacHwFeature0Fields::RWKSEL;
+    using MGKSEL = MacHwFeature0Fields::MGKSEL;
+    using MMCSEL = MacHwFeature0Fields::MMCSEL;
+    using ARPOFFSEL = MacHwFeature0Fields::ARPOFFSEL;
+    using TSSEL = MacHwFeature0Fields::TSSEL;
+    using EEESEL = MacHwFeature0Fields::EEESEL;
+    using TXCOESEL = MacHwFeature0Fields::TXCOESEL;
+    using RXCOESEL = MacHwFeature0Fields::RXCOESEL;
+    using ADDMACADRSEL = MacHwFeature0Fields::ADDMACADRSEL;
+    using MACADR32SEL = MacHwFeature0Fields::MACADR32SEL;
+    using MACADR64SEL = MacHwFeature0Fields::MACADR64SEL;
+    using TSSTSSEL = MacHwFeature0Fields::TSSTSSEL;
+    using SAVLANINS = MacHwFeature0Fields::SAVLANINS;
+    using ACTPHYSEL = MacHwFeature0Fields::ACTPHYSEL;
   };
 
   // Optional Features or Functions 1
-  struct MAC_HW_FEATURE1_fields_ {
+  struct MacHwFeature1Fields {
     enum class eRXFIFOSIZE : std::uint32_t {
       // 128 bytes
       ebf_128B = 0,
@@ -3296,68 +3296,68 @@ struct EnetQos {
     using HASHTBLSZ = ftl::mmio::Field<2, 24, eHASHTBLSZ, ftl::mmio::RO, ftl::mmio::Normal>;
     // Total number of L3 or L4 Filters This field indicates the total number of L3 or L4 filters:
     using L3L4FNUM = ftl::mmio::Field<4, 27, eL3L4FNUM, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_HW_FEATURE1_fields_
+  };  // struct MacHwFeature1Fields
 
   struct MAC_HW_FEATURE1 : ftl::mmio::Register<
       0x4043C120u,
       std::uint32_t,
       0x419939A6u,
       ftl::mmio::RO,
-      MAC_HW_FEATURE1_fields_::RXFIFOSIZE,
-      MAC_HW_FEATURE1_fields_::SPRAM,
-      MAC_HW_FEATURE1_fields_::TXFIFOSIZE,
-      MAC_HW_FEATURE1_fields_::OSTEN,
-      MAC_HW_FEATURE1_fields_::PTOEN,
-      MAC_HW_FEATURE1_fields_::ADVTHWORD,
-      MAC_HW_FEATURE1_fields_::ADDR64,
-      MAC_HW_FEATURE1_fields_::DCBEN,
-      MAC_HW_FEATURE1_fields_::SPHEN,
-      MAC_HW_FEATURE1_fields_::TSOEN,
-      MAC_HW_FEATURE1_fields_::DBGMEMA,
-      MAC_HW_FEATURE1_fields_::AVSEL,
-      MAC_HW_FEATURE1_fields_::RAVSEL,
+      MacHwFeature1Fields::RXFIFOSIZE,
+      MacHwFeature1Fields::SPRAM,
+      MacHwFeature1Fields::TXFIFOSIZE,
+      MacHwFeature1Fields::OSTEN,
+      MacHwFeature1Fields::PTOEN,
+      MacHwFeature1Fields::ADVTHWORD,
+      MacHwFeature1Fields::ADDR64,
+      MacHwFeature1Fields::DCBEN,
+      MacHwFeature1Fields::SPHEN,
+      MacHwFeature1Fields::TSOEN,
+      MacHwFeature1Fields::DBGMEMA,
+      MacHwFeature1Fields::AVSEL,
+      MacHwFeature1Fields::RAVSEL,
       ftl::mmio::Reserved<1, 22>,
-      MAC_HW_FEATURE1_fields_::POUOST,
-      MAC_HW_FEATURE1_fields_::HASHTBLSZ,
+      MacHwFeature1Fields::POUOST,
+      MacHwFeature1Fields::HASHTBLSZ,
       ftl::mmio::Reserved<1, 26>,
-      MAC_HW_FEATURE1_fields_::L3L4FNUM,
+      MacHwFeature1Fields::L3L4FNUM,
       ftl::mmio::Reserved<1, 31>> {
-    using eRXFIFOSIZE = MAC_HW_FEATURE1_fields_::eRXFIFOSIZE;
-    using eSPRAM = MAC_HW_FEATURE1_fields_::eSPRAM;
-    using eTXFIFOSIZE = MAC_HW_FEATURE1_fields_::eTXFIFOSIZE;
-    using eOSTEN = MAC_HW_FEATURE1_fields_::eOSTEN;
-    using ePTOEN = MAC_HW_FEATURE1_fields_::ePTOEN;
-    using eADVTHWORD = MAC_HW_FEATURE1_fields_::eADVTHWORD;
-    using eADDR64 = MAC_HW_FEATURE1_fields_::eADDR64;
-    using eDCBEN = MAC_HW_FEATURE1_fields_::eDCBEN;
-    using eSPHEN = MAC_HW_FEATURE1_fields_::eSPHEN;
-    using eTSOEN = MAC_HW_FEATURE1_fields_::eTSOEN;
-    using eDBGMEMA = MAC_HW_FEATURE1_fields_::eDBGMEMA;
-    using eAVSEL = MAC_HW_FEATURE1_fields_::eAVSEL;
-    using eRAVSEL = MAC_HW_FEATURE1_fields_::eRAVSEL;
-    using ePOUOST = MAC_HW_FEATURE1_fields_::ePOUOST;
-    using eHASHTBLSZ = MAC_HW_FEATURE1_fields_::eHASHTBLSZ;
-    using eL3L4FNUM = MAC_HW_FEATURE1_fields_::eL3L4FNUM;
-    using RXFIFOSIZE = MAC_HW_FEATURE1_fields_::RXFIFOSIZE;
-    using SPRAM = MAC_HW_FEATURE1_fields_::SPRAM;
-    using TXFIFOSIZE = MAC_HW_FEATURE1_fields_::TXFIFOSIZE;
-    using OSTEN = MAC_HW_FEATURE1_fields_::OSTEN;
-    using PTOEN = MAC_HW_FEATURE1_fields_::PTOEN;
-    using ADVTHWORD = MAC_HW_FEATURE1_fields_::ADVTHWORD;
-    using ADDR64 = MAC_HW_FEATURE1_fields_::ADDR64;
-    using DCBEN = MAC_HW_FEATURE1_fields_::DCBEN;
-    using SPHEN = MAC_HW_FEATURE1_fields_::SPHEN;
-    using TSOEN = MAC_HW_FEATURE1_fields_::TSOEN;
-    using DBGMEMA = MAC_HW_FEATURE1_fields_::DBGMEMA;
-    using AVSEL = MAC_HW_FEATURE1_fields_::AVSEL;
-    using RAVSEL = MAC_HW_FEATURE1_fields_::RAVSEL;
-    using POUOST = MAC_HW_FEATURE1_fields_::POUOST;
-    using HASHTBLSZ = MAC_HW_FEATURE1_fields_::HASHTBLSZ;
-    using L3L4FNUM = MAC_HW_FEATURE1_fields_::L3L4FNUM;
+    using eRXFIFOSIZE = MacHwFeature1Fields::eRXFIFOSIZE;
+    using eSPRAM = MacHwFeature1Fields::eSPRAM;
+    using eTXFIFOSIZE = MacHwFeature1Fields::eTXFIFOSIZE;
+    using eOSTEN = MacHwFeature1Fields::eOSTEN;
+    using ePTOEN = MacHwFeature1Fields::ePTOEN;
+    using eADVTHWORD = MacHwFeature1Fields::eADVTHWORD;
+    using eADDR64 = MacHwFeature1Fields::eADDR64;
+    using eDCBEN = MacHwFeature1Fields::eDCBEN;
+    using eSPHEN = MacHwFeature1Fields::eSPHEN;
+    using eTSOEN = MacHwFeature1Fields::eTSOEN;
+    using eDBGMEMA = MacHwFeature1Fields::eDBGMEMA;
+    using eAVSEL = MacHwFeature1Fields::eAVSEL;
+    using eRAVSEL = MacHwFeature1Fields::eRAVSEL;
+    using ePOUOST = MacHwFeature1Fields::ePOUOST;
+    using eHASHTBLSZ = MacHwFeature1Fields::eHASHTBLSZ;
+    using eL3L4FNUM = MacHwFeature1Fields::eL3L4FNUM;
+    using RXFIFOSIZE = MacHwFeature1Fields::RXFIFOSIZE;
+    using SPRAM = MacHwFeature1Fields::SPRAM;
+    using TXFIFOSIZE = MacHwFeature1Fields::TXFIFOSIZE;
+    using OSTEN = MacHwFeature1Fields::OSTEN;
+    using PTOEN = MacHwFeature1Fields::PTOEN;
+    using ADVTHWORD = MacHwFeature1Fields::ADVTHWORD;
+    using ADDR64 = MacHwFeature1Fields::ADDR64;
+    using DCBEN = MacHwFeature1Fields::DCBEN;
+    using SPHEN = MacHwFeature1Fields::SPHEN;
+    using TSOEN = MacHwFeature1Fields::TSOEN;
+    using DBGMEMA = MacHwFeature1Fields::DBGMEMA;
+    using AVSEL = MacHwFeature1Fields::AVSEL;
+    using RAVSEL = MacHwFeature1Fields::RAVSEL;
+    using POUOST = MacHwFeature1Fields::POUOST;
+    using HASHTBLSZ = MacHwFeature1Fields::HASHTBLSZ;
+    using L3L4FNUM = MacHwFeature1Fields::L3L4FNUM;
   };
 
   // Optional Features or Functions 2
-  struct MAC_HW_FEATURE2_fields_ {
+  struct MacHwFeature2Fields {
     enum class eRXQCNT : std::uint32_t {
       // 1 MTL Rx Queue
       ebf_1RXQ = 0,
@@ -3448,41 +3448,41 @@ struct EnetQos {
     using PPSOUTNUM = ftl::mmio::Field<3, 24, ePPSOUTNUM, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Auxiliary Snapshot Inputs This field indicates the number of auxiliary snapshot inputs:
     using AUXSNAPNUM = ftl::mmio::Field<3, 28, eAUXSNAPNUM, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_HW_FEATURE2_fields_
+  };  // struct MacHwFeature2Fields
 
   struct MAC_HW_FEATURE2 : ftl::mmio::Register<
       0x4043C124u,
       std::uint32_t,
       0x44104104u,
       ftl::mmio::RO,
-      MAC_HW_FEATURE2_fields_::RXQCNT,
+      MacHwFeature2Fields::RXQCNT,
       ftl::mmio::Reserved<2, 4>,
-      MAC_HW_FEATURE2_fields_::TXQCNT,
+      MacHwFeature2Fields::TXQCNT,
       ftl::mmio::Reserved<2, 10>,
-      MAC_HW_FEATURE2_fields_::RXCHCNT,
+      MacHwFeature2Fields::RXCHCNT,
       ftl::mmio::Reserved<2, 16>,
-      MAC_HW_FEATURE2_fields_::TXCHCNT,
+      MacHwFeature2Fields::TXCHCNT,
       ftl::mmio::Reserved<2, 22>,
-      MAC_HW_FEATURE2_fields_::PPSOUTNUM,
+      MacHwFeature2Fields::PPSOUTNUM,
       ftl::mmio::Reserved<1, 27>,
-      MAC_HW_FEATURE2_fields_::AUXSNAPNUM,
+      MacHwFeature2Fields::AUXSNAPNUM,
       ftl::mmio::Reserved<1, 31>> {
-    using eRXQCNT = MAC_HW_FEATURE2_fields_::eRXQCNT;
-    using eTXQCNT = MAC_HW_FEATURE2_fields_::eTXQCNT;
-    using eRXCHCNT = MAC_HW_FEATURE2_fields_::eRXCHCNT;
-    using eTXCHCNT = MAC_HW_FEATURE2_fields_::eTXCHCNT;
-    using ePPSOUTNUM = MAC_HW_FEATURE2_fields_::ePPSOUTNUM;
-    using eAUXSNAPNUM = MAC_HW_FEATURE2_fields_::eAUXSNAPNUM;
-    using RXQCNT = MAC_HW_FEATURE2_fields_::RXQCNT;
-    using TXQCNT = MAC_HW_FEATURE2_fields_::TXQCNT;
-    using RXCHCNT = MAC_HW_FEATURE2_fields_::RXCHCNT;
-    using TXCHCNT = MAC_HW_FEATURE2_fields_::TXCHCNT;
-    using PPSOUTNUM = MAC_HW_FEATURE2_fields_::PPSOUTNUM;
-    using AUXSNAPNUM = MAC_HW_FEATURE2_fields_::AUXSNAPNUM;
+    using eRXQCNT = MacHwFeature2Fields::eRXQCNT;
+    using eTXQCNT = MacHwFeature2Fields::eTXQCNT;
+    using eRXCHCNT = MacHwFeature2Fields::eRXCHCNT;
+    using eTXCHCNT = MacHwFeature2Fields::eTXCHCNT;
+    using ePPSOUTNUM = MacHwFeature2Fields::ePPSOUTNUM;
+    using eAUXSNAPNUM = MacHwFeature2Fields::eAUXSNAPNUM;
+    using RXQCNT = MacHwFeature2Fields::RXQCNT;
+    using TXQCNT = MacHwFeature2Fields::TXQCNT;
+    using RXCHCNT = MacHwFeature2Fields::RXCHCNT;
+    using TXCHCNT = MacHwFeature2Fields::TXCHCNT;
+    using PPSOUTNUM = MacHwFeature2Fields::PPSOUTNUM;
+    using AUXSNAPNUM = MacHwFeature2Fields::AUXSNAPNUM;
   };
 
   // Optional Features or Functions 3
-  struct MAC_HW_FEATURE3_fields_ {
+  struct MacHwFeature3Fields {
     enum class eNRVF : std::uint32_t {
       // No Extended Rx VLAN Filters
       eNO_ERVLAN = 0,
@@ -3628,61 +3628,61 @@ struct EnetQos {
     using TBSSEL = ftl::mmio::Field<1, 27, eTBSSEL, ftl::mmio::RO, ftl::mmio::Normal>;
     // Automotive Safety Package Following are the encoding for the different Safety features
     using ASP = ftl::mmio::Field<2, 28, eASP, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_HW_FEATURE3_fields_
+  };  // struct MacHwFeature3Fields
 
   struct MAC_HW_FEATURE3 : ftl::mmio::Register<
       0x4043C128u,
       std::uint32_t,
       0x0C395632u,
       ftl::mmio::RO,
-      MAC_HW_FEATURE3_fields_::NRVF,
+      MacHwFeature3Fields::NRVF,
       ftl::mmio::Reserved<1, 3>,
-      MAC_HW_FEATURE3_fields_::CBTISEL,
-      MAC_HW_FEATURE3_fields_::DVLAN,
+      MacHwFeature3Fields::CBTISEL,
+      MacHwFeature3Fields::DVLAN,
       ftl::mmio::Reserved<3, 6>,
-      MAC_HW_FEATURE3_fields_::PDUPSEL,
-      MAC_HW_FEATURE3_fields_::FRPSEL,
-      MAC_HW_FEATURE3_fields_::FRPBS,
-      MAC_HW_FEATURE3_fields_::FRPES,
+      MacHwFeature3Fields::PDUPSEL,
+      MacHwFeature3Fields::FRPSEL,
+      MacHwFeature3Fields::FRPBS,
+      MacHwFeature3Fields::FRPES,
       ftl::mmio::Reserved<1, 15>,
-      MAC_HW_FEATURE3_fields_::ESTSEL,
-      MAC_HW_FEATURE3_fields_::ESTDEP,
-      MAC_HW_FEATURE3_fields_::ESTWID,
+      MacHwFeature3Fields::ESTSEL,
+      MacHwFeature3Fields::ESTDEP,
+      MacHwFeature3Fields::ESTWID,
       ftl::mmio::Reserved<4, 22>,
-      MAC_HW_FEATURE3_fields_::FPESEL,
-      MAC_HW_FEATURE3_fields_::TBSSEL,
-      MAC_HW_FEATURE3_fields_::ASP,
+      MacHwFeature3Fields::FPESEL,
+      MacHwFeature3Fields::TBSSEL,
+      MacHwFeature3Fields::ASP,
       ftl::mmio::Reserved<2, 30>> {
-    using eNRVF = MAC_HW_FEATURE3_fields_::eNRVF;
-    using eCBTISEL = MAC_HW_FEATURE3_fields_::eCBTISEL;
-    using eDVLAN = MAC_HW_FEATURE3_fields_::eDVLAN;
-    using ePDUPSEL = MAC_HW_FEATURE3_fields_::ePDUPSEL;
-    using eFRPSEL = MAC_HW_FEATURE3_fields_::eFRPSEL;
-    using eFRPBS = MAC_HW_FEATURE3_fields_::eFRPBS;
-    using eFRPES = MAC_HW_FEATURE3_fields_::eFRPES;
-    using eESTSEL = MAC_HW_FEATURE3_fields_::eESTSEL;
-    using eESTDEP = MAC_HW_FEATURE3_fields_::eESTDEP;
-    using eESTWID = MAC_HW_FEATURE3_fields_::eESTWID;
-    using eFPESEL = MAC_HW_FEATURE3_fields_::eFPESEL;
-    using eTBSSEL = MAC_HW_FEATURE3_fields_::eTBSSEL;
-    using eASP = MAC_HW_FEATURE3_fields_::eASP;
-    using NRVF = MAC_HW_FEATURE3_fields_::NRVF;
-    using CBTISEL = MAC_HW_FEATURE3_fields_::CBTISEL;
-    using DVLAN = MAC_HW_FEATURE3_fields_::DVLAN;
-    using PDUPSEL = MAC_HW_FEATURE3_fields_::PDUPSEL;
-    using FRPSEL = MAC_HW_FEATURE3_fields_::FRPSEL;
-    using FRPBS = MAC_HW_FEATURE3_fields_::FRPBS;
-    using FRPES = MAC_HW_FEATURE3_fields_::FRPES;
-    using ESTSEL = MAC_HW_FEATURE3_fields_::ESTSEL;
-    using ESTDEP = MAC_HW_FEATURE3_fields_::ESTDEP;
-    using ESTWID = MAC_HW_FEATURE3_fields_::ESTWID;
-    using FPESEL = MAC_HW_FEATURE3_fields_::FPESEL;
-    using TBSSEL = MAC_HW_FEATURE3_fields_::TBSSEL;
-    using ASP = MAC_HW_FEATURE3_fields_::ASP;
+    using eNRVF = MacHwFeature3Fields::eNRVF;
+    using eCBTISEL = MacHwFeature3Fields::eCBTISEL;
+    using eDVLAN = MacHwFeature3Fields::eDVLAN;
+    using ePDUPSEL = MacHwFeature3Fields::ePDUPSEL;
+    using eFRPSEL = MacHwFeature3Fields::eFRPSEL;
+    using eFRPBS = MacHwFeature3Fields::eFRPBS;
+    using eFRPES = MacHwFeature3Fields::eFRPES;
+    using eESTSEL = MacHwFeature3Fields::eESTSEL;
+    using eESTDEP = MacHwFeature3Fields::eESTDEP;
+    using eESTWID = MacHwFeature3Fields::eESTWID;
+    using eFPESEL = MacHwFeature3Fields::eFPESEL;
+    using eTBSSEL = MacHwFeature3Fields::eTBSSEL;
+    using eASP = MacHwFeature3Fields::eASP;
+    using NRVF = MacHwFeature3Fields::NRVF;
+    using CBTISEL = MacHwFeature3Fields::CBTISEL;
+    using DVLAN = MacHwFeature3Fields::DVLAN;
+    using PDUPSEL = MacHwFeature3Fields::PDUPSEL;
+    using FRPSEL = MacHwFeature3Fields::FRPSEL;
+    using FRPBS = MacHwFeature3Fields::FRPBS;
+    using FRPES = MacHwFeature3Fields::FRPES;
+    using ESTSEL = MacHwFeature3Fields::ESTSEL;
+    using ESTDEP = MacHwFeature3Fields::ESTDEP;
+    using ESTWID = MacHwFeature3Fields::ESTWID;
+    using FPESEL = MacHwFeature3Fields::FPESEL;
+    using TBSSEL = MacHwFeature3Fields::TBSSEL;
+    using ASP = MacHwFeature3Fields::ASP;
   };
 
   // MDIO Address
-  struct MAC_MDIO_ADDRESS_fields_ {
+  struct MacMdioAddressFields {
     enum class eGB : std::uint32_t {
       // GMII Busy is disabled
       eDISABLE = 0,
@@ -3754,68 +3754,68 @@ struct EnetQos {
     using BTB = ftl::mmio::Field<1, 26, eBTB, ftl::mmio::RW, ftl::mmio::Normal>;
     // Preamble Suppression Enable When this bit is set, the SMA suppresses the 32-bit preamble and transmits MDIO frames with only 1 preamble bit.
     using PSE = ftl::mmio::Field<1, 27, ePSE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_MDIO_ADDRESS_fields_
+  };  // struct MacMdioAddressFields
 
   struct MAC_MDIO_ADDRESS : ftl::mmio::Register<
       0x4043C200u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_MDIO_ADDRESS_fields_::GB,
-      MAC_MDIO_ADDRESS_fields_::C45E,
-      MAC_MDIO_ADDRESS_fields_::GOC_0,
-      MAC_MDIO_ADDRESS_fields_::GOC_1,
-      MAC_MDIO_ADDRESS_fields_::SKAP,
+      MacMdioAddressFields::GB,
+      MacMdioAddressFields::C45E,
+      MacMdioAddressFields::GOC_0,
+      MacMdioAddressFields::GOC_1,
+      MacMdioAddressFields::SKAP,
       ftl::mmio::Reserved<3, 5>,
-      MAC_MDIO_ADDRESS_fields_::CR,
-      MAC_MDIO_ADDRESS_fields_::NTC,
+      MacMdioAddressFields::CR,
+      MacMdioAddressFields::NTC,
       ftl::mmio::Reserved<1, 15>,
-      MAC_MDIO_ADDRESS_fields_::RDA,
-      MAC_MDIO_ADDRESS_fields_::PA,
-      MAC_MDIO_ADDRESS_fields_::BTB,
-      MAC_MDIO_ADDRESS_fields_::PSE,
+      MacMdioAddressFields::RDA,
+      MacMdioAddressFields::PA,
+      MacMdioAddressFields::BTB,
+      MacMdioAddressFields::PSE,
       ftl::mmio::Reserved<4, 28>> {
-    using eGB = MAC_MDIO_ADDRESS_fields_::eGB;
-    using eC45E = MAC_MDIO_ADDRESS_fields_::eC45E;
-    using eGOC_0 = MAC_MDIO_ADDRESS_fields_::eGOC_0;
-    using eGOC_1 = MAC_MDIO_ADDRESS_fields_::eGOC_1;
-    using eSKAP = MAC_MDIO_ADDRESS_fields_::eSKAP;
-    using eBTB = MAC_MDIO_ADDRESS_fields_::eBTB;
-    using ePSE = MAC_MDIO_ADDRESS_fields_::ePSE;
-    using GB = MAC_MDIO_ADDRESS_fields_::GB;
-    using C45E = MAC_MDIO_ADDRESS_fields_::C45E;
-    using GOC_0 = MAC_MDIO_ADDRESS_fields_::GOC_0;
-    using GOC_1 = MAC_MDIO_ADDRESS_fields_::GOC_1;
-    using SKAP = MAC_MDIO_ADDRESS_fields_::SKAP;
-    using CR = MAC_MDIO_ADDRESS_fields_::CR;
-    using NTC = MAC_MDIO_ADDRESS_fields_::NTC;
-    using RDA = MAC_MDIO_ADDRESS_fields_::RDA;
-    using PA = MAC_MDIO_ADDRESS_fields_::PA;
-    using BTB = MAC_MDIO_ADDRESS_fields_::BTB;
-    using PSE = MAC_MDIO_ADDRESS_fields_::PSE;
+    using eGB = MacMdioAddressFields::eGB;
+    using eC45E = MacMdioAddressFields::eC45E;
+    using eGOC_0 = MacMdioAddressFields::eGOC_0;
+    using eGOC_1 = MacMdioAddressFields::eGOC_1;
+    using eSKAP = MacMdioAddressFields::eSKAP;
+    using eBTB = MacMdioAddressFields::eBTB;
+    using ePSE = MacMdioAddressFields::ePSE;
+    using GB = MacMdioAddressFields::GB;
+    using C45E = MacMdioAddressFields::C45E;
+    using GOC_0 = MacMdioAddressFields::GOC_0;
+    using GOC_1 = MacMdioAddressFields::GOC_1;
+    using SKAP = MacMdioAddressFields::SKAP;
+    using CR = MacMdioAddressFields::CR;
+    using NTC = MacMdioAddressFields::NTC;
+    using RDA = MacMdioAddressFields::RDA;
+    using PA = MacMdioAddressFields::PA;
+    using BTB = MacMdioAddressFields::BTB;
+    using PSE = MacMdioAddressFields::PSE;
   };
 
   // MAC MDIO Data
-  struct MAC_MDIO_DATA_fields_ {
+  struct MacMdioDataFields {
     // GMII Data This field contains the 16-bit data value read from the PHY or RevMII after a Management Read operation or the 16-bit data value to be written to the PHY or RevMII before a Management Write operation.
     using GD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Register Address This field is valid only when C45E is set.
     using RA = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_MDIO_DATA_fields_
+  };  // struct MacMdioDataFields
 
   struct MAC_MDIO_DATA : ftl::mmio::Register<
       0x4043C204u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_MDIO_DATA_fields_::GD,
-      MAC_MDIO_DATA_fields_::RA> {
-    using GD = MAC_MDIO_DATA_fields_::GD;
-    using RA = MAC_MDIO_DATA_fields_::RA;
+      MacMdioDataFields::GD,
+      MacMdioDataFields::RA> {
+    using GD = MacMdioDataFields::GD;
+    using RA = MacMdioDataFields::RA;
   };
 
   // CSR Software Control
-  struct MAC_CSR_SW_CTRL_fields_ {
+  struct MacCsrSwCtrlFields {
     enum class eRCWE : std::uint32_t {
       // Register Clear on Write 1 is disabled
       eDISABLE = 0,
@@ -3825,21 +3825,21 @@ struct EnetQos {
 
     // Register Clear on Write 1 Enable When this bit is set, the access mode of some register fields changes to Clear on Write 1, the application needs to set that respective bit to 1 to clear it.
     using RCWE = ftl::mmio::Field<1, 0, eRCWE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_CSR_SW_CTRL_fields_
+  };  // struct MacCsrSwCtrlFields
 
   struct MAC_CSR_SW_CTRL : ftl::mmio::Register<
       0x4043C230u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_CSR_SW_CTRL_fields_::RCWE,
+      MacCsrSwCtrlFields::RCWE,
       ftl::mmio::Reserved<31, 1>> {
-    using eRCWE = MAC_CSR_SW_CTRL_fields_::eRCWE;
-    using RCWE = MAC_CSR_SW_CTRL_fields_::RCWE;
+    using eRCWE = MacCsrSwCtrlFields::eRCWE;
+    using RCWE = MacCsrSwCtrlFields::RCWE;
   };
 
   // Frame Preemption Control
-  struct MAC_FPE_CTRL_STS_fields_ {
+  struct MacFpeCtrlStsFields {
     enum class eEFPE : std::uint32_t {
       // Tx Frame Preemption is disabled
       eDISABLE = 0,
@@ -3905,72 +3905,72 @@ struct EnetQos {
     using TVER = ftl::mmio::Field<1, 18, eTVER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmitted Respond Frame Set when a Respond mPacket is transmitted (triggered by setting SRSP field).
     using TRSP = ftl::mmio::Field<1, 19, eTRSP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_FPE_CTRL_STS_fields_
+  };  // struct MacFpeCtrlStsFields
 
   struct MAC_FPE_CTRL_STS : ftl::mmio::Register<
       0x4043C234u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_FPE_CTRL_STS_fields_::EFPE,
-      MAC_FPE_CTRL_STS_fields_::SVER,
-      MAC_FPE_CTRL_STS_fields_::SRSP,
-      MAC_FPE_CTRL_STS_fields_::S1_SET_0,
+      MacFpeCtrlStsFields::EFPE,
+      MacFpeCtrlStsFields::SVER,
+      MacFpeCtrlStsFields::SRSP,
+      MacFpeCtrlStsFields::S1_SET_0,
       ftl::mmio::Reserved<12, 4>,
-      MAC_FPE_CTRL_STS_fields_::RVER,
-      MAC_FPE_CTRL_STS_fields_::RRSP,
-      MAC_FPE_CTRL_STS_fields_::TVER,
-      MAC_FPE_CTRL_STS_fields_::TRSP,
+      MacFpeCtrlStsFields::RVER,
+      MacFpeCtrlStsFields::RRSP,
+      MacFpeCtrlStsFields::TVER,
+      MacFpeCtrlStsFields::TRSP,
       ftl::mmio::Reserved<12, 20>> {
-    using eEFPE = MAC_FPE_CTRL_STS_fields_::eEFPE;
-    using eSVER = MAC_FPE_CTRL_STS_fields_::eSVER;
-    using eSRSP = MAC_FPE_CTRL_STS_fields_::eSRSP;
-    using eRVER = MAC_FPE_CTRL_STS_fields_::eRVER;
-    using eRRSP = MAC_FPE_CTRL_STS_fields_::eRRSP;
-    using eTVER = MAC_FPE_CTRL_STS_fields_::eTVER;
-    using eTRSP = MAC_FPE_CTRL_STS_fields_::eTRSP;
-    using EFPE = MAC_FPE_CTRL_STS_fields_::EFPE;
-    using SVER = MAC_FPE_CTRL_STS_fields_::SVER;
-    using SRSP = MAC_FPE_CTRL_STS_fields_::SRSP;
-    using S1_SET_0 = MAC_FPE_CTRL_STS_fields_::S1_SET_0;
-    using RVER = MAC_FPE_CTRL_STS_fields_::RVER;
-    using RRSP = MAC_FPE_CTRL_STS_fields_::RRSP;
-    using TVER = MAC_FPE_CTRL_STS_fields_::TVER;
-    using TRSP = MAC_FPE_CTRL_STS_fields_::TRSP;
+    using eEFPE = MacFpeCtrlStsFields::eEFPE;
+    using eSVER = MacFpeCtrlStsFields::eSVER;
+    using eSRSP = MacFpeCtrlStsFields::eSRSP;
+    using eRVER = MacFpeCtrlStsFields::eRVER;
+    using eRRSP = MacFpeCtrlStsFields::eRRSP;
+    using eTVER = MacFpeCtrlStsFields::eTVER;
+    using eTRSP = MacFpeCtrlStsFields::eTRSP;
+    using EFPE = MacFpeCtrlStsFields::EFPE;
+    using SVER = MacFpeCtrlStsFields::SVER;
+    using SRSP = MacFpeCtrlStsFields::SRSP;
+    using S1_SET_0 = MacFpeCtrlStsFields::S1_SET_0;
+    using RVER = MacFpeCtrlStsFields::RVER;
+    using RRSP = MacFpeCtrlStsFields::RRSP;
+    using TVER = MacFpeCtrlStsFields::TVER;
+    using TRSP = MacFpeCtrlStsFields::TRSP;
   };
 
   // 32-bit Binary Rollover Equivalent Time
-  struct MAC_PRESN_TIME_NS_fields_ {
+  struct MacPresnTimeNsFields {
     // MAC 1722 Presentation Time in ns These bits indicate the value of the 32-bit binary rollover equivalent time of the PTP System Time in ns
     using MPTN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_PRESN_TIME_NS_fields_
+  };  // struct MacPresnTimeNsFields
 
   struct MAC_PRESN_TIME_NS : ftl::mmio::Register<
       0x4043C240u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_PRESN_TIME_NS_fields_::MPTN> {
-    using MPTN = MAC_PRESN_TIME_NS_fields_::MPTN;
+      MacPresnTimeNsFields::MPTN> {
+    using MPTN = MacPresnTimeNsFields::MPTN;
   };
 
   // MAC 1722 Presentation Time
-  struct MAC_PRESN_TIME_UPDT_fields_ {
+  struct MacPresnTimeUpdtFields {
     // MAC 1722 Presentation Time Update This field holds the init value or the update value for the presentation time.
     using MPTU = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PRESN_TIME_UPDT_fields_
+  };  // struct MacPresnTimeUpdtFields
 
   struct MAC_PRESN_TIME_UPDT : ftl::mmio::Register<
       0x4043C244u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PRESN_TIME_UPDT_fields_::MPTU> {
-    using MPTU = MAC_PRESN_TIME_UPDT_fields_::MPTU;
+      MacPresnTimeUpdtFields::MPTU> {
+    using MPTU = MacPresnTimeUpdtFields::MPTU;
   };
 
   // MAC Address0 High
-  struct MAC_ADDRESS0_HIGH_fields_ {
+  struct MacAddress0HighFields {
     enum class eAE : std::uint32_t {
       // INVALID : This bit must be always set to 1
       eDISABLE = 0,
@@ -3984,40 +3984,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable This bit is always set to 1.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS0_HIGH_fields_
+  };  // struct MacAddress0HighFields
 
   struct MAC_ADDRESS0_HIGH : ftl::mmio::Register<
       0x4043C300u,
       std::uint32_t,
       0x8000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS0_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS0_HIGH_fields_::DCS,
+      MacAddress0HighFields::ADDRHI,
+      MacAddress0HighFields::DCS,
       ftl::mmio::Reserved<10, 21>,
-      MAC_ADDRESS0_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS0_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS0_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS0_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS0_HIGH_fields_::AE;
+      MacAddress0HighFields::AE> {
+    using eAE = MacAddress0HighFields::eAE;
+    using ADDRHI = MacAddress0HighFields::ADDRHI;
+    using DCS = MacAddress0HighFields::DCS;
+    using AE = MacAddress0HighFields::AE;
   };
 
   // MAC Address0 Low
-  struct MAC_ADDRESS0_LOW_fields_ {
+  struct MacAddress0LowFields {
     // MAC Address0[31:0] This field contains the lower 32 bits of the first 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS0_LOW_fields_
+  };  // struct MacAddress0LowFields
 
   struct MAC_ADDRESS0_LOW : ftl::mmio::Register<
       0x4043C304u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS0_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS0_LOW_fields_::ADDRLO;
+      MacAddress0LowFields::ADDRLO> {
+    using ADDRLO = MacAddress0LowFields::ADDRLO;
   };
 
   // MAC Address1 High
-  struct MAC_ADDRESS1_HIGH_fields_ {
+  struct MacAddress1HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4042,45 +4042,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS1_HIGH_fields_
+  };  // struct MacAddress1HighFields
 
   struct MAC_ADDRESS1_HIGH : ftl::mmio::Register<
       0x4043C308u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS1_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS1_HIGH_fields_::DCS,
+      MacAddress1HighFields::ADDRHI,
+      MacAddress1HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS1_HIGH_fields_::MBC,
-      MAC_ADDRESS1_HIGH_fields_::SA,
-      MAC_ADDRESS1_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS1_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS1_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS1_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS1_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS1_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS1_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS1_HIGH_fields_::AE;
+      MacAddress1HighFields::MBC,
+      MacAddress1HighFields::SA,
+      MacAddress1HighFields::AE> {
+    using eSA = MacAddress1HighFields::eSA;
+    using eAE = MacAddress1HighFields::eAE;
+    using ADDRHI = MacAddress1HighFields::ADDRHI;
+    using DCS = MacAddress1HighFields::DCS;
+    using MBC = MacAddress1HighFields::MBC;
+    using SA = MacAddress1HighFields::SA;
+    using AE = MacAddress1HighFields::AE;
   };
 
   // MAC Address1 Low
-  struct MAC_ADDRESS1_LOW_fields_ {
+  struct MacAddress1LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS1_LOW_fields_
+  };  // struct MacAddress1LowFields
 
   struct MAC_ADDRESS1_LOW : ftl::mmio::Register<
       0x4043C30Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS1_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS1_LOW_fields_::ADDRLO;
+      MacAddress1LowFields::ADDRLO> {
+    using ADDRLO = MacAddress1LowFields::ADDRLO;
   };
 
   // MAC Address2 High
-  struct MAC_ADDRESS2_HIGH_fields_ {
+  struct MacAddress2HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4105,45 +4105,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS2_HIGH_fields_
+  };  // struct MacAddress2HighFields
 
   struct MAC_ADDRESS2_HIGH : ftl::mmio::Register<
       0x4043C310u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS2_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS2_HIGH_fields_::DCS,
+      MacAddress2HighFields::ADDRHI,
+      MacAddress2HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS2_HIGH_fields_::MBC,
-      MAC_ADDRESS2_HIGH_fields_::SA,
-      MAC_ADDRESS2_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS2_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS2_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS2_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS2_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS2_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS2_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS2_HIGH_fields_::AE;
+      MacAddress2HighFields::MBC,
+      MacAddress2HighFields::SA,
+      MacAddress2HighFields::AE> {
+    using eSA = MacAddress2HighFields::eSA;
+    using eAE = MacAddress2HighFields::eAE;
+    using ADDRHI = MacAddress2HighFields::ADDRHI;
+    using DCS = MacAddress2HighFields::DCS;
+    using MBC = MacAddress2HighFields::MBC;
+    using SA = MacAddress2HighFields::SA;
+    using AE = MacAddress2HighFields::AE;
   };
 
   // MAC Address2 Low
-  struct MAC_ADDRESS2_LOW_fields_ {
+  struct MacAddress2LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS2_LOW_fields_
+  };  // struct MacAddress2LowFields
 
   struct MAC_ADDRESS2_LOW : ftl::mmio::Register<
       0x4043C314u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS2_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS2_LOW_fields_::ADDRLO;
+      MacAddress2LowFields::ADDRLO> {
+    using ADDRLO = MacAddress2LowFields::ADDRLO;
   };
 
   // MAC Address3 High
-  struct MAC_ADDRESS3_HIGH_fields_ {
+  struct MacAddress3HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4168,45 +4168,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS3_HIGH_fields_
+  };  // struct MacAddress3HighFields
 
   struct MAC_ADDRESS3_HIGH : ftl::mmio::Register<
       0x4043C318u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS3_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS3_HIGH_fields_::DCS,
+      MacAddress3HighFields::ADDRHI,
+      MacAddress3HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS3_HIGH_fields_::MBC,
-      MAC_ADDRESS3_HIGH_fields_::SA,
-      MAC_ADDRESS3_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS3_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS3_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS3_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS3_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS3_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS3_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS3_HIGH_fields_::AE;
+      MacAddress3HighFields::MBC,
+      MacAddress3HighFields::SA,
+      MacAddress3HighFields::AE> {
+    using eSA = MacAddress3HighFields::eSA;
+    using eAE = MacAddress3HighFields::eAE;
+    using ADDRHI = MacAddress3HighFields::ADDRHI;
+    using DCS = MacAddress3HighFields::DCS;
+    using MBC = MacAddress3HighFields::MBC;
+    using SA = MacAddress3HighFields::SA;
+    using AE = MacAddress3HighFields::AE;
   };
 
   // MAC Address3 Low
-  struct MAC_ADDRESS3_LOW_fields_ {
+  struct MacAddress3LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS3_LOW_fields_
+  };  // struct MacAddress3LowFields
 
   struct MAC_ADDRESS3_LOW : ftl::mmio::Register<
       0x4043C31Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS3_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS3_LOW_fields_::ADDRLO;
+      MacAddress3LowFields::ADDRLO> {
+    using ADDRLO = MacAddress3LowFields::ADDRLO;
   };
 
   // MAC Address4 High
-  struct MAC_ADDRESS4_HIGH_fields_ {
+  struct MacAddress4HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4231,45 +4231,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS4_HIGH_fields_
+  };  // struct MacAddress4HighFields
 
   struct MAC_ADDRESS4_HIGH : ftl::mmio::Register<
       0x4043C320u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS4_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS4_HIGH_fields_::DCS,
+      MacAddress4HighFields::ADDRHI,
+      MacAddress4HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS4_HIGH_fields_::MBC,
-      MAC_ADDRESS4_HIGH_fields_::SA,
-      MAC_ADDRESS4_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS4_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS4_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS4_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS4_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS4_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS4_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS4_HIGH_fields_::AE;
+      MacAddress4HighFields::MBC,
+      MacAddress4HighFields::SA,
+      MacAddress4HighFields::AE> {
+    using eSA = MacAddress4HighFields::eSA;
+    using eAE = MacAddress4HighFields::eAE;
+    using ADDRHI = MacAddress4HighFields::ADDRHI;
+    using DCS = MacAddress4HighFields::DCS;
+    using MBC = MacAddress4HighFields::MBC;
+    using SA = MacAddress4HighFields::SA;
+    using AE = MacAddress4HighFields::AE;
   };
 
   // MAC Address4 Low
-  struct MAC_ADDRESS4_LOW_fields_ {
+  struct MacAddress4LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS4_LOW_fields_
+  };  // struct MacAddress4LowFields
 
   struct MAC_ADDRESS4_LOW : ftl::mmio::Register<
       0x4043C324u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS4_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS4_LOW_fields_::ADDRLO;
+      MacAddress4LowFields::ADDRLO> {
+    using ADDRLO = MacAddress4LowFields::ADDRLO;
   };
 
   // MAC Address5 High
-  struct MAC_ADDRESS5_HIGH_fields_ {
+  struct MacAddress5HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4294,45 +4294,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS5_HIGH_fields_
+  };  // struct MacAddress5HighFields
 
   struct MAC_ADDRESS5_HIGH : ftl::mmio::Register<
       0x4043C328u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS5_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS5_HIGH_fields_::DCS,
+      MacAddress5HighFields::ADDRHI,
+      MacAddress5HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS5_HIGH_fields_::MBC,
-      MAC_ADDRESS5_HIGH_fields_::SA,
-      MAC_ADDRESS5_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS5_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS5_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS5_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS5_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS5_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS5_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS5_HIGH_fields_::AE;
+      MacAddress5HighFields::MBC,
+      MacAddress5HighFields::SA,
+      MacAddress5HighFields::AE> {
+    using eSA = MacAddress5HighFields::eSA;
+    using eAE = MacAddress5HighFields::eAE;
+    using ADDRHI = MacAddress5HighFields::ADDRHI;
+    using DCS = MacAddress5HighFields::DCS;
+    using MBC = MacAddress5HighFields::MBC;
+    using SA = MacAddress5HighFields::SA;
+    using AE = MacAddress5HighFields::AE;
   };
 
   // MAC Address5 Low
-  struct MAC_ADDRESS5_LOW_fields_ {
+  struct MacAddress5LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS5_LOW_fields_
+  };  // struct MacAddress5LowFields
 
   struct MAC_ADDRESS5_LOW : ftl::mmio::Register<
       0x4043C32Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS5_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS5_LOW_fields_::ADDRLO;
+      MacAddress5LowFields::ADDRLO> {
+    using ADDRLO = MacAddress5LowFields::ADDRLO;
   };
 
   // MAC Address6 High
-  struct MAC_ADDRESS6_HIGH_fields_ {
+  struct MacAddress6HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4357,45 +4357,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS6_HIGH_fields_
+  };  // struct MacAddress6HighFields
 
   struct MAC_ADDRESS6_HIGH : ftl::mmio::Register<
       0x4043C330u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS6_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS6_HIGH_fields_::DCS,
+      MacAddress6HighFields::ADDRHI,
+      MacAddress6HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS6_HIGH_fields_::MBC,
-      MAC_ADDRESS6_HIGH_fields_::SA,
-      MAC_ADDRESS6_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS6_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS6_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS6_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS6_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS6_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS6_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS6_HIGH_fields_::AE;
+      MacAddress6HighFields::MBC,
+      MacAddress6HighFields::SA,
+      MacAddress6HighFields::AE> {
+    using eSA = MacAddress6HighFields::eSA;
+    using eAE = MacAddress6HighFields::eAE;
+    using ADDRHI = MacAddress6HighFields::ADDRHI;
+    using DCS = MacAddress6HighFields::DCS;
+    using MBC = MacAddress6HighFields::MBC;
+    using SA = MacAddress6HighFields::SA;
+    using AE = MacAddress6HighFields::AE;
   };
 
   // MAC Address6 Low
-  struct MAC_ADDRESS6_LOW_fields_ {
+  struct MacAddress6LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS6_LOW_fields_
+  };  // struct MacAddress6LowFields
 
   struct MAC_ADDRESS6_LOW : ftl::mmio::Register<
       0x4043C334u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS6_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS6_LOW_fields_::ADDRLO;
+      MacAddress6LowFields::ADDRLO> {
+    using ADDRLO = MacAddress6LowFields::ADDRLO;
   };
 
   // MAC Address7 High
-  struct MAC_ADDRESS7_HIGH_fields_ {
+  struct MacAddress7HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4420,45 +4420,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS7_HIGH_fields_
+  };  // struct MacAddress7HighFields
 
   struct MAC_ADDRESS7_HIGH : ftl::mmio::Register<
       0x4043C338u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS7_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS7_HIGH_fields_::DCS,
+      MacAddress7HighFields::ADDRHI,
+      MacAddress7HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS7_HIGH_fields_::MBC,
-      MAC_ADDRESS7_HIGH_fields_::SA,
-      MAC_ADDRESS7_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS7_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS7_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS7_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS7_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS7_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS7_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS7_HIGH_fields_::AE;
+      MacAddress7HighFields::MBC,
+      MacAddress7HighFields::SA,
+      MacAddress7HighFields::AE> {
+    using eSA = MacAddress7HighFields::eSA;
+    using eAE = MacAddress7HighFields::eAE;
+    using ADDRHI = MacAddress7HighFields::ADDRHI;
+    using DCS = MacAddress7HighFields::DCS;
+    using MBC = MacAddress7HighFields::MBC;
+    using SA = MacAddress7HighFields::SA;
+    using AE = MacAddress7HighFields::AE;
   };
 
   // MAC Address7 Low
-  struct MAC_ADDRESS7_LOW_fields_ {
+  struct MacAddress7LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS7_LOW_fields_
+  };  // struct MacAddress7LowFields
 
   struct MAC_ADDRESS7_LOW : ftl::mmio::Register<
       0x4043C33Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS7_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS7_LOW_fields_::ADDRLO;
+      MacAddress7LowFields::ADDRLO> {
+    using ADDRLO = MacAddress7LowFields::ADDRLO;
   };
 
   // MAC Address8 High
-  struct MAC_ADDRESS8_HIGH_fields_ {
+  struct MacAddress8HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4483,45 +4483,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS8_HIGH_fields_
+  };  // struct MacAddress8HighFields
 
   struct MAC_ADDRESS8_HIGH : ftl::mmio::Register<
       0x4043C340u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS8_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS8_HIGH_fields_::DCS,
+      MacAddress8HighFields::ADDRHI,
+      MacAddress8HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS8_HIGH_fields_::MBC,
-      MAC_ADDRESS8_HIGH_fields_::SA,
-      MAC_ADDRESS8_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS8_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS8_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS8_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS8_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS8_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS8_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS8_HIGH_fields_::AE;
+      MacAddress8HighFields::MBC,
+      MacAddress8HighFields::SA,
+      MacAddress8HighFields::AE> {
+    using eSA = MacAddress8HighFields::eSA;
+    using eAE = MacAddress8HighFields::eAE;
+    using ADDRHI = MacAddress8HighFields::ADDRHI;
+    using DCS = MacAddress8HighFields::DCS;
+    using MBC = MacAddress8HighFields::MBC;
+    using SA = MacAddress8HighFields::SA;
+    using AE = MacAddress8HighFields::AE;
   };
 
   // MAC Address8 Low
-  struct MAC_ADDRESS8_LOW_fields_ {
+  struct MacAddress8LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS8_LOW_fields_
+  };  // struct MacAddress8LowFields
 
   struct MAC_ADDRESS8_LOW : ftl::mmio::Register<
       0x4043C344u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS8_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS8_LOW_fields_::ADDRLO;
+      MacAddress8LowFields::ADDRLO> {
+    using ADDRLO = MacAddress8LowFields::ADDRLO;
   };
 
   // MAC Address9 High
-  struct MAC_ADDRESS9_HIGH_fields_ {
+  struct MacAddress9HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4546,45 +4546,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS9_HIGH_fields_
+  };  // struct MacAddress9HighFields
 
   struct MAC_ADDRESS9_HIGH : ftl::mmio::Register<
       0x4043C348u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS9_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS9_HIGH_fields_::DCS,
+      MacAddress9HighFields::ADDRHI,
+      MacAddress9HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS9_HIGH_fields_::MBC,
-      MAC_ADDRESS9_HIGH_fields_::SA,
-      MAC_ADDRESS9_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS9_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS9_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS9_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS9_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS9_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS9_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS9_HIGH_fields_::AE;
+      MacAddress9HighFields::MBC,
+      MacAddress9HighFields::SA,
+      MacAddress9HighFields::AE> {
+    using eSA = MacAddress9HighFields::eSA;
+    using eAE = MacAddress9HighFields::eAE;
+    using ADDRHI = MacAddress9HighFields::ADDRHI;
+    using DCS = MacAddress9HighFields::DCS;
+    using MBC = MacAddress9HighFields::MBC;
+    using SA = MacAddress9HighFields::SA;
+    using AE = MacAddress9HighFields::AE;
   };
 
   // MAC Address9 Low
-  struct MAC_ADDRESS9_LOW_fields_ {
+  struct MacAddress9LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS9_LOW_fields_
+  };  // struct MacAddress9LowFields
 
   struct MAC_ADDRESS9_LOW : ftl::mmio::Register<
       0x4043C34Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS9_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS9_LOW_fields_::ADDRLO;
+      MacAddress9LowFields::ADDRLO> {
+    using ADDRLO = MacAddress9LowFields::ADDRLO;
   };
 
   // MAC Address10 High
-  struct MAC_ADDRESS10_HIGH_fields_ {
+  struct MacAddress10HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4609,45 +4609,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS10_HIGH_fields_
+  };  // struct MacAddress10HighFields
 
   struct MAC_ADDRESS10_HIGH : ftl::mmio::Register<
       0x4043C350u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS10_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS10_HIGH_fields_::DCS,
+      MacAddress10HighFields::ADDRHI,
+      MacAddress10HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS10_HIGH_fields_::MBC,
-      MAC_ADDRESS10_HIGH_fields_::SA,
-      MAC_ADDRESS10_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS10_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS10_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS10_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS10_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS10_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS10_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS10_HIGH_fields_::AE;
+      MacAddress10HighFields::MBC,
+      MacAddress10HighFields::SA,
+      MacAddress10HighFields::AE> {
+    using eSA = MacAddress10HighFields::eSA;
+    using eAE = MacAddress10HighFields::eAE;
+    using ADDRHI = MacAddress10HighFields::ADDRHI;
+    using DCS = MacAddress10HighFields::DCS;
+    using MBC = MacAddress10HighFields::MBC;
+    using SA = MacAddress10HighFields::SA;
+    using AE = MacAddress10HighFields::AE;
   };
 
   // MAC Address10 Low
-  struct MAC_ADDRESS10_LOW_fields_ {
+  struct MacAddress10LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS10_LOW_fields_
+  };  // struct MacAddress10LowFields
 
   struct MAC_ADDRESS10_LOW : ftl::mmio::Register<
       0x4043C354u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS10_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS10_LOW_fields_::ADDRLO;
+      MacAddress10LowFields::ADDRLO> {
+    using ADDRLO = MacAddress10LowFields::ADDRLO;
   };
 
   // MAC Address11 High
-  struct MAC_ADDRESS11_HIGH_fields_ {
+  struct MacAddress11HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4672,45 +4672,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS11_HIGH_fields_
+  };  // struct MacAddress11HighFields
 
   struct MAC_ADDRESS11_HIGH : ftl::mmio::Register<
       0x4043C358u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS11_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS11_HIGH_fields_::DCS,
+      MacAddress11HighFields::ADDRHI,
+      MacAddress11HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS11_HIGH_fields_::MBC,
-      MAC_ADDRESS11_HIGH_fields_::SA,
-      MAC_ADDRESS11_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS11_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS11_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS11_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS11_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS11_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS11_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS11_HIGH_fields_::AE;
+      MacAddress11HighFields::MBC,
+      MacAddress11HighFields::SA,
+      MacAddress11HighFields::AE> {
+    using eSA = MacAddress11HighFields::eSA;
+    using eAE = MacAddress11HighFields::eAE;
+    using ADDRHI = MacAddress11HighFields::ADDRHI;
+    using DCS = MacAddress11HighFields::DCS;
+    using MBC = MacAddress11HighFields::MBC;
+    using SA = MacAddress11HighFields::SA;
+    using AE = MacAddress11HighFields::AE;
   };
 
   // MAC Address11 Low
-  struct MAC_ADDRESS11_LOW_fields_ {
+  struct MacAddress11LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS11_LOW_fields_
+  };  // struct MacAddress11LowFields
 
   struct MAC_ADDRESS11_LOW : ftl::mmio::Register<
       0x4043C35Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS11_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS11_LOW_fields_::ADDRLO;
+      MacAddress11LowFields::ADDRLO> {
+    using ADDRLO = MacAddress11LowFields::ADDRLO;
   };
 
   // MAC Address12 High
-  struct MAC_ADDRESS12_HIGH_fields_ {
+  struct MacAddress12HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4735,45 +4735,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS12_HIGH_fields_
+  };  // struct MacAddress12HighFields
 
   struct MAC_ADDRESS12_HIGH : ftl::mmio::Register<
       0x4043C360u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS12_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS12_HIGH_fields_::DCS,
+      MacAddress12HighFields::ADDRHI,
+      MacAddress12HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS12_HIGH_fields_::MBC,
-      MAC_ADDRESS12_HIGH_fields_::SA,
-      MAC_ADDRESS12_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS12_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS12_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS12_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS12_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS12_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS12_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS12_HIGH_fields_::AE;
+      MacAddress12HighFields::MBC,
+      MacAddress12HighFields::SA,
+      MacAddress12HighFields::AE> {
+    using eSA = MacAddress12HighFields::eSA;
+    using eAE = MacAddress12HighFields::eAE;
+    using ADDRHI = MacAddress12HighFields::ADDRHI;
+    using DCS = MacAddress12HighFields::DCS;
+    using MBC = MacAddress12HighFields::MBC;
+    using SA = MacAddress12HighFields::SA;
+    using AE = MacAddress12HighFields::AE;
   };
 
   // MAC Address12 Low
-  struct MAC_ADDRESS12_LOW_fields_ {
+  struct MacAddress12LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS12_LOW_fields_
+  };  // struct MacAddress12LowFields
 
   struct MAC_ADDRESS12_LOW : ftl::mmio::Register<
       0x4043C364u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS12_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS12_LOW_fields_::ADDRLO;
+      MacAddress12LowFields::ADDRLO> {
+    using ADDRLO = MacAddress12LowFields::ADDRLO;
   };
 
   // MAC Address13 High
-  struct MAC_ADDRESS13_HIGH_fields_ {
+  struct MacAddress13HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4798,45 +4798,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS13_HIGH_fields_
+  };  // struct MacAddress13HighFields
 
   struct MAC_ADDRESS13_HIGH : ftl::mmio::Register<
       0x4043C368u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS13_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS13_HIGH_fields_::DCS,
+      MacAddress13HighFields::ADDRHI,
+      MacAddress13HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS13_HIGH_fields_::MBC,
-      MAC_ADDRESS13_HIGH_fields_::SA,
-      MAC_ADDRESS13_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS13_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS13_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS13_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS13_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS13_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS13_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS13_HIGH_fields_::AE;
+      MacAddress13HighFields::MBC,
+      MacAddress13HighFields::SA,
+      MacAddress13HighFields::AE> {
+    using eSA = MacAddress13HighFields::eSA;
+    using eAE = MacAddress13HighFields::eAE;
+    using ADDRHI = MacAddress13HighFields::ADDRHI;
+    using DCS = MacAddress13HighFields::DCS;
+    using MBC = MacAddress13HighFields::MBC;
+    using SA = MacAddress13HighFields::SA;
+    using AE = MacAddress13HighFields::AE;
   };
 
   // MAC Address13 Low
-  struct MAC_ADDRESS13_LOW_fields_ {
+  struct MacAddress13LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS13_LOW_fields_
+  };  // struct MacAddress13LowFields
 
   struct MAC_ADDRESS13_LOW : ftl::mmio::Register<
       0x4043C36Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS13_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS13_LOW_fields_::ADDRLO;
+      MacAddress13LowFields::ADDRLO> {
+    using ADDRLO = MacAddress13LowFields::ADDRLO;
   };
 
   // MAC Address14 High
-  struct MAC_ADDRESS14_HIGH_fields_ {
+  struct MacAddress14HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4861,45 +4861,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS14_HIGH_fields_
+  };  // struct MacAddress14HighFields
 
   struct MAC_ADDRESS14_HIGH : ftl::mmio::Register<
       0x4043C370u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS14_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS14_HIGH_fields_::DCS,
+      MacAddress14HighFields::ADDRHI,
+      MacAddress14HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS14_HIGH_fields_::MBC,
-      MAC_ADDRESS14_HIGH_fields_::SA,
-      MAC_ADDRESS14_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS14_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS14_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS14_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS14_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS14_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS14_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS14_HIGH_fields_::AE;
+      MacAddress14HighFields::MBC,
+      MacAddress14HighFields::SA,
+      MacAddress14HighFields::AE> {
+    using eSA = MacAddress14HighFields::eSA;
+    using eAE = MacAddress14HighFields::eAE;
+    using ADDRHI = MacAddress14HighFields::ADDRHI;
+    using DCS = MacAddress14HighFields::DCS;
+    using MBC = MacAddress14HighFields::MBC;
+    using SA = MacAddress14HighFields::SA;
+    using AE = MacAddress14HighFields::AE;
   };
 
   // MAC Address14 Low
-  struct MAC_ADDRESS14_LOW_fields_ {
+  struct MacAddress14LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS14_LOW_fields_
+  };  // struct MacAddress14LowFields
 
   struct MAC_ADDRESS14_LOW : ftl::mmio::Register<
       0x4043C374u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS14_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS14_LOW_fields_::ADDRLO;
+      MacAddress14LowFields::ADDRLO> {
+    using ADDRLO = MacAddress14LowFields::ADDRLO;
   };
 
   // MAC Address15 High
-  struct MAC_ADDRESS15_HIGH_fields_ {
+  struct MacAddress15HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4924,45 +4924,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS15_HIGH_fields_
+  };  // struct MacAddress15HighFields
 
   struct MAC_ADDRESS15_HIGH : ftl::mmio::Register<
       0x4043C378u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS15_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS15_HIGH_fields_::DCS,
+      MacAddress15HighFields::ADDRHI,
+      MacAddress15HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS15_HIGH_fields_::MBC,
-      MAC_ADDRESS15_HIGH_fields_::SA,
-      MAC_ADDRESS15_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS15_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS15_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS15_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS15_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS15_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS15_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS15_HIGH_fields_::AE;
+      MacAddress15HighFields::MBC,
+      MacAddress15HighFields::SA,
+      MacAddress15HighFields::AE> {
+    using eSA = MacAddress15HighFields::eSA;
+    using eAE = MacAddress15HighFields::eAE;
+    using ADDRHI = MacAddress15HighFields::ADDRHI;
+    using DCS = MacAddress15HighFields::DCS;
+    using MBC = MacAddress15HighFields::MBC;
+    using SA = MacAddress15HighFields::SA;
+    using AE = MacAddress15HighFields::AE;
   };
 
   // MAC Address15 Low
-  struct MAC_ADDRESS15_LOW_fields_ {
+  struct MacAddress15LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS15_LOW_fields_
+  };  // struct MacAddress15LowFields
 
   struct MAC_ADDRESS15_LOW : ftl::mmio::Register<
       0x4043C37Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS15_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS15_LOW_fields_::ADDRLO;
+      MacAddress15LowFields::ADDRLO> {
+    using ADDRLO = MacAddress15LowFields::ADDRLO;
   };
 
   // MAC Address16 High
-  struct MAC_ADDRESS16_HIGH_fields_ {
+  struct MacAddress16HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -4987,45 +4987,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS16_HIGH_fields_
+  };  // struct MacAddress16HighFields
 
   struct MAC_ADDRESS16_HIGH : ftl::mmio::Register<
       0x4043C380u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS16_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS16_HIGH_fields_::DCS,
+      MacAddress16HighFields::ADDRHI,
+      MacAddress16HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS16_HIGH_fields_::MBC,
-      MAC_ADDRESS16_HIGH_fields_::SA,
-      MAC_ADDRESS16_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS16_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS16_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS16_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS16_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS16_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS16_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS16_HIGH_fields_::AE;
+      MacAddress16HighFields::MBC,
+      MacAddress16HighFields::SA,
+      MacAddress16HighFields::AE> {
+    using eSA = MacAddress16HighFields::eSA;
+    using eAE = MacAddress16HighFields::eAE;
+    using ADDRHI = MacAddress16HighFields::ADDRHI;
+    using DCS = MacAddress16HighFields::DCS;
+    using MBC = MacAddress16HighFields::MBC;
+    using SA = MacAddress16HighFields::SA;
+    using AE = MacAddress16HighFields::AE;
   };
 
   // MAC Address16 Low
-  struct MAC_ADDRESS16_LOW_fields_ {
+  struct MacAddress16LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS16_LOW_fields_
+  };  // struct MacAddress16LowFields
 
   struct MAC_ADDRESS16_LOW : ftl::mmio::Register<
       0x4043C384u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS16_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS16_LOW_fields_::ADDRLO;
+      MacAddress16LowFields::ADDRLO> {
+    using ADDRLO = MacAddress16LowFields::ADDRLO;
   };
 
   // MAC Address17 High
-  struct MAC_ADDRESS17_HIGH_fields_ {
+  struct MacAddress17HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5050,45 +5050,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS17_HIGH_fields_
+  };  // struct MacAddress17HighFields
 
   struct MAC_ADDRESS17_HIGH : ftl::mmio::Register<
       0x4043C388u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS17_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS17_HIGH_fields_::DCS,
+      MacAddress17HighFields::ADDRHI,
+      MacAddress17HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS17_HIGH_fields_::MBC,
-      MAC_ADDRESS17_HIGH_fields_::SA,
-      MAC_ADDRESS17_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS17_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS17_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS17_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS17_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS17_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS17_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS17_HIGH_fields_::AE;
+      MacAddress17HighFields::MBC,
+      MacAddress17HighFields::SA,
+      MacAddress17HighFields::AE> {
+    using eSA = MacAddress17HighFields::eSA;
+    using eAE = MacAddress17HighFields::eAE;
+    using ADDRHI = MacAddress17HighFields::ADDRHI;
+    using DCS = MacAddress17HighFields::DCS;
+    using MBC = MacAddress17HighFields::MBC;
+    using SA = MacAddress17HighFields::SA;
+    using AE = MacAddress17HighFields::AE;
   };
 
   // MAC Address17 Low
-  struct MAC_ADDRESS17_LOW_fields_ {
+  struct MacAddress17LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS17_LOW_fields_
+  };  // struct MacAddress17LowFields
 
   struct MAC_ADDRESS17_LOW : ftl::mmio::Register<
       0x4043C38Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS17_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS17_LOW_fields_::ADDRLO;
+      MacAddress17LowFields::ADDRLO> {
+    using ADDRLO = MacAddress17LowFields::ADDRLO;
   };
 
   // MAC Address18 High
-  struct MAC_ADDRESS18_HIGH_fields_ {
+  struct MacAddress18HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5113,45 +5113,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS18_HIGH_fields_
+  };  // struct MacAddress18HighFields
 
   struct MAC_ADDRESS18_HIGH : ftl::mmio::Register<
       0x4043C390u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS18_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS18_HIGH_fields_::DCS,
+      MacAddress18HighFields::ADDRHI,
+      MacAddress18HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS18_HIGH_fields_::MBC,
-      MAC_ADDRESS18_HIGH_fields_::SA,
-      MAC_ADDRESS18_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS18_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS18_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS18_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS18_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS18_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS18_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS18_HIGH_fields_::AE;
+      MacAddress18HighFields::MBC,
+      MacAddress18HighFields::SA,
+      MacAddress18HighFields::AE> {
+    using eSA = MacAddress18HighFields::eSA;
+    using eAE = MacAddress18HighFields::eAE;
+    using ADDRHI = MacAddress18HighFields::ADDRHI;
+    using DCS = MacAddress18HighFields::DCS;
+    using MBC = MacAddress18HighFields::MBC;
+    using SA = MacAddress18HighFields::SA;
+    using AE = MacAddress18HighFields::AE;
   };
 
   // MAC Address18 Low
-  struct MAC_ADDRESS18_LOW_fields_ {
+  struct MacAddress18LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS18_LOW_fields_
+  };  // struct MacAddress18LowFields
 
   struct MAC_ADDRESS18_LOW : ftl::mmio::Register<
       0x4043C394u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS18_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS18_LOW_fields_::ADDRLO;
+      MacAddress18LowFields::ADDRLO> {
+    using ADDRLO = MacAddress18LowFields::ADDRLO;
   };
 
   // MAC Address19 High
-  struct MAC_ADDRESS19_HIGH_fields_ {
+  struct MacAddress19HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5176,45 +5176,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS19_HIGH_fields_
+  };  // struct MacAddress19HighFields
 
   struct MAC_ADDRESS19_HIGH : ftl::mmio::Register<
       0x4043C398u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS19_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS19_HIGH_fields_::DCS,
+      MacAddress19HighFields::ADDRHI,
+      MacAddress19HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS19_HIGH_fields_::MBC,
-      MAC_ADDRESS19_HIGH_fields_::SA,
-      MAC_ADDRESS19_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS19_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS19_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS19_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS19_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS19_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS19_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS19_HIGH_fields_::AE;
+      MacAddress19HighFields::MBC,
+      MacAddress19HighFields::SA,
+      MacAddress19HighFields::AE> {
+    using eSA = MacAddress19HighFields::eSA;
+    using eAE = MacAddress19HighFields::eAE;
+    using ADDRHI = MacAddress19HighFields::ADDRHI;
+    using DCS = MacAddress19HighFields::DCS;
+    using MBC = MacAddress19HighFields::MBC;
+    using SA = MacAddress19HighFields::SA;
+    using AE = MacAddress19HighFields::AE;
   };
 
   // MAC Address19 Low
-  struct MAC_ADDRESS19_LOW_fields_ {
+  struct MacAddress19LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS19_LOW_fields_
+  };  // struct MacAddress19LowFields
 
   struct MAC_ADDRESS19_LOW : ftl::mmio::Register<
       0x4043C39Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS19_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS19_LOW_fields_::ADDRLO;
+      MacAddress19LowFields::ADDRLO> {
+    using ADDRLO = MacAddress19LowFields::ADDRLO;
   };
 
   // MAC Address20 High
-  struct MAC_ADDRESS20_HIGH_fields_ {
+  struct MacAddress20HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5239,45 +5239,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS20_HIGH_fields_
+  };  // struct MacAddress20HighFields
 
   struct MAC_ADDRESS20_HIGH : ftl::mmio::Register<
       0x4043C3A0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS20_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS20_HIGH_fields_::DCS,
+      MacAddress20HighFields::ADDRHI,
+      MacAddress20HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS20_HIGH_fields_::MBC,
-      MAC_ADDRESS20_HIGH_fields_::SA,
-      MAC_ADDRESS20_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS20_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS20_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS20_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS20_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS20_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS20_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS20_HIGH_fields_::AE;
+      MacAddress20HighFields::MBC,
+      MacAddress20HighFields::SA,
+      MacAddress20HighFields::AE> {
+    using eSA = MacAddress20HighFields::eSA;
+    using eAE = MacAddress20HighFields::eAE;
+    using ADDRHI = MacAddress20HighFields::ADDRHI;
+    using DCS = MacAddress20HighFields::DCS;
+    using MBC = MacAddress20HighFields::MBC;
+    using SA = MacAddress20HighFields::SA;
+    using AE = MacAddress20HighFields::AE;
   };
 
   // MAC Address20 Low
-  struct MAC_ADDRESS20_LOW_fields_ {
+  struct MacAddress20LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS20_LOW_fields_
+  };  // struct MacAddress20LowFields
 
   struct MAC_ADDRESS20_LOW : ftl::mmio::Register<
       0x4043C3A4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS20_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS20_LOW_fields_::ADDRLO;
+      MacAddress20LowFields::ADDRLO> {
+    using ADDRLO = MacAddress20LowFields::ADDRLO;
   };
 
   // MAC Address21 High
-  struct MAC_ADDRESS21_HIGH_fields_ {
+  struct MacAddress21HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5302,45 +5302,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS21_HIGH_fields_
+  };  // struct MacAddress21HighFields
 
   struct MAC_ADDRESS21_HIGH : ftl::mmio::Register<
       0x4043C3A8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS21_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS21_HIGH_fields_::DCS,
+      MacAddress21HighFields::ADDRHI,
+      MacAddress21HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS21_HIGH_fields_::MBC,
-      MAC_ADDRESS21_HIGH_fields_::SA,
-      MAC_ADDRESS21_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS21_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS21_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS21_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS21_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS21_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS21_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS21_HIGH_fields_::AE;
+      MacAddress21HighFields::MBC,
+      MacAddress21HighFields::SA,
+      MacAddress21HighFields::AE> {
+    using eSA = MacAddress21HighFields::eSA;
+    using eAE = MacAddress21HighFields::eAE;
+    using ADDRHI = MacAddress21HighFields::ADDRHI;
+    using DCS = MacAddress21HighFields::DCS;
+    using MBC = MacAddress21HighFields::MBC;
+    using SA = MacAddress21HighFields::SA;
+    using AE = MacAddress21HighFields::AE;
   };
 
   // MAC Address21 Low
-  struct MAC_ADDRESS21_LOW_fields_ {
+  struct MacAddress21LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS21_LOW_fields_
+  };  // struct MacAddress21LowFields
 
   struct MAC_ADDRESS21_LOW : ftl::mmio::Register<
       0x4043C3ACu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS21_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS21_LOW_fields_::ADDRLO;
+      MacAddress21LowFields::ADDRLO> {
+    using ADDRLO = MacAddress21LowFields::ADDRLO;
   };
 
   // MAC Address22 High
-  struct MAC_ADDRESS22_HIGH_fields_ {
+  struct MacAddress22HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5365,45 +5365,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS22_HIGH_fields_
+  };  // struct MacAddress22HighFields
 
   struct MAC_ADDRESS22_HIGH : ftl::mmio::Register<
       0x4043C3B0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS22_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS22_HIGH_fields_::DCS,
+      MacAddress22HighFields::ADDRHI,
+      MacAddress22HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS22_HIGH_fields_::MBC,
-      MAC_ADDRESS22_HIGH_fields_::SA,
-      MAC_ADDRESS22_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS22_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS22_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS22_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS22_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS22_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS22_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS22_HIGH_fields_::AE;
+      MacAddress22HighFields::MBC,
+      MacAddress22HighFields::SA,
+      MacAddress22HighFields::AE> {
+    using eSA = MacAddress22HighFields::eSA;
+    using eAE = MacAddress22HighFields::eAE;
+    using ADDRHI = MacAddress22HighFields::ADDRHI;
+    using DCS = MacAddress22HighFields::DCS;
+    using MBC = MacAddress22HighFields::MBC;
+    using SA = MacAddress22HighFields::SA;
+    using AE = MacAddress22HighFields::AE;
   };
 
   // MAC Address22 Low
-  struct MAC_ADDRESS22_LOW_fields_ {
+  struct MacAddress22LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS22_LOW_fields_
+  };  // struct MacAddress22LowFields
 
   struct MAC_ADDRESS22_LOW : ftl::mmio::Register<
       0x4043C3B4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS22_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS22_LOW_fields_::ADDRLO;
+      MacAddress22LowFields::ADDRLO> {
+    using ADDRLO = MacAddress22LowFields::ADDRLO;
   };
 
   // MAC Address23 High
-  struct MAC_ADDRESS23_HIGH_fields_ {
+  struct MacAddress23HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5428,45 +5428,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS23_HIGH_fields_
+  };  // struct MacAddress23HighFields
 
   struct MAC_ADDRESS23_HIGH : ftl::mmio::Register<
       0x4043C3B8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS23_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS23_HIGH_fields_::DCS,
+      MacAddress23HighFields::ADDRHI,
+      MacAddress23HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS23_HIGH_fields_::MBC,
-      MAC_ADDRESS23_HIGH_fields_::SA,
-      MAC_ADDRESS23_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS23_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS23_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS23_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS23_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS23_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS23_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS23_HIGH_fields_::AE;
+      MacAddress23HighFields::MBC,
+      MacAddress23HighFields::SA,
+      MacAddress23HighFields::AE> {
+    using eSA = MacAddress23HighFields::eSA;
+    using eAE = MacAddress23HighFields::eAE;
+    using ADDRHI = MacAddress23HighFields::ADDRHI;
+    using DCS = MacAddress23HighFields::DCS;
+    using MBC = MacAddress23HighFields::MBC;
+    using SA = MacAddress23HighFields::SA;
+    using AE = MacAddress23HighFields::AE;
   };
 
   // MAC Address23 Low
-  struct MAC_ADDRESS23_LOW_fields_ {
+  struct MacAddress23LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS23_LOW_fields_
+  };  // struct MacAddress23LowFields
 
   struct MAC_ADDRESS23_LOW : ftl::mmio::Register<
       0x4043C3BCu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS23_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS23_LOW_fields_::ADDRLO;
+      MacAddress23LowFields::ADDRLO> {
+    using ADDRLO = MacAddress23LowFields::ADDRLO;
   };
 
   // MAC Address24 High
-  struct MAC_ADDRESS24_HIGH_fields_ {
+  struct MacAddress24HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5491,45 +5491,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS24_HIGH_fields_
+  };  // struct MacAddress24HighFields
 
   struct MAC_ADDRESS24_HIGH : ftl::mmio::Register<
       0x4043C3C0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS24_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS24_HIGH_fields_::DCS,
+      MacAddress24HighFields::ADDRHI,
+      MacAddress24HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS24_HIGH_fields_::MBC,
-      MAC_ADDRESS24_HIGH_fields_::SA,
-      MAC_ADDRESS24_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS24_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS24_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS24_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS24_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS24_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS24_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS24_HIGH_fields_::AE;
+      MacAddress24HighFields::MBC,
+      MacAddress24HighFields::SA,
+      MacAddress24HighFields::AE> {
+    using eSA = MacAddress24HighFields::eSA;
+    using eAE = MacAddress24HighFields::eAE;
+    using ADDRHI = MacAddress24HighFields::ADDRHI;
+    using DCS = MacAddress24HighFields::DCS;
+    using MBC = MacAddress24HighFields::MBC;
+    using SA = MacAddress24HighFields::SA;
+    using AE = MacAddress24HighFields::AE;
   };
 
   // MAC Address24 Low
-  struct MAC_ADDRESS24_LOW_fields_ {
+  struct MacAddress24LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS24_LOW_fields_
+  };  // struct MacAddress24LowFields
 
   struct MAC_ADDRESS24_LOW : ftl::mmio::Register<
       0x4043C3C4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS24_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS24_LOW_fields_::ADDRLO;
+      MacAddress24LowFields::ADDRLO> {
+    using ADDRLO = MacAddress24LowFields::ADDRLO;
   };
 
   // MAC Address25 High
-  struct MAC_ADDRESS25_HIGH_fields_ {
+  struct MacAddress25HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5554,45 +5554,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS25_HIGH_fields_
+  };  // struct MacAddress25HighFields
 
   struct MAC_ADDRESS25_HIGH : ftl::mmio::Register<
       0x4043C3C8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS25_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS25_HIGH_fields_::DCS,
+      MacAddress25HighFields::ADDRHI,
+      MacAddress25HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS25_HIGH_fields_::MBC,
-      MAC_ADDRESS25_HIGH_fields_::SA,
-      MAC_ADDRESS25_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS25_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS25_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS25_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS25_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS25_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS25_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS25_HIGH_fields_::AE;
+      MacAddress25HighFields::MBC,
+      MacAddress25HighFields::SA,
+      MacAddress25HighFields::AE> {
+    using eSA = MacAddress25HighFields::eSA;
+    using eAE = MacAddress25HighFields::eAE;
+    using ADDRHI = MacAddress25HighFields::ADDRHI;
+    using DCS = MacAddress25HighFields::DCS;
+    using MBC = MacAddress25HighFields::MBC;
+    using SA = MacAddress25HighFields::SA;
+    using AE = MacAddress25HighFields::AE;
   };
 
   // MAC Address25 Low
-  struct MAC_ADDRESS25_LOW_fields_ {
+  struct MacAddress25LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS25_LOW_fields_
+  };  // struct MacAddress25LowFields
 
   struct MAC_ADDRESS25_LOW : ftl::mmio::Register<
       0x4043C3CCu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS25_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS25_LOW_fields_::ADDRLO;
+      MacAddress25LowFields::ADDRLO> {
+    using ADDRLO = MacAddress25LowFields::ADDRLO;
   };
 
   // MAC Address26 High
-  struct MAC_ADDRESS26_HIGH_fields_ {
+  struct MacAddress26HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5617,45 +5617,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS26_HIGH_fields_
+  };  // struct MacAddress26HighFields
 
   struct MAC_ADDRESS26_HIGH : ftl::mmio::Register<
       0x4043C3D0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS26_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS26_HIGH_fields_::DCS,
+      MacAddress26HighFields::ADDRHI,
+      MacAddress26HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS26_HIGH_fields_::MBC,
-      MAC_ADDRESS26_HIGH_fields_::SA,
-      MAC_ADDRESS26_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS26_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS26_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS26_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS26_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS26_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS26_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS26_HIGH_fields_::AE;
+      MacAddress26HighFields::MBC,
+      MacAddress26HighFields::SA,
+      MacAddress26HighFields::AE> {
+    using eSA = MacAddress26HighFields::eSA;
+    using eAE = MacAddress26HighFields::eAE;
+    using ADDRHI = MacAddress26HighFields::ADDRHI;
+    using DCS = MacAddress26HighFields::DCS;
+    using MBC = MacAddress26HighFields::MBC;
+    using SA = MacAddress26HighFields::SA;
+    using AE = MacAddress26HighFields::AE;
   };
 
   // MAC Address26 Low
-  struct MAC_ADDRESS26_LOW_fields_ {
+  struct MacAddress26LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS26_LOW_fields_
+  };  // struct MacAddress26LowFields
 
   struct MAC_ADDRESS26_LOW : ftl::mmio::Register<
       0x4043C3D4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS26_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS26_LOW_fields_::ADDRLO;
+      MacAddress26LowFields::ADDRLO> {
+    using ADDRLO = MacAddress26LowFields::ADDRLO;
   };
 
   // MAC Address27 High
-  struct MAC_ADDRESS27_HIGH_fields_ {
+  struct MacAddress27HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5680,45 +5680,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS27_HIGH_fields_
+  };  // struct MacAddress27HighFields
 
   struct MAC_ADDRESS27_HIGH : ftl::mmio::Register<
       0x4043C3D8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS27_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS27_HIGH_fields_::DCS,
+      MacAddress27HighFields::ADDRHI,
+      MacAddress27HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS27_HIGH_fields_::MBC,
-      MAC_ADDRESS27_HIGH_fields_::SA,
-      MAC_ADDRESS27_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS27_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS27_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS27_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS27_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS27_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS27_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS27_HIGH_fields_::AE;
+      MacAddress27HighFields::MBC,
+      MacAddress27HighFields::SA,
+      MacAddress27HighFields::AE> {
+    using eSA = MacAddress27HighFields::eSA;
+    using eAE = MacAddress27HighFields::eAE;
+    using ADDRHI = MacAddress27HighFields::ADDRHI;
+    using DCS = MacAddress27HighFields::DCS;
+    using MBC = MacAddress27HighFields::MBC;
+    using SA = MacAddress27HighFields::SA;
+    using AE = MacAddress27HighFields::AE;
   };
 
   // MAC Address27 Low
-  struct MAC_ADDRESS27_LOW_fields_ {
+  struct MacAddress27LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS27_LOW_fields_
+  };  // struct MacAddress27LowFields
 
   struct MAC_ADDRESS27_LOW : ftl::mmio::Register<
       0x4043C3DCu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS27_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS27_LOW_fields_::ADDRLO;
+      MacAddress27LowFields::ADDRLO> {
+    using ADDRLO = MacAddress27LowFields::ADDRLO;
   };
 
   // MAC Address28 High
-  struct MAC_ADDRESS28_HIGH_fields_ {
+  struct MacAddress28HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5743,45 +5743,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS28_HIGH_fields_
+  };  // struct MacAddress28HighFields
 
   struct MAC_ADDRESS28_HIGH : ftl::mmio::Register<
       0x4043C3E0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS28_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS28_HIGH_fields_::DCS,
+      MacAddress28HighFields::ADDRHI,
+      MacAddress28HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS28_HIGH_fields_::MBC,
-      MAC_ADDRESS28_HIGH_fields_::SA,
-      MAC_ADDRESS28_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS28_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS28_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS28_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS28_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS28_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS28_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS28_HIGH_fields_::AE;
+      MacAddress28HighFields::MBC,
+      MacAddress28HighFields::SA,
+      MacAddress28HighFields::AE> {
+    using eSA = MacAddress28HighFields::eSA;
+    using eAE = MacAddress28HighFields::eAE;
+    using ADDRHI = MacAddress28HighFields::ADDRHI;
+    using DCS = MacAddress28HighFields::DCS;
+    using MBC = MacAddress28HighFields::MBC;
+    using SA = MacAddress28HighFields::SA;
+    using AE = MacAddress28HighFields::AE;
   };
 
   // MAC Address28 Low
-  struct MAC_ADDRESS28_LOW_fields_ {
+  struct MacAddress28LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS28_LOW_fields_
+  };  // struct MacAddress28LowFields
 
   struct MAC_ADDRESS28_LOW : ftl::mmio::Register<
       0x4043C3E4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS28_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS28_LOW_fields_::ADDRLO;
+      MacAddress28LowFields::ADDRLO> {
+    using ADDRLO = MacAddress28LowFields::ADDRLO;
   };
 
   // MAC Address29 High
-  struct MAC_ADDRESS29_HIGH_fields_ {
+  struct MacAddress29HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5806,45 +5806,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS29_HIGH_fields_
+  };  // struct MacAddress29HighFields
 
   struct MAC_ADDRESS29_HIGH : ftl::mmio::Register<
       0x4043C3E8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS29_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS29_HIGH_fields_::DCS,
+      MacAddress29HighFields::ADDRHI,
+      MacAddress29HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS29_HIGH_fields_::MBC,
-      MAC_ADDRESS29_HIGH_fields_::SA,
-      MAC_ADDRESS29_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS29_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS29_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS29_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS29_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS29_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS29_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS29_HIGH_fields_::AE;
+      MacAddress29HighFields::MBC,
+      MacAddress29HighFields::SA,
+      MacAddress29HighFields::AE> {
+    using eSA = MacAddress29HighFields::eSA;
+    using eAE = MacAddress29HighFields::eAE;
+    using ADDRHI = MacAddress29HighFields::ADDRHI;
+    using DCS = MacAddress29HighFields::DCS;
+    using MBC = MacAddress29HighFields::MBC;
+    using SA = MacAddress29HighFields::SA;
+    using AE = MacAddress29HighFields::AE;
   };
 
   // MAC Address29 Low
-  struct MAC_ADDRESS29_LOW_fields_ {
+  struct MacAddress29LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS29_LOW_fields_
+  };  // struct MacAddress29LowFields
 
   struct MAC_ADDRESS29_LOW : ftl::mmio::Register<
       0x4043C3ECu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS29_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS29_LOW_fields_::ADDRLO;
+      MacAddress29LowFields::ADDRLO> {
+    using ADDRLO = MacAddress29LowFields::ADDRLO;
   };
 
   // MAC Address30 High
-  struct MAC_ADDRESS30_HIGH_fields_ {
+  struct MacAddress30HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5869,45 +5869,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS30_HIGH_fields_
+  };  // struct MacAddress30HighFields
 
   struct MAC_ADDRESS30_HIGH : ftl::mmio::Register<
       0x4043C3F0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS30_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS30_HIGH_fields_::DCS,
+      MacAddress30HighFields::ADDRHI,
+      MacAddress30HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS30_HIGH_fields_::MBC,
-      MAC_ADDRESS30_HIGH_fields_::SA,
-      MAC_ADDRESS30_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS30_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS30_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS30_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS30_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS30_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS30_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS30_HIGH_fields_::AE;
+      MacAddress30HighFields::MBC,
+      MacAddress30HighFields::SA,
+      MacAddress30HighFields::AE> {
+    using eSA = MacAddress30HighFields::eSA;
+    using eAE = MacAddress30HighFields::eAE;
+    using ADDRHI = MacAddress30HighFields::ADDRHI;
+    using DCS = MacAddress30HighFields::DCS;
+    using MBC = MacAddress30HighFields::MBC;
+    using SA = MacAddress30HighFields::SA;
+    using AE = MacAddress30HighFields::AE;
   };
 
   // MAC Address30 Low
-  struct MAC_ADDRESS30_LOW_fields_ {
+  struct MacAddress30LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS30_LOW_fields_
+  };  // struct MacAddress30LowFields
 
   struct MAC_ADDRESS30_LOW : ftl::mmio::Register<
       0x4043C3F4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS30_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS30_LOW_fields_::ADDRLO;
+      MacAddress30LowFields::ADDRLO> {
+    using ADDRLO = MacAddress30LowFields::ADDRLO;
   };
 
   // MAC Address31 High
-  struct MAC_ADDRESS31_HIGH_fields_ {
+  struct MacAddress31HighFields {
     enum class eSA : std::uint32_t {
       // Compare with Destination Address
       eDA = 0,
@@ -5932,45 +5932,45 @@ struct EnetQos {
     using SA = ftl::mmio::Field<1, 30, eSA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the address filter module uses the second MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS31_HIGH_fields_
+  };  // struct MacAddress31HighFields
 
   struct MAC_ADDRESS31_HIGH : ftl::mmio::Register<
       0x4043C3F8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS31_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS31_HIGH_fields_::DCS,
+      MacAddress31HighFields::ADDRHI,
+      MacAddress31HighFields::DCS,
       ftl::mmio::Reserved<3, 21>,
-      MAC_ADDRESS31_HIGH_fields_::MBC,
-      MAC_ADDRESS31_HIGH_fields_::SA,
-      MAC_ADDRESS31_HIGH_fields_::AE> {
-    using eSA = MAC_ADDRESS31_HIGH_fields_::eSA;
-    using eAE = MAC_ADDRESS31_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS31_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS31_HIGH_fields_::DCS;
-    using MBC = MAC_ADDRESS31_HIGH_fields_::MBC;
-    using SA = MAC_ADDRESS31_HIGH_fields_::SA;
-    using AE = MAC_ADDRESS31_HIGH_fields_::AE;
+      MacAddress31HighFields::MBC,
+      MacAddress31HighFields::SA,
+      MacAddress31HighFields::AE> {
+    using eSA = MacAddress31HighFields::eSA;
+    using eAE = MacAddress31HighFields::eAE;
+    using ADDRHI = MacAddress31HighFields::ADDRHI;
+    using DCS = MacAddress31HighFields::DCS;
+    using MBC = MacAddress31HighFields::MBC;
+    using SA = MacAddress31HighFields::SA;
+    using AE = MacAddress31HighFields::AE;
   };
 
   // MAC Address31 Low
-  struct MAC_ADDRESS31_LOW_fields_ {
+  struct MacAddress31LowFields {
     // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS31_LOW_fields_
+  };  // struct MacAddress31LowFields
 
   struct MAC_ADDRESS31_LOW : ftl::mmio::Register<
       0x4043C3FCu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS31_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS31_LOW_fields_::ADDRLO;
+      MacAddress31LowFields::ADDRLO> {
+    using ADDRLO = MacAddress31LowFields::ADDRLO;
   };
 
   // MAC Address32 High
-  struct MAC_ADDRESS32_HIGH_fields_ {
+  struct MacAddress32HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -5984,40 +5984,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS32_HIGH_fields_
+  };  // struct MacAddress32HighFields
 
   struct MAC_ADDRESS32_HIGH : ftl::mmio::Register<
       0x4043C400u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS32_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS32_HIGH_fields_::DCS,
+      MacAddress32HighFields::ADDRHI,
+      MacAddress32HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS32_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS32_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS32_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS32_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS32_HIGH_fields_::AE;
+      MacAddress32HighFields::AE> {
+    using eAE = MacAddress32HighFields::eAE;
+    using ADDRHI = MacAddress32HighFields::ADDRHI;
+    using DCS = MacAddress32HighFields::DCS;
+    using AE = MacAddress32HighFields::AE;
   };
 
   // MAC Address32 Low
-  struct MAC_ADDRESS32_LOW_fields_ {
+  struct MacAddress32LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS32_LOW_fields_
+  };  // struct MacAddress32LowFields
 
   struct MAC_ADDRESS32_LOW : ftl::mmio::Register<
       0x4043C404u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS32_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS32_LOW_fields_::ADDRLO;
+      MacAddress32LowFields::ADDRLO> {
+    using ADDRLO = MacAddress32LowFields::ADDRLO;
   };
 
   // MAC Address33 High
-  struct MAC_ADDRESS33_HIGH_fields_ {
+  struct MacAddress33HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6031,40 +6031,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS33_HIGH_fields_
+  };  // struct MacAddress33HighFields
 
   struct MAC_ADDRESS33_HIGH : ftl::mmio::Register<
       0x4043C408u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS33_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS33_HIGH_fields_::DCS,
+      MacAddress33HighFields::ADDRHI,
+      MacAddress33HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS33_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS33_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS33_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS33_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS33_HIGH_fields_::AE;
+      MacAddress33HighFields::AE> {
+    using eAE = MacAddress33HighFields::eAE;
+    using ADDRHI = MacAddress33HighFields::ADDRHI;
+    using DCS = MacAddress33HighFields::DCS;
+    using AE = MacAddress33HighFields::AE;
   };
 
   // MAC Address33 Low
-  struct MAC_ADDRESS33_LOW_fields_ {
+  struct MacAddress33LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS33_LOW_fields_
+  };  // struct MacAddress33LowFields
 
   struct MAC_ADDRESS33_LOW : ftl::mmio::Register<
       0x4043C40Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS33_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS33_LOW_fields_::ADDRLO;
+      MacAddress33LowFields::ADDRLO> {
+    using ADDRLO = MacAddress33LowFields::ADDRLO;
   };
 
   // MAC Address34 High
-  struct MAC_ADDRESS34_HIGH_fields_ {
+  struct MacAddress34HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6078,40 +6078,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS34_HIGH_fields_
+  };  // struct MacAddress34HighFields
 
   struct MAC_ADDRESS34_HIGH : ftl::mmio::Register<
       0x4043C410u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS34_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS34_HIGH_fields_::DCS,
+      MacAddress34HighFields::ADDRHI,
+      MacAddress34HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS34_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS34_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS34_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS34_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS34_HIGH_fields_::AE;
+      MacAddress34HighFields::AE> {
+    using eAE = MacAddress34HighFields::eAE;
+    using ADDRHI = MacAddress34HighFields::ADDRHI;
+    using DCS = MacAddress34HighFields::DCS;
+    using AE = MacAddress34HighFields::AE;
   };
 
   // MAC Address34 Low
-  struct MAC_ADDRESS34_LOW_fields_ {
+  struct MacAddress34LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS34_LOW_fields_
+  };  // struct MacAddress34LowFields
 
   struct MAC_ADDRESS34_LOW : ftl::mmio::Register<
       0x4043C414u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS34_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS34_LOW_fields_::ADDRLO;
+      MacAddress34LowFields::ADDRLO> {
+    using ADDRLO = MacAddress34LowFields::ADDRLO;
   };
 
   // MAC Address35 High
-  struct MAC_ADDRESS35_HIGH_fields_ {
+  struct MacAddress35HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6125,40 +6125,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS35_HIGH_fields_
+  };  // struct MacAddress35HighFields
 
   struct MAC_ADDRESS35_HIGH : ftl::mmio::Register<
       0x4043C418u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS35_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS35_HIGH_fields_::DCS,
+      MacAddress35HighFields::ADDRHI,
+      MacAddress35HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS35_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS35_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS35_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS35_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS35_HIGH_fields_::AE;
+      MacAddress35HighFields::AE> {
+    using eAE = MacAddress35HighFields::eAE;
+    using ADDRHI = MacAddress35HighFields::ADDRHI;
+    using DCS = MacAddress35HighFields::DCS;
+    using AE = MacAddress35HighFields::AE;
   };
 
   // MAC Address35 Low
-  struct MAC_ADDRESS35_LOW_fields_ {
+  struct MacAddress35LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS35_LOW_fields_
+  };  // struct MacAddress35LowFields
 
   struct MAC_ADDRESS35_LOW : ftl::mmio::Register<
       0x4043C41Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS35_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS35_LOW_fields_::ADDRLO;
+      MacAddress35LowFields::ADDRLO> {
+    using ADDRLO = MacAddress35LowFields::ADDRLO;
   };
 
   // MAC Address36 High
-  struct MAC_ADDRESS36_HIGH_fields_ {
+  struct MacAddress36HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6172,40 +6172,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS36_HIGH_fields_
+  };  // struct MacAddress36HighFields
 
   struct MAC_ADDRESS36_HIGH : ftl::mmio::Register<
       0x4043C420u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS36_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS36_HIGH_fields_::DCS,
+      MacAddress36HighFields::ADDRHI,
+      MacAddress36HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS36_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS36_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS36_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS36_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS36_HIGH_fields_::AE;
+      MacAddress36HighFields::AE> {
+    using eAE = MacAddress36HighFields::eAE;
+    using ADDRHI = MacAddress36HighFields::ADDRHI;
+    using DCS = MacAddress36HighFields::DCS;
+    using AE = MacAddress36HighFields::AE;
   };
 
   // MAC Address36 Low
-  struct MAC_ADDRESS36_LOW_fields_ {
+  struct MacAddress36LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS36_LOW_fields_
+  };  // struct MacAddress36LowFields
 
   struct MAC_ADDRESS36_LOW : ftl::mmio::Register<
       0x4043C424u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS36_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS36_LOW_fields_::ADDRLO;
+      MacAddress36LowFields::ADDRLO> {
+    using ADDRLO = MacAddress36LowFields::ADDRLO;
   };
 
   // MAC Address37 High
-  struct MAC_ADDRESS37_HIGH_fields_ {
+  struct MacAddress37HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6219,40 +6219,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS37_HIGH_fields_
+  };  // struct MacAddress37HighFields
 
   struct MAC_ADDRESS37_HIGH : ftl::mmio::Register<
       0x4043C428u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS37_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS37_HIGH_fields_::DCS,
+      MacAddress37HighFields::ADDRHI,
+      MacAddress37HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS37_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS37_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS37_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS37_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS37_HIGH_fields_::AE;
+      MacAddress37HighFields::AE> {
+    using eAE = MacAddress37HighFields::eAE;
+    using ADDRHI = MacAddress37HighFields::ADDRHI;
+    using DCS = MacAddress37HighFields::DCS;
+    using AE = MacAddress37HighFields::AE;
   };
 
   // MAC Address37 Low
-  struct MAC_ADDRESS37_LOW_fields_ {
+  struct MacAddress37LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS37_LOW_fields_
+  };  // struct MacAddress37LowFields
 
   struct MAC_ADDRESS37_LOW : ftl::mmio::Register<
       0x4043C42Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS37_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS37_LOW_fields_::ADDRLO;
+      MacAddress37LowFields::ADDRLO> {
+    using ADDRLO = MacAddress37LowFields::ADDRLO;
   };
 
   // MAC Address38 High
-  struct MAC_ADDRESS38_HIGH_fields_ {
+  struct MacAddress38HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6266,40 +6266,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS38_HIGH_fields_
+  };  // struct MacAddress38HighFields
 
   struct MAC_ADDRESS38_HIGH : ftl::mmio::Register<
       0x4043C430u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS38_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS38_HIGH_fields_::DCS,
+      MacAddress38HighFields::ADDRHI,
+      MacAddress38HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS38_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS38_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS38_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS38_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS38_HIGH_fields_::AE;
+      MacAddress38HighFields::AE> {
+    using eAE = MacAddress38HighFields::eAE;
+    using ADDRHI = MacAddress38HighFields::ADDRHI;
+    using DCS = MacAddress38HighFields::DCS;
+    using AE = MacAddress38HighFields::AE;
   };
 
   // MAC Address38 Low
-  struct MAC_ADDRESS38_LOW_fields_ {
+  struct MacAddress38LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS38_LOW_fields_
+  };  // struct MacAddress38LowFields
 
   struct MAC_ADDRESS38_LOW : ftl::mmio::Register<
       0x4043C434u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS38_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS38_LOW_fields_::ADDRLO;
+      MacAddress38LowFields::ADDRLO> {
+    using ADDRLO = MacAddress38LowFields::ADDRLO;
   };
 
   // MAC Address39 High
-  struct MAC_ADDRESS39_HIGH_fields_ {
+  struct MacAddress39HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6313,40 +6313,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS39_HIGH_fields_
+  };  // struct MacAddress39HighFields
 
   struct MAC_ADDRESS39_HIGH : ftl::mmio::Register<
       0x4043C438u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS39_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS39_HIGH_fields_::DCS,
+      MacAddress39HighFields::ADDRHI,
+      MacAddress39HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS39_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS39_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS39_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS39_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS39_HIGH_fields_::AE;
+      MacAddress39HighFields::AE> {
+    using eAE = MacAddress39HighFields::eAE;
+    using ADDRHI = MacAddress39HighFields::ADDRHI;
+    using DCS = MacAddress39HighFields::DCS;
+    using AE = MacAddress39HighFields::AE;
   };
 
   // MAC Address39 Low
-  struct MAC_ADDRESS39_LOW_fields_ {
+  struct MacAddress39LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS39_LOW_fields_
+  };  // struct MacAddress39LowFields
 
   struct MAC_ADDRESS39_LOW : ftl::mmio::Register<
       0x4043C43Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS39_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS39_LOW_fields_::ADDRLO;
+      MacAddress39LowFields::ADDRLO> {
+    using ADDRLO = MacAddress39LowFields::ADDRLO;
   };
 
   // MAC Address40 High
-  struct MAC_ADDRESS40_HIGH_fields_ {
+  struct MacAddress40HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6360,40 +6360,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS40_HIGH_fields_
+  };  // struct MacAddress40HighFields
 
   struct MAC_ADDRESS40_HIGH : ftl::mmio::Register<
       0x4043C440u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS40_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS40_HIGH_fields_::DCS,
+      MacAddress40HighFields::ADDRHI,
+      MacAddress40HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS40_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS40_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS40_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS40_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS40_HIGH_fields_::AE;
+      MacAddress40HighFields::AE> {
+    using eAE = MacAddress40HighFields::eAE;
+    using ADDRHI = MacAddress40HighFields::ADDRHI;
+    using DCS = MacAddress40HighFields::DCS;
+    using AE = MacAddress40HighFields::AE;
   };
 
   // MAC Address40 Low
-  struct MAC_ADDRESS40_LOW_fields_ {
+  struct MacAddress40LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS40_LOW_fields_
+  };  // struct MacAddress40LowFields
 
   struct MAC_ADDRESS40_LOW : ftl::mmio::Register<
       0x4043C444u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS40_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS40_LOW_fields_::ADDRLO;
+      MacAddress40LowFields::ADDRLO> {
+    using ADDRLO = MacAddress40LowFields::ADDRLO;
   };
 
   // MAC Address41 High
-  struct MAC_ADDRESS41_HIGH_fields_ {
+  struct MacAddress41HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6407,40 +6407,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS41_HIGH_fields_
+  };  // struct MacAddress41HighFields
 
   struct MAC_ADDRESS41_HIGH : ftl::mmio::Register<
       0x4043C448u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS41_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS41_HIGH_fields_::DCS,
+      MacAddress41HighFields::ADDRHI,
+      MacAddress41HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS41_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS41_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS41_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS41_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS41_HIGH_fields_::AE;
+      MacAddress41HighFields::AE> {
+    using eAE = MacAddress41HighFields::eAE;
+    using ADDRHI = MacAddress41HighFields::ADDRHI;
+    using DCS = MacAddress41HighFields::DCS;
+    using AE = MacAddress41HighFields::AE;
   };
 
   // MAC Address41 Low
-  struct MAC_ADDRESS41_LOW_fields_ {
+  struct MacAddress41LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS41_LOW_fields_
+  };  // struct MacAddress41LowFields
 
   struct MAC_ADDRESS41_LOW : ftl::mmio::Register<
       0x4043C44Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS41_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS41_LOW_fields_::ADDRLO;
+      MacAddress41LowFields::ADDRLO> {
+    using ADDRLO = MacAddress41LowFields::ADDRLO;
   };
 
   // MAC Address42 High
-  struct MAC_ADDRESS42_HIGH_fields_ {
+  struct MacAddress42HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6454,40 +6454,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS42_HIGH_fields_
+  };  // struct MacAddress42HighFields
 
   struct MAC_ADDRESS42_HIGH : ftl::mmio::Register<
       0x4043C450u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS42_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS42_HIGH_fields_::DCS,
+      MacAddress42HighFields::ADDRHI,
+      MacAddress42HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS42_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS42_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS42_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS42_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS42_HIGH_fields_::AE;
+      MacAddress42HighFields::AE> {
+    using eAE = MacAddress42HighFields::eAE;
+    using ADDRHI = MacAddress42HighFields::ADDRHI;
+    using DCS = MacAddress42HighFields::DCS;
+    using AE = MacAddress42HighFields::AE;
   };
 
   // MAC Address42 Low
-  struct MAC_ADDRESS42_LOW_fields_ {
+  struct MacAddress42LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS42_LOW_fields_
+  };  // struct MacAddress42LowFields
 
   struct MAC_ADDRESS42_LOW : ftl::mmio::Register<
       0x4043C454u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS42_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS42_LOW_fields_::ADDRLO;
+      MacAddress42LowFields::ADDRLO> {
+    using ADDRLO = MacAddress42LowFields::ADDRLO;
   };
 
   // MAC Address43 High
-  struct MAC_ADDRESS43_HIGH_fields_ {
+  struct MacAddress43HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6501,40 +6501,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS43_HIGH_fields_
+  };  // struct MacAddress43HighFields
 
   struct MAC_ADDRESS43_HIGH : ftl::mmio::Register<
       0x4043C458u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS43_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS43_HIGH_fields_::DCS,
+      MacAddress43HighFields::ADDRHI,
+      MacAddress43HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS43_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS43_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS43_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS43_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS43_HIGH_fields_::AE;
+      MacAddress43HighFields::AE> {
+    using eAE = MacAddress43HighFields::eAE;
+    using ADDRHI = MacAddress43HighFields::ADDRHI;
+    using DCS = MacAddress43HighFields::DCS;
+    using AE = MacAddress43HighFields::AE;
   };
 
   // MAC Address43 Low
-  struct MAC_ADDRESS43_LOW_fields_ {
+  struct MacAddress43LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS43_LOW_fields_
+  };  // struct MacAddress43LowFields
 
   struct MAC_ADDRESS43_LOW : ftl::mmio::Register<
       0x4043C45Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS43_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS43_LOW_fields_::ADDRLO;
+      MacAddress43LowFields::ADDRLO> {
+    using ADDRLO = MacAddress43LowFields::ADDRLO;
   };
 
   // MAC Address44 High
-  struct MAC_ADDRESS44_HIGH_fields_ {
+  struct MacAddress44HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6548,40 +6548,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS44_HIGH_fields_
+  };  // struct MacAddress44HighFields
 
   struct MAC_ADDRESS44_HIGH : ftl::mmio::Register<
       0x4043C460u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS44_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS44_HIGH_fields_::DCS,
+      MacAddress44HighFields::ADDRHI,
+      MacAddress44HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS44_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS44_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS44_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS44_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS44_HIGH_fields_::AE;
+      MacAddress44HighFields::AE> {
+    using eAE = MacAddress44HighFields::eAE;
+    using ADDRHI = MacAddress44HighFields::ADDRHI;
+    using DCS = MacAddress44HighFields::DCS;
+    using AE = MacAddress44HighFields::AE;
   };
 
   // MAC Address44 Low
-  struct MAC_ADDRESS44_LOW_fields_ {
+  struct MacAddress44LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS44_LOW_fields_
+  };  // struct MacAddress44LowFields
 
   struct MAC_ADDRESS44_LOW : ftl::mmio::Register<
       0x4043C464u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS44_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS44_LOW_fields_::ADDRLO;
+      MacAddress44LowFields::ADDRLO> {
+    using ADDRLO = MacAddress44LowFields::ADDRLO;
   };
 
   // MAC Address45 High
-  struct MAC_ADDRESS45_HIGH_fields_ {
+  struct MacAddress45HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6595,40 +6595,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS45_HIGH_fields_
+  };  // struct MacAddress45HighFields
 
   struct MAC_ADDRESS45_HIGH : ftl::mmio::Register<
       0x4043C468u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS45_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS45_HIGH_fields_::DCS,
+      MacAddress45HighFields::ADDRHI,
+      MacAddress45HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS45_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS45_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS45_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS45_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS45_HIGH_fields_::AE;
+      MacAddress45HighFields::AE> {
+    using eAE = MacAddress45HighFields::eAE;
+    using ADDRHI = MacAddress45HighFields::ADDRHI;
+    using DCS = MacAddress45HighFields::DCS;
+    using AE = MacAddress45HighFields::AE;
   };
 
   // MAC Address45 Low
-  struct MAC_ADDRESS45_LOW_fields_ {
+  struct MacAddress45LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS45_LOW_fields_
+  };  // struct MacAddress45LowFields
 
   struct MAC_ADDRESS45_LOW : ftl::mmio::Register<
       0x4043C46Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS45_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS45_LOW_fields_::ADDRLO;
+      MacAddress45LowFields::ADDRLO> {
+    using ADDRLO = MacAddress45LowFields::ADDRLO;
   };
 
   // MAC Address46 High
-  struct MAC_ADDRESS46_HIGH_fields_ {
+  struct MacAddress46HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6642,40 +6642,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS46_HIGH_fields_
+  };  // struct MacAddress46HighFields
 
   struct MAC_ADDRESS46_HIGH : ftl::mmio::Register<
       0x4043C470u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS46_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS46_HIGH_fields_::DCS,
+      MacAddress46HighFields::ADDRHI,
+      MacAddress46HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS46_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS46_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS46_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS46_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS46_HIGH_fields_::AE;
+      MacAddress46HighFields::AE> {
+    using eAE = MacAddress46HighFields::eAE;
+    using ADDRHI = MacAddress46HighFields::ADDRHI;
+    using DCS = MacAddress46HighFields::DCS;
+    using AE = MacAddress46HighFields::AE;
   };
 
   // MAC Address46 Low
-  struct MAC_ADDRESS46_LOW_fields_ {
+  struct MacAddress46LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS46_LOW_fields_
+  };  // struct MacAddress46LowFields
 
   struct MAC_ADDRESS46_LOW : ftl::mmio::Register<
       0x4043C474u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS46_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS46_LOW_fields_::ADDRLO;
+      MacAddress46LowFields::ADDRLO> {
+    using ADDRLO = MacAddress46LowFields::ADDRLO;
   };
 
   // MAC Address47 High
-  struct MAC_ADDRESS47_HIGH_fields_ {
+  struct MacAddress47HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6689,40 +6689,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS47_HIGH_fields_
+  };  // struct MacAddress47HighFields
 
   struct MAC_ADDRESS47_HIGH : ftl::mmio::Register<
       0x4043C478u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS47_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS47_HIGH_fields_::DCS,
+      MacAddress47HighFields::ADDRHI,
+      MacAddress47HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS47_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS47_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS47_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS47_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS47_HIGH_fields_::AE;
+      MacAddress47HighFields::AE> {
+    using eAE = MacAddress47HighFields::eAE;
+    using ADDRHI = MacAddress47HighFields::ADDRHI;
+    using DCS = MacAddress47HighFields::DCS;
+    using AE = MacAddress47HighFields::AE;
   };
 
   // MAC Address47 Low
-  struct MAC_ADDRESS47_LOW_fields_ {
+  struct MacAddress47LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS47_LOW_fields_
+  };  // struct MacAddress47LowFields
 
   struct MAC_ADDRESS47_LOW : ftl::mmio::Register<
       0x4043C47Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS47_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS47_LOW_fields_::ADDRLO;
+      MacAddress47LowFields::ADDRLO> {
+    using ADDRLO = MacAddress47LowFields::ADDRLO;
   };
 
   // MAC Address48 High
-  struct MAC_ADDRESS48_HIGH_fields_ {
+  struct MacAddress48HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6736,40 +6736,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS48_HIGH_fields_
+  };  // struct MacAddress48HighFields
 
   struct MAC_ADDRESS48_HIGH : ftl::mmio::Register<
       0x4043C480u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS48_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS48_HIGH_fields_::DCS,
+      MacAddress48HighFields::ADDRHI,
+      MacAddress48HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS48_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS48_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS48_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS48_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS48_HIGH_fields_::AE;
+      MacAddress48HighFields::AE> {
+    using eAE = MacAddress48HighFields::eAE;
+    using ADDRHI = MacAddress48HighFields::ADDRHI;
+    using DCS = MacAddress48HighFields::DCS;
+    using AE = MacAddress48HighFields::AE;
   };
 
   // MAC Address48 Low
-  struct MAC_ADDRESS48_LOW_fields_ {
+  struct MacAddress48LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS48_LOW_fields_
+  };  // struct MacAddress48LowFields
 
   struct MAC_ADDRESS48_LOW : ftl::mmio::Register<
       0x4043C484u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS48_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS48_LOW_fields_::ADDRLO;
+      MacAddress48LowFields::ADDRLO> {
+    using ADDRLO = MacAddress48LowFields::ADDRLO;
   };
 
   // MAC Address49 High
-  struct MAC_ADDRESS49_HIGH_fields_ {
+  struct MacAddress49HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6783,40 +6783,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS49_HIGH_fields_
+  };  // struct MacAddress49HighFields
 
   struct MAC_ADDRESS49_HIGH : ftl::mmio::Register<
       0x4043C488u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS49_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS49_HIGH_fields_::DCS,
+      MacAddress49HighFields::ADDRHI,
+      MacAddress49HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS49_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS49_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS49_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS49_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS49_HIGH_fields_::AE;
+      MacAddress49HighFields::AE> {
+    using eAE = MacAddress49HighFields::eAE;
+    using ADDRHI = MacAddress49HighFields::ADDRHI;
+    using DCS = MacAddress49HighFields::DCS;
+    using AE = MacAddress49HighFields::AE;
   };
 
   // MAC Address49 Low
-  struct MAC_ADDRESS49_LOW_fields_ {
+  struct MacAddress49LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS49_LOW_fields_
+  };  // struct MacAddress49LowFields
 
   struct MAC_ADDRESS49_LOW : ftl::mmio::Register<
       0x4043C48Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS49_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS49_LOW_fields_::ADDRLO;
+      MacAddress49LowFields::ADDRLO> {
+    using ADDRLO = MacAddress49LowFields::ADDRLO;
   };
 
   // MAC Address50 High
-  struct MAC_ADDRESS50_HIGH_fields_ {
+  struct MacAddress50HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6830,40 +6830,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS50_HIGH_fields_
+  };  // struct MacAddress50HighFields
 
   struct MAC_ADDRESS50_HIGH : ftl::mmio::Register<
       0x4043C490u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS50_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS50_HIGH_fields_::DCS,
+      MacAddress50HighFields::ADDRHI,
+      MacAddress50HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS50_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS50_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS50_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS50_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS50_HIGH_fields_::AE;
+      MacAddress50HighFields::AE> {
+    using eAE = MacAddress50HighFields::eAE;
+    using ADDRHI = MacAddress50HighFields::ADDRHI;
+    using DCS = MacAddress50HighFields::DCS;
+    using AE = MacAddress50HighFields::AE;
   };
 
   // MAC Address50 Low
-  struct MAC_ADDRESS50_LOW_fields_ {
+  struct MacAddress50LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS50_LOW_fields_
+  };  // struct MacAddress50LowFields
 
   struct MAC_ADDRESS50_LOW : ftl::mmio::Register<
       0x4043C494u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS50_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS50_LOW_fields_::ADDRLO;
+      MacAddress50LowFields::ADDRLO> {
+    using ADDRLO = MacAddress50LowFields::ADDRLO;
   };
 
   // MAC Address51 High
-  struct MAC_ADDRESS51_HIGH_fields_ {
+  struct MacAddress51HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6877,40 +6877,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS51_HIGH_fields_
+  };  // struct MacAddress51HighFields
 
   struct MAC_ADDRESS51_HIGH : ftl::mmio::Register<
       0x4043C498u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS51_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS51_HIGH_fields_::DCS,
+      MacAddress51HighFields::ADDRHI,
+      MacAddress51HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS51_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS51_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS51_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS51_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS51_HIGH_fields_::AE;
+      MacAddress51HighFields::AE> {
+    using eAE = MacAddress51HighFields::eAE;
+    using ADDRHI = MacAddress51HighFields::ADDRHI;
+    using DCS = MacAddress51HighFields::DCS;
+    using AE = MacAddress51HighFields::AE;
   };
 
   // MAC Address51 Low
-  struct MAC_ADDRESS51_LOW_fields_ {
+  struct MacAddress51LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS51_LOW_fields_
+  };  // struct MacAddress51LowFields
 
   struct MAC_ADDRESS51_LOW : ftl::mmio::Register<
       0x4043C49Cu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS51_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS51_LOW_fields_::ADDRLO;
+      MacAddress51LowFields::ADDRLO> {
+    using ADDRLO = MacAddress51LowFields::ADDRLO;
   };
 
   // MAC Address52 High
-  struct MAC_ADDRESS52_HIGH_fields_ {
+  struct MacAddress52HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6924,40 +6924,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS52_HIGH_fields_
+  };  // struct MacAddress52HighFields
 
   struct MAC_ADDRESS52_HIGH : ftl::mmio::Register<
       0x4043C4A0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS52_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS52_HIGH_fields_::DCS,
+      MacAddress52HighFields::ADDRHI,
+      MacAddress52HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS52_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS52_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS52_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS52_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS52_HIGH_fields_::AE;
+      MacAddress52HighFields::AE> {
+    using eAE = MacAddress52HighFields::eAE;
+    using ADDRHI = MacAddress52HighFields::ADDRHI;
+    using DCS = MacAddress52HighFields::DCS;
+    using AE = MacAddress52HighFields::AE;
   };
 
   // MAC Address52 Low
-  struct MAC_ADDRESS52_LOW_fields_ {
+  struct MacAddress52LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS52_LOW_fields_
+  };  // struct MacAddress52LowFields
 
   struct MAC_ADDRESS52_LOW : ftl::mmio::Register<
       0x4043C4A4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS52_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS52_LOW_fields_::ADDRLO;
+      MacAddress52LowFields::ADDRLO> {
+    using ADDRLO = MacAddress52LowFields::ADDRLO;
   };
 
   // MAC Address53 High
-  struct MAC_ADDRESS53_HIGH_fields_ {
+  struct MacAddress53HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -6971,40 +6971,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS53_HIGH_fields_
+  };  // struct MacAddress53HighFields
 
   struct MAC_ADDRESS53_HIGH : ftl::mmio::Register<
       0x4043C4A8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS53_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS53_HIGH_fields_::DCS,
+      MacAddress53HighFields::ADDRHI,
+      MacAddress53HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS53_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS53_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS53_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS53_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS53_HIGH_fields_::AE;
+      MacAddress53HighFields::AE> {
+    using eAE = MacAddress53HighFields::eAE;
+    using ADDRHI = MacAddress53HighFields::ADDRHI;
+    using DCS = MacAddress53HighFields::DCS;
+    using AE = MacAddress53HighFields::AE;
   };
 
   // MAC Address53 Low
-  struct MAC_ADDRESS53_LOW_fields_ {
+  struct MacAddress53LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS53_LOW_fields_
+  };  // struct MacAddress53LowFields
 
   struct MAC_ADDRESS53_LOW : ftl::mmio::Register<
       0x4043C4ACu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS53_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS53_LOW_fields_::ADDRLO;
+      MacAddress53LowFields::ADDRLO> {
+    using ADDRLO = MacAddress53LowFields::ADDRLO;
   };
 
   // MAC Address54 High
-  struct MAC_ADDRESS54_HIGH_fields_ {
+  struct MacAddress54HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7018,40 +7018,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS54_HIGH_fields_
+  };  // struct MacAddress54HighFields
 
   struct MAC_ADDRESS54_HIGH : ftl::mmio::Register<
       0x4043C4B0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS54_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS54_HIGH_fields_::DCS,
+      MacAddress54HighFields::ADDRHI,
+      MacAddress54HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS54_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS54_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS54_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS54_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS54_HIGH_fields_::AE;
+      MacAddress54HighFields::AE> {
+    using eAE = MacAddress54HighFields::eAE;
+    using ADDRHI = MacAddress54HighFields::ADDRHI;
+    using DCS = MacAddress54HighFields::DCS;
+    using AE = MacAddress54HighFields::AE;
   };
 
   // MAC Address54 Low
-  struct MAC_ADDRESS54_LOW_fields_ {
+  struct MacAddress54LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS54_LOW_fields_
+  };  // struct MacAddress54LowFields
 
   struct MAC_ADDRESS54_LOW : ftl::mmio::Register<
       0x4043C4B4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS54_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS54_LOW_fields_::ADDRLO;
+      MacAddress54LowFields::ADDRLO> {
+    using ADDRLO = MacAddress54LowFields::ADDRLO;
   };
 
   // MAC Address55 High
-  struct MAC_ADDRESS55_HIGH_fields_ {
+  struct MacAddress55HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7065,40 +7065,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS55_HIGH_fields_
+  };  // struct MacAddress55HighFields
 
   struct MAC_ADDRESS55_HIGH : ftl::mmio::Register<
       0x4043C4B8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS55_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS55_HIGH_fields_::DCS,
+      MacAddress55HighFields::ADDRHI,
+      MacAddress55HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS55_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS55_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS55_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS55_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS55_HIGH_fields_::AE;
+      MacAddress55HighFields::AE> {
+    using eAE = MacAddress55HighFields::eAE;
+    using ADDRHI = MacAddress55HighFields::ADDRHI;
+    using DCS = MacAddress55HighFields::DCS;
+    using AE = MacAddress55HighFields::AE;
   };
 
   // MAC Address55 Low
-  struct MAC_ADDRESS55_LOW_fields_ {
+  struct MacAddress55LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS55_LOW_fields_
+  };  // struct MacAddress55LowFields
 
   struct MAC_ADDRESS55_LOW : ftl::mmio::Register<
       0x4043C4BCu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS55_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS55_LOW_fields_::ADDRLO;
+      MacAddress55LowFields::ADDRLO> {
+    using ADDRLO = MacAddress55LowFields::ADDRLO;
   };
 
   // MAC Address56 High
-  struct MAC_ADDRESS56_HIGH_fields_ {
+  struct MacAddress56HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7112,40 +7112,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS56_HIGH_fields_
+  };  // struct MacAddress56HighFields
 
   struct MAC_ADDRESS56_HIGH : ftl::mmio::Register<
       0x4043C4C0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS56_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS56_HIGH_fields_::DCS,
+      MacAddress56HighFields::ADDRHI,
+      MacAddress56HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS56_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS56_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS56_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS56_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS56_HIGH_fields_::AE;
+      MacAddress56HighFields::AE> {
+    using eAE = MacAddress56HighFields::eAE;
+    using ADDRHI = MacAddress56HighFields::ADDRHI;
+    using DCS = MacAddress56HighFields::DCS;
+    using AE = MacAddress56HighFields::AE;
   };
 
   // MAC Address56 Low
-  struct MAC_ADDRESS56_LOW_fields_ {
+  struct MacAddress56LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS56_LOW_fields_
+  };  // struct MacAddress56LowFields
 
   struct MAC_ADDRESS56_LOW : ftl::mmio::Register<
       0x4043C4C4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS56_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS56_LOW_fields_::ADDRLO;
+      MacAddress56LowFields::ADDRLO> {
+    using ADDRLO = MacAddress56LowFields::ADDRLO;
   };
 
   // MAC Address57 High
-  struct MAC_ADDRESS57_HIGH_fields_ {
+  struct MacAddress57HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7159,40 +7159,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS57_HIGH_fields_
+  };  // struct MacAddress57HighFields
 
   struct MAC_ADDRESS57_HIGH : ftl::mmio::Register<
       0x4043C4C8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS57_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS57_HIGH_fields_::DCS,
+      MacAddress57HighFields::ADDRHI,
+      MacAddress57HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS57_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS57_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS57_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS57_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS57_HIGH_fields_::AE;
+      MacAddress57HighFields::AE> {
+    using eAE = MacAddress57HighFields::eAE;
+    using ADDRHI = MacAddress57HighFields::ADDRHI;
+    using DCS = MacAddress57HighFields::DCS;
+    using AE = MacAddress57HighFields::AE;
   };
 
   // MAC Address57 Low
-  struct MAC_ADDRESS57_LOW_fields_ {
+  struct MacAddress57LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS57_LOW_fields_
+  };  // struct MacAddress57LowFields
 
   struct MAC_ADDRESS57_LOW : ftl::mmio::Register<
       0x4043C4CCu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS57_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS57_LOW_fields_::ADDRLO;
+      MacAddress57LowFields::ADDRLO> {
+    using ADDRLO = MacAddress57LowFields::ADDRLO;
   };
 
   // MAC Address58 High
-  struct MAC_ADDRESS58_HIGH_fields_ {
+  struct MacAddress58HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7206,40 +7206,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS58_HIGH_fields_
+  };  // struct MacAddress58HighFields
 
   struct MAC_ADDRESS58_HIGH : ftl::mmio::Register<
       0x4043C4D0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS58_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS58_HIGH_fields_::DCS,
+      MacAddress58HighFields::ADDRHI,
+      MacAddress58HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS58_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS58_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS58_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS58_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS58_HIGH_fields_::AE;
+      MacAddress58HighFields::AE> {
+    using eAE = MacAddress58HighFields::eAE;
+    using ADDRHI = MacAddress58HighFields::ADDRHI;
+    using DCS = MacAddress58HighFields::DCS;
+    using AE = MacAddress58HighFields::AE;
   };
 
   // MAC Address58 Low
-  struct MAC_ADDRESS58_LOW_fields_ {
+  struct MacAddress58LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS58_LOW_fields_
+  };  // struct MacAddress58LowFields
 
   struct MAC_ADDRESS58_LOW : ftl::mmio::Register<
       0x4043C4D4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS58_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS58_LOW_fields_::ADDRLO;
+      MacAddress58LowFields::ADDRLO> {
+    using ADDRLO = MacAddress58LowFields::ADDRLO;
   };
 
   // MAC Address59 High
-  struct MAC_ADDRESS59_HIGH_fields_ {
+  struct MacAddress59HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7253,40 +7253,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS59_HIGH_fields_
+  };  // struct MacAddress59HighFields
 
   struct MAC_ADDRESS59_HIGH : ftl::mmio::Register<
       0x4043C4D8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS59_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS59_HIGH_fields_::DCS,
+      MacAddress59HighFields::ADDRHI,
+      MacAddress59HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS59_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS59_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS59_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS59_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS59_HIGH_fields_::AE;
+      MacAddress59HighFields::AE> {
+    using eAE = MacAddress59HighFields::eAE;
+    using ADDRHI = MacAddress59HighFields::ADDRHI;
+    using DCS = MacAddress59HighFields::DCS;
+    using AE = MacAddress59HighFields::AE;
   };
 
   // MAC Address59 Low
-  struct MAC_ADDRESS59_LOW_fields_ {
+  struct MacAddress59LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS59_LOW_fields_
+  };  // struct MacAddress59LowFields
 
   struct MAC_ADDRESS59_LOW : ftl::mmio::Register<
       0x4043C4DCu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS59_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS59_LOW_fields_::ADDRLO;
+      MacAddress59LowFields::ADDRLO> {
+    using ADDRLO = MacAddress59LowFields::ADDRLO;
   };
 
   // MAC Address60 High
-  struct MAC_ADDRESS60_HIGH_fields_ {
+  struct MacAddress60HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7300,40 +7300,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS60_HIGH_fields_
+  };  // struct MacAddress60HighFields
 
   struct MAC_ADDRESS60_HIGH : ftl::mmio::Register<
       0x4043C4E0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS60_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS60_HIGH_fields_::DCS,
+      MacAddress60HighFields::ADDRHI,
+      MacAddress60HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS60_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS60_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS60_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS60_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS60_HIGH_fields_::AE;
+      MacAddress60HighFields::AE> {
+    using eAE = MacAddress60HighFields::eAE;
+    using ADDRHI = MacAddress60HighFields::ADDRHI;
+    using DCS = MacAddress60HighFields::DCS;
+    using AE = MacAddress60HighFields::AE;
   };
 
   // MAC Address60 Low
-  struct MAC_ADDRESS60_LOW_fields_ {
+  struct MacAddress60LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS60_LOW_fields_
+  };  // struct MacAddress60LowFields
 
   struct MAC_ADDRESS60_LOW : ftl::mmio::Register<
       0x4043C4E4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS60_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS60_LOW_fields_::ADDRLO;
+      MacAddress60LowFields::ADDRLO> {
+    using ADDRLO = MacAddress60LowFields::ADDRLO;
   };
 
   // MAC Address61 High
-  struct MAC_ADDRESS61_HIGH_fields_ {
+  struct MacAddress61HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7347,40 +7347,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS61_HIGH_fields_
+  };  // struct MacAddress61HighFields
 
   struct MAC_ADDRESS61_HIGH : ftl::mmio::Register<
       0x4043C4E8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS61_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS61_HIGH_fields_::DCS,
+      MacAddress61HighFields::ADDRHI,
+      MacAddress61HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS61_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS61_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS61_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS61_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS61_HIGH_fields_::AE;
+      MacAddress61HighFields::AE> {
+    using eAE = MacAddress61HighFields::eAE;
+    using ADDRHI = MacAddress61HighFields::ADDRHI;
+    using DCS = MacAddress61HighFields::DCS;
+    using AE = MacAddress61HighFields::AE;
   };
 
   // MAC Address61 Low
-  struct MAC_ADDRESS61_LOW_fields_ {
+  struct MacAddress61LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS61_LOW_fields_
+  };  // struct MacAddress61LowFields
 
   struct MAC_ADDRESS61_LOW : ftl::mmio::Register<
       0x4043C4ECu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS61_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS61_LOW_fields_::ADDRLO;
+      MacAddress61LowFields::ADDRLO> {
+    using ADDRLO = MacAddress61LowFields::ADDRLO;
   };
 
   // MAC Address62 High
-  struct MAC_ADDRESS62_HIGH_fields_ {
+  struct MacAddress62HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7394,40 +7394,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS62_HIGH_fields_
+  };  // struct MacAddress62HighFields
 
   struct MAC_ADDRESS62_HIGH : ftl::mmio::Register<
       0x4043C4F0u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS62_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS62_HIGH_fields_::DCS,
+      MacAddress62HighFields::ADDRHI,
+      MacAddress62HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS62_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS62_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS62_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS62_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS62_HIGH_fields_::AE;
+      MacAddress62HighFields::AE> {
+    using eAE = MacAddress62HighFields::eAE;
+    using ADDRHI = MacAddress62HighFields::ADDRHI;
+    using DCS = MacAddress62HighFields::DCS;
+    using AE = MacAddress62HighFields::AE;
   };
 
   // MAC Address62 Low
-  struct MAC_ADDRESS62_LOW_fields_ {
+  struct MacAddress62LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS62_LOW_fields_
+  };  // struct MacAddress62LowFields
 
   struct MAC_ADDRESS62_LOW : ftl::mmio::Register<
       0x4043C4F4u,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS62_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS62_LOW_fields_::ADDRLO;
+      MacAddress62LowFields::ADDRLO> {
+    using ADDRLO = MacAddress62LowFields::ADDRLO;
   };
 
   // MAC Address63 High
-  struct MAC_ADDRESS63_HIGH_fields_ {
+  struct MacAddress63HighFields {
     enum class eAE : std::uint32_t {
       // Address is ignored
       eDISABLE = 0,
@@ -7441,40 +7441,40 @@ struct EnetQos {
     using DCS = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Address Enable When this bit is set, the Address filter module uses the 33rd MAC address for perfect filtering.
     using AE = ftl::mmio::Field<1, 31, eAE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS63_HIGH_fields_
+  };  // struct MacAddress63HighFields
 
   struct MAC_ADDRESS63_HIGH : ftl::mmio::Register<
       0x4043C4F8u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS63_HIGH_fields_::ADDRHI,
-      MAC_ADDRESS63_HIGH_fields_::DCS,
+      MacAddress63HighFields::ADDRHI,
+      MacAddress63HighFields::DCS,
       ftl::mmio::Reserved<12, 19>,
-      MAC_ADDRESS63_HIGH_fields_::AE> {
-    using eAE = MAC_ADDRESS63_HIGH_fields_::eAE;
-    using ADDRHI = MAC_ADDRESS63_HIGH_fields_::ADDRHI;
-    using DCS = MAC_ADDRESS63_HIGH_fields_::DCS;
-    using AE = MAC_ADDRESS63_HIGH_fields_::AE;
+      MacAddress63HighFields::AE> {
+    using eAE = MacAddress63HighFields::eAE;
+    using ADDRHI = MacAddress63HighFields::ADDRHI;
+    using DCS = MacAddress63HighFields::DCS;
+    using AE = MacAddress63HighFields::AE;
   };
 
   // MAC Address63 Low
-  struct MAC_ADDRESS63_LOW_fields_ {
+  struct MacAddress63LowFields {
     // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
     using ADDRLO = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_ADDRESS63_LOW_fields_
+  };  // struct MacAddress63LowFields
 
   struct MAC_ADDRESS63_LOW : ftl::mmio::Register<
       0x4043C4FCu,
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      MAC_ADDRESS63_LOW_fields_::ADDRLO> {
-    using ADDRLO = MAC_ADDRESS63_LOW_fields_::ADDRLO;
+      MacAddress63LowFields::ADDRLO> {
+    using ADDRLO = MacAddress63LowFields::ADDRLO;
   };
 
   // MMC Control
-  struct MAC_MMC_CONTROL_fields_ {
+  struct MacMmcControlFields {
     enum class eCNTRST : std::uint32_t {
       // Counters are not reset
       eDISABLE = 0,
@@ -7538,40 +7538,40 @@ struct EnetQos {
     using CNTPRSTLVL = ftl::mmio::Field<1, 5, eCNTPRSTLVL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Update MMC Counters for Dropped Broadcast Packets Note: The CNTRST bit has a higher priority than the CNTPRST bit.
     using UCDBC = ftl::mmio::Field<1, 8, eUCDBC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_CONTROL_fields_
+  };  // struct MacMmcControlFields
 
   struct MAC_MMC_CONTROL : ftl::mmio::Register<
       0x4043C700u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_MMC_CONTROL_fields_::CNTRST,
-      MAC_MMC_CONTROL_fields_::CNTSTOPRO,
-      MAC_MMC_CONTROL_fields_::RSTONRD,
-      MAC_MMC_CONTROL_fields_::CNTFREEZ,
-      MAC_MMC_CONTROL_fields_::CNTPRST,
-      MAC_MMC_CONTROL_fields_::CNTPRSTLVL,
+      MacMmcControlFields::CNTRST,
+      MacMmcControlFields::CNTSTOPRO,
+      MacMmcControlFields::RSTONRD,
+      MacMmcControlFields::CNTFREEZ,
+      MacMmcControlFields::CNTPRST,
+      MacMmcControlFields::CNTPRSTLVL,
       ftl::mmio::Reserved<2, 6>,
-      MAC_MMC_CONTROL_fields_::UCDBC,
+      MacMmcControlFields::UCDBC,
       ftl::mmio::Reserved<23, 9>> {
-    using eCNTRST = MAC_MMC_CONTROL_fields_::eCNTRST;
-    using eCNTSTOPRO = MAC_MMC_CONTROL_fields_::eCNTSTOPRO;
-    using eRSTONRD = MAC_MMC_CONTROL_fields_::eRSTONRD;
-    using eCNTFREEZ = MAC_MMC_CONTROL_fields_::eCNTFREEZ;
-    using eCNTPRST = MAC_MMC_CONTROL_fields_::eCNTPRST;
-    using eCNTPRSTLVL = MAC_MMC_CONTROL_fields_::eCNTPRSTLVL;
-    using eUCDBC = MAC_MMC_CONTROL_fields_::eUCDBC;
-    using CNTRST = MAC_MMC_CONTROL_fields_::CNTRST;
-    using CNTSTOPRO = MAC_MMC_CONTROL_fields_::CNTSTOPRO;
-    using RSTONRD = MAC_MMC_CONTROL_fields_::RSTONRD;
-    using CNTFREEZ = MAC_MMC_CONTROL_fields_::CNTFREEZ;
-    using CNTPRST = MAC_MMC_CONTROL_fields_::CNTPRST;
-    using CNTPRSTLVL = MAC_MMC_CONTROL_fields_::CNTPRSTLVL;
-    using UCDBC = MAC_MMC_CONTROL_fields_::UCDBC;
+    using eCNTRST = MacMmcControlFields::eCNTRST;
+    using eCNTSTOPRO = MacMmcControlFields::eCNTSTOPRO;
+    using eRSTONRD = MacMmcControlFields::eRSTONRD;
+    using eCNTFREEZ = MacMmcControlFields::eCNTFREEZ;
+    using eCNTPRST = MacMmcControlFields::eCNTPRST;
+    using eCNTPRSTLVL = MacMmcControlFields::eCNTPRSTLVL;
+    using eUCDBC = MacMmcControlFields::eUCDBC;
+    using CNTRST = MacMmcControlFields::CNTRST;
+    using CNTSTOPRO = MacMmcControlFields::CNTSTOPRO;
+    using RSTONRD = MacMmcControlFields::RSTONRD;
+    using CNTFREEZ = MacMmcControlFields::CNTFREEZ;
+    using CNTPRST = MacMmcControlFields::CNTPRST;
+    using CNTPRSTLVL = MacMmcControlFields::CNTPRSTLVL;
+    using UCDBC = MacMmcControlFields::UCDBC;
   };
 
   // MMC Rx Interrupt
-  struct MAC_MMC_RX_INTERRUPT_fields_ {
+  struct MacMmcRxInterruptFields {
     enum class eRXGBPKTIS : std::uint32_t {
       // MMC Receive Good Bad Packet Counter Interrupt Status not detected
       eINACTIVE = 0,
@@ -7824,102 +7824,102 @@ struct EnetQos {
     using RXLPIUSCIS = ftl::mmio::Field<1, 26, eRXLPIUSCIS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MMC Receive LPI transition counter interrupt status This bit is set when the Rx_LPI_Tran_Cntr counter reaches half of the maximum value or the maximum value.
     using RXLPITRCIS = ftl::mmio::Field<1, 27, eRXLPITRCIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_RX_INTERRUPT_fields_
+  };  // struct MacMmcRxInterruptFields
 
   struct MAC_MMC_RX_INTERRUPT : ftl::mmio::Register<
       0x4043C704u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_RX_INTERRUPT_fields_::RXGBPKTIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXGBOCTIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXGOCTIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXBCGPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXMCGPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXCRCERPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXALGNERPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXRUNTPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXJABERPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXUSIZEGPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXOSIZEGPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RX64OCTGBPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RX65T127OCTGBPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RX128T255OCTGBPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RX256T511OCTGBPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RX512T1023OCTGBPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RX1024TMAXOCTGBPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXUCGPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXLENERPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXORANGEPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXPAUSPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXFOVPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXVLANGBPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXWDOGPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXRCVERRPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXCTRLPIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXLPIUSCIS,
-      MAC_MMC_RX_INTERRUPT_fields_::RXLPITRCIS,
+      MacMmcRxInterruptFields::RXGBPKTIS,
+      MacMmcRxInterruptFields::RXGBOCTIS,
+      MacMmcRxInterruptFields::RXGOCTIS,
+      MacMmcRxInterruptFields::RXBCGPIS,
+      MacMmcRxInterruptFields::RXMCGPIS,
+      MacMmcRxInterruptFields::RXCRCERPIS,
+      MacMmcRxInterruptFields::RXALGNERPIS,
+      MacMmcRxInterruptFields::RXRUNTPIS,
+      MacMmcRxInterruptFields::RXJABERPIS,
+      MacMmcRxInterruptFields::RXUSIZEGPIS,
+      MacMmcRxInterruptFields::RXOSIZEGPIS,
+      MacMmcRxInterruptFields::RX64OCTGBPIS,
+      MacMmcRxInterruptFields::RX65T127OCTGBPIS,
+      MacMmcRxInterruptFields::RX128T255OCTGBPIS,
+      MacMmcRxInterruptFields::RX256T511OCTGBPIS,
+      MacMmcRxInterruptFields::RX512T1023OCTGBPIS,
+      MacMmcRxInterruptFields::RX1024TMAXOCTGBPIS,
+      MacMmcRxInterruptFields::RXUCGPIS,
+      MacMmcRxInterruptFields::RXLENERPIS,
+      MacMmcRxInterruptFields::RXORANGEPIS,
+      MacMmcRxInterruptFields::RXPAUSPIS,
+      MacMmcRxInterruptFields::RXFOVPIS,
+      MacMmcRxInterruptFields::RXVLANGBPIS,
+      MacMmcRxInterruptFields::RXWDOGPIS,
+      MacMmcRxInterruptFields::RXRCVERRPIS,
+      MacMmcRxInterruptFields::RXCTRLPIS,
+      MacMmcRxInterruptFields::RXLPIUSCIS,
+      MacMmcRxInterruptFields::RXLPITRCIS,
       ftl::mmio::Reserved<4, 28>> {
-    using eRXGBPKTIS = MAC_MMC_RX_INTERRUPT_fields_::eRXGBPKTIS;
-    using eRXGBOCTIS = MAC_MMC_RX_INTERRUPT_fields_::eRXGBOCTIS;
-    using eRXGOCTIS = MAC_MMC_RX_INTERRUPT_fields_::eRXGOCTIS;
-    using eRXBCGPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXBCGPIS;
-    using eRXMCGPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXMCGPIS;
-    using eRXCRCERPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXCRCERPIS;
-    using eRXALGNERPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXALGNERPIS;
-    using eRXRUNTPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXRUNTPIS;
-    using eRXJABERPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXJABERPIS;
-    using eRXUSIZEGPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXUSIZEGPIS;
-    using eRXOSIZEGPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXOSIZEGPIS;
-    using eRX64OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::eRX64OCTGBPIS;
-    using eRX65T127OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::eRX65T127OCTGBPIS;
-    using eRX128T255OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::eRX128T255OCTGBPIS;
-    using eRX256T511OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::eRX256T511OCTGBPIS;
-    using eRX512T1023OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::eRX512T1023OCTGBPIS;
-    using eRX1024TMAXOCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::eRX1024TMAXOCTGBPIS;
-    using eRXUCGPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXUCGPIS;
-    using eRXLENERPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXLENERPIS;
-    using eRXORANGEPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXORANGEPIS;
-    using eRXPAUSPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXPAUSPIS;
-    using eRXFOVPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXFOVPIS;
-    using eRXVLANGBPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXVLANGBPIS;
-    using eRXWDOGPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXWDOGPIS;
-    using eRXRCVERRPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXRCVERRPIS;
-    using eRXCTRLPIS = MAC_MMC_RX_INTERRUPT_fields_::eRXCTRLPIS;
-    using eRXLPIUSCIS = MAC_MMC_RX_INTERRUPT_fields_::eRXLPIUSCIS;
-    using eRXLPITRCIS = MAC_MMC_RX_INTERRUPT_fields_::eRXLPITRCIS;
-    using RXGBPKTIS = MAC_MMC_RX_INTERRUPT_fields_::RXGBPKTIS;
-    using RXGBOCTIS = MAC_MMC_RX_INTERRUPT_fields_::RXGBOCTIS;
-    using RXGOCTIS = MAC_MMC_RX_INTERRUPT_fields_::RXGOCTIS;
-    using RXBCGPIS = MAC_MMC_RX_INTERRUPT_fields_::RXBCGPIS;
-    using RXMCGPIS = MAC_MMC_RX_INTERRUPT_fields_::RXMCGPIS;
-    using RXCRCERPIS = MAC_MMC_RX_INTERRUPT_fields_::RXCRCERPIS;
-    using RXALGNERPIS = MAC_MMC_RX_INTERRUPT_fields_::RXALGNERPIS;
-    using RXRUNTPIS = MAC_MMC_RX_INTERRUPT_fields_::RXRUNTPIS;
-    using RXJABERPIS = MAC_MMC_RX_INTERRUPT_fields_::RXJABERPIS;
-    using RXUSIZEGPIS = MAC_MMC_RX_INTERRUPT_fields_::RXUSIZEGPIS;
-    using RXOSIZEGPIS = MAC_MMC_RX_INTERRUPT_fields_::RXOSIZEGPIS;
-    using RX64OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::RX64OCTGBPIS;
-    using RX65T127OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::RX65T127OCTGBPIS;
-    using RX128T255OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::RX128T255OCTGBPIS;
-    using RX256T511OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::RX256T511OCTGBPIS;
-    using RX512T1023OCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::RX512T1023OCTGBPIS;
-    using RX1024TMAXOCTGBPIS = MAC_MMC_RX_INTERRUPT_fields_::RX1024TMAXOCTGBPIS;
-    using RXUCGPIS = MAC_MMC_RX_INTERRUPT_fields_::RXUCGPIS;
-    using RXLENERPIS = MAC_MMC_RX_INTERRUPT_fields_::RXLENERPIS;
-    using RXORANGEPIS = MAC_MMC_RX_INTERRUPT_fields_::RXORANGEPIS;
-    using RXPAUSPIS = MAC_MMC_RX_INTERRUPT_fields_::RXPAUSPIS;
-    using RXFOVPIS = MAC_MMC_RX_INTERRUPT_fields_::RXFOVPIS;
-    using RXVLANGBPIS = MAC_MMC_RX_INTERRUPT_fields_::RXVLANGBPIS;
-    using RXWDOGPIS = MAC_MMC_RX_INTERRUPT_fields_::RXWDOGPIS;
-    using RXRCVERRPIS = MAC_MMC_RX_INTERRUPT_fields_::RXRCVERRPIS;
-    using RXCTRLPIS = MAC_MMC_RX_INTERRUPT_fields_::RXCTRLPIS;
-    using RXLPIUSCIS = MAC_MMC_RX_INTERRUPT_fields_::RXLPIUSCIS;
-    using RXLPITRCIS = MAC_MMC_RX_INTERRUPT_fields_::RXLPITRCIS;
+    using eRXGBPKTIS = MacMmcRxInterruptFields::eRXGBPKTIS;
+    using eRXGBOCTIS = MacMmcRxInterruptFields::eRXGBOCTIS;
+    using eRXGOCTIS = MacMmcRxInterruptFields::eRXGOCTIS;
+    using eRXBCGPIS = MacMmcRxInterruptFields::eRXBCGPIS;
+    using eRXMCGPIS = MacMmcRxInterruptFields::eRXMCGPIS;
+    using eRXCRCERPIS = MacMmcRxInterruptFields::eRXCRCERPIS;
+    using eRXALGNERPIS = MacMmcRxInterruptFields::eRXALGNERPIS;
+    using eRXRUNTPIS = MacMmcRxInterruptFields::eRXRUNTPIS;
+    using eRXJABERPIS = MacMmcRxInterruptFields::eRXJABERPIS;
+    using eRXUSIZEGPIS = MacMmcRxInterruptFields::eRXUSIZEGPIS;
+    using eRXOSIZEGPIS = MacMmcRxInterruptFields::eRXOSIZEGPIS;
+    using eRX64OCTGBPIS = MacMmcRxInterruptFields::eRX64OCTGBPIS;
+    using eRX65T127OCTGBPIS = MacMmcRxInterruptFields::eRX65T127OCTGBPIS;
+    using eRX128T255OCTGBPIS = MacMmcRxInterruptFields::eRX128T255OCTGBPIS;
+    using eRX256T511OCTGBPIS = MacMmcRxInterruptFields::eRX256T511OCTGBPIS;
+    using eRX512T1023OCTGBPIS = MacMmcRxInterruptFields::eRX512T1023OCTGBPIS;
+    using eRX1024TMAXOCTGBPIS = MacMmcRxInterruptFields::eRX1024TMAXOCTGBPIS;
+    using eRXUCGPIS = MacMmcRxInterruptFields::eRXUCGPIS;
+    using eRXLENERPIS = MacMmcRxInterruptFields::eRXLENERPIS;
+    using eRXORANGEPIS = MacMmcRxInterruptFields::eRXORANGEPIS;
+    using eRXPAUSPIS = MacMmcRxInterruptFields::eRXPAUSPIS;
+    using eRXFOVPIS = MacMmcRxInterruptFields::eRXFOVPIS;
+    using eRXVLANGBPIS = MacMmcRxInterruptFields::eRXVLANGBPIS;
+    using eRXWDOGPIS = MacMmcRxInterruptFields::eRXWDOGPIS;
+    using eRXRCVERRPIS = MacMmcRxInterruptFields::eRXRCVERRPIS;
+    using eRXCTRLPIS = MacMmcRxInterruptFields::eRXCTRLPIS;
+    using eRXLPIUSCIS = MacMmcRxInterruptFields::eRXLPIUSCIS;
+    using eRXLPITRCIS = MacMmcRxInterruptFields::eRXLPITRCIS;
+    using RXGBPKTIS = MacMmcRxInterruptFields::RXGBPKTIS;
+    using RXGBOCTIS = MacMmcRxInterruptFields::RXGBOCTIS;
+    using RXGOCTIS = MacMmcRxInterruptFields::RXGOCTIS;
+    using RXBCGPIS = MacMmcRxInterruptFields::RXBCGPIS;
+    using RXMCGPIS = MacMmcRxInterruptFields::RXMCGPIS;
+    using RXCRCERPIS = MacMmcRxInterruptFields::RXCRCERPIS;
+    using RXALGNERPIS = MacMmcRxInterruptFields::RXALGNERPIS;
+    using RXRUNTPIS = MacMmcRxInterruptFields::RXRUNTPIS;
+    using RXJABERPIS = MacMmcRxInterruptFields::RXJABERPIS;
+    using RXUSIZEGPIS = MacMmcRxInterruptFields::RXUSIZEGPIS;
+    using RXOSIZEGPIS = MacMmcRxInterruptFields::RXOSIZEGPIS;
+    using RX64OCTGBPIS = MacMmcRxInterruptFields::RX64OCTGBPIS;
+    using RX65T127OCTGBPIS = MacMmcRxInterruptFields::RX65T127OCTGBPIS;
+    using RX128T255OCTGBPIS = MacMmcRxInterruptFields::RX128T255OCTGBPIS;
+    using RX256T511OCTGBPIS = MacMmcRxInterruptFields::RX256T511OCTGBPIS;
+    using RX512T1023OCTGBPIS = MacMmcRxInterruptFields::RX512T1023OCTGBPIS;
+    using RX1024TMAXOCTGBPIS = MacMmcRxInterruptFields::RX1024TMAXOCTGBPIS;
+    using RXUCGPIS = MacMmcRxInterruptFields::RXUCGPIS;
+    using RXLENERPIS = MacMmcRxInterruptFields::RXLENERPIS;
+    using RXORANGEPIS = MacMmcRxInterruptFields::RXORANGEPIS;
+    using RXPAUSPIS = MacMmcRxInterruptFields::RXPAUSPIS;
+    using RXFOVPIS = MacMmcRxInterruptFields::RXFOVPIS;
+    using RXVLANGBPIS = MacMmcRxInterruptFields::RXVLANGBPIS;
+    using RXWDOGPIS = MacMmcRxInterruptFields::RXWDOGPIS;
+    using RXRCVERRPIS = MacMmcRxInterruptFields::RXRCVERRPIS;
+    using RXCTRLPIS = MacMmcRxInterruptFields::RXCTRLPIS;
+    using RXLPIUSCIS = MacMmcRxInterruptFields::RXLPIUSCIS;
+    using RXLPITRCIS = MacMmcRxInterruptFields::RXLPITRCIS;
   };
 
   // MMC Tx Interrupt
-  struct MAC_MMC_TX_INTERRUPT_fields_ {
+  struct MacMmcTxInterruptFields {
     enum class eTXGBOCTIS : std::uint32_t {
       // MMC Transmit Good Bad Octet Counter Interrupt Status not detected
       eINACTIVE = 0,
@@ -8172,102 +8172,102 @@ struct EnetQos {
     using TXLPIUSCIS = ftl::mmio::Field<1, 26, eTXLPIUSCIS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MMC Transmit LPI transition counter interrupt status This bit is set when the Tx_LPI_Tran_Cntr counter reaches half of the maximum value or the maximum value.
     using TXLPITRCIS = ftl::mmio::Field<1, 27, eTXLPITRCIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_TX_INTERRUPT_fields_
+  };  // struct MacMmcTxInterruptFields
 
   struct MAC_MMC_TX_INTERRUPT : ftl::mmio::Register<
       0x4043C708u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_TX_INTERRUPT_fields_::TXGBOCTIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXGBPKTIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXBCGPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXMCGPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TX64OCTGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TX65T127OCTGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TX128T255OCTGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TX256T511OCTGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TX512T1023OCTGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TX1024TMAXOCTGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXUCGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXMCGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXBCGBPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXUFLOWERPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXSCOLGPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXMCOLGPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXDEFPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXLATCOLPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXEXCOLPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXCARERPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXGOCTIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXGPKTIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXEXDEFPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXPAUSPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXVLANGPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXOSIZEGPIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXLPIUSCIS,
-      MAC_MMC_TX_INTERRUPT_fields_::TXLPITRCIS,
+      MacMmcTxInterruptFields::TXGBOCTIS,
+      MacMmcTxInterruptFields::TXGBPKTIS,
+      MacMmcTxInterruptFields::TXBCGPIS,
+      MacMmcTxInterruptFields::TXMCGPIS,
+      MacMmcTxInterruptFields::TX64OCTGBPIS,
+      MacMmcTxInterruptFields::TX65T127OCTGBPIS,
+      MacMmcTxInterruptFields::TX128T255OCTGBPIS,
+      MacMmcTxInterruptFields::TX256T511OCTGBPIS,
+      MacMmcTxInterruptFields::TX512T1023OCTGBPIS,
+      MacMmcTxInterruptFields::TX1024TMAXOCTGBPIS,
+      MacMmcTxInterruptFields::TXUCGBPIS,
+      MacMmcTxInterruptFields::TXMCGBPIS,
+      MacMmcTxInterruptFields::TXBCGBPIS,
+      MacMmcTxInterruptFields::TXUFLOWERPIS,
+      MacMmcTxInterruptFields::TXSCOLGPIS,
+      MacMmcTxInterruptFields::TXMCOLGPIS,
+      MacMmcTxInterruptFields::TXDEFPIS,
+      MacMmcTxInterruptFields::TXLATCOLPIS,
+      MacMmcTxInterruptFields::TXEXCOLPIS,
+      MacMmcTxInterruptFields::TXCARERPIS,
+      MacMmcTxInterruptFields::TXGOCTIS,
+      MacMmcTxInterruptFields::TXGPKTIS,
+      MacMmcTxInterruptFields::TXEXDEFPIS,
+      MacMmcTxInterruptFields::TXPAUSPIS,
+      MacMmcTxInterruptFields::TXVLANGPIS,
+      MacMmcTxInterruptFields::TXOSIZEGPIS,
+      MacMmcTxInterruptFields::TXLPIUSCIS,
+      MacMmcTxInterruptFields::TXLPITRCIS,
       ftl::mmio::Reserved<4, 28>> {
-    using eTXGBOCTIS = MAC_MMC_TX_INTERRUPT_fields_::eTXGBOCTIS;
-    using eTXGBPKTIS = MAC_MMC_TX_INTERRUPT_fields_::eTXGBPKTIS;
-    using eTXBCGPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXBCGPIS;
-    using eTXMCGPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXMCGPIS;
-    using eTX64OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTX64OCTGBPIS;
-    using eTX65T127OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTX65T127OCTGBPIS;
-    using eTX128T255OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTX128T255OCTGBPIS;
-    using eTX256T511OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTX256T511OCTGBPIS;
-    using eTX512T1023OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTX512T1023OCTGBPIS;
-    using eTX1024TMAXOCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTX1024TMAXOCTGBPIS;
-    using eTXUCGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXUCGBPIS;
-    using eTXMCGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXMCGBPIS;
-    using eTXBCGBPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXBCGBPIS;
-    using eTXUFLOWERPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXUFLOWERPIS;
-    using eTXSCOLGPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXSCOLGPIS;
-    using eTXMCOLGPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXMCOLGPIS;
-    using eTXDEFPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXDEFPIS;
-    using eTXLATCOLPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXLATCOLPIS;
-    using eTXEXCOLPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXEXCOLPIS;
-    using eTXCARERPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXCARERPIS;
-    using eTXGOCTIS = MAC_MMC_TX_INTERRUPT_fields_::eTXGOCTIS;
-    using eTXGPKTIS = MAC_MMC_TX_INTERRUPT_fields_::eTXGPKTIS;
-    using eTXEXDEFPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXEXDEFPIS;
-    using eTXPAUSPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXPAUSPIS;
-    using eTXVLANGPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXVLANGPIS;
-    using eTXOSIZEGPIS = MAC_MMC_TX_INTERRUPT_fields_::eTXOSIZEGPIS;
-    using eTXLPIUSCIS = MAC_MMC_TX_INTERRUPT_fields_::eTXLPIUSCIS;
-    using eTXLPITRCIS = MAC_MMC_TX_INTERRUPT_fields_::eTXLPITRCIS;
-    using TXGBOCTIS = MAC_MMC_TX_INTERRUPT_fields_::TXGBOCTIS;
-    using TXGBPKTIS = MAC_MMC_TX_INTERRUPT_fields_::TXGBPKTIS;
-    using TXBCGPIS = MAC_MMC_TX_INTERRUPT_fields_::TXBCGPIS;
-    using TXMCGPIS = MAC_MMC_TX_INTERRUPT_fields_::TXMCGPIS;
-    using TX64OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TX64OCTGBPIS;
-    using TX65T127OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TX65T127OCTGBPIS;
-    using TX128T255OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TX128T255OCTGBPIS;
-    using TX256T511OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TX256T511OCTGBPIS;
-    using TX512T1023OCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TX512T1023OCTGBPIS;
-    using TX1024TMAXOCTGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TX1024TMAXOCTGBPIS;
-    using TXUCGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TXUCGBPIS;
-    using TXMCGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TXMCGBPIS;
-    using TXBCGBPIS = MAC_MMC_TX_INTERRUPT_fields_::TXBCGBPIS;
-    using TXUFLOWERPIS = MAC_MMC_TX_INTERRUPT_fields_::TXUFLOWERPIS;
-    using TXSCOLGPIS = MAC_MMC_TX_INTERRUPT_fields_::TXSCOLGPIS;
-    using TXMCOLGPIS = MAC_MMC_TX_INTERRUPT_fields_::TXMCOLGPIS;
-    using TXDEFPIS = MAC_MMC_TX_INTERRUPT_fields_::TXDEFPIS;
-    using TXLATCOLPIS = MAC_MMC_TX_INTERRUPT_fields_::TXLATCOLPIS;
-    using TXEXCOLPIS = MAC_MMC_TX_INTERRUPT_fields_::TXEXCOLPIS;
-    using TXCARERPIS = MAC_MMC_TX_INTERRUPT_fields_::TXCARERPIS;
-    using TXGOCTIS = MAC_MMC_TX_INTERRUPT_fields_::TXGOCTIS;
-    using TXGPKTIS = MAC_MMC_TX_INTERRUPT_fields_::TXGPKTIS;
-    using TXEXDEFPIS = MAC_MMC_TX_INTERRUPT_fields_::TXEXDEFPIS;
-    using TXPAUSPIS = MAC_MMC_TX_INTERRUPT_fields_::TXPAUSPIS;
-    using TXVLANGPIS = MAC_MMC_TX_INTERRUPT_fields_::TXVLANGPIS;
-    using TXOSIZEGPIS = MAC_MMC_TX_INTERRUPT_fields_::TXOSIZEGPIS;
-    using TXLPIUSCIS = MAC_MMC_TX_INTERRUPT_fields_::TXLPIUSCIS;
-    using TXLPITRCIS = MAC_MMC_TX_INTERRUPT_fields_::TXLPITRCIS;
+    using eTXGBOCTIS = MacMmcTxInterruptFields::eTXGBOCTIS;
+    using eTXGBPKTIS = MacMmcTxInterruptFields::eTXGBPKTIS;
+    using eTXBCGPIS = MacMmcTxInterruptFields::eTXBCGPIS;
+    using eTXMCGPIS = MacMmcTxInterruptFields::eTXMCGPIS;
+    using eTX64OCTGBPIS = MacMmcTxInterruptFields::eTX64OCTGBPIS;
+    using eTX65T127OCTGBPIS = MacMmcTxInterruptFields::eTX65T127OCTGBPIS;
+    using eTX128T255OCTGBPIS = MacMmcTxInterruptFields::eTX128T255OCTGBPIS;
+    using eTX256T511OCTGBPIS = MacMmcTxInterruptFields::eTX256T511OCTGBPIS;
+    using eTX512T1023OCTGBPIS = MacMmcTxInterruptFields::eTX512T1023OCTGBPIS;
+    using eTX1024TMAXOCTGBPIS = MacMmcTxInterruptFields::eTX1024TMAXOCTGBPIS;
+    using eTXUCGBPIS = MacMmcTxInterruptFields::eTXUCGBPIS;
+    using eTXMCGBPIS = MacMmcTxInterruptFields::eTXMCGBPIS;
+    using eTXBCGBPIS = MacMmcTxInterruptFields::eTXBCGBPIS;
+    using eTXUFLOWERPIS = MacMmcTxInterruptFields::eTXUFLOWERPIS;
+    using eTXSCOLGPIS = MacMmcTxInterruptFields::eTXSCOLGPIS;
+    using eTXMCOLGPIS = MacMmcTxInterruptFields::eTXMCOLGPIS;
+    using eTXDEFPIS = MacMmcTxInterruptFields::eTXDEFPIS;
+    using eTXLATCOLPIS = MacMmcTxInterruptFields::eTXLATCOLPIS;
+    using eTXEXCOLPIS = MacMmcTxInterruptFields::eTXEXCOLPIS;
+    using eTXCARERPIS = MacMmcTxInterruptFields::eTXCARERPIS;
+    using eTXGOCTIS = MacMmcTxInterruptFields::eTXGOCTIS;
+    using eTXGPKTIS = MacMmcTxInterruptFields::eTXGPKTIS;
+    using eTXEXDEFPIS = MacMmcTxInterruptFields::eTXEXDEFPIS;
+    using eTXPAUSPIS = MacMmcTxInterruptFields::eTXPAUSPIS;
+    using eTXVLANGPIS = MacMmcTxInterruptFields::eTXVLANGPIS;
+    using eTXOSIZEGPIS = MacMmcTxInterruptFields::eTXOSIZEGPIS;
+    using eTXLPIUSCIS = MacMmcTxInterruptFields::eTXLPIUSCIS;
+    using eTXLPITRCIS = MacMmcTxInterruptFields::eTXLPITRCIS;
+    using TXGBOCTIS = MacMmcTxInterruptFields::TXGBOCTIS;
+    using TXGBPKTIS = MacMmcTxInterruptFields::TXGBPKTIS;
+    using TXBCGPIS = MacMmcTxInterruptFields::TXBCGPIS;
+    using TXMCGPIS = MacMmcTxInterruptFields::TXMCGPIS;
+    using TX64OCTGBPIS = MacMmcTxInterruptFields::TX64OCTGBPIS;
+    using TX65T127OCTGBPIS = MacMmcTxInterruptFields::TX65T127OCTGBPIS;
+    using TX128T255OCTGBPIS = MacMmcTxInterruptFields::TX128T255OCTGBPIS;
+    using TX256T511OCTGBPIS = MacMmcTxInterruptFields::TX256T511OCTGBPIS;
+    using TX512T1023OCTGBPIS = MacMmcTxInterruptFields::TX512T1023OCTGBPIS;
+    using TX1024TMAXOCTGBPIS = MacMmcTxInterruptFields::TX1024TMAXOCTGBPIS;
+    using TXUCGBPIS = MacMmcTxInterruptFields::TXUCGBPIS;
+    using TXMCGBPIS = MacMmcTxInterruptFields::TXMCGBPIS;
+    using TXBCGBPIS = MacMmcTxInterruptFields::TXBCGBPIS;
+    using TXUFLOWERPIS = MacMmcTxInterruptFields::TXUFLOWERPIS;
+    using TXSCOLGPIS = MacMmcTxInterruptFields::TXSCOLGPIS;
+    using TXMCOLGPIS = MacMmcTxInterruptFields::TXMCOLGPIS;
+    using TXDEFPIS = MacMmcTxInterruptFields::TXDEFPIS;
+    using TXLATCOLPIS = MacMmcTxInterruptFields::TXLATCOLPIS;
+    using TXEXCOLPIS = MacMmcTxInterruptFields::TXEXCOLPIS;
+    using TXCARERPIS = MacMmcTxInterruptFields::TXCARERPIS;
+    using TXGOCTIS = MacMmcTxInterruptFields::TXGOCTIS;
+    using TXGPKTIS = MacMmcTxInterruptFields::TXGPKTIS;
+    using TXEXDEFPIS = MacMmcTxInterruptFields::TXEXDEFPIS;
+    using TXPAUSPIS = MacMmcTxInterruptFields::TXPAUSPIS;
+    using TXVLANGPIS = MacMmcTxInterruptFields::TXVLANGPIS;
+    using TXOSIZEGPIS = MacMmcTxInterruptFields::TXOSIZEGPIS;
+    using TXLPIUSCIS = MacMmcTxInterruptFields::TXLPIUSCIS;
+    using TXLPITRCIS = MacMmcTxInterruptFields::TXLPITRCIS;
   };
 
   // MMC Rx Interrupt Mask
-  struct MAC_MMC_RX_INTERRUPT_MASK_fields_ {
+  struct MacMmcRxInterruptMaskFields {
     enum class eRXGBPKTIM : std::uint32_t {
       // MMC Receive Good Bad Packet Counter Interrupt Mask is disabled
       eDISABLE = 0,
@@ -8520,102 +8520,102 @@ struct EnetQos {
     using RXLPIUSCIM = ftl::mmio::Field<1, 26, eRXLPIUSCIM, ftl::mmio::RW, ftl::mmio::Normal>;
     // MMC Receive LPI transition counter interrupt Mask Setting this bit masks the interrupt when the Rx_LPI_Tran_Cntr counter reaches half of the maximum value or the maximum value.
     using RXLPITRCIM = ftl::mmio::Field<1, 27, eRXLPITRCIM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_RX_INTERRUPT_MASK_fields_
+  };  // struct MacMmcRxInterruptMaskFields
 
   struct MAC_MMC_RX_INTERRUPT_MASK : ftl::mmio::Register<
       0x4043C70Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXGBPKTIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXGBOCTIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXGOCTIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXBCGPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXMCGPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXCRCERPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXALGNERPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXRUNTPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXJABERPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXUSIZEGPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXOSIZEGPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RX64OCTGBPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RX65T127OCTGBPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RX128T255OCTGBPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RX256T511OCTGBPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RX512T1023OCTGBPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RX1024TMAXOCTGBPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXUCGPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXLENERPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXORANGEPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXPAUSPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXFOVPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXVLANGBPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXWDOGPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXRCVERRPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXCTRLPIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXLPIUSCIM,
-      MAC_MMC_RX_INTERRUPT_MASK_fields_::RXLPITRCIM,
+      MacMmcRxInterruptMaskFields::RXGBPKTIM,
+      MacMmcRxInterruptMaskFields::RXGBOCTIM,
+      MacMmcRxInterruptMaskFields::RXGOCTIM,
+      MacMmcRxInterruptMaskFields::RXBCGPIM,
+      MacMmcRxInterruptMaskFields::RXMCGPIM,
+      MacMmcRxInterruptMaskFields::RXCRCERPIM,
+      MacMmcRxInterruptMaskFields::RXALGNERPIM,
+      MacMmcRxInterruptMaskFields::RXRUNTPIM,
+      MacMmcRxInterruptMaskFields::RXJABERPIM,
+      MacMmcRxInterruptMaskFields::RXUSIZEGPIM,
+      MacMmcRxInterruptMaskFields::RXOSIZEGPIM,
+      MacMmcRxInterruptMaskFields::RX64OCTGBPIM,
+      MacMmcRxInterruptMaskFields::RX65T127OCTGBPIM,
+      MacMmcRxInterruptMaskFields::RX128T255OCTGBPIM,
+      MacMmcRxInterruptMaskFields::RX256T511OCTGBPIM,
+      MacMmcRxInterruptMaskFields::RX512T1023OCTGBPIM,
+      MacMmcRxInterruptMaskFields::RX1024TMAXOCTGBPIM,
+      MacMmcRxInterruptMaskFields::RXUCGPIM,
+      MacMmcRxInterruptMaskFields::RXLENERPIM,
+      MacMmcRxInterruptMaskFields::RXORANGEPIM,
+      MacMmcRxInterruptMaskFields::RXPAUSPIM,
+      MacMmcRxInterruptMaskFields::RXFOVPIM,
+      MacMmcRxInterruptMaskFields::RXVLANGBPIM,
+      MacMmcRxInterruptMaskFields::RXWDOGPIM,
+      MacMmcRxInterruptMaskFields::RXRCVERRPIM,
+      MacMmcRxInterruptMaskFields::RXCTRLPIM,
+      MacMmcRxInterruptMaskFields::RXLPIUSCIM,
+      MacMmcRxInterruptMaskFields::RXLPITRCIM,
       ftl::mmio::Reserved<4, 28>> {
-    using eRXGBPKTIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXGBPKTIM;
-    using eRXGBOCTIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXGBOCTIM;
-    using eRXGOCTIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXGOCTIM;
-    using eRXBCGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXBCGPIM;
-    using eRXMCGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXMCGPIM;
-    using eRXCRCERPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXCRCERPIM;
-    using eRXALGNERPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXALGNERPIM;
-    using eRXRUNTPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXRUNTPIM;
-    using eRXJABERPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXJABERPIM;
-    using eRXUSIZEGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXUSIZEGPIM;
-    using eRXOSIZEGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXOSIZEGPIM;
-    using eRX64OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRX64OCTGBPIM;
-    using eRX65T127OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRX65T127OCTGBPIM;
-    using eRX128T255OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRX128T255OCTGBPIM;
-    using eRX256T511OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRX256T511OCTGBPIM;
-    using eRX512T1023OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRX512T1023OCTGBPIM;
-    using eRX1024TMAXOCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRX1024TMAXOCTGBPIM;
-    using eRXUCGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXUCGPIM;
-    using eRXLENERPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXLENERPIM;
-    using eRXORANGEPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXORANGEPIM;
-    using eRXPAUSPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXPAUSPIM;
-    using eRXFOVPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXFOVPIM;
-    using eRXVLANGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXVLANGBPIM;
-    using eRXWDOGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXWDOGPIM;
-    using eRXRCVERRPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXRCVERRPIM;
-    using eRXCTRLPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXCTRLPIM;
-    using eRXLPIUSCIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXLPIUSCIM;
-    using eRXLPITRCIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::eRXLPITRCIM;
-    using RXGBPKTIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXGBPKTIM;
-    using RXGBOCTIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXGBOCTIM;
-    using RXGOCTIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXGOCTIM;
-    using RXBCGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXBCGPIM;
-    using RXMCGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXMCGPIM;
-    using RXCRCERPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXCRCERPIM;
-    using RXALGNERPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXALGNERPIM;
-    using RXRUNTPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXRUNTPIM;
-    using RXJABERPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXJABERPIM;
-    using RXUSIZEGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXUSIZEGPIM;
-    using RXOSIZEGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXOSIZEGPIM;
-    using RX64OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RX64OCTGBPIM;
-    using RX65T127OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RX65T127OCTGBPIM;
-    using RX128T255OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RX128T255OCTGBPIM;
-    using RX256T511OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RX256T511OCTGBPIM;
-    using RX512T1023OCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RX512T1023OCTGBPIM;
-    using RX1024TMAXOCTGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RX1024TMAXOCTGBPIM;
-    using RXUCGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXUCGPIM;
-    using RXLENERPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXLENERPIM;
-    using RXORANGEPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXORANGEPIM;
-    using RXPAUSPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXPAUSPIM;
-    using RXFOVPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXFOVPIM;
-    using RXVLANGBPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXVLANGBPIM;
-    using RXWDOGPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXWDOGPIM;
-    using RXRCVERRPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXRCVERRPIM;
-    using RXCTRLPIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXCTRLPIM;
-    using RXLPIUSCIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXLPIUSCIM;
-    using RXLPITRCIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXLPITRCIM;
+    using eRXGBPKTIM = MacMmcRxInterruptMaskFields::eRXGBPKTIM;
+    using eRXGBOCTIM = MacMmcRxInterruptMaskFields::eRXGBOCTIM;
+    using eRXGOCTIM = MacMmcRxInterruptMaskFields::eRXGOCTIM;
+    using eRXBCGPIM = MacMmcRxInterruptMaskFields::eRXBCGPIM;
+    using eRXMCGPIM = MacMmcRxInterruptMaskFields::eRXMCGPIM;
+    using eRXCRCERPIM = MacMmcRxInterruptMaskFields::eRXCRCERPIM;
+    using eRXALGNERPIM = MacMmcRxInterruptMaskFields::eRXALGNERPIM;
+    using eRXRUNTPIM = MacMmcRxInterruptMaskFields::eRXRUNTPIM;
+    using eRXJABERPIM = MacMmcRxInterruptMaskFields::eRXJABERPIM;
+    using eRXUSIZEGPIM = MacMmcRxInterruptMaskFields::eRXUSIZEGPIM;
+    using eRXOSIZEGPIM = MacMmcRxInterruptMaskFields::eRXOSIZEGPIM;
+    using eRX64OCTGBPIM = MacMmcRxInterruptMaskFields::eRX64OCTGBPIM;
+    using eRX65T127OCTGBPIM = MacMmcRxInterruptMaskFields::eRX65T127OCTGBPIM;
+    using eRX128T255OCTGBPIM = MacMmcRxInterruptMaskFields::eRX128T255OCTGBPIM;
+    using eRX256T511OCTGBPIM = MacMmcRxInterruptMaskFields::eRX256T511OCTGBPIM;
+    using eRX512T1023OCTGBPIM = MacMmcRxInterruptMaskFields::eRX512T1023OCTGBPIM;
+    using eRX1024TMAXOCTGBPIM = MacMmcRxInterruptMaskFields::eRX1024TMAXOCTGBPIM;
+    using eRXUCGPIM = MacMmcRxInterruptMaskFields::eRXUCGPIM;
+    using eRXLENERPIM = MacMmcRxInterruptMaskFields::eRXLENERPIM;
+    using eRXORANGEPIM = MacMmcRxInterruptMaskFields::eRXORANGEPIM;
+    using eRXPAUSPIM = MacMmcRxInterruptMaskFields::eRXPAUSPIM;
+    using eRXFOVPIM = MacMmcRxInterruptMaskFields::eRXFOVPIM;
+    using eRXVLANGBPIM = MacMmcRxInterruptMaskFields::eRXVLANGBPIM;
+    using eRXWDOGPIM = MacMmcRxInterruptMaskFields::eRXWDOGPIM;
+    using eRXRCVERRPIM = MacMmcRxInterruptMaskFields::eRXRCVERRPIM;
+    using eRXCTRLPIM = MacMmcRxInterruptMaskFields::eRXCTRLPIM;
+    using eRXLPIUSCIM = MacMmcRxInterruptMaskFields::eRXLPIUSCIM;
+    using eRXLPITRCIM = MacMmcRxInterruptMaskFields::eRXLPITRCIM;
+    using RXGBPKTIM = MacMmcRxInterruptMaskFields::RXGBPKTIM;
+    using RXGBOCTIM = MacMmcRxInterruptMaskFields::RXGBOCTIM;
+    using RXGOCTIM = MacMmcRxInterruptMaskFields::RXGOCTIM;
+    using RXBCGPIM = MacMmcRxInterruptMaskFields::RXBCGPIM;
+    using RXMCGPIM = MacMmcRxInterruptMaskFields::RXMCGPIM;
+    using RXCRCERPIM = MacMmcRxInterruptMaskFields::RXCRCERPIM;
+    using RXALGNERPIM = MacMmcRxInterruptMaskFields::RXALGNERPIM;
+    using RXRUNTPIM = MacMmcRxInterruptMaskFields::RXRUNTPIM;
+    using RXJABERPIM = MacMmcRxInterruptMaskFields::RXJABERPIM;
+    using RXUSIZEGPIM = MacMmcRxInterruptMaskFields::RXUSIZEGPIM;
+    using RXOSIZEGPIM = MacMmcRxInterruptMaskFields::RXOSIZEGPIM;
+    using RX64OCTGBPIM = MacMmcRxInterruptMaskFields::RX64OCTGBPIM;
+    using RX65T127OCTGBPIM = MacMmcRxInterruptMaskFields::RX65T127OCTGBPIM;
+    using RX128T255OCTGBPIM = MacMmcRxInterruptMaskFields::RX128T255OCTGBPIM;
+    using RX256T511OCTGBPIM = MacMmcRxInterruptMaskFields::RX256T511OCTGBPIM;
+    using RX512T1023OCTGBPIM = MacMmcRxInterruptMaskFields::RX512T1023OCTGBPIM;
+    using RX1024TMAXOCTGBPIM = MacMmcRxInterruptMaskFields::RX1024TMAXOCTGBPIM;
+    using RXUCGPIM = MacMmcRxInterruptMaskFields::RXUCGPIM;
+    using RXLENERPIM = MacMmcRxInterruptMaskFields::RXLENERPIM;
+    using RXORANGEPIM = MacMmcRxInterruptMaskFields::RXORANGEPIM;
+    using RXPAUSPIM = MacMmcRxInterruptMaskFields::RXPAUSPIM;
+    using RXFOVPIM = MacMmcRxInterruptMaskFields::RXFOVPIM;
+    using RXVLANGBPIM = MacMmcRxInterruptMaskFields::RXVLANGBPIM;
+    using RXWDOGPIM = MacMmcRxInterruptMaskFields::RXWDOGPIM;
+    using RXRCVERRPIM = MacMmcRxInterruptMaskFields::RXRCVERRPIM;
+    using RXCTRLPIM = MacMmcRxInterruptMaskFields::RXCTRLPIM;
+    using RXLPIUSCIM = MacMmcRxInterruptMaskFields::RXLPIUSCIM;
+    using RXLPITRCIM = MacMmcRxInterruptMaskFields::RXLPITRCIM;
   };
 
   // MMC Tx Interrupt Mask
-  struct MAC_MMC_TX_INTERRUPT_MASK_fields_ {
+  struct MacMmcTxInterruptMaskFields {
     enum class eTXGBOCTIM : std::uint32_t {
       // MMC Transmit Good Bad Octet Counter Interrupt Mask is disabled
       eDISABLE = 0,
@@ -8868,942 +8868,942 @@ struct EnetQos {
     using TXLPIUSCIM = ftl::mmio::Field<1, 26, eTXLPIUSCIM, ftl::mmio::RW, ftl::mmio::Normal>;
     // MMC Transmit LPI transition counter interrupt Mask Setting this bit masks the interrupt when the Tx_LPI_Tran_Cntr counter reaches half of the maximum value or the maximum value.
     using TXLPITRCIM = ftl::mmio::Field<1, 27, eTXLPITRCIM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_TX_INTERRUPT_MASK_fields_
+  };  // struct MacMmcTxInterruptMaskFields
 
   struct MAC_MMC_TX_INTERRUPT_MASK : ftl::mmio::Register<
       0x4043C710u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXGBOCTIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXGBPKTIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXBCGPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXMCGPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TX64OCTGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TX65T127OCTGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TX128T255OCTGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TX256T511OCTGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TX512T1023OCTGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TX1024TMAXOCTGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXUCGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXMCGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXBCGBPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXUFLOWERPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXSCOLGPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXMCOLGPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXDEFPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXLATCOLPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXEXCOLPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXCARERPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXGOCTIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXGPKTIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXEXDEFPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXPAUSPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXVLANGPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXOSIZEGPIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXLPIUSCIM,
-      MAC_MMC_TX_INTERRUPT_MASK_fields_::TXLPITRCIM,
+      MacMmcTxInterruptMaskFields::TXGBOCTIM,
+      MacMmcTxInterruptMaskFields::TXGBPKTIM,
+      MacMmcTxInterruptMaskFields::TXBCGPIM,
+      MacMmcTxInterruptMaskFields::TXMCGPIM,
+      MacMmcTxInterruptMaskFields::TX64OCTGBPIM,
+      MacMmcTxInterruptMaskFields::TX65T127OCTGBPIM,
+      MacMmcTxInterruptMaskFields::TX128T255OCTGBPIM,
+      MacMmcTxInterruptMaskFields::TX256T511OCTGBPIM,
+      MacMmcTxInterruptMaskFields::TX512T1023OCTGBPIM,
+      MacMmcTxInterruptMaskFields::TX1024TMAXOCTGBPIM,
+      MacMmcTxInterruptMaskFields::TXUCGBPIM,
+      MacMmcTxInterruptMaskFields::TXMCGBPIM,
+      MacMmcTxInterruptMaskFields::TXBCGBPIM,
+      MacMmcTxInterruptMaskFields::TXUFLOWERPIM,
+      MacMmcTxInterruptMaskFields::TXSCOLGPIM,
+      MacMmcTxInterruptMaskFields::TXMCOLGPIM,
+      MacMmcTxInterruptMaskFields::TXDEFPIM,
+      MacMmcTxInterruptMaskFields::TXLATCOLPIM,
+      MacMmcTxInterruptMaskFields::TXEXCOLPIM,
+      MacMmcTxInterruptMaskFields::TXCARERPIM,
+      MacMmcTxInterruptMaskFields::TXGOCTIM,
+      MacMmcTxInterruptMaskFields::TXGPKTIM,
+      MacMmcTxInterruptMaskFields::TXEXDEFPIM,
+      MacMmcTxInterruptMaskFields::TXPAUSPIM,
+      MacMmcTxInterruptMaskFields::TXVLANGPIM,
+      MacMmcTxInterruptMaskFields::TXOSIZEGPIM,
+      MacMmcTxInterruptMaskFields::TXLPIUSCIM,
+      MacMmcTxInterruptMaskFields::TXLPITRCIM,
       ftl::mmio::Reserved<4, 28>> {
-    using eTXGBOCTIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXGBOCTIM;
-    using eTXGBPKTIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXGBPKTIM;
-    using eTXBCGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXBCGPIM;
-    using eTXMCGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXMCGPIM;
-    using eTX64OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTX64OCTGBPIM;
-    using eTX65T127OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTX65T127OCTGBPIM;
-    using eTX128T255OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTX128T255OCTGBPIM;
-    using eTX256T511OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTX256T511OCTGBPIM;
-    using eTX512T1023OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTX512T1023OCTGBPIM;
-    using eTX1024TMAXOCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTX1024TMAXOCTGBPIM;
-    using eTXUCGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXUCGBPIM;
-    using eTXMCGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXMCGBPIM;
-    using eTXBCGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXBCGBPIM;
-    using eTXUFLOWERPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXUFLOWERPIM;
-    using eTXSCOLGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXSCOLGPIM;
-    using eTXMCOLGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXMCOLGPIM;
-    using eTXDEFPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXDEFPIM;
-    using eTXLATCOLPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXLATCOLPIM;
-    using eTXEXCOLPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXEXCOLPIM;
-    using eTXCARERPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXCARERPIM;
-    using eTXGOCTIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXGOCTIM;
-    using eTXGPKTIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXGPKTIM;
-    using eTXEXDEFPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXEXDEFPIM;
-    using eTXPAUSPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXPAUSPIM;
-    using eTXVLANGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXVLANGPIM;
-    using eTXOSIZEGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXOSIZEGPIM;
-    using eTXLPIUSCIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXLPIUSCIM;
-    using eTXLPITRCIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::eTXLPITRCIM;
-    using TXGBOCTIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXGBOCTIM;
-    using TXGBPKTIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXGBPKTIM;
-    using TXBCGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXBCGPIM;
-    using TXMCGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXMCGPIM;
-    using TX64OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TX64OCTGBPIM;
-    using TX65T127OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TX65T127OCTGBPIM;
-    using TX128T255OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TX128T255OCTGBPIM;
-    using TX256T511OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TX256T511OCTGBPIM;
-    using TX512T1023OCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TX512T1023OCTGBPIM;
-    using TX1024TMAXOCTGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TX1024TMAXOCTGBPIM;
-    using TXUCGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXUCGBPIM;
-    using TXMCGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXMCGBPIM;
-    using TXBCGBPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXBCGBPIM;
-    using TXUFLOWERPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXUFLOWERPIM;
-    using TXSCOLGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXSCOLGPIM;
-    using TXMCOLGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXMCOLGPIM;
-    using TXDEFPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXDEFPIM;
-    using TXLATCOLPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXLATCOLPIM;
-    using TXEXCOLPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXEXCOLPIM;
-    using TXCARERPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXCARERPIM;
-    using TXGOCTIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXGOCTIM;
-    using TXGPKTIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXGPKTIM;
-    using TXEXDEFPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXEXDEFPIM;
-    using TXPAUSPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXPAUSPIM;
-    using TXVLANGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXVLANGPIM;
-    using TXOSIZEGPIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXOSIZEGPIM;
-    using TXLPIUSCIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXLPIUSCIM;
-    using TXLPITRCIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXLPITRCIM;
+    using eTXGBOCTIM = MacMmcTxInterruptMaskFields::eTXGBOCTIM;
+    using eTXGBPKTIM = MacMmcTxInterruptMaskFields::eTXGBPKTIM;
+    using eTXBCGPIM = MacMmcTxInterruptMaskFields::eTXBCGPIM;
+    using eTXMCGPIM = MacMmcTxInterruptMaskFields::eTXMCGPIM;
+    using eTX64OCTGBPIM = MacMmcTxInterruptMaskFields::eTX64OCTGBPIM;
+    using eTX65T127OCTGBPIM = MacMmcTxInterruptMaskFields::eTX65T127OCTGBPIM;
+    using eTX128T255OCTGBPIM = MacMmcTxInterruptMaskFields::eTX128T255OCTGBPIM;
+    using eTX256T511OCTGBPIM = MacMmcTxInterruptMaskFields::eTX256T511OCTGBPIM;
+    using eTX512T1023OCTGBPIM = MacMmcTxInterruptMaskFields::eTX512T1023OCTGBPIM;
+    using eTX1024TMAXOCTGBPIM = MacMmcTxInterruptMaskFields::eTX1024TMAXOCTGBPIM;
+    using eTXUCGBPIM = MacMmcTxInterruptMaskFields::eTXUCGBPIM;
+    using eTXMCGBPIM = MacMmcTxInterruptMaskFields::eTXMCGBPIM;
+    using eTXBCGBPIM = MacMmcTxInterruptMaskFields::eTXBCGBPIM;
+    using eTXUFLOWERPIM = MacMmcTxInterruptMaskFields::eTXUFLOWERPIM;
+    using eTXSCOLGPIM = MacMmcTxInterruptMaskFields::eTXSCOLGPIM;
+    using eTXMCOLGPIM = MacMmcTxInterruptMaskFields::eTXMCOLGPIM;
+    using eTXDEFPIM = MacMmcTxInterruptMaskFields::eTXDEFPIM;
+    using eTXLATCOLPIM = MacMmcTxInterruptMaskFields::eTXLATCOLPIM;
+    using eTXEXCOLPIM = MacMmcTxInterruptMaskFields::eTXEXCOLPIM;
+    using eTXCARERPIM = MacMmcTxInterruptMaskFields::eTXCARERPIM;
+    using eTXGOCTIM = MacMmcTxInterruptMaskFields::eTXGOCTIM;
+    using eTXGPKTIM = MacMmcTxInterruptMaskFields::eTXGPKTIM;
+    using eTXEXDEFPIM = MacMmcTxInterruptMaskFields::eTXEXDEFPIM;
+    using eTXPAUSPIM = MacMmcTxInterruptMaskFields::eTXPAUSPIM;
+    using eTXVLANGPIM = MacMmcTxInterruptMaskFields::eTXVLANGPIM;
+    using eTXOSIZEGPIM = MacMmcTxInterruptMaskFields::eTXOSIZEGPIM;
+    using eTXLPIUSCIM = MacMmcTxInterruptMaskFields::eTXLPIUSCIM;
+    using eTXLPITRCIM = MacMmcTxInterruptMaskFields::eTXLPITRCIM;
+    using TXGBOCTIM = MacMmcTxInterruptMaskFields::TXGBOCTIM;
+    using TXGBPKTIM = MacMmcTxInterruptMaskFields::TXGBPKTIM;
+    using TXBCGPIM = MacMmcTxInterruptMaskFields::TXBCGPIM;
+    using TXMCGPIM = MacMmcTxInterruptMaskFields::TXMCGPIM;
+    using TX64OCTGBPIM = MacMmcTxInterruptMaskFields::TX64OCTGBPIM;
+    using TX65T127OCTGBPIM = MacMmcTxInterruptMaskFields::TX65T127OCTGBPIM;
+    using TX128T255OCTGBPIM = MacMmcTxInterruptMaskFields::TX128T255OCTGBPIM;
+    using TX256T511OCTGBPIM = MacMmcTxInterruptMaskFields::TX256T511OCTGBPIM;
+    using TX512T1023OCTGBPIM = MacMmcTxInterruptMaskFields::TX512T1023OCTGBPIM;
+    using TX1024TMAXOCTGBPIM = MacMmcTxInterruptMaskFields::TX1024TMAXOCTGBPIM;
+    using TXUCGBPIM = MacMmcTxInterruptMaskFields::TXUCGBPIM;
+    using TXMCGBPIM = MacMmcTxInterruptMaskFields::TXMCGBPIM;
+    using TXBCGBPIM = MacMmcTxInterruptMaskFields::TXBCGBPIM;
+    using TXUFLOWERPIM = MacMmcTxInterruptMaskFields::TXUFLOWERPIM;
+    using TXSCOLGPIM = MacMmcTxInterruptMaskFields::TXSCOLGPIM;
+    using TXMCOLGPIM = MacMmcTxInterruptMaskFields::TXMCOLGPIM;
+    using TXDEFPIM = MacMmcTxInterruptMaskFields::TXDEFPIM;
+    using TXLATCOLPIM = MacMmcTxInterruptMaskFields::TXLATCOLPIM;
+    using TXEXCOLPIM = MacMmcTxInterruptMaskFields::TXEXCOLPIM;
+    using TXCARERPIM = MacMmcTxInterruptMaskFields::TXCARERPIM;
+    using TXGOCTIM = MacMmcTxInterruptMaskFields::TXGOCTIM;
+    using TXGPKTIM = MacMmcTxInterruptMaskFields::TXGPKTIM;
+    using TXEXDEFPIM = MacMmcTxInterruptMaskFields::TXEXDEFPIM;
+    using TXPAUSPIM = MacMmcTxInterruptMaskFields::TXPAUSPIM;
+    using TXVLANGPIM = MacMmcTxInterruptMaskFields::TXVLANGPIM;
+    using TXOSIZEGPIM = MacMmcTxInterruptMaskFields::TXOSIZEGPIM;
+    using TXLPIUSCIM = MacMmcTxInterruptMaskFields::TXLPIUSCIM;
+    using TXLPITRCIM = MacMmcTxInterruptMaskFields::TXLPITRCIM;
   };
 
   // Tx Octet Count Good and Bad
-  struct MAC_TX_OCTET_COUNT_GOOD_BAD_fields_ {
+  struct MacTxOctetCountGoodBadFields {
     // Tx Octet Count Good Bad This field indicates the number of bytes transmitted, exclusive of preamble and retried bytes, in good and bad packets.
     using TXOCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_OCTET_COUNT_GOOD_BAD_fields_
+  };  // struct MacTxOctetCountGoodBadFields
 
   struct MAC_TX_OCTET_COUNT_GOOD_BAD : ftl::mmio::Register<
       0x4043C714u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_OCTET_COUNT_GOOD_BAD_fields_::TXOCTGB> {
-    using TXOCTGB = MAC_TX_OCTET_COUNT_GOOD_BAD_fields_::TXOCTGB;
+      MacTxOctetCountGoodBadFields::TXOCTGB> {
+    using TXOCTGB = MacTxOctetCountGoodBadFields::TXOCTGB;
   };
 
   // Tx Packet Count Good and Bad
-  struct MAC_TX_PACKET_COUNT_GOOD_BAD_fields_ {
+  struct MacTxPacketCountGoodBadFields {
     // Tx Packet Count Good Bad This field indicates the number of good and bad packets transmitted, exclusive of retried packets.
     using TXPKTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_PACKET_COUNT_GOOD_BAD_fields_
+  };  // struct MacTxPacketCountGoodBadFields
 
   struct MAC_TX_PACKET_COUNT_GOOD_BAD : ftl::mmio::Register<
       0x4043C718u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_PACKET_COUNT_GOOD_BAD_fields_::TXPKTGB> {
-    using TXPKTGB = MAC_TX_PACKET_COUNT_GOOD_BAD_fields_::TXPKTGB;
+      MacTxPacketCountGoodBadFields::TXPKTGB> {
+    using TXPKTGB = MacTxPacketCountGoodBadFields::TXPKTGB;
   };
 
   // Tx Broadcast Packets Good
-  struct MAC_TX_BROADCAST_PACKETS_GOOD_fields_ {
+  struct MacTxBroadcastPacketsGoodFields {
     // Tx Broadcast Packets Good This field indicates the number of good broadcast packets transmitted.
     using TXBCASTG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_BROADCAST_PACKETS_GOOD_fields_
+  };  // struct MacTxBroadcastPacketsGoodFields
 
   struct MAC_TX_BROADCAST_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C71Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_BROADCAST_PACKETS_GOOD_fields_::TXBCASTG> {
-    using TXBCASTG = MAC_TX_BROADCAST_PACKETS_GOOD_fields_::TXBCASTG;
+      MacTxBroadcastPacketsGoodFields::TXBCASTG> {
+    using TXBCASTG = MacTxBroadcastPacketsGoodFields::TXBCASTG;
   };
 
   // Tx Multicast Packets Good
-  struct MAC_TX_MULTICAST_PACKETS_GOOD_fields_ {
+  struct MacTxMulticastPacketsGoodFields {
     // Tx Multicast Packets Good This field indicates the number of good multicast packets transmitted.
     using TXMCASTG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_MULTICAST_PACKETS_GOOD_fields_
+  };  // struct MacTxMulticastPacketsGoodFields
 
   struct MAC_TX_MULTICAST_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C720u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_MULTICAST_PACKETS_GOOD_fields_::TXMCASTG> {
-    using TXMCASTG = MAC_TX_MULTICAST_PACKETS_GOOD_fields_::TXMCASTG;
+      MacTxMulticastPacketsGoodFields::TXMCASTG> {
+    using TXMCASTG = MacTxMulticastPacketsGoodFields::TXMCASTG;
   };
 
   // Tx Good and Bad 64-Byte Packets
-  struct MAC_TX_64OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacTx64octetsPacketsGoodBadFields {
     // Tx 64Octets Packets Good_Bad This field indicates the number of good and bad packets transmitted with length 64 bytes, exclusive of preamble and retried packets.
     using TX64OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_64OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTx64octetsPacketsGoodBadFields
 
   struct MAC_TX_64OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C724u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_64OCTETS_PACKETS_GOOD_BAD_fields_::TX64OCTGB> {
-    using TX64OCTGB = MAC_TX_64OCTETS_PACKETS_GOOD_BAD_fields_::TX64OCTGB;
+      MacTx64octetsPacketsGoodBadFields::TX64OCTGB> {
+    using TX64OCTGB = MacTx64octetsPacketsGoodBadFields::TX64OCTGB;
   };
 
   // Tx Good and Bad 65 to 127-Byte Packets
-  struct MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacTx65to127octetsPacketsGoodBadFields {
     // Tx 65To127Octets Packets Good Bad This field indicates the number of good and bad packets transmitted with length between 65 and 127 (inclusive) bytes, exclusive of preamble and retried packets.
     using TX65_127OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTx65to127octetsPacketsGoodBadFields
 
   struct MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C728u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_::TX65_127OCTGB> {
-    using TX65_127OCTGB = MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_::TX65_127OCTGB;
+      MacTx65to127octetsPacketsGoodBadFields::TX65_127OCTGB> {
+    using TX65_127OCTGB = MacTx65to127octetsPacketsGoodBadFields::TX65_127OCTGB;
   };
 
   // Tx Good and Bad 128 to 255-Byte Packets
-  struct MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacTx128to255octetsPacketsGoodBadFields {
     // Tx 128To255Octets Packets Good Bad This field indicates the number of good and bad packets transmitted with length between 128 and 255 (inclusive) bytes, exclusive of preamble and retried packets.
     using TX128_255OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTx128to255octetsPacketsGoodBadFields
 
   struct MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C72Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_::TX128_255OCTGB> {
-    using TX128_255OCTGB = MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_::TX128_255OCTGB;
+      MacTx128to255octetsPacketsGoodBadFields::TX128_255OCTGB> {
+    using TX128_255OCTGB = MacTx128to255octetsPacketsGoodBadFields::TX128_255OCTGB;
   };
 
   // Tx Good and Bad 256 to 511-Byte Packets
-  struct MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacTx256to511octetsPacketsGoodBadFields {
     // Tx 256To511Octets Packets Good Bad This field indicates the number of good and bad packets transmitted with length between 256 and 511 (inclusive) bytes, exclusive of preamble and retried packets.
     using TX256_511OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTx256to511octetsPacketsGoodBadFields
 
   struct MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C730u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_::TX256_511OCTGB> {
-    using TX256_511OCTGB = MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_::TX256_511OCTGB;
+      MacTx256to511octetsPacketsGoodBadFields::TX256_511OCTGB> {
+    using TX256_511OCTGB = MacTx256to511octetsPacketsGoodBadFields::TX256_511OCTGB;
   };
 
   // Tx Good and Bad 512 to 1023-Byte Packets
-  struct MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacTx512to1023octetsPacketsGoodBadFields {
     // Tx 512To1023Octets Packets Good Bad This field indicates the number of good and bad packets transmitted with length between 512 and 1023 (inclusive) bytes, exclusive of preamble and retried packets.
     using TX512_1023OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTx512to1023octetsPacketsGoodBadFields
 
   struct MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C734u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_::TX512_1023OCTGB> {
-    using TX512_1023OCTGB = MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_::TX512_1023OCTGB;
+      MacTx512to1023octetsPacketsGoodBadFields::TX512_1023OCTGB> {
+    using TX512_1023OCTGB = MacTx512to1023octetsPacketsGoodBadFields::TX512_1023OCTGB;
   };
 
   // Tx Good and Bad 1024 to Max-Byte Packets
-  struct MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacTx1024tomaxoctetsPacketsGoodBadFields {
     // Tx 1024ToMaxOctets Packets Good Bad This field indicates the number of good and bad packets transmitted with length between 1024 and maxsize (inclusive) bytes, exclusive of preamble and retried packets.
     using TX1024_MAXOCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTx1024tomaxoctetsPacketsGoodBadFields
 
   struct MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C738u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_::TX1024_MAXOCTGB> {
-    using TX1024_MAXOCTGB = MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_::TX1024_MAXOCTGB;
+      MacTx1024tomaxoctetsPacketsGoodBadFields::TX1024_MAXOCTGB> {
+    using TX1024_MAXOCTGB = MacTx1024tomaxoctetsPacketsGoodBadFields::TX1024_MAXOCTGB;
   };
 
   // Good and Bad Unicast Packets Transmitted
-  struct MAC_TX_UNICAST_PACKETS_GOOD_BAD_fields_ {
+  struct MacTxUnicastPacketsGoodBadFields {
     // Tx Unicast Packets Good Bad This field indicates the number of good and bad unicast packets transmitted.
     using TXUCASTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_UNICAST_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTxUnicastPacketsGoodBadFields
 
   struct MAC_TX_UNICAST_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C73Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_UNICAST_PACKETS_GOOD_BAD_fields_::TXUCASTGB> {
-    using TXUCASTGB = MAC_TX_UNICAST_PACKETS_GOOD_BAD_fields_::TXUCASTGB;
+      MacTxUnicastPacketsGoodBadFields::TXUCASTGB> {
+    using TXUCASTGB = MacTxUnicastPacketsGoodBadFields::TXUCASTGB;
   };
 
   // Good and Bad Multicast Packets Transmitted
-  struct MAC_TX_MULTICAST_PACKETS_GOOD_BAD_fields_ {
+  struct MacTxMulticastPacketsGoodBadFields {
     // Tx Multicast Packets Good Bad This field indicates the number of good and bad multicast packets transmitted.
     using TXMCASTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_MULTICAST_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTxMulticastPacketsGoodBadFields
 
   struct MAC_TX_MULTICAST_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C740u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_MULTICAST_PACKETS_GOOD_BAD_fields_::TXMCASTGB> {
-    using TXMCASTGB = MAC_TX_MULTICAST_PACKETS_GOOD_BAD_fields_::TXMCASTGB;
+      MacTxMulticastPacketsGoodBadFields::TXMCASTGB> {
+    using TXMCASTGB = MacTxMulticastPacketsGoodBadFields::TXMCASTGB;
   };
 
   // Good and Bad Broadcast Packets Transmitted
-  struct MAC_TX_BROADCAST_PACKETS_GOOD_BAD_fields_ {
+  struct MacTxBroadcastPacketsGoodBadFields {
     // Tx Broadcast Packets Good Bad This field indicates the number of good and bad broadcast packets transmitted.
     using TXBCASTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_BROADCAST_PACKETS_GOOD_BAD_fields_
+  };  // struct MacTxBroadcastPacketsGoodBadFields
 
   struct MAC_TX_BROADCAST_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C744u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_BROADCAST_PACKETS_GOOD_BAD_fields_::TXBCASTGB> {
-    using TXBCASTGB = MAC_TX_BROADCAST_PACKETS_GOOD_BAD_fields_::TXBCASTGB;
+      MacTxBroadcastPacketsGoodBadFields::TXBCASTGB> {
+    using TXBCASTGB = MacTxBroadcastPacketsGoodBadFields::TXBCASTGB;
   };
 
   // Tx Packets Aborted By Underflow Error
-  struct MAC_TX_UNDERFLOW_ERROR_PACKETS_fields_ {
+  struct MacTxUnderflowErrorPacketsFields {
     // Tx Underflow Error Packets This field indicates the number of packets aborted because of packets underflow error.
     using TXUNDRFLW = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_UNDERFLOW_ERROR_PACKETS_fields_
+  };  // struct MacTxUnderflowErrorPacketsFields
 
   struct MAC_TX_UNDERFLOW_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C748u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_UNDERFLOW_ERROR_PACKETS_fields_::TXUNDRFLW> {
-    using TXUNDRFLW = MAC_TX_UNDERFLOW_ERROR_PACKETS_fields_::TXUNDRFLW;
+      MacTxUnderflowErrorPacketsFields::TXUNDRFLW> {
+    using TXUNDRFLW = MacTxUnderflowErrorPacketsFields::TXUNDRFLW;
   };
 
   // Single Collision Good Packets Transmitted
-  struct MAC_TX_SINGLE_COLLISION_GOOD_PACKETS_fields_ {
+  struct MacTxSingleCollisionGoodPacketsFields {
     // Tx Single Collision Good Packets This field indicates the number of successfully transmitted packets after a single collision in the half-duplex mode.
     using TXSNGLCOLG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_SINGLE_COLLISION_GOOD_PACKETS_fields_
+  };  // struct MacTxSingleCollisionGoodPacketsFields
 
   struct MAC_TX_SINGLE_COLLISION_GOOD_PACKETS : ftl::mmio::Register<
       0x4043C74Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_SINGLE_COLLISION_GOOD_PACKETS_fields_::TXSNGLCOLG> {
-    using TXSNGLCOLG = MAC_TX_SINGLE_COLLISION_GOOD_PACKETS_fields_::TXSNGLCOLG;
+      MacTxSingleCollisionGoodPacketsFields::TXSNGLCOLG> {
+    using TXSNGLCOLG = MacTxSingleCollisionGoodPacketsFields::TXSNGLCOLG;
   };
 
   // Multiple Collision Good Packets Transmitted
-  struct MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS_fields_ {
+  struct MacTxMultipleCollisionGoodPacketsFields {
     // Tx Multiple Collision Good Packets This field indicates the number of successfully transmitted packets after multiple collisions in the half-duplex mode.
     using TXMULTCOLG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS_fields_
+  };  // struct MacTxMultipleCollisionGoodPacketsFields
 
   struct MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS : ftl::mmio::Register<
       0x4043C750u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS_fields_::TXMULTCOLG> {
-    using TXMULTCOLG = MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS_fields_::TXMULTCOLG;
+      MacTxMultipleCollisionGoodPacketsFields::TXMULTCOLG> {
+    using TXMULTCOLG = MacTxMultipleCollisionGoodPacketsFields::TXMULTCOLG;
   };
 
   // Deferred Packets Transmitted
-  struct MAC_TX_DEFERRED_PACKETS_fields_ {
+  struct MacTxDeferredPacketsFields {
     // Tx Deferred Packets This field indicates the number of successfully transmitted after a deferral in the half-duplex mode.
     using TXDEFRD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_DEFERRED_PACKETS_fields_
+  };  // struct MacTxDeferredPacketsFields
 
   struct MAC_TX_DEFERRED_PACKETS : ftl::mmio::Register<
       0x4043C754u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_DEFERRED_PACKETS_fields_::TXDEFRD> {
-    using TXDEFRD = MAC_TX_DEFERRED_PACKETS_fields_::TXDEFRD;
+      MacTxDeferredPacketsFields::TXDEFRD> {
+    using TXDEFRD = MacTxDeferredPacketsFields::TXDEFRD;
   };
 
   // Late Collision Packets Transmitted
-  struct MAC_TX_LATE_COLLISION_PACKETS_fields_ {
+  struct MacTxLateCollisionPacketsFields {
     // Tx Late Collision Packets This field indicates the number of packets aborted because of late collision error.
     using TXLATECOL = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_LATE_COLLISION_PACKETS_fields_
+  };  // struct MacTxLateCollisionPacketsFields
 
   struct MAC_TX_LATE_COLLISION_PACKETS : ftl::mmio::Register<
       0x4043C758u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_LATE_COLLISION_PACKETS_fields_::TXLATECOL> {
-    using TXLATECOL = MAC_TX_LATE_COLLISION_PACKETS_fields_::TXLATECOL;
+      MacTxLateCollisionPacketsFields::TXLATECOL> {
+    using TXLATECOL = MacTxLateCollisionPacketsFields::TXLATECOL;
   };
 
   // Excessive Collision Packets Transmitted
-  struct MAC_TX_EXCESSIVE_COLLISION_PACKETS_fields_ {
+  struct MacTxExcessiveCollisionPacketsFields {
     // Tx Excessive Collision Packets This field indicates the number of packets aborted because of excessive (16) collision errors.
     using TXEXSCOL = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_EXCESSIVE_COLLISION_PACKETS_fields_
+  };  // struct MacTxExcessiveCollisionPacketsFields
 
   struct MAC_TX_EXCESSIVE_COLLISION_PACKETS : ftl::mmio::Register<
       0x4043C75Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_EXCESSIVE_COLLISION_PACKETS_fields_::TXEXSCOL> {
-    using TXEXSCOL = MAC_TX_EXCESSIVE_COLLISION_PACKETS_fields_::TXEXSCOL;
+      MacTxExcessiveCollisionPacketsFields::TXEXSCOL> {
+    using TXEXSCOL = MacTxExcessiveCollisionPacketsFields::TXEXSCOL;
   };
 
   // Carrier Error Packets Transmitted
-  struct MAC_TX_CARRIER_ERROR_PACKETS_fields_ {
+  struct MacTxCarrierErrorPacketsFields {
     // Tx Carrier Error Packets This field indicates the number of packets aborted because of carrier sense error (no carrier or loss of carrier).
     using TXCARR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_CARRIER_ERROR_PACKETS_fields_
+  };  // struct MacTxCarrierErrorPacketsFields
 
   struct MAC_TX_CARRIER_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C760u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_CARRIER_ERROR_PACKETS_fields_::TXCARR> {
-    using TXCARR = MAC_TX_CARRIER_ERROR_PACKETS_fields_::TXCARR;
+      MacTxCarrierErrorPacketsFields::TXCARR> {
+    using TXCARR = MacTxCarrierErrorPacketsFields::TXCARR;
   };
 
   // Bytes Transmitted in Good Packets
-  struct MAC_TX_OCTET_COUNT_GOOD_fields_ {
+  struct MacTxOctetCountGoodFields {
     // Tx Octet Count Good This field indicates the number of bytes transmitted, exclusive of preamble, only in good packets.
     using TXOCTG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_OCTET_COUNT_GOOD_fields_
+  };  // struct MacTxOctetCountGoodFields
 
   struct MAC_TX_OCTET_COUNT_GOOD : ftl::mmio::Register<
       0x4043C764u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_OCTET_COUNT_GOOD_fields_::TXOCTG> {
-    using TXOCTG = MAC_TX_OCTET_COUNT_GOOD_fields_::TXOCTG;
+      MacTxOctetCountGoodFields::TXOCTG> {
+    using TXOCTG = MacTxOctetCountGoodFields::TXOCTG;
   };
 
   // Good Packets Transmitted
-  struct MAC_TX_PACKET_COUNT_GOOD_fields_ {
+  struct MacTxPacketCountGoodFields {
     // Tx Packet Count Good This field indicates the number of good packets transmitted.
     using TXPKTG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_PACKET_COUNT_GOOD_fields_
+  };  // struct MacTxPacketCountGoodFields
 
   struct MAC_TX_PACKET_COUNT_GOOD : ftl::mmio::Register<
       0x4043C768u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_PACKET_COUNT_GOOD_fields_::TXPKTG> {
-    using TXPKTG = MAC_TX_PACKET_COUNT_GOOD_fields_::TXPKTG;
+      MacTxPacketCountGoodFields::TXPKTG> {
+    using TXPKTG = MacTxPacketCountGoodFields::TXPKTG;
   };
 
   // Packets Aborted By Excessive Deferral Error
-  struct MAC_TX_EXCESSIVE_DEFERRAL_ERROR_fields_ {
+  struct MacTxExcessiveDeferralErrorFields {
     // Tx Excessive Deferral Error This field indicates the number of packets aborted because of excessive deferral error (deferred for more than two max-sized packet times).
     using TXEXSDEF = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_EXCESSIVE_DEFERRAL_ERROR_fields_
+  };  // struct MacTxExcessiveDeferralErrorFields
 
   struct MAC_TX_EXCESSIVE_DEFERRAL_ERROR : ftl::mmio::Register<
       0x4043C76Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_EXCESSIVE_DEFERRAL_ERROR_fields_::TXEXSDEF> {
-    using TXEXSDEF = MAC_TX_EXCESSIVE_DEFERRAL_ERROR_fields_::TXEXSDEF;
+      MacTxExcessiveDeferralErrorFields::TXEXSDEF> {
+    using TXEXSDEF = MacTxExcessiveDeferralErrorFields::TXEXSDEF;
   };
 
   // Pause Packets Transmitted
-  struct MAC_TX_PAUSE_PACKETS_fields_ {
+  struct MacTxPausePacketsFields {
     // Tx Pause Packets This field indicates the number of good Pause packets transmitted.
     using TXPAUSE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_PAUSE_PACKETS_fields_
+  };  // struct MacTxPausePacketsFields
 
   struct MAC_TX_PAUSE_PACKETS : ftl::mmio::Register<
       0x4043C770u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_PAUSE_PACKETS_fields_::TXPAUSE> {
-    using TXPAUSE = MAC_TX_PAUSE_PACKETS_fields_::TXPAUSE;
+      MacTxPausePacketsFields::TXPAUSE> {
+    using TXPAUSE = MacTxPausePacketsFields::TXPAUSE;
   };
 
   // Good VLAN Packets Transmitted
-  struct MAC_TX_VLAN_PACKETS_GOOD_fields_ {
+  struct MacTxVlanPacketsGoodFields {
     // Tx VLAN Packets Good This field provides the number of good VLAN packets transmitted.
     using TXVLANG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_VLAN_PACKETS_GOOD_fields_
+  };  // struct MacTxVlanPacketsGoodFields
 
   struct MAC_TX_VLAN_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C774u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_VLAN_PACKETS_GOOD_fields_::TXVLANG> {
-    using TXVLANG = MAC_TX_VLAN_PACKETS_GOOD_fields_::TXVLANG;
+      MacTxVlanPacketsGoodFields::TXVLANG> {
+    using TXVLANG = MacTxVlanPacketsGoodFields::TXVLANG;
   };
 
   // Good Oversize Packets Transmitted
-  struct MAC_TX_OSIZE_PACKETS_GOOD_fields_ {
+  struct MacTxOsizePacketsGoodFields {
     // Tx OSize Packets Good This field indicates the number of packets transmitted without errors and with length greater than the maxsize (1,518 or 1,522 bytes for VLAN tagged packets; 2000 bytes if enabled in S2KP bit of the CONFIGURATION register).
     using TXOSIZG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_OSIZE_PACKETS_GOOD_fields_
+  };  // struct MacTxOsizePacketsGoodFields
 
   struct MAC_TX_OSIZE_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C778u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_OSIZE_PACKETS_GOOD_fields_::TXOSIZG> {
-    using TXOSIZG = MAC_TX_OSIZE_PACKETS_GOOD_fields_::TXOSIZG;
+      MacTxOsizePacketsGoodFields::TXOSIZG> {
+    using TXOSIZG = MacTxOsizePacketsGoodFields::TXOSIZG;
   };
 
   // Good and Bad Packets Received
-  struct MAC_RX_PACKETS_COUNT_GOOD_BAD_fields_ {
+  struct MacRxPacketsCountGoodBadFields {
     // Rx Packets Count Good Bad This field indicates the number of good and bad packets received.
     using RXPKTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_PACKETS_COUNT_GOOD_BAD_fields_
+  };  // struct MacRxPacketsCountGoodBadFields
 
   struct MAC_RX_PACKETS_COUNT_GOOD_BAD : ftl::mmio::Register<
       0x4043C780u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_PACKETS_COUNT_GOOD_BAD_fields_::RXPKTGB> {
-    using RXPKTGB = MAC_RX_PACKETS_COUNT_GOOD_BAD_fields_::RXPKTGB;
+      MacRxPacketsCountGoodBadFields::RXPKTGB> {
+    using RXPKTGB = MacRxPacketsCountGoodBadFields::RXPKTGB;
   };
 
   // Bytes in Good and Bad Packets Received
-  struct MAC_RX_OCTET_COUNT_GOOD_BAD_fields_ {
+  struct MacRxOctetCountGoodBadFields {
     // Rx Octet Count Good Bad This field indicates the number of bytes received, exclusive of preamble, in good and bad packets.
     using RXOCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_OCTET_COUNT_GOOD_BAD_fields_
+  };  // struct MacRxOctetCountGoodBadFields
 
   struct MAC_RX_OCTET_COUNT_GOOD_BAD : ftl::mmio::Register<
       0x4043C784u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_OCTET_COUNT_GOOD_BAD_fields_::RXOCTGB> {
-    using RXOCTGB = MAC_RX_OCTET_COUNT_GOOD_BAD_fields_::RXOCTGB;
+      MacRxOctetCountGoodBadFields::RXOCTGB> {
+    using RXOCTGB = MacRxOctetCountGoodBadFields::RXOCTGB;
   };
 
   // Bytes in Good Packets Received
-  struct MAC_RX_OCTET_COUNT_GOOD_fields_ {
+  struct MacRxOctetCountGoodFields {
     // Rx Octet Count Good This field indicates the number of bytes received, exclusive of preamble, only in good packets.
     using RXOCTG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_OCTET_COUNT_GOOD_fields_
+  };  // struct MacRxOctetCountGoodFields
 
   struct MAC_RX_OCTET_COUNT_GOOD : ftl::mmio::Register<
       0x4043C788u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_OCTET_COUNT_GOOD_fields_::RXOCTG> {
-    using RXOCTG = MAC_RX_OCTET_COUNT_GOOD_fields_::RXOCTG;
+      MacRxOctetCountGoodFields::RXOCTG> {
+    using RXOCTG = MacRxOctetCountGoodFields::RXOCTG;
   };
 
   // Good Broadcast Packets Received
-  struct MAC_RX_BROADCAST_PACKETS_GOOD_fields_ {
+  struct MacRxBroadcastPacketsGoodFields {
     // Rx Broadcast Packets Good This field indicates the number of good broadcast packets received.
     using RXBCASTG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_BROADCAST_PACKETS_GOOD_fields_
+  };  // struct MacRxBroadcastPacketsGoodFields
 
   struct MAC_RX_BROADCAST_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C78Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_BROADCAST_PACKETS_GOOD_fields_::RXBCASTG> {
-    using RXBCASTG = MAC_RX_BROADCAST_PACKETS_GOOD_fields_::RXBCASTG;
+      MacRxBroadcastPacketsGoodFields::RXBCASTG> {
+    using RXBCASTG = MacRxBroadcastPacketsGoodFields::RXBCASTG;
   };
 
   // Good Multicast Packets Received
-  struct MAC_RX_MULTICAST_PACKETS_GOOD_fields_ {
+  struct MacRxMulticastPacketsGoodFields {
     // Rx Multicast Packets Good This field indicates the number of good multicast packets received.
     using RXMCASTG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_MULTICAST_PACKETS_GOOD_fields_
+  };  // struct MacRxMulticastPacketsGoodFields
 
   struct MAC_RX_MULTICAST_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C790u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_MULTICAST_PACKETS_GOOD_fields_::RXMCASTG> {
-    using RXMCASTG = MAC_RX_MULTICAST_PACKETS_GOOD_fields_::RXMCASTG;
+      MacRxMulticastPacketsGoodFields::RXMCASTG> {
+    using RXMCASTG = MacRxMulticastPacketsGoodFields::RXMCASTG;
   };
 
   // CRC Error Packets Received
-  struct MAC_RX_CRC_ERROR_PACKETS_fields_ {
+  struct MacRxCrcErrorPacketsFields {
     // Rx CRC Error Packets This field indicates the number of packets received with CRC error.
     using RXCRCERR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_CRC_ERROR_PACKETS_fields_
+  };  // struct MacRxCrcErrorPacketsFields
 
   struct MAC_RX_CRC_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C794u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_CRC_ERROR_PACKETS_fields_::RXCRCERR> {
-    using RXCRCERR = MAC_RX_CRC_ERROR_PACKETS_fields_::RXCRCERR;
+      MacRxCrcErrorPacketsFields::RXCRCERR> {
+    using RXCRCERR = MacRxCrcErrorPacketsFields::RXCRCERR;
   };
 
   // Alignment Error Packets Received
-  struct MAC_RX_ALIGNMENT_ERROR_PACKETS_fields_ {
+  struct MacRxAlignmentErrorPacketsFields {
     // Rx Alignment Error Packets This field indicates the number of packets received with alignment (dribble) error.
     using RXALGNERR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_ALIGNMENT_ERROR_PACKETS_fields_
+  };  // struct MacRxAlignmentErrorPacketsFields
 
   struct MAC_RX_ALIGNMENT_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C798u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_ALIGNMENT_ERROR_PACKETS_fields_::RXALGNERR> {
-    using RXALGNERR = MAC_RX_ALIGNMENT_ERROR_PACKETS_fields_::RXALGNERR;
+      MacRxAlignmentErrorPacketsFields::RXALGNERR> {
+    using RXALGNERR = MacRxAlignmentErrorPacketsFields::RXALGNERR;
   };
 
   // Runt Error Packets Received
-  struct MAC_RX_RUNT_ERROR_PACKETS_fields_ {
+  struct MacRxRuntErrorPacketsFields {
     // Rx Runt Error Packets This field indicates the number of packets received with runt (length less than 64 bytes and CRC error) error.
     using RXRUNTERR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_RUNT_ERROR_PACKETS_fields_
+  };  // struct MacRxRuntErrorPacketsFields
 
   struct MAC_RX_RUNT_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C79Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_RUNT_ERROR_PACKETS_fields_::RXRUNTERR> {
-    using RXRUNTERR = MAC_RX_RUNT_ERROR_PACKETS_fields_::RXRUNTERR;
+      MacRxRuntErrorPacketsFields::RXRUNTERR> {
+    using RXRUNTERR = MacRxRuntErrorPacketsFields::RXRUNTERR;
   };
 
   // Jabber Error Packets Received
-  struct MAC_RX_JABBER_ERROR_PACKETS_fields_ {
+  struct MacRxJabberErrorPacketsFields {
     // Rx Jabber Error Packets This field indicates the number of giant packets received with length (including CRC) greater than 1,518 bytes (1,522 bytes for VLAN tagged) and with CRC error.
     using RXJABERR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_JABBER_ERROR_PACKETS_fields_
+  };  // struct MacRxJabberErrorPacketsFields
 
   struct MAC_RX_JABBER_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C7A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_JABBER_ERROR_PACKETS_fields_::RXJABERR> {
-    using RXJABERR = MAC_RX_JABBER_ERROR_PACKETS_fields_::RXJABERR;
+      MacRxJabberErrorPacketsFields::RXJABERR> {
+    using RXJABERR = MacRxJabberErrorPacketsFields::RXJABERR;
   };
 
   // Good Undersize Packets Received
-  struct MAC_RX_UNDERSIZE_PACKETS_GOOD_fields_ {
+  struct MacRxUndersizePacketsGoodFields {
     // Rx Undersize Packets Good This field indicates the number of packets received with length less than 64 bytes, without any errors.
     using RXUNDERSZG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_UNDERSIZE_PACKETS_GOOD_fields_
+  };  // struct MacRxUndersizePacketsGoodFields
 
   struct MAC_RX_UNDERSIZE_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C7A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_UNDERSIZE_PACKETS_GOOD_fields_::RXUNDERSZG> {
-    using RXUNDERSZG = MAC_RX_UNDERSIZE_PACKETS_GOOD_fields_::RXUNDERSZG;
+      MacRxUndersizePacketsGoodFields::RXUNDERSZG> {
+    using RXUNDERSZG = MacRxUndersizePacketsGoodFields::RXUNDERSZG;
   };
 
   // Good Oversize Packets Received
-  struct MAC_RX_OVERSIZE_PACKETS_GOOD_fields_ {
+  struct MacRxOversizePacketsGoodFields {
     // Rx Oversize Packets Good This field indicates the number of packets received without errors, with length greater than the maxsize (1,518 bytes or 1,522 bytes for VLAN tagged packets; 2000 bytes if enabled in the S2KP bit of the MAC_CONFIGURATION register).
     using RXOVERSZG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_OVERSIZE_PACKETS_GOOD_fields_
+  };  // struct MacRxOversizePacketsGoodFields
 
   struct MAC_RX_OVERSIZE_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C7A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_OVERSIZE_PACKETS_GOOD_fields_::RXOVERSZG> {
-    using RXOVERSZG = MAC_RX_OVERSIZE_PACKETS_GOOD_fields_::RXOVERSZG;
+      MacRxOversizePacketsGoodFields::RXOVERSZG> {
+    using RXOVERSZG = MacRxOversizePacketsGoodFields::RXOVERSZG;
   };
 
   // Good and Bad 64-Byte Packets Received
-  struct MAC_RX_64OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacRx64octetsPacketsGoodBadFields {
     // Rx 64 Octets Packets Good Bad This field indicates the number of good and bad packets received with length 64 bytes, exclusive of the preamble.
     using RX64OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_64OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacRx64octetsPacketsGoodBadFields
 
   struct MAC_RX_64OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C7ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_64OCTETS_PACKETS_GOOD_BAD_fields_::RX64OCTGB> {
-    using RX64OCTGB = MAC_RX_64OCTETS_PACKETS_GOOD_BAD_fields_::RX64OCTGB;
+      MacRx64octetsPacketsGoodBadFields::RX64OCTGB> {
+    using RX64OCTGB = MacRx64octetsPacketsGoodBadFields::RX64OCTGB;
   };
 
   // Good and Bad 64-to-127 Byte Packets Received
-  struct MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacRx65to127octetsPacketsGoodBadFields {
     // Rx 65-127 Octets Packets Good Bad This field indicates the number of good and bad packets received with length between 65 and 127 (inclusive) bytes, exclusive of the preamble.
     using RX65_127OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacRx65to127octetsPacketsGoodBadFields
 
   struct MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C7B0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_::RX65_127OCTGB> {
-    using RX65_127OCTGB = MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_::RX65_127OCTGB;
+      MacRx65to127octetsPacketsGoodBadFields::RX65_127OCTGB> {
+    using RX65_127OCTGB = MacRx65to127octetsPacketsGoodBadFields::RX65_127OCTGB;
   };
 
   // Good and Bad 128-to-255 Byte Packets Received
-  struct MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacRx128to255octetsPacketsGoodBadFields {
     // Rx 128-255 Octets Packets Good Bad This field indicates the number of good and bad packets received with length between 128 and 255 (inclusive) bytes, exclusive of the preamble.
     using RX128_255OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacRx128to255octetsPacketsGoodBadFields
 
   struct MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C7B4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_::RX128_255OCTGB> {
-    using RX128_255OCTGB = MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_::RX128_255OCTGB;
+      MacRx128to255octetsPacketsGoodBadFields::RX128_255OCTGB> {
+    using RX128_255OCTGB = MacRx128to255octetsPacketsGoodBadFields::RX128_255OCTGB;
   };
 
   // Good and Bad 256-to-511 Byte Packets Received
-  struct MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacRx256to511octetsPacketsGoodBadFields {
     // Rx 256-511 Octets Packets Good Bad This field indicates the number of good and bad packets received with length between 256 and 511 (inclusive) bytes, exclusive of the preamble.
     using RX256_511OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacRx256to511octetsPacketsGoodBadFields
 
   struct MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C7B8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_::RX256_511OCTGB> {
-    using RX256_511OCTGB = MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_::RX256_511OCTGB;
+      MacRx256to511octetsPacketsGoodBadFields::RX256_511OCTGB> {
+    using RX256_511OCTGB = MacRx256to511octetsPacketsGoodBadFields::RX256_511OCTGB;
   };
 
   // Good and Bad 512-to-1023 Byte Packets Received
-  struct MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacRx512to1023octetsPacketsGoodBadFields {
     // RX 512-1023 Octets Packets Good Bad This field indicates the number of good and bad packets received with length between 512 and 1023 (inclusive) bytes, exclusive of the preamble.
     using RX512_1023OCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacRx512to1023octetsPacketsGoodBadFields
 
   struct MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C7BCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_::RX512_1023OCTGB> {
-    using RX512_1023OCTGB = MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_::RX512_1023OCTGB;
+      MacRx512to1023octetsPacketsGoodBadFields::RX512_1023OCTGB> {
+    using RX512_1023OCTGB = MacRx512to1023octetsPacketsGoodBadFields::RX512_1023OCTGB;
   };
 
   // Good and Bad 1024-to-Max Byte Packets Received
-  struct MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_ {
+  struct MacRx1024tomaxoctetsPacketsGoodBadFields {
     // Rx 1024-Max Octets Good Bad This field indicates the number of good and bad packets received with length between 1024 and maxsize (inclusive) bytes, exclusive of the preamble.
     using RX1024_MAXOCTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_
+  };  // struct MacRx1024tomaxoctetsPacketsGoodBadFields
 
   struct MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C7C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_::RX1024_MAXOCTGB> {
-    using RX1024_MAXOCTGB = MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_::RX1024_MAXOCTGB;
+      MacRx1024tomaxoctetsPacketsGoodBadFields::RX1024_MAXOCTGB> {
+    using RX1024_MAXOCTGB = MacRx1024tomaxoctetsPacketsGoodBadFields::RX1024_MAXOCTGB;
   };
 
   // Good Unicast Packets Received
-  struct MAC_RX_UNICAST_PACKETS_GOOD_fields_ {
+  struct MacRxUnicastPacketsGoodFields {
     // Rx Unicast Packets Good This field indicates the number of good unicast packets received.
     using RXUCASTG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_UNICAST_PACKETS_GOOD_fields_
+  };  // struct MacRxUnicastPacketsGoodFields
 
   struct MAC_RX_UNICAST_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C7C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_UNICAST_PACKETS_GOOD_fields_::RXUCASTG> {
-    using RXUCASTG = MAC_RX_UNICAST_PACKETS_GOOD_fields_::RXUCASTG;
+      MacRxUnicastPacketsGoodFields::RXUCASTG> {
+    using RXUCASTG = MacRxUnicastPacketsGoodFields::RXUCASTG;
   };
 
   // Length Error Packets Received
-  struct MAC_RX_LENGTH_ERROR_PACKETS_fields_ {
+  struct MacRxLengthErrorPacketsFields {
     // Rx Length Error Packets This field indicates the number of packets received with length error (Length Type field not equal to packet size), for all packets with valid length field.
     using RXLENERR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_LENGTH_ERROR_PACKETS_fields_
+  };  // struct MacRxLengthErrorPacketsFields
 
   struct MAC_RX_LENGTH_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C7C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_LENGTH_ERROR_PACKETS_fields_::RXLENERR> {
-    using RXLENERR = MAC_RX_LENGTH_ERROR_PACKETS_fields_::RXLENERR;
+      MacRxLengthErrorPacketsFields::RXLENERR> {
+    using RXLENERR = MacRxLengthErrorPacketsFields::RXLENERR;
   };
 
   // Out-of-range Type Packets Received
-  struct MAC_RX_OUT_OF_RANGE_TYPE_PACKETS_fields_ {
+  struct MacRxOutOfRangeTypePacketsFields {
     // Rx Out of Range Type Packet This field indicates the number of packets received with length field not equal to the valid packet size (greater than 1,500 but less than 1,536).
     using RXOUTOFRNG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_OUT_OF_RANGE_TYPE_PACKETS_fields_
+  };  // struct MacRxOutOfRangeTypePacketsFields
 
   struct MAC_RX_OUT_OF_RANGE_TYPE_PACKETS : ftl::mmio::Register<
       0x4043C7CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_OUT_OF_RANGE_TYPE_PACKETS_fields_::RXOUTOFRNG> {
-    using RXOUTOFRNG = MAC_RX_OUT_OF_RANGE_TYPE_PACKETS_fields_::RXOUTOFRNG;
+      MacRxOutOfRangeTypePacketsFields::RXOUTOFRNG> {
+    using RXOUTOFRNG = MacRxOutOfRangeTypePacketsFields::RXOUTOFRNG;
   };
 
   // Pause Packets Received
-  struct MAC_RX_PAUSE_PACKETS_fields_ {
+  struct MacRxPausePacketsFields {
     // Rx Pause Packets This field indicates the number of good and valid Pause packets received.
     using RXPAUSEPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_PAUSE_PACKETS_fields_
+  };  // struct MacRxPausePacketsFields
 
   struct MAC_RX_PAUSE_PACKETS : ftl::mmio::Register<
       0x4043C7D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_PAUSE_PACKETS_fields_::RXPAUSEPKT> {
-    using RXPAUSEPKT = MAC_RX_PAUSE_PACKETS_fields_::RXPAUSEPKT;
+      MacRxPausePacketsFields::RXPAUSEPKT> {
+    using RXPAUSEPKT = MacRxPausePacketsFields::RXPAUSEPKT;
   };
 
   // Missed Packets Due to FIFO Overflow
-  struct MAC_RX_FIFO_OVERFLOW_PACKETS_fields_ {
+  struct MacRxFifoOverflowPacketsFields {
     // Rx FIFO Overflow Packets This field indicates the number of missed received packets because of FIFO overflow.
     using RXFIFOOVFL = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_FIFO_OVERFLOW_PACKETS_fields_
+  };  // struct MacRxFifoOverflowPacketsFields
 
   struct MAC_RX_FIFO_OVERFLOW_PACKETS : ftl::mmio::Register<
       0x4043C7D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_FIFO_OVERFLOW_PACKETS_fields_::RXFIFOOVFL> {
-    using RXFIFOOVFL = MAC_RX_FIFO_OVERFLOW_PACKETS_fields_::RXFIFOOVFL;
+      MacRxFifoOverflowPacketsFields::RXFIFOOVFL> {
+    using RXFIFOOVFL = MacRxFifoOverflowPacketsFields::RXFIFOOVFL;
   };
 
   // Good and Bad VLAN Packets Received
-  struct MAC_RX_VLAN_PACKETS_GOOD_BAD_fields_ {
+  struct MacRxVlanPacketsGoodBadFields {
     // Rx VLAN Packets Good Bad This field indicates the number of good and bad VLAN packets received.
     using RXVLANPKTGB = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_VLAN_PACKETS_GOOD_BAD_fields_
+  };  // struct MacRxVlanPacketsGoodBadFields
 
   struct MAC_RX_VLAN_PACKETS_GOOD_BAD : ftl::mmio::Register<
       0x4043C7D8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_VLAN_PACKETS_GOOD_BAD_fields_::RXVLANPKTGB> {
-    using RXVLANPKTGB = MAC_RX_VLAN_PACKETS_GOOD_BAD_fields_::RXVLANPKTGB;
+      MacRxVlanPacketsGoodBadFields::RXVLANPKTGB> {
+    using RXVLANPKTGB = MacRxVlanPacketsGoodBadFields::RXVLANPKTGB;
   };
 
   // Watchdog Error Packets Received
-  struct MAC_RX_WATCHDOG_ERROR_PACKETS_fields_ {
+  struct MacRxWatchdogErrorPacketsFields {
     // Rx Watchdog Error Packets This field indicates the number of packets received with error because of watchdog timeout error (packets with a data load larger than 2,048 bytes (when JE and WD bits are reset in MAC_CONFIGURATION register), 10,240 bytes (when JE bit is set and WD bit is reset in MAC_CONFIGURATION register), 16,384 bytes (when WD bit is set in MAC_CONFIGURATION register) or the value programmed in the MAC_WATCHDOG_TIMEOUT register).
     using RXWDGERR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_WATCHDOG_ERROR_PACKETS_fields_
+  };  // struct MacRxWatchdogErrorPacketsFields
 
   struct MAC_RX_WATCHDOG_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C7DCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_WATCHDOG_ERROR_PACKETS_fields_::RXWDGERR> {
-    using RXWDGERR = MAC_RX_WATCHDOG_ERROR_PACKETS_fields_::RXWDGERR;
+      MacRxWatchdogErrorPacketsFields::RXWDGERR> {
+    using RXWDGERR = MacRxWatchdogErrorPacketsFields::RXWDGERR;
   };
 
   // Receive Error Packets Received
-  struct MAC_RX_RECEIVE_ERROR_PACKETS_fields_ {
+  struct MacRxReceiveErrorPacketsFields {
     // Rx Receive Error Packets This field indicates the number of packets received with Receive error or Packet Extension error on the GMII or MII interface.
     using RXRCVERR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_RECEIVE_ERROR_PACKETS_fields_
+  };  // struct MacRxReceiveErrorPacketsFields
 
   struct MAC_RX_RECEIVE_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C7E0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_RECEIVE_ERROR_PACKETS_fields_::RXRCVERR> {
-    using RXRCVERR = MAC_RX_RECEIVE_ERROR_PACKETS_fields_::RXRCVERR;
+      MacRxReceiveErrorPacketsFields::RXRCVERR> {
+    using RXRCVERR = MacRxReceiveErrorPacketsFields::RXRCVERR;
   };
 
   // Good Control Packets Received
-  struct MAC_RX_CONTROL_PACKETS_GOOD_fields_ {
+  struct MacRxControlPacketsGoodFields {
     // Rx Control Packets Good This field indicates the number of good control packets received.
     using RXCTRLG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_CONTROL_PACKETS_GOOD_fields_
+  };  // struct MacRxControlPacketsGoodFields
 
   struct MAC_RX_CONTROL_PACKETS_GOOD : ftl::mmio::Register<
       0x4043C7E4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_CONTROL_PACKETS_GOOD_fields_::RXCTRLG> {
-    using RXCTRLG = MAC_RX_CONTROL_PACKETS_GOOD_fields_::RXCTRLG;
+      MacRxControlPacketsGoodFields::RXCTRLG> {
+    using RXCTRLG = MacRxControlPacketsGoodFields::RXCTRLG;
   };
 
   // Microseconds Tx LPI Asserted
-  struct MAC_TX_LPI_USEC_CNTR_fields_ {
+  struct MacTxLpiUsecCntrFields {
     // Tx LPI Microseconds Counter This field indicates the number of microseconds Tx LPI is asserted.
     using TXLPIUSC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_LPI_USEC_CNTR_fields_
+  };  // struct MacTxLpiUsecCntrFields
 
   struct MAC_TX_LPI_USEC_CNTR : ftl::mmio::Register<
       0x4043C7ECu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_LPI_USEC_CNTR_fields_::TXLPIUSC> {
-    using TXLPIUSC = MAC_TX_LPI_USEC_CNTR_fields_::TXLPIUSC;
+      MacTxLpiUsecCntrFields::TXLPIUSC> {
+    using TXLPIUSC = MacTxLpiUsecCntrFields::TXLPIUSC;
   };
 
   // Number of Times Tx LPI Asserted
-  struct MAC_TX_LPI_TRAN_CNTR_fields_ {
+  struct MacTxLpiTranCntrFields {
     // Tx LPI Transition counter This field indicates the number of times Tx LPI Entry has occurred.
     using TXLPITRC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_LPI_TRAN_CNTR_fields_
+  };  // struct MacTxLpiTranCntrFields
 
   struct MAC_TX_LPI_TRAN_CNTR : ftl::mmio::Register<
       0x4043C7F0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_LPI_TRAN_CNTR_fields_::TXLPITRC> {
-    using TXLPITRC = MAC_TX_LPI_TRAN_CNTR_fields_::TXLPITRC;
+      MacTxLpiTranCntrFields::TXLPITRC> {
+    using TXLPITRC = MacTxLpiTranCntrFields::TXLPITRC;
   };
 
   // Microseconds Rx LPI Sampled
-  struct MAC_RX_LPI_USEC_CNTR_fields_ {
+  struct MacRxLpiUsecCntrFields {
     // Rx LPI Microseconds Counter This field indicates the number of microseconds Rx LPI is asserted.
     using RXLPIUSC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_LPI_USEC_CNTR_fields_
+  };  // struct MacRxLpiUsecCntrFields
 
   struct MAC_RX_LPI_USEC_CNTR : ftl::mmio::Register<
       0x4043C7F4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_LPI_USEC_CNTR_fields_::RXLPIUSC> {
-    using RXLPIUSC = MAC_RX_LPI_USEC_CNTR_fields_::RXLPIUSC;
+      MacRxLpiUsecCntrFields::RXLPIUSC> {
+    using RXLPIUSC = MacRxLpiUsecCntrFields::RXLPIUSC;
   };
 
   // Number of Times Rx LPI Entered
-  struct MAC_RX_LPI_TRAN_CNTR_fields_ {
+  struct MacRxLpiTranCntrFields {
     // Rx LPI Transition counter This field indicates the number of times Rx LPI Entry has occurred.
     using RXLPITRC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RX_LPI_TRAN_CNTR_fields_
+  };  // struct MacRxLpiTranCntrFields
 
   struct MAC_RX_LPI_TRAN_CNTR : ftl::mmio::Register<
       0x4043C7F8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RX_LPI_TRAN_CNTR_fields_::RXLPITRC> {
-    using RXLPITRC = MAC_RX_LPI_TRAN_CNTR_fields_::RXLPITRC;
+      MacRxLpiTranCntrFields::RXLPITRC> {
+    using RXLPITRC = MacRxLpiTranCntrFields::RXLPITRC;
   };
 
   // MMC IPC Receive Interrupt Mask
-  struct MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_ {
+  struct MacMmcIpcRxInterruptMaskFields {
     enum class eRXIPV4GPIM : std::uint32_t {
       // MMC Receive IPV4 Good Packet Counter Interrupt Mask is disabled
       eDISABLE = 0,
@@ -10056,103 +10056,103 @@ struct EnetQos {
     using RXICMPGOIM = ftl::mmio::Field<1, 28, eRXICMPGOIM, ftl::mmio::RW, ftl::mmio::Normal>;
     // MMC Receive ICMP Error Octet Counter Interrupt Mask Setting this bit masks the interrupt when the rxicmp_err_octets counter reaches half of the maximum value or the maximum value.
     using RXICMPEROIM = ftl::mmio::Field<1, 29, eRXICMPEROIM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_
+  };  // struct MacMmcIpcRxInterruptMaskFields
 
   struct MAC_MMC_IPC_RX_INTERRUPT_MASK : ftl::mmio::Register<
       0x4043C800u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4GPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4HERPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4NOPAYPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4FRAGPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4UDSBLPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6GPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6HERPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6NOPAYPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXUDPGPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXUDPERPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXTCPGPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXTCPERPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPGPIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPERPIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4GPIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4HERPIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4NOPAYPIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4FRAGPIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4UDSBLPIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV6GPIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV6HERPIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV6NOPAYPIM,
+      MacMmcIpcRxInterruptMaskFields::RXUDPGPIM,
+      MacMmcIpcRxInterruptMaskFields::RXUDPERPIM,
+      MacMmcIpcRxInterruptMaskFields::RXTCPGPIM,
+      MacMmcIpcRxInterruptMaskFields::RXTCPERPIM,
+      MacMmcIpcRxInterruptMaskFields::RXICMPGPIM,
+      MacMmcIpcRxInterruptMaskFields::RXICMPERPIM,
       ftl::mmio::Reserved<2, 14>,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4GOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4HEROIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4NOPAYOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4FRAGOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4UDSBLOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6GOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6HEROIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6NOPAYOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXUDPGOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXUDPEROIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXTCPGOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXTCPEROIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPGOIM,
-      MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPEROIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4GOIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4HEROIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4NOPAYOIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4FRAGOIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV4UDSBLOIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV6GOIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV6HEROIM,
+      MacMmcIpcRxInterruptMaskFields::RXIPV6NOPAYOIM,
+      MacMmcIpcRxInterruptMaskFields::RXUDPGOIM,
+      MacMmcIpcRxInterruptMaskFields::RXUDPEROIM,
+      MacMmcIpcRxInterruptMaskFields::RXTCPGOIM,
+      MacMmcIpcRxInterruptMaskFields::RXTCPEROIM,
+      MacMmcIpcRxInterruptMaskFields::RXICMPGOIM,
+      MacMmcIpcRxInterruptMaskFields::RXICMPEROIM,
       ftl::mmio::Reserved<2, 30>> {
-    using eRXIPV4GPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4GPIM;
-    using eRXIPV4HERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4HERPIM;
-    using eRXIPV4NOPAYPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4NOPAYPIM;
-    using eRXIPV4FRAGPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4FRAGPIM;
-    using eRXIPV4UDSBLPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4UDSBLPIM;
-    using eRXIPV6GPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV6GPIM;
-    using eRXIPV6HERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV6HERPIM;
-    using eRXIPV6NOPAYPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV6NOPAYPIM;
-    using eRXUDPGPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXUDPGPIM;
-    using eRXUDPERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXUDPERPIM;
-    using eRXTCPGPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXTCPGPIM;
-    using eRXTCPERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXTCPERPIM;
-    using eRXICMPGPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXICMPGPIM;
-    using eRXICMPERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXICMPERPIM;
-    using eRXIPV4GOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4GOIM;
-    using eRXIPV4HEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4HEROIM;
-    using eRXIPV4NOPAYOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4NOPAYOIM;
-    using eRXIPV4FRAGOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4FRAGOIM;
-    using eRXIPV4UDSBLOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV4UDSBLOIM;
-    using eRXIPV6GOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV6GOIM;
-    using eRXIPV6HEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV6HEROIM;
-    using eRXIPV6NOPAYOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXIPV6NOPAYOIM;
-    using eRXUDPGOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXUDPGOIM;
-    using eRXUDPEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXUDPEROIM;
-    using eRXTCPGOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXTCPGOIM;
-    using eRXTCPEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXTCPEROIM;
-    using eRXICMPGOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXICMPGOIM;
-    using eRXICMPEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::eRXICMPEROIM;
-    using RXIPV4GPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4GPIM;
-    using RXIPV4HERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4HERPIM;
-    using RXIPV4NOPAYPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4NOPAYPIM;
-    using RXIPV4FRAGPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4FRAGPIM;
-    using RXIPV4UDSBLPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4UDSBLPIM;
-    using RXIPV6GPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6GPIM;
-    using RXIPV6HERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6HERPIM;
-    using RXIPV6NOPAYPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6NOPAYPIM;
-    using RXUDPGPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXUDPGPIM;
-    using RXUDPERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXUDPERPIM;
-    using RXTCPGPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXTCPGPIM;
-    using RXTCPERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXTCPERPIM;
-    using RXICMPGPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPGPIM;
-    using RXICMPERPIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPERPIM;
-    using RXIPV4GOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4GOIM;
-    using RXIPV4HEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4HEROIM;
-    using RXIPV4NOPAYOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4NOPAYOIM;
-    using RXIPV4FRAGOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4FRAGOIM;
-    using RXIPV4UDSBLOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV4UDSBLOIM;
-    using RXIPV6GOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6GOIM;
-    using RXIPV6HEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6HEROIM;
-    using RXIPV6NOPAYOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXIPV6NOPAYOIM;
-    using RXUDPGOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXUDPGOIM;
-    using RXUDPEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXUDPEROIM;
-    using RXTCPGOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXTCPGOIM;
-    using RXTCPEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXTCPEROIM;
-    using RXICMPGOIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPGOIM;
-    using RXICMPEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPEROIM;
+    using eRXIPV4GPIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4GPIM;
+    using eRXIPV4HERPIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4HERPIM;
+    using eRXIPV4NOPAYPIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4NOPAYPIM;
+    using eRXIPV4FRAGPIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4FRAGPIM;
+    using eRXIPV4UDSBLPIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4UDSBLPIM;
+    using eRXIPV6GPIM = MacMmcIpcRxInterruptMaskFields::eRXIPV6GPIM;
+    using eRXIPV6HERPIM = MacMmcIpcRxInterruptMaskFields::eRXIPV6HERPIM;
+    using eRXIPV6NOPAYPIM = MacMmcIpcRxInterruptMaskFields::eRXIPV6NOPAYPIM;
+    using eRXUDPGPIM = MacMmcIpcRxInterruptMaskFields::eRXUDPGPIM;
+    using eRXUDPERPIM = MacMmcIpcRxInterruptMaskFields::eRXUDPERPIM;
+    using eRXTCPGPIM = MacMmcIpcRxInterruptMaskFields::eRXTCPGPIM;
+    using eRXTCPERPIM = MacMmcIpcRxInterruptMaskFields::eRXTCPERPIM;
+    using eRXICMPGPIM = MacMmcIpcRxInterruptMaskFields::eRXICMPGPIM;
+    using eRXICMPERPIM = MacMmcIpcRxInterruptMaskFields::eRXICMPERPIM;
+    using eRXIPV4GOIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4GOIM;
+    using eRXIPV4HEROIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4HEROIM;
+    using eRXIPV4NOPAYOIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4NOPAYOIM;
+    using eRXIPV4FRAGOIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4FRAGOIM;
+    using eRXIPV4UDSBLOIM = MacMmcIpcRxInterruptMaskFields::eRXIPV4UDSBLOIM;
+    using eRXIPV6GOIM = MacMmcIpcRxInterruptMaskFields::eRXIPV6GOIM;
+    using eRXIPV6HEROIM = MacMmcIpcRxInterruptMaskFields::eRXIPV6HEROIM;
+    using eRXIPV6NOPAYOIM = MacMmcIpcRxInterruptMaskFields::eRXIPV6NOPAYOIM;
+    using eRXUDPGOIM = MacMmcIpcRxInterruptMaskFields::eRXUDPGOIM;
+    using eRXUDPEROIM = MacMmcIpcRxInterruptMaskFields::eRXUDPEROIM;
+    using eRXTCPGOIM = MacMmcIpcRxInterruptMaskFields::eRXTCPGOIM;
+    using eRXTCPEROIM = MacMmcIpcRxInterruptMaskFields::eRXTCPEROIM;
+    using eRXICMPGOIM = MacMmcIpcRxInterruptMaskFields::eRXICMPGOIM;
+    using eRXICMPEROIM = MacMmcIpcRxInterruptMaskFields::eRXICMPEROIM;
+    using RXIPV4GPIM = MacMmcIpcRxInterruptMaskFields::RXIPV4GPIM;
+    using RXIPV4HERPIM = MacMmcIpcRxInterruptMaskFields::RXIPV4HERPIM;
+    using RXIPV4NOPAYPIM = MacMmcIpcRxInterruptMaskFields::RXIPV4NOPAYPIM;
+    using RXIPV4FRAGPIM = MacMmcIpcRxInterruptMaskFields::RXIPV4FRAGPIM;
+    using RXIPV4UDSBLPIM = MacMmcIpcRxInterruptMaskFields::RXIPV4UDSBLPIM;
+    using RXIPV6GPIM = MacMmcIpcRxInterruptMaskFields::RXIPV6GPIM;
+    using RXIPV6HERPIM = MacMmcIpcRxInterruptMaskFields::RXIPV6HERPIM;
+    using RXIPV6NOPAYPIM = MacMmcIpcRxInterruptMaskFields::RXIPV6NOPAYPIM;
+    using RXUDPGPIM = MacMmcIpcRxInterruptMaskFields::RXUDPGPIM;
+    using RXUDPERPIM = MacMmcIpcRxInterruptMaskFields::RXUDPERPIM;
+    using RXTCPGPIM = MacMmcIpcRxInterruptMaskFields::RXTCPGPIM;
+    using RXTCPERPIM = MacMmcIpcRxInterruptMaskFields::RXTCPERPIM;
+    using RXICMPGPIM = MacMmcIpcRxInterruptMaskFields::RXICMPGPIM;
+    using RXICMPERPIM = MacMmcIpcRxInterruptMaskFields::RXICMPERPIM;
+    using RXIPV4GOIM = MacMmcIpcRxInterruptMaskFields::RXIPV4GOIM;
+    using RXIPV4HEROIM = MacMmcIpcRxInterruptMaskFields::RXIPV4HEROIM;
+    using RXIPV4NOPAYOIM = MacMmcIpcRxInterruptMaskFields::RXIPV4NOPAYOIM;
+    using RXIPV4FRAGOIM = MacMmcIpcRxInterruptMaskFields::RXIPV4FRAGOIM;
+    using RXIPV4UDSBLOIM = MacMmcIpcRxInterruptMaskFields::RXIPV4UDSBLOIM;
+    using RXIPV6GOIM = MacMmcIpcRxInterruptMaskFields::RXIPV6GOIM;
+    using RXIPV6HEROIM = MacMmcIpcRxInterruptMaskFields::RXIPV6HEROIM;
+    using RXIPV6NOPAYOIM = MacMmcIpcRxInterruptMaskFields::RXIPV6NOPAYOIM;
+    using RXUDPGOIM = MacMmcIpcRxInterruptMaskFields::RXUDPGOIM;
+    using RXUDPEROIM = MacMmcIpcRxInterruptMaskFields::RXUDPEROIM;
+    using RXTCPGOIM = MacMmcIpcRxInterruptMaskFields::RXTCPGOIM;
+    using RXTCPEROIM = MacMmcIpcRxInterruptMaskFields::RXTCPEROIM;
+    using RXICMPGOIM = MacMmcIpcRxInterruptMaskFields::RXICMPGOIM;
+    using RXICMPEROIM = MacMmcIpcRxInterruptMaskFields::RXICMPEROIM;
   };
 
   // MMC IPC Receive Interrupt
-  struct MAC_MMC_IPC_RX_INTERRUPT_fields_ {
+  struct MacMmcIpcRxInterruptFields {
     enum class eRXIPV4GPIS : std::uint32_t {
       // MMC Receive IPV4 Good Packet Counter Interrupt Status not detected
       eINACTIVE = 0,
@@ -10405,523 +10405,523 @@ struct EnetQos {
     using RXICMPGOIS = ftl::mmio::Field<1, 28, eRXICMPGOIS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MMC Receive ICMP Error Octet Counter Interrupt Status This bit is set when the rxicmp_err_octets counter reaches half of the maximum value or the maximum value.
     using RXICMPEROIS = ftl::mmio::Field<1, 29, eRXICMPEROIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_IPC_RX_INTERRUPT_fields_
+  };  // struct MacMmcIpcRxInterruptFields
 
   struct MAC_MMC_IPC_RX_INTERRUPT : ftl::mmio::Register<
       0x4043C808u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4GPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4HERPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4NOPAYPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4FRAGPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4UDSBLPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6GPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6HERPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6NOPAYPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXUDPGPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXUDPERPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXTCPGPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXTCPERPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPGPIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPERPIS,
+      MacMmcIpcRxInterruptFields::RXIPV4GPIS,
+      MacMmcIpcRxInterruptFields::RXIPV4HERPIS,
+      MacMmcIpcRxInterruptFields::RXIPV4NOPAYPIS,
+      MacMmcIpcRxInterruptFields::RXIPV4FRAGPIS,
+      MacMmcIpcRxInterruptFields::RXIPV4UDSBLPIS,
+      MacMmcIpcRxInterruptFields::RXIPV6GPIS,
+      MacMmcIpcRxInterruptFields::RXIPV6HERPIS,
+      MacMmcIpcRxInterruptFields::RXIPV6NOPAYPIS,
+      MacMmcIpcRxInterruptFields::RXUDPGPIS,
+      MacMmcIpcRxInterruptFields::RXUDPERPIS,
+      MacMmcIpcRxInterruptFields::RXTCPGPIS,
+      MacMmcIpcRxInterruptFields::RXTCPERPIS,
+      MacMmcIpcRxInterruptFields::RXICMPGPIS,
+      MacMmcIpcRxInterruptFields::RXICMPERPIS,
       ftl::mmio::Reserved<2, 14>,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4GOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4HEROIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4NOPAYOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4FRAGOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4UDSBLOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6GOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6HEROIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6NOPAYOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXUDPGOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXUDPEROIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXTCPGOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXTCPEROIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPGOIS,
-      MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPEROIS,
+      MacMmcIpcRxInterruptFields::RXIPV4GOIS,
+      MacMmcIpcRxInterruptFields::RXIPV4HEROIS,
+      MacMmcIpcRxInterruptFields::RXIPV4NOPAYOIS,
+      MacMmcIpcRxInterruptFields::RXIPV4FRAGOIS,
+      MacMmcIpcRxInterruptFields::RXIPV4UDSBLOIS,
+      MacMmcIpcRxInterruptFields::RXIPV6GOIS,
+      MacMmcIpcRxInterruptFields::RXIPV6HEROIS,
+      MacMmcIpcRxInterruptFields::RXIPV6NOPAYOIS,
+      MacMmcIpcRxInterruptFields::RXUDPGOIS,
+      MacMmcIpcRxInterruptFields::RXUDPEROIS,
+      MacMmcIpcRxInterruptFields::RXTCPGOIS,
+      MacMmcIpcRxInterruptFields::RXTCPEROIS,
+      MacMmcIpcRxInterruptFields::RXICMPGOIS,
+      MacMmcIpcRxInterruptFields::RXICMPEROIS,
       ftl::mmio::Reserved<2, 30>> {
-    using eRXIPV4GPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4GPIS;
-    using eRXIPV4HERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4HERPIS;
-    using eRXIPV4NOPAYPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4NOPAYPIS;
-    using eRXIPV4FRAGPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4FRAGPIS;
-    using eRXIPV4UDSBLPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4UDSBLPIS;
-    using eRXIPV6GPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV6GPIS;
-    using eRXIPV6HERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV6HERPIS;
-    using eRXIPV6NOPAYPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV6NOPAYPIS;
-    using eRXUDPGPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXUDPGPIS;
-    using eRXUDPERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXUDPERPIS;
-    using eRXTCPGPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXTCPGPIS;
-    using eRXTCPERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXTCPERPIS;
-    using eRXICMPGPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXICMPGPIS;
-    using eRXICMPERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXICMPERPIS;
-    using eRXIPV4GOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4GOIS;
-    using eRXIPV4HEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4HEROIS;
-    using eRXIPV4NOPAYOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4NOPAYOIS;
-    using eRXIPV4FRAGOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4FRAGOIS;
-    using eRXIPV4UDSBLOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV4UDSBLOIS;
-    using eRXIPV6GOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV6GOIS;
-    using eRXIPV6HEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV6HEROIS;
-    using eRXIPV6NOPAYOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXIPV6NOPAYOIS;
-    using eRXUDPGOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXUDPGOIS;
-    using eRXUDPEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXUDPEROIS;
-    using eRXTCPGOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXTCPGOIS;
-    using eRXTCPEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXTCPEROIS;
-    using eRXICMPGOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXICMPGOIS;
-    using eRXICMPEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::eRXICMPEROIS;
-    using RXIPV4GPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4GPIS;
-    using RXIPV4HERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4HERPIS;
-    using RXIPV4NOPAYPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4NOPAYPIS;
-    using RXIPV4FRAGPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4FRAGPIS;
-    using RXIPV4UDSBLPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4UDSBLPIS;
-    using RXIPV6GPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6GPIS;
-    using RXIPV6HERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6HERPIS;
-    using RXIPV6NOPAYPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6NOPAYPIS;
-    using RXUDPGPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXUDPGPIS;
-    using RXUDPERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXUDPERPIS;
-    using RXTCPGPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXTCPGPIS;
-    using RXTCPERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXTCPERPIS;
-    using RXICMPGPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPGPIS;
-    using RXICMPERPIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPERPIS;
-    using RXIPV4GOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4GOIS;
-    using RXIPV4HEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4HEROIS;
-    using RXIPV4NOPAYOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4NOPAYOIS;
-    using RXIPV4FRAGOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4FRAGOIS;
-    using RXIPV4UDSBLOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV4UDSBLOIS;
-    using RXIPV6GOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6GOIS;
-    using RXIPV6HEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6HEROIS;
-    using RXIPV6NOPAYOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXIPV6NOPAYOIS;
-    using RXUDPGOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXUDPGOIS;
-    using RXUDPEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXUDPEROIS;
-    using RXTCPGOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXTCPGOIS;
-    using RXTCPEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXTCPEROIS;
-    using RXICMPGOIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPGOIS;
-    using RXICMPEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPEROIS;
+    using eRXIPV4GPIS = MacMmcIpcRxInterruptFields::eRXIPV4GPIS;
+    using eRXIPV4HERPIS = MacMmcIpcRxInterruptFields::eRXIPV4HERPIS;
+    using eRXIPV4NOPAYPIS = MacMmcIpcRxInterruptFields::eRXIPV4NOPAYPIS;
+    using eRXIPV4FRAGPIS = MacMmcIpcRxInterruptFields::eRXIPV4FRAGPIS;
+    using eRXIPV4UDSBLPIS = MacMmcIpcRxInterruptFields::eRXIPV4UDSBLPIS;
+    using eRXIPV6GPIS = MacMmcIpcRxInterruptFields::eRXIPV6GPIS;
+    using eRXIPV6HERPIS = MacMmcIpcRxInterruptFields::eRXIPV6HERPIS;
+    using eRXIPV6NOPAYPIS = MacMmcIpcRxInterruptFields::eRXIPV6NOPAYPIS;
+    using eRXUDPGPIS = MacMmcIpcRxInterruptFields::eRXUDPGPIS;
+    using eRXUDPERPIS = MacMmcIpcRxInterruptFields::eRXUDPERPIS;
+    using eRXTCPGPIS = MacMmcIpcRxInterruptFields::eRXTCPGPIS;
+    using eRXTCPERPIS = MacMmcIpcRxInterruptFields::eRXTCPERPIS;
+    using eRXICMPGPIS = MacMmcIpcRxInterruptFields::eRXICMPGPIS;
+    using eRXICMPERPIS = MacMmcIpcRxInterruptFields::eRXICMPERPIS;
+    using eRXIPV4GOIS = MacMmcIpcRxInterruptFields::eRXIPV4GOIS;
+    using eRXIPV4HEROIS = MacMmcIpcRxInterruptFields::eRXIPV4HEROIS;
+    using eRXIPV4NOPAYOIS = MacMmcIpcRxInterruptFields::eRXIPV4NOPAYOIS;
+    using eRXIPV4FRAGOIS = MacMmcIpcRxInterruptFields::eRXIPV4FRAGOIS;
+    using eRXIPV4UDSBLOIS = MacMmcIpcRxInterruptFields::eRXIPV4UDSBLOIS;
+    using eRXIPV6GOIS = MacMmcIpcRxInterruptFields::eRXIPV6GOIS;
+    using eRXIPV6HEROIS = MacMmcIpcRxInterruptFields::eRXIPV6HEROIS;
+    using eRXIPV6NOPAYOIS = MacMmcIpcRxInterruptFields::eRXIPV6NOPAYOIS;
+    using eRXUDPGOIS = MacMmcIpcRxInterruptFields::eRXUDPGOIS;
+    using eRXUDPEROIS = MacMmcIpcRxInterruptFields::eRXUDPEROIS;
+    using eRXTCPGOIS = MacMmcIpcRxInterruptFields::eRXTCPGOIS;
+    using eRXTCPEROIS = MacMmcIpcRxInterruptFields::eRXTCPEROIS;
+    using eRXICMPGOIS = MacMmcIpcRxInterruptFields::eRXICMPGOIS;
+    using eRXICMPEROIS = MacMmcIpcRxInterruptFields::eRXICMPEROIS;
+    using RXIPV4GPIS = MacMmcIpcRxInterruptFields::RXIPV4GPIS;
+    using RXIPV4HERPIS = MacMmcIpcRxInterruptFields::RXIPV4HERPIS;
+    using RXIPV4NOPAYPIS = MacMmcIpcRxInterruptFields::RXIPV4NOPAYPIS;
+    using RXIPV4FRAGPIS = MacMmcIpcRxInterruptFields::RXIPV4FRAGPIS;
+    using RXIPV4UDSBLPIS = MacMmcIpcRxInterruptFields::RXIPV4UDSBLPIS;
+    using RXIPV6GPIS = MacMmcIpcRxInterruptFields::RXIPV6GPIS;
+    using RXIPV6HERPIS = MacMmcIpcRxInterruptFields::RXIPV6HERPIS;
+    using RXIPV6NOPAYPIS = MacMmcIpcRxInterruptFields::RXIPV6NOPAYPIS;
+    using RXUDPGPIS = MacMmcIpcRxInterruptFields::RXUDPGPIS;
+    using RXUDPERPIS = MacMmcIpcRxInterruptFields::RXUDPERPIS;
+    using RXTCPGPIS = MacMmcIpcRxInterruptFields::RXTCPGPIS;
+    using RXTCPERPIS = MacMmcIpcRxInterruptFields::RXTCPERPIS;
+    using RXICMPGPIS = MacMmcIpcRxInterruptFields::RXICMPGPIS;
+    using RXICMPERPIS = MacMmcIpcRxInterruptFields::RXICMPERPIS;
+    using RXIPV4GOIS = MacMmcIpcRxInterruptFields::RXIPV4GOIS;
+    using RXIPV4HEROIS = MacMmcIpcRxInterruptFields::RXIPV4HEROIS;
+    using RXIPV4NOPAYOIS = MacMmcIpcRxInterruptFields::RXIPV4NOPAYOIS;
+    using RXIPV4FRAGOIS = MacMmcIpcRxInterruptFields::RXIPV4FRAGOIS;
+    using RXIPV4UDSBLOIS = MacMmcIpcRxInterruptFields::RXIPV4UDSBLOIS;
+    using RXIPV6GOIS = MacMmcIpcRxInterruptFields::RXIPV6GOIS;
+    using RXIPV6HEROIS = MacMmcIpcRxInterruptFields::RXIPV6HEROIS;
+    using RXIPV6NOPAYOIS = MacMmcIpcRxInterruptFields::RXIPV6NOPAYOIS;
+    using RXUDPGOIS = MacMmcIpcRxInterruptFields::RXUDPGOIS;
+    using RXUDPEROIS = MacMmcIpcRxInterruptFields::RXUDPEROIS;
+    using RXTCPGOIS = MacMmcIpcRxInterruptFields::RXTCPGOIS;
+    using RXTCPEROIS = MacMmcIpcRxInterruptFields::RXTCPEROIS;
+    using RXICMPGOIS = MacMmcIpcRxInterruptFields::RXICMPGOIS;
+    using RXICMPEROIS = MacMmcIpcRxInterruptFields::RXICMPEROIS;
   };
 
   // Good IPv4 Datagrams Received
-  struct MAC_RXIPV4_GOOD_PACKETS_fields_ {
+  struct MacRxipv4GoodPacketsFields {
     // RxIPv4 Good Packets This field indicates the number of good IPv4 datagrams received with the TCP, UDP, or ICMP payload.
     using RXIPV4GDPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_GOOD_PACKETS_fields_
+  };  // struct MacRxipv4GoodPacketsFields
 
   struct MAC_RXIPV4_GOOD_PACKETS : ftl::mmio::Register<
       0x4043C810u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_GOOD_PACKETS_fields_::RXIPV4GDPKT> {
-    using RXIPV4GDPKT = MAC_RXIPV4_GOOD_PACKETS_fields_::RXIPV4GDPKT;
+      MacRxipv4GoodPacketsFields::RXIPV4GDPKT> {
+    using RXIPV4GDPKT = MacRxipv4GoodPacketsFields::RXIPV4GDPKT;
   };
 
   // IPv4 Datagrams Received with Header Errors
-  struct MAC_RXIPV4_HEADER_ERROR_PACKETS_fields_ {
+  struct MacRxipv4HeaderErrorPacketsFields {
     // RxIPv4 Header Error Packets This field indicates the number of IPv4 datagrams received with header (checksum, length, or version mismatch) errors.
     using RXIPV4HDRERRPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_HEADER_ERROR_PACKETS_fields_
+  };  // struct MacRxipv4HeaderErrorPacketsFields
 
   struct MAC_RXIPV4_HEADER_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C814u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_HEADER_ERROR_PACKETS_fields_::RXIPV4HDRERRPKT> {
-    using RXIPV4HDRERRPKT = MAC_RXIPV4_HEADER_ERROR_PACKETS_fields_::RXIPV4HDRERRPKT;
+      MacRxipv4HeaderErrorPacketsFields::RXIPV4HDRERRPKT> {
+    using RXIPV4HDRERRPKT = MacRxipv4HeaderErrorPacketsFields::RXIPV4HDRERRPKT;
   };
 
   // IPv4 Datagrams Received with No Payload
-  struct MAC_RXIPV4_NO_PAYLOAD_PACKETS_fields_ {
+  struct MacRxipv4NoPayloadPacketsFields {
     // RxIPv4 Payload Packets This field indicates the number of IPv4 datagram packets received that did not have a TCP, UDP, or ICMP payload.
     using RXIPV4NOPAYPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_NO_PAYLOAD_PACKETS_fields_
+  };  // struct MacRxipv4NoPayloadPacketsFields
 
   struct MAC_RXIPV4_NO_PAYLOAD_PACKETS : ftl::mmio::Register<
       0x4043C818u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_NO_PAYLOAD_PACKETS_fields_::RXIPV4NOPAYPKT> {
-    using RXIPV4NOPAYPKT = MAC_RXIPV4_NO_PAYLOAD_PACKETS_fields_::RXIPV4NOPAYPKT;
+      MacRxipv4NoPayloadPacketsFields::RXIPV4NOPAYPKT> {
+    using RXIPV4NOPAYPKT = MacRxipv4NoPayloadPacketsFields::RXIPV4NOPAYPKT;
   };
 
   // IPv4 Datagrams Received with Fragmentation
-  struct MAC_RXIPV4_FRAGMENTED_PACKETS_fields_ {
+  struct MacRxipv4FragmentedPacketsFields {
     // RxIPv4 Fragmented Packets This field indicates the number of good IPv4 datagrams received with fragmentation.
     using RXIPV4FRAGPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_FRAGMENTED_PACKETS_fields_
+  };  // struct MacRxipv4FragmentedPacketsFields
 
   struct MAC_RXIPV4_FRAGMENTED_PACKETS : ftl::mmio::Register<
       0x4043C81Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_FRAGMENTED_PACKETS_fields_::RXIPV4FRAGPKT> {
-    using RXIPV4FRAGPKT = MAC_RXIPV4_FRAGMENTED_PACKETS_fields_::RXIPV4FRAGPKT;
+      MacRxipv4FragmentedPacketsFields::RXIPV4FRAGPKT> {
+    using RXIPV4FRAGPKT = MacRxipv4FragmentedPacketsFields::RXIPV4FRAGPKT;
   };
 
   // IPv4 Datagrams Received with UDP Checksum Disabled
-  struct MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS_fields_ {
+  struct MacRxipv4UdpChecksumDisabledPacketsFields {
     // RxIPv4 UDP Checksum Disabled Packets This field indicates the number of good IPv4 datagrams received that had a UDP payload with checksum disabled.
     using RXIPV4UDSBLPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS_fields_
+  };  // struct MacRxipv4UdpChecksumDisabledPacketsFields
 
   struct MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS : ftl::mmio::Register<
       0x4043C820u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS_fields_::RXIPV4UDSBLPKT> {
-    using RXIPV4UDSBLPKT = MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS_fields_::RXIPV4UDSBLPKT;
+      MacRxipv4UdpChecksumDisabledPacketsFields::RXIPV4UDSBLPKT> {
+    using RXIPV4UDSBLPKT = MacRxipv4UdpChecksumDisabledPacketsFields::RXIPV4UDSBLPKT;
   };
 
   // Good IPv6 Datagrams Received
-  struct MAC_RXIPV6_GOOD_PACKETS_fields_ {
+  struct MacRxipv6GoodPacketsFields {
     // RxIPv6 Good Packets This field indicates the number of good IPv6 datagrams received with the TCP, UDP, or ICMP payload.
     using RXIPV6GDPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV6_GOOD_PACKETS_fields_
+  };  // struct MacRxipv6GoodPacketsFields
 
   struct MAC_RXIPV6_GOOD_PACKETS : ftl::mmio::Register<
       0x4043C824u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV6_GOOD_PACKETS_fields_::RXIPV6GDPKT> {
-    using RXIPV6GDPKT = MAC_RXIPV6_GOOD_PACKETS_fields_::RXIPV6GDPKT;
+      MacRxipv6GoodPacketsFields::RXIPV6GDPKT> {
+    using RXIPV6GDPKT = MacRxipv6GoodPacketsFields::RXIPV6GDPKT;
   };
 
   // IPv6 Datagrams Received with Header Errors
-  struct MAC_RXIPV6_HEADER_ERROR_PACKETS_fields_ {
+  struct MacRxipv6HeaderErrorPacketsFields {
     // RxIPv6 Header Error Packets This field indicates the number of IPv6 datagrams received with header (length or version mismatch) errors.
     using RXIPV6HDRERRPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV6_HEADER_ERROR_PACKETS_fields_
+  };  // struct MacRxipv6HeaderErrorPacketsFields
 
   struct MAC_RXIPV6_HEADER_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C828u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV6_HEADER_ERROR_PACKETS_fields_::RXIPV6HDRERRPKT> {
-    using RXIPV6HDRERRPKT = MAC_RXIPV6_HEADER_ERROR_PACKETS_fields_::RXIPV6HDRERRPKT;
+      MacRxipv6HeaderErrorPacketsFields::RXIPV6HDRERRPKT> {
+    using RXIPV6HDRERRPKT = MacRxipv6HeaderErrorPacketsFields::RXIPV6HDRERRPKT;
   };
 
   // IPv6 Datagrams Received with No Payload
-  struct MAC_RXIPV6_NO_PAYLOAD_PACKETS_fields_ {
+  struct MacRxipv6NoPayloadPacketsFields {
     // RxIPv6 Payload Packets This field indicates the number of IPv6 datagram packets received that did not have a TCP, UDP, or ICMP payload.
     using RXIPV6NOPAYPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV6_NO_PAYLOAD_PACKETS_fields_
+  };  // struct MacRxipv6NoPayloadPacketsFields
 
   struct MAC_RXIPV6_NO_PAYLOAD_PACKETS : ftl::mmio::Register<
       0x4043C82Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV6_NO_PAYLOAD_PACKETS_fields_::RXIPV6NOPAYPKT> {
-    using RXIPV6NOPAYPKT = MAC_RXIPV6_NO_PAYLOAD_PACKETS_fields_::RXIPV6NOPAYPKT;
+      MacRxipv6NoPayloadPacketsFields::RXIPV6NOPAYPKT> {
+    using RXIPV6NOPAYPKT = MacRxipv6NoPayloadPacketsFields::RXIPV6NOPAYPKT;
   };
 
   // IPv6 Datagrams Received with Good UDP
-  struct MAC_RXUDP_GOOD_PACKETS_fields_ {
+  struct MacRxudpGoodPacketsFields {
     // RxUDP Good Packets This field indicates the number of good IP datagrams received with a good UDP payload.
     using RXUDPGDPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXUDP_GOOD_PACKETS_fields_
+  };  // struct MacRxudpGoodPacketsFields
 
   struct MAC_RXUDP_GOOD_PACKETS : ftl::mmio::Register<
       0x4043C830u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXUDP_GOOD_PACKETS_fields_::RXUDPGDPKT> {
-    using RXUDPGDPKT = MAC_RXUDP_GOOD_PACKETS_fields_::RXUDPGDPKT;
+      MacRxudpGoodPacketsFields::RXUDPGDPKT> {
+    using RXUDPGDPKT = MacRxudpGoodPacketsFields::RXUDPGDPKT;
   };
 
   // IPv6 Datagrams Received with UDP Checksum Error
-  struct MAC_RXUDP_ERROR_PACKETS_fields_ {
+  struct MacRxudpErrorPacketsFields {
     // RxUDP Error Packets This field indicates the number of good IP datagrams received whose UDP payload has a checksum error.
     using RXUDPERRPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXUDP_ERROR_PACKETS_fields_
+  };  // struct MacRxudpErrorPacketsFields
 
   struct MAC_RXUDP_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C834u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXUDP_ERROR_PACKETS_fields_::RXUDPERRPKT> {
-    using RXUDPERRPKT = MAC_RXUDP_ERROR_PACKETS_fields_::RXUDPERRPKT;
+      MacRxudpErrorPacketsFields::RXUDPERRPKT> {
+    using RXUDPERRPKT = MacRxudpErrorPacketsFields::RXUDPERRPKT;
   };
 
   // IPv6 Datagrams Received with Good TCP Payload
-  struct MAC_RXTCP_GOOD_PACKETS_fields_ {
+  struct MacRxtcpGoodPacketsFields {
     // RxTCP Good Packets This field indicates the number of good IP datagrams received with a good TCP payload.
     using RXTCPGDPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXTCP_GOOD_PACKETS_fields_
+  };  // struct MacRxtcpGoodPacketsFields
 
   struct MAC_RXTCP_GOOD_PACKETS : ftl::mmio::Register<
       0x4043C838u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXTCP_GOOD_PACKETS_fields_::RXTCPGDPKT> {
-    using RXTCPGDPKT = MAC_RXTCP_GOOD_PACKETS_fields_::RXTCPGDPKT;
+      MacRxtcpGoodPacketsFields::RXTCPGDPKT> {
+    using RXTCPGDPKT = MacRxtcpGoodPacketsFields::RXTCPGDPKT;
   };
 
   // IPv6 Datagrams Received with TCP Checksum Error
-  struct MAC_RXTCP_ERROR_PACKETS_fields_ {
+  struct MacRxtcpErrorPacketsFields {
     // RxTCP Error Packets This field indicates the number of good IP datagrams received whose TCP payload has a checksum error.
     using RXTCPERRPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXTCP_ERROR_PACKETS_fields_
+  };  // struct MacRxtcpErrorPacketsFields
 
   struct MAC_RXTCP_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C83Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXTCP_ERROR_PACKETS_fields_::RXTCPERRPKT> {
-    using RXTCPERRPKT = MAC_RXTCP_ERROR_PACKETS_fields_::RXTCPERRPKT;
+      MacRxtcpErrorPacketsFields::RXTCPERRPKT> {
+    using RXTCPERRPKT = MacRxtcpErrorPacketsFields::RXTCPERRPKT;
   };
 
   // IPv6 Datagrams Received with Good ICMP Payload
-  struct MAC_RXICMP_GOOD_PACKETS_fields_ {
+  struct MacRxicmpGoodPacketsFields {
     // RxICMP Good Packets This field indicates the number of good IP datagrams received with a good ICMP payload.
     using RXICMPGDPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXICMP_GOOD_PACKETS_fields_
+  };  // struct MacRxicmpGoodPacketsFields
 
   struct MAC_RXICMP_GOOD_PACKETS : ftl::mmio::Register<
       0x4043C840u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXICMP_GOOD_PACKETS_fields_::RXICMPGDPKT> {
-    using RXICMPGDPKT = MAC_RXICMP_GOOD_PACKETS_fields_::RXICMPGDPKT;
+      MacRxicmpGoodPacketsFields::RXICMPGDPKT> {
+    using RXICMPGDPKT = MacRxicmpGoodPacketsFields::RXICMPGDPKT;
   };
 
   // IPv6 Datagrams Received with ICMP Checksum Error
-  struct MAC_RXICMP_ERROR_PACKETS_fields_ {
+  struct MacRxicmpErrorPacketsFields {
     // RxICMP Error Packets This field indicates the number of good IP datagrams received whose ICMP payload has a checksum error.
     using RXICMPERRPKT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXICMP_ERROR_PACKETS_fields_
+  };  // struct MacRxicmpErrorPacketsFields
 
   struct MAC_RXICMP_ERROR_PACKETS : ftl::mmio::Register<
       0x4043C844u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXICMP_ERROR_PACKETS_fields_::RXICMPERRPKT> {
-    using RXICMPERRPKT = MAC_RXICMP_ERROR_PACKETS_fields_::RXICMPERRPKT;
+      MacRxicmpErrorPacketsFields::RXICMPERRPKT> {
+    using RXICMPERRPKT = MacRxicmpErrorPacketsFields::RXICMPERRPKT;
   };
 
   // Good Bytes Received in IPv4 Datagrams
-  struct MAC_RXIPV4_GOOD_OCTETS_fields_ {
+  struct MacRxipv4GoodOctetsFields {
     // RxIPv4 Good Octets This field indicates the number of bytes received in good IPv4 datagrams encapsulating TCP, UDP, or ICMP data.
     using RXIPV4GDOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_GOOD_OCTETS_fields_
+  };  // struct MacRxipv4GoodOctetsFields
 
   struct MAC_RXIPV4_GOOD_OCTETS : ftl::mmio::Register<
       0x4043C850u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_GOOD_OCTETS_fields_::RXIPV4GDOCT> {
-    using RXIPV4GDOCT = MAC_RXIPV4_GOOD_OCTETS_fields_::RXIPV4GDOCT;
+      MacRxipv4GoodOctetsFields::RXIPV4GDOCT> {
+    using RXIPV4GDOCT = MacRxipv4GoodOctetsFields::RXIPV4GDOCT;
   };
 
   // Bytes Received in IPv4 Datagrams with Header Errors
-  struct MAC_RXIPV4_HEADER_ERROR_OCTETS_fields_ {
+  struct MacRxipv4HeaderErrorOctetsFields {
     // RxIPv4 Header Error Octets This field indicates the number of bytes received in IPv4 datagrams with header errors (checksum, length, version mismatch).
     using RXIPV4HDRERROCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_HEADER_ERROR_OCTETS_fields_
+  };  // struct MacRxipv4HeaderErrorOctetsFields
 
   struct MAC_RXIPV4_HEADER_ERROR_OCTETS : ftl::mmio::Register<
       0x4043C854u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_HEADER_ERROR_OCTETS_fields_::RXIPV4HDRERROCT> {
-    using RXIPV4HDRERROCT = MAC_RXIPV4_HEADER_ERROR_OCTETS_fields_::RXIPV4HDRERROCT;
+      MacRxipv4HeaderErrorOctetsFields::RXIPV4HDRERROCT> {
+    using RXIPV4HDRERROCT = MacRxipv4HeaderErrorOctetsFields::RXIPV4HDRERROCT;
   };
 
   // Bytes Received in IPv4 Datagrams with No Payload
-  struct MAC_RXIPV4_NO_PAYLOAD_OCTETS_fields_ {
+  struct MacRxipv4NoPayloadOctetsFields {
     // RxIPv4 Payload Octets This field indicates the number of bytes received in IPv4 datagrams that did not have a TCP, UDP, or ICMP payload.
     using RXIPV4NOPAYOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_NO_PAYLOAD_OCTETS_fields_
+  };  // struct MacRxipv4NoPayloadOctetsFields
 
   struct MAC_RXIPV4_NO_PAYLOAD_OCTETS : ftl::mmio::Register<
       0x4043C858u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_NO_PAYLOAD_OCTETS_fields_::RXIPV4NOPAYOCT> {
-    using RXIPV4NOPAYOCT = MAC_RXIPV4_NO_PAYLOAD_OCTETS_fields_::RXIPV4NOPAYOCT;
+      MacRxipv4NoPayloadOctetsFields::RXIPV4NOPAYOCT> {
+    using RXIPV4NOPAYOCT = MacRxipv4NoPayloadOctetsFields::RXIPV4NOPAYOCT;
   };
 
   // Bytes Received in Fragmented IPv4 Datagrams
-  struct MAC_RXIPV4_FRAGMENTED_OCTETS_fields_ {
+  struct MacRxipv4FragmentedOctetsFields {
     // RxIPv4 Fragmented Octets This field indicates the number of bytes received in fragmented IPv4 datagrams.
     using RXIPV4FRAGOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_FRAGMENTED_OCTETS_fields_
+  };  // struct MacRxipv4FragmentedOctetsFields
 
   struct MAC_RXIPV4_FRAGMENTED_OCTETS : ftl::mmio::Register<
       0x4043C85Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_FRAGMENTED_OCTETS_fields_::RXIPV4FRAGOCT> {
-    using RXIPV4FRAGOCT = MAC_RXIPV4_FRAGMENTED_OCTETS_fields_::RXIPV4FRAGOCT;
+      MacRxipv4FragmentedOctetsFields::RXIPV4FRAGOCT> {
+    using RXIPV4FRAGOCT = MacRxipv4FragmentedOctetsFields::RXIPV4FRAGOCT;
   };
 
   // Bytes Received with UDP Checksum Disabled
-  struct MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS_fields_ {
+  struct MacRxipv4UdpChecksumDisableOctetsFields {
     // RxIPv4 UDP Checksum Disable Octets This field indicates the number of bytes received in a UDP segment that had the UDP checksum disabled.
     using RXIPV4UDSBLOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS_fields_
+  };  // struct MacRxipv4UdpChecksumDisableOctetsFields
 
   struct MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS : ftl::mmio::Register<
       0x4043C860u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS_fields_::RXIPV4UDSBLOCT> {
-    using RXIPV4UDSBLOCT = MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS_fields_::RXIPV4UDSBLOCT;
+      MacRxipv4UdpChecksumDisableOctetsFields::RXIPV4UDSBLOCT> {
+    using RXIPV4UDSBLOCT = MacRxipv4UdpChecksumDisableOctetsFields::RXIPV4UDSBLOCT;
   };
 
   // Bytes Received in Good IPv6 Datagrams
-  struct MAC_RXIPV6_GOOD_OCTETS_fields_ {
+  struct MacRxipv6GoodOctetsFields {
     // RxIPv6 Good Octets This field indicates the number of bytes received in good IPv6 datagrams encapsulating TCP, UDP, or ICMP data.
     using RXIPV6GDOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV6_GOOD_OCTETS_fields_
+  };  // struct MacRxipv6GoodOctetsFields
 
   struct MAC_RXIPV6_GOOD_OCTETS : ftl::mmio::Register<
       0x4043C864u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV6_GOOD_OCTETS_fields_::RXIPV6GDOCT> {
-    using RXIPV6GDOCT = MAC_RXIPV6_GOOD_OCTETS_fields_::RXIPV6GDOCT;
+      MacRxipv6GoodOctetsFields::RXIPV6GDOCT> {
+    using RXIPV6GDOCT = MacRxipv6GoodOctetsFields::RXIPV6GDOCT;
   };
 
   // Bytes Received in IPv6 Datagrams with Data Errors
-  struct MAC_RXIPV6_HEADER_ERROR_OCTETS_fields_ {
+  struct MacRxipv6HeaderErrorOctetsFields {
     // RxIPv6 Header Error Octets This field indicates the number of bytes received in IPv6 datagrams with header errors (length, version mismatch).
     using RXIPV6HDRERROCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV6_HEADER_ERROR_OCTETS_fields_
+  };  // struct MacRxipv6HeaderErrorOctetsFields
 
   struct MAC_RXIPV6_HEADER_ERROR_OCTETS : ftl::mmio::Register<
       0x4043C868u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV6_HEADER_ERROR_OCTETS_fields_::RXIPV6HDRERROCT> {
-    using RXIPV6HDRERROCT = MAC_RXIPV6_HEADER_ERROR_OCTETS_fields_::RXIPV6HDRERROCT;
+      MacRxipv6HeaderErrorOctetsFields::RXIPV6HDRERROCT> {
+    using RXIPV6HDRERROCT = MacRxipv6HeaderErrorOctetsFields::RXIPV6HDRERROCT;
   };
 
   // Bytes Received in IPv6 Datagrams with No Payload
-  struct MAC_RXIPV6_NO_PAYLOAD_OCTETS_fields_ {
+  struct MacRxipv6NoPayloadOctetsFields {
     // RxIPv6 Payload Octets This field indicates the number of bytes received in IPv6 datagrams that did not have a TCP, UDP, or ICMP payload.
     using RXIPV6NOPAYOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXIPV6_NO_PAYLOAD_OCTETS_fields_
+  };  // struct MacRxipv6NoPayloadOctetsFields
 
   struct MAC_RXIPV6_NO_PAYLOAD_OCTETS : ftl::mmio::Register<
       0x4043C86Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXIPV6_NO_PAYLOAD_OCTETS_fields_::RXIPV6NOPAYOCT> {
-    using RXIPV6NOPAYOCT = MAC_RXIPV6_NO_PAYLOAD_OCTETS_fields_::RXIPV6NOPAYOCT;
+      MacRxipv6NoPayloadOctetsFields::RXIPV6NOPAYOCT> {
+    using RXIPV6NOPAYOCT = MacRxipv6NoPayloadOctetsFields::RXIPV6NOPAYOCT;
   };
 
   // Bytes Received in Good UDP Segment
-  struct MAC_RXUDP_GOOD_OCTETS_fields_ {
+  struct MacRxudpGoodOctetsFields {
     // RxUDP Good Octets This field indicates the number of bytes received in a good UDP segment.
     using RXUDPGDOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXUDP_GOOD_OCTETS_fields_
+  };  // struct MacRxudpGoodOctetsFields
 
   struct MAC_RXUDP_GOOD_OCTETS : ftl::mmio::Register<
       0x4043C870u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXUDP_GOOD_OCTETS_fields_::RXUDPGDOCT> {
-    using RXUDPGDOCT = MAC_RXUDP_GOOD_OCTETS_fields_::RXUDPGDOCT;
+      MacRxudpGoodOctetsFields::RXUDPGDOCT> {
+    using RXUDPGDOCT = MacRxudpGoodOctetsFields::RXUDPGDOCT;
   };
 
   // Bytes Received in UDP Segment with Checksum Errors
-  struct MAC_RXUDP_ERROR_OCTETS_fields_ {
+  struct MacRxudpErrorOctetsFields {
     // RxUDP Error Octets This field indicates the number of bytes received in a UDP segment that had checksum errors.
     using RXUDPERROCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXUDP_ERROR_OCTETS_fields_
+  };  // struct MacRxudpErrorOctetsFields
 
   struct MAC_RXUDP_ERROR_OCTETS : ftl::mmio::Register<
       0x4043C874u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXUDP_ERROR_OCTETS_fields_::RXUDPERROCT> {
-    using RXUDPERROCT = MAC_RXUDP_ERROR_OCTETS_fields_::RXUDPERROCT;
+      MacRxudpErrorOctetsFields::RXUDPERROCT> {
+    using RXUDPERROCT = MacRxudpErrorOctetsFields::RXUDPERROCT;
   };
 
   // Bytes Received in Good TCP Segment
-  struct MAC_RXTCP_GOOD_OCTETS_fields_ {
+  struct MacRxtcpGoodOctetsFields {
     // RxTCP Good Octets This field indicates the number of bytes received in a good TCP segment.
     using RXTCPGDOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXTCP_GOOD_OCTETS_fields_
+  };  // struct MacRxtcpGoodOctetsFields
 
   struct MAC_RXTCP_GOOD_OCTETS : ftl::mmio::Register<
       0x4043C878u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXTCP_GOOD_OCTETS_fields_::RXTCPGDOCT> {
-    using RXTCPGDOCT = MAC_RXTCP_GOOD_OCTETS_fields_::RXTCPGDOCT;
+      MacRxtcpGoodOctetsFields::RXTCPGDOCT> {
+    using RXTCPGDOCT = MacRxtcpGoodOctetsFields::RXTCPGDOCT;
   };
 
   // Bytes Received in TCP Segment with Checksum Errors
-  struct MAC_RXTCP_ERROR_OCTETS_fields_ {
+  struct MacRxtcpErrorOctetsFields {
     // RxTCP Error Octets This field indicates the number of bytes received in a TCP segment that had checksum errors.
     using RXTCPERROCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXTCP_ERROR_OCTETS_fields_
+  };  // struct MacRxtcpErrorOctetsFields
 
   struct MAC_RXTCP_ERROR_OCTETS : ftl::mmio::Register<
       0x4043C87Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXTCP_ERROR_OCTETS_fields_::RXTCPERROCT> {
-    using RXTCPERROCT = MAC_RXTCP_ERROR_OCTETS_fields_::RXTCPERROCT;
+      MacRxtcpErrorOctetsFields::RXTCPERROCT> {
+    using RXTCPERROCT = MacRxtcpErrorOctetsFields::RXTCPERROCT;
   };
 
   // Bytes Received in Good ICMP Segment
-  struct MAC_RXICMP_GOOD_OCTETS_fields_ {
+  struct MacRxicmpGoodOctetsFields {
     // RxICMP Good Octets This field indicates the number of bytes received in a good ICMP segment.
     using RXICMPGDOCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXICMP_GOOD_OCTETS_fields_
+  };  // struct MacRxicmpGoodOctetsFields
 
   struct MAC_RXICMP_GOOD_OCTETS : ftl::mmio::Register<
       0x4043C880u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXICMP_GOOD_OCTETS_fields_::RXICMPGDOCT> {
-    using RXICMPGDOCT = MAC_RXICMP_GOOD_OCTETS_fields_::RXICMPGDOCT;
+      MacRxicmpGoodOctetsFields::RXICMPGDOCT> {
+    using RXICMPGDOCT = MacRxicmpGoodOctetsFields::RXICMPGDOCT;
   };
 
   // Bytes Received in ICMP Segment with Checksum Errors
-  struct MAC_RXICMP_ERROR_OCTETS_fields_ {
+  struct MacRxicmpErrorOctetsFields {
     // RxICMP Error Octets This field indicates the number of bytes received in a ICMP segment that had checksum errors.
     using RXICMPERROCT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_RXICMP_ERROR_OCTETS_fields_
+  };  // struct MacRxicmpErrorOctetsFields
 
   struct MAC_RXICMP_ERROR_OCTETS : ftl::mmio::Register<
       0x4043C884u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_RXICMP_ERROR_OCTETS_fields_::RXICMPERROCT> {
-    using RXICMPERROCT = MAC_RXICMP_ERROR_OCTETS_fields_::RXICMPERROCT;
+      MacRxicmpErrorOctetsFields::RXICMPERROCT> {
+    using RXICMPERROCT = MacRxicmpErrorOctetsFields::RXICMPERROCT;
   };
 
   // MMC FPE Transmit Interrupt
-  struct MAC_MMC_FPE_TX_INTERRUPT_fields_ {
+  struct MacMmcFpeTxInterruptFields {
     enum class eFCIS : std::uint32_t {
       // MMC Tx FPE Fragment Counter Interrupt status not detected
       eINACTIVE = 0,
@@ -10940,24 +10940,24 @@ struct EnetQos {
     using FCIS = ftl::mmio::Field<1, 0, eFCIS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MMC Tx Hold Request Counter Interrupt Status This bit is set when the Tx_Hold_Req_Cntr counter reaches half of the maximum value or the maximum value.
     using HRCIS = ftl::mmio::Field<1, 1, eHRCIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_FPE_TX_INTERRUPT_fields_
+  };  // struct MacMmcFpeTxInterruptFields
 
   struct MAC_MMC_FPE_TX_INTERRUPT : ftl::mmio::Register<
       0x4043C8A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_FPE_TX_INTERRUPT_fields_::FCIS,
-      MAC_MMC_FPE_TX_INTERRUPT_fields_::HRCIS,
+      MacMmcFpeTxInterruptFields::FCIS,
+      MacMmcFpeTxInterruptFields::HRCIS,
       ftl::mmio::Reserved<30, 2>> {
-    using eFCIS = MAC_MMC_FPE_TX_INTERRUPT_fields_::eFCIS;
-    using eHRCIS = MAC_MMC_FPE_TX_INTERRUPT_fields_::eHRCIS;
-    using FCIS = MAC_MMC_FPE_TX_INTERRUPT_fields_::FCIS;
-    using HRCIS = MAC_MMC_FPE_TX_INTERRUPT_fields_::HRCIS;
+    using eFCIS = MacMmcFpeTxInterruptFields::eFCIS;
+    using eHRCIS = MacMmcFpeTxInterruptFields::eHRCIS;
+    using FCIS = MacMmcFpeTxInterruptFields::FCIS;
+    using HRCIS = MacMmcFpeTxInterruptFields::HRCIS;
   };
 
   // MMC FPE Transmit Mask Interrupt
-  struct MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_ {
+  struct MacMmcFpeTxInterruptMaskFields {
     enum class eFCIM : std::uint32_t {
       // MMC Transmit Fragment Counter Interrupt Mask is disabled
       eDISABLE = 0,
@@ -10976,54 +10976,54 @@ struct EnetQos {
     using FCIM = ftl::mmio::Field<1, 0, eFCIM, ftl::mmio::RW, ftl::mmio::Normal>;
     // MMC Transmit Hold Request Counter Interrupt Mask Setting this bit masks the interrupt when the Tx_Hold_Req_Cntr counter reaches half of the maximum value or the maximum value.
     using HRCIM = ftl::mmio::Field<1, 1, eHRCIM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_
+  };  // struct MacMmcFpeTxInterruptMaskFields
 
   struct MAC_MMC_FPE_TX_INTERRUPT_MASK : ftl::mmio::Register<
       0x4043C8A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_::FCIM,
-      MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_::HRCIM,
+      MacMmcFpeTxInterruptMaskFields::FCIM,
+      MacMmcFpeTxInterruptMaskFields::HRCIM,
       ftl::mmio::Reserved<30, 2>> {
-    using eFCIM = MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_::eFCIM;
-    using eHRCIM = MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_::eHRCIM;
-    using FCIM = MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_::FCIM;
-    using HRCIM = MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_::HRCIM;
+    using eFCIM = MacMmcFpeTxInterruptMaskFields::eFCIM;
+    using eHRCIM = MacMmcFpeTxInterruptMaskFields::eHRCIM;
+    using FCIM = MacMmcFpeTxInterruptMaskFields::FCIM;
+    using HRCIM = MacMmcFpeTxInterruptMaskFields::HRCIM;
   };
 
   // MMC FPE Transmitted Fragment Counter
-  struct MAC_MMC_TX_FPE_FRAGMENT_CNTR_fields_ {
+  struct MacMmcTxFpeFragmentCntrFields {
     // Tx FPE Fragment counter This field indicates the number of additional mPackets that has been transmitted due to preemption Exists when any one of the RX/TX MMC counters are enabled during FPE Enabled configuration.
     using TXFFC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_TX_FPE_FRAGMENT_CNTR_fields_
+  };  // struct MacMmcTxFpeFragmentCntrFields
 
   struct MAC_MMC_TX_FPE_FRAGMENT_CNTR : ftl::mmio::Register<
       0x4043C8A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_TX_FPE_FRAGMENT_CNTR_fields_::TXFFC> {
-    using TXFFC = MAC_MMC_TX_FPE_FRAGMENT_CNTR_fields_::TXFFC;
+      MacMmcTxFpeFragmentCntrFields::TXFFC> {
+    using TXFFC = MacMmcTxFpeFragmentCntrFields::TXFFC;
   };
 
   // MMC FPE Transmitted Hold Request Counter
-  struct MAC_MMC_TX_HOLD_REQ_CNTR_fields_ {
+  struct MacMmcTxHoldReqCntrFields {
     // Tx Hold Request Counter This field indicates count of number of a hold request is given to MAC.
     using TXHRC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_TX_HOLD_REQ_CNTR_fields_
+  };  // struct MacMmcTxHoldReqCntrFields
 
   struct MAC_MMC_TX_HOLD_REQ_CNTR : ftl::mmio::Register<
       0x4043C8ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_TX_HOLD_REQ_CNTR_fields_::TXHRC> {
-    using TXHRC = MAC_MMC_TX_HOLD_REQ_CNTR_fields_::TXHRC;
+      MacMmcTxHoldReqCntrFields::TXHRC> {
+    using TXHRC = MacMmcTxHoldReqCntrFields::TXHRC;
   };
 
   // MMC FPE Receive Interrupt
-  struct MAC_MMC_FPE_RX_INTERRUPT_fields_ {
+  struct MacMmcFpeRxInterruptFields {
     enum class ePAECIS : std::uint32_t {
       // MMC Rx Packet Assembly Error Counter Interrupt Status not detected
       eINACTIVE = 0,
@@ -11060,30 +11060,30 @@ struct EnetQos {
     using PAOCIS = ftl::mmio::Field<1, 2, ePAOCIS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MMC Rx FPE Fragment Counter Interrupt Status This bit is set when the Rx_FPE_Fragment_Cntr counter reaches half of the maximum value or the maximum value.
     using FCIS = ftl::mmio::Field<1, 3, eFCIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_FPE_RX_INTERRUPT_fields_
+  };  // struct MacMmcFpeRxInterruptFields
 
   struct MAC_MMC_FPE_RX_INTERRUPT : ftl::mmio::Register<
       0x4043C8C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_FPE_RX_INTERRUPT_fields_::PAECIS,
-      MAC_MMC_FPE_RX_INTERRUPT_fields_::PSECIS,
-      MAC_MMC_FPE_RX_INTERRUPT_fields_::PAOCIS,
-      MAC_MMC_FPE_RX_INTERRUPT_fields_::FCIS,
+      MacMmcFpeRxInterruptFields::PAECIS,
+      MacMmcFpeRxInterruptFields::PSECIS,
+      MacMmcFpeRxInterruptFields::PAOCIS,
+      MacMmcFpeRxInterruptFields::FCIS,
       ftl::mmio::Reserved<28, 4>> {
-    using ePAECIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::ePAECIS;
-    using ePSECIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::ePSECIS;
-    using ePAOCIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::ePAOCIS;
-    using eFCIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::eFCIS;
-    using PAECIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::PAECIS;
-    using PSECIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::PSECIS;
-    using PAOCIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::PAOCIS;
-    using FCIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::FCIS;
+    using ePAECIS = MacMmcFpeRxInterruptFields::ePAECIS;
+    using ePSECIS = MacMmcFpeRxInterruptFields::ePSECIS;
+    using ePAOCIS = MacMmcFpeRxInterruptFields::ePAOCIS;
+    using eFCIS = MacMmcFpeRxInterruptFields::eFCIS;
+    using PAECIS = MacMmcFpeRxInterruptFields::PAECIS;
+    using PSECIS = MacMmcFpeRxInterruptFields::PSECIS;
+    using PAOCIS = MacMmcFpeRxInterruptFields::PAOCIS;
+    using FCIS = MacMmcFpeRxInterruptFields::FCIS;
   };
 
   // MMC FPE Receive Interrupt Mask
-  struct MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_ {
+  struct MacMmcFpeRxInterruptMaskFields {
     enum class ePAECIM : std::uint32_t {
       // MMC Rx Packet Assembly Error Counter Interrupt Mask is disabled
       eDISABLE = 0,
@@ -11120,90 +11120,90 @@ struct EnetQos {
     using PAOCIM = ftl::mmio::Field<1, 2, ePAOCIM, ftl::mmio::RW, ftl::mmio::Normal>;
     // MMC Rx FPE Fragment Counter Interrupt Mask Setting this bit masks the interrupt when the Tx_FPE_Fragment_Cntr counter reaches half of the maximum value or the maximum value.
     using FCIM = ftl::mmio::Field<1, 3, eFCIM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_
+  };  // struct MacMmcFpeRxInterruptMaskFields
 
   struct MAC_MMC_FPE_RX_INTERRUPT_MASK : ftl::mmio::Register<
       0x4043C8C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::PAECIM,
-      MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::PSECIM,
-      MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::PAOCIM,
-      MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::FCIM,
+      MacMmcFpeRxInterruptMaskFields::PAECIM,
+      MacMmcFpeRxInterruptMaskFields::PSECIM,
+      MacMmcFpeRxInterruptMaskFields::PAOCIM,
+      MacMmcFpeRxInterruptMaskFields::FCIM,
       ftl::mmio::Reserved<28, 4>> {
-    using ePAECIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::ePAECIM;
-    using ePSECIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::ePSECIM;
-    using ePAOCIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::ePAOCIM;
-    using eFCIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::eFCIM;
-    using PAECIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::PAECIM;
-    using PSECIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::PSECIM;
-    using PAOCIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::PAOCIM;
-    using FCIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::FCIM;
+    using ePAECIM = MacMmcFpeRxInterruptMaskFields::ePAECIM;
+    using ePSECIM = MacMmcFpeRxInterruptMaskFields::ePSECIM;
+    using ePAOCIM = MacMmcFpeRxInterruptMaskFields::ePAOCIM;
+    using eFCIM = MacMmcFpeRxInterruptMaskFields::eFCIM;
+    using PAECIM = MacMmcFpeRxInterruptMaskFields::PAECIM;
+    using PSECIM = MacMmcFpeRxInterruptMaskFields::PSECIM;
+    using PAOCIM = MacMmcFpeRxInterruptMaskFields::PAOCIM;
+    using FCIM = MacMmcFpeRxInterruptMaskFields::FCIM;
   };
 
   // MMC Receive Packet Reassembly Error Counter
-  struct MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR_fields_ {
+  struct MacMmcRxPacketAssemblyErrCntrFields {
     // Rx Packet Assembly Error Counter This field indicates the number of MAC frames with reassembly errors on the Receiver, due to mismatch in the Fragment Count value.
     using PAEC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR_fields_
+  };  // struct MacMmcRxPacketAssemblyErrCntrFields
 
   struct MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR : ftl::mmio::Register<
       0x4043C8C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR_fields_::PAEC> {
-    using PAEC = MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR_fields_::PAEC;
+      MacMmcRxPacketAssemblyErrCntrFields::PAEC> {
+    using PAEC = MacMmcRxPacketAssemblyErrCntrFields::PAEC;
   };
 
   // MMC Receive Packet SMD Error Counter
-  struct MAC_MMC_RX_PACKET_SMD_ERR_CNTR_fields_ {
+  struct MacMmcRxPacketSmdErrCntrFields {
     // Rx Packet SMD Error Counter This field indicates the number of MAC frames rejected due to unknown SMD value and MAC frame fragments rejected due to arriving with an SMD-C when there was no preceding preempted frame.
     using PSEC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_RX_PACKET_SMD_ERR_CNTR_fields_
+  };  // struct MacMmcRxPacketSmdErrCntrFields
 
   struct MAC_MMC_RX_PACKET_SMD_ERR_CNTR : ftl::mmio::Register<
       0x4043C8CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_RX_PACKET_SMD_ERR_CNTR_fields_::PSEC> {
-    using PSEC = MAC_MMC_RX_PACKET_SMD_ERR_CNTR_fields_::PSEC;
+      MacMmcRxPacketSmdErrCntrFields::PSEC> {
+    using PSEC = MacMmcRxPacketSmdErrCntrFields::PSEC;
   };
 
   // MMC Receive Packet Successful Reassembly Counter
-  struct MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR_fields_ {
+  struct MacMmcRxPacketAssemblyOkCntrFields {
     // Rx Packet Assembly OK Counter This field indicates the number of MAC frames that were successfully reassembled and delivered to MAC.
     using PAOC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR_fields_
+  };  // struct MacMmcRxPacketAssemblyOkCntrFields
 
   struct MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR : ftl::mmio::Register<
       0x4043C8D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR_fields_::PAOC> {
-    using PAOC = MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR_fields_::PAOC;
+      MacMmcRxPacketAssemblyOkCntrFields::PAOC> {
+    using PAOC = MacMmcRxPacketAssemblyOkCntrFields::PAOC;
   };
 
   // MMC FPE Received Fragment Counter
-  struct MAC_MMC_RX_FPE_FRAGMENT_CNTR_fields_ {
+  struct MacMmcRxFpeFragmentCntrFields {
     // Rx FPE Fragment Counter This field indicates the number of additional mPackets received due to preemption Exists when at least one of the RX/TX MMC counters are enabled during FPE Enabled configuration.
     using FFC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_MMC_RX_FPE_FRAGMENT_CNTR_fields_
+  };  // struct MacMmcRxFpeFragmentCntrFields
 
   struct MAC_MMC_RX_FPE_FRAGMENT_CNTR : ftl::mmio::Register<
       0x4043C8D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_MMC_RX_FPE_FRAGMENT_CNTR_fields_::FFC> {
-    using FFC = MAC_MMC_RX_FPE_FRAGMENT_CNTR_fields_::FFC;
+      MacMmcRxFpeFragmentCntrFields::FFC> {
+    using FFC = MacMmcRxFpeFragmentCntrFields::FFC;
   };
 
   // Layer 3 and Layer 4 Control of Filter 0
-  struct MAC_L3_L4_CONTROL0_fields_ {
+  struct MacL3L4Control0Fields {
     enum class eL3PEN0 : std::uint32_t {
       // Layer 3 Protocol is disabled
       eDISABLE = 0,
@@ -11309,140 +11309,140 @@ struct EnetQos {
     using DMCHN0 = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Select Enable When set, this bit enables the selection of the DMA channel number for the packet that is passed by this L3_L4 filter.
     using DMCHEN0 = ftl::mmio::Field<1, 28, eDMCHEN0, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_L3_L4_CONTROL0_fields_
+  };  // struct MacL3L4Control0Fields
 
   struct MAC_L3_L4_CONTROL0 : ftl::mmio::Register<
       0x4043C900u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_L3_L4_CONTROL0_fields_::L3PEN0,
+      MacL3L4Control0Fields::L3PEN0,
       ftl::mmio::Reserved<1, 1>,
-      MAC_L3_L4_CONTROL0_fields_::L3SAM0,
-      MAC_L3_L4_CONTROL0_fields_::L3SAIM0,
-      MAC_L3_L4_CONTROL0_fields_::L3DAM0,
-      MAC_L3_L4_CONTROL0_fields_::L3DAIM0,
-      MAC_L3_L4_CONTROL0_fields_::L3HSBM0,
-      MAC_L3_L4_CONTROL0_fields_::L3HDBM0,
-      MAC_L3_L4_CONTROL0_fields_::L4PEN0,
+      MacL3L4Control0Fields::L3SAM0,
+      MacL3L4Control0Fields::L3SAIM0,
+      MacL3L4Control0Fields::L3DAM0,
+      MacL3L4Control0Fields::L3DAIM0,
+      MacL3L4Control0Fields::L3HSBM0,
+      MacL3L4Control0Fields::L3HDBM0,
+      MacL3L4Control0Fields::L4PEN0,
       ftl::mmio::Reserved<1, 17>,
-      MAC_L3_L4_CONTROL0_fields_::L4SPM0,
-      MAC_L3_L4_CONTROL0_fields_::L4SPIM0,
-      MAC_L3_L4_CONTROL0_fields_::L4DPM0,
-      MAC_L3_L4_CONTROL0_fields_::L4DPIM0,
+      MacL3L4Control0Fields::L4SPM0,
+      MacL3L4Control0Fields::L4SPIM0,
+      MacL3L4Control0Fields::L4DPM0,
+      MacL3L4Control0Fields::L4DPIM0,
       ftl::mmio::Reserved<2, 22>,
-      MAC_L3_L4_CONTROL0_fields_::DMCHN0,
+      MacL3L4Control0Fields::DMCHN0,
       ftl::mmio::Reserved<1, 27>,
-      MAC_L3_L4_CONTROL0_fields_::DMCHEN0,
+      MacL3L4Control0Fields::DMCHEN0,
       ftl::mmio::Reserved<3, 29>> {
-    using eL3PEN0 = MAC_L3_L4_CONTROL0_fields_::eL3PEN0;
-    using eL3SAM0 = MAC_L3_L4_CONTROL0_fields_::eL3SAM0;
-    using eL3SAIM0 = MAC_L3_L4_CONTROL0_fields_::eL3SAIM0;
-    using eL3DAM0 = MAC_L3_L4_CONTROL0_fields_::eL3DAM0;
-    using eL3DAIM0 = MAC_L3_L4_CONTROL0_fields_::eL3DAIM0;
-    using eL4PEN0 = MAC_L3_L4_CONTROL0_fields_::eL4PEN0;
-    using eL4SPM0 = MAC_L3_L4_CONTROL0_fields_::eL4SPM0;
-    using eL4SPIM0 = MAC_L3_L4_CONTROL0_fields_::eL4SPIM0;
-    using eL4DPM0 = MAC_L3_L4_CONTROL0_fields_::eL4DPM0;
-    using eL4DPIM0 = MAC_L3_L4_CONTROL0_fields_::eL4DPIM0;
-    using eDMCHEN0 = MAC_L3_L4_CONTROL0_fields_::eDMCHEN0;
-    using L3PEN0 = MAC_L3_L4_CONTROL0_fields_::L3PEN0;
-    using L3SAM0 = MAC_L3_L4_CONTROL0_fields_::L3SAM0;
-    using L3SAIM0 = MAC_L3_L4_CONTROL0_fields_::L3SAIM0;
-    using L3DAM0 = MAC_L3_L4_CONTROL0_fields_::L3DAM0;
-    using L3DAIM0 = MAC_L3_L4_CONTROL0_fields_::L3DAIM0;
-    using L3HSBM0 = MAC_L3_L4_CONTROL0_fields_::L3HSBM0;
-    using L3HDBM0 = MAC_L3_L4_CONTROL0_fields_::L3HDBM0;
-    using L4PEN0 = MAC_L3_L4_CONTROL0_fields_::L4PEN0;
-    using L4SPM0 = MAC_L3_L4_CONTROL0_fields_::L4SPM0;
-    using L4SPIM0 = MAC_L3_L4_CONTROL0_fields_::L4SPIM0;
-    using L4DPM0 = MAC_L3_L4_CONTROL0_fields_::L4DPM0;
-    using L4DPIM0 = MAC_L3_L4_CONTROL0_fields_::L4DPIM0;
-    using DMCHN0 = MAC_L3_L4_CONTROL0_fields_::DMCHN0;
-    using DMCHEN0 = MAC_L3_L4_CONTROL0_fields_::DMCHEN0;
+    using eL3PEN0 = MacL3L4Control0Fields::eL3PEN0;
+    using eL3SAM0 = MacL3L4Control0Fields::eL3SAM0;
+    using eL3SAIM0 = MacL3L4Control0Fields::eL3SAIM0;
+    using eL3DAM0 = MacL3L4Control0Fields::eL3DAM0;
+    using eL3DAIM0 = MacL3L4Control0Fields::eL3DAIM0;
+    using eL4PEN0 = MacL3L4Control0Fields::eL4PEN0;
+    using eL4SPM0 = MacL3L4Control0Fields::eL4SPM0;
+    using eL4SPIM0 = MacL3L4Control0Fields::eL4SPIM0;
+    using eL4DPM0 = MacL3L4Control0Fields::eL4DPM0;
+    using eL4DPIM0 = MacL3L4Control0Fields::eL4DPIM0;
+    using eDMCHEN0 = MacL3L4Control0Fields::eDMCHEN0;
+    using L3PEN0 = MacL3L4Control0Fields::L3PEN0;
+    using L3SAM0 = MacL3L4Control0Fields::L3SAM0;
+    using L3SAIM0 = MacL3L4Control0Fields::L3SAIM0;
+    using L3DAM0 = MacL3L4Control0Fields::L3DAM0;
+    using L3DAIM0 = MacL3L4Control0Fields::L3DAIM0;
+    using L3HSBM0 = MacL3L4Control0Fields::L3HSBM0;
+    using L3HDBM0 = MacL3L4Control0Fields::L3HDBM0;
+    using L4PEN0 = MacL3L4Control0Fields::L4PEN0;
+    using L4SPM0 = MacL3L4Control0Fields::L4SPM0;
+    using L4SPIM0 = MacL3L4Control0Fields::L4SPIM0;
+    using L4DPM0 = MacL3L4Control0Fields::L4DPM0;
+    using L4DPIM0 = MacL3L4Control0Fields::L4DPIM0;
+    using DMCHN0 = MacL3L4Control0Fields::DMCHN0;
+    using DMCHEN0 = MacL3L4Control0Fields::DMCHEN0;
   };
 
   // Layer 4 Address 0
-  struct MAC_LAYER4_ADDRESS0_fields_ {
+  struct MacLayer4Address0Fields {
     // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
     using L4SP0 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Layer 4 Destination Port Number Field When the L4PEN0 bit is reset and the L4DPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Destination Port Number field in the IPv4 or IPv6 packets.
     using L4DP0 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER4_ADDRESS0_fields_
+  };  // struct MacLayer4Address0Fields
 
   struct MAC_LAYER4_ADDRESS0 : ftl::mmio::Register<
       0x4043C904u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER4_ADDRESS0_fields_::L4SP0,
-      MAC_LAYER4_ADDRESS0_fields_::L4DP0> {
-    using L4SP0 = MAC_LAYER4_ADDRESS0_fields_::L4SP0;
-    using L4DP0 = MAC_LAYER4_ADDRESS0_fields_::L4DP0;
+      MacLayer4Address0Fields::L4SP0,
+      MacLayer4Address0Fields::L4DP0> {
+    using L4SP0 = MacLayer4Address0Fields::L4SP0;
+    using L4DP0 = MacLayer4Address0Fields::L4DP0;
   };
 
   // Layer 3 Address 0 Register 0
-  struct MAC_LAYER3_ADDR0_REG0_fields_ {
+  struct MacLayer3Addr0Reg0Fields {
     // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
     using L3A00 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR0_REG0_fields_
+  };  // struct MacLayer3Addr0Reg0Fields
 
   struct MAC_LAYER3_ADDR0_REG0 : ftl::mmio::Register<
       0x4043C910u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR0_REG0_fields_::L3A00> {
-    using L3A00 = MAC_LAYER3_ADDR0_REG0_fields_::L3A00;
+      MacLayer3Addr0Reg0Fields::L3A00> {
+    using L3A00 = MacLayer3Addr0Reg0Fields::L3A00;
   };
 
   // Layer 3 Address 1 Register 0
-  struct MAC_LAYER3_ADDR1_REG0_fields_ {
+  struct MacLayer3Addr1Reg0Fields {
     // Layer 3 Address 1 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[63:32] of the IP Source Address field in the IPv6 packets.
     using L3A10 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR1_REG0_fields_
+  };  // struct MacLayer3Addr1Reg0Fields
 
   struct MAC_LAYER3_ADDR1_REG0 : ftl::mmio::Register<
       0x4043C914u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR1_REG0_fields_::L3A10> {
-    using L3A10 = MAC_LAYER3_ADDR1_REG0_fields_::L3A10;
+      MacLayer3Addr1Reg0Fields::L3A10> {
+    using L3A10 = MacLayer3Addr1Reg0Fields::L3A10;
   };
 
   // Layer 3 Address 2 Register 0
-  struct MAC_LAYER3_ADDR2_REG0_fields_ {
+  struct MacLayer3Addr2Reg0Fields {
     // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
     using L3A20 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR2_REG0_fields_
+  };  // struct MacLayer3Addr2Reg0Fields
 
   struct MAC_LAYER3_ADDR2_REG0 : ftl::mmio::Register<
       0x4043C918u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR2_REG0_fields_::L3A20> {
-    using L3A20 = MAC_LAYER3_ADDR2_REG0_fields_::L3A20;
+      MacLayer3Addr2Reg0Fields::L3A20> {
+    using L3A20 = MacLayer3Addr2Reg0Fields::L3A20;
   };
 
   // Layer 3 Address 3 Register 0
-  struct MAC_LAYER3_ADDR3_REG0_fields_ {
+  struct MacLayer3Addr3Reg0Fields {
     // Layer 3 Address 3 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[127:96] of the IP Source Address field in the IPv6 packets.
     using L3A30 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR3_REG0_fields_
+  };  // struct MacLayer3Addr3Reg0Fields
 
   struct MAC_LAYER3_ADDR3_REG0 : ftl::mmio::Register<
       0x4043C91Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR3_REG0_fields_::L3A30> {
-    using L3A30 = MAC_LAYER3_ADDR3_REG0_fields_::L3A30;
+      MacLayer3Addr3Reg0Fields::L3A30> {
+    using L3A30 = MacLayer3Addr3Reg0Fields::L3A30;
   };
 
   // Layer 3 and Layer 4 Control of Filter 1
-  struct MAC_L3_L4_CONTROL1_fields_ {
+  struct MacL3L4Control1Fields {
     enum class eL3PEN1 : std::uint32_t {
       // Layer 3 Protocol is disabled
       eDISABLE = 0,
@@ -11548,140 +11548,140 @@ struct EnetQos {
     using DMCHN1 = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Select Enable When set, this bit enables the selection of the DMA channel number for the packet that is passed by this L3_L4 filter.
     using DMCHEN1 = ftl::mmio::Field<1, 28, eDMCHEN1, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_L3_L4_CONTROL1_fields_
+  };  // struct MacL3L4Control1Fields
 
   struct MAC_L3_L4_CONTROL1 : ftl::mmio::Register<
       0x4043C930u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_L3_L4_CONTROL1_fields_::L3PEN1,
+      MacL3L4Control1Fields::L3PEN1,
       ftl::mmio::Reserved<1, 1>,
-      MAC_L3_L4_CONTROL1_fields_::L3SAM1,
-      MAC_L3_L4_CONTROL1_fields_::L3SAIM1,
-      MAC_L3_L4_CONTROL1_fields_::L3DAM1,
-      MAC_L3_L4_CONTROL1_fields_::L3DAIM1,
-      MAC_L3_L4_CONTROL1_fields_::L3HSBM1,
-      MAC_L3_L4_CONTROL1_fields_::L3HDBM1,
-      MAC_L3_L4_CONTROL1_fields_::L4PEN1,
+      MacL3L4Control1Fields::L3SAM1,
+      MacL3L4Control1Fields::L3SAIM1,
+      MacL3L4Control1Fields::L3DAM1,
+      MacL3L4Control1Fields::L3DAIM1,
+      MacL3L4Control1Fields::L3HSBM1,
+      MacL3L4Control1Fields::L3HDBM1,
+      MacL3L4Control1Fields::L4PEN1,
       ftl::mmio::Reserved<1, 17>,
-      MAC_L3_L4_CONTROL1_fields_::L4SPM1,
-      MAC_L3_L4_CONTROL1_fields_::L4SPIM1,
-      MAC_L3_L4_CONTROL1_fields_::L4DPM1,
-      MAC_L3_L4_CONTROL1_fields_::L4DPIM1,
+      MacL3L4Control1Fields::L4SPM1,
+      MacL3L4Control1Fields::L4SPIM1,
+      MacL3L4Control1Fields::L4DPM1,
+      MacL3L4Control1Fields::L4DPIM1,
       ftl::mmio::Reserved<2, 22>,
-      MAC_L3_L4_CONTROL1_fields_::DMCHN1,
+      MacL3L4Control1Fields::DMCHN1,
       ftl::mmio::Reserved<1, 27>,
-      MAC_L3_L4_CONTROL1_fields_::DMCHEN1,
+      MacL3L4Control1Fields::DMCHEN1,
       ftl::mmio::Reserved<3, 29>> {
-    using eL3PEN1 = MAC_L3_L4_CONTROL1_fields_::eL3PEN1;
-    using eL3SAM1 = MAC_L3_L4_CONTROL1_fields_::eL3SAM1;
-    using eL3SAIM1 = MAC_L3_L4_CONTROL1_fields_::eL3SAIM1;
-    using eL3DAM1 = MAC_L3_L4_CONTROL1_fields_::eL3DAM1;
-    using eL3DAIM1 = MAC_L3_L4_CONTROL1_fields_::eL3DAIM1;
-    using eL4PEN1 = MAC_L3_L4_CONTROL1_fields_::eL4PEN1;
-    using eL4SPM1 = MAC_L3_L4_CONTROL1_fields_::eL4SPM1;
-    using eL4SPIM1 = MAC_L3_L4_CONTROL1_fields_::eL4SPIM1;
-    using eL4DPM1 = MAC_L3_L4_CONTROL1_fields_::eL4DPM1;
-    using eL4DPIM1 = MAC_L3_L4_CONTROL1_fields_::eL4DPIM1;
-    using eDMCHEN1 = MAC_L3_L4_CONTROL1_fields_::eDMCHEN1;
-    using L3PEN1 = MAC_L3_L4_CONTROL1_fields_::L3PEN1;
-    using L3SAM1 = MAC_L3_L4_CONTROL1_fields_::L3SAM1;
-    using L3SAIM1 = MAC_L3_L4_CONTROL1_fields_::L3SAIM1;
-    using L3DAM1 = MAC_L3_L4_CONTROL1_fields_::L3DAM1;
-    using L3DAIM1 = MAC_L3_L4_CONTROL1_fields_::L3DAIM1;
-    using L3HSBM1 = MAC_L3_L4_CONTROL1_fields_::L3HSBM1;
-    using L3HDBM1 = MAC_L3_L4_CONTROL1_fields_::L3HDBM1;
-    using L4PEN1 = MAC_L3_L4_CONTROL1_fields_::L4PEN1;
-    using L4SPM1 = MAC_L3_L4_CONTROL1_fields_::L4SPM1;
-    using L4SPIM1 = MAC_L3_L4_CONTROL1_fields_::L4SPIM1;
-    using L4DPM1 = MAC_L3_L4_CONTROL1_fields_::L4DPM1;
-    using L4DPIM1 = MAC_L3_L4_CONTROL1_fields_::L4DPIM1;
-    using DMCHN1 = MAC_L3_L4_CONTROL1_fields_::DMCHN1;
-    using DMCHEN1 = MAC_L3_L4_CONTROL1_fields_::DMCHEN1;
+    using eL3PEN1 = MacL3L4Control1Fields::eL3PEN1;
+    using eL3SAM1 = MacL3L4Control1Fields::eL3SAM1;
+    using eL3SAIM1 = MacL3L4Control1Fields::eL3SAIM1;
+    using eL3DAM1 = MacL3L4Control1Fields::eL3DAM1;
+    using eL3DAIM1 = MacL3L4Control1Fields::eL3DAIM1;
+    using eL4PEN1 = MacL3L4Control1Fields::eL4PEN1;
+    using eL4SPM1 = MacL3L4Control1Fields::eL4SPM1;
+    using eL4SPIM1 = MacL3L4Control1Fields::eL4SPIM1;
+    using eL4DPM1 = MacL3L4Control1Fields::eL4DPM1;
+    using eL4DPIM1 = MacL3L4Control1Fields::eL4DPIM1;
+    using eDMCHEN1 = MacL3L4Control1Fields::eDMCHEN1;
+    using L3PEN1 = MacL3L4Control1Fields::L3PEN1;
+    using L3SAM1 = MacL3L4Control1Fields::L3SAM1;
+    using L3SAIM1 = MacL3L4Control1Fields::L3SAIM1;
+    using L3DAM1 = MacL3L4Control1Fields::L3DAM1;
+    using L3DAIM1 = MacL3L4Control1Fields::L3DAIM1;
+    using L3HSBM1 = MacL3L4Control1Fields::L3HSBM1;
+    using L3HDBM1 = MacL3L4Control1Fields::L3HDBM1;
+    using L4PEN1 = MacL3L4Control1Fields::L4PEN1;
+    using L4SPM1 = MacL3L4Control1Fields::L4SPM1;
+    using L4SPIM1 = MacL3L4Control1Fields::L4SPIM1;
+    using L4DPM1 = MacL3L4Control1Fields::L4DPM1;
+    using L4DPIM1 = MacL3L4Control1Fields::L4DPIM1;
+    using DMCHN1 = MacL3L4Control1Fields::DMCHN1;
+    using DMCHEN1 = MacL3L4Control1Fields::DMCHEN1;
   };
 
   // Layer 4 Address 0
-  struct MAC_LAYER4_ADDRESS1_fields_ {
+  struct MacLayer4Address1Fields {
     // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
     using L4SP1 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Layer 4 Destination Port Number Field When the L4PEN0 bit is reset and the L4DPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Destination Port Number field in the IPv4 or IPv6 packets.
     using L4DP1 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER4_ADDRESS1_fields_
+  };  // struct MacLayer4Address1Fields
 
   struct MAC_LAYER4_ADDRESS1 : ftl::mmio::Register<
       0x4043C934u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER4_ADDRESS1_fields_::L4SP1,
-      MAC_LAYER4_ADDRESS1_fields_::L4DP1> {
-    using L4SP1 = MAC_LAYER4_ADDRESS1_fields_::L4SP1;
-    using L4DP1 = MAC_LAYER4_ADDRESS1_fields_::L4DP1;
+      MacLayer4Address1Fields::L4SP1,
+      MacLayer4Address1Fields::L4DP1> {
+    using L4SP1 = MacLayer4Address1Fields::L4SP1;
+    using L4DP1 = MacLayer4Address1Fields::L4DP1;
   };
 
   // Layer 3 Address 0 Register 1
-  struct MAC_LAYER3_ADDR0_REG1_fields_ {
+  struct MacLayer3Addr0Reg1Fields {
     // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
     using L3A01 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR0_REG1_fields_
+  };  // struct MacLayer3Addr0Reg1Fields
 
   struct MAC_LAYER3_ADDR0_REG1 : ftl::mmio::Register<
       0x4043C940u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR0_REG1_fields_::L3A01> {
-    using L3A01 = MAC_LAYER3_ADDR0_REG1_fields_::L3A01;
+      MacLayer3Addr0Reg1Fields::L3A01> {
+    using L3A01 = MacLayer3Addr0Reg1Fields::L3A01;
   };
 
   // Layer 3 Address 1 Register 1
-  struct MAC_LAYER3_ADDR1_REG1_fields_ {
+  struct MacLayer3Addr1Reg1Fields {
     // Layer 3 Address 1 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[63:32] of the IP Source Address field in the IPv6 packets.
     using L3A11 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR1_REG1_fields_
+  };  // struct MacLayer3Addr1Reg1Fields
 
   struct MAC_LAYER3_ADDR1_REG1 : ftl::mmio::Register<
       0x4043C944u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR1_REG1_fields_::L3A11> {
-    using L3A11 = MAC_LAYER3_ADDR1_REG1_fields_::L3A11;
+      MacLayer3Addr1Reg1Fields::L3A11> {
+    using L3A11 = MacLayer3Addr1Reg1Fields::L3A11;
   };
 
   // Layer 3 Address 2 Register 1
-  struct MAC_LAYER3_ADDR2_REG1_fields_ {
+  struct MacLayer3Addr2Reg1Fields {
     // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
     using L3A21 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR2_REG1_fields_
+  };  // struct MacLayer3Addr2Reg1Fields
 
   struct MAC_LAYER3_ADDR2_REG1 : ftl::mmio::Register<
       0x4043C948u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR2_REG1_fields_::L3A21> {
-    using L3A21 = MAC_LAYER3_ADDR2_REG1_fields_::L3A21;
+      MacLayer3Addr2Reg1Fields::L3A21> {
+    using L3A21 = MacLayer3Addr2Reg1Fields::L3A21;
   };
 
   // Layer 3 Address 3 Register 1
-  struct MAC_LAYER3_ADDR3_REG1_fields_ {
+  struct MacLayer3Addr3Reg1Fields {
     // Layer 3 Address 3 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[127:96] of the IP Source Address field in the IPv6 packets.
     using L3A31 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR3_REG1_fields_
+  };  // struct MacLayer3Addr3Reg1Fields
 
   struct MAC_LAYER3_ADDR3_REG1 : ftl::mmio::Register<
       0x4043C94Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR3_REG1_fields_::L3A31> {
-    using L3A31 = MAC_LAYER3_ADDR3_REG1_fields_::L3A31;
+      MacLayer3Addr3Reg1Fields::L3A31> {
+    using L3A31 = MacLayer3Addr3Reg1Fields::L3A31;
   };
 
   // Layer 3 and Layer 4 Control of Filter 2
-  struct MAC_L3_L4_CONTROL2_fields_ {
+  struct MacL3L4Control2Fields {
     enum class eL3PEN2 : std::uint32_t {
       // Layer 3 Protocol is disabled
       eDISABLE = 0,
@@ -11787,140 +11787,140 @@ struct EnetQos {
     using DMCHN2 = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Select Enable When set, this bit enables the selection of the DMA channel number for the packet that is passed by this L3_L4 filter.
     using DMCHEN2 = ftl::mmio::Field<1, 28, eDMCHEN2, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_L3_L4_CONTROL2_fields_
+  };  // struct MacL3L4Control2Fields
 
   struct MAC_L3_L4_CONTROL2 : ftl::mmio::Register<
       0x4043C960u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_L3_L4_CONTROL2_fields_::L3PEN2,
+      MacL3L4Control2Fields::L3PEN2,
       ftl::mmio::Reserved<1, 1>,
-      MAC_L3_L4_CONTROL2_fields_::L3SAM2,
-      MAC_L3_L4_CONTROL2_fields_::L3SAIM2,
-      MAC_L3_L4_CONTROL2_fields_::L3DAM2,
-      MAC_L3_L4_CONTROL2_fields_::L3DAIM2,
-      MAC_L3_L4_CONTROL2_fields_::L3HSBM2,
-      MAC_L3_L4_CONTROL2_fields_::L3HDBM2,
-      MAC_L3_L4_CONTROL2_fields_::L4PEN2,
+      MacL3L4Control2Fields::L3SAM2,
+      MacL3L4Control2Fields::L3SAIM2,
+      MacL3L4Control2Fields::L3DAM2,
+      MacL3L4Control2Fields::L3DAIM2,
+      MacL3L4Control2Fields::L3HSBM2,
+      MacL3L4Control2Fields::L3HDBM2,
+      MacL3L4Control2Fields::L4PEN2,
       ftl::mmio::Reserved<1, 17>,
-      MAC_L3_L4_CONTROL2_fields_::L4SPM2,
-      MAC_L3_L4_CONTROL2_fields_::L4SPIM2,
-      MAC_L3_L4_CONTROL2_fields_::L4DPM2,
-      MAC_L3_L4_CONTROL2_fields_::L4DPIM2,
+      MacL3L4Control2Fields::L4SPM2,
+      MacL3L4Control2Fields::L4SPIM2,
+      MacL3L4Control2Fields::L4DPM2,
+      MacL3L4Control2Fields::L4DPIM2,
       ftl::mmio::Reserved<2, 22>,
-      MAC_L3_L4_CONTROL2_fields_::DMCHN2,
+      MacL3L4Control2Fields::DMCHN2,
       ftl::mmio::Reserved<1, 27>,
-      MAC_L3_L4_CONTROL2_fields_::DMCHEN2,
+      MacL3L4Control2Fields::DMCHEN2,
       ftl::mmio::Reserved<3, 29>> {
-    using eL3PEN2 = MAC_L3_L4_CONTROL2_fields_::eL3PEN2;
-    using eL3SAM2 = MAC_L3_L4_CONTROL2_fields_::eL3SAM2;
-    using eL3SAIM2 = MAC_L3_L4_CONTROL2_fields_::eL3SAIM2;
-    using eL3DAM2 = MAC_L3_L4_CONTROL2_fields_::eL3DAM2;
-    using eL3DAIM2 = MAC_L3_L4_CONTROL2_fields_::eL3DAIM2;
-    using eL4PEN2 = MAC_L3_L4_CONTROL2_fields_::eL4PEN2;
-    using eL4SPM2 = MAC_L3_L4_CONTROL2_fields_::eL4SPM2;
-    using eL4SPIM2 = MAC_L3_L4_CONTROL2_fields_::eL4SPIM2;
-    using eL4DPM2 = MAC_L3_L4_CONTROL2_fields_::eL4DPM2;
-    using eL4DPIM2 = MAC_L3_L4_CONTROL2_fields_::eL4DPIM2;
-    using eDMCHEN2 = MAC_L3_L4_CONTROL2_fields_::eDMCHEN2;
-    using L3PEN2 = MAC_L3_L4_CONTROL2_fields_::L3PEN2;
-    using L3SAM2 = MAC_L3_L4_CONTROL2_fields_::L3SAM2;
-    using L3SAIM2 = MAC_L3_L4_CONTROL2_fields_::L3SAIM2;
-    using L3DAM2 = MAC_L3_L4_CONTROL2_fields_::L3DAM2;
-    using L3DAIM2 = MAC_L3_L4_CONTROL2_fields_::L3DAIM2;
-    using L3HSBM2 = MAC_L3_L4_CONTROL2_fields_::L3HSBM2;
-    using L3HDBM2 = MAC_L3_L4_CONTROL2_fields_::L3HDBM2;
-    using L4PEN2 = MAC_L3_L4_CONTROL2_fields_::L4PEN2;
-    using L4SPM2 = MAC_L3_L4_CONTROL2_fields_::L4SPM2;
-    using L4SPIM2 = MAC_L3_L4_CONTROL2_fields_::L4SPIM2;
-    using L4DPM2 = MAC_L3_L4_CONTROL2_fields_::L4DPM2;
-    using L4DPIM2 = MAC_L3_L4_CONTROL2_fields_::L4DPIM2;
-    using DMCHN2 = MAC_L3_L4_CONTROL2_fields_::DMCHN2;
-    using DMCHEN2 = MAC_L3_L4_CONTROL2_fields_::DMCHEN2;
+    using eL3PEN2 = MacL3L4Control2Fields::eL3PEN2;
+    using eL3SAM2 = MacL3L4Control2Fields::eL3SAM2;
+    using eL3SAIM2 = MacL3L4Control2Fields::eL3SAIM2;
+    using eL3DAM2 = MacL3L4Control2Fields::eL3DAM2;
+    using eL3DAIM2 = MacL3L4Control2Fields::eL3DAIM2;
+    using eL4PEN2 = MacL3L4Control2Fields::eL4PEN2;
+    using eL4SPM2 = MacL3L4Control2Fields::eL4SPM2;
+    using eL4SPIM2 = MacL3L4Control2Fields::eL4SPIM2;
+    using eL4DPM2 = MacL3L4Control2Fields::eL4DPM2;
+    using eL4DPIM2 = MacL3L4Control2Fields::eL4DPIM2;
+    using eDMCHEN2 = MacL3L4Control2Fields::eDMCHEN2;
+    using L3PEN2 = MacL3L4Control2Fields::L3PEN2;
+    using L3SAM2 = MacL3L4Control2Fields::L3SAM2;
+    using L3SAIM2 = MacL3L4Control2Fields::L3SAIM2;
+    using L3DAM2 = MacL3L4Control2Fields::L3DAM2;
+    using L3DAIM2 = MacL3L4Control2Fields::L3DAIM2;
+    using L3HSBM2 = MacL3L4Control2Fields::L3HSBM2;
+    using L3HDBM2 = MacL3L4Control2Fields::L3HDBM2;
+    using L4PEN2 = MacL3L4Control2Fields::L4PEN2;
+    using L4SPM2 = MacL3L4Control2Fields::L4SPM2;
+    using L4SPIM2 = MacL3L4Control2Fields::L4SPIM2;
+    using L4DPM2 = MacL3L4Control2Fields::L4DPM2;
+    using L4DPIM2 = MacL3L4Control2Fields::L4DPIM2;
+    using DMCHN2 = MacL3L4Control2Fields::DMCHN2;
+    using DMCHEN2 = MacL3L4Control2Fields::DMCHEN2;
   };
 
   // Layer 4 Address 2
-  struct MAC_LAYER4_ADDRESS2_fields_ {
+  struct MacLayer4Address2Fields {
     // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
     using L4SP2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Layer 4 Destination Port Number Field When the L4PEN0 bit is reset and the L4DPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Destination Port Number field in the IPv4 or IPv6 packets.
     using L4DP2 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER4_ADDRESS2_fields_
+  };  // struct MacLayer4Address2Fields
 
   struct MAC_LAYER4_ADDRESS2 : ftl::mmio::Register<
       0x4043C964u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER4_ADDRESS2_fields_::L4SP2,
-      MAC_LAYER4_ADDRESS2_fields_::L4DP2> {
-    using L4SP2 = MAC_LAYER4_ADDRESS2_fields_::L4SP2;
-    using L4DP2 = MAC_LAYER4_ADDRESS2_fields_::L4DP2;
+      MacLayer4Address2Fields::L4SP2,
+      MacLayer4Address2Fields::L4DP2> {
+    using L4SP2 = MacLayer4Address2Fields::L4SP2;
+    using L4DP2 = MacLayer4Address2Fields::L4DP2;
   };
 
   // Layer 3 Address 0 Register 2
-  struct MAC_LAYER3_ADDR0_REG2_fields_ {
+  struct MacLayer3Addr0Reg2Fields {
     // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
     using L3A02 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR0_REG2_fields_
+  };  // struct MacLayer3Addr0Reg2Fields
 
   struct MAC_LAYER3_ADDR0_REG2 : ftl::mmio::Register<
       0x4043C970u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR0_REG2_fields_::L3A02> {
-    using L3A02 = MAC_LAYER3_ADDR0_REG2_fields_::L3A02;
+      MacLayer3Addr0Reg2Fields::L3A02> {
+    using L3A02 = MacLayer3Addr0Reg2Fields::L3A02;
   };
 
   // Layer 3 Address 0 Register 2
-  struct MAC_LAYER3_ADDR1_REG2_fields_ {
+  struct MacLayer3Addr1Reg2Fields {
     // Layer 3 Address 1 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[63:32] of the IP Source Address field in the IPv6 packets.
     using L3A12 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR1_REG2_fields_
+  };  // struct MacLayer3Addr1Reg2Fields
 
   struct MAC_LAYER3_ADDR1_REG2 : ftl::mmio::Register<
       0x4043C974u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR1_REG2_fields_::L3A12> {
-    using L3A12 = MAC_LAYER3_ADDR1_REG2_fields_::L3A12;
+      MacLayer3Addr1Reg2Fields::L3A12> {
+    using L3A12 = MacLayer3Addr1Reg2Fields::L3A12;
   };
 
   // Layer 3 Address 2 Register 2
-  struct MAC_LAYER3_ADDR2_REG2_fields_ {
+  struct MacLayer3Addr2Reg2Fields {
     // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
     using L3A22 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR2_REG2_fields_
+  };  // struct MacLayer3Addr2Reg2Fields
 
   struct MAC_LAYER3_ADDR2_REG2 : ftl::mmio::Register<
       0x4043C978u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR2_REG2_fields_::L3A22> {
-    using L3A22 = MAC_LAYER3_ADDR2_REG2_fields_::L3A22;
+      MacLayer3Addr2Reg2Fields::L3A22> {
+    using L3A22 = MacLayer3Addr2Reg2Fields::L3A22;
   };
 
   // Layer 3 Address 3 Register 2
-  struct MAC_LAYER3_ADDR3_REG2_fields_ {
+  struct MacLayer3Addr3Reg2Fields {
     // Layer 3 Address 3 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[127:96] of the IP Source Address field in the IPv6 packets.
     using L3A32 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR3_REG2_fields_
+  };  // struct MacLayer3Addr3Reg2Fields
 
   struct MAC_LAYER3_ADDR3_REG2 : ftl::mmio::Register<
       0x4043C97Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR3_REG2_fields_::L3A32> {
-    using L3A32 = MAC_LAYER3_ADDR3_REG2_fields_::L3A32;
+      MacLayer3Addr3Reg2Fields::L3A32> {
+    using L3A32 = MacLayer3Addr3Reg2Fields::L3A32;
   };
 
   // Layer 3 and Layer 4 Control of Filter 3
-  struct MAC_L3_L4_CONTROL3_fields_ {
+  struct MacL3L4Control3Fields {
     enum class eL3PEN3 : std::uint32_t {
       // Layer 3 Protocol is disabled
       eDISABLE = 0,
@@ -12026,140 +12026,140 @@ struct EnetQos {
     using DMCHN3 = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Select Enable When set, this bit enables the selection of the DMA channel number for the packet that is passed by this L3_L4 filter.
     using DMCHEN3 = ftl::mmio::Field<1, 28, eDMCHEN3, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_L3_L4_CONTROL3_fields_
+  };  // struct MacL3L4Control3Fields
 
   struct MAC_L3_L4_CONTROL3 : ftl::mmio::Register<
       0x4043C990u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_L3_L4_CONTROL3_fields_::L3PEN3,
+      MacL3L4Control3Fields::L3PEN3,
       ftl::mmio::Reserved<1, 1>,
-      MAC_L3_L4_CONTROL3_fields_::L3SAM3,
-      MAC_L3_L4_CONTROL3_fields_::L3SAIM3,
-      MAC_L3_L4_CONTROL3_fields_::L3DAM3,
-      MAC_L3_L4_CONTROL3_fields_::L3DAIM3,
-      MAC_L3_L4_CONTROL3_fields_::L3HSBM3,
-      MAC_L3_L4_CONTROL3_fields_::L3HDBM3,
-      MAC_L3_L4_CONTROL3_fields_::L4PEN3,
+      MacL3L4Control3Fields::L3SAM3,
+      MacL3L4Control3Fields::L3SAIM3,
+      MacL3L4Control3Fields::L3DAM3,
+      MacL3L4Control3Fields::L3DAIM3,
+      MacL3L4Control3Fields::L3HSBM3,
+      MacL3L4Control3Fields::L3HDBM3,
+      MacL3L4Control3Fields::L4PEN3,
       ftl::mmio::Reserved<1, 17>,
-      MAC_L3_L4_CONTROL3_fields_::L4SPM3,
-      MAC_L3_L4_CONTROL3_fields_::L4SPIM3,
-      MAC_L3_L4_CONTROL3_fields_::L4DPM3,
-      MAC_L3_L4_CONTROL3_fields_::L4DPIM3,
+      MacL3L4Control3Fields::L4SPM3,
+      MacL3L4Control3Fields::L4SPIM3,
+      MacL3L4Control3Fields::L4DPM3,
+      MacL3L4Control3Fields::L4DPIM3,
       ftl::mmio::Reserved<2, 22>,
-      MAC_L3_L4_CONTROL3_fields_::DMCHN3,
+      MacL3L4Control3Fields::DMCHN3,
       ftl::mmio::Reserved<1, 27>,
-      MAC_L3_L4_CONTROL3_fields_::DMCHEN3,
+      MacL3L4Control3Fields::DMCHEN3,
       ftl::mmio::Reserved<3, 29>> {
-    using eL3PEN3 = MAC_L3_L4_CONTROL3_fields_::eL3PEN3;
-    using eL3SAM3 = MAC_L3_L4_CONTROL3_fields_::eL3SAM3;
-    using eL3SAIM3 = MAC_L3_L4_CONTROL3_fields_::eL3SAIM3;
-    using eL3DAM3 = MAC_L3_L4_CONTROL3_fields_::eL3DAM3;
-    using eL3DAIM3 = MAC_L3_L4_CONTROL3_fields_::eL3DAIM3;
-    using eL4PEN3 = MAC_L3_L4_CONTROL3_fields_::eL4PEN3;
-    using eL4SPM3 = MAC_L3_L4_CONTROL3_fields_::eL4SPM3;
-    using eL4SPIM3 = MAC_L3_L4_CONTROL3_fields_::eL4SPIM3;
-    using eL4DPM3 = MAC_L3_L4_CONTROL3_fields_::eL4DPM3;
-    using eL4DPIM3 = MAC_L3_L4_CONTROL3_fields_::eL4DPIM3;
-    using eDMCHEN3 = MAC_L3_L4_CONTROL3_fields_::eDMCHEN3;
-    using L3PEN3 = MAC_L3_L4_CONTROL3_fields_::L3PEN3;
-    using L3SAM3 = MAC_L3_L4_CONTROL3_fields_::L3SAM3;
-    using L3SAIM3 = MAC_L3_L4_CONTROL3_fields_::L3SAIM3;
-    using L3DAM3 = MAC_L3_L4_CONTROL3_fields_::L3DAM3;
-    using L3DAIM3 = MAC_L3_L4_CONTROL3_fields_::L3DAIM3;
-    using L3HSBM3 = MAC_L3_L4_CONTROL3_fields_::L3HSBM3;
-    using L3HDBM3 = MAC_L3_L4_CONTROL3_fields_::L3HDBM3;
-    using L4PEN3 = MAC_L3_L4_CONTROL3_fields_::L4PEN3;
-    using L4SPM3 = MAC_L3_L4_CONTROL3_fields_::L4SPM3;
-    using L4SPIM3 = MAC_L3_L4_CONTROL3_fields_::L4SPIM3;
-    using L4DPM3 = MAC_L3_L4_CONTROL3_fields_::L4DPM3;
-    using L4DPIM3 = MAC_L3_L4_CONTROL3_fields_::L4DPIM3;
-    using DMCHN3 = MAC_L3_L4_CONTROL3_fields_::DMCHN3;
-    using DMCHEN3 = MAC_L3_L4_CONTROL3_fields_::DMCHEN3;
+    using eL3PEN3 = MacL3L4Control3Fields::eL3PEN3;
+    using eL3SAM3 = MacL3L4Control3Fields::eL3SAM3;
+    using eL3SAIM3 = MacL3L4Control3Fields::eL3SAIM3;
+    using eL3DAM3 = MacL3L4Control3Fields::eL3DAM3;
+    using eL3DAIM3 = MacL3L4Control3Fields::eL3DAIM3;
+    using eL4PEN3 = MacL3L4Control3Fields::eL4PEN3;
+    using eL4SPM3 = MacL3L4Control3Fields::eL4SPM3;
+    using eL4SPIM3 = MacL3L4Control3Fields::eL4SPIM3;
+    using eL4DPM3 = MacL3L4Control3Fields::eL4DPM3;
+    using eL4DPIM3 = MacL3L4Control3Fields::eL4DPIM3;
+    using eDMCHEN3 = MacL3L4Control3Fields::eDMCHEN3;
+    using L3PEN3 = MacL3L4Control3Fields::L3PEN3;
+    using L3SAM3 = MacL3L4Control3Fields::L3SAM3;
+    using L3SAIM3 = MacL3L4Control3Fields::L3SAIM3;
+    using L3DAM3 = MacL3L4Control3Fields::L3DAM3;
+    using L3DAIM3 = MacL3L4Control3Fields::L3DAIM3;
+    using L3HSBM3 = MacL3L4Control3Fields::L3HSBM3;
+    using L3HDBM3 = MacL3L4Control3Fields::L3HDBM3;
+    using L4PEN3 = MacL3L4Control3Fields::L4PEN3;
+    using L4SPM3 = MacL3L4Control3Fields::L4SPM3;
+    using L4SPIM3 = MacL3L4Control3Fields::L4SPIM3;
+    using L4DPM3 = MacL3L4Control3Fields::L4DPM3;
+    using L4DPIM3 = MacL3L4Control3Fields::L4DPIM3;
+    using DMCHN3 = MacL3L4Control3Fields::DMCHN3;
+    using DMCHEN3 = MacL3L4Control3Fields::DMCHEN3;
   };
 
   // Layer 4 Address 3
-  struct MAC_LAYER4_ADDRESS3_fields_ {
+  struct MacLayer4Address3Fields {
     // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
     using L4SP3 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Layer 4 Destination Port Number Field When the L4PEN0 bit is reset and the L4DPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Destination Port Number field in the IPv4 or IPv6 packets.
     using L4DP3 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER4_ADDRESS3_fields_
+  };  // struct MacLayer4Address3Fields
 
   struct MAC_LAYER4_ADDRESS3 : ftl::mmio::Register<
       0x4043C994u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER4_ADDRESS3_fields_::L4SP3,
-      MAC_LAYER4_ADDRESS3_fields_::L4DP3> {
-    using L4SP3 = MAC_LAYER4_ADDRESS3_fields_::L4SP3;
-    using L4DP3 = MAC_LAYER4_ADDRESS3_fields_::L4DP3;
+      MacLayer4Address3Fields::L4SP3,
+      MacLayer4Address3Fields::L4DP3> {
+    using L4SP3 = MacLayer4Address3Fields::L4SP3;
+    using L4DP3 = MacLayer4Address3Fields::L4DP3;
   };
 
   // Layer 3 Address 0 Register 3
-  struct MAC_LAYER3_ADDR0_REG3_fields_ {
+  struct MacLayer3Addr0Reg3Fields {
     // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
     using L3A03 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR0_REG3_fields_
+  };  // struct MacLayer3Addr0Reg3Fields
 
   struct MAC_LAYER3_ADDR0_REG3 : ftl::mmio::Register<
       0x4043C9A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR0_REG3_fields_::L3A03> {
-    using L3A03 = MAC_LAYER3_ADDR0_REG3_fields_::L3A03;
+      MacLayer3Addr0Reg3Fields::L3A03> {
+    using L3A03 = MacLayer3Addr0Reg3Fields::L3A03;
   };
 
   // Layer 3 Address 1 Register 3
-  struct MAC_LAYER3_ADDR1_REG3_fields_ {
+  struct MacLayer3Addr1Reg3Fields {
     // Layer 3 Address 1 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[63:32] of the IP Source Address field in the IPv6 packets.
     using L3A13 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR1_REG3_fields_
+  };  // struct MacLayer3Addr1Reg3Fields
 
   struct MAC_LAYER3_ADDR1_REG3 : ftl::mmio::Register<
       0x4043C9A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR1_REG3_fields_::L3A13> {
-    using L3A13 = MAC_LAYER3_ADDR1_REG3_fields_::L3A13;
+      MacLayer3Addr1Reg3Fields::L3A13> {
+    using L3A13 = MacLayer3Addr1Reg3Fields::L3A13;
   };
 
   // Layer 3 Address 2 Register 3
-  struct MAC_LAYER3_ADDR2_REG3_fields_ {
+  struct MacLayer3Addr2Reg3Fields {
     // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
     using L3A23 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR2_REG3_fields_
+  };  // struct MacLayer3Addr2Reg3Fields
 
   struct MAC_LAYER3_ADDR2_REG3 : ftl::mmio::Register<
       0x4043C9A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR2_REG3_fields_::L3A23> {
-    using L3A23 = MAC_LAYER3_ADDR2_REG3_fields_::L3A23;
+      MacLayer3Addr2Reg3Fields::L3A23> {
+    using L3A23 = MacLayer3Addr2Reg3Fields::L3A23;
   };
 
   // Layer 3 Address 3 Register 3
-  struct MAC_LAYER3_ADDR3_REG3_fields_ {
+  struct MacLayer3Addr3Reg3Fields {
     // Layer 3 Address 3 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[127:96] of the IP Source Address field in the IPv6 packets.
     using L3A33 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR3_REG3_fields_
+  };  // struct MacLayer3Addr3Reg3Fields
 
   struct MAC_LAYER3_ADDR3_REG3 : ftl::mmio::Register<
       0x4043C9ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR3_REG3_fields_::L3A33> {
-    using L3A33 = MAC_LAYER3_ADDR3_REG3_fields_::L3A33;
+      MacLayer3Addr3Reg3Fields::L3A33> {
+    using L3A33 = MacLayer3Addr3Reg3Fields::L3A33;
   };
 
   // Layer 3 and Layer 4 Control of Filter 4
-  struct MAC_L3_L4_CONTROL4_fields_ {
+  struct MacL3L4Control4Fields {
     enum class eL3PEN4 : std::uint32_t {
       // Layer 3 Protocol is disabled
       eDISABLE = 0,
@@ -12265,140 +12265,140 @@ struct EnetQos {
     using DMCHN4 = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Select Enable When set, this bit enables the selection of the DMA channel number for the packet that is passed by this L3_L4 filter.
     using DMCHEN4 = ftl::mmio::Field<1, 28, eDMCHEN4, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_L3_L4_CONTROL4_fields_
+  };  // struct MacL3L4Control4Fields
 
   struct MAC_L3_L4_CONTROL4 : ftl::mmio::Register<
       0x4043C9C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_L3_L4_CONTROL4_fields_::L3PEN4,
+      MacL3L4Control4Fields::L3PEN4,
       ftl::mmio::Reserved<1, 1>,
-      MAC_L3_L4_CONTROL4_fields_::L3SAM4,
-      MAC_L3_L4_CONTROL4_fields_::L3SAIM4,
-      MAC_L3_L4_CONTROL4_fields_::L3DAM4,
-      MAC_L3_L4_CONTROL4_fields_::L3DAIM4,
-      MAC_L3_L4_CONTROL4_fields_::L3HSBM4,
-      MAC_L3_L4_CONTROL4_fields_::L3HDBM4,
-      MAC_L3_L4_CONTROL4_fields_::L4PEN4,
+      MacL3L4Control4Fields::L3SAM4,
+      MacL3L4Control4Fields::L3SAIM4,
+      MacL3L4Control4Fields::L3DAM4,
+      MacL3L4Control4Fields::L3DAIM4,
+      MacL3L4Control4Fields::L3HSBM4,
+      MacL3L4Control4Fields::L3HDBM4,
+      MacL3L4Control4Fields::L4PEN4,
       ftl::mmio::Reserved<1, 17>,
-      MAC_L3_L4_CONTROL4_fields_::L4SPM4,
-      MAC_L3_L4_CONTROL4_fields_::L4SPIM4,
-      MAC_L3_L4_CONTROL4_fields_::L4DPM4,
-      MAC_L3_L4_CONTROL4_fields_::L4DPIM4,
+      MacL3L4Control4Fields::L4SPM4,
+      MacL3L4Control4Fields::L4SPIM4,
+      MacL3L4Control4Fields::L4DPM4,
+      MacL3L4Control4Fields::L4DPIM4,
       ftl::mmio::Reserved<2, 22>,
-      MAC_L3_L4_CONTROL4_fields_::DMCHN4,
+      MacL3L4Control4Fields::DMCHN4,
       ftl::mmio::Reserved<1, 27>,
-      MAC_L3_L4_CONTROL4_fields_::DMCHEN4,
+      MacL3L4Control4Fields::DMCHEN4,
       ftl::mmio::Reserved<3, 29>> {
-    using eL3PEN4 = MAC_L3_L4_CONTROL4_fields_::eL3PEN4;
-    using eL3SAM4 = MAC_L3_L4_CONTROL4_fields_::eL3SAM4;
-    using eL3SAIM4 = MAC_L3_L4_CONTROL4_fields_::eL3SAIM4;
-    using eL3DAM4 = MAC_L3_L4_CONTROL4_fields_::eL3DAM4;
-    using eL3DAIM4 = MAC_L3_L4_CONTROL4_fields_::eL3DAIM4;
-    using eL4PEN4 = MAC_L3_L4_CONTROL4_fields_::eL4PEN4;
-    using eL4SPM4 = MAC_L3_L4_CONTROL4_fields_::eL4SPM4;
-    using eL4SPIM4 = MAC_L3_L4_CONTROL4_fields_::eL4SPIM4;
-    using eL4DPM4 = MAC_L3_L4_CONTROL4_fields_::eL4DPM4;
-    using eL4DPIM4 = MAC_L3_L4_CONTROL4_fields_::eL4DPIM4;
-    using eDMCHEN4 = MAC_L3_L4_CONTROL4_fields_::eDMCHEN4;
-    using L3PEN4 = MAC_L3_L4_CONTROL4_fields_::L3PEN4;
-    using L3SAM4 = MAC_L3_L4_CONTROL4_fields_::L3SAM4;
-    using L3SAIM4 = MAC_L3_L4_CONTROL4_fields_::L3SAIM4;
-    using L3DAM4 = MAC_L3_L4_CONTROL4_fields_::L3DAM4;
-    using L3DAIM4 = MAC_L3_L4_CONTROL4_fields_::L3DAIM4;
-    using L3HSBM4 = MAC_L3_L4_CONTROL4_fields_::L3HSBM4;
-    using L3HDBM4 = MAC_L3_L4_CONTROL4_fields_::L3HDBM4;
-    using L4PEN4 = MAC_L3_L4_CONTROL4_fields_::L4PEN4;
-    using L4SPM4 = MAC_L3_L4_CONTROL4_fields_::L4SPM4;
-    using L4SPIM4 = MAC_L3_L4_CONTROL4_fields_::L4SPIM4;
-    using L4DPM4 = MAC_L3_L4_CONTROL4_fields_::L4DPM4;
-    using L4DPIM4 = MAC_L3_L4_CONTROL4_fields_::L4DPIM4;
-    using DMCHN4 = MAC_L3_L4_CONTROL4_fields_::DMCHN4;
-    using DMCHEN4 = MAC_L3_L4_CONTROL4_fields_::DMCHEN4;
+    using eL3PEN4 = MacL3L4Control4Fields::eL3PEN4;
+    using eL3SAM4 = MacL3L4Control4Fields::eL3SAM4;
+    using eL3SAIM4 = MacL3L4Control4Fields::eL3SAIM4;
+    using eL3DAM4 = MacL3L4Control4Fields::eL3DAM4;
+    using eL3DAIM4 = MacL3L4Control4Fields::eL3DAIM4;
+    using eL4PEN4 = MacL3L4Control4Fields::eL4PEN4;
+    using eL4SPM4 = MacL3L4Control4Fields::eL4SPM4;
+    using eL4SPIM4 = MacL3L4Control4Fields::eL4SPIM4;
+    using eL4DPM4 = MacL3L4Control4Fields::eL4DPM4;
+    using eL4DPIM4 = MacL3L4Control4Fields::eL4DPIM4;
+    using eDMCHEN4 = MacL3L4Control4Fields::eDMCHEN4;
+    using L3PEN4 = MacL3L4Control4Fields::L3PEN4;
+    using L3SAM4 = MacL3L4Control4Fields::L3SAM4;
+    using L3SAIM4 = MacL3L4Control4Fields::L3SAIM4;
+    using L3DAM4 = MacL3L4Control4Fields::L3DAM4;
+    using L3DAIM4 = MacL3L4Control4Fields::L3DAIM4;
+    using L3HSBM4 = MacL3L4Control4Fields::L3HSBM4;
+    using L3HDBM4 = MacL3L4Control4Fields::L3HDBM4;
+    using L4PEN4 = MacL3L4Control4Fields::L4PEN4;
+    using L4SPM4 = MacL3L4Control4Fields::L4SPM4;
+    using L4SPIM4 = MacL3L4Control4Fields::L4SPIM4;
+    using L4DPM4 = MacL3L4Control4Fields::L4DPM4;
+    using L4DPIM4 = MacL3L4Control4Fields::L4DPIM4;
+    using DMCHN4 = MacL3L4Control4Fields::DMCHN4;
+    using DMCHEN4 = MacL3L4Control4Fields::DMCHEN4;
   };
 
   // Layer 4 Address 4
-  struct MAC_LAYER4_ADDRESS4_fields_ {
+  struct MacLayer4Address4Fields {
     // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
     using L4SP4 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Layer 4 Destination Port Number Field When the L4PEN0 bit is reset and the L4DPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Destination Port Number field in the IPv4 or IPv6 packets.
     using L4DP4 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER4_ADDRESS4_fields_
+  };  // struct MacLayer4Address4Fields
 
   struct MAC_LAYER4_ADDRESS4 : ftl::mmio::Register<
       0x4043C9C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER4_ADDRESS4_fields_::L4SP4,
-      MAC_LAYER4_ADDRESS4_fields_::L4DP4> {
-    using L4SP4 = MAC_LAYER4_ADDRESS4_fields_::L4SP4;
-    using L4DP4 = MAC_LAYER4_ADDRESS4_fields_::L4DP4;
+      MacLayer4Address4Fields::L4SP4,
+      MacLayer4Address4Fields::L4DP4> {
+    using L4SP4 = MacLayer4Address4Fields::L4SP4;
+    using L4DP4 = MacLayer4Address4Fields::L4DP4;
   };
 
   // Layer 3 Address 0 Register 4
-  struct MAC_LAYER3_ADDR0_REG4_fields_ {
+  struct MacLayer3Addr0Reg4Fields {
     // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
     using L3A04 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR0_REG4_fields_
+  };  // struct MacLayer3Addr0Reg4Fields
 
   struct MAC_LAYER3_ADDR0_REG4 : ftl::mmio::Register<
       0x4043C9D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR0_REG4_fields_::L3A04> {
-    using L3A04 = MAC_LAYER3_ADDR0_REG4_fields_::L3A04;
+      MacLayer3Addr0Reg4Fields::L3A04> {
+    using L3A04 = MacLayer3Addr0Reg4Fields::L3A04;
   };
 
   // Layer 3 Address 1 Register 4
-  struct MAC_LAYER3_ADDR1_REG4_fields_ {
+  struct MacLayer3Addr1Reg4Fields {
     // Layer 3 Address 1 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[63:32] of the IP Source Address field in the IPv6 packets.
     using L3A14 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR1_REG4_fields_
+  };  // struct MacLayer3Addr1Reg4Fields
 
   struct MAC_LAYER3_ADDR1_REG4 : ftl::mmio::Register<
       0x4043C9D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR1_REG4_fields_::L3A14> {
-    using L3A14 = MAC_LAYER3_ADDR1_REG4_fields_::L3A14;
+      MacLayer3Addr1Reg4Fields::L3A14> {
+    using L3A14 = MacLayer3Addr1Reg4Fields::L3A14;
   };
 
   // Layer 3 Address 2 Register 4
-  struct MAC_LAYER3_ADDR2_REG4_fields_ {
+  struct MacLayer3Addr2Reg4Fields {
     // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
     using L3A24 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR2_REG4_fields_
+  };  // struct MacLayer3Addr2Reg4Fields
 
   struct MAC_LAYER3_ADDR2_REG4 : ftl::mmio::Register<
       0x4043C9D8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR2_REG4_fields_::L3A24> {
-    using L3A24 = MAC_LAYER3_ADDR2_REG4_fields_::L3A24;
+      MacLayer3Addr2Reg4Fields::L3A24> {
+    using L3A24 = MacLayer3Addr2Reg4Fields::L3A24;
   };
 
   // Layer 3 Address 3 Register 4
-  struct MAC_LAYER3_ADDR3_REG4_fields_ {
+  struct MacLayer3Addr3Reg4Fields {
     // Layer 3 Address 3 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[127:96] of the IP Source Address field in the IPv6 packets.
     using L3A34 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR3_REG4_fields_
+  };  // struct MacLayer3Addr3Reg4Fields
 
   struct MAC_LAYER3_ADDR3_REG4 : ftl::mmio::Register<
       0x4043C9DCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR3_REG4_fields_::L3A34> {
-    using L3A34 = MAC_LAYER3_ADDR3_REG4_fields_::L3A34;
+      MacLayer3Addr3Reg4Fields::L3A34> {
+    using L3A34 = MacLayer3Addr3Reg4Fields::L3A34;
   };
 
   // Layer 3 and Layer 4 Control of Filter 5
-  struct MAC_L3_L4_CONTROL5_fields_ {
+  struct MacL3L4Control5Fields {
     enum class eL3PEN5 : std::uint32_t {
       // Layer 3 Protocol is disabled
       eDISABLE = 0,
@@ -12504,140 +12504,140 @@ struct EnetQos {
     using DMCHN5 = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Select Enable When set, this bit enables the selection of the DMA channel number for the packet that is passed by this L3_L4 filter.
     using DMCHEN5 = ftl::mmio::Field<1, 28, eDMCHEN5, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_L3_L4_CONTROL5_fields_
+  };  // struct MacL3L4Control5Fields
 
   struct MAC_L3_L4_CONTROL5 : ftl::mmio::Register<
       0x4043C9F0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_L3_L4_CONTROL5_fields_::L3PEN5,
+      MacL3L4Control5Fields::L3PEN5,
       ftl::mmio::Reserved<1, 1>,
-      MAC_L3_L4_CONTROL5_fields_::L3SAM5,
-      MAC_L3_L4_CONTROL5_fields_::L3SAIM5,
-      MAC_L3_L4_CONTROL5_fields_::L3DAM5,
-      MAC_L3_L4_CONTROL5_fields_::L3DAIM5,
-      MAC_L3_L4_CONTROL5_fields_::L3HSBM5,
-      MAC_L3_L4_CONTROL5_fields_::L3HDBM5,
-      MAC_L3_L4_CONTROL5_fields_::L4PEN5,
+      MacL3L4Control5Fields::L3SAM5,
+      MacL3L4Control5Fields::L3SAIM5,
+      MacL3L4Control5Fields::L3DAM5,
+      MacL3L4Control5Fields::L3DAIM5,
+      MacL3L4Control5Fields::L3HSBM5,
+      MacL3L4Control5Fields::L3HDBM5,
+      MacL3L4Control5Fields::L4PEN5,
       ftl::mmio::Reserved<1, 17>,
-      MAC_L3_L4_CONTROL5_fields_::L4SPM5,
-      MAC_L3_L4_CONTROL5_fields_::L4SPIM5,
-      MAC_L3_L4_CONTROL5_fields_::L4DPM5,
-      MAC_L3_L4_CONTROL5_fields_::L4DPIM5,
+      MacL3L4Control5Fields::L4SPM5,
+      MacL3L4Control5Fields::L4SPIM5,
+      MacL3L4Control5Fields::L4DPM5,
+      MacL3L4Control5Fields::L4DPIM5,
       ftl::mmio::Reserved<2, 22>,
-      MAC_L3_L4_CONTROL5_fields_::DMCHN5,
+      MacL3L4Control5Fields::DMCHN5,
       ftl::mmio::Reserved<1, 27>,
-      MAC_L3_L4_CONTROL5_fields_::DMCHEN5,
+      MacL3L4Control5Fields::DMCHEN5,
       ftl::mmio::Reserved<3, 29>> {
-    using eL3PEN5 = MAC_L3_L4_CONTROL5_fields_::eL3PEN5;
-    using eL3SAM5 = MAC_L3_L4_CONTROL5_fields_::eL3SAM5;
-    using eL3SAIM5 = MAC_L3_L4_CONTROL5_fields_::eL3SAIM5;
-    using eL3DAM5 = MAC_L3_L4_CONTROL5_fields_::eL3DAM5;
-    using eL3DAIM5 = MAC_L3_L4_CONTROL5_fields_::eL3DAIM5;
-    using eL4PEN5 = MAC_L3_L4_CONTROL5_fields_::eL4PEN5;
-    using eL4SPM5 = MAC_L3_L4_CONTROL5_fields_::eL4SPM5;
-    using eL4SPIM5 = MAC_L3_L4_CONTROL5_fields_::eL4SPIM5;
-    using eL4DPM5 = MAC_L3_L4_CONTROL5_fields_::eL4DPM5;
-    using eL4DPIM5 = MAC_L3_L4_CONTROL5_fields_::eL4DPIM5;
-    using eDMCHEN5 = MAC_L3_L4_CONTROL5_fields_::eDMCHEN5;
-    using L3PEN5 = MAC_L3_L4_CONTROL5_fields_::L3PEN5;
-    using L3SAM5 = MAC_L3_L4_CONTROL5_fields_::L3SAM5;
-    using L3SAIM5 = MAC_L3_L4_CONTROL5_fields_::L3SAIM5;
-    using L3DAM5 = MAC_L3_L4_CONTROL5_fields_::L3DAM5;
-    using L3DAIM5 = MAC_L3_L4_CONTROL5_fields_::L3DAIM5;
-    using L3HSBM5 = MAC_L3_L4_CONTROL5_fields_::L3HSBM5;
-    using L3HDBM5 = MAC_L3_L4_CONTROL5_fields_::L3HDBM5;
-    using L4PEN5 = MAC_L3_L4_CONTROL5_fields_::L4PEN5;
-    using L4SPM5 = MAC_L3_L4_CONTROL5_fields_::L4SPM5;
-    using L4SPIM5 = MAC_L3_L4_CONTROL5_fields_::L4SPIM5;
-    using L4DPM5 = MAC_L3_L4_CONTROL5_fields_::L4DPM5;
-    using L4DPIM5 = MAC_L3_L4_CONTROL5_fields_::L4DPIM5;
-    using DMCHN5 = MAC_L3_L4_CONTROL5_fields_::DMCHN5;
-    using DMCHEN5 = MAC_L3_L4_CONTROL5_fields_::DMCHEN5;
+    using eL3PEN5 = MacL3L4Control5Fields::eL3PEN5;
+    using eL3SAM5 = MacL3L4Control5Fields::eL3SAM5;
+    using eL3SAIM5 = MacL3L4Control5Fields::eL3SAIM5;
+    using eL3DAM5 = MacL3L4Control5Fields::eL3DAM5;
+    using eL3DAIM5 = MacL3L4Control5Fields::eL3DAIM5;
+    using eL4PEN5 = MacL3L4Control5Fields::eL4PEN5;
+    using eL4SPM5 = MacL3L4Control5Fields::eL4SPM5;
+    using eL4SPIM5 = MacL3L4Control5Fields::eL4SPIM5;
+    using eL4DPM5 = MacL3L4Control5Fields::eL4DPM5;
+    using eL4DPIM5 = MacL3L4Control5Fields::eL4DPIM5;
+    using eDMCHEN5 = MacL3L4Control5Fields::eDMCHEN5;
+    using L3PEN5 = MacL3L4Control5Fields::L3PEN5;
+    using L3SAM5 = MacL3L4Control5Fields::L3SAM5;
+    using L3SAIM5 = MacL3L4Control5Fields::L3SAIM5;
+    using L3DAM5 = MacL3L4Control5Fields::L3DAM5;
+    using L3DAIM5 = MacL3L4Control5Fields::L3DAIM5;
+    using L3HSBM5 = MacL3L4Control5Fields::L3HSBM5;
+    using L3HDBM5 = MacL3L4Control5Fields::L3HDBM5;
+    using L4PEN5 = MacL3L4Control5Fields::L4PEN5;
+    using L4SPM5 = MacL3L4Control5Fields::L4SPM5;
+    using L4SPIM5 = MacL3L4Control5Fields::L4SPIM5;
+    using L4DPM5 = MacL3L4Control5Fields::L4DPM5;
+    using L4DPIM5 = MacL3L4Control5Fields::L4DPIM5;
+    using DMCHN5 = MacL3L4Control5Fields::DMCHN5;
+    using DMCHEN5 = MacL3L4Control5Fields::DMCHEN5;
   };
 
   // Layer 4 Address 5
-  struct MAC_LAYER4_ADDRESS5_fields_ {
+  struct MacLayer4Address5Fields {
     // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
     using L4SP5 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Layer 4 Destination Port Number Field When the L4PEN0 bit is reset and the L4DPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Destination Port Number field in the IPv4 or IPv6 packets.
     using L4DP5 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER4_ADDRESS5_fields_
+  };  // struct MacLayer4Address5Fields
 
   struct MAC_LAYER4_ADDRESS5 : ftl::mmio::Register<
       0x4043C9F4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER4_ADDRESS5_fields_::L4SP5,
-      MAC_LAYER4_ADDRESS5_fields_::L4DP5> {
-    using L4SP5 = MAC_LAYER4_ADDRESS5_fields_::L4SP5;
-    using L4DP5 = MAC_LAYER4_ADDRESS5_fields_::L4DP5;
+      MacLayer4Address5Fields::L4SP5,
+      MacLayer4Address5Fields::L4DP5> {
+    using L4SP5 = MacLayer4Address5Fields::L4SP5;
+    using L4DP5 = MacLayer4Address5Fields::L4DP5;
   };
 
   // Layer 3 Address 0 Register 5
-  struct MAC_LAYER3_ADDR0_REG5_fields_ {
+  struct MacLayer3Addr0Reg5Fields {
     // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
     using L3A05 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR0_REG5_fields_
+  };  // struct MacLayer3Addr0Reg5Fields
 
   struct MAC_LAYER3_ADDR0_REG5 : ftl::mmio::Register<
       0x4043CA00u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR0_REG5_fields_::L3A05> {
-    using L3A05 = MAC_LAYER3_ADDR0_REG5_fields_::L3A05;
+      MacLayer3Addr0Reg5Fields::L3A05> {
+    using L3A05 = MacLayer3Addr0Reg5Fields::L3A05;
   };
 
   // Layer 3 Address 1 Register 5
-  struct MAC_LAYER3_ADDR1_REG5_fields_ {
+  struct MacLayer3Addr1Reg5Fields {
     // Layer 3 Address 1 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[63:32] of the IP Source Address field in the IPv6 packets.
     using L3A15 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR1_REG5_fields_
+  };  // struct MacLayer3Addr1Reg5Fields
 
   struct MAC_LAYER3_ADDR1_REG5 : ftl::mmio::Register<
       0x4043CA04u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR1_REG5_fields_::L3A15> {
-    using L3A15 = MAC_LAYER3_ADDR1_REG5_fields_::L3A15;
+      MacLayer3Addr1Reg5Fields::L3A15> {
+    using L3A15 = MacLayer3Addr1Reg5Fields::L3A15;
   };
 
   // Layer 3 Address 2 Register 5
-  struct MAC_LAYER3_ADDR2_REG5_fields_ {
+  struct MacLayer3Addr2Reg5Fields {
     // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
     using L3A25 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR2_REG5_fields_
+  };  // struct MacLayer3Addr2Reg5Fields
 
   struct MAC_LAYER3_ADDR2_REG5 : ftl::mmio::Register<
       0x4043CA08u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR2_REG5_fields_::L3A25> {
-    using L3A25 = MAC_LAYER3_ADDR2_REG5_fields_::L3A25;
+      MacLayer3Addr2Reg5Fields::L3A25> {
+    using L3A25 = MacLayer3Addr2Reg5Fields::L3A25;
   };
 
   // Layer 3 Address 3 Register 5
-  struct MAC_LAYER3_ADDR3_REG5_fields_ {
+  struct MacLayer3Addr3Reg5Fields {
     // Layer 3 Address 3 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[127:96] of the IP Source Address field in the IPv6 packets.
     using L3A35 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR3_REG5_fields_
+  };  // struct MacLayer3Addr3Reg5Fields
 
   struct MAC_LAYER3_ADDR3_REG5 : ftl::mmio::Register<
       0x4043CA0Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR3_REG5_fields_::L3A35> {
-    using L3A35 = MAC_LAYER3_ADDR3_REG5_fields_::L3A35;
+      MacLayer3Addr3Reg5Fields::L3A35> {
+    using L3A35 = MacLayer3Addr3Reg5Fields::L3A35;
   };
 
   // Layer 3 and Layer 4 Control of Filter 6
-  struct MAC_L3_L4_CONTROL6_fields_ {
+  struct MacL3L4Control6Fields {
     enum class eL3PEN6 : std::uint32_t {
       // Layer 3 Protocol is disabled
       eDISABLE = 0,
@@ -12743,140 +12743,140 @@ struct EnetQos {
     using DMCHN6 = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Select Enable When set, this bit enables the selection of the DMA channel number for the packet that is passed by this L3_L4 filter.
     using DMCHEN6 = ftl::mmio::Field<1, 28, eDMCHEN6, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_L3_L4_CONTROL6_fields_
+  };  // struct MacL3L4Control6Fields
 
   struct MAC_L3_L4_CONTROL6 : ftl::mmio::Register<
       0x4043CA20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_L3_L4_CONTROL6_fields_::L3PEN6,
+      MacL3L4Control6Fields::L3PEN6,
       ftl::mmio::Reserved<1, 1>,
-      MAC_L3_L4_CONTROL6_fields_::L3SAM6,
-      MAC_L3_L4_CONTROL6_fields_::L3SAIM6,
-      MAC_L3_L4_CONTROL6_fields_::L3DAM6,
-      MAC_L3_L4_CONTROL6_fields_::L3DAIM6,
-      MAC_L3_L4_CONTROL6_fields_::L3HSBM6,
-      MAC_L3_L4_CONTROL6_fields_::L3HDBM6,
-      MAC_L3_L4_CONTROL6_fields_::L4PEN6,
+      MacL3L4Control6Fields::L3SAM6,
+      MacL3L4Control6Fields::L3SAIM6,
+      MacL3L4Control6Fields::L3DAM6,
+      MacL3L4Control6Fields::L3DAIM6,
+      MacL3L4Control6Fields::L3HSBM6,
+      MacL3L4Control6Fields::L3HDBM6,
+      MacL3L4Control6Fields::L4PEN6,
       ftl::mmio::Reserved<1, 17>,
-      MAC_L3_L4_CONTROL6_fields_::L4SPM6,
-      MAC_L3_L4_CONTROL6_fields_::L4SPIM6,
-      MAC_L3_L4_CONTROL6_fields_::L4DPM6,
-      MAC_L3_L4_CONTROL6_fields_::L4DPIM6,
+      MacL3L4Control6Fields::L4SPM6,
+      MacL3L4Control6Fields::L4SPIM6,
+      MacL3L4Control6Fields::L4DPM6,
+      MacL3L4Control6Fields::L4DPIM6,
       ftl::mmio::Reserved<2, 22>,
-      MAC_L3_L4_CONTROL6_fields_::DMCHN6,
+      MacL3L4Control6Fields::DMCHN6,
       ftl::mmio::Reserved<1, 27>,
-      MAC_L3_L4_CONTROL6_fields_::DMCHEN6,
+      MacL3L4Control6Fields::DMCHEN6,
       ftl::mmio::Reserved<3, 29>> {
-    using eL3PEN6 = MAC_L3_L4_CONTROL6_fields_::eL3PEN6;
-    using eL3SAM6 = MAC_L3_L4_CONTROL6_fields_::eL3SAM6;
-    using eL3SAIM6 = MAC_L3_L4_CONTROL6_fields_::eL3SAIM6;
-    using eL3DAM6 = MAC_L3_L4_CONTROL6_fields_::eL3DAM6;
-    using eL3DAIM6 = MAC_L3_L4_CONTROL6_fields_::eL3DAIM6;
-    using eL4PEN6 = MAC_L3_L4_CONTROL6_fields_::eL4PEN6;
-    using eL4SPM6 = MAC_L3_L4_CONTROL6_fields_::eL4SPM6;
-    using eL4SPIM6 = MAC_L3_L4_CONTROL6_fields_::eL4SPIM6;
-    using eL4DPM6 = MAC_L3_L4_CONTROL6_fields_::eL4DPM6;
-    using eL4DPIM6 = MAC_L3_L4_CONTROL6_fields_::eL4DPIM6;
-    using eDMCHEN6 = MAC_L3_L4_CONTROL6_fields_::eDMCHEN6;
-    using L3PEN6 = MAC_L3_L4_CONTROL6_fields_::L3PEN6;
-    using L3SAM6 = MAC_L3_L4_CONTROL6_fields_::L3SAM6;
-    using L3SAIM6 = MAC_L3_L4_CONTROL6_fields_::L3SAIM6;
-    using L3DAM6 = MAC_L3_L4_CONTROL6_fields_::L3DAM6;
-    using L3DAIM6 = MAC_L3_L4_CONTROL6_fields_::L3DAIM6;
-    using L3HSBM6 = MAC_L3_L4_CONTROL6_fields_::L3HSBM6;
-    using L3HDBM6 = MAC_L3_L4_CONTROL6_fields_::L3HDBM6;
-    using L4PEN6 = MAC_L3_L4_CONTROL6_fields_::L4PEN6;
-    using L4SPM6 = MAC_L3_L4_CONTROL6_fields_::L4SPM6;
-    using L4SPIM6 = MAC_L3_L4_CONTROL6_fields_::L4SPIM6;
-    using L4DPM6 = MAC_L3_L4_CONTROL6_fields_::L4DPM6;
-    using L4DPIM6 = MAC_L3_L4_CONTROL6_fields_::L4DPIM6;
-    using DMCHN6 = MAC_L3_L4_CONTROL6_fields_::DMCHN6;
-    using DMCHEN6 = MAC_L3_L4_CONTROL6_fields_::DMCHEN6;
+    using eL3PEN6 = MacL3L4Control6Fields::eL3PEN6;
+    using eL3SAM6 = MacL3L4Control6Fields::eL3SAM6;
+    using eL3SAIM6 = MacL3L4Control6Fields::eL3SAIM6;
+    using eL3DAM6 = MacL3L4Control6Fields::eL3DAM6;
+    using eL3DAIM6 = MacL3L4Control6Fields::eL3DAIM6;
+    using eL4PEN6 = MacL3L4Control6Fields::eL4PEN6;
+    using eL4SPM6 = MacL3L4Control6Fields::eL4SPM6;
+    using eL4SPIM6 = MacL3L4Control6Fields::eL4SPIM6;
+    using eL4DPM6 = MacL3L4Control6Fields::eL4DPM6;
+    using eL4DPIM6 = MacL3L4Control6Fields::eL4DPIM6;
+    using eDMCHEN6 = MacL3L4Control6Fields::eDMCHEN6;
+    using L3PEN6 = MacL3L4Control6Fields::L3PEN6;
+    using L3SAM6 = MacL3L4Control6Fields::L3SAM6;
+    using L3SAIM6 = MacL3L4Control6Fields::L3SAIM6;
+    using L3DAM6 = MacL3L4Control6Fields::L3DAM6;
+    using L3DAIM6 = MacL3L4Control6Fields::L3DAIM6;
+    using L3HSBM6 = MacL3L4Control6Fields::L3HSBM6;
+    using L3HDBM6 = MacL3L4Control6Fields::L3HDBM6;
+    using L4PEN6 = MacL3L4Control6Fields::L4PEN6;
+    using L4SPM6 = MacL3L4Control6Fields::L4SPM6;
+    using L4SPIM6 = MacL3L4Control6Fields::L4SPIM6;
+    using L4DPM6 = MacL3L4Control6Fields::L4DPM6;
+    using L4DPIM6 = MacL3L4Control6Fields::L4DPIM6;
+    using DMCHN6 = MacL3L4Control6Fields::DMCHN6;
+    using DMCHEN6 = MacL3L4Control6Fields::DMCHEN6;
   };
 
   // Layer 4 Address 6
-  struct MAC_LAYER4_ADDRESS6_fields_ {
+  struct MacLayer4Address6Fields {
     // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
     using L4SP6 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Layer 4 Destination Port Number Field When the L4PEN0 bit is reset and the L4DPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Destination Port Number field in the IPv4 or IPv6 packets.
     using L4DP6 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER4_ADDRESS6_fields_
+  };  // struct MacLayer4Address6Fields
 
   struct MAC_LAYER4_ADDRESS6 : ftl::mmio::Register<
       0x4043CA24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER4_ADDRESS6_fields_::L4SP6,
-      MAC_LAYER4_ADDRESS6_fields_::L4DP6> {
-    using L4SP6 = MAC_LAYER4_ADDRESS6_fields_::L4SP6;
-    using L4DP6 = MAC_LAYER4_ADDRESS6_fields_::L4DP6;
+      MacLayer4Address6Fields::L4SP6,
+      MacLayer4Address6Fields::L4DP6> {
+    using L4SP6 = MacLayer4Address6Fields::L4SP6;
+    using L4DP6 = MacLayer4Address6Fields::L4DP6;
   };
 
   // Layer 3 Address 0 Register 6
-  struct MAC_LAYER3_ADDR0_REG6_fields_ {
+  struct MacLayer3Addr0Reg6Fields {
     // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
     using L3A06 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR0_REG6_fields_
+  };  // struct MacLayer3Addr0Reg6Fields
 
   struct MAC_LAYER3_ADDR0_REG6 : ftl::mmio::Register<
       0x4043CA30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR0_REG6_fields_::L3A06> {
-    using L3A06 = MAC_LAYER3_ADDR0_REG6_fields_::L3A06;
+      MacLayer3Addr0Reg6Fields::L3A06> {
+    using L3A06 = MacLayer3Addr0Reg6Fields::L3A06;
   };
 
   // Layer 3 Address 1 Register 6
-  struct MAC_LAYER3_ADDR1_REG6_fields_ {
+  struct MacLayer3Addr1Reg6Fields {
     // Layer 3 Address 1 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[63:32] of the IP Source Address field in the IPv6 packets.
     using L3A16 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR1_REG6_fields_
+  };  // struct MacLayer3Addr1Reg6Fields
 
   struct MAC_LAYER3_ADDR1_REG6 : ftl::mmio::Register<
       0x4043CA34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR1_REG6_fields_::L3A16> {
-    using L3A16 = MAC_LAYER3_ADDR1_REG6_fields_::L3A16;
+      MacLayer3Addr1Reg6Fields::L3A16> {
+    using L3A16 = MacLayer3Addr1Reg6Fields::L3A16;
   };
 
   // Layer 3 Address 2 Register 6
-  struct MAC_LAYER3_ADDR2_REG6_fields_ {
+  struct MacLayer3Addr2Reg6Fields {
     // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
     using L3A26 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR2_REG6_fields_
+  };  // struct MacLayer3Addr2Reg6Fields
 
   struct MAC_LAYER3_ADDR2_REG6 : ftl::mmio::Register<
       0x4043CA38u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR2_REG6_fields_::L3A26> {
-    using L3A26 = MAC_LAYER3_ADDR2_REG6_fields_::L3A26;
+      MacLayer3Addr2Reg6Fields::L3A26> {
+    using L3A26 = MacLayer3Addr2Reg6Fields::L3A26;
   };
 
   // Layer 3 Address 3 Register 6
-  struct MAC_LAYER3_ADDR3_REG6_fields_ {
+  struct MacLayer3Addr3Reg6Fields {
     // Layer 3 Address 3 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[127:96] of the IP Source Address field in the IPv6 packets.
     using L3A36 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR3_REG6_fields_
+  };  // struct MacLayer3Addr3Reg6Fields
 
   struct MAC_LAYER3_ADDR3_REG6 : ftl::mmio::Register<
       0x4043CA3Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR3_REG6_fields_::L3A36> {
-    using L3A36 = MAC_LAYER3_ADDR3_REG6_fields_::L3A36;
+      MacLayer3Addr3Reg6Fields::L3A36> {
+    using L3A36 = MacLayer3Addr3Reg6Fields::L3A36;
   };
 
   // Layer 3 and Layer 4 Control of Filter 0
-  struct MAC_L3_L4_CONTROL7_fields_ {
+  struct MacL3L4Control7Fields {
     enum class eL3PEN7 : std::uint32_t {
       // Layer 3 Protocol is disabled
       eDISABLE = 0,
@@ -12982,140 +12982,140 @@ struct EnetQos {
     using DMCHN7 = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Channel Select Enable When set, this bit enables the selection of the DMA channel number for the packet that is passed by this L3_L4 filter.
     using DMCHEN7 = ftl::mmio::Field<1, 28, eDMCHEN7, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_L3_L4_CONTROL7_fields_
+  };  // struct MacL3L4Control7Fields
 
   struct MAC_L3_L4_CONTROL7 : ftl::mmio::Register<
       0x4043CA50u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_L3_L4_CONTROL7_fields_::L3PEN7,
+      MacL3L4Control7Fields::L3PEN7,
       ftl::mmio::Reserved<1, 1>,
-      MAC_L3_L4_CONTROL7_fields_::L3SAM7,
-      MAC_L3_L4_CONTROL7_fields_::L3SAIM7,
-      MAC_L3_L4_CONTROL7_fields_::L3DAM7,
-      MAC_L3_L4_CONTROL7_fields_::L3DAIM7,
-      MAC_L3_L4_CONTROL7_fields_::L3HSBM7,
-      MAC_L3_L4_CONTROL7_fields_::L3HDBM7,
-      MAC_L3_L4_CONTROL7_fields_::L4PEN7,
+      MacL3L4Control7Fields::L3SAM7,
+      MacL3L4Control7Fields::L3SAIM7,
+      MacL3L4Control7Fields::L3DAM7,
+      MacL3L4Control7Fields::L3DAIM7,
+      MacL3L4Control7Fields::L3HSBM7,
+      MacL3L4Control7Fields::L3HDBM7,
+      MacL3L4Control7Fields::L4PEN7,
       ftl::mmio::Reserved<1, 17>,
-      MAC_L3_L4_CONTROL7_fields_::L4SPM7,
-      MAC_L3_L4_CONTROL7_fields_::L4SPIM7,
-      MAC_L3_L4_CONTROL7_fields_::L4DPM7,
-      MAC_L3_L4_CONTROL7_fields_::L4DPIM7,
+      MacL3L4Control7Fields::L4SPM7,
+      MacL3L4Control7Fields::L4SPIM7,
+      MacL3L4Control7Fields::L4DPM7,
+      MacL3L4Control7Fields::L4DPIM7,
       ftl::mmio::Reserved<2, 22>,
-      MAC_L3_L4_CONTROL7_fields_::DMCHN7,
+      MacL3L4Control7Fields::DMCHN7,
       ftl::mmio::Reserved<1, 27>,
-      MAC_L3_L4_CONTROL7_fields_::DMCHEN7,
+      MacL3L4Control7Fields::DMCHEN7,
       ftl::mmio::Reserved<3, 29>> {
-    using eL3PEN7 = MAC_L3_L4_CONTROL7_fields_::eL3PEN7;
-    using eL3SAM7 = MAC_L3_L4_CONTROL7_fields_::eL3SAM7;
-    using eL3SAIM7 = MAC_L3_L4_CONTROL7_fields_::eL3SAIM7;
-    using eL3DAM7 = MAC_L3_L4_CONTROL7_fields_::eL3DAM7;
-    using eL3DAIM7 = MAC_L3_L4_CONTROL7_fields_::eL3DAIM7;
-    using eL4PEN7 = MAC_L3_L4_CONTROL7_fields_::eL4PEN7;
-    using eL4SPM7 = MAC_L3_L4_CONTROL7_fields_::eL4SPM7;
-    using eL4SPIM7 = MAC_L3_L4_CONTROL7_fields_::eL4SPIM7;
-    using eL4DPM7 = MAC_L3_L4_CONTROL7_fields_::eL4DPM7;
-    using eL4DPIM7 = MAC_L3_L4_CONTROL7_fields_::eL4DPIM7;
-    using eDMCHEN7 = MAC_L3_L4_CONTROL7_fields_::eDMCHEN7;
-    using L3PEN7 = MAC_L3_L4_CONTROL7_fields_::L3PEN7;
-    using L3SAM7 = MAC_L3_L4_CONTROL7_fields_::L3SAM7;
-    using L3SAIM7 = MAC_L3_L4_CONTROL7_fields_::L3SAIM7;
-    using L3DAM7 = MAC_L3_L4_CONTROL7_fields_::L3DAM7;
-    using L3DAIM7 = MAC_L3_L4_CONTROL7_fields_::L3DAIM7;
-    using L3HSBM7 = MAC_L3_L4_CONTROL7_fields_::L3HSBM7;
-    using L3HDBM7 = MAC_L3_L4_CONTROL7_fields_::L3HDBM7;
-    using L4PEN7 = MAC_L3_L4_CONTROL7_fields_::L4PEN7;
-    using L4SPM7 = MAC_L3_L4_CONTROL7_fields_::L4SPM7;
-    using L4SPIM7 = MAC_L3_L4_CONTROL7_fields_::L4SPIM7;
-    using L4DPM7 = MAC_L3_L4_CONTROL7_fields_::L4DPM7;
-    using L4DPIM7 = MAC_L3_L4_CONTROL7_fields_::L4DPIM7;
-    using DMCHN7 = MAC_L3_L4_CONTROL7_fields_::DMCHN7;
-    using DMCHEN7 = MAC_L3_L4_CONTROL7_fields_::DMCHEN7;
+    using eL3PEN7 = MacL3L4Control7Fields::eL3PEN7;
+    using eL3SAM7 = MacL3L4Control7Fields::eL3SAM7;
+    using eL3SAIM7 = MacL3L4Control7Fields::eL3SAIM7;
+    using eL3DAM7 = MacL3L4Control7Fields::eL3DAM7;
+    using eL3DAIM7 = MacL3L4Control7Fields::eL3DAIM7;
+    using eL4PEN7 = MacL3L4Control7Fields::eL4PEN7;
+    using eL4SPM7 = MacL3L4Control7Fields::eL4SPM7;
+    using eL4SPIM7 = MacL3L4Control7Fields::eL4SPIM7;
+    using eL4DPM7 = MacL3L4Control7Fields::eL4DPM7;
+    using eL4DPIM7 = MacL3L4Control7Fields::eL4DPIM7;
+    using eDMCHEN7 = MacL3L4Control7Fields::eDMCHEN7;
+    using L3PEN7 = MacL3L4Control7Fields::L3PEN7;
+    using L3SAM7 = MacL3L4Control7Fields::L3SAM7;
+    using L3SAIM7 = MacL3L4Control7Fields::L3SAIM7;
+    using L3DAM7 = MacL3L4Control7Fields::L3DAM7;
+    using L3DAIM7 = MacL3L4Control7Fields::L3DAIM7;
+    using L3HSBM7 = MacL3L4Control7Fields::L3HSBM7;
+    using L3HDBM7 = MacL3L4Control7Fields::L3HDBM7;
+    using L4PEN7 = MacL3L4Control7Fields::L4PEN7;
+    using L4SPM7 = MacL3L4Control7Fields::L4SPM7;
+    using L4SPIM7 = MacL3L4Control7Fields::L4SPIM7;
+    using L4DPM7 = MacL3L4Control7Fields::L4DPM7;
+    using L4DPIM7 = MacL3L4Control7Fields::L4DPIM7;
+    using DMCHN7 = MacL3L4Control7Fields::DMCHN7;
+    using DMCHEN7 = MacL3L4Control7Fields::DMCHEN7;
   };
 
   // Layer 4 Address 7
-  struct MAC_LAYER4_ADDRESS7_fields_ {
+  struct MacLayer4Address7Fields {
     // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
     using L4SP7 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Layer 4 Destination Port Number Field When the L4PEN0 bit is reset and the L4DPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Destination Port Number field in the IPv4 or IPv6 packets.
     using L4DP7 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER4_ADDRESS7_fields_
+  };  // struct MacLayer4Address7Fields
 
   struct MAC_LAYER4_ADDRESS7 : ftl::mmio::Register<
       0x4043CA54u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER4_ADDRESS7_fields_::L4SP7,
-      MAC_LAYER4_ADDRESS7_fields_::L4DP7> {
-    using L4SP7 = MAC_LAYER4_ADDRESS7_fields_::L4SP7;
-    using L4DP7 = MAC_LAYER4_ADDRESS7_fields_::L4DP7;
+      MacLayer4Address7Fields::L4SP7,
+      MacLayer4Address7Fields::L4DP7> {
+    using L4SP7 = MacLayer4Address7Fields::L4SP7;
+    using L4DP7 = MacLayer4Address7Fields::L4DP7;
   };
 
   // Layer 3 Address 0 Register 7
-  struct MAC_LAYER3_ADDR0_REG7_fields_ {
+  struct MacLayer3Addr0Reg7Fields {
     // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
     using L3A07 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR0_REG7_fields_
+  };  // struct MacLayer3Addr0Reg7Fields
 
   struct MAC_LAYER3_ADDR0_REG7 : ftl::mmio::Register<
       0x4043CA60u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR0_REG7_fields_::L3A07> {
-    using L3A07 = MAC_LAYER3_ADDR0_REG7_fields_::L3A07;
+      MacLayer3Addr0Reg7Fields::L3A07> {
+    using L3A07 = MacLayer3Addr0Reg7Fields::L3A07;
   };
 
   // Layer 3 Address 1 Register 7
-  struct MAC_LAYER3_ADDR1_REG7_fields_ {
+  struct MacLayer3Addr1Reg7Fields {
     // Layer 3 Address 1 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[63:32] of the IP Source Address field in the IPv6 packets.
     using L3A17 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR1_REG7_fields_
+  };  // struct MacLayer3Addr1Reg7Fields
 
   struct MAC_LAYER3_ADDR1_REG7 : ftl::mmio::Register<
       0x4043CA64u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR1_REG7_fields_::L3A17> {
-    using L3A17 = MAC_LAYER3_ADDR1_REG7_fields_::L3A17;
+      MacLayer3Addr1Reg7Fields::L3A17> {
+    using L3A17 = MacLayer3Addr1Reg7Fields::L3A17;
   };
 
   // Layer 3 Address 2 Register 7
-  struct MAC_LAYER3_ADDR2_REG7_fields_ {
+  struct MacLayer3Addr2Reg7Fields {
     // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
     using L3A27 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR2_REG7_fields_
+  };  // struct MacLayer3Addr2Reg7Fields
 
   struct MAC_LAYER3_ADDR2_REG7 : ftl::mmio::Register<
       0x4043CA68u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR2_REG7_fields_::L3A27> {
-    using L3A27 = MAC_LAYER3_ADDR2_REG7_fields_::L3A27;
+      MacLayer3Addr2Reg7Fields::L3A27> {
+    using L3A27 = MacLayer3Addr2Reg7Fields::L3A27;
   };
 
   // Layer 3 Address 3 Register 7
-  struct MAC_LAYER3_ADDR3_REG7_fields_ {
+  struct MacLayer3Addr3Reg7Fields {
     // Layer 3 Address 3 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[127:96] of the IP Source Address field in the IPv6 packets.
     using L3A37 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LAYER3_ADDR3_REG7_fields_
+  };  // struct MacLayer3Addr3Reg7Fields
 
   struct MAC_LAYER3_ADDR3_REG7 : ftl::mmio::Register<
       0x4043CA6Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LAYER3_ADDR3_REG7_fields_::L3A37> {
-    using L3A37 = MAC_LAYER3_ADDR3_REG7_fields_::L3A37;
+      MacLayer3Addr3Reg7Fields::L3A37> {
+    using L3A37 = MacLayer3Addr3Reg7Fields::L3A37;
   };
 
   // Timestamp Control
-  struct MAC_TIMESTAMP_CONTROL_fields_ {
+  struct MacTimestampControlFields {
     enum class eTSENA : std::uint32_t {
       // Timestamp is disabled
       eDISABLE = 0,
@@ -13289,86 +13289,86 @@ struct EnetQos {
     using TXTSSTSM = ftl::mmio::Field<1, 24, eTXTSSTSM, ftl::mmio::RW, ftl::mmio::Normal>;
     // AV 802.
     using AV8021ASMEN = ftl::mmio::Field<1, 28, eAV8021ASMEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_CONTROL_fields_
+  };  // struct MacTimestampControlFields
 
   struct MAC_TIMESTAMP_CONTROL : ftl::mmio::Register<
       0x4043CB00u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      MAC_TIMESTAMP_CONTROL_fields_::TSENA,
-      MAC_TIMESTAMP_CONTROL_fields_::TSCFUPDT,
-      MAC_TIMESTAMP_CONTROL_fields_::TSINIT,
-      MAC_TIMESTAMP_CONTROL_fields_::TSUPDT,
+      MacTimestampControlFields::TSENA,
+      MacTimestampControlFields::TSCFUPDT,
+      MacTimestampControlFields::TSINIT,
+      MacTimestampControlFields::TSUPDT,
       ftl::mmio::Reserved<1, 4>,
-      MAC_TIMESTAMP_CONTROL_fields_::TSADDREG,
-      MAC_TIMESTAMP_CONTROL_fields_::PTGE,
+      MacTimestampControlFields::TSADDREG,
+      MacTimestampControlFields::PTGE,
       ftl::mmio::Reserved<1, 7>,
-      MAC_TIMESTAMP_CONTROL_fields_::TSENALL,
-      MAC_TIMESTAMP_CONTROL_fields_::TSCTRLSSR,
-      MAC_TIMESTAMP_CONTROL_fields_::TSVER2ENA,
-      MAC_TIMESTAMP_CONTROL_fields_::TSIPENA,
-      MAC_TIMESTAMP_CONTROL_fields_::TSIPV6ENA,
-      MAC_TIMESTAMP_CONTROL_fields_::TSIPV4ENA,
-      MAC_TIMESTAMP_CONTROL_fields_::TSEVNTENA,
-      MAC_TIMESTAMP_CONTROL_fields_::TSMSTRENA,
-      MAC_TIMESTAMP_CONTROL_fields_::SNAPTYPSEL,
-      MAC_TIMESTAMP_CONTROL_fields_::TSENMACADDR,
-      MAC_TIMESTAMP_CONTROL_fields_::CSC,
-      MAC_TIMESTAMP_CONTROL_fields_::ESTI,
+      MacTimestampControlFields::TSENALL,
+      MacTimestampControlFields::TSCTRLSSR,
+      MacTimestampControlFields::TSVER2ENA,
+      MacTimestampControlFields::TSIPENA,
+      MacTimestampControlFields::TSIPV6ENA,
+      MacTimestampControlFields::TSIPV4ENA,
+      MacTimestampControlFields::TSEVNTENA,
+      MacTimestampControlFields::TSMSTRENA,
+      MacTimestampControlFields::SNAPTYPSEL,
+      MacTimestampControlFields::TSENMACADDR,
+      MacTimestampControlFields::CSC,
+      MacTimestampControlFields::ESTI,
       ftl::mmio::Reserved<3, 21>,
-      MAC_TIMESTAMP_CONTROL_fields_::TXTSSTSM,
+      MacTimestampControlFields::TXTSSTSM,
       ftl::mmio::Reserved<3, 25>,
-      MAC_TIMESTAMP_CONTROL_fields_::AV8021ASMEN,
+      MacTimestampControlFields::AV8021ASMEN,
       ftl::mmio::Reserved<3, 29>> {
-    using eTSENA = MAC_TIMESTAMP_CONTROL_fields_::eTSENA;
-    using eTSCFUPDT = MAC_TIMESTAMP_CONTROL_fields_::eTSCFUPDT;
-    using eTSINIT = MAC_TIMESTAMP_CONTROL_fields_::eTSINIT;
-    using eTSUPDT = MAC_TIMESTAMP_CONTROL_fields_::eTSUPDT;
-    using eTSADDREG = MAC_TIMESTAMP_CONTROL_fields_::eTSADDREG;
-    using ePTGE = MAC_TIMESTAMP_CONTROL_fields_::ePTGE;
-    using eTSENALL = MAC_TIMESTAMP_CONTROL_fields_::eTSENALL;
-    using eTSCTRLSSR = MAC_TIMESTAMP_CONTROL_fields_::eTSCTRLSSR;
-    using eTSVER2ENA = MAC_TIMESTAMP_CONTROL_fields_::eTSVER2ENA;
-    using eTSIPENA = MAC_TIMESTAMP_CONTROL_fields_::eTSIPENA;
-    using eTSIPV6ENA = MAC_TIMESTAMP_CONTROL_fields_::eTSIPV6ENA;
-    using eTSIPV4ENA = MAC_TIMESTAMP_CONTROL_fields_::eTSIPV4ENA;
-    using eTSEVNTENA = MAC_TIMESTAMP_CONTROL_fields_::eTSEVNTENA;
-    using eTSMSTRENA = MAC_TIMESTAMP_CONTROL_fields_::eTSMSTRENA;
-    using eTSENMACADDR = MAC_TIMESTAMP_CONTROL_fields_::eTSENMACADDR;
-    using eCSC = MAC_TIMESTAMP_CONTROL_fields_::eCSC;
-    using eESTI = MAC_TIMESTAMP_CONTROL_fields_::eESTI;
-    using eTXTSSTSM = MAC_TIMESTAMP_CONTROL_fields_::eTXTSSTSM;
-    using eAV8021ASMEN = MAC_TIMESTAMP_CONTROL_fields_::eAV8021ASMEN;
-    using TSENA = MAC_TIMESTAMP_CONTROL_fields_::TSENA;
-    using TSCFUPDT = MAC_TIMESTAMP_CONTROL_fields_::TSCFUPDT;
-    using TSINIT = MAC_TIMESTAMP_CONTROL_fields_::TSINIT;
-    using TSUPDT = MAC_TIMESTAMP_CONTROL_fields_::TSUPDT;
-    using TSADDREG = MAC_TIMESTAMP_CONTROL_fields_::TSADDREG;
-    using PTGE = MAC_TIMESTAMP_CONTROL_fields_::PTGE;
-    using TSENALL = MAC_TIMESTAMP_CONTROL_fields_::TSENALL;
-    using TSCTRLSSR = MAC_TIMESTAMP_CONTROL_fields_::TSCTRLSSR;
-    using TSVER2ENA = MAC_TIMESTAMP_CONTROL_fields_::TSVER2ENA;
-    using TSIPENA = MAC_TIMESTAMP_CONTROL_fields_::TSIPENA;
-    using TSIPV6ENA = MAC_TIMESTAMP_CONTROL_fields_::TSIPV6ENA;
-    using TSIPV4ENA = MAC_TIMESTAMP_CONTROL_fields_::TSIPV4ENA;
-    using TSEVNTENA = MAC_TIMESTAMP_CONTROL_fields_::TSEVNTENA;
-    using TSMSTRENA = MAC_TIMESTAMP_CONTROL_fields_::TSMSTRENA;
-    using SNAPTYPSEL = MAC_TIMESTAMP_CONTROL_fields_::SNAPTYPSEL;
-    using TSENMACADDR = MAC_TIMESTAMP_CONTROL_fields_::TSENMACADDR;
-    using CSC = MAC_TIMESTAMP_CONTROL_fields_::CSC;
-    using ESTI = MAC_TIMESTAMP_CONTROL_fields_::ESTI;
-    using TXTSSTSM = MAC_TIMESTAMP_CONTROL_fields_::TXTSSTSM;
-    using AV8021ASMEN = MAC_TIMESTAMP_CONTROL_fields_::AV8021ASMEN;
+    using eTSENA = MacTimestampControlFields::eTSENA;
+    using eTSCFUPDT = MacTimestampControlFields::eTSCFUPDT;
+    using eTSINIT = MacTimestampControlFields::eTSINIT;
+    using eTSUPDT = MacTimestampControlFields::eTSUPDT;
+    using eTSADDREG = MacTimestampControlFields::eTSADDREG;
+    using ePTGE = MacTimestampControlFields::ePTGE;
+    using eTSENALL = MacTimestampControlFields::eTSENALL;
+    using eTSCTRLSSR = MacTimestampControlFields::eTSCTRLSSR;
+    using eTSVER2ENA = MacTimestampControlFields::eTSVER2ENA;
+    using eTSIPENA = MacTimestampControlFields::eTSIPENA;
+    using eTSIPV6ENA = MacTimestampControlFields::eTSIPV6ENA;
+    using eTSIPV4ENA = MacTimestampControlFields::eTSIPV4ENA;
+    using eTSEVNTENA = MacTimestampControlFields::eTSEVNTENA;
+    using eTSMSTRENA = MacTimestampControlFields::eTSMSTRENA;
+    using eTSENMACADDR = MacTimestampControlFields::eTSENMACADDR;
+    using eCSC = MacTimestampControlFields::eCSC;
+    using eESTI = MacTimestampControlFields::eESTI;
+    using eTXTSSTSM = MacTimestampControlFields::eTXTSSTSM;
+    using eAV8021ASMEN = MacTimestampControlFields::eAV8021ASMEN;
+    using TSENA = MacTimestampControlFields::TSENA;
+    using TSCFUPDT = MacTimestampControlFields::TSCFUPDT;
+    using TSINIT = MacTimestampControlFields::TSINIT;
+    using TSUPDT = MacTimestampControlFields::TSUPDT;
+    using TSADDREG = MacTimestampControlFields::TSADDREG;
+    using PTGE = MacTimestampControlFields::PTGE;
+    using TSENALL = MacTimestampControlFields::TSENALL;
+    using TSCTRLSSR = MacTimestampControlFields::TSCTRLSSR;
+    using TSVER2ENA = MacTimestampControlFields::TSVER2ENA;
+    using TSIPENA = MacTimestampControlFields::TSIPENA;
+    using TSIPV6ENA = MacTimestampControlFields::TSIPV6ENA;
+    using TSIPV4ENA = MacTimestampControlFields::TSIPV4ENA;
+    using TSEVNTENA = MacTimestampControlFields::TSEVNTENA;
+    using TSMSTRENA = MacTimestampControlFields::TSMSTRENA;
+    using SNAPTYPSEL = MacTimestampControlFields::SNAPTYPSEL;
+    using TSENMACADDR = MacTimestampControlFields::TSENMACADDR;
+    using CSC = MacTimestampControlFields::CSC;
+    using ESTI = MacTimestampControlFields::ESTI;
+    using TXTSSTSM = MacTimestampControlFields::TXTSSTSM;
+    using AV8021ASMEN = MacTimestampControlFields::AV8021ASMEN;
   };
 
   // Subsecond Increment
-  struct MAC_SUB_SECOND_INCREMENT_fields_ {
+  struct MacSubSecondIncrementFields {
     // Sub-nanosecond Increment Value This field contains the sub-nanosecond increment value, represented in nanoseconds multiplied by 2^8.
     using SNSINC = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Sub-second Increment Value The value programmed in this field is accumulated every clock cycle (of clk_ptp_i) with the contents of the sub-second register.
     using SSINC = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_SUB_SECOND_INCREMENT_fields_
+  };  // struct MacSubSecondIncrementFields
 
   struct MAC_SUB_SECOND_INCREMENT : ftl::mmio::Register<
       0x4043CB04u,
@@ -13376,61 +13376,61 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<8, 0>,
-      MAC_SUB_SECOND_INCREMENT_fields_::SNSINC,
-      MAC_SUB_SECOND_INCREMENT_fields_::SSINC,
+      MacSubSecondIncrementFields::SNSINC,
+      MacSubSecondIncrementFields::SSINC,
       ftl::mmio::Reserved<8, 24>> {
-    using SNSINC = MAC_SUB_SECOND_INCREMENT_fields_::SNSINC;
-    using SSINC = MAC_SUB_SECOND_INCREMENT_fields_::SSINC;
+    using SNSINC = MacSubSecondIncrementFields::SNSINC;
+    using SSINC = MacSubSecondIncrementFields::SSINC;
   };
 
   // System Time Seconds
-  struct MAC_SYSTEM_TIME_SECONDS_fields_ {
+  struct MacSystemTimeSecondsFields {
     // Timestamp Second The value in this field indicates the current value in seconds of the System Time maintained by the MAC.
     using TSS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_SYSTEM_TIME_SECONDS_fields_
+  };  // struct MacSystemTimeSecondsFields
 
   struct MAC_SYSTEM_TIME_SECONDS : ftl::mmio::Register<
       0x4043CB08u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_SYSTEM_TIME_SECONDS_fields_::TSS> {
-    using TSS = MAC_SYSTEM_TIME_SECONDS_fields_::TSS;
+      MacSystemTimeSecondsFields::TSS> {
+    using TSS = MacSystemTimeSecondsFields::TSS;
   };
 
   // System Time Nanoseconds
-  struct MAC_SYSTEM_TIME_NANOSECONDS_fields_ {
+  struct MacSystemTimeNanosecondsFields {
     // Timestamp Sub Seconds The value in this field has the sub-second representation of time, with an accuracy of 0.
     using TSSS = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_SYSTEM_TIME_NANOSECONDS_fields_
+  };  // struct MacSystemTimeNanosecondsFields
 
   struct MAC_SYSTEM_TIME_NANOSECONDS : ftl::mmio::Register<
       0x4043CB0Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_SYSTEM_TIME_NANOSECONDS_fields_::TSSS,
+      MacSystemTimeNanosecondsFields::TSSS,
       ftl::mmio::Reserved<1, 31>> {
-    using TSSS = MAC_SYSTEM_TIME_NANOSECONDS_fields_::TSSS;
+    using TSSS = MacSystemTimeNanosecondsFields::TSSS;
   };
 
   // System Time Seconds Update
-  struct MAC_SYSTEM_TIME_SECONDS_UPDATE_fields_ {
+  struct MacSystemTimeSecondsUpdateFields {
     // Timestamp Seconds The value in this field is the seconds part of the update.
     using TSS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_SYSTEM_TIME_SECONDS_UPDATE_fields_
+  };  // struct MacSystemTimeSecondsUpdateFields
 
   struct MAC_SYSTEM_TIME_SECONDS_UPDATE : ftl::mmio::Register<
       0x4043CB10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_SYSTEM_TIME_SECONDS_UPDATE_fields_::TSS> {
-    using TSS = MAC_SYSTEM_TIME_SECONDS_UPDATE_fields_::TSS;
+      MacSystemTimeSecondsUpdateFields::TSS> {
+    using TSS = MacSystemTimeSecondsUpdateFields::TSS;
   };
 
   // System Time Nanoseconds Update
-  struct MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_ {
+  struct MacSystemTimeNanosecondsUpdateFields {
     enum class eADDSUB : std::uint32_t {
       // Add time
       eADD = 0,
@@ -13442,53 +13442,53 @@ struct EnetQos {
     using TSSS = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Add or Subtract Time When this bit is set, the time value is subtracted with the contents of the update register.
     using ADDSUB = ftl::mmio::Field<1, 31, eADDSUB, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_
+  };  // struct MacSystemTimeNanosecondsUpdateFields
 
   struct MAC_SYSTEM_TIME_NANOSECONDS_UPDATE : ftl::mmio::Register<
       0x4043CB14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_::TSSS,
-      MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_::ADDSUB> {
-    using eADDSUB = MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_::eADDSUB;
-    using TSSS = MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_::TSSS;
-    using ADDSUB = MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_::ADDSUB;
+      MacSystemTimeNanosecondsUpdateFields::TSSS,
+      MacSystemTimeNanosecondsUpdateFields::ADDSUB> {
+    using eADDSUB = MacSystemTimeNanosecondsUpdateFields::eADDSUB;
+    using TSSS = MacSystemTimeNanosecondsUpdateFields::TSSS;
+    using ADDSUB = MacSystemTimeNanosecondsUpdateFields::ADDSUB;
   };
 
   // Timestamp Addend
-  struct MAC_TIMESTAMP_ADDEND_fields_ {
+  struct MacTimestampAddendFields {
     // Timestamp Addend Register This field indicates the 32-bit time value to be added to the Accumulator register to achieve time synchronization.
     using TSAR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_ADDEND_fields_
+  };  // struct MacTimestampAddendFields
 
   struct MAC_TIMESTAMP_ADDEND : ftl::mmio::Register<
       0x4043CB18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_TIMESTAMP_ADDEND_fields_::TSAR> {
-    using TSAR = MAC_TIMESTAMP_ADDEND_fields_::TSAR;
+      MacTimestampAddendFields::TSAR> {
+    using TSAR = MacTimestampAddendFields::TSAR;
   };
 
   // System Time - Higher Word Seconds
-  struct MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS_fields_ {
+  struct MacSystemTimeHigherWordSecondsFields {
     // Timestamp Higher Word Register This field contains the most-significant 16-bits of timestamp seconds value.
     using TSHWR = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS_fields_
+  };  // struct MacSystemTimeHigherWordSecondsFields
 
   struct MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS : ftl::mmio::Register<
       0x4043CB1Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS_fields_::TSHWR,
+      MacSystemTimeHigherWordSecondsFields::TSHWR,
       ftl::mmio::Reserved<16, 16>> {
-    using TSHWR = MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS_fields_::TSHWR;
+    using TSHWR = MacSystemTimeHigherWordSecondsFields::TSHWR;
   };
 
   // Timestamp Status
-  struct MAC_TIMESTAMP_STATUS_fields_ {
+  struct MacTimestampStatusFields {
     enum class eTSSOVF : std::uint32_t {
       // Timestamp Seconds Overflow status not detected
       eINACTIVE = 0,
@@ -13601,60 +13601,60 @@ struct EnetQos {
     using ATSSTM = ftl::mmio::Field<1, 24, eATSSTM, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Auxiliary Timestamp Snapshots This field indicates the number of Snapshots available in the FIFO.
     using ATSNS = ftl::mmio::Field<5, 25, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_STATUS_fields_
+  };  // struct MacTimestampStatusFields
 
   struct MAC_TIMESTAMP_STATUS : ftl::mmio::Register<
       0x4043CB20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TIMESTAMP_STATUS_fields_::TSSOVF,
-      MAC_TIMESTAMP_STATUS_fields_::TSTARGT0,
-      MAC_TIMESTAMP_STATUS_fields_::AUXTSTRIG,
-      MAC_TIMESTAMP_STATUS_fields_::TSTRGTERR0,
-      MAC_TIMESTAMP_STATUS_fields_::TSTARGT1,
-      MAC_TIMESTAMP_STATUS_fields_::TSTRGTERR1,
-      MAC_TIMESTAMP_STATUS_fields_::TSTARGT2,
-      MAC_TIMESTAMP_STATUS_fields_::TSTRGTERR2,
-      MAC_TIMESTAMP_STATUS_fields_::TSTARGT3,
-      MAC_TIMESTAMP_STATUS_fields_::TSTRGTERR3,
+      MacTimestampStatusFields::TSSOVF,
+      MacTimestampStatusFields::TSTARGT0,
+      MacTimestampStatusFields::AUXTSTRIG,
+      MacTimestampStatusFields::TSTRGTERR0,
+      MacTimestampStatusFields::TSTARGT1,
+      MacTimestampStatusFields::TSTRGTERR1,
+      MacTimestampStatusFields::TSTARGT2,
+      MacTimestampStatusFields::TSTRGTERR2,
+      MacTimestampStatusFields::TSTARGT3,
+      MacTimestampStatusFields::TSTRGTERR3,
       ftl::mmio::Reserved<5, 10>,
-      MAC_TIMESTAMP_STATUS_fields_::TXTSSIS,
-      MAC_TIMESTAMP_STATUS_fields_::ATSSTN,
+      MacTimestampStatusFields::TXTSSIS,
+      MacTimestampStatusFields::ATSSTN,
       ftl::mmio::Reserved<4, 20>,
-      MAC_TIMESTAMP_STATUS_fields_::ATSSTM,
-      MAC_TIMESTAMP_STATUS_fields_::ATSNS,
+      MacTimestampStatusFields::ATSSTM,
+      MacTimestampStatusFields::ATSNS,
       ftl::mmio::Reserved<2, 30>> {
-    using eTSSOVF = MAC_TIMESTAMP_STATUS_fields_::eTSSOVF;
-    using eTSTARGT0 = MAC_TIMESTAMP_STATUS_fields_::eTSTARGT0;
-    using eAUXTSTRIG = MAC_TIMESTAMP_STATUS_fields_::eAUXTSTRIG;
-    using eTSTRGTERR0 = MAC_TIMESTAMP_STATUS_fields_::eTSTRGTERR0;
-    using eTSTARGT1 = MAC_TIMESTAMP_STATUS_fields_::eTSTARGT1;
-    using eTSTRGTERR1 = MAC_TIMESTAMP_STATUS_fields_::eTSTRGTERR1;
-    using eTSTARGT2 = MAC_TIMESTAMP_STATUS_fields_::eTSTARGT2;
-    using eTSTRGTERR2 = MAC_TIMESTAMP_STATUS_fields_::eTSTRGTERR2;
-    using eTSTARGT3 = MAC_TIMESTAMP_STATUS_fields_::eTSTARGT3;
-    using eTSTRGTERR3 = MAC_TIMESTAMP_STATUS_fields_::eTSTRGTERR3;
-    using eTXTSSIS = MAC_TIMESTAMP_STATUS_fields_::eTXTSSIS;
-    using eATSSTM = MAC_TIMESTAMP_STATUS_fields_::eATSSTM;
-    using TSSOVF = MAC_TIMESTAMP_STATUS_fields_::TSSOVF;
-    using TSTARGT0 = MAC_TIMESTAMP_STATUS_fields_::TSTARGT0;
-    using AUXTSTRIG = MAC_TIMESTAMP_STATUS_fields_::AUXTSTRIG;
-    using TSTRGTERR0 = MAC_TIMESTAMP_STATUS_fields_::TSTRGTERR0;
-    using TSTARGT1 = MAC_TIMESTAMP_STATUS_fields_::TSTARGT1;
-    using TSTRGTERR1 = MAC_TIMESTAMP_STATUS_fields_::TSTRGTERR1;
-    using TSTARGT2 = MAC_TIMESTAMP_STATUS_fields_::TSTARGT2;
-    using TSTRGTERR2 = MAC_TIMESTAMP_STATUS_fields_::TSTRGTERR2;
-    using TSTARGT3 = MAC_TIMESTAMP_STATUS_fields_::TSTARGT3;
-    using TSTRGTERR3 = MAC_TIMESTAMP_STATUS_fields_::TSTRGTERR3;
-    using TXTSSIS = MAC_TIMESTAMP_STATUS_fields_::TXTSSIS;
-    using ATSSTN = MAC_TIMESTAMP_STATUS_fields_::ATSSTN;
-    using ATSSTM = MAC_TIMESTAMP_STATUS_fields_::ATSSTM;
-    using ATSNS = MAC_TIMESTAMP_STATUS_fields_::ATSNS;
+    using eTSSOVF = MacTimestampStatusFields::eTSSOVF;
+    using eTSTARGT0 = MacTimestampStatusFields::eTSTARGT0;
+    using eAUXTSTRIG = MacTimestampStatusFields::eAUXTSTRIG;
+    using eTSTRGTERR0 = MacTimestampStatusFields::eTSTRGTERR0;
+    using eTSTARGT1 = MacTimestampStatusFields::eTSTARGT1;
+    using eTSTRGTERR1 = MacTimestampStatusFields::eTSTRGTERR1;
+    using eTSTARGT2 = MacTimestampStatusFields::eTSTARGT2;
+    using eTSTRGTERR2 = MacTimestampStatusFields::eTSTRGTERR2;
+    using eTSTARGT3 = MacTimestampStatusFields::eTSTARGT3;
+    using eTSTRGTERR3 = MacTimestampStatusFields::eTSTRGTERR3;
+    using eTXTSSIS = MacTimestampStatusFields::eTXTSSIS;
+    using eATSSTM = MacTimestampStatusFields::eATSSTM;
+    using TSSOVF = MacTimestampStatusFields::TSSOVF;
+    using TSTARGT0 = MacTimestampStatusFields::TSTARGT0;
+    using AUXTSTRIG = MacTimestampStatusFields::AUXTSTRIG;
+    using TSTRGTERR0 = MacTimestampStatusFields::TSTRGTERR0;
+    using TSTARGT1 = MacTimestampStatusFields::TSTARGT1;
+    using TSTRGTERR1 = MacTimestampStatusFields::TSTRGTERR1;
+    using TSTARGT2 = MacTimestampStatusFields::TSTARGT2;
+    using TSTRGTERR2 = MacTimestampStatusFields::TSTRGTERR2;
+    using TSTARGT3 = MacTimestampStatusFields::TSTARGT3;
+    using TSTRGTERR3 = MacTimestampStatusFields::TSTRGTERR3;
+    using TXTSSIS = MacTimestampStatusFields::TXTSSIS;
+    using ATSSTN = MacTimestampStatusFields::ATSSTN;
+    using ATSSTM = MacTimestampStatusFields::ATSSTM;
+    using ATSNS = MacTimestampStatusFields::ATSNS;
   };
 
   // Transmit Timestamp Status Nanoseconds
-  struct MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_ {
+  struct MacTxTimestampStatusNanosecondsFields {
     enum class eTXTSSMIS : std::uint32_t {
       // Transmit Timestamp Status Missed status not detected
       eINACTIVE = 0,
@@ -13666,37 +13666,37 @@ struct EnetQos {
     using TXTSSLO = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Transmit Timestamp Status Missed When this bit is set, it indicates one of the following: - The timestamp of the current packet is ignored if TXTSSTSM bit of the TIMESTAMP_CONTROL register is reset - The timestamp of the previous packet is overwritten with timestamp of the current packet if TXTSSTSM bit of the MAC_TIMESTAMP_CONTROL register is set.
     using TXTSSMIS = ftl::mmio::Field<1, 31, eTXTSSMIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_
+  };  // struct MacTxTimestampStatusNanosecondsFields
 
   struct MAC_TX_TIMESTAMP_STATUS_NANOSECONDS : ftl::mmio::Register<
       0x4043CB30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_::TXTSSLO,
-      MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_::TXTSSMIS> {
-    using eTXTSSMIS = MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_::eTXTSSMIS;
-    using TXTSSLO = MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_::TXTSSLO;
-    using TXTSSMIS = MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_::TXTSSMIS;
+      MacTxTimestampStatusNanosecondsFields::TXTSSLO,
+      MacTxTimestampStatusNanosecondsFields::TXTSSMIS> {
+    using eTXTSSMIS = MacTxTimestampStatusNanosecondsFields::eTXTSSMIS;
+    using TXTSSLO = MacTxTimestampStatusNanosecondsFields::TXTSSLO;
+    using TXTSSMIS = MacTxTimestampStatusNanosecondsFields::TXTSSMIS;
   };
 
   // Transmit Timestamp Status Seconds
-  struct MAC_TX_TIMESTAMP_STATUS_SECONDS_fields_ {
+  struct MacTxTimestampStatusSecondsFields {
     // Transmit Timestamp Status High This field contains the lower 32 bits of the Seconds field of Transmit packet's captured timestamp.
     using TXTSSHI = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TX_TIMESTAMP_STATUS_SECONDS_fields_
+  };  // struct MacTxTimestampStatusSecondsFields
 
   struct MAC_TX_TIMESTAMP_STATUS_SECONDS : ftl::mmio::Register<
       0x4043CB34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_TX_TIMESTAMP_STATUS_SECONDS_fields_::TXTSSHI> {
-    using TXTSSHI = MAC_TX_TIMESTAMP_STATUS_SECONDS_fields_::TXTSSHI;
+      MacTxTimestampStatusSecondsFields::TXTSSHI> {
+    using TXTSSHI = MacTxTimestampStatusSecondsFields::TXTSSHI;
   };
 
   // Auxiliary Timestamp Control
-  struct MAC_AUXILIARY_CONTROL_fields_ {
+  struct MacAuxiliaryControlFields {
     enum class eATSFC : std::uint32_t {
       // Auxiliary Snapshot FIFO Clear is disabled
       eDISABLE = 0,
@@ -13742,128 +13742,128 @@ struct EnetQos {
     using ATSEN2 = ftl::mmio::Field<1, 6, eATSEN2, ftl::mmio::RW, ftl::mmio::Normal>;
     // Auxiliary Snapshot 3 Enable This bit controls the capturing of Auxiliary Snapshot Trigger 3.
     using ATSEN3 = ftl::mmio::Field<1, 7, eATSEN3, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_AUXILIARY_CONTROL_fields_
+  };  // struct MacAuxiliaryControlFields
 
   struct MAC_AUXILIARY_CONTROL : ftl::mmio::Register<
       0x4043CB40u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_AUXILIARY_CONTROL_fields_::ATSFC,
+      MacAuxiliaryControlFields::ATSFC,
       ftl::mmio::Reserved<3, 1>,
-      MAC_AUXILIARY_CONTROL_fields_::ATSEN0,
-      MAC_AUXILIARY_CONTROL_fields_::ATSEN1,
-      MAC_AUXILIARY_CONTROL_fields_::ATSEN2,
-      MAC_AUXILIARY_CONTROL_fields_::ATSEN3,
+      MacAuxiliaryControlFields::ATSEN0,
+      MacAuxiliaryControlFields::ATSEN1,
+      MacAuxiliaryControlFields::ATSEN2,
+      MacAuxiliaryControlFields::ATSEN3,
       ftl::mmio::Reserved<24, 8>> {
-    using eATSFC = MAC_AUXILIARY_CONTROL_fields_::eATSFC;
-    using eATSEN0 = MAC_AUXILIARY_CONTROL_fields_::eATSEN0;
-    using eATSEN1 = MAC_AUXILIARY_CONTROL_fields_::eATSEN1;
-    using eATSEN2 = MAC_AUXILIARY_CONTROL_fields_::eATSEN2;
-    using eATSEN3 = MAC_AUXILIARY_CONTROL_fields_::eATSEN3;
-    using ATSFC = MAC_AUXILIARY_CONTROL_fields_::ATSFC;
-    using ATSEN0 = MAC_AUXILIARY_CONTROL_fields_::ATSEN0;
-    using ATSEN1 = MAC_AUXILIARY_CONTROL_fields_::ATSEN1;
-    using ATSEN2 = MAC_AUXILIARY_CONTROL_fields_::ATSEN2;
-    using ATSEN3 = MAC_AUXILIARY_CONTROL_fields_::ATSEN3;
+    using eATSFC = MacAuxiliaryControlFields::eATSFC;
+    using eATSEN0 = MacAuxiliaryControlFields::eATSEN0;
+    using eATSEN1 = MacAuxiliaryControlFields::eATSEN1;
+    using eATSEN2 = MacAuxiliaryControlFields::eATSEN2;
+    using eATSEN3 = MacAuxiliaryControlFields::eATSEN3;
+    using ATSFC = MacAuxiliaryControlFields::ATSFC;
+    using ATSEN0 = MacAuxiliaryControlFields::ATSEN0;
+    using ATSEN1 = MacAuxiliaryControlFields::ATSEN1;
+    using ATSEN2 = MacAuxiliaryControlFields::ATSEN2;
+    using ATSEN3 = MacAuxiliaryControlFields::ATSEN3;
   };
 
   // Auxiliary Timestamp Nanoseconds
-  struct MAC_AUXILIARY_TIMESTAMP_NANOSECONDS_fields_ {
+  struct MacAuxiliaryTimestampNanosecondsFields {
     // Auxiliary Timestamp Contains the lower 31 bits (nanoseconds field) of the auxiliary timestamp.
     using AUXTSLO = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_AUXILIARY_TIMESTAMP_NANOSECONDS_fields_
+  };  // struct MacAuxiliaryTimestampNanosecondsFields
 
   struct MAC_AUXILIARY_TIMESTAMP_NANOSECONDS : ftl::mmio::Register<
       0x4043CB48u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_AUXILIARY_TIMESTAMP_NANOSECONDS_fields_::AUXTSLO,
+      MacAuxiliaryTimestampNanosecondsFields::AUXTSLO,
       ftl::mmio::Reserved<1, 31>> {
-    using AUXTSLO = MAC_AUXILIARY_TIMESTAMP_NANOSECONDS_fields_::AUXTSLO;
+    using AUXTSLO = MacAuxiliaryTimestampNanosecondsFields::AUXTSLO;
   };
 
   // Auxiliary Timestamp Seconds
-  struct MAC_AUXILIARY_TIMESTAMP_SECONDS_fields_ {
+  struct MacAuxiliaryTimestampSecondsFields {
     // Auxiliary Timestamp Contains the lower 32 bits of the Seconds field of the auxiliary timestamp.
     using AUXTSHI = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_AUXILIARY_TIMESTAMP_SECONDS_fields_
+  };  // struct MacAuxiliaryTimestampSecondsFields
 
   struct MAC_AUXILIARY_TIMESTAMP_SECONDS : ftl::mmio::Register<
       0x4043CB4Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MAC_AUXILIARY_TIMESTAMP_SECONDS_fields_::AUXTSHI> {
-    using AUXTSHI = MAC_AUXILIARY_TIMESTAMP_SECONDS_fields_::AUXTSHI;
+      MacAuxiliaryTimestampSecondsFields::AUXTSHI> {
+    using AUXTSHI = MacAuxiliaryTimestampSecondsFields::AUXTSHI;
   };
 
   // Timestamp Ingress Asymmetry Correction
-  struct MAC_TIMESTAMP_INGRESS_ASYM_CORR_fields_ {
+  struct MacTimestampIngressAsymCorrFields {
     // One-Step Timestamp Ingress Asymmetry Correction This field contains the ingress path asymmetry value to be added to correctionField of Pdelay_Resp PTP packet.
     using OSTIAC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_INGRESS_ASYM_CORR_fields_
+  };  // struct MacTimestampIngressAsymCorrFields
 
   struct MAC_TIMESTAMP_INGRESS_ASYM_CORR : ftl::mmio::Register<
       0x4043CB50u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_TIMESTAMP_INGRESS_ASYM_CORR_fields_::OSTIAC> {
-    using OSTIAC = MAC_TIMESTAMP_INGRESS_ASYM_CORR_fields_::OSTIAC;
+      MacTimestampIngressAsymCorrFields::OSTIAC> {
+    using OSTIAC = MacTimestampIngressAsymCorrFields::OSTIAC;
   };
 
   // imestamp Egress Asymmetry Correction
-  struct MAC_TIMESTAMP_EGRESS_ASYM_CORR_fields_ {
+  struct MacTimestampEgressAsymCorrFields {
     // One-Step Timestamp Egress Asymmetry Correction This field contains the egress path asymmetry value to be subtracted from correctionField of Pdelay_Resp PTP packet.
     using OSTEAC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_EGRESS_ASYM_CORR_fields_
+  };  // struct MacTimestampEgressAsymCorrFields
 
   struct MAC_TIMESTAMP_EGRESS_ASYM_CORR : ftl::mmio::Register<
       0x4043CB54u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_TIMESTAMP_EGRESS_ASYM_CORR_fields_::OSTEAC> {
-    using OSTEAC = MAC_TIMESTAMP_EGRESS_ASYM_CORR_fields_::OSTEAC;
+      MacTimestampEgressAsymCorrFields::OSTEAC> {
+    using OSTEAC = MacTimestampEgressAsymCorrFields::OSTEAC;
   };
 
   // Timestamp Ingress Correction Nanosecond
-  struct MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_fields_ {
+  struct MacTimestampIngressCorrNanosecondFields {
     // Timestamp Ingress Correction This field contains the ingress path correction value as defined by the Ingress Correction expression.
     using TSIC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_fields_
+  };  // struct MacTimestampIngressCorrNanosecondFields
 
   struct MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND : ftl::mmio::Register<
       0x4043CB58u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_fields_::TSIC> {
-    using TSIC = MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_fields_::TSIC;
+      MacTimestampIngressCorrNanosecondFields::TSIC> {
+    using TSIC = MacTimestampIngressCorrNanosecondFields::TSIC;
   };
 
   // Timestamp Egress Correction Nanosecond
-  struct MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND_fields_ {
+  struct MacTimestampEgressCorrNanosecondFields {
     // Timestamp Egress Correction This field contains the nanoseconds part of the egress path correction value as defined by the Egress Correction expression.
     using TSEC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND_fields_
+  };  // struct MacTimestampEgressCorrNanosecondFields
 
   struct MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND : ftl::mmio::Register<
       0x4043CB5Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND_fields_::TSEC> {
-    using TSEC = MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND_fields_::TSEC;
+      MacTimestampEgressCorrNanosecondFields::TSEC> {
+    using TSEC = MacTimestampEgressCorrNanosecondFields::TSEC;
   };
 
   // Timestamp Ingress Correction Subnanosecond
-  struct MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC_fields_ {
+  struct MacTimestampIngressCorrSubnanosecFields {
     // Timestamp Ingress Correction, sub-nanoseconds This field contains the sub-nanoseconds part of the ingress path correction value as defined by the "Ingress Correction" expression.
     using TSICSNS = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC_fields_
+  };  // struct MacTimestampIngressCorrSubnanosecFields
 
   struct MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC : ftl::mmio::Register<
       0x4043CB60u,
@@ -13871,16 +13871,16 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<8, 0>,
-      MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC_fields_::TSICSNS,
+      MacTimestampIngressCorrSubnanosecFields::TSICSNS,
       ftl::mmio::Reserved<16, 16>> {
-    using TSICSNS = MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC_fields_::TSICSNS;
+    using TSICSNS = MacTimestampIngressCorrSubnanosecFields::TSICSNS;
   };
 
   // Timestamp Egress Correction Subnanosecond
-  struct MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC_fields_ {
+  struct MacTimestampEgressCorrSubnanosecFields {
     // Timestamp Egress Correction, sub-nanoseconds This field contains the sub-nanoseconds part of the egress path correction value as defined by the "Egress Correction" expression.
     using TSECSNS = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC_fields_
+  };  // struct MacTimestampEgressCorrSubnanosecFields
 
   struct MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC : ftl::mmio::Register<
       0x4043CB64u,
@@ -13888,18 +13888,18 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<8, 0>,
-      MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC_fields_::TSECSNS,
+      MacTimestampEgressCorrSubnanosecFields::TSECSNS,
       ftl::mmio::Reserved<16, 16>> {
-    using TSECSNS = MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC_fields_::TSECSNS;
+    using TSECSNS = MacTimestampEgressCorrSubnanosecFields::TSECSNS;
   };
 
   // Timestamp Ingress Latency
-  struct MAC_TIMESTAMP_INGRESS_LATENCY_fields_ {
+  struct MacTimestampIngressLatencyFields {
     // Ingress Timestamp Latency, in nanoseconds This register holds the average latency in nanoseconds between the input ports (phy_rxd_i) of MAC and the actual point (GMII/MII) where the ingress timestamp is taken.
     using ITLSNS = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Ingress Timestamp Latency, in sub-nanoseconds This register holds the average latency in sub-nanoseconds between the input ports (phy_rxd_i) of MAC and the actual point (GMII/MII) where the ingress timestamp is taken.
     using ITLNS = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_INGRESS_LATENCY_fields_
+  };  // struct MacTimestampIngressLatencyFields
 
   struct MAC_TIMESTAMP_INGRESS_LATENCY : ftl::mmio::Register<
       0x4043CB68u,
@@ -13907,20 +13907,20 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RO,
       ftl::mmio::Reserved<8, 0>,
-      MAC_TIMESTAMP_INGRESS_LATENCY_fields_::ITLSNS,
-      MAC_TIMESTAMP_INGRESS_LATENCY_fields_::ITLNS,
+      MacTimestampIngressLatencyFields::ITLSNS,
+      MacTimestampIngressLatencyFields::ITLNS,
       ftl::mmio::Reserved<4, 28>> {
-    using ITLSNS = MAC_TIMESTAMP_INGRESS_LATENCY_fields_::ITLSNS;
-    using ITLNS = MAC_TIMESTAMP_INGRESS_LATENCY_fields_::ITLNS;
+    using ITLSNS = MacTimestampIngressLatencyFields::ITLSNS;
+    using ITLNS = MacTimestampIngressLatencyFields::ITLNS;
   };
 
   // Timestamp Egress Latency
-  struct MAC_TIMESTAMP_EGRESS_LATENCY_fields_ {
+  struct MacTimestampEgressLatencyFields {
     // Egress Timestamp Latency, in sub-nanoseconds This register holds the average latency in sub-nanoseconds between the actual point (GMII/MII) where the egress timestamp is taken and the output ports (phy_txd_o) of the MAC.
     using ETLSNS = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Egress Timestamp Latency, in nanoseconds This register holds the average latency in nanoseconds between the actual point (GMII/MII) where the egress timestamp is taken and the output ports (phy_txd_o) of the MAC.
     using ETLNS = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MAC_TIMESTAMP_EGRESS_LATENCY_fields_
+  };  // struct MacTimestampEgressLatencyFields
 
   struct MAC_TIMESTAMP_EGRESS_LATENCY : ftl::mmio::Register<
       0x4043CB6Cu,
@@ -13928,15 +13928,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RO,
       ftl::mmio::Reserved<8, 0>,
-      MAC_TIMESTAMP_EGRESS_LATENCY_fields_::ETLSNS,
-      MAC_TIMESTAMP_EGRESS_LATENCY_fields_::ETLNS,
+      MacTimestampEgressLatencyFields::ETLSNS,
+      MacTimestampEgressLatencyFields::ETLNS,
       ftl::mmio::Reserved<4, 28>> {
-    using ETLSNS = MAC_TIMESTAMP_EGRESS_LATENCY_fields_::ETLSNS;
-    using ETLNS = MAC_TIMESTAMP_EGRESS_LATENCY_fields_::ETLNS;
+    using ETLSNS = MacTimestampEgressLatencyFields::ETLSNS;
+    using ETLNS = MacTimestampEgressLatencyFields::ETLNS;
   };
 
   // PPS Control
-  struct MAC_PPS_CONTROL_fields_ {
+  struct MacPpsControlFields {
     enum class ePPSEN0 : std::uint32_t {
       // Flexible PPS Output Mode is disabled
       eDISABLE = 0,
@@ -14027,69 +14027,69 @@ struct EnetQos {
     using TRGTMODSEL3 = ftl::mmio::Field<2, 29, eTRGTMODSEL3, ftl::mmio::RW, ftl::mmio::Normal>;
     // MCGR Mode Enable for PPS3 Output This field enables the 3rd PPS instance to operate in PPS or MCGR mode.
     using MCGREN3 = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS_CONTROL_fields_
+  };  // struct MacPpsControlFields
 
   struct MAC_PPS_CONTROL : ftl::mmio::Register<
       0x4043CB70u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS_CONTROL_fields_::PPSCTRL_PPSCMD,
-      MAC_PPS_CONTROL_fields_::PPSEN0,
-      MAC_PPS_CONTROL_fields_::TRGTMODSEL0,
-      MAC_PPS_CONTROL_fields_::MCGREN0,
-      MAC_PPS_CONTROL_fields_::PPSCMD1,
+      MacPpsControlFields::PPSCTRL_PPSCMD,
+      MacPpsControlFields::PPSEN0,
+      MacPpsControlFields::TRGTMODSEL0,
+      MacPpsControlFields::MCGREN0,
+      MacPpsControlFields::PPSCMD1,
       ftl::mmio::Reserved<1, 12>,
-      MAC_PPS_CONTROL_fields_::TRGTMODSEL1,
-      MAC_PPS_CONTROL_fields_::MCGREN1,
-      MAC_PPS_CONTROL_fields_::PPSCMD2,
+      MacPpsControlFields::TRGTMODSEL1,
+      MacPpsControlFields::MCGREN1,
+      MacPpsControlFields::PPSCMD2,
       ftl::mmio::Reserved<1, 20>,
-      MAC_PPS_CONTROL_fields_::TRGTMODSEL2,
-      MAC_PPS_CONTROL_fields_::MCGREN2,
-      MAC_PPS_CONTROL_fields_::PPSCMD3,
+      MacPpsControlFields::TRGTMODSEL2,
+      MacPpsControlFields::MCGREN2,
+      MacPpsControlFields::PPSCMD3,
       ftl::mmio::Reserved<1, 28>,
-      MAC_PPS_CONTROL_fields_::TRGTMODSEL3,
-      MAC_PPS_CONTROL_fields_::MCGREN3> {
-    using ePPSEN0 = MAC_PPS_CONTROL_fields_::ePPSEN0;
-    using eTRGTMODSEL0 = MAC_PPS_CONTROL_fields_::eTRGTMODSEL0;
-    using eMCGREN0 = MAC_PPS_CONTROL_fields_::eMCGREN0;
-    using eTRGTMODSEL1 = MAC_PPS_CONTROL_fields_::eTRGTMODSEL1;
-    using eMCGREN1 = MAC_PPS_CONTROL_fields_::eMCGREN1;
-    using eTRGTMODSEL2 = MAC_PPS_CONTROL_fields_::eTRGTMODSEL2;
-    using eMCGREN2 = MAC_PPS_CONTROL_fields_::eMCGREN2;
-    using eTRGTMODSEL3 = MAC_PPS_CONTROL_fields_::eTRGTMODSEL3;
-    using PPSCTRL_PPSCMD = MAC_PPS_CONTROL_fields_::PPSCTRL_PPSCMD;
-    using PPSEN0 = MAC_PPS_CONTROL_fields_::PPSEN0;
-    using TRGTMODSEL0 = MAC_PPS_CONTROL_fields_::TRGTMODSEL0;
-    using MCGREN0 = MAC_PPS_CONTROL_fields_::MCGREN0;
-    using PPSCMD1 = MAC_PPS_CONTROL_fields_::PPSCMD1;
-    using TRGTMODSEL1 = MAC_PPS_CONTROL_fields_::TRGTMODSEL1;
-    using MCGREN1 = MAC_PPS_CONTROL_fields_::MCGREN1;
-    using PPSCMD2 = MAC_PPS_CONTROL_fields_::PPSCMD2;
-    using TRGTMODSEL2 = MAC_PPS_CONTROL_fields_::TRGTMODSEL2;
-    using MCGREN2 = MAC_PPS_CONTROL_fields_::MCGREN2;
-    using PPSCMD3 = MAC_PPS_CONTROL_fields_::PPSCMD3;
-    using TRGTMODSEL3 = MAC_PPS_CONTROL_fields_::TRGTMODSEL3;
-    using MCGREN3 = MAC_PPS_CONTROL_fields_::MCGREN3;
+      MacPpsControlFields::TRGTMODSEL3,
+      MacPpsControlFields::MCGREN3> {
+    using ePPSEN0 = MacPpsControlFields::ePPSEN0;
+    using eTRGTMODSEL0 = MacPpsControlFields::eTRGTMODSEL0;
+    using eMCGREN0 = MacPpsControlFields::eMCGREN0;
+    using eTRGTMODSEL1 = MacPpsControlFields::eTRGTMODSEL1;
+    using eMCGREN1 = MacPpsControlFields::eMCGREN1;
+    using eTRGTMODSEL2 = MacPpsControlFields::eTRGTMODSEL2;
+    using eMCGREN2 = MacPpsControlFields::eMCGREN2;
+    using eTRGTMODSEL3 = MacPpsControlFields::eTRGTMODSEL3;
+    using PPSCTRL_PPSCMD = MacPpsControlFields::PPSCTRL_PPSCMD;
+    using PPSEN0 = MacPpsControlFields::PPSEN0;
+    using TRGTMODSEL0 = MacPpsControlFields::TRGTMODSEL0;
+    using MCGREN0 = MacPpsControlFields::MCGREN0;
+    using PPSCMD1 = MacPpsControlFields::PPSCMD1;
+    using TRGTMODSEL1 = MacPpsControlFields::TRGTMODSEL1;
+    using MCGREN1 = MacPpsControlFields::MCGREN1;
+    using PPSCMD2 = MacPpsControlFields::PPSCMD2;
+    using TRGTMODSEL2 = MacPpsControlFields::TRGTMODSEL2;
+    using MCGREN2 = MacPpsControlFields::MCGREN2;
+    using PPSCMD3 = MacPpsControlFields::PPSCMD3;
+    using TRGTMODSEL3 = MacPpsControlFields::TRGTMODSEL3;
+    using MCGREN3 = MacPpsControlFields::MCGREN3;
   };
 
   // PPS0 Target Time Seconds
-  struct MAC_PPS0_TARGET_TIME_SECONDS_fields_ {
+  struct MacPps0TargetTimeSecondsFields {
     // PPS Target Time Seconds Register This field stores the time in seconds.
     using TSTRH0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS0_TARGET_TIME_SECONDS_fields_
+  };  // struct MacPps0TargetTimeSecondsFields
 
   struct MAC_PPS0_TARGET_TIME_SECONDS : ftl::mmio::Register<
       0x4043CB80u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS0_TARGET_TIME_SECONDS_fields_::TSTRH0> {
-    using TSTRH0 = MAC_PPS0_TARGET_TIME_SECONDS_fields_::TSTRH0;
+      MacPps0TargetTimeSecondsFields::TSTRH0> {
+    using TSTRH0 = MacPps0TargetTimeSecondsFields::TSTRH0;
   };
 
   // PPS0 Target Time Nanoseconds
-  struct MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_ {
+  struct MacPps0TargetTimeNanosecondsFields {
     enum class eTRGTBUSY0 : std::uint32_t {
       // PPS Target Time Register Busy status is not detected
       eINACTIVE = 0,
@@ -14101,67 +14101,67 @@ struct EnetQos {
     using TTSL0 = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // PPS Target Time Register Busy The MAC sets this bit when the PPSCMD0 field in the PPS_CONTROL register is programmed to 010 or 011.
     using TRGTBUSY0 = ftl::mmio::Field<1, 31, eTRGTBUSY0, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_
+  };  // struct MacPps0TargetTimeNanosecondsFields
 
   struct MAC_PPS0_TARGET_TIME_NANOSECONDS : ftl::mmio::Register<
       0x4043CB84u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_::TTSL0,
-      MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY0> {
-    using eTRGTBUSY0 = MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_::eTRGTBUSY0;
-    using TTSL0 = MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_::TTSL0;
-    using TRGTBUSY0 = MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY0;
+      MacPps0TargetTimeNanosecondsFields::TTSL0,
+      MacPps0TargetTimeNanosecondsFields::TRGTBUSY0> {
+    using eTRGTBUSY0 = MacPps0TargetTimeNanosecondsFields::eTRGTBUSY0;
+    using TTSL0 = MacPps0TargetTimeNanosecondsFields::TTSL0;
+    using TRGTBUSY0 = MacPps0TargetTimeNanosecondsFields::TRGTBUSY0;
   };
 
   // PPS0 Interval
-  struct MAC_PPS0_INTERVAL_fields_ {
+  struct MacPps0IntervalFields {
     // PPS Output Signal Interval These bits store the interval between the rising edges of PPS0 signal output.
     using PPSINT0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS0_INTERVAL_fields_
+  };  // struct MacPps0IntervalFields
 
   struct MAC_PPS0_INTERVAL : ftl::mmio::Register<
       0x4043CB88u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS0_INTERVAL_fields_::PPSINT0> {
-    using PPSINT0 = MAC_PPS0_INTERVAL_fields_::PPSINT0;
+      MacPps0IntervalFields::PPSINT0> {
+    using PPSINT0 = MacPps0IntervalFields::PPSINT0;
   };
 
   // PPS0 Width
-  struct MAC_PPS0_WIDTH_fields_ {
+  struct MacPps0WidthFields {
     // PPS Output Signal Width These bits store the width between the rising edge and corresponding falling edge of PPS0 signal output.
     using PPSWIDTH0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS0_WIDTH_fields_
+  };  // struct MacPps0WidthFields
 
   struct MAC_PPS0_WIDTH : ftl::mmio::Register<
       0x4043CB8Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS0_WIDTH_fields_::PPSWIDTH0> {
-    using PPSWIDTH0 = MAC_PPS0_WIDTH_fields_::PPSWIDTH0;
+      MacPps0WidthFields::PPSWIDTH0> {
+    using PPSWIDTH0 = MacPps0WidthFields::PPSWIDTH0;
   };
 
   // PPS1 Target Time Seconds
-  struct MAC_PPS1_TARGET_TIME_SECONDS_fields_ {
+  struct MacPps1TargetTimeSecondsFields {
     // PPS Target Time Seconds Register This field stores the time in seconds.
     using TSTRH1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS1_TARGET_TIME_SECONDS_fields_
+  };  // struct MacPps1TargetTimeSecondsFields
 
   struct MAC_PPS1_TARGET_TIME_SECONDS : ftl::mmio::Register<
       0x4043CB90u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS1_TARGET_TIME_SECONDS_fields_::TSTRH1> {
-    using TSTRH1 = MAC_PPS1_TARGET_TIME_SECONDS_fields_::TSTRH1;
+      MacPps1TargetTimeSecondsFields::TSTRH1> {
+    using TSTRH1 = MacPps1TargetTimeSecondsFields::TSTRH1;
   };
 
   // PPS1 Target Time Nanoseconds
-  struct MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_ {
+  struct MacPps1TargetTimeNanosecondsFields {
     enum class eTRGTBUSY1 : std::uint32_t {
       // PPS Target Time Register Busy status is not detected
       eINACTIVE = 0,
@@ -14173,67 +14173,67 @@ struct EnetQos {
     using TTSL1 = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // PPS Target Time Register Busy The MAC sets this bit when the PPSCMD0 field in the PPS_CONTROL register is programmed to 010 or 011.
     using TRGTBUSY1 = ftl::mmio::Field<1, 31, eTRGTBUSY1, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_
+  };  // struct MacPps1TargetTimeNanosecondsFields
 
   struct MAC_PPS1_TARGET_TIME_NANOSECONDS : ftl::mmio::Register<
       0x4043CB94u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_::TTSL1,
-      MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY1> {
-    using eTRGTBUSY1 = MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_::eTRGTBUSY1;
-    using TTSL1 = MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_::TTSL1;
-    using TRGTBUSY1 = MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY1;
+      MacPps1TargetTimeNanosecondsFields::TTSL1,
+      MacPps1TargetTimeNanosecondsFields::TRGTBUSY1> {
+    using eTRGTBUSY1 = MacPps1TargetTimeNanosecondsFields::eTRGTBUSY1;
+    using TTSL1 = MacPps1TargetTimeNanosecondsFields::TTSL1;
+    using TRGTBUSY1 = MacPps1TargetTimeNanosecondsFields::TRGTBUSY1;
   };
 
   // PPS1 Interval
-  struct MAC_PPS1_INTERVAL_fields_ {
+  struct MacPps1IntervalFields {
     // PPS Output Signal Interval These bits store the interval between the rising edges of PPS0 signal output.
     using PPSINT1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS1_INTERVAL_fields_
+  };  // struct MacPps1IntervalFields
 
   struct MAC_PPS1_INTERVAL : ftl::mmio::Register<
       0x4043CB98u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS1_INTERVAL_fields_::PPSINT1> {
-    using PPSINT1 = MAC_PPS1_INTERVAL_fields_::PPSINT1;
+      MacPps1IntervalFields::PPSINT1> {
+    using PPSINT1 = MacPps1IntervalFields::PPSINT1;
   };
 
   // PPS1 Width
-  struct MAC_PPS1_WIDTH_fields_ {
+  struct MacPps1WidthFields {
     // PPS Output Signal Width These bits store the width between the rising edge and corresponding falling edge of PPS0 signal output.
     using PPSWIDTH1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS1_WIDTH_fields_
+  };  // struct MacPps1WidthFields
 
   struct MAC_PPS1_WIDTH : ftl::mmio::Register<
       0x4043CB9Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS1_WIDTH_fields_::PPSWIDTH1> {
-    using PPSWIDTH1 = MAC_PPS1_WIDTH_fields_::PPSWIDTH1;
+      MacPps1WidthFields::PPSWIDTH1> {
+    using PPSWIDTH1 = MacPps1WidthFields::PPSWIDTH1;
   };
 
   // PPS2 Target Time Seconds
-  struct MAC_PPS2_TARGET_TIME_SECONDS_fields_ {
+  struct MacPps2TargetTimeSecondsFields {
     // PPS Target Time Seconds Register This field stores the time in seconds.
     using TSTRH2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS2_TARGET_TIME_SECONDS_fields_
+  };  // struct MacPps2TargetTimeSecondsFields
 
   struct MAC_PPS2_TARGET_TIME_SECONDS : ftl::mmio::Register<
       0x4043CBA0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS2_TARGET_TIME_SECONDS_fields_::TSTRH2> {
-    using TSTRH2 = MAC_PPS2_TARGET_TIME_SECONDS_fields_::TSTRH2;
+      MacPps2TargetTimeSecondsFields::TSTRH2> {
+    using TSTRH2 = MacPps2TargetTimeSecondsFields::TSTRH2;
   };
 
   // PPS2 Target Time Nanoseconds
-  struct MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_ {
+  struct MacPps2TargetTimeNanosecondsFields {
     enum class eTRGTBUSY2 : std::uint32_t {
       // PPS Target Time Register Busy status is not detected
       eINACTIVE = 0,
@@ -14245,67 +14245,67 @@ struct EnetQos {
     using TTSL2 = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // PPS Target Time Register Busy The MAC sets this bit when the PPSCMD0 field in the PPS_CONTROL register is programmed to 010 or 011.
     using TRGTBUSY2 = ftl::mmio::Field<1, 31, eTRGTBUSY2, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_
+  };  // struct MacPps2TargetTimeNanosecondsFields
 
   struct MAC_PPS2_TARGET_TIME_NANOSECONDS : ftl::mmio::Register<
       0x4043CBA4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_::TTSL2,
-      MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY2> {
-    using eTRGTBUSY2 = MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_::eTRGTBUSY2;
-    using TTSL2 = MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_::TTSL2;
-    using TRGTBUSY2 = MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY2;
+      MacPps2TargetTimeNanosecondsFields::TTSL2,
+      MacPps2TargetTimeNanosecondsFields::TRGTBUSY2> {
+    using eTRGTBUSY2 = MacPps2TargetTimeNanosecondsFields::eTRGTBUSY2;
+    using TTSL2 = MacPps2TargetTimeNanosecondsFields::TTSL2;
+    using TRGTBUSY2 = MacPps2TargetTimeNanosecondsFields::TRGTBUSY2;
   };
 
   // PPS2 Interval
-  struct MAC_PPS2_INTERVAL_fields_ {
+  struct MacPps2IntervalFields {
     // PPS Output Signal Interval These bits store the interval between the rising edges of PPS0 signal output.
     using PPSINT2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS2_INTERVAL_fields_
+  };  // struct MacPps2IntervalFields
 
   struct MAC_PPS2_INTERVAL : ftl::mmio::Register<
       0x4043CBA8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS2_INTERVAL_fields_::PPSINT2> {
-    using PPSINT2 = MAC_PPS2_INTERVAL_fields_::PPSINT2;
+      MacPps2IntervalFields::PPSINT2> {
+    using PPSINT2 = MacPps2IntervalFields::PPSINT2;
   };
 
   // PPS2 Width
-  struct MAC_PPS2_WIDTH_fields_ {
+  struct MacPps2WidthFields {
     // PPS Output Signal Width These bits store the width between the rising edge and corresponding falling edge of PPS0 signal output.
     using PPSWIDTH2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS2_WIDTH_fields_
+  };  // struct MacPps2WidthFields
 
   struct MAC_PPS2_WIDTH : ftl::mmio::Register<
       0x4043CBACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS2_WIDTH_fields_::PPSWIDTH2> {
-    using PPSWIDTH2 = MAC_PPS2_WIDTH_fields_::PPSWIDTH2;
+      MacPps2WidthFields::PPSWIDTH2> {
+    using PPSWIDTH2 = MacPps2WidthFields::PPSWIDTH2;
   };
 
   // PPS3 Target Time Seconds
-  struct MAC_PPS3_TARGET_TIME_SECONDS_fields_ {
+  struct MacPps3TargetTimeSecondsFields {
     // PPS Target Time Seconds Register This field stores the time in seconds.
     using TSTRH3 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS3_TARGET_TIME_SECONDS_fields_
+  };  // struct MacPps3TargetTimeSecondsFields
 
   struct MAC_PPS3_TARGET_TIME_SECONDS : ftl::mmio::Register<
       0x4043CBB0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS3_TARGET_TIME_SECONDS_fields_::TSTRH3> {
-    using TSTRH3 = MAC_PPS3_TARGET_TIME_SECONDS_fields_::TSTRH3;
+      MacPps3TargetTimeSecondsFields::TSTRH3> {
+    using TSTRH3 = MacPps3TargetTimeSecondsFields::TSTRH3;
   };
 
   // PPS3 Target Time Nanoseconds
-  struct MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_ {
+  struct MacPps3TargetTimeNanosecondsFields {
     enum class eTRGTBUSY3 : std::uint32_t {
       // PPS Target Time Register Busy status is not detected
       eINACTIVE = 0,
@@ -14317,52 +14317,52 @@ struct EnetQos {
     using TTSL3 = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // PPS Target Time Register Busy The MAC sets this bit when the PPSCMD0 field in the PPS_CONTROL register is programmed to 010 or 011.
     using TRGTBUSY3 = ftl::mmio::Field<1, 31, eTRGTBUSY3, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_
+  };  // struct MacPps3TargetTimeNanosecondsFields
 
   struct MAC_PPS3_TARGET_TIME_NANOSECONDS : ftl::mmio::Register<
       0x4043CBB4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_::TTSL3,
-      MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY3> {
-    using eTRGTBUSY3 = MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_::eTRGTBUSY3;
-    using TTSL3 = MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_::TTSL3;
-    using TRGTBUSY3 = MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY3;
+      MacPps3TargetTimeNanosecondsFields::TTSL3,
+      MacPps3TargetTimeNanosecondsFields::TRGTBUSY3> {
+    using eTRGTBUSY3 = MacPps3TargetTimeNanosecondsFields::eTRGTBUSY3;
+    using TTSL3 = MacPps3TargetTimeNanosecondsFields::TTSL3;
+    using TRGTBUSY3 = MacPps3TargetTimeNanosecondsFields::TRGTBUSY3;
   };
 
   // PPS3 Interval
-  struct MAC_PPS3_INTERVAL_fields_ {
+  struct MacPps3IntervalFields {
     // PPS Output Signal Interval These bits store the interval between the rising edges of PPS0 signal output.
     using PPSINT3 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS3_INTERVAL_fields_
+  };  // struct MacPps3IntervalFields
 
   struct MAC_PPS3_INTERVAL : ftl::mmio::Register<
       0x4043CBB8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS3_INTERVAL_fields_::PPSINT3> {
-    using PPSINT3 = MAC_PPS3_INTERVAL_fields_::PPSINT3;
+      MacPps3IntervalFields::PPSINT3> {
+    using PPSINT3 = MacPps3IntervalFields::PPSINT3;
   };
 
   // PPS3 Width
-  struct MAC_PPS3_WIDTH_fields_ {
+  struct MacPps3WidthFields {
     // PPS Output Signal Width These bits store the width between the rising edge and corresponding falling edge of PPS0 signal output.
     using PPSWIDTH3 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PPS3_WIDTH_fields_
+  };  // struct MacPps3WidthFields
 
   struct MAC_PPS3_WIDTH : ftl::mmio::Register<
       0x4043CBBCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PPS3_WIDTH_fields_::PPSWIDTH3> {
-    using PPSWIDTH3 = MAC_PPS3_WIDTH_fields_::PPSWIDTH3;
+      MacPps3WidthFields::PPSWIDTH3> {
+    using PPSWIDTH3 = MacPps3WidthFields::PPSWIDTH3;
   };
 
   // PTP Offload Engine Control
-  struct MAC_PTO_CONTROL_fields_ {
+  struct MacPtoControlFields {
     enum class ePTOEN : std::uint32_t {
       // PTP Offload feature is disabled
       eDISABLE = 0,
@@ -14428,88 +14428,88 @@ struct EnetQos {
     using PDRDIS = ftl::mmio::Field<1, 7, ePDRDIS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain Number This field indicates the domain Number in which the PTP node is operating.
     using DN = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_PTO_CONTROL_fields_
+  };  // struct MacPtoControlFields
 
   struct MAC_PTO_CONTROL : ftl::mmio::Register<
       0x4043CBC0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_PTO_CONTROL_fields_::PTOEN,
-      MAC_PTO_CONTROL_fields_::ASYNCEN,
-      MAC_PTO_CONTROL_fields_::APDREQEN,
+      MacPtoControlFields::PTOEN,
+      MacPtoControlFields::ASYNCEN,
+      MacPtoControlFields::APDREQEN,
       ftl::mmio::Reserved<1, 3>,
-      MAC_PTO_CONTROL_fields_::ASYNCTRIG,
-      MAC_PTO_CONTROL_fields_::APDREQTRIG,
-      MAC_PTO_CONTROL_fields_::DRRDIS,
-      MAC_PTO_CONTROL_fields_::PDRDIS,
-      MAC_PTO_CONTROL_fields_::DN,
+      MacPtoControlFields::ASYNCTRIG,
+      MacPtoControlFields::APDREQTRIG,
+      MacPtoControlFields::DRRDIS,
+      MacPtoControlFields::PDRDIS,
+      MacPtoControlFields::DN,
       ftl::mmio::Reserved<16, 16>> {
-    using ePTOEN = MAC_PTO_CONTROL_fields_::ePTOEN;
-    using eASYNCEN = MAC_PTO_CONTROL_fields_::eASYNCEN;
-    using eAPDREQEN = MAC_PTO_CONTROL_fields_::eAPDREQEN;
-    using eASYNCTRIG = MAC_PTO_CONTROL_fields_::eASYNCTRIG;
-    using eAPDREQTRIG = MAC_PTO_CONTROL_fields_::eAPDREQTRIG;
-    using eDRRDIS = MAC_PTO_CONTROL_fields_::eDRRDIS;
-    using ePDRDIS = MAC_PTO_CONTROL_fields_::ePDRDIS;
-    using PTOEN = MAC_PTO_CONTROL_fields_::PTOEN;
-    using ASYNCEN = MAC_PTO_CONTROL_fields_::ASYNCEN;
-    using APDREQEN = MAC_PTO_CONTROL_fields_::APDREQEN;
-    using ASYNCTRIG = MAC_PTO_CONTROL_fields_::ASYNCTRIG;
-    using APDREQTRIG = MAC_PTO_CONTROL_fields_::APDREQTRIG;
-    using DRRDIS = MAC_PTO_CONTROL_fields_::DRRDIS;
-    using PDRDIS = MAC_PTO_CONTROL_fields_::PDRDIS;
-    using DN = MAC_PTO_CONTROL_fields_::DN;
+    using ePTOEN = MacPtoControlFields::ePTOEN;
+    using eASYNCEN = MacPtoControlFields::eASYNCEN;
+    using eAPDREQEN = MacPtoControlFields::eAPDREQEN;
+    using eASYNCTRIG = MacPtoControlFields::eASYNCTRIG;
+    using eAPDREQTRIG = MacPtoControlFields::eAPDREQTRIG;
+    using eDRRDIS = MacPtoControlFields::eDRRDIS;
+    using ePDRDIS = MacPtoControlFields::ePDRDIS;
+    using PTOEN = MacPtoControlFields::PTOEN;
+    using ASYNCEN = MacPtoControlFields::ASYNCEN;
+    using APDREQEN = MacPtoControlFields::APDREQEN;
+    using ASYNCTRIG = MacPtoControlFields::ASYNCTRIG;
+    using APDREQTRIG = MacPtoControlFields::APDREQTRIG;
+    using DRRDIS = MacPtoControlFields::DRRDIS;
+    using PDRDIS = MacPtoControlFields::PDRDIS;
+    using DN = MacPtoControlFields::DN;
   };
 
   // Source Port Identity 0
-  struct MAC_SOURCE_PORT_IDENTITY0_fields_ {
+  struct MacSourcePortIdentity0Fields {
     // Source Port Identity 0 This field indicates bits [31:0] of sourcePortIdentity of PTP node.
     using SPI0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_SOURCE_PORT_IDENTITY0_fields_
+  };  // struct MacSourcePortIdentity0Fields
 
   struct MAC_SOURCE_PORT_IDENTITY0 : ftl::mmio::Register<
       0x4043CBC4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_SOURCE_PORT_IDENTITY0_fields_::SPI0> {
-    using SPI0 = MAC_SOURCE_PORT_IDENTITY0_fields_::SPI0;
+      MacSourcePortIdentity0Fields::SPI0> {
+    using SPI0 = MacSourcePortIdentity0Fields::SPI0;
   };
 
   // Source Port Identity 1
-  struct MAC_SOURCE_PORT_IDENTITY1_fields_ {
+  struct MacSourcePortIdentity1Fields {
     // Source Port Identity 1 This field indicates bits [63:32] of sourcePortIdentity of PTP node.
     using SPI1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_SOURCE_PORT_IDENTITY1_fields_
+  };  // struct MacSourcePortIdentity1Fields
 
   struct MAC_SOURCE_PORT_IDENTITY1 : ftl::mmio::Register<
       0x4043CBC8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_SOURCE_PORT_IDENTITY1_fields_::SPI1> {
-    using SPI1 = MAC_SOURCE_PORT_IDENTITY1_fields_::SPI1;
+      MacSourcePortIdentity1Fields::SPI1> {
+    using SPI1 = MacSourcePortIdentity1Fields::SPI1;
   };
 
   // Source Port Identity 2
-  struct MAC_SOURCE_PORT_IDENTITY2_fields_ {
+  struct MacSourcePortIdentity2Fields {
     // Source Port Identity 2 This field indicates bits [79:64] of sourcePortIdentity of PTP node.
     using SPI2 = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_SOURCE_PORT_IDENTITY2_fields_
+  };  // struct MacSourcePortIdentity2Fields
 
   struct MAC_SOURCE_PORT_IDENTITY2 : ftl::mmio::Register<
       0x4043CBCCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_SOURCE_PORT_IDENTITY2_fields_::SPI2,
+      MacSourcePortIdentity2Fields::SPI2,
       ftl::mmio::Reserved<16, 16>> {
-    using SPI2 = MAC_SOURCE_PORT_IDENTITY2_fields_::SPI2;
+    using SPI2 = MacSourcePortIdentity2Fields::SPI2;
   };
 
   // Log Message Interval
-  struct MAC_LOG_MESSAGE_INTERVAL_fields_ {
+  struct MacLogMessageIntervalFields {
     enum class eDRSYNCR : std::uint32_t {
       // DelayReq generated for every received SYNC
       eSYNC1 = 0,
@@ -14531,25 +14531,25 @@ struct EnetQos {
     using DRSYNCR = ftl::mmio::Field<3, 8, eDRSYNCR, ftl::mmio::RW, ftl::mmio::Normal>;
     // Log Min Pdelay_Req Interval This field indicates logMinPdelayReqInterval of PTP node.
     using LMPDRI = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MAC_LOG_MESSAGE_INTERVAL_fields_
+  };  // struct MacLogMessageIntervalFields
 
   struct MAC_LOG_MESSAGE_INTERVAL : ftl::mmio::Register<
       0x4043CBD0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MAC_LOG_MESSAGE_INTERVAL_fields_::LSI,
-      MAC_LOG_MESSAGE_INTERVAL_fields_::DRSYNCR,
+      MacLogMessageIntervalFields::LSI,
+      MacLogMessageIntervalFields::DRSYNCR,
       ftl::mmio::Reserved<13, 11>,
-      MAC_LOG_MESSAGE_INTERVAL_fields_::LMPDRI> {
-    using eDRSYNCR = MAC_LOG_MESSAGE_INTERVAL_fields_::eDRSYNCR;
-    using LSI = MAC_LOG_MESSAGE_INTERVAL_fields_::LSI;
-    using DRSYNCR = MAC_LOG_MESSAGE_INTERVAL_fields_::DRSYNCR;
-    using LMPDRI = MAC_LOG_MESSAGE_INTERVAL_fields_::LMPDRI;
+      MacLogMessageIntervalFields::LMPDRI> {
+    using eDRSYNCR = MacLogMessageIntervalFields::eDRSYNCR;
+    using LSI = MacLogMessageIntervalFields::LSI;
+    using DRSYNCR = MacLogMessageIntervalFields::DRSYNCR;
+    using LMPDRI = MacLogMessageIntervalFields::LMPDRI;
   };
 
   // MTL Operation Mode
-  struct MTL_OPERATION_MODE_fields_ {
+  struct MtlOperationModeFields {
     enum class eDTXSTS : std::uint32_t {
       // Drop Transmit Status is disabled
       eDISABLE = 0,
@@ -14608,7 +14608,7 @@ struct EnetQos {
     using CNTCLR = ftl::mmio::Field<1, 9, eCNTCLR, ftl::mmio::RW, ftl::mmio::Normal>;
     // Flexible Rx parser Enable When this bit is set to 1, the Programmable Rx Parser functionality is enabled.
     using FRPE = ftl::mmio::Field<1, 15, eFRPE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_OPERATION_MODE_fields_
+  };  // struct MtlOperationModeFields
 
   struct MTL_OPERATION_MODE : ftl::mmio::Register<
       0x4043CC00u,
@@ -14616,32 +14616,32 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      MTL_OPERATION_MODE_fields_::DTXSTS,
-      MTL_OPERATION_MODE_fields_::RAA,
+      MtlOperationModeFields::DTXSTS,
+      MtlOperationModeFields::RAA,
       ftl::mmio::Reserved<2, 3>,
-      MTL_OPERATION_MODE_fields_::SCHALG,
+      MtlOperationModeFields::SCHALG,
       ftl::mmio::Reserved<1, 7>,
-      MTL_OPERATION_MODE_fields_::CNTPRST,
-      MTL_OPERATION_MODE_fields_::CNTCLR,
+      MtlOperationModeFields::CNTPRST,
+      MtlOperationModeFields::CNTCLR,
       ftl::mmio::Reserved<5, 10>,
-      MTL_OPERATION_MODE_fields_::FRPE,
+      MtlOperationModeFields::FRPE,
       ftl::mmio::Reserved<16, 16>> {
-    using eDTXSTS = MTL_OPERATION_MODE_fields_::eDTXSTS;
-    using eRAA = MTL_OPERATION_MODE_fields_::eRAA;
-    using eSCHALG = MTL_OPERATION_MODE_fields_::eSCHALG;
-    using eCNTPRST = MTL_OPERATION_MODE_fields_::eCNTPRST;
-    using eCNTCLR = MTL_OPERATION_MODE_fields_::eCNTCLR;
-    using eFRPE = MTL_OPERATION_MODE_fields_::eFRPE;
-    using DTXSTS = MTL_OPERATION_MODE_fields_::DTXSTS;
-    using RAA = MTL_OPERATION_MODE_fields_::RAA;
-    using SCHALG = MTL_OPERATION_MODE_fields_::SCHALG;
-    using CNTPRST = MTL_OPERATION_MODE_fields_::CNTPRST;
-    using CNTCLR = MTL_OPERATION_MODE_fields_::CNTCLR;
-    using FRPE = MTL_OPERATION_MODE_fields_::FRPE;
+    using eDTXSTS = MtlOperationModeFields::eDTXSTS;
+    using eRAA = MtlOperationModeFields::eRAA;
+    using eSCHALG = MtlOperationModeFields::eSCHALG;
+    using eCNTPRST = MtlOperationModeFields::eCNTPRST;
+    using eCNTCLR = MtlOperationModeFields::eCNTCLR;
+    using eFRPE = MtlOperationModeFields::eFRPE;
+    using DTXSTS = MtlOperationModeFields::DTXSTS;
+    using RAA = MtlOperationModeFields::RAA;
+    using SCHALG = MtlOperationModeFields::SCHALG;
+    using CNTPRST = MtlOperationModeFields::CNTPRST;
+    using CNTCLR = MtlOperationModeFields::CNTCLR;
+    using FRPE = MtlOperationModeFields::FRPE;
   };
 
   // FIFO Debug Access Control and Status
-  struct MTL_DBG_CTL_fields_ {
+  struct MtlDbgCtlFields {
     enum class eFDBGEN : std::uint32_t {
       // FIFO Debug Access is disabled
       eDISABLE = 0,
@@ -14753,53 +14753,53 @@ struct EnetQos {
     using PKTIE = ftl::mmio::Field<1, 14, ePKTIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit Status Available Interrupt Status Enable When this bit is set, an interrupt is generated when Transmit status is available in slave mode.
     using STSIE = ftl::mmio::Field<1, 15, eSTSIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_DBG_CTL_fields_
+  };  // struct MtlDbgCtlFields
 
   struct MTL_DBG_CTL : ftl::mmio::Register<
       0x4043CC08u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_DBG_CTL_fields_::FDBGEN,
-      MTL_DBG_CTL_fields_::DBGMOD,
-      MTL_DBG_CTL_fields_::BYTEEN,
+      MtlDbgCtlFields::FDBGEN,
+      MtlDbgCtlFields::DBGMOD,
+      MtlDbgCtlFields::BYTEEN,
       ftl::mmio::Reserved<1, 4>,
-      MTL_DBG_CTL_fields_::PKTSTATE,
+      MtlDbgCtlFields::PKTSTATE,
       ftl::mmio::Reserved<1, 7>,
-      MTL_DBG_CTL_fields_::RSTALL,
-      MTL_DBG_CTL_fields_::RSTSEL,
-      MTL_DBG_CTL_fields_::FIFORDEN,
-      MTL_DBG_CTL_fields_::FIFOWREN,
-      MTL_DBG_CTL_fields_::FIFOSEL,
-      MTL_DBG_CTL_fields_::PKTIE,
-      MTL_DBG_CTL_fields_::STSIE,
+      MtlDbgCtlFields::RSTALL,
+      MtlDbgCtlFields::RSTSEL,
+      MtlDbgCtlFields::FIFORDEN,
+      MtlDbgCtlFields::FIFOWREN,
+      MtlDbgCtlFields::FIFOSEL,
+      MtlDbgCtlFields::PKTIE,
+      MtlDbgCtlFields::STSIE,
       ftl::mmio::Reserved<16, 16>> {
-    using eFDBGEN = MTL_DBG_CTL_fields_::eFDBGEN;
-    using eDBGMOD = MTL_DBG_CTL_fields_::eDBGMOD;
-    using eBYTEEN = MTL_DBG_CTL_fields_::eBYTEEN;
-    using ePKTSTATE = MTL_DBG_CTL_fields_::ePKTSTATE;
-    using eRSTALL = MTL_DBG_CTL_fields_::eRSTALL;
-    using eRSTSEL = MTL_DBG_CTL_fields_::eRSTSEL;
-    using eFIFORDEN = MTL_DBG_CTL_fields_::eFIFORDEN;
-    using eFIFOWREN = MTL_DBG_CTL_fields_::eFIFOWREN;
-    using eFIFOSEL = MTL_DBG_CTL_fields_::eFIFOSEL;
-    using ePKTIE = MTL_DBG_CTL_fields_::ePKTIE;
-    using eSTSIE = MTL_DBG_CTL_fields_::eSTSIE;
-    using FDBGEN = MTL_DBG_CTL_fields_::FDBGEN;
-    using DBGMOD = MTL_DBG_CTL_fields_::DBGMOD;
-    using BYTEEN = MTL_DBG_CTL_fields_::BYTEEN;
-    using PKTSTATE = MTL_DBG_CTL_fields_::PKTSTATE;
-    using RSTALL = MTL_DBG_CTL_fields_::RSTALL;
-    using RSTSEL = MTL_DBG_CTL_fields_::RSTSEL;
-    using FIFORDEN = MTL_DBG_CTL_fields_::FIFORDEN;
-    using FIFOWREN = MTL_DBG_CTL_fields_::FIFOWREN;
-    using FIFOSEL = MTL_DBG_CTL_fields_::FIFOSEL;
-    using PKTIE = MTL_DBG_CTL_fields_::PKTIE;
-    using STSIE = MTL_DBG_CTL_fields_::STSIE;
+    using eFDBGEN = MtlDbgCtlFields::eFDBGEN;
+    using eDBGMOD = MtlDbgCtlFields::eDBGMOD;
+    using eBYTEEN = MtlDbgCtlFields::eBYTEEN;
+    using ePKTSTATE = MtlDbgCtlFields::ePKTSTATE;
+    using eRSTALL = MtlDbgCtlFields::eRSTALL;
+    using eRSTSEL = MtlDbgCtlFields::eRSTSEL;
+    using eFIFORDEN = MtlDbgCtlFields::eFIFORDEN;
+    using eFIFOWREN = MtlDbgCtlFields::eFIFOWREN;
+    using eFIFOSEL = MtlDbgCtlFields::eFIFOSEL;
+    using ePKTIE = MtlDbgCtlFields::ePKTIE;
+    using eSTSIE = MtlDbgCtlFields::eSTSIE;
+    using FDBGEN = MtlDbgCtlFields::FDBGEN;
+    using DBGMOD = MtlDbgCtlFields::DBGMOD;
+    using BYTEEN = MtlDbgCtlFields::BYTEEN;
+    using PKTSTATE = MtlDbgCtlFields::PKTSTATE;
+    using RSTALL = MtlDbgCtlFields::RSTALL;
+    using RSTSEL = MtlDbgCtlFields::RSTSEL;
+    using FIFORDEN = MtlDbgCtlFields::FIFORDEN;
+    using FIFOWREN = MtlDbgCtlFields::FIFOWREN;
+    using FIFOSEL = MtlDbgCtlFields::FIFOSEL;
+    using PKTIE = MtlDbgCtlFields::PKTIE;
+    using STSIE = MtlDbgCtlFields::STSIE;
   };
 
   // FIFO Debug Status
-  struct MTL_DBG_STS_fields_ {
+  struct MtlDbgStsFields {
     enum class eFIFOBUSY : std::uint32_t {
       // FIFO Busy not detected
       eINACTIVE = 0,
@@ -14855,51 +14855,51 @@ struct EnetQos {
     using STSI = ftl::mmio::Field<1, 9, eSTSI, ftl::mmio::RW, ftl::mmio::Normal>;
     // Remaining Locations in the FIFO Slave Access Mode: This field indicates the space available in selected FIFO.
     using LOCR = ftl::mmio::Field<17, 15, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_DBG_STS_fields_
+  };  // struct MtlDbgStsFields
 
   struct MTL_DBG_STS : ftl::mmio::Register<
       0x4043CC0Cu,
       std::uint32_t,
       0x00000018u,
       ftl::mmio::RW,
-      MTL_DBG_STS_fields_::FIFOBUSY,
-      MTL_DBG_STS_fields_::PKTSTATE,
-      MTL_DBG_STS_fields_::BYTEEN,
+      MtlDbgStsFields::FIFOBUSY,
+      MtlDbgStsFields::PKTSTATE,
+      MtlDbgStsFields::BYTEEN,
       ftl::mmio::Reserved<3, 5>,
-      MTL_DBG_STS_fields_::PKTI,
-      MTL_DBG_STS_fields_::STSI,
+      MtlDbgStsFields::PKTI,
+      MtlDbgStsFields::STSI,
       ftl::mmio::Reserved<5, 10>,
-      MTL_DBG_STS_fields_::LOCR> {
-    using eFIFOBUSY = MTL_DBG_STS_fields_::eFIFOBUSY;
-    using ePKTSTATE = MTL_DBG_STS_fields_::ePKTSTATE;
-    using eBYTEEN = MTL_DBG_STS_fields_::eBYTEEN;
-    using ePKTI = MTL_DBG_STS_fields_::ePKTI;
-    using eSTSI = MTL_DBG_STS_fields_::eSTSI;
-    using FIFOBUSY = MTL_DBG_STS_fields_::FIFOBUSY;
-    using PKTSTATE = MTL_DBG_STS_fields_::PKTSTATE;
-    using BYTEEN = MTL_DBG_STS_fields_::BYTEEN;
-    using PKTI = MTL_DBG_STS_fields_::PKTI;
-    using STSI = MTL_DBG_STS_fields_::STSI;
-    using LOCR = MTL_DBG_STS_fields_::LOCR;
+      MtlDbgStsFields::LOCR> {
+    using eFIFOBUSY = MtlDbgStsFields::eFIFOBUSY;
+    using ePKTSTATE = MtlDbgStsFields::ePKTSTATE;
+    using eBYTEEN = MtlDbgStsFields::eBYTEEN;
+    using ePKTI = MtlDbgStsFields::ePKTI;
+    using eSTSI = MtlDbgStsFields::eSTSI;
+    using FIFOBUSY = MtlDbgStsFields::FIFOBUSY;
+    using PKTSTATE = MtlDbgStsFields::PKTSTATE;
+    using BYTEEN = MtlDbgStsFields::BYTEEN;
+    using PKTI = MtlDbgStsFields::PKTI;
+    using STSI = MtlDbgStsFields::STSI;
+    using LOCR = MtlDbgStsFields::LOCR;
   };
 
   // FIFO Debug Data
-  struct MTL_FIFO_DEBUG_DATA_fields_ {
+  struct MtlFifoDebugDataFields {
     // FIFO Debug Data During debug or slave access write operation, this field contains the data to be written to the Tx FIFO, Rx FIFO, or TSO FIFO.
     using FDBGDATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_FIFO_DEBUG_DATA_fields_
+  };  // struct MtlFifoDebugDataFields
 
   struct MTL_FIFO_DEBUG_DATA : ftl::mmio::Register<
       0x4043CC10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_FIFO_DEBUG_DATA_fields_::FDBGDATA> {
-    using FDBGDATA = MTL_FIFO_DEBUG_DATA_fields_::FDBGDATA;
+      MtlFifoDebugDataFields::FDBGDATA> {
+    using FDBGDATA = MtlFifoDebugDataFields::FDBGDATA;
   };
 
   // MTL Interrupt Status
-  struct MTL_INTERRUPT_STATUS_fields_ {
+  struct MtlInterruptStatusFields {
     enum class eQ0IS : std::uint32_t {
       // Queue 0 Interrupt status not detected
       eINACTIVE = 0,
@@ -14972,44 +14972,44 @@ struct EnetQos {
     using ESTIS = ftl::mmio::Field<1, 18, eESTIS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MTL Rx Parser Interrupt Status This bit indicates that there is an interrupt from Rx Parser Block.
     using MTLPIS = ftl::mmio::Field<1, 23, eMTLPIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_INTERRUPT_STATUS_fields_
+  };  // struct MtlInterruptStatusFields
 
   struct MTL_INTERRUPT_STATUS : ftl::mmio::Register<
       0x4043CC20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_INTERRUPT_STATUS_fields_::Q0IS,
-      MTL_INTERRUPT_STATUS_fields_::Q1IS,
-      MTL_INTERRUPT_STATUS_fields_::Q2IS,
-      MTL_INTERRUPT_STATUS_fields_::Q3IS,
-      MTL_INTERRUPT_STATUS_fields_::Q4IS,
+      MtlInterruptStatusFields::Q0IS,
+      MtlInterruptStatusFields::Q1IS,
+      MtlInterruptStatusFields::Q2IS,
+      MtlInterruptStatusFields::Q3IS,
+      MtlInterruptStatusFields::Q4IS,
       ftl::mmio::Reserved<12, 5>,
-      MTL_INTERRUPT_STATUS_fields_::DBGIS,
-      MTL_INTERRUPT_STATUS_fields_::ESTIS,
+      MtlInterruptStatusFields::DBGIS,
+      MtlInterruptStatusFields::ESTIS,
       ftl::mmio::Reserved<4, 19>,
-      MTL_INTERRUPT_STATUS_fields_::MTLPIS,
+      MtlInterruptStatusFields::MTLPIS,
       ftl::mmio::Reserved<8, 24>> {
-    using eQ0IS = MTL_INTERRUPT_STATUS_fields_::eQ0IS;
-    using eQ1IS = MTL_INTERRUPT_STATUS_fields_::eQ1IS;
-    using eQ2IS = MTL_INTERRUPT_STATUS_fields_::eQ2IS;
-    using eQ3IS = MTL_INTERRUPT_STATUS_fields_::eQ3IS;
-    using eQ4IS = MTL_INTERRUPT_STATUS_fields_::eQ4IS;
-    using eDBGIS = MTL_INTERRUPT_STATUS_fields_::eDBGIS;
-    using eESTIS = MTL_INTERRUPT_STATUS_fields_::eESTIS;
-    using eMTLPIS = MTL_INTERRUPT_STATUS_fields_::eMTLPIS;
-    using Q0IS = MTL_INTERRUPT_STATUS_fields_::Q0IS;
-    using Q1IS = MTL_INTERRUPT_STATUS_fields_::Q1IS;
-    using Q2IS = MTL_INTERRUPT_STATUS_fields_::Q2IS;
-    using Q3IS = MTL_INTERRUPT_STATUS_fields_::Q3IS;
-    using Q4IS = MTL_INTERRUPT_STATUS_fields_::Q4IS;
-    using DBGIS = MTL_INTERRUPT_STATUS_fields_::DBGIS;
-    using ESTIS = MTL_INTERRUPT_STATUS_fields_::ESTIS;
-    using MTLPIS = MTL_INTERRUPT_STATUS_fields_::MTLPIS;
+    using eQ0IS = MtlInterruptStatusFields::eQ0IS;
+    using eQ1IS = MtlInterruptStatusFields::eQ1IS;
+    using eQ2IS = MtlInterruptStatusFields::eQ2IS;
+    using eQ3IS = MtlInterruptStatusFields::eQ3IS;
+    using eQ4IS = MtlInterruptStatusFields::eQ4IS;
+    using eDBGIS = MtlInterruptStatusFields::eDBGIS;
+    using eESTIS = MtlInterruptStatusFields::eESTIS;
+    using eMTLPIS = MtlInterruptStatusFields::eMTLPIS;
+    using Q0IS = MtlInterruptStatusFields::Q0IS;
+    using Q1IS = MtlInterruptStatusFields::Q1IS;
+    using Q2IS = MtlInterruptStatusFields::Q2IS;
+    using Q3IS = MtlInterruptStatusFields::Q3IS;
+    using Q4IS = MtlInterruptStatusFields::Q4IS;
+    using DBGIS = MtlInterruptStatusFields::DBGIS;
+    using ESTIS = MtlInterruptStatusFields::ESTIS;
+    using MTLPIS = MtlInterruptStatusFields::MTLPIS;
   };
 
   // Receive Queue and DMA Channel Mapping 0
-  struct MTL_RXQ_DMA_MAP0_fields_ {
+  struct MtlRxqDmaMap0Fields {
     enum class eQ0DDMACH : std::uint32_t {
       // Queue 0 disabled for DA-based DMA Channel Selection
       eDISABLE = 0,
@@ -15054,45 +15054,45 @@ struct EnetQos {
     using Q3MDMACH = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Queue 3 Enabled for Dynamic (per packet) DMA Channel Selection When set, this bit indicates that the packets received in Queue 3 are routed to a particular DMA channel as decided in the MAC Receiver based on the DMA channel number programmed in the L3-L4 filter registers, or the Ethernet DA address.
     using Q3DDMACH = ftl::mmio::Field<1, 28, eQ3DDMACH, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ_DMA_MAP0_fields_
+  };  // struct MtlRxqDmaMap0Fields
 
   struct MTL_RXQ_DMA_MAP0 : ftl::mmio::Register<
       0x4043CC30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ_DMA_MAP0_fields_::Q0MDMACH,
+      MtlRxqDmaMap0Fields::Q0MDMACH,
       ftl::mmio::Reserved<1, 3>,
-      MTL_RXQ_DMA_MAP0_fields_::Q0DDMACH,
+      MtlRxqDmaMap0Fields::Q0DDMACH,
       ftl::mmio::Reserved<3, 5>,
-      MTL_RXQ_DMA_MAP0_fields_::Q1MDMACH,
+      MtlRxqDmaMap0Fields::Q1MDMACH,
       ftl::mmio::Reserved<1, 11>,
-      MTL_RXQ_DMA_MAP0_fields_::Q1DDMACH,
+      MtlRxqDmaMap0Fields::Q1DDMACH,
       ftl::mmio::Reserved<3, 13>,
-      MTL_RXQ_DMA_MAP0_fields_::Q2MDMACH,
+      MtlRxqDmaMap0Fields::Q2MDMACH,
       ftl::mmio::Reserved<1, 19>,
-      MTL_RXQ_DMA_MAP0_fields_::Q2DDMACH,
+      MtlRxqDmaMap0Fields::Q2DDMACH,
       ftl::mmio::Reserved<3, 21>,
-      MTL_RXQ_DMA_MAP0_fields_::Q3MDMACH,
+      MtlRxqDmaMap0Fields::Q3MDMACH,
       ftl::mmio::Reserved<1, 27>,
-      MTL_RXQ_DMA_MAP0_fields_::Q3DDMACH,
+      MtlRxqDmaMap0Fields::Q3DDMACH,
       ftl::mmio::Reserved<3, 29>> {
-    using eQ0DDMACH = MTL_RXQ_DMA_MAP0_fields_::eQ0DDMACH;
-    using eQ1DDMACH = MTL_RXQ_DMA_MAP0_fields_::eQ1DDMACH;
-    using eQ2DDMACH = MTL_RXQ_DMA_MAP0_fields_::eQ2DDMACH;
-    using eQ3DDMACH = MTL_RXQ_DMA_MAP0_fields_::eQ3DDMACH;
-    using Q0MDMACH = MTL_RXQ_DMA_MAP0_fields_::Q0MDMACH;
-    using Q0DDMACH = MTL_RXQ_DMA_MAP0_fields_::Q0DDMACH;
-    using Q1MDMACH = MTL_RXQ_DMA_MAP0_fields_::Q1MDMACH;
-    using Q1DDMACH = MTL_RXQ_DMA_MAP0_fields_::Q1DDMACH;
-    using Q2MDMACH = MTL_RXQ_DMA_MAP0_fields_::Q2MDMACH;
-    using Q2DDMACH = MTL_RXQ_DMA_MAP0_fields_::Q2DDMACH;
-    using Q3MDMACH = MTL_RXQ_DMA_MAP0_fields_::Q3MDMACH;
-    using Q3DDMACH = MTL_RXQ_DMA_MAP0_fields_::Q3DDMACH;
+    using eQ0DDMACH = MtlRxqDmaMap0Fields::eQ0DDMACH;
+    using eQ1DDMACH = MtlRxqDmaMap0Fields::eQ1DDMACH;
+    using eQ2DDMACH = MtlRxqDmaMap0Fields::eQ2DDMACH;
+    using eQ3DDMACH = MtlRxqDmaMap0Fields::eQ3DDMACH;
+    using Q0MDMACH = MtlRxqDmaMap0Fields::Q0MDMACH;
+    using Q0DDMACH = MtlRxqDmaMap0Fields::Q0DDMACH;
+    using Q1MDMACH = MtlRxqDmaMap0Fields::Q1MDMACH;
+    using Q1DDMACH = MtlRxqDmaMap0Fields::Q1DDMACH;
+    using Q2MDMACH = MtlRxqDmaMap0Fields::Q2MDMACH;
+    using Q2DDMACH = MtlRxqDmaMap0Fields::Q2DDMACH;
+    using Q3MDMACH = MtlRxqDmaMap0Fields::Q3MDMACH;
+    using Q3DDMACH = MtlRxqDmaMap0Fields::Q3DDMACH;
   };
 
   // Receive Queue and DMA Channel Mapping 1
-  struct MTL_RXQ_DMA_MAP1_fields_ {
+  struct MtlRxqDmaMap1Fields {
     enum class eQ4DDMACH : std::uint32_t {
       // Queue 4 disabled for DA-based DMA Channel Selection
       eDISABLE = 0,
@@ -15104,24 +15104,24 @@ struct EnetQos {
     using Q4MDMACH = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Queue 4 Enabled for DA-based DMA Channel Selection When set, this bit indicates that the packets received in Queue 4 are routed to a particular DMA channel as decided in the MAC Receiver based on the DMA channel number programmed in the L3-L4 filter registers, or the Ethernet DA address.
     using Q4DDMACH = ftl::mmio::Field<1, 4, eQ4DDMACH, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ_DMA_MAP1_fields_
+  };  // struct MtlRxqDmaMap1Fields
 
   struct MTL_RXQ_DMA_MAP1 : ftl::mmio::Register<
       0x4043CC34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ_DMA_MAP1_fields_::Q4MDMACH,
+      MtlRxqDmaMap1Fields::Q4MDMACH,
       ftl::mmio::Reserved<1, 3>,
-      MTL_RXQ_DMA_MAP1_fields_::Q4DDMACH,
+      MtlRxqDmaMap1Fields::Q4DDMACH,
       ftl::mmio::Reserved<27, 5>> {
-    using eQ4DDMACH = MTL_RXQ_DMA_MAP1_fields_::eQ4DDMACH;
-    using Q4MDMACH = MTL_RXQ_DMA_MAP1_fields_::Q4MDMACH;
-    using Q4DDMACH = MTL_RXQ_DMA_MAP1_fields_::Q4DDMACH;
+    using eQ4DDMACH = MtlRxqDmaMap1Fields::eQ4DDMACH;
+    using Q4MDMACH = MtlRxqDmaMap1Fields::Q4MDMACH;
+    using Q4DDMACH = MtlRxqDmaMap1Fields::Q4DDMACH;
   };
 
   // Time Based Scheduling Control
-  struct MTL_TBS_CTRL_fields_ {
+  struct MtlTbsCtrlFields {
     enum class eESTM : std::uint32_t {
       // EST offset Mode is disabled
       eDISABLE = 0,
@@ -15144,29 +15144,29 @@ struct EnetQos {
     using LEGOS = ftl::mmio::Field<3, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Launch Expiry Offset The value in units of 256 nanoseconds that has to be added to the Launch time to compute the Launch Expiry time.
     using LEOS = ftl::mmio::Field<24, 8, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TBS_CTRL_fields_
+  };  // struct MtlTbsCtrlFields
 
   struct MTL_TBS_CTRL : ftl::mmio::Register<
       0x4043CC40u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TBS_CTRL_fields_::ESTM,
-      MTL_TBS_CTRL_fields_::LEOV,
+      MtlTbsCtrlFields::ESTM,
+      MtlTbsCtrlFields::LEOV,
       ftl::mmio::Reserved<2, 2>,
-      MTL_TBS_CTRL_fields_::LEGOS,
+      MtlTbsCtrlFields::LEGOS,
       ftl::mmio::Reserved<1, 7>,
-      MTL_TBS_CTRL_fields_::LEOS> {
-    using eESTM = MTL_TBS_CTRL_fields_::eESTM;
-    using eLEOV = MTL_TBS_CTRL_fields_::eLEOV;
-    using ESTM = MTL_TBS_CTRL_fields_::ESTM;
-    using LEOV = MTL_TBS_CTRL_fields_::LEOV;
-    using LEGOS = MTL_TBS_CTRL_fields_::LEGOS;
-    using LEOS = MTL_TBS_CTRL_fields_::LEOS;
+      MtlTbsCtrlFields::LEOS> {
+    using eESTM = MtlTbsCtrlFields::eESTM;
+    using eLEOV = MtlTbsCtrlFields::eLEOV;
+    using ESTM = MtlTbsCtrlFields::ESTM;
+    using LEOV = MtlTbsCtrlFields::LEOV;
+    using LEGOS = MtlTbsCtrlFields::LEGOS;
+    using LEOS = MtlTbsCtrlFields::LEOS;
   };
 
   // Enhancements to Scheduled Transmission Control
-  struct MTL_EST_CONTROL_fields_ {
+  struct MtlEstControlFields {
     enum class eEEST : std::uint32_t {
       // EST is disabled
       eDISABLE = 0,
@@ -15222,40 +15222,40 @@ struct EnetQos {
     using CTOV = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // PTP Time Offset Value The value of PTP Clock period multiplied by 6 in nanoseconds.
     using PTOV = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_EST_CONTROL_fields_
+  };  // struct MtlEstControlFields
 
   struct MTL_EST_CONTROL : ftl::mmio::Register<
       0x4043CC50u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_EST_CONTROL_fields_::EEST,
-      MTL_EST_CONTROL_fields_::SSWL,
+      MtlEstControlFields::EEST,
+      MtlEstControlFields::SSWL,
       ftl::mmio::Reserved<2, 2>,
-      MTL_EST_CONTROL_fields_::DDBF,
-      MTL_EST_CONTROL_fields_::DFBS,
-      MTL_EST_CONTROL_fields_::LCSE,
-      MTL_EST_CONTROL_fields_::TILS,
+      MtlEstControlFields::DDBF,
+      MtlEstControlFields::DFBS,
+      MtlEstControlFields::LCSE,
+      MtlEstControlFields::TILS,
       ftl::mmio::Reserved<1, 11>,
-      MTL_EST_CONTROL_fields_::CTOV,
-      MTL_EST_CONTROL_fields_::PTOV> {
-    using eEEST = MTL_EST_CONTROL_fields_::eEEST;
-    using eSSWL = MTL_EST_CONTROL_fields_::eSSWL;
-    using eDDBF = MTL_EST_CONTROL_fields_::eDDBF;
-    using eDFBS = MTL_EST_CONTROL_fields_::eDFBS;
-    using eLCSE = MTL_EST_CONTROL_fields_::eLCSE;
-    using EEST = MTL_EST_CONTROL_fields_::EEST;
-    using SSWL = MTL_EST_CONTROL_fields_::SSWL;
-    using DDBF = MTL_EST_CONTROL_fields_::DDBF;
-    using DFBS = MTL_EST_CONTROL_fields_::DFBS;
-    using LCSE = MTL_EST_CONTROL_fields_::LCSE;
-    using TILS = MTL_EST_CONTROL_fields_::TILS;
-    using CTOV = MTL_EST_CONTROL_fields_::CTOV;
-    using PTOV = MTL_EST_CONTROL_fields_::PTOV;
+      MtlEstControlFields::CTOV,
+      MtlEstControlFields::PTOV> {
+    using eEEST = MtlEstControlFields::eEEST;
+    using eSSWL = MtlEstControlFields::eSSWL;
+    using eDDBF = MtlEstControlFields::eDDBF;
+    using eDFBS = MtlEstControlFields::eDFBS;
+    using eLCSE = MtlEstControlFields::eLCSE;
+    using EEST = MtlEstControlFields::EEST;
+    using SSWL = MtlEstControlFields::SSWL;
+    using DDBF = MtlEstControlFields::DDBF;
+    using DFBS = MtlEstControlFields::DFBS;
+    using LCSE = MtlEstControlFields::LCSE;
+    using TILS = MtlEstControlFields::TILS;
+    using CTOV = MtlEstControlFields::CTOV;
+    using PTOV = MtlEstControlFields::PTOV;
   };
 
   // Enhancements to Scheduled Transmission Status
-  struct MTL_EST_STATUS_fields_ {
+  struct MtlEstStatusFields {
     enum class eSWLC : std::uint32_t {
       // Switch to S/W owned list Complete not detected
       eINACTIVE = 0,
@@ -15314,95 +15314,95 @@ struct EnetQos {
     using BTRL = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Current GCL Slot Number Indicates the slot number of the GCL list.
     using CGSN = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_EST_STATUS_fields_
+  };  // struct MtlEstStatusFields
 
   struct MTL_EST_STATUS : ftl::mmio::Register<
       0x4043CC58u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_EST_STATUS_fields_::SWLC,
-      MTL_EST_STATUS_fields_::BTRE,
-      MTL_EST_STATUS_fields_::HLBF,
-      MTL_EST_STATUS_fields_::HLBS,
-      MTL_EST_STATUS_fields_::CGCE,
+      MtlEstStatusFields::SWLC,
+      MtlEstStatusFields::BTRE,
+      MtlEstStatusFields::HLBF,
+      MtlEstStatusFields::HLBS,
+      MtlEstStatusFields::CGCE,
       ftl::mmio::Reserved<2, 5>,
-      MTL_EST_STATUS_fields_::SWOL,
-      MTL_EST_STATUS_fields_::BTRL,
+      MtlEstStatusFields::SWOL,
+      MtlEstStatusFields::BTRL,
       ftl::mmio::Reserved<4, 12>,
-      MTL_EST_STATUS_fields_::CGSN,
+      MtlEstStatusFields::CGSN,
       ftl::mmio::Reserved<12, 20>> {
-    using eSWLC = MTL_EST_STATUS_fields_::eSWLC;
-    using eBTRE = MTL_EST_STATUS_fields_::eBTRE;
-    using eHLBF = MTL_EST_STATUS_fields_::eHLBF;
-    using eHLBS = MTL_EST_STATUS_fields_::eHLBS;
-    using eCGCE = MTL_EST_STATUS_fields_::eCGCE;
-    using eSWOL = MTL_EST_STATUS_fields_::eSWOL;
-    using SWLC = MTL_EST_STATUS_fields_::SWLC;
-    using BTRE = MTL_EST_STATUS_fields_::BTRE;
-    using HLBF = MTL_EST_STATUS_fields_::HLBF;
-    using HLBS = MTL_EST_STATUS_fields_::HLBS;
-    using CGCE = MTL_EST_STATUS_fields_::CGCE;
-    using SWOL = MTL_EST_STATUS_fields_::SWOL;
-    using BTRL = MTL_EST_STATUS_fields_::BTRL;
-    using CGSN = MTL_EST_STATUS_fields_::CGSN;
+    using eSWLC = MtlEstStatusFields::eSWLC;
+    using eBTRE = MtlEstStatusFields::eBTRE;
+    using eHLBF = MtlEstStatusFields::eHLBF;
+    using eHLBS = MtlEstStatusFields::eHLBS;
+    using eCGCE = MtlEstStatusFields::eCGCE;
+    using eSWOL = MtlEstStatusFields::eSWOL;
+    using SWLC = MtlEstStatusFields::SWLC;
+    using BTRE = MtlEstStatusFields::BTRE;
+    using HLBF = MtlEstStatusFields::HLBF;
+    using HLBS = MtlEstStatusFields::HLBS;
+    using CGCE = MtlEstStatusFields::CGCE;
+    using SWOL = MtlEstStatusFields::SWOL;
+    using BTRL = MtlEstStatusFields::BTRL;
+    using CGSN = MtlEstStatusFields::CGSN;
   };
 
   // EST Scheduling Error
-  struct MTL_EST_SCH_ERROR_fields_ {
+  struct MtlEstSchErrorFields {
     // Schedule Error Queue Number The One Hot Encoded Queue Numbers that have experienced error/timeout described in HLBS field of status register.
     using SEQN = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_EST_SCH_ERROR_fields_
+  };  // struct MtlEstSchErrorFields
 
   struct MTL_EST_SCH_ERROR : ftl::mmio::Register<
       0x4043CC60u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_EST_SCH_ERROR_fields_::SEQN,
+      MtlEstSchErrorFields::SEQN,
       ftl::mmio::Reserved<27, 5>> {
-    using SEQN = MTL_EST_SCH_ERROR_fields_::SEQN;
+    using SEQN = MtlEstSchErrorFields::SEQN;
   };
 
   // EST Frame Size Error
-  struct MTL_EST_FRM_SIZE_ERROR_fields_ {
+  struct MtlEstFrmSizeErrorFields {
     // Frame Size Error Queue Number The One Hot Encoded Queue Numbers that have experienced error described in HLBF field of status register.
     using FEQN = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_EST_FRM_SIZE_ERROR_fields_
+  };  // struct MtlEstFrmSizeErrorFields
 
   struct MTL_EST_FRM_SIZE_ERROR : ftl::mmio::Register<
       0x4043CC64u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_EST_FRM_SIZE_ERROR_fields_::FEQN,
+      MtlEstFrmSizeErrorFields::FEQN,
       ftl::mmio::Reserved<27, 5>> {
-    using FEQN = MTL_EST_FRM_SIZE_ERROR_fields_::FEQN;
+    using FEQN = MtlEstFrmSizeErrorFields::FEQN;
   };
 
   // EST Frame Size Capture
-  struct MTL_EST_FRM_SIZE_CAPTURE_fields_ {
+  struct MtlEstFrmSizeCaptureFields {
     // Frame Size of HLBF Captures the Frame Size of the dropped frame related to queue number indicated in HBFQ field of this register.
     using HBFS = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Queue Number of HLBF Captures the binary value of the of the first Queue (number) experiencing HLBF error (see HLBF field of status register).
     using HBFQ = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_EST_FRM_SIZE_CAPTURE_fields_
+  };  // struct MtlEstFrmSizeCaptureFields
 
   struct MTL_EST_FRM_SIZE_CAPTURE : ftl::mmio::Register<
       0x4043CC68u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_EST_FRM_SIZE_CAPTURE_fields_::HBFS,
+      MtlEstFrmSizeCaptureFields::HBFS,
       ftl::mmio::Reserved<1, 15>,
-      MTL_EST_FRM_SIZE_CAPTURE_fields_::HBFQ,
+      MtlEstFrmSizeCaptureFields::HBFQ,
       ftl::mmio::Reserved<13, 19>> {
-    using HBFS = MTL_EST_FRM_SIZE_CAPTURE_fields_::HBFS;
-    using HBFQ = MTL_EST_FRM_SIZE_CAPTURE_fields_::HBFQ;
+    using HBFS = MtlEstFrmSizeCaptureFields::HBFS;
+    using HBFQ = MtlEstFrmSizeCaptureFields::HBFQ;
   };
 
   // EST Interrupt Enable
-  struct MTL_EST_INTR_ENABLE_fields_ {
+  struct MtlEstIntrEnableFields {
     enum class eIECC : std::uint32_t {
       // Interrupt for Switch List is disabled
       eDISABLE = 0,
@@ -15448,33 +15448,33 @@ struct EnetQos {
     using IEHS = ftl::mmio::Field<1, 3, eIEHS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Interrupt Enable for CGCE When set, generates interrupt when the Constant Gate Control Error occurs and is indicated in the status.
     using CGCE = ftl::mmio::Field<1, 4, eCGCE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_EST_INTR_ENABLE_fields_
+  };  // struct MtlEstIntrEnableFields
 
   struct MTL_EST_INTR_ENABLE : ftl::mmio::Register<
       0x4043CC70u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_EST_INTR_ENABLE_fields_::IECC,
-      MTL_EST_INTR_ENABLE_fields_::IEBE,
-      MTL_EST_INTR_ENABLE_fields_::IEHF,
-      MTL_EST_INTR_ENABLE_fields_::IEHS,
-      MTL_EST_INTR_ENABLE_fields_::CGCE,
+      MtlEstIntrEnableFields::IECC,
+      MtlEstIntrEnableFields::IEBE,
+      MtlEstIntrEnableFields::IEHF,
+      MtlEstIntrEnableFields::IEHS,
+      MtlEstIntrEnableFields::CGCE,
       ftl::mmio::Reserved<27, 5>> {
-    using eIECC = MTL_EST_INTR_ENABLE_fields_::eIECC;
-    using eIEBE = MTL_EST_INTR_ENABLE_fields_::eIEBE;
-    using eIEHF = MTL_EST_INTR_ENABLE_fields_::eIEHF;
-    using eIEHS = MTL_EST_INTR_ENABLE_fields_::eIEHS;
-    using eCGCE = MTL_EST_INTR_ENABLE_fields_::eCGCE;
-    using IECC = MTL_EST_INTR_ENABLE_fields_::IECC;
-    using IEBE = MTL_EST_INTR_ENABLE_fields_::IEBE;
-    using IEHF = MTL_EST_INTR_ENABLE_fields_::IEHF;
-    using IEHS = MTL_EST_INTR_ENABLE_fields_::IEHS;
-    using CGCE = MTL_EST_INTR_ENABLE_fields_::CGCE;
+    using eIECC = MtlEstIntrEnableFields::eIECC;
+    using eIEBE = MtlEstIntrEnableFields::eIEBE;
+    using eIEHF = MtlEstIntrEnableFields::eIEHF;
+    using eIEHS = MtlEstIntrEnableFields::eIEHS;
+    using eCGCE = MtlEstIntrEnableFields::eCGCE;
+    using IECC = MtlEstIntrEnableFields::IECC;
+    using IEBE = MtlEstIntrEnableFields::IEBE;
+    using IEHF = MtlEstIntrEnableFields::IEHF;
+    using IEHS = MtlEstIntrEnableFields::IEHS;
+    using CGCE = MtlEstIntrEnableFields::CGCE;
   };
 
   // EST GCL Control
-  struct MTL_EST_GCL_CONTROL_fields_ {
+  struct MtlEstGclControlFields {
     enum class eSRWO : std::uint32_t {
       // Start Read/Write Op disabled
       eDISABLE = 0,
@@ -15553,62 +15553,62 @@ struct EnetQos {
     using ESTEIEE = ftl::mmio::Field<1, 21, eESTEIEE, ftl::mmio::RO, ftl::mmio::Normal>;
     // ECC Inject Error Control for EST Memory When EIEE bit of this register is set, following are the errors inserted based on the value encoded in this field.
     using ESTEIEC = ftl::mmio::Field<2, 22, eESTEIEC, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_EST_GCL_CONTROL_fields_
+  };  // struct MtlEstGclControlFields
 
   struct MTL_EST_GCL_CONTROL : ftl::mmio::Register<
       0x4043CC80u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_EST_GCL_CONTROL_fields_::SRWO,
-      MTL_EST_GCL_CONTROL_fields_::R1W0,
-      MTL_EST_GCL_CONTROL_fields_::GCRR,
+      MtlEstGclControlFields::SRWO,
+      MtlEstGclControlFields::R1W0,
+      MtlEstGclControlFields::GCRR,
       ftl::mmio::Reserved<1, 3>,
-      MTL_EST_GCL_CONTROL_fields_::DBGM,
-      MTL_EST_GCL_CONTROL_fields_::DBGB,
+      MtlEstGclControlFields::DBGM,
+      MtlEstGclControlFields::DBGB,
       ftl::mmio::Reserved<2, 6>,
-      MTL_EST_GCL_CONTROL_fields_::ADDR,
+      MtlEstGclControlFields::ADDR,
       ftl::mmio::Reserved<3, 17>,
-      MTL_EST_GCL_CONTROL_fields_::ERR0,
-      MTL_EST_GCL_CONTROL_fields_::ESTEIEE,
-      MTL_EST_GCL_CONTROL_fields_::ESTEIEC,
+      MtlEstGclControlFields::ERR0,
+      MtlEstGclControlFields::ESTEIEE,
+      MtlEstGclControlFields::ESTEIEC,
       ftl::mmio::Reserved<8, 24>> {
-    using eSRWO = MTL_EST_GCL_CONTROL_fields_::eSRWO;
-    using eR1W0 = MTL_EST_GCL_CONTROL_fields_::eR1W0;
-    using eGCRR = MTL_EST_GCL_CONTROL_fields_::eGCRR;
-    using eDBGM = MTL_EST_GCL_CONTROL_fields_::eDBGM;
-    using eDBGB = MTL_EST_GCL_CONTROL_fields_::eDBGB;
-    using eERR0 = MTL_EST_GCL_CONTROL_fields_::eERR0;
-    using eESTEIEE = MTL_EST_GCL_CONTROL_fields_::eESTEIEE;
-    using eESTEIEC = MTL_EST_GCL_CONTROL_fields_::eESTEIEC;
-    using SRWO = MTL_EST_GCL_CONTROL_fields_::SRWO;
-    using R1W0 = MTL_EST_GCL_CONTROL_fields_::R1W0;
-    using GCRR = MTL_EST_GCL_CONTROL_fields_::GCRR;
-    using DBGM = MTL_EST_GCL_CONTROL_fields_::DBGM;
-    using DBGB = MTL_EST_GCL_CONTROL_fields_::DBGB;
-    using ADDR = MTL_EST_GCL_CONTROL_fields_::ADDR;
-    using ERR0 = MTL_EST_GCL_CONTROL_fields_::ERR0;
-    using ESTEIEE = MTL_EST_GCL_CONTROL_fields_::ESTEIEE;
-    using ESTEIEC = MTL_EST_GCL_CONTROL_fields_::ESTEIEC;
+    using eSRWO = MtlEstGclControlFields::eSRWO;
+    using eR1W0 = MtlEstGclControlFields::eR1W0;
+    using eGCRR = MtlEstGclControlFields::eGCRR;
+    using eDBGM = MtlEstGclControlFields::eDBGM;
+    using eDBGB = MtlEstGclControlFields::eDBGB;
+    using eERR0 = MtlEstGclControlFields::eERR0;
+    using eESTEIEE = MtlEstGclControlFields::eESTEIEE;
+    using eESTEIEC = MtlEstGclControlFields::eESTEIEC;
+    using SRWO = MtlEstGclControlFields::SRWO;
+    using R1W0 = MtlEstGclControlFields::R1W0;
+    using GCRR = MtlEstGclControlFields::GCRR;
+    using DBGM = MtlEstGclControlFields::DBGM;
+    using DBGB = MtlEstGclControlFields::DBGB;
+    using ADDR = MtlEstGclControlFields::ADDR;
+    using ERR0 = MtlEstGclControlFields::ERR0;
+    using ESTEIEE = MtlEstGclControlFields::ESTEIEE;
+    using ESTEIEC = MtlEstGclControlFields::ESTEIEC;
   };
 
   // EST GCL Data
-  struct MTL_EST_GCL_DATA_fields_ {
+  struct MtlEstGclDataFields {
     // Gate Control Data The data corresponding to the address selected in the MTL_GCL_CONTROL register.
     using GCD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_EST_GCL_DATA_fields_
+  };  // struct MtlEstGclDataFields
 
   struct MTL_EST_GCL_DATA : ftl::mmio::Register<
       0x4043CC84u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_EST_GCL_DATA_fields_::GCD> {
-    using GCD = MTL_EST_GCL_DATA_fields_::GCD;
+      MtlEstGclDataFields::GCD> {
+    using GCD = MtlEstGclDataFields::GCD;
   };
 
   // Frame Preemption Control and Status
-  struct MTL_FPE_CTRL_STS_fields_ {
+  struct MtlFpeCtrlStsFields {
     enum class eHRS : std::uint32_t {
       // Indicates a Set-and-Release-MAC operation was last executed and the pMAC is in Release State
       eSET_REL = 0,
@@ -15622,46 +15622,46 @@ struct EnetQos {
     using PEC = ftl::mmio::Field<5, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Hold/Release Status - 1: Indicates a Set-and-Hold-MAC operation was last executed and the pMAC is in Hold State.
     using HRS = ftl::mmio::Field<1, 28, eHRS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_FPE_CTRL_STS_fields_
+  };  // struct MtlFpeCtrlStsFields
 
   struct MTL_FPE_CTRL_STS : ftl::mmio::Register<
       0x4043CC90u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_FPE_CTRL_STS_fields_::AFSZ,
+      MtlFpeCtrlStsFields::AFSZ,
       ftl::mmio::Reserved<6, 2>,
-      MTL_FPE_CTRL_STS_fields_::PEC,
+      MtlFpeCtrlStsFields::PEC,
       ftl::mmio::Reserved<15, 13>,
-      MTL_FPE_CTRL_STS_fields_::HRS,
+      MtlFpeCtrlStsFields::HRS,
       ftl::mmio::Reserved<3, 29>> {
-    using eHRS = MTL_FPE_CTRL_STS_fields_::eHRS;
-    using AFSZ = MTL_FPE_CTRL_STS_fields_::AFSZ;
-    using PEC = MTL_FPE_CTRL_STS_fields_::PEC;
-    using HRS = MTL_FPE_CTRL_STS_fields_::HRS;
+    using eHRS = MtlFpeCtrlStsFields::eHRS;
+    using AFSZ = MtlFpeCtrlStsFields::AFSZ;
+    using PEC = MtlFpeCtrlStsFields::PEC;
+    using HRS = MtlFpeCtrlStsFields::HRS;
   };
 
   // Frame Preemption Hold and Release Advance
-  struct MTL_FPE_ADVANCE_fields_ {
+  struct MtlFpeAdvanceFields {
     // Hold Advance The maximum time in nanoseconds that can elapse between issuing a HOLD to the MAC and the MAC ceasing to transmit any preemptable frame that is in the process of transmission or any preemptable frames that are queued for transmission.
     using HADV = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Release Advance The maximum time in nanoseconds that can elapse between issuing a RELEASE to the MAC and the MAC being ready to resume transmission of preemptable frames, in the absence of there being any express frames available for transmission.
     using RADV = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_FPE_ADVANCE_fields_
+  };  // struct MtlFpeAdvanceFields
 
   struct MTL_FPE_ADVANCE : ftl::mmio::Register<
       0x4043CC94u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_FPE_ADVANCE_fields_::HADV,
-      MTL_FPE_ADVANCE_fields_::RADV> {
-    using HADV = MTL_FPE_ADVANCE_fields_::HADV;
-    using RADV = MTL_FPE_ADVANCE_fields_::RADV;
+      MtlFpeAdvanceFields::HADV,
+      MtlFpeAdvanceFields::RADV> {
+    using HADV = MtlFpeAdvanceFields::HADV;
+    using RADV = MtlFpeAdvanceFields::RADV;
   };
 
   // RXP Control Status
-  struct MTL_RXP_CONTROL_STATUS_fields_ {
+  struct MtlRxpControlStatusFields {
     enum class eRXPI : std::uint32_t {
       // RX Parser not in Idle state
       eINACTIVE = 0,
@@ -15675,26 +15675,26 @@ struct EnetQos {
     using NPE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // RX Parser in Idle state This status bit is set to 1 when the Rx parser is in Idle State and waiting for a new packet for processing.
     using RXPI = ftl::mmio::Field<1, 31, eRXPI, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXP_CONTROL_STATUS_fields_
+  };  // struct MtlRxpControlStatusFields
 
   struct MTL_RXP_CONTROL_STATUS : ftl::mmio::Register<
       0x4043CCA0u,
       std::uint32_t,
       0x80FF00FFu,
       ftl::mmio::RW,
-      MTL_RXP_CONTROL_STATUS_fields_::NVE,
+      MtlRxpControlStatusFields::NVE,
       ftl::mmio::Reserved<8, 8>,
-      MTL_RXP_CONTROL_STATUS_fields_::NPE,
+      MtlRxpControlStatusFields::NPE,
       ftl::mmio::Reserved<7, 24>,
-      MTL_RXP_CONTROL_STATUS_fields_::RXPI> {
-    using eRXPI = MTL_RXP_CONTROL_STATUS_fields_::eRXPI;
-    using NVE = MTL_RXP_CONTROL_STATUS_fields_::NVE;
-    using NPE = MTL_RXP_CONTROL_STATUS_fields_::NPE;
-    using RXPI = MTL_RXP_CONTROL_STATUS_fields_::RXPI;
+      MtlRxpControlStatusFields::RXPI> {
+    using eRXPI = MtlRxpControlStatusFields::eRXPI;
+    using NVE = MtlRxpControlStatusFields::NVE;
+    using NPE = MtlRxpControlStatusFields::NPE;
+    using RXPI = MtlRxpControlStatusFields::RXPI;
   };
 
   // RXP Interrupt Control Status
-  struct MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_ {
+  struct MtlRxpInterruptControlStatusFields {
     enum class eNVEOVIS : std::uint32_t {
       // Number of Valid Entries Overflow Interrupt Status not detected
       eINACTIVE = 0,
@@ -15767,43 +15767,43 @@ struct EnetQos {
     using FOOVIE = ftl::mmio::Field<1, 18, eFOOVIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Packet Drop due to RF Interrupt Enable When this bit is set, the PDRFIS interrupt is enabled.
     using PDRFIE = ftl::mmio::Field<1, 19, ePDRFIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_
+  };  // struct MtlRxpInterruptControlStatusFields
 
   struct MTL_RXP_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
       0x4043CCA4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::NVEOVIS,
-      MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::NPEOVIS,
-      MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::FOOVIS,
-      MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::PDRFIS,
+      MtlRxpInterruptControlStatusFields::NVEOVIS,
+      MtlRxpInterruptControlStatusFields::NPEOVIS,
+      MtlRxpInterruptControlStatusFields::FOOVIS,
+      MtlRxpInterruptControlStatusFields::PDRFIS,
       ftl::mmio::Reserved<12, 4>,
-      MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::NVEOVIE,
-      MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::NPEOVIE,
-      MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::FOOVIE,
-      MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::PDRFIE,
+      MtlRxpInterruptControlStatusFields::NVEOVIE,
+      MtlRxpInterruptControlStatusFields::NPEOVIE,
+      MtlRxpInterruptControlStatusFields::FOOVIE,
+      MtlRxpInterruptControlStatusFields::PDRFIE,
       ftl::mmio::Reserved<12, 20>> {
-    using eNVEOVIS = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::eNVEOVIS;
-    using eNPEOVIS = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::eNPEOVIS;
-    using eFOOVIS = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::eFOOVIS;
-    using ePDRFIS = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::ePDRFIS;
-    using eNVEOVIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::eNVEOVIE;
-    using eNPEOVIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::eNPEOVIE;
-    using eFOOVIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::eFOOVIE;
-    using ePDRFIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::ePDRFIE;
-    using NVEOVIS = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::NVEOVIS;
-    using NPEOVIS = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::NPEOVIS;
-    using FOOVIS = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::FOOVIS;
-    using PDRFIS = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::PDRFIS;
-    using NVEOVIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::NVEOVIE;
-    using NPEOVIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::NPEOVIE;
-    using FOOVIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::FOOVIE;
-    using PDRFIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::PDRFIE;
+    using eNVEOVIS = MtlRxpInterruptControlStatusFields::eNVEOVIS;
+    using eNPEOVIS = MtlRxpInterruptControlStatusFields::eNPEOVIS;
+    using eFOOVIS = MtlRxpInterruptControlStatusFields::eFOOVIS;
+    using ePDRFIS = MtlRxpInterruptControlStatusFields::ePDRFIS;
+    using eNVEOVIE = MtlRxpInterruptControlStatusFields::eNVEOVIE;
+    using eNPEOVIE = MtlRxpInterruptControlStatusFields::eNPEOVIE;
+    using eFOOVIE = MtlRxpInterruptControlStatusFields::eFOOVIE;
+    using ePDRFIE = MtlRxpInterruptControlStatusFields::ePDRFIE;
+    using NVEOVIS = MtlRxpInterruptControlStatusFields::NVEOVIS;
+    using NPEOVIS = MtlRxpInterruptControlStatusFields::NPEOVIS;
+    using FOOVIS = MtlRxpInterruptControlStatusFields::FOOVIS;
+    using PDRFIS = MtlRxpInterruptControlStatusFields::PDRFIS;
+    using NVEOVIE = MtlRxpInterruptControlStatusFields::NVEOVIE;
+    using NPEOVIE = MtlRxpInterruptControlStatusFields::NPEOVIE;
+    using FOOVIE = MtlRxpInterruptControlStatusFields::FOOVIE;
+    using PDRFIE = MtlRxpInterruptControlStatusFields::PDRFIE;
   };
 
   // RXP Drop Count
-  struct MTL_RXP_DROP_CNT_fields_ {
+  struct MtlRxpDropCntFields {
     enum class eRXPDCOVF : std::uint32_t {
       // Rx Parser Drop count overflow not occurred
       eINACTIVE = 0,
@@ -15815,22 +15815,22 @@ struct EnetQos {
     using RXPDC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx Parser Drop Counter Overflow Bit When set, this bit indicates that the MTL_RXP_DROP_CNT (RXPDC) Counter field crossed the maximum limit.
     using RXPDCOVF = ftl::mmio::Field<1, 31, eRXPDCOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXP_DROP_CNT_fields_
+  };  // struct MtlRxpDropCntFields
 
   struct MTL_RXP_DROP_CNT : ftl::mmio::Register<
       0x4043CCA8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXP_DROP_CNT_fields_::RXPDC,
-      MTL_RXP_DROP_CNT_fields_::RXPDCOVF> {
-    using eRXPDCOVF = MTL_RXP_DROP_CNT_fields_::eRXPDCOVF;
-    using RXPDC = MTL_RXP_DROP_CNT_fields_::RXPDC;
-    using RXPDCOVF = MTL_RXP_DROP_CNT_fields_::RXPDCOVF;
+      MtlRxpDropCntFields::RXPDC,
+      MtlRxpDropCntFields::RXPDCOVF> {
+    using eRXPDCOVF = MtlRxpDropCntFields::eRXPDCOVF;
+    using RXPDC = MtlRxpDropCntFields::RXPDC;
+    using RXPDCOVF = MtlRxpDropCntFields::RXPDCOVF;
   };
 
   // RXP Error Count
-  struct MTL_RXP_ERROR_CNT_fields_ {
+  struct MtlRxpErrorCntFields {
     enum class eRXPECOVF : std::uint32_t {
       // Rx Parser Error count overflow not occurred
       eINACTIVE = 0,
@@ -15842,22 +15842,22 @@ struct EnetQos {
     using RXPEC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx Parser Error Counter Overflow Bit When set, this bit indicates that the MTL_RXP_ERROR_CNT (RXPEC) Counter field crossed the maximum limit.
     using RXPECOVF = ftl::mmio::Field<1, 31, eRXPECOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXP_ERROR_CNT_fields_
+  };  // struct MtlRxpErrorCntFields
 
   struct MTL_RXP_ERROR_CNT : ftl::mmio::Register<
       0x4043CCACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXP_ERROR_CNT_fields_::RXPEC,
-      MTL_RXP_ERROR_CNT_fields_::RXPECOVF> {
-    using eRXPECOVF = MTL_RXP_ERROR_CNT_fields_::eRXPECOVF;
-    using RXPEC = MTL_RXP_ERROR_CNT_fields_::RXPEC;
-    using RXPECOVF = MTL_RXP_ERROR_CNT_fields_::RXPECOVF;
+      MtlRxpErrorCntFields::RXPEC,
+      MtlRxpErrorCntFields::RXPECOVF> {
+    using eRXPECOVF = MtlRxpErrorCntFields::eRXPECOVF;
+    using RXPEC = MtlRxpErrorCntFields::RXPEC;
+    using RXPECOVF = MtlRxpErrorCntFields::RXPECOVF;
   };
 
   // RXP Indirect Access Control and Status
-  struct MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_ {
+  struct MtlRxpIndirectAccControlStatusFields {
     enum class eWRRDN : std::uint32_t {
       // Read operation to the Rx Parser Memory
       eREAD = 0,
@@ -15878,42 +15878,42 @@ struct EnetQos {
     using WRRDN = ftl::mmio::Field<1, 16, eWRRDN, ftl::mmio::RW, ftl::mmio::Normal>;
     // FRP Instruction Table Access Busy When this bit is set to 1 by the software then it indicates to start the Read/Write operation from/to the Rx Parser Memory.
     using STARTBUSY = ftl::mmio::Field<1, 31, eSTARTBUSY, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_
+  };  // struct MtlRxpIndirectAccControlStatusFields
 
   struct MTL_RXP_INDIRECT_ACC_CONTROL_STATUS : ftl::mmio::Register<
       0x4043CCB0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::ADDR,
+      MtlRxpIndirectAccControlStatusFields::ADDR,
       ftl::mmio::Reserved<6, 10>,
-      MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::WRRDN,
+      MtlRxpIndirectAccControlStatusFields::WRRDN,
       ftl::mmio::Reserved<14, 17>,
-      MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::STARTBUSY> {
-    using eWRRDN = MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::eWRRDN;
-    using eSTARTBUSY = MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::eSTARTBUSY;
-    using ADDR = MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::ADDR;
-    using WRRDN = MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::WRRDN;
-    using STARTBUSY = MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::STARTBUSY;
+      MtlRxpIndirectAccControlStatusFields::STARTBUSY> {
+    using eWRRDN = MtlRxpIndirectAccControlStatusFields::eWRRDN;
+    using eSTARTBUSY = MtlRxpIndirectAccControlStatusFields::eSTARTBUSY;
+    using ADDR = MtlRxpIndirectAccControlStatusFields::ADDR;
+    using WRRDN = MtlRxpIndirectAccControlStatusFields::WRRDN;
+    using STARTBUSY = MtlRxpIndirectAccControlStatusFields::STARTBUSY;
   };
 
   // RXP Indirect Access Data
-  struct MTL_RXP_INDIRECT_ACC_DATA_fields_ {
+  struct MtlRxpIndirectAccDataFields {
     // FRP Instruction Table Write/Read Data Software should write this register before issuing any write command.
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXP_INDIRECT_ACC_DATA_fields_
+  };  // struct MtlRxpIndirectAccDataFields
 
   struct MTL_RXP_INDIRECT_ACC_DATA : ftl::mmio::Register<
       0x4043CCB4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXP_INDIRECT_ACC_DATA_fields_::DATA> {
-    using DATA = MTL_RXP_INDIRECT_ACC_DATA_fields_::DATA;
+      MtlRxpIndirectAccDataFields::DATA> {
+    using DATA = MtlRxpIndirectAccDataFields::DATA;
   };
 
   // Queue 0 Transmit Operation Mode
-  struct MTL_TXQ0_OPERATION_MODE_fields_ {
+  struct MtlTxq0OperationModeFields {
     enum class eFTQ : std::uint32_t {
       // Flush Transmit Queue is disabled
       eDISABLE = 0,
@@ -15966,33 +15966,33 @@ struct EnetQos {
     using TTC = ftl::mmio::Field<3, 4, eTTC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit Queue Size This field indicates the size of the allocated Transmit queues in blocks of 256 bytes.
     using TQS = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ0_OPERATION_MODE_fields_
+  };  // struct MtlTxq0OperationModeFields
 
   struct MTL_TXQ0_OPERATION_MODE : ftl::mmio::Register<
       0x4043CD00u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ0_OPERATION_MODE_fields_::FTQ,
-      MTL_TXQ0_OPERATION_MODE_fields_::TSF,
-      MTL_TXQ0_OPERATION_MODE_fields_::TXQEN,
-      MTL_TXQ0_OPERATION_MODE_fields_::TTC,
+      MtlTxq0OperationModeFields::FTQ,
+      MtlTxq0OperationModeFields::TSF,
+      MtlTxq0OperationModeFields::TXQEN,
+      MtlTxq0OperationModeFields::TTC,
       ftl::mmio::Reserved<9, 7>,
-      MTL_TXQ0_OPERATION_MODE_fields_::TQS,
+      MtlTxq0OperationModeFields::TQS,
       ftl::mmio::Reserved<11, 21>> {
-    using eFTQ = MTL_TXQ0_OPERATION_MODE_fields_::eFTQ;
-    using eTSF = MTL_TXQ0_OPERATION_MODE_fields_::eTSF;
-    using eTXQEN = MTL_TXQ0_OPERATION_MODE_fields_::eTXQEN;
-    using eTTC = MTL_TXQ0_OPERATION_MODE_fields_::eTTC;
-    using FTQ = MTL_TXQ0_OPERATION_MODE_fields_::FTQ;
-    using TSF = MTL_TXQ0_OPERATION_MODE_fields_::TSF;
-    using TXQEN = MTL_TXQ0_OPERATION_MODE_fields_::TXQEN;
-    using TTC = MTL_TXQ0_OPERATION_MODE_fields_::TTC;
-    using TQS = MTL_TXQ0_OPERATION_MODE_fields_::TQS;
+    using eFTQ = MtlTxq0OperationModeFields::eFTQ;
+    using eTSF = MtlTxq0OperationModeFields::eTSF;
+    using eTXQEN = MtlTxq0OperationModeFields::eTXQEN;
+    using eTTC = MtlTxq0OperationModeFields::eTTC;
+    using FTQ = MtlTxq0OperationModeFields::FTQ;
+    using TSF = MtlTxq0OperationModeFields::TSF;
+    using TXQEN = MtlTxq0OperationModeFields::TXQEN;
+    using TTC = MtlTxq0OperationModeFields::TTC;
+    using TQS = MtlTxq0OperationModeFields::TQS;
   };
 
   // Queue 0 Underflow Counter
-  struct MTL_TXQ0_UNDERFLOW_fields_ {
+  struct MtlTxq0UnderflowFields {
     enum class eUFCNTOVF : std::uint32_t {
       // Overflow not detected for Underflow Packet Counter
       eINACTIVE = 0,
@@ -16004,23 +16004,23 @@ struct EnetQos {
     using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
     using UFCNTOVF = ftl::mmio::Field<1, 11, eUFCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ0_UNDERFLOW_fields_
+  };  // struct MtlTxq0UnderflowFields
 
   struct MTL_TXQ0_UNDERFLOW : ftl::mmio::Register<
       0x4043CD04u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ0_UNDERFLOW_fields_::UFFRMCNT,
-      MTL_TXQ0_UNDERFLOW_fields_::UFCNTOVF,
+      MtlTxq0UnderflowFields::UFFRMCNT,
+      MtlTxq0UnderflowFields::UFCNTOVF,
       ftl::mmio::Reserved<20, 12>> {
-    using eUFCNTOVF = MTL_TXQ0_UNDERFLOW_fields_::eUFCNTOVF;
-    using UFFRMCNT = MTL_TXQ0_UNDERFLOW_fields_::UFFRMCNT;
-    using UFCNTOVF = MTL_TXQ0_UNDERFLOW_fields_::UFCNTOVF;
+    using eUFCNTOVF = MtlTxq0UnderflowFields::eUFCNTOVF;
+    using UFFRMCNT = MtlTxq0UnderflowFields::UFFRMCNT;
+    using UFCNTOVF = MtlTxq0UnderflowFields::UFCNTOVF;
   };
 
   // Queue 0 Transmit Debug
-  struct MTL_TXQ0_DEBUG_fields_ {
+  struct MtlTxq0DebugFields {
     enum class eTXQPAUSED : std::uint32_t {
       // Transmit Queue in Pause status is not detected
       eINACTIVE = 0,
@@ -16074,71 +16074,71 @@ struct EnetQos {
     using PTXQ = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Status Words in Tx Status FIFO of Queue This field indicates the current number of status in the Tx Status FIFO of this queue.
     using STXSTSF = ftl::mmio::Field<3, 20, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ0_DEBUG_fields_
+  };  // struct MtlTxq0DebugFields
 
   struct MTL_TXQ0_DEBUG : ftl::mmio::Register<
       0x4043CD08u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ0_DEBUG_fields_::TXQPAUSED,
-      MTL_TXQ0_DEBUG_fields_::TRCSTS,
-      MTL_TXQ0_DEBUG_fields_::TWCSTS,
-      MTL_TXQ0_DEBUG_fields_::TXQSTS,
-      MTL_TXQ0_DEBUG_fields_::TXSTSFSTS,
+      MtlTxq0DebugFields::TXQPAUSED,
+      MtlTxq0DebugFields::TRCSTS,
+      MtlTxq0DebugFields::TWCSTS,
+      MtlTxq0DebugFields::TXQSTS,
+      MtlTxq0DebugFields::TXSTSFSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_TXQ0_DEBUG_fields_::PTXQ,
+      MtlTxq0DebugFields::PTXQ,
       ftl::mmio::Reserved<1, 19>,
-      MTL_TXQ0_DEBUG_fields_::STXSTSF,
+      MtlTxq0DebugFields::STXSTSF,
       ftl::mmio::Reserved<9, 23>> {
-    using eTXQPAUSED = MTL_TXQ0_DEBUG_fields_::eTXQPAUSED;
-    using eTRCSTS = MTL_TXQ0_DEBUG_fields_::eTRCSTS;
-    using eTWCSTS = MTL_TXQ0_DEBUG_fields_::eTWCSTS;
-    using eTXQSTS = MTL_TXQ0_DEBUG_fields_::eTXQSTS;
-    using eTXSTSFSTS = MTL_TXQ0_DEBUG_fields_::eTXSTSFSTS;
-    using TXQPAUSED = MTL_TXQ0_DEBUG_fields_::TXQPAUSED;
-    using TRCSTS = MTL_TXQ0_DEBUG_fields_::TRCSTS;
-    using TWCSTS = MTL_TXQ0_DEBUG_fields_::TWCSTS;
-    using TXQSTS = MTL_TXQ0_DEBUG_fields_::TXQSTS;
-    using TXSTSFSTS = MTL_TXQ0_DEBUG_fields_::TXSTSFSTS;
-    using PTXQ = MTL_TXQ0_DEBUG_fields_::PTXQ;
-    using STXSTSF = MTL_TXQ0_DEBUG_fields_::STXSTSF;
+    using eTXQPAUSED = MtlTxq0DebugFields::eTXQPAUSED;
+    using eTRCSTS = MtlTxq0DebugFields::eTRCSTS;
+    using eTWCSTS = MtlTxq0DebugFields::eTWCSTS;
+    using eTXQSTS = MtlTxq0DebugFields::eTXQSTS;
+    using eTXSTSFSTS = MtlTxq0DebugFields::eTXSTSFSTS;
+    using TXQPAUSED = MtlTxq0DebugFields::TXQPAUSED;
+    using TRCSTS = MtlTxq0DebugFields::TRCSTS;
+    using TWCSTS = MtlTxq0DebugFields::TWCSTS;
+    using TXQSTS = MtlTxq0DebugFields::TXQSTS;
+    using TXSTSFSTS = MtlTxq0DebugFields::TXSTSFSTS;
+    using PTXQ = MtlTxq0DebugFields::PTXQ;
+    using STXSTSF = MtlTxq0DebugFields::STXSTSF;
   };
 
   // Queue 0 ETS Status
-  struct MTL_TXQ0_ETS_STATUS_fields_ {
+  struct MtlTxq0EtsStatusFields {
     // Average Bits per Slot This field contains the average transmitted bits per slot.
     using ABS = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ0_ETS_STATUS_fields_
+  };  // struct MtlTxq0EtsStatusFields
 
   struct MTL_TXQ0_ETS_STATUS : ftl::mmio::Register<
       0x4043CD14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ0_ETS_STATUS_fields_::ABS,
+      MtlTxq0EtsStatusFields::ABS,
       ftl::mmio::Reserved<8, 24>> {
-    using ABS = MTL_TXQ0_ETS_STATUS_fields_::ABS;
+    using ABS = MtlTxq0EtsStatusFields::ABS;
   };
 
   // Queue 0 Quantum or Weights
-  struct MTL_TXQ0_QUANTUM_WEIGHT_fields_ {
+  struct MtlTxq0QuantumWeightFields {
     // Quantum or Weights When the DCB operation is enabled with DWRR algorithm for Queue 0 traffic, this field contains the quantum value in bytes to be added to credit during every queue scanning cycle.
     using ISCQW = ftl::mmio::Field<21, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ0_QUANTUM_WEIGHT_fields_
+  };  // struct MtlTxq0QuantumWeightFields
 
   struct MTL_TXQ0_QUANTUM_WEIGHT : ftl::mmio::Register<
       0x4043CD18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ0_QUANTUM_WEIGHT_fields_::ISCQW,
+      MtlTxq0QuantumWeightFields::ISCQW,
       ftl::mmio::Reserved<11, 21>> {
-    using ISCQW = MTL_TXQ0_QUANTUM_WEIGHT_fields_::ISCQW;
+    using ISCQW = MtlTxq0QuantumWeightFields::ISCQW;
   };
 
   // Queue 0 Interrupt Control Status
-  struct MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_ {
+  struct MtlQ0InterruptControlStatusFields {
     enum class eTXUNFIS : std::uint32_t {
       // Transmit Queue Underflow Interrupt Status not detected
       eINACTIVE = 0,
@@ -16193,39 +16193,39 @@ struct EnetQos {
     using RXOVFIS = ftl::mmio::Field<1, 16, eRXOVFIS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Overflow Interrupt Enable When this bit is set, the Receive Queue Overflow interrupt is enabled.
     using RXOIE = ftl::mmio::Field<1, 24, eRXOIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_
+  };  // struct MtlQ0InterruptControlStatusFields
 
   struct MTL_Q0_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
       0x4043CD2Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS,
-      MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS,
+      MtlQ0InterruptControlStatusFields::TXUNFIS,
+      MtlQ0InterruptControlStatusFields::ABPSIS,
       ftl::mmio::Reserved<6, 2>,
-      MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::TXUIE,
-      MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE,
+      MtlQ0InterruptControlStatusFields::TXUIE,
+      MtlQ0InterruptControlStatusFields::ABPSIE,
       ftl::mmio::Reserved<6, 10>,
-      MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS,
+      MtlQ0InterruptControlStatusFields::RXOVFIS,
       ftl::mmio::Reserved<7, 17>,
-      MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::RXOIE,
+      MtlQ0InterruptControlStatusFields::RXOIE,
       ftl::mmio::Reserved<7, 25>> {
-    using eTXUNFIS = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::eTXUNFIS;
-    using eABPSIS = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::eABPSIS;
-    using eTXUIE = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::eTXUIE;
-    using eABPSIE = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::eABPSIE;
-    using eRXOVFIS = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::eRXOVFIS;
-    using eRXOIE = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::eRXOIE;
-    using TXUNFIS = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS;
-    using ABPSIS = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS;
-    using TXUIE = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::TXUIE;
-    using ABPSIE = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE;
-    using RXOVFIS = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS;
-    using RXOIE = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
+    using eTXUNFIS = MtlQ0InterruptControlStatusFields::eTXUNFIS;
+    using eABPSIS = MtlQ0InterruptControlStatusFields::eABPSIS;
+    using eTXUIE = MtlQ0InterruptControlStatusFields::eTXUIE;
+    using eABPSIE = MtlQ0InterruptControlStatusFields::eABPSIE;
+    using eRXOVFIS = MtlQ0InterruptControlStatusFields::eRXOVFIS;
+    using eRXOIE = MtlQ0InterruptControlStatusFields::eRXOIE;
+    using TXUNFIS = MtlQ0InterruptControlStatusFields::TXUNFIS;
+    using ABPSIS = MtlQ0InterruptControlStatusFields::ABPSIS;
+    using TXUIE = MtlQ0InterruptControlStatusFields::TXUIE;
+    using ABPSIE = MtlQ0InterruptControlStatusFields::ABPSIE;
+    using RXOVFIS = MtlQ0InterruptControlStatusFields::RXOVFIS;
+    using RXOIE = MtlQ0InterruptControlStatusFields::RXOIE;
   };
 
   // Queue 0 Receive Operation Mode
-  struct MTL_RXQ0_OPERATION_MODE_fields_ {
+  struct MtlRxq0OperationModeFields {
     enum class eRTC : std::uint32_t {
       // 64
       ebf_64BYTE = 0,
@@ -16290,45 +16290,45 @@ struct EnetQos {
     using RFD = ftl::mmio::Field<4, 14, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Size This field indicates the size of the allocated Receive queues in blocks of 256 bytes.
     using RQS = ftl::mmio::Field<5, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ0_OPERATION_MODE_fields_
+  };  // struct MtlRxq0OperationModeFields
 
   struct MTL_RXQ0_OPERATION_MODE : ftl::mmio::Register<
       0x4043CD30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ0_OPERATION_MODE_fields_::RTC,
+      MtlRxq0OperationModeFields::RTC,
       ftl::mmio::Reserved<1, 2>,
-      MTL_RXQ0_OPERATION_MODE_fields_::FUP,
-      MTL_RXQ0_OPERATION_MODE_fields_::FEP,
-      MTL_RXQ0_OPERATION_MODE_fields_::RSF,
-      MTL_RXQ0_OPERATION_MODE_fields_::DIS_TCP_EF,
-      MTL_RXQ0_OPERATION_MODE_fields_::EHFC,
-      MTL_RXQ0_OPERATION_MODE_fields_::RFA,
+      MtlRxq0OperationModeFields::FUP,
+      MtlRxq0OperationModeFields::FEP,
+      MtlRxq0OperationModeFields::RSF,
+      MtlRxq0OperationModeFields::DIS_TCP_EF,
+      MtlRxq0OperationModeFields::EHFC,
+      MtlRxq0OperationModeFields::RFA,
       ftl::mmio::Reserved<2, 12>,
-      MTL_RXQ0_OPERATION_MODE_fields_::RFD,
+      MtlRxq0OperationModeFields::RFD,
       ftl::mmio::Reserved<2, 18>,
-      MTL_RXQ0_OPERATION_MODE_fields_::RQS,
+      MtlRxq0OperationModeFields::RQS,
       ftl::mmio::Reserved<7, 25>> {
-    using eRTC = MTL_RXQ0_OPERATION_MODE_fields_::eRTC;
-    using eFUP = MTL_RXQ0_OPERATION_MODE_fields_::eFUP;
-    using eFEP = MTL_RXQ0_OPERATION_MODE_fields_::eFEP;
-    using eRSF = MTL_RXQ0_OPERATION_MODE_fields_::eRSF;
-    using eDIS_TCP_EF = MTL_RXQ0_OPERATION_MODE_fields_::eDIS_TCP_EF;
-    using eEHFC = MTL_RXQ0_OPERATION_MODE_fields_::eEHFC;
-    using RTC = MTL_RXQ0_OPERATION_MODE_fields_::RTC;
-    using FUP = MTL_RXQ0_OPERATION_MODE_fields_::FUP;
-    using FEP = MTL_RXQ0_OPERATION_MODE_fields_::FEP;
-    using RSF = MTL_RXQ0_OPERATION_MODE_fields_::RSF;
-    using DIS_TCP_EF = MTL_RXQ0_OPERATION_MODE_fields_::DIS_TCP_EF;
-    using EHFC = MTL_RXQ0_OPERATION_MODE_fields_::EHFC;
-    using RFA = MTL_RXQ0_OPERATION_MODE_fields_::RFA;
-    using RFD = MTL_RXQ0_OPERATION_MODE_fields_::RFD;
-    using RQS = MTL_RXQ0_OPERATION_MODE_fields_::RQS;
+    using eRTC = MtlRxq0OperationModeFields::eRTC;
+    using eFUP = MtlRxq0OperationModeFields::eFUP;
+    using eFEP = MtlRxq0OperationModeFields::eFEP;
+    using eRSF = MtlRxq0OperationModeFields::eRSF;
+    using eDIS_TCP_EF = MtlRxq0OperationModeFields::eDIS_TCP_EF;
+    using eEHFC = MtlRxq0OperationModeFields::eEHFC;
+    using RTC = MtlRxq0OperationModeFields::RTC;
+    using FUP = MtlRxq0OperationModeFields::FUP;
+    using FEP = MtlRxq0OperationModeFields::FEP;
+    using RSF = MtlRxq0OperationModeFields::RSF;
+    using DIS_TCP_EF = MtlRxq0OperationModeFields::DIS_TCP_EF;
+    using EHFC = MtlRxq0OperationModeFields::EHFC;
+    using RFA = MtlRxq0OperationModeFields::RFA;
+    using RFD = MtlRxq0OperationModeFields::RFD;
+    using RQS = MtlRxq0OperationModeFields::RQS;
   };
 
   // Queue 0 Missed Packet and Overflow Counter
-  struct MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_ {
+  struct MtlRxq0MissedPacketOverflowCntFields {
     enum class eOVFCNTOVF : std::uint32_t {
       // Overflow Counter overflow not detected
       eINACTIVE = 0,
@@ -16351,29 +16351,29 @@ struct EnetQos {
     using MISPKTCNT = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Missed Packet Counter Overflow Bit When set, this bit indicates that the Rx Queue Missed Packet Counter crossed the maximum limit.
     using MISCNTOVF = ftl::mmio::Field<1, 27, eMISCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_
+  };  // struct MtlRxq0MissedPacketOverflowCntFields
 
   struct MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
       0x4043CD34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT,
-      MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF,
+      MtlRxq0MissedPacketOverflowCntFields::OVFPKTCNT,
+      MtlRxq0MissedPacketOverflowCntFields::OVFCNTOVF,
       ftl::mmio::Reserved<4, 12>,
-      MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT,
-      MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF,
+      MtlRxq0MissedPacketOverflowCntFields::MISPKTCNT,
+      MtlRxq0MissedPacketOverflowCntFields::MISCNTOVF,
       ftl::mmio::Reserved<4, 28>> {
-    using eOVFCNTOVF = MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::eOVFCNTOVF;
-    using eMISCNTOVF = MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::eMISCNTOVF;
-    using OVFPKTCNT = MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT;
-    using OVFCNTOVF = MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF;
-    using MISPKTCNT = MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT;
-    using MISCNTOVF = MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
+    using eOVFCNTOVF = MtlRxq0MissedPacketOverflowCntFields::eOVFCNTOVF;
+    using eMISCNTOVF = MtlRxq0MissedPacketOverflowCntFields::eMISCNTOVF;
+    using OVFPKTCNT = MtlRxq0MissedPacketOverflowCntFields::OVFPKTCNT;
+    using OVFCNTOVF = MtlRxq0MissedPacketOverflowCntFields::OVFCNTOVF;
+    using MISPKTCNT = MtlRxq0MissedPacketOverflowCntFields::MISPKTCNT;
+    using MISCNTOVF = MtlRxq0MissedPacketOverflowCntFields::MISCNTOVF;
   };
 
   // Queue 0 Receive Debug
-  struct MTL_RXQ0_DEBUG_fields_ {
+  struct MtlRxq0DebugFields {
     enum class eRWCSTS : std::uint32_t {
       // MTL Rx Queue Write Controller Active Status not detected
       eINACTIVE = 0,
@@ -16411,31 +16411,31 @@ struct EnetQos {
     using RXQSTS = ftl::mmio::Field<2, 4, eRXQSTS, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Packets in Receive Queue This field indicates the current number of packets in the Rx Queue.
     using PRXQ = ftl::mmio::Field<14, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ0_DEBUG_fields_
+  };  // struct MtlRxq0DebugFields
 
   struct MTL_RXQ0_DEBUG : ftl::mmio::Register<
       0x4043CD38u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ0_DEBUG_fields_::RWCSTS,
-      MTL_RXQ0_DEBUG_fields_::RRCSTS,
+      MtlRxq0DebugFields::RWCSTS,
+      MtlRxq0DebugFields::RRCSTS,
       ftl::mmio::Reserved<1, 3>,
-      MTL_RXQ0_DEBUG_fields_::RXQSTS,
+      MtlRxq0DebugFields::RXQSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_RXQ0_DEBUG_fields_::PRXQ,
+      MtlRxq0DebugFields::PRXQ,
       ftl::mmio::Reserved<2, 30>> {
-    using eRWCSTS = MTL_RXQ0_DEBUG_fields_::eRWCSTS;
-    using eRRCSTS = MTL_RXQ0_DEBUG_fields_::eRRCSTS;
-    using eRXQSTS = MTL_RXQ0_DEBUG_fields_::eRXQSTS;
-    using RWCSTS = MTL_RXQ0_DEBUG_fields_::RWCSTS;
-    using RRCSTS = MTL_RXQ0_DEBUG_fields_::RRCSTS;
-    using RXQSTS = MTL_RXQ0_DEBUG_fields_::RXQSTS;
-    using PRXQ = MTL_RXQ0_DEBUG_fields_::PRXQ;
+    using eRWCSTS = MtlRxq0DebugFields::eRWCSTS;
+    using eRRCSTS = MtlRxq0DebugFields::eRRCSTS;
+    using eRXQSTS = MtlRxq0DebugFields::eRXQSTS;
+    using RWCSTS = MtlRxq0DebugFields::RWCSTS;
+    using RRCSTS = MtlRxq0DebugFields::RRCSTS;
+    using RXQSTS = MtlRxq0DebugFields::RXQSTS;
+    using PRXQ = MtlRxq0DebugFields::PRXQ;
   };
 
   // Queue 0 Receive Control
-  struct MTL_RXQ0_CONTROL_fields_ {
+  struct MtlRxq0ControlFields {
     enum class eRXQ_FRM_ARBIT : std::uint32_t {
       // Receive Queue Packet Arbitration is disabled
       eDISABLE = 0,
@@ -16447,23 +16447,23 @@ struct EnetQos {
     using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
     using RXQ_FRM_ARBIT = ftl::mmio::Field<1, 3, eRXQ_FRM_ARBIT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ0_CONTROL_fields_
+  };  // struct MtlRxq0ControlFields
 
   struct MTL_RXQ0_CONTROL : ftl::mmio::Register<
       0x4043CD3Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ0_CONTROL_fields_::RXQ_WEGT,
-      MTL_RXQ0_CONTROL_fields_::RXQ_FRM_ARBIT,
+      MtlRxq0ControlFields::RXQ_WEGT,
+      MtlRxq0ControlFields::RXQ_FRM_ARBIT,
       ftl::mmio::Reserved<28, 4>> {
-    using eRXQ_FRM_ARBIT = MTL_RXQ0_CONTROL_fields_::eRXQ_FRM_ARBIT;
-    using RXQ_WEGT = MTL_RXQ0_CONTROL_fields_::RXQ_WEGT;
-    using RXQ_FRM_ARBIT = MTL_RXQ0_CONTROL_fields_::RXQ_FRM_ARBIT;
+    using eRXQ_FRM_ARBIT = MtlRxq0ControlFields::eRXQ_FRM_ARBIT;
+    using RXQ_WEGT = MtlRxq0ControlFields::RXQ_WEGT;
+    using RXQ_FRM_ARBIT = MtlRxq0ControlFields::RXQ_FRM_ARBIT;
   };
 
   // Queue 1 Transmit Operation Mode
-  struct MTL_TXQ1_OPERATION_MODE_fields_ {
+  struct MtlTxq1OperationModeFields {
     enum class eFTQ : std::uint32_t {
       // Flush Transmit Queue is disabled
       eDISABLE = 0,
@@ -16516,33 +16516,33 @@ struct EnetQos {
     using TTC = ftl::mmio::Field<3, 4, eTTC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit Queue Size This field indicates the size of the allocated Transmit queues in blocks of 256 bytes.
     using TQS = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_OPERATION_MODE_fields_
+  };  // struct MtlTxq1OperationModeFields
 
   struct MTL_TXQ1_OPERATION_MODE : ftl::mmio::Register<
       0x4043CD40u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ1_OPERATION_MODE_fields_::FTQ,
-      MTL_TXQ1_OPERATION_MODE_fields_::TSF,
-      MTL_TXQ1_OPERATION_MODE_fields_::TXQEN,
-      MTL_TXQ1_OPERATION_MODE_fields_::TTC,
+      MtlTxq1OperationModeFields::FTQ,
+      MtlTxq1OperationModeFields::TSF,
+      MtlTxq1OperationModeFields::TXQEN,
+      MtlTxq1OperationModeFields::TTC,
       ftl::mmio::Reserved<9, 7>,
-      MTL_TXQ1_OPERATION_MODE_fields_::TQS,
+      MtlTxq1OperationModeFields::TQS,
       ftl::mmio::Reserved<11, 21>> {
-    using eFTQ = MTL_TXQ1_OPERATION_MODE_fields_::eFTQ;
-    using eTSF = MTL_TXQ1_OPERATION_MODE_fields_::eTSF;
-    using eTXQEN = MTL_TXQ1_OPERATION_MODE_fields_::eTXQEN;
-    using eTTC = MTL_TXQ1_OPERATION_MODE_fields_::eTTC;
-    using FTQ = MTL_TXQ1_OPERATION_MODE_fields_::FTQ;
-    using TSF = MTL_TXQ1_OPERATION_MODE_fields_::TSF;
-    using TXQEN = MTL_TXQ1_OPERATION_MODE_fields_::TXQEN;
-    using TTC = MTL_TXQ1_OPERATION_MODE_fields_::TTC;
-    using TQS = MTL_TXQ1_OPERATION_MODE_fields_::TQS;
+    using eFTQ = MtlTxq1OperationModeFields::eFTQ;
+    using eTSF = MtlTxq1OperationModeFields::eTSF;
+    using eTXQEN = MtlTxq1OperationModeFields::eTXQEN;
+    using eTTC = MtlTxq1OperationModeFields::eTTC;
+    using FTQ = MtlTxq1OperationModeFields::FTQ;
+    using TSF = MtlTxq1OperationModeFields::TSF;
+    using TXQEN = MtlTxq1OperationModeFields::TXQEN;
+    using TTC = MtlTxq1OperationModeFields::TTC;
+    using TQS = MtlTxq1OperationModeFields::TQS;
   };
 
   // Queue 1 Underflow Counter
-  struct MTL_TXQ1_UNDERFLOW_fields_ {
+  struct MtlTxq1UnderflowFields {
     enum class eUFCNTOVF : std::uint32_t {
       // Overflow not detected for Underflow Packet Counter
       eINACTIVE = 0,
@@ -16554,23 +16554,23 @@ struct EnetQos {
     using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
     using UFCNTOVF = ftl::mmio::Field<1, 11, eUFCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_UNDERFLOW_fields_
+  };  // struct MtlTxq1UnderflowFields
 
   struct MTL_TXQ1_UNDERFLOW : ftl::mmio::Register<
       0x4043CD44u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ1_UNDERFLOW_fields_::UFFRMCNT,
-      MTL_TXQ1_UNDERFLOW_fields_::UFCNTOVF,
+      MtlTxq1UnderflowFields::UFFRMCNT,
+      MtlTxq1UnderflowFields::UFCNTOVF,
       ftl::mmio::Reserved<20, 12>> {
-    using eUFCNTOVF = MTL_TXQ1_UNDERFLOW_fields_::eUFCNTOVF;
-    using UFFRMCNT = MTL_TXQ1_UNDERFLOW_fields_::UFFRMCNT;
-    using UFCNTOVF = MTL_TXQ1_UNDERFLOW_fields_::UFCNTOVF;
+    using eUFCNTOVF = MtlTxq1UnderflowFields::eUFCNTOVF;
+    using UFFRMCNT = MtlTxq1UnderflowFields::UFFRMCNT;
+    using UFCNTOVF = MtlTxq1UnderflowFields::UFCNTOVF;
   };
 
   // Queue 1 Transmit Debug
-  struct MTL_TXQ1_DEBUG_fields_ {
+  struct MtlTxq1DebugFields {
     enum class eTXQPAUSED : std::uint32_t {
       // Transmit Queue in Pause status is not detected
       eINACTIVE = 0,
@@ -16624,39 +16624,39 @@ struct EnetQos {
     using PTXQ = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Status Words in Tx Status FIFO of Queue This field indicates the current number of status in the Tx Status FIFO of this queue.
     using STXSTSF = ftl::mmio::Field<3, 20, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_DEBUG_fields_
+  };  // struct MtlTxq1DebugFields
 
   struct MTL_TXQ1_DEBUG : ftl::mmio::Register<
       0x4043CD48u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ1_DEBUG_fields_::TXQPAUSED,
-      MTL_TXQ1_DEBUG_fields_::TRCSTS,
-      MTL_TXQ1_DEBUG_fields_::TWCSTS,
-      MTL_TXQ1_DEBUG_fields_::TXQSTS,
-      MTL_TXQ1_DEBUG_fields_::TXSTSFSTS,
+      MtlTxq1DebugFields::TXQPAUSED,
+      MtlTxq1DebugFields::TRCSTS,
+      MtlTxq1DebugFields::TWCSTS,
+      MtlTxq1DebugFields::TXQSTS,
+      MtlTxq1DebugFields::TXSTSFSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_TXQ1_DEBUG_fields_::PTXQ,
+      MtlTxq1DebugFields::PTXQ,
       ftl::mmio::Reserved<1, 19>,
-      MTL_TXQ1_DEBUG_fields_::STXSTSF,
+      MtlTxq1DebugFields::STXSTSF,
       ftl::mmio::Reserved<9, 23>> {
-    using eTXQPAUSED = MTL_TXQ1_DEBUG_fields_::eTXQPAUSED;
-    using eTRCSTS = MTL_TXQ1_DEBUG_fields_::eTRCSTS;
-    using eTWCSTS = MTL_TXQ1_DEBUG_fields_::eTWCSTS;
-    using eTXQSTS = MTL_TXQ1_DEBUG_fields_::eTXQSTS;
-    using eTXSTSFSTS = MTL_TXQ1_DEBUG_fields_::eTXSTSFSTS;
-    using TXQPAUSED = MTL_TXQ1_DEBUG_fields_::TXQPAUSED;
-    using TRCSTS = MTL_TXQ1_DEBUG_fields_::TRCSTS;
-    using TWCSTS = MTL_TXQ1_DEBUG_fields_::TWCSTS;
-    using TXQSTS = MTL_TXQ1_DEBUG_fields_::TXQSTS;
-    using TXSTSFSTS = MTL_TXQ1_DEBUG_fields_::TXSTSFSTS;
-    using PTXQ = MTL_TXQ1_DEBUG_fields_::PTXQ;
-    using STXSTSF = MTL_TXQ1_DEBUG_fields_::STXSTSF;
+    using eTXQPAUSED = MtlTxq1DebugFields::eTXQPAUSED;
+    using eTRCSTS = MtlTxq1DebugFields::eTRCSTS;
+    using eTWCSTS = MtlTxq1DebugFields::eTWCSTS;
+    using eTXQSTS = MtlTxq1DebugFields::eTXQSTS;
+    using eTXSTSFSTS = MtlTxq1DebugFields::eTXSTSFSTS;
+    using TXQPAUSED = MtlTxq1DebugFields::TXQPAUSED;
+    using TRCSTS = MtlTxq1DebugFields::TRCSTS;
+    using TWCSTS = MtlTxq1DebugFields::TWCSTS;
+    using TXQSTS = MtlTxq1DebugFields::TXQSTS;
+    using TXSTSFSTS = MtlTxq1DebugFields::TXSTSFSTS;
+    using PTXQ = MtlTxq1DebugFields::PTXQ;
+    using STXSTSF = MtlTxq1DebugFields::STXSTSF;
   };
 
   // Queue 1 ETS Control
-  struct MTL_TXQ1_ETS_CONTROL_fields_ {
+  struct MtlTxq1EtsControlFields {
     enum class eAVALG : std::uint32_t {
       // CBS Algorithm is disabled
       eDISABLE = 0,
@@ -16690,7 +16690,7 @@ struct EnetQos {
     using CC = ftl::mmio::Field<1, 3, eCC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Slot Count If the credit-based shaper algorithm is enabled, the software can program the number of slots (of duration programmed in DMA_CH[n]_Slot_Interval register) over which the average transmitted bits per slot, provided in the MTL_TXQ[N]_ETS_STATUS register, need to be computed for Queue.
     using SLC = ftl::mmio::Field<3, 4, eSLC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_ETS_CONTROL_fields_
+  };  // struct MtlTxq1EtsControlFields
 
   struct MTL_TXQ1_ETS_CONTROL : ftl::mmio::Register<
       0x4043CD50u,
@@ -16698,100 +16698,100 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      MTL_TXQ1_ETS_CONTROL_fields_::AVALG,
-      MTL_TXQ1_ETS_CONTROL_fields_::CC,
-      MTL_TXQ1_ETS_CONTROL_fields_::SLC,
+      MtlTxq1EtsControlFields::AVALG,
+      MtlTxq1EtsControlFields::CC,
+      MtlTxq1EtsControlFields::SLC,
       ftl::mmio::Reserved<25, 7>> {
-    using eAVALG = MTL_TXQ1_ETS_CONTROL_fields_::eAVALG;
-    using eCC = MTL_TXQ1_ETS_CONTROL_fields_::eCC;
-    using eSLC = MTL_TXQ1_ETS_CONTROL_fields_::eSLC;
-    using AVALG = MTL_TXQ1_ETS_CONTROL_fields_::AVALG;
-    using CC = MTL_TXQ1_ETS_CONTROL_fields_::CC;
-    using SLC = MTL_TXQ1_ETS_CONTROL_fields_::SLC;
+    using eAVALG = MtlTxq1EtsControlFields::eAVALG;
+    using eCC = MtlTxq1EtsControlFields::eCC;
+    using eSLC = MtlTxq1EtsControlFields::eSLC;
+    using AVALG = MtlTxq1EtsControlFields::AVALG;
+    using CC = MtlTxq1EtsControlFields::CC;
+    using SLC = MtlTxq1EtsControlFields::SLC;
   };
 
   // Queue 1 ETS Status
-  struct MTL_TXQ1_ETS_STATUS_fields_ {
+  struct MtlTxq1EtsStatusFields {
     // Average Bits per Slot This field contains the average transmitted bits per slot.
     using ABS = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_ETS_STATUS_fields_
+  };  // struct MtlTxq1EtsStatusFields
 
   struct MTL_TXQ1_ETS_STATUS : ftl::mmio::Register<
       0x4043CD54u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ1_ETS_STATUS_fields_::ABS,
+      MtlTxq1EtsStatusFields::ABS,
       ftl::mmio::Reserved<8, 24>> {
-    using ABS = MTL_TXQ1_ETS_STATUS_fields_::ABS;
+    using ABS = MtlTxq1EtsStatusFields::ABS;
   };
 
   // Queue 1 idleSlopeCredit, Quantum or Weights
-  struct MTL_TXQ1_QUANTUM_WEIGHT_fields_ {
+  struct MtlTxq1QuantumWeightFields {
     // idleSlopeCredit, Quantum or Weights - idleSlopeCredit When AV feature is enabled, this field contains the idleSlopeCredit value required for the credit-based shaper algorithm for Queue 1.
     using ISCQW = ftl::mmio::Field<21, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_QUANTUM_WEIGHT_fields_
+  };  // struct MtlTxq1QuantumWeightFields
 
   struct MTL_TXQ1_QUANTUM_WEIGHT : ftl::mmio::Register<
       0x4043CD58u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ1_QUANTUM_WEIGHT_fields_::ISCQW,
+      MtlTxq1QuantumWeightFields::ISCQW,
       ftl::mmio::Reserved<11, 21>> {
-    using ISCQW = MTL_TXQ1_QUANTUM_WEIGHT_fields_::ISCQW;
+    using ISCQW = MtlTxq1QuantumWeightFields::ISCQW;
   };
 
   // Queue 1 sendSlopeCredit
-  struct MTL_TXQ1_SENDSLOPECREDIT_fields_ {
+  struct MtlTxq1SendslopecreditFields {
     // sendSlopeCredit Value When AV operation is enabled, this field contains the sendSlopeCredit value required for credit-based shaper algorithm for Queue 1.
     using SSC = ftl::mmio::Field<14, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_SENDSLOPECREDIT_fields_
+  };  // struct MtlTxq1SendslopecreditFields
 
   struct MTL_TXQ1_SENDSLOPECREDIT : ftl::mmio::Register<
       0x4043CD5Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ1_SENDSLOPECREDIT_fields_::SSC,
+      MtlTxq1SendslopecreditFields::SSC,
       ftl::mmio::Reserved<18, 14>> {
-    using SSC = MTL_TXQ1_SENDSLOPECREDIT_fields_::SSC;
+    using SSC = MtlTxq1SendslopecreditFields::SSC;
   };
 
   // Queue 1 hiCredit
-  struct MTL_TXQ1_HICREDIT_fields_ {
+  struct MtlTxq1HicreditFields {
     // hiCredit Value When the AV feature is enabled, this field contains the hiCredit value required for the credit-based shaper algorithm.
     using HC = ftl::mmio::Field<29, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_HICREDIT_fields_
+  };  // struct MtlTxq1HicreditFields
 
   struct MTL_TXQ1_HICREDIT : ftl::mmio::Register<
       0x4043CD60u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ1_HICREDIT_fields_::HC,
+      MtlTxq1HicreditFields::HC,
       ftl::mmio::Reserved<3, 29>> {
-    using HC = MTL_TXQ1_HICREDIT_fields_::HC;
+    using HC = MtlTxq1HicreditFields::HC;
   };
 
   // Queue 1 loCredit
-  struct MTL_TXQ1_LOCREDIT_fields_ {
+  struct MtlTxq1LocreditFields {
     // loCredit Value When AV operation is enabled, this field contains the loCredit value required for the credit-based shaper algorithm.
     using LC = ftl::mmio::Field<29, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ1_LOCREDIT_fields_
+  };  // struct MtlTxq1LocreditFields
 
   struct MTL_TXQ1_LOCREDIT : ftl::mmio::Register<
       0x4043CD64u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ1_LOCREDIT_fields_::LC,
+      MtlTxq1LocreditFields::LC,
       ftl::mmio::Reserved<3, 29>> {
-    using LC = MTL_TXQ1_LOCREDIT_fields_::LC;
+    using LC = MtlTxq1LocreditFields::LC;
   };
 
   // Queue 1 Interrupt Control Status
-  struct MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_ {
+  struct MtlQ1InterruptControlStatusFields {
     enum class eTXUNFIS : std::uint32_t {
       // Transmit Queue Underflow Interrupt Status not detected
       eINACTIVE = 0,
@@ -16846,39 +16846,39 @@ struct EnetQos {
     using RXOVFIS = ftl::mmio::Field<1, 16, eRXOVFIS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Overflow Interrupt Enable When this bit is set, the Receive Queue Overflow interrupt is enabled.
     using RXOIE = ftl::mmio::Field<1, 24, eRXOIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_
+  };  // struct MtlQ1InterruptControlStatusFields
 
   struct MTL_Q1_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
       0x4043CD6Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS,
-      MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS,
+      MtlQ1InterruptControlStatusFields::TXUNFIS,
+      MtlQ1InterruptControlStatusFields::ABPSIS,
       ftl::mmio::Reserved<6, 2>,
-      MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::TXUIE,
-      MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE,
+      MtlQ1InterruptControlStatusFields::TXUIE,
+      MtlQ1InterruptControlStatusFields::ABPSIE,
       ftl::mmio::Reserved<6, 10>,
-      MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS,
+      MtlQ1InterruptControlStatusFields::RXOVFIS,
       ftl::mmio::Reserved<7, 17>,
-      MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::RXOIE,
+      MtlQ1InterruptControlStatusFields::RXOIE,
       ftl::mmio::Reserved<7, 25>> {
-    using eTXUNFIS = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::eTXUNFIS;
-    using eABPSIS = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::eABPSIS;
-    using eTXUIE = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::eTXUIE;
-    using eABPSIE = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::eABPSIE;
-    using eRXOVFIS = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::eRXOVFIS;
-    using eRXOIE = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::eRXOIE;
-    using TXUNFIS = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS;
-    using ABPSIS = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS;
-    using TXUIE = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::TXUIE;
-    using ABPSIE = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE;
-    using RXOVFIS = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS;
-    using RXOIE = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
+    using eTXUNFIS = MtlQ1InterruptControlStatusFields::eTXUNFIS;
+    using eABPSIS = MtlQ1InterruptControlStatusFields::eABPSIS;
+    using eTXUIE = MtlQ1InterruptControlStatusFields::eTXUIE;
+    using eABPSIE = MtlQ1InterruptControlStatusFields::eABPSIE;
+    using eRXOVFIS = MtlQ1InterruptControlStatusFields::eRXOVFIS;
+    using eRXOIE = MtlQ1InterruptControlStatusFields::eRXOIE;
+    using TXUNFIS = MtlQ1InterruptControlStatusFields::TXUNFIS;
+    using ABPSIS = MtlQ1InterruptControlStatusFields::ABPSIS;
+    using TXUIE = MtlQ1InterruptControlStatusFields::TXUIE;
+    using ABPSIE = MtlQ1InterruptControlStatusFields::ABPSIE;
+    using RXOVFIS = MtlQ1InterruptControlStatusFields::RXOVFIS;
+    using RXOIE = MtlQ1InterruptControlStatusFields::RXOIE;
   };
 
   // Queue 1 Receive Operation Mode
-  struct MTL_RXQ1_OPERATION_MODE_fields_ {
+  struct MtlRxq1OperationModeFields {
     enum class eRTC : std::uint32_t {
       // 64
       ebf_64BYTE = 0,
@@ -16943,45 +16943,45 @@ struct EnetQos {
     using RFD = ftl::mmio::Field<4, 14, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Size This field indicates the size of the allocated Receive queues in blocks of 256 bytes.
     using RQS = ftl::mmio::Field<5, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ1_OPERATION_MODE_fields_
+  };  // struct MtlRxq1OperationModeFields
 
   struct MTL_RXQ1_OPERATION_MODE : ftl::mmio::Register<
       0x4043CD70u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ1_OPERATION_MODE_fields_::RTC,
+      MtlRxq1OperationModeFields::RTC,
       ftl::mmio::Reserved<1, 2>,
-      MTL_RXQ1_OPERATION_MODE_fields_::FUP,
-      MTL_RXQ1_OPERATION_MODE_fields_::FEP,
-      MTL_RXQ1_OPERATION_MODE_fields_::RSF,
-      MTL_RXQ1_OPERATION_MODE_fields_::DIS_TCP_EF,
-      MTL_RXQ1_OPERATION_MODE_fields_::EHFC,
-      MTL_RXQ1_OPERATION_MODE_fields_::RFA,
+      MtlRxq1OperationModeFields::FUP,
+      MtlRxq1OperationModeFields::FEP,
+      MtlRxq1OperationModeFields::RSF,
+      MtlRxq1OperationModeFields::DIS_TCP_EF,
+      MtlRxq1OperationModeFields::EHFC,
+      MtlRxq1OperationModeFields::RFA,
       ftl::mmio::Reserved<2, 12>,
-      MTL_RXQ1_OPERATION_MODE_fields_::RFD,
+      MtlRxq1OperationModeFields::RFD,
       ftl::mmio::Reserved<2, 18>,
-      MTL_RXQ1_OPERATION_MODE_fields_::RQS,
+      MtlRxq1OperationModeFields::RQS,
       ftl::mmio::Reserved<7, 25>> {
-    using eRTC = MTL_RXQ1_OPERATION_MODE_fields_::eRTC;
-    using eFUP = MTL_RXQ1_OPERATION_MODE_fields_::eFUP;
-    using eFEP = MTL_RXQ1_OPERATION_MODE_fields_::eFEP;
-    using eRSF = MTL_RXQ1_OPERATION_MODE_fields_::eRSF;
-    using eDIS_TCP_EF = MTL_RXQ1_OPERATION_MODE_fields_::eDIS_TCP_EF;
-    using eEHFC = MTL_RXQ1_OPERATION_MODE_fields_::eEHFC;
-    using RTC = MTL_RXQ1_OPERATION_MODE_fields_::RTC;
-    using FUP = MTL_RXQ1_OPERATION_MODE_fields_::FUP;
-    using FEP = MTL_RXQ1_OPERATION_MODE_fields_::FEP;
-    using RSF = MTL_RXQ1_OPERATION_MODE_fields_::RSF;
-    using DIS_TCP_EF = MTL_RXQ1_OPERATION_MODE_fields_::DIS_TCP_EF;
-    using EHFC = MTL_RXQ1_OPERATION_MODE_fields_::EHFC;
-    using RFA = MTL_RXQ1_OPERATION_MODE_fields_::RFA;
-    using RFD = MTL_RXQ1_OPERATION_MODE_fields_::RFD;
-    using RQS = MTL_RXQ1_OPERATION_MODE_fields_::RQS;
+    using eRTC = MtlRxq1OperationModeFields::eRTC;
+    using eFUP = MtlRxq1OperationModeFields::eFUP;
+    using eFEP = MtlRxq1OperationModeFields::eFEP;
+    using eRSF = MtlRxq1OperationModeFields::eRSF;
+    using eDIS_TCP_EF = MtlRxq1OperationModeFields::eDIS_TCP_EF;
+    using eEHFC = MtlRxq1OperationModeFields::eEHFC;
+    using RTC = MtlRxq1OperationModeFields::RTC;
+    using FUP = MtlRxq1OperationModeFields::FUP;
+    using FEP = MtlRxq1OperationModeFields::FEP;
+    using RSF = MtlRxq1OperationModeFields::RSF;
+    using DIS_TCP_EF = MtlRxq1OperationModeFields::DIS_TCP_EF;
+    using EHFC = MtlRxq1OperationModeFields::EHFC;
+    using RFA = MtlRxq1OperationModeFields::RFA;
+    using RFD = MtlRxq1OperationModeFields::RFD;
+    using RQS = MtlRxq1OperationModeFields::RQS;
   };
 
   // Queue 1 Missed Packet and Overflow Counter
-  struct MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_ {
+  struct MtlRxq1MissedPacketOverflowCntFields {
     enum class eOVFCNTOVF : std::uint32_t {
       // Overflow Counter overflow not detected
       eINACTIVE = 0,
@@ -17004,29 +17004,29 @@ struct EnetQos {
     using MISPKTCNT = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Missed Packet Counter Overflow Bit When set, this bit indicates that the Rx Queue Missed Packet Counter crossed the maximum limit.
     using MISCNTOVF = ftl::mmio::Field<1, 27, eMISCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_
+  };  // struct MtlRxq1MissedPacketOverflowCntFields
 
   struct MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
       0x4043CD74u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT,
-      MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF,
+      MtlRxq1MissedPacketOverflowCntFields::OVFPKTCNT,
+      MtlRxq1MissedPacketOverflowCntFields::OVFCNTOVF,
       ftl::mmio::Reserved<4, 12>,
-      MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT,
-      MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF,
+      MtlRxq1MissedPacketOverflowCntFields::MISPKTCNT,
+      MtlRxq1MissedPacketOverflowCntFields::MISCNTOVF,
       ftl::mmio::Reserved<4, 28>> {
-    using eOVFCNTOVF = MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::eOVFCNTOVF;
-    using eMISCNTOVF = MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::eMISCNTOVF;
-    using OVFPKTCNT = MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT;
-    using OVFCNTOVF = MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF;
-    using MISPKTCNT = MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT;
-    using MISCNTOVF = MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
+    using eOVFCNTOVF = MtlRxq1MissedPacketOverflowCntFields::eOVFCNTOVF;
+    using eMISCNTOVF = MtlRxq1MissedPacketOverflowCntFields::eMISCNTOVF;
+    using OVFPKTCNT = MtlRxq1MissedPacketOverflowCntFields::OVFPKTCNT;
+    using OVFCNTOVF = MtlRxq1MissedPacketOverflowCntFields::OVFCNTOVF;
+    using MISPKTCNT = MtlRxq1MissedPacketOverflowCntFields::MISPKTCNT;
+    using MISCNTOVF = MtlRxq1MissedPacketOverflowCntFields::MISCNTOVF;
   };
 
   // Queue 1 Receive Debug
-  struct MTL_RXQ1_DEBUG_fields_ {
+  struct MtlRxq1DebugFields {
     enum class eRWCSTS : std::uint32_t {
       // MTL Rx Queue Write Controller Active Status not detected
       eINACTIVE = 0,
@@ -17064,31 +17064,31 @@ struct EnetQos {
     using RXQSTS = ftl::mmio::Field<2, 4, eRXQSTS, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Packets in Receive Queue This field indicates the current number of packets in the Rx Queue.
     using PRXQ = ftl::mmio::Field<14, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ1_DEBUG_fields_
+  };  // struct MtlRxq1DebugFields
 
   struct MTL_RXQ1_DEBUG : ftl::mmio::Register<
       0x4043CD78u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ1_DEBUG_fields_::RWCSTS,
-      MTL_RXQ1_DEBUG_fields_::RRCSTS,
+      MtlRxq1DebugFields::RWCSTS,
+      MtlRxq1DebugFields::RRCSTS,
       ftl::mmio::Reserved<1, 3>,
-      MTL_RXQ1_DEBUG_fields_::RXQSTS,
+      MtlRxq1DebugFields::RXQSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_RXQ1_DEBUG_fields_::PRXQ,
+      MtlRxq1DebugFields::PRXQ,
       ftl::mmio::Reserved<2, 30>> {
-    using eRWCSTS = MTL_RXQ1_DEBUG_fields_::eRWCSTS;
-    using eRRCSTS = MTL_RXQ1_DEBUG_fields_::eRRCSTS;
-    using eRXQSTS = MTL_RXQ1_DEBUG_fields_::eRXQSTS;
-    using RWCSTS = MTL_RXQ1_DEBUG_fields_::RWCSTS;
-    using RRCSTS = MTL_RXQ1_DEBUG_fields_::RRCSTS;
-    using RXQSTS = MTL_RXQ1_DEBUG_fields_::RXQSTS;
-    using PRXQ = MTL_RXQ1_DEBUG_fields_::PRXQ;
+    using eRWCSTS = MtlRxq1DebugFields::eRWCSTS;
+    using eRRCSTS = MtlRxq1DebugFields::eRRCSTS;
+    using eRXQSTS = MtlRxq1DebugFields::eRXQSTS;
+    using RWCSTS = MtlRxq1DebugFields::RWCSTS;
+    using RRCSTS = MtlRxq1DebugFields::RRCSTS;
+    using RXQSTS = MtlRxq1DebugFields::RXQSTS;
+    using PRXQ = MtlRxq1DebugFields::PRXQ;
   };
 
   // Queue 1 Receive Control
-  struct MTL_RXQ1_CONTROL_fields_ {
+  struct MtlRxq1ControlFields {
     enum class eRXQ_FRM_ARBIT : std::uint32_t {
       // Receive Queue Packet Arbitration is disabled
       eDISABLE = 0,
@@ -17100,23 +17100,23 @@ struct EnetQos {
     using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
     using RXQ_FRM_ARBIT = ftl::mmio::Field<1, 3, eRXQ_FRM_ARBIT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ1_CONTROL_fields_
+  };  // struct MtlRxq1ControlFields
 
   struct MTL_RXQ1_CONTROL : ftl::mmio::Register<
       0x4043CD7Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ1_CONTROL_fields_::RXQ_WEGT,
-      MTL_RXQ1_CONTROL_fields_::RXQ_FRM_ARBIT,
+      MtlRxq1ControlFields::RXQ_WEGT,
+      MtlRxq1ControlFields::RXQ_FRM_ARBIT,
       ftl::mmio::Reserved<28, 4>> {
-    using eRXQ_FRM_ARBIT = MTL_RXQ1_CONTROL_fields_::eRXQ_FRM_ARBIT;
-    using RXQ_WEGT = MTL_RXQ1_CONTROL_fields_::RXQ_WEGT;
-    using RXQ_FRM_ARBIT = MTL_RXQ1_CONTROL_fields_::RXQ_FRM_ARBIT;
+    using eRXQ_FRM_ARBIT = MtlRxq1ControlFields::eRXQ_FRM_ARBIT;
+    using RXQ_WEGT = MtlRxq1ControlFields::RXQ_WEGT;
+    using RXQ_FRM_ARBIT = MtlRxq1ControlFields::RXQ_FRM_ARBIT;
   };
 
   // Queue 2 Transmit Operation Mode
-  struct MTL_TXQ2_OPERATION_MODE_fields_ {
+  struct MtlTxq2OperationModeFields {
     enum class eFTQ : std::uint32_t {
       // Flush Transmit Queue is disabled
       eDISABLE = 0,
@@ -17169,33 +17169,33 @@ struct EnetQos {
     using TTC = ftl::mmio::Field<3, 4, eTTC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit Queue Size This field indicates the size of the allocated Transmit queues in blocks of 256 bytes.
     using TQS = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_OPERATION_MODE_fields_
+  };  // struct MtlTxq2OperationModeFields
 
   struct MTL_TXQ2_OPERATION_MODE : ftl::mmio::Register<
       0x4043CD80u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ2_OPERATION_MODE_fields_::FTQ,
-      MTL_TXQ2_OPERATION_MODE_fields_::TSF,
-      MTL_TXQ2_OPERATION_MODE_fields_::TXQEN,
-      MTL_TXQ2_OPERATION_MODE_fields_::TTC,
+      MtlTxq2OperationModeFields::FTQ,
+      MtlTxq2OperationModeFields::TSF,
+      MtlTxq2OperationModeFields::TXQEN,
+      MtlTxq2OperationModeFields::TTC,
       ftl::mmio::Reserved<9, 7>,
-      MTL_TXQ2_OPERATION_MODE_fields_::TQS,
+      MtlTxq2OperationModeFields::TQS,
       ftl::mmio::Reserved<11, 21>> {
-    using eFTQ = MTL_TXQ2_OPERATION_MODE_fields_::eFTQ;
-    using eTSF = MTL_TXQ2_OPERATION_MODE_fields_::eTSF;
-    using eTXQEN = MTL_TXQ2_OPERATION_MODE_fields_::eTXQEN;
-    using eTTC = MTL_TXQ2_OPERATION_MODE_fields_::eTTC;
-    using FTQ = MTL_TXQ2_OPERATION_MODE_fields_::FTQ;
-    using TSF = MTL_TXQ2_OPERATION_MODE_fields_::TSF;
-    using TXQEN = MTL_TXQ2_OPERATION_MODE_fields_::TXQEN;
-    using TTC = MTL_TXQ2_OPERATION_MODE_fields_::TTC;
-    using TQS = MTL_TXQ2_OPERATION_MODE_fields_::TQS;
+    using eFTQ = MtlTxq2OperationModeFields::eFTQ;
+    using eTSF = MtlTxq2OperationModeFields::eTSF;
+    using eTXQEN = MtlTxq2OperationModeFields::eTXQEN;
+    using eTTC = MtlTxq2OperationModeFields::eTTC;
+    using FTQ = MtlTxq2OperationModeFields::FTQ;
+    using TSF = MtlTxq2OperationModeFields::TSF;
+    using TXQEN = MtlTxq2OperationModeFields::TXQEN;
+    using TTC = MtlTxq2OperationModeFields::TTC;
+    using TQS = MtlTxq2OperationModeFields::TQS;
   };
 
   // Queue 2 Underflow Counter
-  struct MTL_TXQ2_UNDERFLOW_fields_ {
+  struct MtlTxq2UnderflowFields {
     enum class eUFCNTOVF : std::uint32_t {
       // Overflow not detected for Underflow Packet Counter
       eINACTIVE = 0,
@@ -17207,23 +17207,23 @@ struct EnetQos {
     using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
     using UFCNTOVF = ftl::mmio::Field<1, 11, eUFCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_UNDERFLOW_fields_
+  };  // struct MtlTxq2UnderflowFields
 
   struct MTL_TXQ2_UNDERFLOW : ftl::mmio::Register<
       0x4043CD84u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ2_UNDERFLOW_fields_::UFFRMCNT,
-      MTL_TXQ2_UNDERFLOW_fields_::UFCNTOVF,
+      MtlTxq2UnderflowFields::UFFRMCNT,
+      MtlTxq2UnderflowFields::UFCNTOVF,
       ftl::mmio::Reserved<20, 12>> {
-    using eUFCNTOVF = MTL_TXQ2_UNDERFLOW_fields_::eUFCNTOVF;
-    using UFFRMCNT = MTL_TXQ2_UNDERFLOW_fields_::UFFRMCNT;
-    using UFCNTOVF = MTL_TXQ2_UNDERFLOW_fields_::UFCNTOVF;
+    using eUFCNTOVF = MtlTxq2UnderflowFields::eUFCNTOVF;
+    using UFFRMCNT = MtlTxq2UnderflowFields::UFFRMCNT;
+    using UFCNTOVF = MtlTxq2UnderflowFields::UFCNTOVF;
   };
 
   // Queue 2 Transmit Debug
-  struct MTL_TXQ2_DEBUG_fields_ {
+  struct MtlTxq2DebugFields {
     enum class eTXQPAUSED : std::uint32_t {
       // Transmit Queue in Pause status is not detected
       eINACTIVE = 0,
@@ -17277,39 +17277,39 @@ struct EnetQos {
     using PTXQ = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Status Words in Tx Status FIFO of Queue This field indicates the current number of status in the Tx Status FIFO of this queue.
     using STXSTSF = ftl::mmio::Field<3, 20, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_DEBUG_fields_
+  };  // struct MtlTxq2DebugFields
 
   struct MTL_TXQ2_DEBUG : ftl::mmio::Register<
       0x4043CD88u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ2_DEBUG_fields_::TXQPAUSED,
-      MTL_TXQ2_DEBUG_fields_::TRCSTS,
-      MTL_TXQ2_DEBUG_fields_::TWCSTS,
-      MTL_TXQ2_DEBUG_fields_::TXQSTS,
-      MTL_TXQ2_DEBUG_fields_::TXSTSFSTS,
+      MtlTxq2DebugFields::TXQPAUSED,
+      MtlTxq2DebugFields::TRCSTS,
+      MtlTxq2DebugFields::TWCSTS,
+      MtlTxq2DebugFields::TXQSTS,
+      MtlTxq2DebugFields::TXSTSFSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_TXQ2_DEBUG_fields_::PTXQ,
+      MtlTxq2DebugFields::PTXQ,
       ftl::mmio::Reserved<1, 19>,
-      MTL_TXQ2_DEBUG_fields_::STXSTSF,
+      MtlTxq2DebugFields::STXSTSF,
       ftl::mmio::Reserved<9, 23>> {
-    using eTXQPAUSED = MTL_TXQ2_DEBUG_fields_::eTXQPAUSED;
-    using eTRCSTS = MTL_TXQ2_DEBUG_fields_::eTRCSTS;
-    using eTWCSTS = MTL_TXQ2_DEBUG_fields_::eTWCSTS;
-    using eTXQSTS = MTL_TXQ2_DEBUG_fields_::eTXQSTS;
-    using eTXSTSFSTS = MTL_TXQ2_DEBUG_fields_::eTXSTSFSTS;
-    using TXQPAUSED = MTL_TXQ2_DEBUG_fields_::TXQPAUSED;
-    using TRCSTS = MTL_TXQ2_DEBUG_fields_::TRCSTS;
-    using TWCSTS = MTL_TXQ2_DEBUG_fields_::TWCSTS;
-    using TXQSTS = MTL_TXQ2_DEBUG_fields_::TXQSTS;
-    using TXSTSFSTS = MTL_TXQ2_DEBUG_fields_::TXSTSFSTS;
-    using PTXQ = MTL_TXQ2_DEBUG_fields_::PTXQ;
-    using STXSTSF = MTL_TXQ2_DEBUG_fields_::STXSTSF;
+    using eTXQPAUSED = MtlTxq2DebugFields::eTXQPAUSED;
+    using eTRCSTS = MtlTxq2DebugFields::eTRCSTS;
+    using eTWCSTS = MtlTxq2DebugFields::eTWCSTS;
+    using eTXQSTS = MtlTxq2DebugFields::eTXQSTS;
+    using eTXSTSFSTS = MtlTxq2DebugFields::eTXSTSFSTS;
+    using TXQPAUSED = MtlTxq2DebugFields::TXQPAUSED;
+    using TRCSTS = MtlTxq2DebugFields::TRCSTS;
+    using TWCSTS = MtlTxq2DebugFields::TWCSTS;
+    using TXQSTS = MtlTxq2DebugFields::TXQSTS;
+    using TXSTSFSTS = MtlTxq2DebugFields::TXSTSFSTS;
+    using PTXQ = MtlTxq2DebugFields::PTXQ;
+    using STXSTSF = MtlTxq2DebugFields::STXSTSF;
   };
 
   // Queue 2 ETS Control
-  struct MTL_TXQ2_ETS_CONTROL_fields_ {
+  struct MtlTxq2EtsControlFields {
     enum class eAVALG : std::uint32_t {
       // CBS Algorithm is disabled
       eDISABLE = 0,
@@ -17343,7 +17343,7 @@ struct EnetQos {
     using CC = ftl::mmio::Field<1, 3, eCC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Slot Count If the credit-based shaper algorithm is enabled, the software can program the number of slots (of duration programmed in DMA_CH[N]_SLOT_INTERVAL register) over which the average transmitted bits per slot, provided in the MTL_TXQ[N]_ETS_STATUS register, need to be computed for Queue.
     using SLC = ftl::mmio::Field<3, 4, eSLC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_ETS_CONTROL_fields_
+  };  // struct MtlTxq2EtsControlFields
 
   struct MTL_TXQ2_ETS_CONTROL : ftl::mmio::Register<
       0x4043CD90u,
@@ -17351,100 +17351,100 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      MTL_TXQ2_ETS_CONTROL_fields_::AVALG,
-      MTL_TXQ2_ETS_CONTROL_fields_::CC,
-      MTL_TXQ2_ETS_CONTROL_fields_::SLC,
+      MtlTxq2EtsControlFields::AVALG,
+      MtlTxq2EtsControlFields::CC,
+      MtlTxq2EtsControlFields::SLC,
       ftl::mmio::Reserved<25, 7>> {
-    using eAVALG = MTL_TXQ2_ETS_CONTROL_fields_::eAVALG;
-    using eCC = MTL_TXQ2_ETS_CONTROL_fields_::eCC;
-    using eSLC = MTL_TXQ2_ETS_CONTROL_fields_::eSLC;
-    using AVALG = MTL_TXQ2_ETS_CONTROL_fields_::AVALG;
-    using CC = MTL_TXQ2_ETS_CONTROL_fields_::CC;
-    using SLC = MTL_TXQ2_ETS_CONTROL_fields_::SLC;
+    using eAVALG = MtlTxq2EtsControlFields::eAVALG;
+    using eCC = MtlTxq2EtsControlFields::eCC;
+    using eSLC = MtlTxq2EtsControlFields::eSLC;
+    using AVALG = MtlTxq2EtsControlFields::AVALG;
+    using CC = MtlTxq2EtsControlFields::CC;
+    using SLC = MtlTxq2EtsControlFields::SLC;
   };
 
   // Queue 2 ETS Status
-  struct MTL_TXQ2_ETS_STATUS_fields_ {
+  struct MtlTxq2EtsStatusFields {
     // Average Bits per Slot This field contains the average transmitted bits per slot.
     using ABS = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_ETS_STATUS_fields_
+  };  // struct MtlTxq2EtsStatusFields
 
   struct MTL_TXQ2_ETS_STATUS : ftl::mmio::Register<
       0x4043CD94u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ2_ETS_STATUS_fields_::ABS,
+      MtlTxq2EtsStatusFields::ABS,
       ftl::mmio::Reserved<8, 24>> {
-    using ABS = MTL_TXQ2_ETS_STATUS_fields_::ABS;
+    using ABS = MtlTxq2EtsStatusFields::ABS;
   };
 
   // Queue 2 idleSlopeCredit, Quantum or Weights
-  struct MTL_TXQ2_QUANTUM_WEIGHT_fields_ {
+  struct MtlTxq2QuantumWeightFields {
     // idleSlopeCredit, Quantum or Weights - idleSlopeCredit When AV feature is enabled, this field contains the idleSlopeCredit value required for the credit-based shaper algorithm for Queue 1.
     using ISCQW = ftl::mmio::Field<21, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_QUANTUM_WEIGHT_fields_
+  };  // struct MtlTxq2QuantumWeightFields
 
   struct MTL_TXQ2_QUANTUM_WEIGHT : ftl::mmio::Register<
       0x4043CD98u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ2_QUANTUM_WEIGHT_fields_::ISCQW,
+      MtlTxq2QuantumWeightFields::ISCQW,
       ftl::mmio::Reserved<11, 21>> {
-    using ISCQW = MTL_TXQ2_QUANTUM_WEIGHT_fields_::ISCQW;
+    using ISCQW = MtlTxq2QuantumWeightFields::ISCQW;
   };
 
   // Queue 2 sendSlopeCredit
-  struct MTL_TXQ2_SENDSLOPECREDIT_fields_ {
+  struct MtlTxq2SendslopecreditFields {
     // sendSlopeCredit Value When AV operation is enabled, this field contains the sendSlopeCredit value required for credit-based shaper algorithm for Queue 1.
     using SSC = ftl::mmio::Field<14, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_SENDSLOPECREDIT_fields_
+  };  // struct MtlTxq2SendslopecreditFields
 
   struct MTL_TXQ2_SENDSLOPECREDIT : ftl::mmio::Register<
       0x4043CD9Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ2_SENDSLOPECREDIT_fields_::SSC,
+      MtlTxq2SendslopecreditFields::SSC,
       ftl::mmio::Reserved<18, 14>> {
-    using SSC = MTL_TXQ2_SENDSLOPECREDIT_fields_::SSC;
+    using SSC = MtlTxq2SendslopecreditFields::SSC;
   };
 
   // Queue 2 hiCredit
-  struct MTL_TXQ2_HICREDIT_fields_ {
+  struct MtlTxq2HicreditFields {
     // hiCredit Value When the AV feature is enabled, this field contains the hiCredit value required for the credit-based shaper algorithm.
     using HC = ftl::mmio::Field<29, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_HICREDIT_fields_
+  };  // struct MtlTxq2HicreditFields
 
   struct MTL_TXQ2_HICREDIT : ftl::mmio::Register<
       0x4043CDA0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ2_HICREDIT_fields_::HC,
+      MtlTxq2HicreditFields::HC,
       ftl::mmio::Reserved<3, 29>> {
-    using HC = MTL_TXQ2_HICREDIT_fields_::HC;
+    using HC = MtlTxq2HicreditFields::HC;
   };
 
   // Queue 2 loCredit
-  struct MTL_TXQ2_LOCREDIT_fields_ {
+  struct MtlTxq2LocreditFields {
     // loCredit Value When AV operation is enabled, this field contains the loCredit value required for the credit-based shaper algorithm.
     using LC = ftl::mmio::Field<29, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ2_LOCREDIT_fields_
+  };  // struct MtlTxq2LocreditFields
 
   struct MTL_TXQ2_LOCREDIT : ftl::mmio::Register<
       0x4043CDA4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ2_LOCREDIT_fields_::LC,
+      MtlTxq2LocreditFields::LC,
       ftl::mmio::Reserved<3, 29>> {
-    using LC = MTL_TXQ2_LOCREDIT_fields_::LC;
+    using LC = MtlTxq2LocreditFields::LC;
   };
 
   // Queue 2 Interrupt Control Status
-  struct MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_ {
+  struct MtlQ2InterruptControlStatusFields {
     enum class eTXUNFIS : std::uint32_t {
       // Transmit Queue Underflow Interrupt Status not detected
       eINACTIVE = 0,
@@ -17499,39 +17499,39 @@ struct EnetQos {
     using RXOVFIS = ftl::mmio::Field<1, 16, eRXOVFIS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Overflow Interrupt Enable When this bit is set, the Receive Queue Overflow interrupt is enabled.
     using RXOIE = ftl::mmio::Field<1, 24, eRXOIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_
+  };  // struct MtlQ2InterruptControlStatusFields
 
   struct MTL_Q2_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
       0x4043CDACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS,
-      MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS,
+      MtlQ2InterruptControlStatusFields::TXUNFIS,
+      MtlQ2InterruptControlStatusFields::ABPSIS,
       ftl::mmio::Reserved<6, 2>,
-      MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::TXUIE,
-      MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE,
+      MtlQ2InterruptControlStatusFields::TXUIE,
+      MtlQ2InterruptControlStatusFields::ABPSIE,
       ftl::mmio::Reserved<6, 10>,
-      MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS,
+      MtlQ2InterruptControlStatusFields::RXOVFIS,
       ftl::mmio::Reserved<7, 17>,
-      MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::RXOIE,
+      MtlQ2InterruptControlStatusFields::RXOIE,
       ftl::mmio::Reserved<7, 25>> {
-    using eTXUNFIS = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::eTXUNFIS;
-    using eABPSIS = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::eABPSIS;
-    using eTXUIE = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::eTXUIE;
-    using eABPSIE = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::eABPSIE;
-    using eRXOVFIS = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::eRXOVFIS;
-    using eRXOIE = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::eRXOIE;
-    using TXUNFIS = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS;
-    using ABPSIS = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS;
-    using TXUIE = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::TXUIE;
-    using ABPSIE = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE;
-    using RXOVFIS = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS;
-    using RXOIE = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
+    using eTXUNFIS = MtlQ2InterruptControlStatusFields::eTXUNFIS;
+    using eABPSIS = MtlQ2InterruptControlStatusFields::eABPSIS;
+    using eTXUIE = MtlQ2InterruptControlStatusFields::eTXUIE;
+    using eABPSIE = MtlQ2InterruptControlStatusFields::eABPSIE;
+    using eRXOVFIS = MtlQ2InterruptControlStatusFields::eRXOVFIS;
+    using eRXOIE = MtlQ2InterruptControlStatusFields::eRXOIE;
+    using TXUNFIS = MtlQ2InterruptControlStatusFields::TXUNFIS;
+    using ABPSIS = MtlQ2InterruptControlStatusFields::ABPSIS;
+    using TXUIE = MtlQ2InterruptControlStatusFields::TXUIE;
+    using ABPSIE = MtlQ2InterruptControlStatusFields::ABPSIE;
+    using RXOVFIS = MtlQ2InterruptControlStatusFields::RXOVFIS;
+    using RXOIE = MtlQ2InterruptControlStatusFields::RXOIE;
   };
 
   // Queue 2 Receive Operation Mode
-  struct MTL_RXQ2_OPERATION_MODE_fields_ {
+  struct MtlRxq2OperationModeFields {
     enum class eRTC : std::uint32_t {
       // 64
       ebf_64BYTE = 0,
@@ -17596,45 +17596,45 @@ struct EnetQos {
     using RFD = ftl::mmio::Field<4, 14, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Size This field indicates the size of the allocated Receive queues in blocks of 256 bytes.
     using RQS = ftl::mmio::Field<5, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ2_OPERATION_MODE_fields_
+  };  // struct MtlRxq2OperationModeFields
 
   struct MTL_RXQ2_OPERATION_MODE : ftl::mmio::Register<
       0x4043CDB0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ2_OPERATION_MODE_fields_::RTC,
+      MtlRxq2OperationModeFields::RTC,
       ftl::mmio::Reserved<1, 2>,
-      MTL_RXQ2_OPERATION_MODE_fields_::FUP,
-      MTL_RXQ2_OPERATION_MODE_fields_::FEP,
-      MTL_RXQ2_OPERATION_MODE_fields_::RSF,
-      MTL_RXQ2_OPERATION_MODE_fields_::DIS_TCP_EF,
-      MTL_RXQ2_OPERATION_MODE_fields_::EHFC,
-      MTL_RXQ2_OPERATION_MODE_fields_::RFA,
+      MtlRxq2OperationModeFields::FUP,
+      MtlRxq2OperationModeFields::FEP,
+      MtlRxq2OperationModeFields::RSF,
+      MtlRxq2OperationModeFields::DIS_TCP_EF,
+      MtlRxq2OperationModeFields::EHFC,
+      MtlRxq2OperationModeFields::RFA,
       ftl::mmio::Reserved<2, 12>,
-      MTL_RXQ2_OPERATION_MODE_fields_::RFD,
+      MtlRxq2OperationModeFields::RFD,
       ftl::mmio::Reserved<2, 18>,
-      MTL_RXQ2_OPERATION_MODE_fields_::RQS,
+      MtlRxq2OperationModeFields::RQS,
       ftl::mmio::Reserved<7, 25>> {
-    using eRTC = MTL_RXQ2_OPERATION_MODE_fields_::eRTC;
-    using eFUP = MTL_RXQ2_OPERATION_MODE_fields_::eFUP;
-    using eFEP = MTL_RXQ2_OPERATION_MODE_fields_::eFEP;
-    using eRSF = MTL_RXQ2_OPERATION_MODE_fields_::eRSF;
-    using eDIS_TCP_EF = MTL_RXQ2_OPERATION_MODE_fields_::eDIS_TCP_EF;
-    using eEHFC = MTL_RXQ2_OPERATION_MODE_fields_::eEHFC;
-    using RTC = MTL_RXQ2_OPERATION_MODE_fields_::RTC;
-    using FUP = MTL_RXQ2_OPERATION_MODE_fields_::FUP;
-    using FEP = MTL_RXQ2_OPERATION_MODE_fields_::FEP;
-    using RSF = MTL_RXQ2_OPERATION_MODE_fields_::RSF;
-    using DIS_TCP_EF = MTL_RXQ2_OPERATION_MODE_fields_::DIS_TCP_EF;
-    using EHFC = MTL_RXQ2_OPERATION_MODE_fields_::EHFC;
-    using RFA = MTL_RXQ2_OPERATION_MODE_fields_::RFA;
-    using RFD = MTL_RXQ2_OPERATION_MODE_fields_::RFD;
-    using RQS = MTL_RXQ2_OPERATION_MODE_fields_::RQS;
+    using eRTC = MtlRxq2OperationModeFields::eRTC;
+    using eFUP = MtlRxq2OperationModeFields::eFUP;
+    using eFEP = MtlRxq2OperationModeFields::eFEP;
+    using eRSF = MtlRxq2OperationModeFields::eRSF;
+    using eDIS_TCP_EF = MtlRxq2OperationModeFields::eDIS_TCP_EF;
+    using eEHFC = MtlRxq2OperationModeFields::eEHFC;
+    using RTC = MtlRxq2OperationModeFields::RTC;
+    using FUP = MtlRxq2OperationModeFields::FUP;
+    using FEP = MtlRxq2OperationModeFields::FEP;
+    using RSF = MtlRxq2OperationModeFields::RSF;
+    using DIS_TCP_EF = MtlRxq2OperationModeFields::DIS_TCP_EF;
+    using EHFC = MtlRxq2OperationModeFields::EHFC;
+    using RFA = MtlRxq2OperationModeFields::RFA;
+    using RFD = MtlRxq2OperationModeFields::RFD;
+    using RQS = MtlRxq2OperationModeFields::RQS;
   };
 
   // Queue 2 Missed Packet and Overflow Counter
-  struct MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_ {
+  struct MtlRxq2MissedPacketOverflowCntFields {
     enum class eOVFCNTOVF : std::uint32_t {
       // Overflow Counter overflow not detected
       eINACTIVE = 0,
@@ -17657,29 +17657,29 @@ struct EnetQos {
     using MISPKTCNT = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Missed Packet Counter Overflow Bit When set, this bit indicates that the Rx Queue Missed Packet Counter crossed the maximum limit.
     using MISCNTOVF = ftl::mmio::Field<1, 27, eMISCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_
+  };  // struct MtlRxq2MissedPacketOverflowCntFields
 
   struct MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
       0x4043CDB4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT,
-      MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF,
+      MtlRxq2MissedPacketOverflowCntFields::OVFPKTCNT,
+      MtlRxq2MissedPacketOverflowCntFields::OVFCNTOVF,
       ftl::mmio::Reserved<4, 12>,
-      MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT,
-      MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF,
+      MtlRxq2MissedPacketOverflowCntFields::MISPKTCNT,
+      MtlRxq2MissedPacketOverflowCntFields::MISCNTOVF,
       ftl::mmio::Reserved<4, 28>> {
-    using eOVFCNTOVF = MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::eOVFCNTOVF;
-    using eMISCNTOVF = MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::eMISCNTOVF;
-    using OVFPKTCNT = MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT;
-    using OVFCNTOVF = MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF;
-    using MISPKTCNT = MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT;
-    using MISCNTOVF = MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
+    using eOVFCNTOVF = MtlRxq2MissedPacketOverflowCntFields::eOVFCNTOVF;
+    using eMISCNTOVF = MtlRxq2MissedPacketOverflowCntFields::eMISCNTOVF;
+    using OVFPKTCNT = MtlRxq2MissedPacketOverflowCntFields::OVFPKTCNT;
+    using OVFCNTOVF = MtlRxq2MissedPacketOverflowCntFields::OVFCNTOVF;
+    using MISPKTCNT = MtlRxq2MissedPacketOverflowCntFields::MISPKTCNT;
+    using MISCNTOVF = MtlRxq2MissedPacketOverflowCntFields::MISCNTOVF;
   };
 
   // Queue 2 Receive Debug
-  struct MTL_RXQ2_DEBUG_fields_ {
+  struct MtlRxq2DebugFields {
     enum class eRWCSTS : std::uint32_t {
       // MTL Rx Queue Write Controller Active Status not detected
       eINACTIVE = 0,
@@ -17717,31 +17717,31 @@ struct EnetQos {
     using RXQSTS = ftl::mmio::Field<2, 4, eRXQSTS, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Packets in Receive Queue This field indicates the current number of packets in the Rx Queue.
     using PRXQ = ftl::mmio::Field<14, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ2_DEBUG_fields_
+  };  // struct MtlRxq2DebugFields
 
   struct MTL_RXQ2_DEBUG : ftl::mmio::Register<
       0x4043CDB8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ2_DEBUG_fields_::RWCSTS,
-      MTL_RXQ2_DEBUG_fields_::RRCSTS,
+      MtlRxq2DebugFields::RWCSTS,
+      MtlRxq2DebugFields::RRCSTS,
       ftl::mmio::Reserved<1, 3>,
-      MTL_RXQ2_DEBUG_fields_::RXQSTS,
+      MtlRxq2DebugFields::RXQSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_RXQ2_DEBUG_fields_::PRXQ,
+      MtlRxq2DebugFields::PRXQ,
       ftl::mmio::Reserved<2, 30>> {
-    using eRWCSTS = MTL_RXQ2_DEBUG_fields_::eRWCSTS;
-    using eRRCSTS = MTL_RXQ2_DEBUG_fields_::eRRCSTS;
-    using eRXQSTS = MTL_RXQ2_DEBUG_fields_::eRXQSTS;
-    using RWCSTS = MTL_RXQ2_DEBUG_fields_::RWCSTS;
-    using RRCSTS = MTL_RXQ2_DEBUG_fields_::RRCSTS;
-    using RXQSTS = MTL_RXQ2_DEBUG_fields_::RXQSTS;
-    using PRXQ = MTL_RXQ2_DEBUG_fields_::PRXQ;
+    using eRWCSTS = MtlRxq2DebugFields::eRWCSTS;
+    using eRRCSTS = MtlRxq2DebugFields::eRRCSTS;
+    using eRXQSTS = MtlRxq2DebugFields::eRXQSTS;
+    using RWCSTS = MtlRxq2DebugFields::RWCSTS;
+    using RRCSTS = MtlRxq2DebugFields::RRCSTS;
+    using RXQSTS = MtlRxq2DebugFields::RXQSTS;
+    using PRXQ = MtlRxq2DebugFields::PRXQ;
   };
 
   // Queue 2 Receive Control
-  struct MTL_RXQ2_CONTROL_fields_ {
+  struct MtlRxq2ControlFields {
     enum class eRXQ_FRM_ARBIT : std::uint32_t {
       // Receive Queue Packet Arbitration is disabled
       eDISABLE = 0,
@@ -17753,23 +17753,23 @@ struct EnetQos {
     using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
     using RXQ_FRM_ARBIT = ftl::mmio::Field<1, 3, eRXQ_FRM_ARBIT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ2_CONTROL_fields_
+  };  // struct MtlRxq2ControlFields
 
   struct MTL_RXQ2_CONTROL : ftl::mmio::Register<
       0x4043CDBCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ2_CONTROL_fields_::RXQ_WEGT,
-      MTL_RXQ2_CONTROL_fields_::RXQ_FRM_ARBIT,
+      MtlRxq2ControlFields::RXQ_WEGT,
+      MtlRxq2ControlFields::RXQ_FRM_ARBIT,
       ftl::mmio::Reserved<28, 4>> {
-    using eRXQ_FRM_ARBIT = MTL_RXQ2_CONTROL_fields_::eRXQ_FRM_ARBIT;
-    using RXQ_WEGT = MTL_RXQ2_CONTROL_fields_::RXQ_WEGT;
-    using RXQ_FRM_ARBIT = MTL_RXQ2_CONTROL_fields_::RXQ_FRM_ARBIT;
+    using eRXQ_FRM_ARBIT = MtlRxq2ControlFields::eRXQ_FRM_ARBIT;
+    using RXQ_WEGT = MtlRxq2ControlFields::RXQ_WEGT;
+    using RXQ_FRM_ARBIT = MtlRxq2ControlFields::RXQ_FRM_ARBIT;
   };
 
   // Queue 3 Transmit Operation Mode
-  struct MTL_TXQ3_OPERATION_MODE_fields_ {
+  struct MtlTxq3OperationModeFields {
     enum class eFTQ : std::uint32_t {
       // Flush Transmit Queue is disabled
       eDISABLE = 0,
@@ -17822,33 +17822,33 @@ struct EnetQos {
     using TTC = ftl::mmio::Field<3, 4, eTTC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit Queue Size This field indicates the size of the allocated Transmit queues in blocks of 256 bytes.
     using TQS = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_OPERATION_MODE_fields_
+  };  // struct MtlTxq3OperationModeFields
 
   struct MTL_TXQ3_OPERATION_MODE : ftl::mmio::Register<
       0x4043CDC0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ3_OPERATION_MODE_fields_::FTQ,
-      MTL_TXQ3_OPERATION_MODE_fields_::TSF,
-      MTL_TXQ3_OPERATION_MODE_fields_::TXQEN,
-      MTL_TXQ3_OPERATION_MODE_fields_::TTC,
+      MtlTxq3OperationModeFields::FTQ,
+      MtlTxq3OperationModeFields::TSF,
+      MtlTxq3OperationModeFields::TXQEN,
+      MtlTxq3OperationModeFields::TTC,
       ftl::mmio::Reserved<9, 7>,
-      MTL_TXQ3_OPERATION_MODE_fields_::TQS,
+      MtlTxq3OperationModeFields::TQS,
       ftl::mmio::Reserved<11, 21>> {
-    using eFTQ = MTL_TXQ3_OPERATION_MODE_fields_::eFTQ;
-    using eTSF = MTL_TXQ3_OPERATION_MODE_fields_::eTSF;
-    using eTXQEN = MTL_TXQ3_OPERATION_MODE_fields_::eTXQEN;
-    using eTTC = MTL_TXQ3_OPERATION_MODE_fields_::eTTC;
-    using FTQ = MTL_TXQ3_OPERATION_MODE_fields_::FTQ;
-    using TSF = MTL_TXQ3_OPERATION_MODE_fields_::TSF;
-    using TXQEN = MTL_TXQ3_OPERATION_MODE_fields_::TXQEN;
-    using TTC = MTL_TXQ3_OPERATION_MODE_fields_::TTC;
-    using TQS = MTL_TXQ3_OPERATION_MODE_fields_::TQS;
+    using eFTQ = MtlTxq3OperationModeFields::eFTQ;
+    using eTSF = MtlTxq3OperationModeFields::eTSF;
+    using eTXQEN = MtlTxq3OperationModeFields::eTXQEN;
+    using eTTC = MtlTxq3OperationModeFields::eTTC;
+    using FTQ = MtlTxq3OperationModeFields::FTQ;
+    using TSF = MtlTxq3OperationModeFields::TSF;
+    using TXQEN = MtlTxq3OperationModeFields::TXQEN;
+    using TTC = MtlTxq3OperationModeFields::TTC;
+    using TQS = MtlTxq3OperationModeFields::TQS;
   };
 
   // Queue 3 Underflow Counter
-  struct MTL_TXQ3_UNDERFLOW_fields_ {
+  struct MtlTxq3UnderflowFields {
     enum class eUFCNTOVF : std::uint32_t {
       // Overflow not detected for Underflow Packet Counter
       eINACTIVE = 0,
@@ -17860,23 +17860,23 @@ struct EnetQos {
     using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
     using UFCNTOVF = ftl::mmio::Field<1, 11, eUFCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_UNDERFLOW_fields_
+  };  // struct MtlTxq3UnderflowFields
 
   struct MTL_TXQ3_UNDERFLOW : ftl::mmio::Register<
       0x4043CDC4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ3_UNDERFLOW_fields_::UFFRMCNT,
-      MTL_TXQ3_UNDERFLOW_fields_::UFCNTOVF,
+      MtlTxq3UnderflowFields::UFFRMCNT,
+      MtlTxq3UnderflowFields::UFCNTOVF,
       ftl::mmio::Reserved<20, 12>> {
-    using eUFCNTOVF = MTL_TXQ3_UNDERFLOW_fields_::eUFCNTOVF;
-    using UFFRMCNT = MTL_TXQ3_UNDERFLOW_fields_::UFFRMCNT;
-    using UFCNTOVF = MTL_TXQ3_UNDERFLOW_fields_::UFCNTOVF;
+    using eUFCNTOVF = MtlTxq3UnderflowFields::eUFCNTOVF;
+    using UFFRMCNT = MtlTxq3UnderflowFields::UFFRMCNT;
+    using UFCNTOVF = MtlTxq3UnderflowFields::UFCNTOVF;
   };
 
   // Queue 3 Transmit Debug
-  struct MTL_TXQ3_DEBUG_fields_ {
+  struct MtlTxq3DebugFields {
     enum class eTXQPAUSED : std::uint32_t {
       // Transmit Queue in Pause status is not detected
       eINACTIVE = 0,
@@ -17930,39 +17930,39 @@ struct EnetQos {
     using PTXQ = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Status Words in Tx Status FIFO of Queue This field indicates the current number of status in the Tx Status FIFO of this queue.
     using STXSTSF = ftl::mmio::Field<3, 20, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_DEBUG_fields_
+  };  // struct MtlTxq3DebugFields
 
   struct MTL_TXQ3_DEBUG : ftl::mmio::Register<
       0x4043CDC8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ3_DEBUG_fields_::TXQPAUSED,
-      MTL_TXQ3_DEBUG_fields_::TRCSTS,
-      MTL_TXQ3_DEBUG_fields_::TWCSTS,
-      MTL_TXQ3_DEBUG_fields_::TXQSTS,
-      MTL_TXQ3_DEBUG_fields_::TXSTSFSTS,
+      MtlTxq3DebugFields::TXQPAUSED,
+      MtlTxq3DebugFields::TRCSTS,
+      MtlTxq3DebugFields::TWCSTS,
+      MtlTxq3DebugFields::TXQSTS,
+      MtlTxq3DebugFields::TXSTSFSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_TXQ3_DEBUG_fields_::PTXQ,
+      MtlTxq3DebugFields::PTXQ,
       ftl::mmio::Reserved<1, 19>,
-      MTL_TXQ3_DEBUG_fields_::STXSTSF,
+      MtlTxq3DebugFields::STXSTSF,
       ftl::mmio::Reserved<9, 23>> {
-    using eTXQPAUSED = MTL_TXQ3_DEBUG_fields_::eTXQPAUSED;
-    using eTRCSTS = MTL_TXQ3_DEBUG_fields_::eTRCSTS;
-    using eTWCSTS = MTL_TXQ3_DEBUG_fields_::eTWCSTS;
-    using eTXQSTS = MTL_TXQ3_DEBUG_fields_::eTXQSTS;
-    using eTXSTSFSTS = MTL_TXQ3_DEBUG_fields_::eTXSTSFSTS;
-    using TXQPAUSED = MTL_TXQ3_DEBUG_fields_::TXQPAUSED;
-    using TRCSTS = MTL_TXQ3_DEBUG_fields_::TRCSTS;
-    using TWCSTS = MTL_TXQ3_DEBUG_fields_::TWCSTS;
-    using TXQSTS = MTL_TXQ3_DEBUG_fields_::TXQSTS;
-    using TXSTSFSTS = MTL_TXQ3_DEBUG_fields_::TXSTSFSTS;
-    using PTXQ = MTL_TXQ3_DEBUG_fields_::PTXQ;
-    using STXSTSF = MTL_TXQ3_DEBUG_fields_::STXSTSF;
+    using eTXQPAUSED = MtlTxq3DebugFields::eTXQPAUSED;
+    using eTRCSTS = MtlTxq3DebugFields::eTRCSTS;
+    using eTWCSTS = MtlTxq3DebugFields::eTWCSTS;
+    using eTXQSTS = MtlTxq3DebugFields::eTXQSTS;
+    using eTXSTSFSTS = MtlTxq3DebugFields::eTXSTSFSTS;
+    using TXQPAUSED = MtlTxq3DebugFields::TXQPAUSED;
+    using TRCSTS = MtlTxq3DebugFields::TRCSTS;
+    using TWCSTS = MtlTxq3DebugFields::TWCSTS;
+    using TXQSTS = MtlTxq3DebugFields::TXQSTS;
+    using TXSTSFSTS = MtlTxq3DebugFields::TXSTSFSTS;
+    using PTXQ = MtlTxq3DebugFields::PTXQ;
+    using STXSTSF = MtlTxq3DebugFields::STXSTSF;
   };
 
   // Queue 3 ETS Control
-  struct MTL_TXQ3_ETS_CONTROL_fields_ {
+  struct MtlTxq3EtsControlFields {
     enum class eAVALG : std::uint32_t {
       // CBS Algorithm is disabled
       eDISABLE = 0,
@@ -17996,7 +17996,7 @@ struct EnetQos {
     using CC = ftl::mmio::Field<1, 3, eCC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Slot Count If the credit-based shaper algorithm is enabled, the software can program the number of slots (of duration programmed in DMA_CH[N]_SLOT_INTERVAL register) over which the average transmitted bits per slot, provided in the MTL_TXQ[N]_ETS_STATUS register, need to be computed for Queue.
     using SLC = ftl::mmio::Field<3, 4, eSLC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_ETS_CONTROL_fields_
+  };  // struct MtlTxq3EtsControlFields
 
   struct MTL_TXQ3_ETS_CONTROL : ftl::mmio::Register<
       0x4043CDD0u,
@@ -18004,100 +18004,100 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      MTL_TXQ3_ETS_CONTROL_fields_::AVALG,
-      MTL_TXQ3_ETS_CONTROL_fields_::CC,
-      MTL_TXQ3_ETS_CONTROL_fields_::SLC,
+      MtlTxq3EtsControlFields::AVALG,
+      MtlTxq3EtsControlFields::CC,
+      MtlTxq3EtsControlFields::SLC,
       ftl::mmio::Reserved<25, 7>> {
-    using eAVALG = MTL_TXQ3_ETS_CONTROL_fields_::eAVALG;
-    using eCC = MTL_TXQ3_ETS_CONTROL_fields_::eCC;
-    using eSLC = MTL_TXQ3_ETS_CONTROL_fields_::eSLC;
-    using AVALG = MTL_TXQ3_ETS_CONTROL_fields_::AVALG;
-    using CC = MTL_TXQ3_ETS_CONTROL_fields_::CC;
-    using SLC = MTL_TXQ3_ETS_CONTROL_fields_::SLC;
+    using eAVALG = MtlTxq3EtsControlFields::eAVALG;
+    using eCC = MtlTxq3EtsControlFields::eCC;
+    using eSLC = MtlTxq3EtsControlFields::eSLC;
+    using AVALG = MtlTxq3EtsControlFields::AVALG;
+    using CC = MtlTxq3EtsControlFields::CC;
+    using SLC = MtlTxq3EtsControlFields::SLC;
   };
 
   // Queue 3 ETS Status
-  struct MTL_TXQ3_ETS_STATUS_fields_ {
+  struct MtlTxq3EtsStatusFields {
     // Average Bits per Slot This field contains the average transmitted bits per slot.
     using ABS = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_ETS_STATUS_fields_
+  };  // struct MtlTxq3EtsStatusFields
 
   struct MTL_TXQ3_ETS_STATUS : ftl::mmio::Register<
       0x4043CDD4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ3_ETS_STATUS_fields_::ABS,
+      MtlTxq3EtsStatusFields::ABS,
       ftl::mmio::Reserved<8, 24>> {
-    using ABS = MTL_TXQ3_ETS_STATUS_fields_::ABS;
+    using ABS = MtlTxq3EtsStatusFields::ABS;
   };
 
   // Queue 3 idleSlopeCredit, Quantum or Weights
-  struct MTL_TXQ3_QUANTUM_WEIGHT_fields_ {
+  struct MtlTxq3QuantumWeightFields {
     // idleSlopeCredit, Quantum or Weights - idleSlopeCredit When AV feature is enabled, this field contains the idleSlopeCredit value required for the credit-based shaper algorithm for Queue 1.
     using ISCQW = ftl::mmio::Field<21, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_QUANTUM_WEIGHT_fields_
+  };  // struct MtlTxq3QuantumWeightFields
 
   struct MTL_TXQ3_QUANTUM_WEIGHT : ftl::mmio::Register<
       0x4043CDD8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ3_QUANTUM_WEIGHT_fields_::ISCQW,
+      MtlTxq3QuantumWeightFields::ISCQW,
       ftl::mmio::Reserved<11, 21>> {
-    using ISCQW = MTL_TXQ3_QUANTUM_WEIGHT_fields_::ISCQW;
+    using ISCQW = MtlTxq3QuantumWeightFields::ISCQW;
   };
 
   // Queue 3 sendSlopeCredit
-  struct MTL_TXQ3_SENDSLOPECREDIT_fields_ {
+  struct MtlTxq3SendslopecreditFields {
     // sendSlopeCredit Value When AV operation is enabled, this field contains the sendSlopeCredit value required for credit-based shaper algorithm for Queue 1.
     using SSC = ftl::mmio::Field<14, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_SENDSLOPECREDIT_fields_
+  };  // struct MtlTxq3SendslopecreditFields
 
   struct MTL_TXQ3_SENDSLOPECREDIT : ftl::mmio::Register<
       0x4043CDDCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ3_SENDSLOPECREDIT_fields_::SSC,
+      MtlTxq3SendslopecreditFields::SSC,
       ftl::mmio::Reserved<18, 14>> {
-    using SSC = MTL_TXQ3_SENDSLOPECREDIT_fields_::SSC;
+    using SSC = MtlTxq3SendslopecreditFields::SSC;
   };
 
   // Queue 3 hiCredit
-  struct MTL_TXQ3_HICREDIT_fields_ {
+  struct MtlTxq3HicreditFields {
     // hiCredit Value When the AV feature is enabled, this field contains the hiCredit value required for the credit-based shaper algorithm.
     using HC = ftl::mmio::Field<29, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_HICREDIT_fields_
+  };  // struct MtlTxq3HicreditFields
 
   struct MTL_TXQ3_HICREDIT : ftl::mmio::Register<
       0x4043CDE0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ3_HICREDIT_fields_::HC,
+      MtlTxq3HicreditFields::HC,
       ftl::mmio::Reserved<3, 29>> {
-    using HC = MTL_TXQ3_HICREDIT_fields_::HC;
+    using HC = MtlTxq3HicreditFields::HC;
   };
 
   // Queue 3 loCredit
-  struct MTL_TXQ3_LOCREDIT_fields_ {
+  struct MtlTxq3LocreditFields {
     // loCredit Value When AV operation is enabled, this field contains the loCredit value required for the credit-based shaper algorithm.
     using LC = ftl::mmio::Field<29, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ3_LOCREDIT_fields_
+  };  // struct MtlTxq3LocreditFields
 
   struct MTL_TXQ3_LOCREDIT : ftl::mmio::Register<
       0x4043CDE4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ3_LOCREDIT_fields_::LC,
+      MtlTxq3LocreditFields::LC,
       ftl::mmio::Reserved<3, 29>> {
-    using LC = MTL_TXQ3_LOCREDIT_fields_::LC;
+    using LC = MtlTxq3LocreditFields::LC;
   };
 
   // Queue 3 Interrupt Control Status
-  struct MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_ {
+  struct MtlQ3InterruptControlStatusFields {
     enum class eTXUNFIS : std::uint32_t {
       // Transmit Queue Underflow Interrupt Status not detected
       eINACTIVE = 0,
@@ -18152,39 +18152,39 @@ struct EnetQos {
     using RXOVFIS = ftl::mmio::Field<1, 16, eRXOVFIS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Overflow Interrupt Enable When this bit is set, the Receive Queue Overflow interrupt is enabled.
     using RXOIE = ftl::mmio::Field<1, 24, eRXOIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_
+  };  // struct MtlQ3InterruptControlStatusFields
 
   struct MTL_Q3_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
       0x4043CDECu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS,
-      MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS,
+      MtlQ3InterruptControlStatusFields::TXUNFIS,
+      MtlQ3InterruptControlStatusFields::ABPSIS,
       ftl::mmio::Reserved<6, 2>,
-      MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::TXUIE,
-      MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE,
+      MtlQ3InterruptControlStatusFields::TXUIE,
+      MtlQ3InterruptControlStatusFields::ABPSIE,
       ftl::mmio::Reserved<6, 10>,
-      MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS,
+      MtlQ3InterruptControlStatusFields::RXOVFIS,
       ftl::mmio::Reserved<7, 17>,
-      MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::RXOIE,
+      MtlQ3InterruptControlStatusFields::RXOIE,
       ftl::mmio::Reserved<7, 25>> {
-    using eTXUNFIS = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::eTXUNFIS;
-    using eABPSIS = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::eABPSIS;
-    using eTXUIE = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::eTXUIE;
-    using eABPSIE = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::eABPSIE;
-    using eRXOVFIS = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::eRXOVFIS;
-    using eRXOIE = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::eRXOIE;
-    using TXUNFIS = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS;
-    using ABPSIS = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS;
-    using TXUIE = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::TXUIE;
-    using ABPSIE = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE;
-    using RXOVFIS = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS;
-    using RXOIE = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
+    using eTXUNFIS = MtlQ3InterruptControlStatusFields::eTXUNFIS;
+    using eABPSIS = MtlQ3InterruptControlStatusFields::eABPSIS;
+    using eTXUIE = MtlQ3InterruptControlStatusFields::eTXUIE;
+    using eABPSIE = MtlQ3InterruptControlStatusFields::eABPSIE;
+    using eRXOVFIS = MtlQ3InterruptControlStatusFields::eRXOVFIS;
+    using eRXOIE = MtlQ3InterruptControlStatusFields::eRXOIE;
+    using TXUNFIS = MtlQ3InterruptControlStatusFields::TXUNFIS;
+    using ABPSIS = MtlQ3InterruptControlStatusFields::ABPSIS;
+    using TXUIE = MtlQ3InterruptControlStatusFields::TXUIE;
+    using ABPSIE = MtlQ3InterruptControlStatusFields::ABPSIE;
+    using RXOVFIS = MtlQ3InterruptControlStatusFields::RXOVFIS;
+    using RXOIE = MtlQ3InterruptControlStatusFields::RXOIE;
   };
 
   // Queue 3 Receive Operation Mode
-  struct MTL_RXQ3_OPERATION_MODE_fields_ {
+  struct MtlRxq3OperationModeFields {
     enum class eRTC : std::uint32_t {
       // 64
       ebf_64BYTE = 0,
@@ -18249,45 +18249,45 @@ struct EnetQos {
     using RFD = ftl::mmio::Field<4, 14, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Size This field indicates the size of the allocated Receive queues in blocks of 256 bytes.
     using RQS = ftl::mmio::Field<5, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ3_OPERATION_MODE_fields_
+  };  // struct MtlRxq3OperationModeFields
 
   struct MTL_RXQ3_OPERATION_MODE : ftl::mmio::Register<
       0x4043CDF0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ3_OPERATION_MODE_fields_::RTC,
+      MtlRxq3OperationModeFields::RTC,
       ftl::mmio::Reserved<1, 2>,
-      MTL_RXQ3_OPERATION_MODE_fields_::FUP,
-      MTL_RXQ3_OPERATION_MODE_fields_::FEP,
-      MTL_RXQ3_OPERATION_MODE_fields_::RSF,
-      MTL_RXQ3_OPERATION_MODE_fields_::DIS_TCP_EF,
-      MTL_RXQ3_OPERATION_MODE_fields_::EHFC,
-      MTL_RXQ3_OPERATION_MODE_fields_::RFA,
+      MtlRxq3OperationModeFields::FUP,
+      MtlRxq3OperationModeFields::FEP,
+      MtlRxq3OperationModeFields::RSF,
+      MtlRxq3OperationModeFields::DIS_TCP_EF,
+      MtlRxq3OperationModeFields::EHFC,
+      MtlRxq3OperationModeFields::RFA,
       ftl::mmio::Reserved<2, 12>,
-      MTL_RXQ3_OPERATION_MODE_fields_::RFD,
+      MtlRxq3OperationModeFields::RFD,
       ftl::mmio::Reserved<2, 18>,
-      MTL_RXQ3_OPERATION_MODE_fields_::RQS,
+      MtlRxq3OperationModeFields::RQS,
       ftl::mmio::Reserved<7, 25>> {
-    using eRTC = MTL_RXQ3_OPERATION_MODE_fields_::eRTC;
-    using eFUP = MTL_RXQ3_OPERATION_MODE_fields_::eFUP;
-    using eFEP = MTL_RXQ3_OPERATION_MODE_fields_::eFEP;
-    using eRSF = MTL_RXQ3_OPERATION_MODE_fields_::eRSF;
-    using eDIS_TCP_EF = MTL_RXQ3_OPERATION_MODE_fields_::eDIS_TCP_EF;
-    using eEHFC = MTL_RXQ3_OPERATION_MODE_fields_::eEHFC;
-    using RTC = MTL_RXQ3_OPERATION_MODE_fields_::RTC;
-    using FUP = MTL_RXQ3_OPERATION_MODE_fields_::FUP;
-    using FEP = MTL_RXQ3_OPERATION_MODE_fields_::FEP;
-    using RSF = MTL_RXQ3_OPERATION_MODE_fields_::RSF;
-    using DIS_TCP_EF = MTL_RXQ3_OPERATION_MODE_fields_::DIS_TCP_EF;
-    using EHFC = MTL_RXQ3_OPERATION_MODE_fields_::EHFC;
-    using RFA = MTL_RXQ3_OPERATION_MODE_fields_::RFA;
-    using RFD = MTL_RXQ3_OPERATION_MODE_fields_::RFD;
-    using RQS = MTL_RXQ3_OPERATION_MODE_fields_::RQS;
+    using eRTC = MtlRxq3OperationModeFields::eRTC;
+    using eFUP = MtlRxq3OperationModeFields::eFUP;
+    using eFEP = MtlRxq3OperationModeFields::eFEP;
+    using eRSF = MtlRxq3OperationModeFields::eRSF;
+    using eDIS_TCP_EF = MtlRxq3OperationModeFields::eDIS_TCP_EF;
+    using eEHFC = MtlRxq3OperationModeFields::eEHFC;
+    using RTC = MtlRxq3OperationModeFields::RTC;
+    using FUP = MtlRxq3OperationModeFields::FUP;
+    using FEP = MtlRxq3OperationModeFields::FEP;
+    using RSF = MtlRxq3OperationModeFields::RSF;
+    using DIS_TCP_EF = MtlRxq3OperationModeFields::DIS_TCP_EF;
+    using EHFC = MtlRxq3OperationModeFields::EHFC;
+    using RFA = MtlRxq3OperationModeFields::RFA;
+    using RFD = MtlRxq3OperationModeFields::RFD;
+    using RQS = MtlRxq3OperationModeFields::RQS;
   };
 
   // Queue 3 Missed Packet and Overflow Counter
-  struct MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_ {
+  struct MtlRxq3MissedPacketOverflowCntFields {
     enum class eOVFCNTOVF : std::uint32_t {
       // Overflow Counter overflow not detected
       eINACTIVE = 0,
@@ -18310,29 +18310,29 @@ struct EnetQos {
     using MISPKTCNT = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Missed Packet Counter Overflow Bit When set, this bit indicates that the Rx Queue Missed Packet Counter crossed the maximum limit.
     using MISCNTOVF = ftl::mmio::Field<1, 27, eMISCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_
+  };  // struct MtlRxq3MissedPacketOverflowCntFields
 
   struct MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
       0x4043CDF4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT,
-      MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF,
+      MtlRxq3MissedPacketOverflowCntFields::OVFPKTCNT,
+      MtlRxq3MissedPacketOverflowCntFields::OVFCNTOVF,
       ftl::mmio::Reserved<4, 12>,
-      MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT,
-      MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF,
+      MtlRxq3MissedPacketOverflowCntFields::MISPKTCNT,
+      MtlRxq3MissedPacketOverflowCntFields::MISCNTOVF,
       ftl::mmio::Reserved<4, 28>> {
-    using eOVFCNTOVF = MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::eOVFCNTOVF;
-    using eMISCNTOVF = MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::eMISCNTOVF;
-    using OVFPKTCNT = MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT;
-    using OVFCNTOVF = MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF;
-    using MISPKTCNT = MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT;
-    using MISCNTOVF = MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
+    using eOVFCNTOVF = MtlRxq3MissedPacketOverflowCntFields::eOVFCNTOVF;
+    using eMISCNTOVF = MtlRxq3MissedPacketOverflowCntFields::eMISCNTOVF;
+    using OVFPKTCNT = MtlRxq3MissedPacketOverflowCntFields::OVFPKTCNT;
+    using OVFCNTOVF = MtlRxq3MissedPacketOverflowCntFields::OVFCNTOVF;
+    using MISPKTCNT = MtlRxq3MissedPacketOverflowCntFields::MISPKTCNT;
+    using MISCNTOVF = MtlRxq3MissedPacketOverflowCntFields::MISCNTOVF;
   };
 
   // Queue 3 Receive Debug
-  struct MTL_RXQ3_DEBUG_fields_ {
+  struct MtlRxq3DebugFields {
     enum class eRWCSTS : std::uint32_t {
       // MTL Rx Queue Write Controller Active Status not detected
       eINACTIVE = 0,
@@ -18370,31 +18370,31 @@ struct EnetQos {
     using RXQSTS = ftl::mmio::Field<2, 4, eRXQSTS, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Packets in Receive Queue This field indicates the current number of packets in the Rx Queue.
     using PRXQ = ftl::mmio::Field<14, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ3_DEBUG_fields_
+  };  // struct MtlRxq3DebugFields
 
   struct MTL_RXQ3_DEBUG : ftl::mmio::Register<
       0x4043CDF8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ3_DEBUG_fields_::RWCSTS,
-      MTL_RXQ3_DEBUG_fields_::RRCSTS,
+      MtlRxq3DebugFields::RWCSTS,
+      MtlRxq3DebugFields::RRCSTS,
       ftl::mmio::Reserved<1, 3>,
-      MTL_RXQ3_DEBUG_fields_::RXQSTS,
+      MtlRxq3DebugFields::RXQSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_RXQ3_DEBUG_fields_::PRXQ,
+      MtlRxq3DebugFields::PRXQ,
       ftl::mmio::Reserved<2, 30>> {
-    using eRWCSTS = MTL_RXQ3_DEBUG_fields_::eRWCSTS;
-    using eRRCSTS = MTL_RXQ3_DEBUG_fields_::eRRCSTS;
-    using eRXQSTS = MTL_RXQ3_DEBUG_fields_::eRXQSTS;
-    using RWCSTS = MTL_RXQ3_DEBUG_fields_::RWCSTS;
-    using RRCSTS = MTL_RXQ3_DEBUG_fields_::RRCSTS;
-    using RXQSTS = MTL_RXQ3_DEBUG_fields_::RXQSTS;
-    using PRXQ = MTL_RXQ3_DEBUG_fields_::PRXQ;
+    using eRWCSTS = MtlRxq3DebugFields::eRWCSTS;
+    using eRRCSTS = MtlRxq3DebugFields::eRRCSTS;
+    using eRXQSTS = MtlRxq3DebugFields::eRXQSTS;
+    using RWCSTS = MtlRxq3DebugFields::RWCSTS;
+    using RRCSTS = MtlRxq3DebugFields::RRCSTS;
+    using RXQSTS = MtlRxq3DebugFields::RXQSTS;
+    using PRXQ = MtlRxq3DebugFields::PRXQ;
   };
 
   // Queue 3 Receive Control
-  struct MTL_RXQ3_CONTROL_fields_ {
+  struct MtlRxq3ControlFields {
     enum class eRXQ_FRM_ARBIT : std::uint32_t {
       // Receive Queue Packet Arbitration is disabled
       eDISABLE = 0,
@@ -18406,23 +18406,23 @@ struct EnetQos {
     using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
     using RXQ_FRM_ARBIT = ftl::mmio::Field<1, 3, eRXQ_FRM_ARBIT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ3_CONTROL_fields_
+  };  // struct MtlRxq3ControlFields
 
   struct MTL_RXQ3_CONTROL : ftl::mmio::Register<
       0x4043CDFCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ3_CONTROL_fields_::RXQ_WEGT,
-      MTL_RXQ3_CONTROL_fields_::RXQ_FRM_ARBIT,
+      MtlRxq3ControlFields::RXQ_WEGT,
+      MtlRxq3ControlFields::RXQ_FRM_ARBIT,
       ftl::mmio::Reserved<28, 4>> {
-    using eRXQ_FRM_ARBIT = MTL_RXQ3_CONTROL_fields_::eRXQ_FRM_ARBIT;
-    using RXQ_WEGT = MTL_RXQ3_CONTROL_fields_::RXQ_WEGT;
-    using RXQ_FRM_ARBIT = MTL_RXQ3_CONTROL_fields_::RXQ_FRM_ARBIT;
+    using eRXQ_FRM_ARBIT = MtlRxq3ControlFields::eRXQ_FRM_ARBIT;
+    using RXQ_WEGT = MtlRxq3ControlFields::RXQ_WEGT;
+    using RXQ_FRM_ARBIT = MtlRxq3ControlFields::RXQ_FRM_ARBIT;
   };
 
   // Queue 4 Transmit Operation Mode
-  struct MTL_TXQ4_OPERATION_MODE_fields_ {
+  struct MtlTxq4OperationModeFields {
     enum class eFTQ : std::uint32_t {
       // Flush Transmit Queue is disabled
       eDISABLE = 0,
@@ -18475,33 +18475,33 @@ struct EnetQos {
     using TTC = ftl::mmio::Field<3, 4, eTTC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit Queue Size This field indicates the size of the allocated Transmit queues in blocks of 256 bytes.
     using TQS = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_OPERATION_MODE_fields_
+  };  // struct MtlTxq4OperationModeFields
 
   struct MTL_TXQ4_OPERATION_MODE : ftl::mmio::Register<
       0x4043CE00u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ4_OPERATION_MODE_fields_::FTQ,
-      MTL_TXQ4_OPERATION_MODE_fields_::TSF,
-      MTL_TXQ4_OPERATION_MODE_fields_::TXQEN,
-      MTL_TXQ4_OPERATION_MODE_fields_::TTC,
+      MtlTxq4OperationModeFields::FTQ,
+      MtlTxq4OperationModeFields::TSF,
+      MtlTxq4OperationModeFields::TXQEN,
+      MtlTxq4OperationModeFields::TTC,
       ftl::mmio::Reserved<9, 7>,
-      MTL_TXQ4_OPERATION_MODE_fields_::TQS,
+      MtlTxq4OperationModeFields::TQS,
       ftl::mmio::Reserved<11, 21>> {
-    using eFTQ = MTL_TXQ4_OPERATION_MODE_fields_::eFTQ;
-    using eTSF = MTL_TXQ4_OPERATION_MODE_fields_::eTSF;
-    using eTXQEN = MTL_TXQ4_OPERATION_MODE_fields_::eTXQEN;
-    using eTTC = MTL_TXQ4_OPERATION_MODE_fields_::eTTC;
-    using FTQ = MTL_TXQ4_OPERATION_MODE_fields_::FTQ;
-    using TSF = MTL_TXQ4_OPERATION_MODE_fields_::TSF;
-    using TXQEN = MTL_TXQ4_OPERATION_MODE_fields_::TXQEN;
-    using TTC = MTL_TXQ4_OPERATION_MODE_fields_::TTC;
-    using TQS = MTL_TXQ4_OPERATION_MODE_fields_::TQS;
+    using eFTQ = MtlTxq4OperationModeFields::eFTQ;
+    using eTSF = MtlTxq4OperationModeFields::eTSF;
+    using eTXQEN = MtlTxq4OperationModeFields::eTXQEN;
+    using eTTC = MtlTxq4OperationModeFields::eTTC;
+    using FTQ = MtlTxq4OperationModeFields::FTQ;
+    using TSF = MtlTxq4OperationModeFields::TSF;
+    using TXQEN = MtlTxq4OperationModeFields::TXQEN;
+    using TTC = MtlTxq4OperationModeFields::TTC;
+    using TQS = MtlTxq4OperationModeFields::TQS;
   };
 
   // Queue 4 Underflow Counter
-  struct MTL_TXQ4_UNDERFLOW_fields_ {
+  struct MtlTxq4UnderflowFields {
     enum class eUFCNTOVF : std::uint32_t {
       // Overflow not detected for Underflow Packet Counter
       eINACTIVE = 0,
@@ -18513,23 +18513,23 @@ struct EnetQos {
     using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
     using UFCNTOVF = ftl::mmio::Field<1, 11, eUFCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_UNDERFLOW_fields_
+  };  // struct MtlTxq4UnderflowFields
 
   struct MTL_TXQ4_UNDERFLOW : ftl::mmio::Register<
       0x4043CE04u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ4_UNDERFLOW_fields_::UFFRMCNT,
-      MTL_TXQ4_UNDERFLOW_fields_::UFCNTOVF,
+      MtlTxq4UnderflowFields::UFFRMCNT,
+      MtlTxq4UnderflowFields::UFCNTOVF,
       ftl::mmio::Reserved<20, 12>> {
-    using eUFCNTOVF = MTL_TXQ4_UNDERFLOW_fields_::eUFCNTOVF;
-    using UFFRMCNT = MTL_TXQ4_UNDERFLOW_fields_::UFFRMCNT;
-    using UFCNTOVF = MTL_TXQ4_UNDERFLOW_fields_::UFCNTOVF;
+    using eUFCNTOVF = MtlTxq4UnderflowFields::eUFCNTOVF;
+    using UFFRMCNT = MtlTxq4UnderflowFields::UFFRMCNT;
+    using UFCNTOVF = MtlTxq4UnderflowFields::UFCNTOVF;
   };
 
   // Queue 4 Transmit Debug
-  struct MTL_TXQ4_DEBUG_fields_ {
+  struct MtlTxq4DebugFields {
     enum class eTXQPAUSED : std::uint32_t {
       // Transmit Queue in Pause status is not detected
       eINACTIVE = 0,
@@ -18583,39 +18583,39 @@ struct EnetQos {
     using PTXQ = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Status Words in Tx Status FIFO of Queue This field indicates the current number of status in the Tx Status FIFO of this queue.
     using STXSTSF = ftl::mmio::Field<3, 20, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_DEBUG_fields_
+  };  // struct MtlTxq4DebugFields
 
   struct MTL_TXQ4_DEBUG : ftl::mmio::Register<
       0x4043CE08u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ4_DEBUG_fields_::TXQPAUSED,
-      MTL_TXQ4_DEBUG_fields_::TRCSTS,
-      MTL_TXQ4_DEBUG_fields_::TWCSTS,
-      MTL_TXQ4_DEBUG_fields_::TXQSTS,
-      MTL_TXQ4_DEBUG_fields_::TXSTSFSTS,
+      MtlTxq4DebugFields::TXQPAUSED,
+      MtlTxq4DebugFields::TRCSTS,
+      MtlTxq4DebugFields::TWCSTS,
+      MtlTxq4DebugFields::TXQSTS,
+      MtlTxq4DebugFields::TXSTSFSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_TXQ4_DEBUG_fields_::PTXQ,
+      MtlTxq4DebugFields::PTXQ,
       ftl::mmio::Reserved<1, 19>,
-      MTL_TXQ4_DEBUG_fields_::STXSTSF,
+      MtlTxq4DebugFields::STXSTSF,
       ftl::mmio::Reserved<9, 23>> {
-    using eTXQPAUSED = MTL_TXQ4_DEBUG_fields_::eTXQPAUSED;
-    using eTRCSTS = MTL_TXQ4_DEBUG_fields_::eTRCSTS;
-    using eTWCSTS = MTL_TXQ4_DEBUG_fields_::eTWCSTS;
-    using eTXQSTS = MTL_TXQ4_DEBUG_fields_::eTXQSTS;
-    using eTXSTSFSTS = MTL_TXQ4_DEBUG_fields_::eTXSTSFSTS;
-    using TXQPAUSED = MTL_TXQ4_DEBUG_fields_::TXQPAUSED;
-    using TRCSTS = MTL_TXQ4_DEBUG_fields_::TRCSTS;
-    using TWCSTS = MTL_TXQ4_DEBUG_fields_::TWCSTS;
-    using TXQSTS = MTL_TXQ4_DEBUG_fields_::TXQSTS;
-    using TXSTSFSTS = MTL_TXQ4_DEBUG_fields_::TXSTSFSTS;
-    using PTXQ = MTL_TXQ4_DEBUG_fields_::PTXQ;
-    using STXSTSF = MTL_TXQ4_DEBUG_fields_::STXSTSF;
+    using eTXQPAUSED = MtlTxq4DebugFields::eTXQPAUSED;
+    using eTRCSTS = MtlTxq4DebugFields::eTRCSTS;
+    using eTWCSTS = MtlTxq4DebugFields::eTWCSTS;
+    using eTXQSTS = MtlTxq4DebugFields::eTXQSTS;
+    using eTXSTSFSTS = MtlTxq4DebugFields::eTXSTSFSTS;
+    using TXQPAUSED = MtlTxq4DebugFields::TXQPAUSED;
+    using TRCSTS = MtlTxq4DebugFields::TRCSTS;
+    using TWCSTS = MtlTxq4DebugFields::TWCSTS;
+    using TXQSTS = MtlTxq4DebugFields::TXQSTS;
+    using TXSTSFSTS = MtlTxq4DebugFields::TXSTSFSTS;
+    using PTXQ = MtlTxq4DebugFields::PTXQ;
+    using STXSTSF = MtlTxq4DebugFields::STXSTSF;
   };
 
   // Queue 4 ETS Control
-  struct MTL_TXQ4_ETS_CONTROL_fields_ {
+  struct MtlTxq4EtsControlFields {
     enum class eAVALG : std::uint32_t {
       // CBS Algorithm is disabled
       eDISABLE = 0,
@@ -18649,7 +18649,7 @@ struct EnetQos {
     using CC = ftl::mmio::Field<1, 3, eCC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Slot Count If the credit-based shaper algorithm is enabled, the software can program the number of slots (of duration programmed in DMA_CH[N]_SLOT_INTERVAL register) over which the average transmitted bits per slot, provided in the MTL_TXQ[N]_ETS_STATUS register, need to be computed for Queue.
     using SLC = ftl::mmio::Field<3, 4, eSLC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_ETS_CONTROL_fields_
+  };  // struct MtlTxq4EtsControlFields
 
   struct MTL_TXQ4_ETS_CONTROL : ftl::mmio::Register<
       0x4043CE10u,
@@ -18657,100 +18657,100 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      MTL_TXQ4_ETS_CONTROL_fields_::AVALG,
-      MTL_TXQ4_ETS_CONTROL_fields_::CC,
-      MTL_TXQ4_ETS_CONTROL_fields_::SLC,
+      MtlTxq4EtsControlFields::AVALG,
+      MtlTxq4EtsControlFields::CC,
+      MtlTxq4EtsControlFields::SLC,
       ftl::mmio::Reserved<25, 7>> {
-    using eAVALG = MTL_TXQ4_ETS_CONTROL_fields_::eAVALG;
-    using eCC = MTL_TXQ4_ETS_CONTROL_fields_::eCC;
-    using eSLC = MTL_TXQ4_ETS_CONTROL_fields_::eSLC;
-    using AVALG = MTL_TXQ4_ETS_CONTROL_fields_::AVALG;
-    using CC = MTL_TXQ4_ETS_CONTROL_fields_::CC;
-    using SLC = MTL_TXQ4_ETS_CONTROL_fields_::SLC;
+    using eAVALG = MtlTxq4EtsControlFields::eAVALG;
+    using eCC = MtlTxq4EtsControlFields::eCC;
+    using eSLC = MtlTxq4EtsControlFields::eSLC;
+    using AVALG = MtlTxq4EtsControlFields::AVALG;
+    using CC = MtlTxq4EtsControlFields::CC;
+    using SLC = MtlTxq4EtsControlFields::SLC;
   };
 
   // Queue 4 ETS Status
-  struct MTL_TXQ4_ETS_STATUS_fields_ {
+  struct MtlTxq4EtsStatusFields {
     // Average Bits per Slot This field contains the average transmitted bits per slot.
     using ABS = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_ETS_STATUS_fields_
+  };  // struct MtlTxq4EtsStatusFields
 
   struct MTL_TXQ4_ETS_STATUS : ftl::mmio::Register<
       0x4043CE14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_TXQ4_ETS_STATUS_fields_::ABS,
+      MtlTxq4EtsStatusFields::ABS,
       ftl::mmio::Reserved<8, 24>> {
-    using ABS = MTL_TXQ4_ETS_STATUS_fields_::ABS;
+    using ABS = MtlTxq4EtsStatusFields::ABS;
   };
 
   // Queue 4 idleSlopeCredit, Quantum or Weights
-  struct MTL_TXQ4_QUANTUM_WEIGHT_fields_ {
+  struct MtlTxq4QuantumWeightFields {
     // idleSlopeCredit, Quantum or Weights - idleSlopeCredit When AV feature is enabled, this field contains the idleSlopeCredit value required for the credit-based shaper algorithm for Queue 1.
     using ISCQW = ftl::mmio::Field<21, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_QUANTUM_WEIGHT_fields_
+  };  // struct MtlTxq4QuantumWeightFields
 
   struct MTL_TXQ4_QUANTUM_WEIGHT : ftl::mmio::Register<
       0x4043CE18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ4_QUANTUM_WEIGHT_fields_::ISCQW,
+      MtlTxq4QuantumWeightFields::ISCQW,
       ftl::mmio::Reserved<11, 21>> {
-    using ISCQW = MTL_TXQ4_QUANTUM_WEIGHT_fields_::ISCQW;
+    using ISCQW = MtlTxq4QuantumWeightFields::ISCQW;
   };
 
   // Queue 4 sendSlopeCredit
-  struct MTL_TXQ4_SENDSLOPECREDIT_fields_ {
+  struct MtlTxq4SendslopecreditFields {
     // sendSlopeCredit Value When AV operation is enabled, this field contains the sendSlopeCredit value required for credit-based shaper algorithm for Queue 1.
     using SSC = ftl::mmio::Field<14, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_SENDSLOPECREDIT_fields_
+  };  // struct MtlTxq4SendslopecreditFields
 
   struct MTL_TXQ4_SENDSLOPECREDIT : ftl::mmio::Register<
       0x4043CE1Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ4_SENDSLOPECREDIT_fields_::SSC,
+      MtlTxq4SendslopecreditFields::SSC,
       ftl::mmio::Reserved<18, 14>> {
-    using SSC = MTL_TXQ4_SENDSLOPECREDIT_fields_::SSC;
+    using SSC = MtlTxq4SendslopecreditFields::SSC;
   };
 
   // Queue 4 hiCredit
-  struct MTL_TXQ4_HICREDIT_fields_ {
+  struct MtlTxq4HicreditFields {
     // hiCredit Value When the AV feature is enabled, this field contains the hiCredit value required for the credit-based shaper algorithm.
     using HC = ftl::mmio::Field<29, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_HICREDIT_fields_
+  };  // struct MtlTxq4HicreditFields
 
   struct MTL_TXQ4_HICREDIT : ftl::mmio::Register<
       0x4043CE20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ4_HICREDIT_fields_::HC,
+      MtlTxq4HicreditFields::HC,
       ftl::mmio::Reserved<3, 29>> {
-    using HC = MTL_TXQ4_HICREDIT_fields_::HC;
+    using HC = MtlTxq4HicreditFields::HC;
   };
 
   // Queue 4 loCredit
-  struct MTL_TXQ4_LOCREDIT_fields_ {
+  struct MtlTxq4LocreditFields {
     // loCredit Value When AV operation is enabled, this field contains the loCredit value required for the credit-based shaper algorithm.
     using LC = ftl::mmio::Field<29, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_TXQ4_LOCREDIT_fields_
+  };  // struct MtlTxq4LocreditFields
 
   struct MTL_TXQ4_LOCREDIT : ftl::mmio::Register<
       0x4043CE24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_TXQ4_LOCREDIT_fields_::LC,
+      MtlTxq4LocreditFields::LC,
       ftl::mmio::Reserved<3, 29>> {
-    using LC = MTL_TXQ4_LOCREDIT_fields_::LC;
+    using LC = MtlTxq4LocreditFields::LC;
   };
 
   // Queue 4 Interrupt Control Status
-  struct MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_ {
+  struct MtlQ4InterruptControlStatusFields {
     enum class eTXUNFIS : std::uint32_t {
       // Transmit Queue Underflow Interrupt Status not detected
       eINACTIVE = 0,
@@ -18805,39 +18805,39 @@ struct EnetQos {
     using RXOVFIS = ftl::mmio::Field<1, 16, eRXOVFIS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Overflow Interrupt Enable When this bit is set, the Receive Queue Overflow interrupt is enabled.
     using RXOIE = ftl::mmio::Field<1, 24, eRXOIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_
+  };  // struct MtlQ4InterruptControlStatusFields
 
   struct MTL_Q4_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
       0x4043CE2Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS,
-      MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS,
+      MtlQ4InterruptControlStatusFields::TXUNFIS,
+      MtlQ4InterruptControlStatusFields::ABPSIS,
       ftl::mmio::Reserved<6, 2>,
-      MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::TXUIE,
-      MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE,
+      MtlQ4InterruptControlStatusFields::TXUIE,
+      MtlQ4InterruptControlStatusFields::ABPSIE,
       ftl::mmio::Reserved<6, 10>,
-      MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS,
+      MtlQ4InterruptControlStatusFields::RXOVFIS,
       ftl::mmio::Reserved<7, 17>,
-      MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::RXOIE,
+      MtlQ4InterruptControlStatusFields::RXOIE,
       ftl::mmio::Reserved<7, 25>> {
-    using eTXUNFIS = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::eTXUNFIS;
-    using eABPSIS = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::eABPSIS;
-    using eTXUIE = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::eTXUIE;
-    using eABPSIE = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::eABPSIE;
-    using eRXOVFIS = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::eRXOVFIS;
-    using eRXOIE = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::eRXOIE;
-    using TXUNFIS = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::TXUNFIS;
-    using ABPSIS = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::ABPSIS;
-    using TXUIE = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::TXUIE;
-    using ABPSIE = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::ABPSIE;
-    using RXOVFIS = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::RXOVFIS;
-    using RXOIE = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
+    using eTXUNFIS = MtlQ4InterruptControlStatusFields::eTXUNFIS;
+    using eABPSIS = MtlQ4InterruptControlStatusFields::eABPSIS;
+    using eTXUIE = MtlQ4InterruptControlStatusFields::eTXUIE;
+    using eABPSIE = MtlQ4InterruptControlStatusFields::eABPSIE;
+    using eRXOVFIS = MtlQ4InterruptControlStatusFields::eRXOVFIS;
+    using eRXOIE = MtlQ4InterruptControlStatusFields::eRXOIE;
+    using TXUNFIS = MtlQ4InterruptControlStatusFields::TXUNFIS;
+    using ABPSIS = MtlQ4InterruptControlStatusFields::ABPSIS;
+    using TXUIE = MtlQ4InterruptControlStatusFields::TXUIE;
+    using ABPSIE = MtlQ4InterruptControlStatusFields::ABPSIE;
+    using RXOVFIS = MtlQ4InterruptControlStatusFields::RXOVFIS;
+    using RXOIE = MtlQ4InterruptControlStatusFields::RXOIE;
   };
 
   // Queue 4 Receive Operation Mode
-  struct MTL_RXQ4_OPERATION_MODE_fields_ {
+  struct MtlRxq4OperationModeFields {
     enum class eRTC : std::uint32_t {
       // 64
       ebf_64BYTE = 0,
@@ -18902,45 +18902,45 @@ struct EnetQos {
     using RFD = ftl::mmio::Field<4, 14, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Size This field indicates the size of the allocated Receive queues in blocks of 256 bytes.
     using RQS = ftl::mmio::Field<5, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ4_OPERATION_MODE_fields_
+  };  // struct MtlRxq4OperationModeFields
 
   struct MTL_RXQ4_OPERATION_MODE : ftl::mmio::Register<
       0x4043CE30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ4_OPERATION_MODE_fields_::RTC,
+      MtlRxq4OperationModeFields::RTC,
       ftl::mmio::Reserved<1, 2>,
-      MTL_RXQ4_OPERATION_MODE_fields_::FUP,
-      MTL_RXQ4_OPERATION_MODE_fields_::FEP,
-      MTL_RXQ4_OPERATION_MODE_fields_::RSF,
-      MTL_RXQ4_OPERATION_MODE_fields_::DIS_TCP_EF,
-      MTL_RXQ4_OPERATION_MODE_fields_::EHFC,
-      MTL_RXQ4_OPERATION_MODE_fields_::RFA,
+      MtlRxq4OperationModeFields::FUP,
+      MtlRxq4OperationModeFields::FEP,
+      MtlRxq4OperationModeFields::RSF,
+      MtlRxq4OperationModeFields::DIS_TCP_EF,
+      MtlRxq4OperationModeFields::EHFC,
+      MtlRxq4OperationModeFields::RFA,
       ftl::mmio::Reserved<2, 12>,
-      MTL_RXQ4_OPERATION_MODE_fields_::RFD,
+      MtlRxq4OperationModeFields::RFD,
       ftl::mmio::Reserved<2, 18>,
-      MTL_RXQ4_OPERATION_MODE_fields_::RQS,
+      MtlRxq4OperationModeFields::RQS,
       ftl::mmio::Reserved<7, 25>> {
-    using eRTC = MTL_RXQ4_OPERATION_MODE_fields_::eRTC;
-    using eFUP = MTL_RXQ4_OPERATION_MODE_fields_::eFUP;
-    using eFEP = MTL_RXQ4_OPERATION_MODE_fields_::eFEP;
-    using eRSF = MTL_RXQ4_OPERATION_MODE_fields_::eRSF;
-    using eDIS_TCP_EF = MTL_RXQ4_OPERATION_MODE_fields_::eDIS_TCP_EF;
-    using eEHFC = MTL_RXQ4_OPERATION_MODE_fields_::eEHFC;
-    using RTC = MTL_RXQ4_OPERATION_MODE_fields_::RTC;
-    using FUP = MTL_RXQ4_OPERATION_MODE_fields_::FUP;
-    using FEP = MTL_RXQ4_OPERATION_MODE_fields_::FEP;
-    using RSF = MTL_RXQ4_OPERATION_MODE_fields_::RSF;
-    using DIS_TCP_EF = MTL_RXQ4_OPERATION_MODE_fields_::DIS_TCP_EF;
-    using EHFC = MTL_RXQ4_OPERATION_MODE_fields_::EHFC;
-    using RFA = MTL_RXQ4_OPERATION_MODE_fields_::RFA;
-    using RFD = MTL_RXQ4_OPERATION_MODE_fields_::RFD;
-    using RQS = MTL_RXQ4_OPERATION_MODE_fields_::RQS;
+    using eRTC = MtlRxq4OperationModeFields::eRTC;
+    using eFUP = MtlRxq4OperationModeFields::eFUP;
+    using eFEP = MtlRxq4OperationModeFields::eFEP;
+    using eRSF = MtlRxq4OperationModeFields::eRSF;
+    using eDIS_TCP_EF = MtlRxq4OperationModeFields::eDIS_TCP_EF;
+    using eEHFC = MtlRxq4OperationModeFields::eEHFC;
+    using RTC = MtlRxq4OperationModeFields::RTC;
+    using FUP = MtlRxq4OperationModeFields::FUP;
+    using FEP = MtlRxq4OperationModeFields::FEP;
+    using RSF = MtlRxq4OperationModeFields::RSF;
+    using DIS_TCP_EF = MtlRxq4OperationModeFields::DIS_TCP_EF;
+    using EHFC = MtlRxq4OperationModeFields::EHFC;
+    using RFA = MtlRxq4OperationModeFields::RFA;
+    using RFD = MtlRxq4OperationModeFields::RFD;
+    using RQS = MtlRxq4OperationModeFields::RQS;
   };
 
   // Queue 4 Missed Packet and Overflow Counter
-  struct MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_ {
+  struct MtlRxq4MissedPacketOverflowCntFields {
     enum class eOVFCNTOVF : std::uint32_t {
       // Overflow Counter overflow not detected
       eINACTIVE = 0,
@@ -18963,29 +18963,29 @@ struct EnetQos {
     using MISPKTCNT = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Missed Packet Counter Overflow Bit When set, this bit indicates that the Rx Queue Missed Packet Counter crossed the maximum limit.
     using MISCNTOVF = ftl::mmio::Field<1, 27, eMISCNTOVF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_
+  };  // struct MtlRxq4MissedPacketOverflowCntFields
 
   struct MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
       0x4043CE34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT,
-      MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF,
+      MtlRxq4MissedPacketOverflowCntFields::OVFPKTCNT,
+      MtlRxq4MissedPacketOverflowCntFields::OVFCNTOVF,
       ftl::mmio::Reserved<4, 12>,
-      MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT,
-      MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF,
+      MtlRxq4MissedPacketOverflowCntFields::MISPKTCNT,
+      MtlRxq4MissedPacketOverflowCntFields::MISCNTOVF,
       ftl::mmio::Reserved<4, 28>> {
-    using eOVFCNTOVF = MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::eOVFCNTOVF;
-    using eMISCNTOVF = MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::eMISCNTOVF;
-    using OVFPKTCNT = MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFPKTCNT;
-    using OVFCNTOVF = MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::OVFCNTOVF;
-    using MISPKTCNT = MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::MISPKTCNT;
-    using MISCNTOVF = MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
+    using eOVFCNTOVF = MtlRxq4MissedPacketOverflowCntFields::eOVFCNTOVF;
+    using eMISCNTOVF = MtlRxq4MissedPacketOverflowCntFields::eMISCNTOVF;
+    using OVFPKTCNT = MtlRxq4MissedPacketOverflowCntFields::OVFPKTCNT;
+    using OVFCNTOVF = MtlRxq4MissedPacketOverflowCntFields::OVFCNTOVF;
+    using MISPKTCNT = MtlRxq4MissedPacketOverflowCntFields::MISPKTCNT;
+    using MISCNTOVF = MtlRxq4MissedPacketOverflowCntFields::MISCNTOVF;
   };
 
   // Queue 4 Receive Debug
-  struct MTL_RXQ4_DEBUG_fields_ {
+  struct MtlRxq4DebugFields {
     enum class eRWCSTS : std::uint32_t {
       // MTL Rx Queue Write Controller Active Status not detected
       eINACTIVE = 0,
@@ -19023,31 +19023,31 @@ struct EnetQos {
     using RXQSTS = ftl::mmio::Field<2, 4, eRXQSTS, ftl::mmio::RO, ftl::mmio::Normal>;
     // Number of Packets in Receive Queue This field indicates the current number of packets in the Rx Queue.
     using PRXQ = ftl::mmio::Field<14, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ4_DEBUG_fields_
+  };  // struct MtlRxq4DebugFields
 
   struct MTL_RXQ4_DEBUG : ftl::mmio::Register<
       0x4043CE38u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      MTL_RXQ4_DEBUG_fields_::RWCSTS,
-      MTL_RXQ4_DEBUG_fields_::RRCSTS,
+      MtlRxq4DebugFields::RWCSTS,
+      MtlRxq4DebugFields::RRCSTS,
       ftl::mmio::Reserved<1, 3>,
-      MTL_RXQ4_DEBUG_fields_::RXQSTS,
+      MtlRxq4DebugFields::RXQSTS,
       ftl::mmio::Reserved<10, 6>,
-      MTL_RXQ4_DEBUG_fields_::PRXQ,
+      MtlRxq4DebugFields::PRXQ,
       ftl::mmio::Reserved<2, 30>> {
-    using eRWCSTS = MTL_RXQ4_DEBUG_fields_::eRWCSTS;
-    using eRRCSTS = MTL_RXQ4_DEBUG_fields_::eRRCSTS;
-    using eRXQSTS = MTL_RXQ4_DEBUG_fields_::eRXQSTS;
-    using RWCSTS = MTL_RXQ4_DEBUG_fields_::RWCSTS;
-    using RRCSTS = MTL_RXQ4_DEBUG_fields_::RRCSTS;
-    using RXQSTS = MTL_RXQ4_DEBUG_fields_::RXQSTS;
-    using PRXQ = MTL_RXQ4_DEBUG_fields_::PRXQ;
+    using eRWCSTS = MtlRxq4DebugFields::eRWCSTS;
+    using eRRCSTS = MtlRxq4DebugFields::eRRCSTS;
+    using eRXQSTS = MtlRxq4DebugFields::eRXQSTS;
+    using RWCSTS = MtlRxq4DebugFields::RWCSTS;
+    using RRCSTS = MtlRxq4DebugFields::RRCSTS;
+    using RXQSTS = MtlRxq4DebugFields::RXQSTS;
+    using PRXQ = MtlRxq4DebugFields::PRXQ;
   };
 
   // Queue 4 Receive Control
-  struct MTL_RXQ4_CONTROL_fields_ {
+  struct MtlRxq4ControlFields {
     enum class eRXQ_FRM_ARBIT : std::uint32_t {
       // Receive Queue Packet Arbitration is disabled
       eDISABLE = 0,
@@ -19059,23 +19059,23 @@ struct EnetQos {
     using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
     using RXQ_FRM_ARBIT = ftl::mmio::Field<1, 3, eRXQ_FRM_ARBIT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MTL_RXQ4_CONTROL_fields_
+  };  // struct MtlRxq4ControlFields
 
   struct MTL_RXQ4_CONTROL : ftl::mmio::Register<
       0x4043CE3Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      MTL_RXQ4_CONTROL_fields_::RXQ_WEGT,
-      MTL_RXQ4_CONTROL_fields_::RXQ_FRM_ARBIT,
+      MtlRxq4ControlFields::RXQ_WEGT,
+      MtlRxq4ControlFields::RXQ_FRM_ARBIT,
       ftl::mmio::Reserved<28, 4>> {
-    using eRXQ_FRM_ARBIT = MTL_RXQ4_CONTROL_fields_::eRXQ_FRM_ARBIT;
-    using RXQ_WEGT = MTL_RXQ4_CONTROL_fields_::RXQ_WEGT;
-    using RXQ_FRM_ARBIT = MTL_RXQ4_CONTROL_fields_::RXQ_FRM_ARBIT;
+    using eRXQ_FRM_ARBIT = MtlRxq4ControlFields::eRXQ_FRM_ARBIT;
+    using RXQ_WEGT = MtlRxq4ControlFields::RXQ_WEGT;
+    using RXQ_FRM_ARBIT = MtlRxq4ControlFields::RXQ_FRM_ARBIT;
   };
 
   // DMA Bus Mode
-  struct DMA_MODE_fields_ {
+  struct DmaModeFields {
     enum class eSWR : std::uint32_t {
       // Software Reset is disabled
       eDISABLE = 0,
@@ -19105,29 +19105,29 @@ struct EnetQos {
     using DSPW = ftl::mmio::Field<1, 8, eDSPW, ftl::mmio::RW, ftl::mmio::Normal>;
     // Interrupt Mode This field defines the interrupt mode of DWC_ether_qos.
     using INTM = ftl::mmio::Field<2, 16, eINTM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_MODE_fields_
+  };  // struct DmaModeFields
 
   struct DMA_MODE : ftl::mmio::Register<
       0x4043D000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_MODE_fields_::SWR,
+      DmaModeFields::SWR,
       ftl::mmio::Reserved<7, 1>,
-      DMA_MODE_fields_::DSPW,
+      DmaModeFields::DSPW,
       ftl::mmio::Reserved<7, 9>,
-      DMA_MODE_fields_::INTM,
+      DmaModeFields::INTM,
       ftl::mmio::Reserved<14, 18>> {
-    using eSWR = DMA_MODE_fields_::eSWR;
-    using eDSPW = DMA_MODE_fields_::eDSPW;
-    using eINTM = DMA_MODE_fields_::eINTM;
-    using SWR = DMA_MODE_fields_::SWR;
-    using DSPW = DMA_MODE_fields_::DSPW;
-    using INTM = DMA_MODE_fields_::INTM;
+    using eSWR = DmaModeFields::eSWR;
+    using eDSPW = DmaModeFields::eDSPW;
+    using eINTM = DmaModeFields::eINTM;
+    using SWR = DmaModeFields::SWR;
+    using DSPW = DmaModeFields::DSPW;
+    using INTM = DmaModeFields::INTM;
   };
 
   // DMA System Bus Mode
-  struct DMA_SYSBUS_MODE_fields_ {
+  struct DmaSysbusModeFields {
     enum class eFB : std::uint32_t {
       // Fixed Burst Length is disabled
       eDISABLE = 0,
@@ -19213,53 +19213,53 @@ struct EnetQos {
     using LPI_XIT_PKT = ftl::mmio::Field<1, 30, eLPI_XIT_PKT, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Low Power Interface (LPI) When set to 1, this bit enables the LPI mode supported by the EQOS-AXI configuration and accepts the LPI request from the AXI System Clock controller.
     using EN_LPI = ftl::mmio::Field<1, 31, eEN_LPI, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_SYSBUS_MODE_fields_
+  };  // struct DmaSysbusModeFields
 
   struct DMA_SYSBUS_MODE : ftl::mmio::Register<
       0x4043D004u,
       std::uint32_t,
       0x01010000u,
       ftl::mmio::RW,
-      DMA_SYSBUS_MODE_fields_::FB,
-      DMA_SYSBUS_MODE_fields_::BLEN4,
-      DMA_SYSBUS_MODE_fields_::BLEN8,
-      DMA_SYSBUS_MODE_fields_::BLEN16,
+      DmaSysbusModeFields::FB,
+      DmaSysbusModeFields::BLEN4,
+      DmaSysbusModeFields::BLEN8,
+      DmaSysbusModeFields::BLEN16,
       ftl::mmio::Reserved<6, 4>,
-      DMA_SYSBUS_MODE_fields_::AALE,
+      DmaSysbusModeFields::AALE,
       ftl::mmio::Reserved<1, 11>,
-      DMA_SYSBUS_MODE_fields_::AAL,
-      DMA_SYSBUS_MODE_fields_::ONEKBBE,
+      DmaSysbusModeFields::AAL,
+      DmaSysbusModeFields::ONEKBBE,
       ftl::mmio::Reserved<2, 14>,
-      DMA_SYSBUS_MODE_fields_::RD_OSR_LMT,
+      DmaSysbusModeFields::RD_OSR_LMT,
       ftl::mmio::Reserved<4, 20>,
-      DMA_SYSBUS_MODE_fields_::WR_OSR_LMT,
+      DmaSysbusModeFields::WR_OSR_LMT,
       ftl::mmio::Reserved<2, 28>,
-      DMA_SYSBUS_MODE_fields_::LPI_XIT_PKT,
-      DMA_SYSBUS_MODE_fields_::EN_LPI> {
-    using eFB = DMA_SYSBUS_MODE_fields_::eFB;
-    using eBLEN4 = DMA_SYSBUS_MODE_fields_::eBLEN4;
-    using eBLEN8 = DMA_SYSBUS_MODE_fields_::eBLEN8;
-    using eBLEN16 = DMA_SYSBUS_MODE_fields_::eBLEN16;
-    using eAALE = DMA_SYSBUS_MODE_fields_::eAALE;
-    using eAAL = DMA_SYSBUS_MODE_fields_::eAAL;
-    using eONEKBBE = DMA_SYSBUS_MODE_fields_::eONEKBBE;
-    using eLPI_XIT_PKT = DMA_SYSBUS_MODE_fields_::eLPI_XIT_PKT;
-    using eEN_LPI = DMA_SYSBUS_MODE_fields_::eEN_LPI;
-    using FB = DMA_SYSBUS_MODE_fields_::FB;
-    using BLEN4 = DMA_SYSBUS_MODE_fields_::BLEN4;
-    using BLEN8 = DMA_SYSBUS_MODE_fields_::BLEN8;
-    using BLEN16 = DMA_SYSBUS_MODE_fields_::BLEN16;
-    using AALE = DMA_SYSBUS_MODE_fields_::AALE;
-    using AAL = DMA_SYSBUS_MODE_fields_::AAL;
-    using ONEKBBE = DMA_SYSBUS_MODE_fields_::ONEKBBE;
-    using RD_OSR_LMT = DMA_SYSBUS_MODE_fields_::RD_OSR_LMT;
-    using WR_OSR_LMT = DMA_SYSBUS_MODE_fields_::WR_OSR_LMT;
-    using LPI_XIT_PKT = DMA_SYSBUS_MODE_fields_::LPI_XIT_PKT;
-    using EN_LPI = DMA_SYSBUS_MODE_fields_::EN_LPI;
+      DmaSysbusModeFields::LPI_XIT_PKT,
+      DmaSysbusModeFields::EN_LPI> {
+    using eFB = DmaSysbusModeFields::eFB;
+    using eBLEN4 = DmaSysbusModeFields::eBLEN4;
+    using eBLEN8 = DmaSysbusModeFields::eBLEN8;
+    using eBLEN16 = DmaSysbusModeFields::eBLEN16;
+    using eAALE = DmaSysbusModeFields::eAALE;
+    using eAAL = DmaSysbusModeFields::eAAL;
+    using eONEKBBE = DmaSysbusModeFields::eONEKBBE;
+    using eLPI_XIT_PKT = DmaSysbusModeFields::eLPI_XIT_PKT;
+    using eEN_LPI = DmaSysbusModeFields::eEN_LPI;
+    using FB = DmaSysbusModeFields::FB;
+    using BLEN4 = DmaSysbusModeFields::BLEN4;
+    using BLEN8 = DmaSysbusModeFields::BLEN8;
+    using BLEN16 = DmaSysbusModeFields::BLEN16;
+    using AALE = DmaSysbusModeFields::AALE;
+    using AAL = DmaSysbusModeFields::AAL;
+    using ONEKBBE = DmaSysbusModeFields::ONEKBBE;
+    using RD_OSR_LMT = DmaSysbusModeFields::RD_OSR_LMT;
+    using WR_OSR_LMT = DmaSysbusModeFields::WR_OSR_LMT;
+    using LPI_XIT_PKT = DmaSysbusModeFields::LPI_XIT_PKT;
+    using EN_LPI = DmaSysbusModeFields::EN_LPI;
   };
 
   // DMA Interrupt Status
-  struct DMA_INTERRUPT_STATUS_fields_ {
+  struct DmaInterruptStatusFields {
     enum class eDC0IS : std::uint32_t {
       // DMA Channel 0 Interrupt Status not detected
       eINACTIVE = 0,
@@ -19323,40 +19323,40 @@ struct EnetQos {
     using MTLIS = ftl::mmio::Field<1, 16, eMTLIS, ftl::mmio::RO, ftl::mmio::Normal>;
     // MAC Interrupt Status This bit indicates an interrupt event in the MAC.
     using MACIS = ftl::mmio::Field<1, 17, eMACIS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_INTERRUPT_STATUS_fields_
+  };  // struct DmaInterruptStatusFields
 
   struct DMA_INTERRUPT_STATUS : ftl::mmio::Register<
       0x4043D008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_INTERRUPT_STATUS_fields_::DC0IS,
-      DMA_INTERRUPT_STATUS_fields_::DC1IS,
-      DMA_INTERRUPT_STATUS_fields_::DC2IS,
-      DMA_INTERRUPT_STATUS_fields_::DC3IS,
-      DMA_INTERRUPT_STATUS_fields_::DC4IS,
+      DmaInterruptStatusFields::DC0IS,
+      DmaInterruptStatusFields::DC1IS,
+      DmaInterruptStatusFields::DC2IS,
+      DmaInterruptStatusFields::DC3IS,
+      DmaInterruptStatusFields::DC4IS,
       ftl::mmio::Reserved<11, 5>,
-      DMA_INTERRUPT_STATUS_fields_::MTLIS,
-      DMA_INTERRUPT_STATUS_fields_::MACIS,
+      DmaInterruptStatusFields::MTLIS,
+      DmaInterruptStatusFields::MACIS,
       ftl::mmio::Reserved<14, 18>> {
-    using eDC0IS = DMA_INTERRUPT_STATUS_fields_::eDC0IS;
-    using eDC1IS = DMA_INTERRUPT_STATUS_fields_::eDC1IS;
-    using eDC2IS = DMA_INTERRUPT_STATUS_fields_::eDC2IS;
-    using eDC3IS = DMA_INTERRUPT_STATUS_fields_::eDC3IS;
-    using eDC4IS = DMA_INTERRUPT_STATUS_fields_::eDC4IS;
-    using eMTLIS = DMA_INTERRUPT_STATUS_fields_::eMTLIS;
-    using eMACIS = DMA_INTERRUPT_STATUS_fields_::eMACIS;
-    using DC0IS = DMA_INTERRUPT_STATUS_fields_::DC0IS;
-    using DC1IS = DMA_INTERRUPT_STATUS_fields_::DC1IS;
-    using DC2IS = DMA_INTERRUPT_STATUS_fields_::DC2IS;
-    using DC3IS = DMA_INTERRUPT_STATUS_fields_::DC3IS;
-    using DC4IS = DMA_INTERRUPT_STATUS_fields_::DC4IS;
-    using MTLIS = DMA_INTERRUPT_STATUS_fields_::MTLIS;
-    using MACIS = DMA_INTERRUPT_STATUS_fields_::MACIS;
+    using eDC0IS = DmaInterruptStatusFields::eDC0IS;
+    using eDC1IS = DmaInterruptStatusFields::eDC1IS;
+    using eDC2IS = DmaInterruptStatusFields::eDC2IS;
+    using eDC3IS = DmaInterruptStatusFields::eDC3IS;
+    using eDC4IS = DmaInterruptStatusFields::eDC4IS;
+    using eMTLIS = DmaInterruptStatusFields::eMTLIS;
+    using eMACIS = DmaInterruptStatusFields::eMACIS;
+    using DC0IS = DmaInterruptStatusFields::DC0IS;
+    using DC1IS = DmaInterruptStatusFields::DC1IS;
+    using DC2IS = DmaInterruptStatusFields::DC2IS;
+    using DC3IS = DmaInterruptStatusFields::DC3IS;
+    using DC4IS = DmaInterruptStatusFields::DC4IS;
+    using MTLIS = DmaInterruptStatusFields::MTLIS;
+    using MACIS = DmaInterruptStatusFields::MACIS;
   };
 
   // DMA Debug Status 0
-  struct DMA_DEBUG_STATUS0_fields_ {
+  struct DmaDebugStatus0Fields {
     enum class eAXWHSTS : std::uint32_t {
       // AXI Master Write Channel or AHB Master Status not detected
       eINACTIVE = 0,
@@ -19489,42 +19489,42 @@ struct EnetQos {
     using RPS2 = ftl::mmio::Field<4, 24, eRPS2, ftl::mmio::RO, ftl::mmio::Normal>;
     // DMA Channel 2 Transmit Process State This field indicates the Tx DMA FSM state for Channel 2.
     using TPS2 = ftl::mmio::Field<4, 28, eTPS2, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_DEBUG_STATUS0_fields_
+  };  // struct DmaDebugStatus0Fields
 
   struct DMA_DEBUG_STATUS0 : ftl::mmio::Register<
       0x4043D00Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_DEBUG_STATUS0_fields_::AXWHSTS,
-      DMA_DEBUG_STATUS0_fields_::AXRHSTS,
+      DmaDebugStatus0Fields::AXWHSTS,
+      DmaDebugStatus0Fields::AXRHSTS,
       ftl::mmio::Reserved<6, 2>,
-      DMA_DEBUG_STATUS0_fields_::RPS0,
-      DMA_DEBUG_STATUS0_fields_::TPS0,
-      DMA_DEBUG_STATUS0_fields_::RPS1,
-      DMA_DEBUG_STATUS0_fields_::TPS1,
-      DMA_DEBUG_STATUS0_fields_::RPS2,
-      DMA_DEBUG_STATUS0_fields_::TPS2> {
-    using eAXWHSTS = DMA_DEBUG_STATUS0_fields_::eAXWHSTS;
-    using eAXRHSTS = DMA_DEBUG_STATUS0_fields_::eAXRHSTS;
-    using eRPS0 = DMA_DEBUG_STATUS0_fields_::eRPS0;
-    using eTPS0 = DMA_DEBUG_STATUS0_fields_::eTPS0;
-    using eRPS1 = DMA_DEBUG_STATUS0_fields_::eRPS1;
-    using eTPS1 = DMA_DEBUG_STATUS0_fields_::eTPS1;
-    using eRPS2 = DMA_DEBUG_STATUS0_fields_::eRPS2;
-    using eTPS2 = DMA_DEBUG_STATUS0_fields_::eTPS2;
-    using AXWHSTS = DMA_DEBUG_STATUS0_fields_::AXWHSTS;
-    using AXRHSTS = DMA_DEBUG_STATUS0_fields_::AXRHSTS;
-    using RPS0 = DMA_DEBUG_STATUS0_fields_::RPS0;
-    using TPS0 = DMA_DEBUG_STATUS0_fields_::TPS0;
-    using RPS1 = DMA_DEBUG_STATUS0_fields_::RPS1;
-    using TPS1 = DMA_DEBUG_STATUS0_fields_::TPS1;
-    using RPS2 = DMA_DEBUG_STATUS0_fields_::RPS2;
-    using TPS2 = DMA_DEBUG_STATUS0_fields_::TPS2;
+      DmaDebugStatus0Fields::RPS0,
+      DmaDebugStatus0Fields::TPS0,
+      DmaDebugStatus0Fields::RPS1,
+      DmaDebugStatus0Fields::TPS1,
+      DmaDebugStatus0Fields::RPS2,
+      DmaDebugStatus0Fields::TPS2> {
+    using eAXWHSTS = DmaDebugStatus0Fields::eAXWHSTS;
+    using eAXRHSTS = DmaDebugStatus0Fields::eAXRHSTS;
+    using eRPS0 = DmaDebugStatus0Fields::eRPS0;
+    using eTPS0 = DmaDebugStatus0Fields::eTPS0;
+    using eRPS1 = DmaDebugStatus0Fields::eRPS1;
+    using eTPS1 = DmaDebugStatus0Fields::eTPS1;
+    using eRPS2 = DmaDebugStatus0Fields::eRPS2;
+    using eTPS2 = DmaDebugStatus0Fields::eTPS2;
+    using AXWHSTS = DmaDebugStatus0Fields::AXWHSTS;
+    using AXRHSTS = DmaDebugStatus0Fields::AXRHSTS;
+    using RPS0 = DmaDebugStatus0Fields::RPS0;
+    using TPS0 = DmaDebugStatus0Fields::TPS0;
+    using RPS1 = DmaDebugStatus0Fields::RPS1;
+    using TPS1 = DmaDebugStatus0Fields::TPS1;
+    using RPS2 = DmaDebugStatus0Fields::RPS2;
+    using TPS2 = DmaDebugStatus0Fields::TPS2;
   };
 
   // DMA Debug Status 1
-  struct DMA_DEBUG_STATUS1_fields_ {
+  struct DmaDebugStatus1Fields {
     enum class eRPS3 : std::uint32_t {
       // Stopped (Reset or Stop Receive Command issued)
       eSTOP = 0,
@@ -19601,46 +19601,46 @@ struct EnetQos {
     using RPS4 = ftl::mmio::Field<4, 8, eRPS4, ftl::mmio::RO, ftl::mmio::Normal>;
     // DMA Channel 4 Transmit Process State This field indicates the Tx DMA FSM state for Channel 4.
     using TPS4 = ftl::mmio::Field<4, 12, eTPS4, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_DEBUG_STATUS1_fields_
+  };  // struct DmaDebugStatus1Fields
 
   struct DMA_DEBUG_STATUS1 : ftl::mmio::Register<
       0x4043D010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_DEBUG_STATUS1_fields_::RPS3,
-      DMA_DEBUG_STATUS1_fields_::TPS3,
-      DMA_DEBUG_STATUS1_fields_::RPS4,
-      DMA_DEBUG_STATUS1_fields_::TPS4,
+      DmaDebugStatus1Fields::RPS3,
+      DmaDebugStatus1Fields::TPS3,
+      DmaDebugStatus1Fields::RPS4,
+      DmaDebugStatus1Fields::TPS4,
       ftl::mmio::Reserved<16, 16>> {
-    using eRPS3 = DMA_DEBUG_STATUS1_fields_::eRPS3;
-    using eTPS3 = DMA_DEBUG_STATUS1_fields_::eTPS3;
-    using eRPS4 = DMA_DEBUG_STATUS1_fields_::eRPS4;
-    using eTPS4 = DMA_DEBUG_STATUS1_fields_::eTPS4;
-    using RPS3 = DMA_DEBUG_STATUS1_fields_::RPS3;
-    using TPS3 = DMA_DEBUG_STATUS1_fields_::TPS3;
-    using RPS4 = DMA_DEBUG_STATUS1_fields_::RPS4;
-    using TPS4 = DMA_DEBUG_STATUS1_fields_::TPS4;
+    using eRPS3 = DmaDebugStatus1Fields::eRPS3;
+    using eTPS3 = DmaDebugStatus1Fields::eTPS3;
+    using eRPS4 = DmaDebugStatus1Fields::eRPS4;
+    using eTPS4 = DmaDebugStatus1Fields::eTPS4;
+    using RPS3 = DmaDebugStatus1Fields::RPS3;
+    using TPS3 = DmaDebugStatus1Fields::TPS3;
+    using RPS4 = DmaDebugStatus1Fields::RPS4;
+    using TPS4 = DmaDebugStatus1Fields::TPS4;
   };
 
   // AXI LPI Entry Interval Control
-  struct DMA_AXI_LPI_ENTRY_INTERVAL_fields_ {
+  struct DmaAxiLpiEntryIntervalFields {
     // LPI Entry Interval Contains the number of system clock cycles, multiplied by 64, to wait for an activity in the DWC_ether_qos to enter into the AXI low power state 0 indicates 64 clock cycles
     using LPIEI = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_AXI_LPI_ENTRY_INTERVAL_fields_
+  };  // struct DmaAxiLpiEntryIntervalFields
 
   struct DMA_AXI_LPI_ENTRY_INTERVAL : ftl::mmio::Register<
       0x4043D040u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_AXI_LPI_ENTRY_INTERVAL_fields_::LPIEI,
+      DmaAxiLpiEntryIntervalFields::LPIEI,
       ftl::mmio::Reserved<28, 4>> {
-    using LPIEI = DMA_AXI_LPI_ENTRY_INTERVAL_fields_::LPIEI;
+    using LPIEI = DmaAxiLpiEntryIntervalFields::LPIEI;
   };
 
   // TBS Control
-  struct DMA_TBS_CTRL_fields_ {
+  struct DmaTbsCtrlFields {
     enum class eFTOV : std::uint32_t {
       // Fetch Time Offset is invalid
       eINVALID = 0,
@@ -19654,26 +19654,26 @@ struct EnetQos {
     using FGOS = ftl::mmio::Field<3, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Fetch Time Offset The value in units of 256 nanoseconds, that has to be deducted from the Launch time to compute the Fetch Time.
     using FTOS = ftl::mmio::Field<24, 8, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_TBS_CTRL_fields_
+  };  // struct DmaTbsCtrlFields
 
   struct DMA_TBS_CTRL : ftl::mmio::Register<
       0x4043D050u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_TBS_CTRL_fields_::FTOV,
+      DmaTbsCtrlFields::FTOV,
       ftl::mmio::Reserved<3, 1>,
-      DMA_TBS_CTRL_fields_::FGOS,
+      DmaTbsCtrlFields::FGOS,
       ftl::mmio::Reserved<1, 7>,
-      DMA_TBS_CTRL_fields_::FTOS> {
-    using eFTOV = DMA_TBS_CTRL_fields_::eFTOV;
-    using FTOV = DMA_TBS_CTRL_fields_::FTOV;
-    using FGOS = DMA_TBS_CTRL_fields_::FGOS;
-    using FTOS = DMA_TBS_CTRL_fields_::FTOS;
+      DmaTbsCtrlFields::FTOS> {
+    using eFTOV = DmaTbsCtrlFields::eFTOV;
+    using FTOV = DmaTbsCtrlFields::FTOV;
+    using FGOS = DmaTbsCtrlFields::FGOS;
+    using FTOS = DmaTbsCtrlFields::FTOS;
   };
 
   // DMA Channel 0 Control
-  struct DMA_CH0_CONTROL_fields_ {
+  struct DmaCh0ControlFields {
     enum class ePBLx8 : std::uint32_t {
       // 8xPBL mode is disabled
       eDISABLE = 0,
@@ -19685,7 +19685,7 @@ struct EnetQos {
     using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
     // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
     using DSL = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_CONTROL_fields_
+  };  // struct DmaCh0ControlFields
 
   struct DMA_CH0_CONTROL : ftl::mmio::Register<
       0x4043D100u,
@@ -19693,17 +19693,17 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<16, 0>,
-      DMA_CH0_CONTROL_fields_::PBLx8,
+      DmaCh0ControlFields::PBLx8,
       ftl::mmio::Reserved<1, 17>,
-      DMA_CH0_CONTROL_fields_::DSL,
+      DmaCh0ControlFields::DSL,
       ftl::mmio::Reserved<11, 21>> {
-    using ePBLx8 = DMA_CH0_CONTROL_fields_::ePBLx8;
-    using PBLx8 = DMA_CH0_CONTROL_fields_::PBLx8;
-    using DSL = DMA_CH0_CONTROL_fields_::DSL;
+    using ePBLx8 = DmaCh0ControlFields::ePBLx8;
+    using PBLx8 = DmaCh0ControlFields::PBLx8;
+    using DSL = DmaCh0ControlFields::DSL;
   };
 
   // DMA Channel 0 Transmit Control
-  struct DMA_CH0_TX_CONTROL_fields_ {
+  struct DmaCh0TxControlFields {
     enum class eST : std::uint32_t {
       // Stop Transmission Command
       eSTOP = 0,
@@ -19742,35 +19742,35 @@ struct EnetQos {
     using TxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enhanced Descriptor Enable When this bit is set, the corresponding channel uses Enhanced Descriptors that are 32 Bytes for both Normal and Context Descriptors.
     using EDSE = ftl::mmio::Field<1, 28, eEDSE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_TX_CONTROL_fields_
+  };  // struct DmaCh0TxControlFields
 
   struct DMA_CH0_TX_CONTROL : ftl::mmio::Register<
       0x4043D104u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH0_TX_CONTROL_fields_::ST,
+      DmaCh0TxControlFields::ST,
       ftl::mmio::Reserved<3, 1>,
-      DMA_CH0_TX_CONTROL_fields_::OSF,
+      DmaCh0TxControlFields::OSF,
       ftl::mmio::Reserved<10, 5>,
-      DMA_CH0_TX_CONTROL_fields_::IPBL,
-      DMA_CH0_TX_CONTROL_fields_::TxPBL,
+      DmaCh0TxControlFields::IPBL,
+      DmaCh0TxControlFields::TxPBL,
       ftl::mmio::Reserved<6, 22>,
-      DMA_CH0_TX_CONTROL_fields_::EDSE,
+      DmaCh0TxControlFields::EDSE,
       ftl::mmio::Reserved<3, 29>> {
-    using eST = DMA_CH0_TX_CONTROL_fields_::eST;
-    using eOSF = DMA_CH0_TX_CONTROL_fields_::eOSF;
-    using eIPBL = DMA_CH0_TX_CONTROL_fields_::eIPBL;
-    using eEDSE = DMA_CH0_TX_CONTROL_fields_::eEDSE;
-    using ST = DMA_CH0_TX_CONTROL_fields_::ST;
-    using OSF = DMA_CH0_TX_CONTROL_fields_::OSF;
-    using IPBL = DMA_CH0_TX_CONTROL_fields_::IPBL;
-    using TxPBL = DMA_CH0_TX_CONTROL_fields_::TxPBL;
-    using EDSE = DMA_CH0_TX_CONTROL_fields_::EDSE;
+    using eST = DmaCh0TxControlFields::eST;
+    using eOSF = DmaCh0TxControlFields::eOSF;
+    using eIPBL = DmaCh0TxControlFields::eIPBL;
+    using eEDSE = DmaCh0TxControlFields::eEDSE;
+    using ST = DmaCh0TxControlFields::ST;
+    using OSF = DmaCh0TxControlFields::OSF;
+    using IPBL = DmaCh0TxControlFields::IPBL;
+    using TxPBL = DmaCh0TxControlFields::TxPBL;
+    using EDSE = DmaCh0TxControlFields::EDSE;
   };
 
   // DMA Channel 0 Receive Control
-  struct DMA_CH0_RX_CONTROL_fields_ {
+  struct DmaCh0RxControlFields {
     enum class eSR : std::uint32_t {
       // Stop Receive
       eSTOP = 0,
@@ -19795,34 +19795,34 @@ struct EnetQos {
     using RxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Rx Packet Flush.
     using RPF = ftl::mmio::Field<1, 31, eRPF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_RX_CONTROL_fields_
+  };  // struct DmaCh0RxControlFields
 
   struct DMA_CH0_RX_CONTROL : ftl::mmio::Register<
       0x4043D108u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH0_RX_CONTROL_fields_::SR,
-      DMA_CH0_RX_CONTROL_fields_::RBSZ_x_0,
-      DMA_CH0_RX_CONTROL_fields_::RBSZ_13_y,
+      DmaCh0RxControlFields::SR,
+      DmaCh0RxControlFields::RBSZ_x_0,
+      DmaCh0RxControlFields::RBSZ_13_y,
       ftl::mmio::Reserved<1, 15>,
-      DMA_CH0_RX_CONTROL_fields_::RxPBL,
+      DmaCh0RxControlFields::RxPBL,
       ftl::mmio::Reserved<9, 22>,
-      DMA_CH0_RX_CONTROL_fields_::RPF> {
-    using eSR = DMA_CH0_RX_CONTROL_fields_::eSR;
-    using eRPF = DMA_CH0_RX_CONTROL_fields_::eRPF;
-    using SR = DMA_CH0_RX_CONTROL_fields_::SR;
-    using RBSZ_x_0 = DMA_CH0_RX_CONTROL_fields_::RBSZ_x_0;
-    using RBSZ_13_y = DMA_CH0_RX_CONTROL_fields_::RBSZ_13_y;
-    using RxPBL = DMA_CH0_RX_CONTROL_fields_::RxPBL;
-    using RPF = DMA_CH0_RX_CONTROL_fields_::RPF;
+      DmaCh0RxControlFields::RPF> {
+    using eSR = DmaCh0RxControlFields::eSR;
+    using eRPF = DmaCh0RxControlFields::eRPF;
+    using SR = DmaCh0RxControlFields::SR;
+    using RBSZ_x_0 = DmaCh0RxControlFields::RBSZ_x_0;
+    using RBSZ_13_y = DmaCh0RxControlFields::RBSZ_13_y;
+    using RxPBL = DmaCh0RxControlFields::RxPBL;
+    using RPF = DmaCh0RxControlFields::RPF;
   };
 
   // Channel 0 Tx Descriptor List Address register
-  struct DMA_CH0_TXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh0TxdescListAddressFields {
     // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
     using TDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_TXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh0TxdescListAddressFields
 
   struct DMA_CH0_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D114u,
@@ -19830,15 +19830,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH0_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
-    using TDESLA = DMA_CH0_TXDESC_LIST_ADDRESS_fields_::TDESLA;
+      DmaCh0TxdescListAddressFields::TDESLA> {
+    using TDESLA = DmaCh0TxdescListAddressFields::TDESLA;
   };
 
   // Channel 0 Rx Descriptor List Address register
-  struct DMA_CH0_RXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh0RxdescListAddressFields {
     // Start of Receive List This field contains the base address of the first descriptor in the Rx Descriptor list.
     using RDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_RXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh0RxdescListAddressFields
 
   struct DMA_CH0_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D11Cu,
@@ -19846,15 +19846,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH0_RXDESC_LIST_ADDRESS_fields_::RDESLA> {
-    using RDESLA = DMA_CH0_RXDESC_LIST_ADDRESS_fields_::RDESLA;
+      DmaCh0RxdescListAddressFields::RDESLA> {
+    using RDESLA = DmaCh0RxdescListAddressFields::RDESLA;
   };
 
   // Channel 0 Tx Descriptor Tail Pointer
-  struct DMA_CH0_TXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh0TxdescTailPointerFields {
     // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
     using TDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_TXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh0TxdescTailPointerFields
 
   struct DMA_CH0_TXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D120u,
@@ -19862,15 +19862,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH0_TXDESC_TAIL_POINTER_fields_::TDTP> {
-    using TDTP = DMA_CH0_TXDESC_TAIL_POINTER_fields_::TDTP;
+      DmaCh0TxdescTailPointerFields::TDTP> {
+    using TDTP = DmaCh0TxdescTailPointerFields::TDTP;
   };
 
   // Channel 0 Rx Descriptor Tail Pointer
-  struct DMA_CH0_RXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh0RxdescTailPointerFields {
     // Receive Descriptor Tail Pointer This field contains the tail pointer for the Rx descriptor ring.
     using RDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_RXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh0RxdescTailPointerFields
 
   struct DMA_CH0_RXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D128u,
@@ -19878,44 +19878,44 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH0_RXDESC_TAIL_POINTER_fields_::RDTP> {
-    using RDTP = DMA_CH0_RXDESC_TAIL_POINTER_fields_::RDTP;
+      DmaCh0RxdescTailPointerFields::RDTP> {
+    using RDTP = DmaCh0RxdescTailPointerFields::RDTP;
   };
 
   // Channel 0 Tx Descriptor Ring Length
-  struct DMA_CH0_TXDESC_RING_LENGTH_fields_ {
+  struct DmaCh0TxdescRingLengthFields {
     // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
     using TDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_TXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh0TxdescRingLengthFields
 
   struct DMA_CH0_TXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D12Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH0_TXDESC_RING_LENGTH_fields_::TDRL,
+      DmaCh0TxdescRingLengthFields::TDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using TDRL = DMA_CH0_TXDESC_RING_LENGTH_fields_::TDRL;
+    using TDRL = DmaCh0TxdescRingLengthFields::TDRL;
   };
 
   // Channel 0 Rx Descriptor Ring Length
-  struct DMA_CH0_RXDESC_RING_LENGTH_fields_ {
+  struct DmaCh0RxdescRingLengthFields {
     // Receive Descriptor Ring Length This register sets the maximum number of Rx descriptors in the circular descriptor ring.
     using RDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_RXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh0RxdescRingLengthFields
 
   struct DMA_CH0_RXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D130u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH0_RXDESC_RING_LENGTH_fields_::RDRL,
+      DmaCh0RxdescRingLengthFields::RDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using RDRL = DMA_CH0_RXDESC_RING_LENGTH_fields_::RDRL;
+    using RDRL = DmaCh0RxdescRingLengthFields::RDRL;
   };
 
   // Channel 0 Interrupt Enable
-  struct DMA_CH0_INTERRUPT_ENABLE_fields_ {
+  struct DmaCh0InterruptEnableFields {
     enum class eTIE : std::uint32_t {
       // Transmit Interrupt is disabled
       eDISABLE = 0,
@@ -20033,79 +20033,79 @@ struct EnetQos {
     using AIE = ftl::mmio::Field<1, 14, eAIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Normal Interrupt Summary Enable When this bit is set, the normal interrupt summary is enabled.
     using NIE = ftl::mmio::Field<1, 15, eNIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_INTERRUPT_ENABLE_fields_
+  };  // struct DmaCh0InterruptEnableFields
 
   struct DMA_CH0_INTERRUPT_ENABLE : ftl::mmio::Register<
       0x4043D134u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::TIE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::TXSE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::TBUE,
+      DmaCh0InterruptEnableFields::TIE,
+      DmaCh0InterruptEnableFields::TXSE,
+      DmaCh0InterruptEnableFields::TBUE,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::RIE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::RBUE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::RSE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::RWTE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::ETIE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::ERIE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::FBEE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::CDEE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::AIE,
-      DMA_CH0_INTERRUPT_ENABLE_fields_::NIE,
+      DmaCh0InterruptEnableFields::RIE,
+      DmaCh0InterruptEnableFields::RBUE,
+      DmaCh0InterruptEnableFields::RSE,
+      DmaCh0InterruptEnableFields::RWTE,
+      DmaCh0InterruptEnableFields::ETIE,
+      DmaCh0InterruptEnableFields::ERIE,
+      DmaCh0InterruptEnableFields::FBEE,
+      DmaCh0InterruptEnableFields::CDEE,
+      DmaCh0InterruptEnableFields::AIE,
+      DmaCh0InterruptEnableFields::NIE,
       ftl::mmio::Reserved<16, 16>> {
-    using eTIE = DMA_CH0_INTERRUPT_ENABLE_fields_::eTIE;
-    using eTXSE = DMA_CH0_INTERRUPT_ENABLE_fields_::eTXSE;
-    using eTBUE = DMA_CH0_INTERRUPT_ENABLE_fields_::eTBUE;
-    using eRIE = DMA_CH0_INTERRUPT_ENABLE_fields_::eRIE;
-    using eRBUE = DMA_CH0_INTERRUPT_ENABLE_fields_::eRBUE;
-    using eRSE = DMA_CH0_INTERRUPT_ENABLE_fields_::eRSE;
-    using eRWTE = DMA_CH0_INTERRUPT_ENABLE_fields_::eRWTE;
-    using eETIE = DMA_CH0_INTERRUPT_ENABLE_fields_::eETIE;
-    using eERIE = DMA_CH0_INTERRUPT_ENABLE_fields_::eERIE;
-    using eFBEE = DMA_CH0_INTERRUPT_ENABLE_fields_::eFBEE;
-    using eCDEE = DMA_CH0_INTERRUPT_ENABLE_fields_::eCDEE;
-    using eAIE = DMA_CH0_INTERRUPT_ENABLE_fields_::eAIE;
-    using eNIE = DMA_CH0_INTERRUPT_ENABLE_fields_::eNIE;
-    using TIE = DMA_CH0_INTERRUPT_ENABLE_fields_::TIE;
-    using TXSE = DMA_CH0_INTERRUPT_ENABLE_fields_::TXSE;
-    using TBUE = DMA_CH0_INTERRUPT_ENABLE_fields_::TBUE;
-    using RIE = DMA_CH0_INTERRUPT_ENABLE_fields_::RIE;
-    using RBUE = DMA_CH0_INTERRUPT_ENABLE_fields_::RBUE;
-    using RSE = DMA_CH0_INTERRUPT_ENABLE_fields_::RSE;
-    using RWTE = DMA_CH0_INTERRUPT_ENABLE_fields_::RWTE;
-    using ETIE = DMA_CH0_INTERRUPT_ENABLE_fields_::ETIE;
-    using ERIE = DMA_CH0_INTERRUPT_ENABLE_fields_::ERIE;
-    using FBEE = DMA_CH0_INTERRUPT_ENABLE_fields_::FBEE;
-    using CDEE = DMA_CH0_INTERRUPT_ENABLE_fields_::CDEE;
-    using AIE = DMA_CH0_INTERRUPT_ENABLE_fields_::AIE;
-    using NIE = DMA_CH0_INTERRUPT_ENABLE_fields_::NIE;
+    using eTIE = DmaCh0InterruptEnableFields::eTIE;
+    using eTXSE = DmaCh0InterruptEnableFields::eTXSE;
+    using eTBUE = DmaCh0InterruptEnableFields::eTBUE;
+    using eRIE = DmaCh0InterruptEnableFields::eRIE;
+    using eRBUE = DmaCh0InterruptEnableFields::eRBUE;
+    using eRSE = DmaCh0InterruptEnableFields::eRSE;
+    using eRWTE = DmaCh0InterruptEnableFields::eRWTE;
+    using eETIE = DmaCh0InterruptEnableFields::eETIE;
+    using eERIE = DmaCh0InterruptEnableFields::eERIE;
+    using eFBEE = DmaCh0InterruptEnableFields::eFBEE;
+    using eCDEE = DmaCh0InterruptEnableFields::eCDEE;
+    using eAIE = DmaCh0InterruptEnableFields::eAIE;
+    using eNIE = DmaCh0InterruptEnableFields::eNIE;
+    using TIE = DmaCh0InterruptEnableFields::TIE;
+    using TXSE = DmaCh0InterruptEnableFields::TXSE;
+    using TBUE = DmaCh0InterruptEnableFields::TBUE;
+    using RIE = DmaCh0InterruptEnableFields::RIE;
+    using RBUE = DmaCh0InterruptEnableFields::RBUE;
+    using RSE = DmaCh0InterruptEnableFields::RSE;
+    using RWTE = DmaCh0InterruptEnableFields::RWTE;
+    using ETIE = DmaCh0InterruptEnableFields::ETIE;
+    using ERIE = DmaCh0InterruptEnableFields::ERIE;
+    using FBEE = DmaCh0InterruptEnableFields::FBEE;
+    using CDEE = DmaCh0InterruptEnableFields::CDEE;
+    using AIE = DmaCh0InterruptEnableFields::AIE;
+    using NIE = DmaCh0InterruptEnableFields::NIE;
   };
 
   // Channel 0 Receive Interrupt Watchdog Timer
-  struct DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
+  struct DmaCh0RxInterruptWatchdogTimerFields {
     // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
     using RWT = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Interrupt Watchdog Timer Count Units This fields indicates the number of system clock cycles corresponding to one unit in RWT field.
     using RWTU = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER_fields_
+  };  // struct DmaCh0RxInterruptWatchdogTimerFields
 
   struct DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
       0x4043D138u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT,
+      DmaCh0RxInterruptWatchdogTimerFields::RWT,
       ftl::mmio::Reserved<8, 8>,
-      DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU,
+      DmaCh0RxInterruptWatchdogTimerFields::RWTU,
       ftl::mmio::Reserved<14, 18>> {
-    using RWT = DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT;
-    using RWTU = DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
+    using RWT = DmaCh0RxInterruptWatchdogTimerFields::RWT;
+    using RWTU = DmaCh0RxInterruptWatchdogTimerFields::RWTU;
   };
 
   // Channel 0 Slot Function Control and Status
-  struct DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
+  struct DmaCh0SlotFunctionControlStatusFields {
     enum class eESC : std::uint32_t {
       // Slot Comparison is disabled
       eDISABLE = 0,
@@ -20128,89 +20128,89 @@ struct EnetQos {
     using SIV = ftl::mmio::Field<12, 4, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Reference Slot Number This field gives the current value of the reference slot number in the DMA.
     using RSN = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_
+  };  // struct DmaCh0SlotFunctionControlStatusFields
 
   struct DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
       0x4043D13Cu,
       std::uint32_t,
       0x000007C0u,
       ftl::mmio::RW,
-      DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC,
-      DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC,
+      DmaCh0SlotFunctionControlStatusFields::ESC,
+      DmaCh0SlotFunctionControlStatusFields::ASC,
       ftl::mmio::Reserved<2, 2>,
-      DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV,
-      DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN,
+      DmaCh0SlotFunctionControlStatusFields::SIV,
+      DmaCh0SlotFunctionControlStatusFields::RSN,
       ftl::mmio::Reserved<12, 20>> {
-    using eESC = DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::eESC;
-    using eASC = DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::eASC;
-    using ESC = DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC;
-    using ASC = DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC;
-    using SIV = DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV;
-    using RSN = DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
+    using eESC = DmaCh0SlotFunctionControlStatusFields::eESC;
+    using eASC = DmaCh0SlotFunctionControlStatusFields::eASC;
+    using ESC = DmaCh0SlotFunctionControlStatusFields::ESC;
+    using ASC = DmaCh0SlotFunctionControlStatusFields::ASC;
+    using SIV = DmaCh0SlotFunctionControlStatusFields::SIV;
+    using RSN = DmaCh0SlotFunctionControlStatusFields::RSN;
   };
 
   // Channel 0 Current Application Transmit Descriptor
-  struct DMA_CH0_CURRENT_APP_TXDESC_fields_ {
+  struct DmaCh0CurrentAppTxdescFields {
     // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
     using CURTDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_CURRENT_APP_TXDESC_fields_
+  };  // struct DmaCh0CurrentAppTxdescFields
 
   struct DMA_CH0_CURRENT_APP_TXDESC : ftl::mmio::Register<
       0x4043D144u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH0_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
-    using CURTDESAPTR = DMA_CH0_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
+      DmaCh0CurrentAppTxdescFields::CURTDESAPTR> {
+    using CURTDESAPTR = DmaCh0CurrentAppTxdescFields::CURTDESAPTR;
   };
 
   // Channel 0 Current Application Receive Descriptor
-  struct DMA_CH0_CURRENT_APP_RXDESC_fields_ {
+  struct DmaCh0CurrentAppRxdescFields {
     // Application Receive Descriptor Address Pointer The DMA updates this pointer during Rx operation.
     using CURRDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_CURRENT_APP_RXDESC_fields_
+  };  // struct DmaCh0CurrentAppRxdescFields
 
   struct DMA_CH0_CURRENT_APP_RXDESC : ftl::mmio::Register<
       0x4043D14Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH0_CURRENT_APP_RXDESC_fields_::CURRDESAPTR> {
-    using CURRDESAPTR = DMA_CH0_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
+      DmaCh0CurrentAppRxdescFields::CURRDESAPTR> {
+    using CURRDESAPTR = DmaCh0CurrentAppRxdescFields::CURRDESAPTR;
   };
 
   // Channel 0 Current Application Transmit Buffer Address
-  struct DMA_CH0_CURRENT_APP_TXBUFFER_fields_ {
+  struct DmaCh0CurrentAppTxbufferFields {
     // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
     using CURTBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_CURRENT_APP_TXBUFFER_fields_
+  };  // struct DmaCh0CurrentAppTxbufferFields
 
   struct DMA_CH0_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
       0x4043D154u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH0_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
-    using CURTBUFAPTR = DMA_CH0_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
+      DmaCh0CurrentAppTxbufferFields::CURTBUFAPTR> {
+    using CURTBUFAPTR = DmaCh0CurrentAppTxbufferFields::CURTBUFAPTR;
   };
 
   // Channel 0 Current Application Receive Buffer Address
-  struct DMA_CH0_CURRENT_APP_RXBUFFER_fields_ {
+  struct DmaCh0CurrentAppRxbufferFields {
     // Application Receive Buffer Address Pointer The DMA updates this pointer during Rx operation.
     using CURRBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_CURRENT_APP_RXBUFFER_fields_
+  };  // struct DmaCh0CurrentAppRxbufferFields
 
   struct DMA_CH0_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
       0x4043D15Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH0_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR> {
-    using CURRBUFAPTR = DMA_CH0_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
+      DmaCh0CurrentAppRxbufferFields::CURRBUFAPTR> {
+    using CURRBUFAPTR = DmaCh0CurrentAppRxbufferFields::CURRBUFAPTR;
   };
 
   // DMA Channel 0 Status
-  struct DMA_CH0_STATUS_fields_ {
+  struct DmaCh0StatusFields {
     enum class eTI : std::uint32_t {
       // Transmit Interrupt status not detected
       eINACTIVE = 0,
@@ -20332,62 +20332,62 @@ struct EnetQos {
     using TEB = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx DMA Error Bits This field indicates the type of error that caused a Bus Error.
     using REB = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_STATUS_fields_
+  };  // struct DmaCh0StatusFields
 
   struct DMA_CH0_STATUS : ftl::mmio::Register<
       0x4043D160u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH0_STATUS_fields_::TI,
-      DMA_CH0_STATUS_fields_::TPS,
-      DMA_CH0_STATUS_fields_::TBU,
+      DmaCh0StatusFields::TI,
+      DmaCh0StatusFields::TPS,
+      DmaCh0StatusFields::TBU,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH0_STATUS_fields_::RI,
-      DMA_CH0_STATUS_fields_::RBU,
-      DMA_CH0_STATUS_fields_::RPS,
-      DMA_CH0_STATUS_fields_::RWT,
-      DMA_CH0_STATUS_fields_::ETI,
-      DMA_CH0_STATUS_fields_::ERI,
-      DMA_CH0_STATUS_fields_::FBE,
-      DMA_CH0_STATUS_fields_::CDE,
-      DMA_CH0_STATUS_fields_::AIS,
-      DMA_CH0_STATUS_fields_::NIS,
-      DMA_CH0_STATUS_fields_::TEB,
-      DMA_CH0_STATUS_fields_::REB,
+      DmaCh0StatusFields::RI,
+      DmaCh0StatusFields::RBU,
+      DmaCh0StatusFields::RPS,
+      DmaCh0StatusFields::RWT,
+      DmaCh0StatusFields::ETI,
+      DmaCh0StatusFields::ERI,
+      DmaCh0StatusFields::FBE,
+      DmaCh0StatusFields::CDE,
+      DmaCh0StatusFields::AIS,
+      DmaCh0StatusFields::NIS,
+      DmaCh0StatusFields::TEB,
+      DmaCh0StatusFields::REB,
       ftl::mmio::Reserved<10, 22>> {
-    using eTI = DMA_CH0_STATUS_fields_::eTI;
-    using eTPS = DMA_CH0_STATUS_fields_::eTPS;
-    using eTBU = DMA_CH0_STATUS_fields_::eTBU;
-    using eRI = DMA_CH0_STATUS_fields_::eRI;
-    using eRBU = DMA_CH0_STATUS_fields_::eRBU;
-    using eRPS = DMA_CH0_STATUS_fields_::eRPS;
-    using eRWT = DMA_CH0_STATUS_fields_::eRWT;
-    using eETI = DMA_CH0_STATUS_fields_::eETI;
-    using eERI = DMA_CH0_STATUS_fields_::eERI;
-    using eFBE = DMA_CH0_STATUS_fields_::eFBE;
-    using eCDE = DMA_CH0_STATUS_fields_::eCDE;
-    using eAIS = DMA_CH0_STATUS_fields_::eAIS;
-    using eNIS = DMA_CH0_STATUS_fields_::eNIS;
-    using TI = DMA_CH0_STATUS_fields_::TI;
-    using TPS = DMA_CH0_STATUS_fields_::TPS;
-    using TBU = DMA_CH0_STATUS_fields_::TBU;
-    using RI = DMA_CH0_STATUS_fields_::RI;
-    using RBU = DMA_CH0_STATUS_fields_::RBU;
-    using RPS = DMA_CH0_STATUS_fields_::RPS;
-    using RWT = DMA_CH0_STATUS_fields_::RWT;
-    using ETI = DMA_CH0_STATUS_fields_::ETI;
-    using ERI = DMA_CH0_STATUS_fields_::ERI;
-    using FBE = DMA_CH0_STATUS_fields_::FBE;
-    using CDE = DMA_CH0_STATUS_fields_::CDE;
-    using AIS = DMA_CH0_STATUS_fields_::AIS;
-    using NIS = DMA_CH0_STATUS_fields_::NIS;
-    using TEB = DMA_CH0_STATUS_fields_::TEB;
-    using REB = DMA_CH0_STATUS_fields_::REB;
+    using eTI = DmaCh0StatusFields::eTI;
+    using eTPS = DmaCh0StatusFields::eTPS;
+    using eTBU = DmaCh0StatusFields::eTBU;
+    using eRI = DmaCh0StatusFields::eRI;
+    using eRBU = DmaCh0StatusFields::eRBU;
+    using eRPS = DmaCh0StatusFields::eRPS;
+    using eRWT = DmaCh0StatusFields::eRWT;
+    using eETI = DmaCh0StatusFields::eETI;
+    using eERI = DmaCh0StatusFields::eERI;
+    using eFBE = DmaCh0StatusFields::eFBE;
+    using eCDE = DmaCh0StatusFields::eCDE;
+    using eAIS = DmaCh0StatusFields::eAIS;
+    using eNIS = DmaCh0StatusFields::eNIS;
+    using TI = DmaCh0StatusFields::TI;
+    using TPS = DmaCh0StatusFields::TPS;
+    using TBU = DmaCh0StatusFields::TBU;
+    using RI = DmaCh0StatusFields::RI;
+    using RBU = DmaCh0StatusFields::RBU;
+    using RPS = DmaCh0StatusFields::RPS;
+    using RWT = DmaCh0StatusFields::RWT;
+    using ETI = DmaCh0StatusFields::ETI;
+    using ERI = DmaCh0StatusFields::ERI;
+    using FBE = DmaCh0StatusFields::FBE;
+    using CDE = DmaCh0StatusFields::CDE;
+    using AIS = DmaCh0StatusFields::AIS;
+    using NIS = DmaCh0StatusFields::NIS;
+    using TEB = DmaCh0StatusFields::TEB;
+    using REB = DmaCh0StatusFields::REB;
   };
 
   // Channel 0 Missed Frame Counter
-  struct DMA_CH0_MISS_FRAME_CNT_fields_ {
+  struct DmaCh0MissFrameCntFields {
     enum class eMFCO : std::uint32_t {
       // Miss Frame Counter overflow not occurred
       eINACTIVE = 0,
@@ -20399,24 +20399,24 @@ struct EnetQos {
     using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
     using MFCO = ftl::mmio::Field<1, 15, eMFCO, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_MISS_FRAME_CNT_fields_
+  };  // struct DmaCh0MissFrameCntFields
 
   struct DMA_CH0_MISS_FRAME_CNT : ftl::mmio::Register<
       0x4043D164u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH0_MISS_FRAME_CNT_fields_::MFC,
+      DmaCh0MissFrameCntFields::MFC,
       ftl::mmio::Reserved<4, 11>,
-      DMA_CH0_MISS_FRAME_CNT_fields_::MFCO,
+      DmaCh0MissFrameCntFields::MFCO,
       ftl::mmio::Reserved<16, 16>> {
-    using eMFCO = DMA_CH0_MISS_FRAME_CNT_fields_::eMFCO;
-    using MFC = DMA_CH0_MISS_FRAME_CNT_fields_::MFC;
-    using MFCO = DMA_CH0_MISS_FRAME_CNT_fields_::MFCO;
+    using eMFCO = DmaCh0MissFrameCntFields::eMFCO;
+    using MFC = DmaCh0MissFrameCntFields::MFC;
+    using MFCO = DmaCh0MissFrameCntFields::MFCO;
   };
 
   // Channel 0 RXP Frames Accepted Counter
-  struct DMA_CH0_RXP_ACCEPT_CNT_fields_ {
+  struct DmaCh0RxpAcceptCntFields {
     enum class eRXPACOF : std::uint32_t {
       // Rx Parser Accept Counter overflow not occurred
       eINACTIVE = 0,
@@ -20428,38 +20428,38 @@ struct EnetQos {
     using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
     using RXPACOF = ftl::mmio::Field<1, 31, eRXPACOF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_RXP_ACCEPT_CNT_fields_
+  };  // struct DmaCh0RxpAcceptCntFields
 
   struct DMA_CH0_RXP_ACCEPT_CNT : ftl::mmio::Register<
       0x4043D168u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH0_RXP_ACCEPT_CNT_fields_::RXPAC,
-      DMA_CH0_RXP_ACCEPT_CNT_fields_::RXPACOF> {
-    using eRXPACOF = DMA_CH0_RXP_ACCEPT_CNT_fields_::eRXPACOF;
-    using RXPAC = DMA_CH0_RXP_ACCEPT_CNT_fields_::RXPAC;
-    using RXPACOF = DMA_CH0_RXP_ACCEPT_CNT_fields_::RXPACOF;
+      DmaCh0RxpAcceptCntFields::RXPAC,
+      DmaCh0RxpAcceptCntFields::RXPACOF> {
+    using eRXPACOF = DmaCh0RxpAcceptCntFields::eRXPACOF;
+    using RXPAC = DmaCh0RxpAcceptCntFields::RXPAC;
+    using RXPACOF = DmaCh0RxpAcceptCntFields::RXPACOF;
   };
 
   // Channel 0 Receive ERI Counter
-  struct DMA_CH0_RX_ERI_CNT_fields_ {
+  struct DmaCh0RxEriCntFields {
     // ERI Counter When ERIC bit of RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
     using ECNT = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH0_RX_ERI_CNT_fields_
+  };  // struct DmaCh0RxEriCntFields
 
   struct DMA_CH0_RX_ERI_CNT : ftl::mmio::Register<
       0x4043D16Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH0_RX_ERI_CNT_fields_::ECNT,
+      DmaCh0RxEriCntFields::ECNT,
       ftl::mmio::Reserved<20, 12>> {
-    using ECNT = DMA_CH0_RX_ERI_CNT_fields_::ECNT;
+    using ECNT = DmaCh0RxEriCntFields::ECNT;
   };
 
   // DMA Channel 1 Control
-  struct DMA_CH1_CONTROL_fields_ {
+  struct DmaCh1ControlFields {
     enum class ePBLx8 : std::uint32_t {
       // 8xPBL mode is disabled
       eDISABLE = 0,
@@ -20471,7 +20471,7 @@ struct EnetQos {
     using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
     // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
     using DSL = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_CONTROL_fields_
+  };  // struct DmaCh1ControlFields
 
   struct DMA_CH1_CONTROL : ftl::mmio::Register<
       0x4043D180u,
@@ -20479,17 +20479,17 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<16, 0>,
-      DMA_CH1_CONTROL_fields_::PBLx8,
+      DmaCh1ControlFields::PBLx8,
       ftl::mmio::Reserved<1, 17>,
-      DMA_CH1_CONTROL_fields_::DSL,
+      DmaCh1ControlFields::DSL,
       ftl::mmio::Reserved<11, 21>> {
-    using ePBLx8 = DMA_CH1_CONTROL_fields_::ePBLx8;
-    using PBLx8 = DMA_CH1_CONTROL_fields_::PBLx8;
-    using DSL = DMA_CH1_CONTROL_fields_::DSL;
+    using ePBLx8 = DmaCh1ControlFields::ePBLx8;
+    using PBLx8 = DmaCh1ControlFields::PBLx8;
+    using DSL = DmaCh1ControlFields::DSL;
   };
 
   // DMA Channel 1 Transmit Control
-  struct DMA_CH1_TX_CONTROL_fields_ {
+  struct DmaCh1TxControlFields {
     enum class eST : std::uint32_t {
       // Stop Transmission Command
       eSTOP = 0,
@@ -20528,35 +20528,35 @@ struct EnetQos {
     using TxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enhanced Descriptor Enable When this bit is set, the corresponding channel uses Enhanced Descriptors that are 32 Bytes for both Normal and Context Descriptors.
     using EDSE = ftl::mmio::Field<1, 28, eEDSE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_TX_CONTROL_fields_
+  };  // struct DmaCh1TxControlFields
 
   struct DMA_CH1_TX_CONTROL : ftl::mmio::Register<
       0x4043D184u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH1_TX_CONTROL_fields_::ST,
+      DmaCh1TxControlFields::ST,
       ftl::mmio::Reserved<3, 1>,
-      DMA_CH1_TX_CONTROL_fields_::OSF,
+      DmaCh1TxControlFields::OSF,
       ftl::mmio::Reserved<10, 5>,
-      DMA_CH1_TX_CONTROL_fields_::IPBL,
-      DMA_CH1_TX_CONTROL_fields_::TxPBL,
+      DmaCh1TxControlFields::IPBL,
+      DmaCh1TxControlFields::TxPBL,
       ftl::mmio::Reserved<6, 22>,
-      DMA_CH1_TX_CONTROL_fields_::EDSE,
+      DmaCh1TxControlFields::EDSE,
       ftl::mmio::Reserved<3, 29>> {
-    using eST = DMA_CH1_TX_CONTROL_fields_::eST;
-    using eOSF = DMA_CH1_TX_CONTROL_fields_::eOSF;
-    using eIPBL = DMA_CH1_TX_CONTROL_fields_::eIPBL;
-    using eEDSE = DMA_CH1_TX_CONTROL_fields_::eEDSE;
-    using ST = DMA_CH1_TX_CONTROL_fields_::ST;
-    using OSF = DMA_CH1_TX_CONTROL_fields_::OSF;
-    using IPBL = DMA_CH1_TX_CONTROL_fields_::IPBL;
-    using TxPBL = DMA_CH1_TX_CONTROL_fields_::TxPBL;
-    using EDSE = DMA_CH1_TX_CONTROL_fields_::EDSE;
+    using eST = DmaCh1TxControlFields::eST;
+    using eOSF = DmaCh1TxControlFields::eOSF;
+    using eIPBL = DmaCh1TxControlFields::eIPBL;
+    using eEDSE = DmaCh1TxControlFields::eEDSE;
+    using ST = DmaCh1TxControlFields::ST;
+    using OSF = DmaCh1TxControlFields::OSF;
+    using IPBL = DmaCh1TxControlFields::IPBL;
+    using TxPBL = DmaCh1TxControlFields::TxPBL;
+    using EDSE = DmaCh1TxControlFields::EDSE;
   };
 
   // DMA Channel 1 Receive Control
-  struct DMA_CH1_RX_CONTROL_fields_ {
+  struct DmaCh1RxControlFields {
     enum class eSR : std::uint32_t {
       // Stop Receive
       eSTOP = 0,
@@ -20581,34 +20581,34 @@ struct EnetQos {
     using RxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Rx Packet Flush.
     using RPF = ftl::mmio::Field<1, 31, eRPF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_RX_CONTROL_fields_
+  };  // struct DmaCh1RxControlFields
 
   struct DMA_CH1_RX_CONTROL : ftl::mmio::Register<
       0x4043D188u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH1_RX_CONTROL_fields_::SR,
-      DMA_CH1_RX_CONTROL_fields_::RBSZ_x_0,
-      DMA_CH1_RX_CONTROL_fields_::RBSZ_13_y,
+      DmaCh1RxControlFields::SR,
+      DmaCh1RxControlFields::RBSZ_x_0,
+      DmaCh1RxControlFields::RBSZ_13_y,
       ftl::mmio::Reserved<1, 15>,
-      DMA_CH1_RX_CONTROL_fields_::RxPBL,
+      DmaCh1RxControlFields::RxPBL,
       ftl::mmio::Reserved<9, 22>,
-      DMA_CH1_RX_CONTROL_fields_::RPF> {
-    using eSR = DMA_CH1_RX_CONTROL_fields_::eSR;
-    using eRPF = DMA_CH1_RX_CONTROL_fields_::eRPF;
-    using SR = DMA_CH1_RX_CONTROL_fields_::SR;
-    using RBSZ_x_0 = DMA_CH1_RX_CONTROL_fields_::RBSZ_x_0;
-    using RBSZ_13_y = DMA_CH1_RX_CONTROL_fields_::RBSZ_13_y;
-    using RxPBL = DMA_CH1_RX_CONTROL_fields_::RxPBL;
-    using RPF = DMA_CH1_RX_CONTROL_fields_::RPF;
+      DmaCh1RxControlFields::RPF> {
+    using eSR = DmaCh1RxControlFields::eSR;
+    using eRPF = DmaCh1RxControlFields::eRPF;
+    using SR = DmaCh1RxControlFields::SR;
+    using RBSZ_x_0 = DmaCh1RxControlFields::RBSZ_x_0;
+    using RBSZ_13_y = DmaCh1RxControlFields::RBSZ_13_y;
+    using RxPBL = DmaCh1RxControlFields::RxPBL;
+    using RPF = DmaCh1RxControlFields::RPF;
   };
 
   // Channel 1 Tx Descriptor List Address
-  struct DMA_CH1_TXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh1TxdescListAddressFields {
     // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
     using TDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_TXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh1TxdescListAddressFields
 
   struct DMA_CH1_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D194u,
@@ -20616,15 +20616,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH1_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
-    using TDESLA = DMA_CH1_TXDESC_LIST_ADDRESS_fields_::TDESLA;
+      DmaCh1TxdescListAddressFields::TDESLA> {
+    using TDESLA = DmaCh1TxdescListAddressFields::TDESLA;
   };
 
   // Channel 1 Rx Descriptor List Address
-  struct DMA_CH1_RXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh1RxdescListAddressFields {
     // Start of Receive List This field contains the base address of the first descriptor in the Rx Descriptor list.
     using RDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_RXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh1RxdescListAddressFields
 
   struct DMA_CH1_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D19Cu,
@@ -20632,15 +20632,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH1_RXDESC_LIST_ADDRESS_fields_::RDESLA> {
-    using RDESLA = DMA_CH1_RXDESC_LIST_ADDRESS_fields_::RDESLA;
+      DmaCh1RxdescListAddressFields::RDESLA> {
+    using RDESLA = DmaCh1RxdescListAddressFields::RDESLA;
   };
 
   // Channel 1 Tx Descriptor Tail Pointer
-  struct DMA_CH1_TXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh1TxdescTailPointerFields {
     // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
     using TDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_TXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh1TxdescTailPointerFields
 
   struct DMA_CH1_TXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D1A0u,
@@ -20648,15 +20648,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH1_TXDESC_TAIL_POINTER_fields_::TDTP> {
-    using TDTP = DMA_CH1_TXDESC_TAIL_POINTER_fields_::TDTP;
+      DmaCh1TxdescTailPointerFields::TDTP> {
+    using TDTP = DmaCh1TxdescTailPointerFields::TDTP;
   };
 
   // Channel 1 Rx Descriptor Tail Pointer
-  struct DMA_CH1_RXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh1RxdescTailPointerFields {
     // Receive Descriptor Tail Pointer This field contains the tail pointer for the Rx descriptor ring.
     using RDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_RXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh1RxdescTailPointerFields
 
   struct DMA_CH1_RXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D1A8u,
@@ -20664,44 +20664,44 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH1_RXDESC_TAIL_POINTER_fields_::RDTP> {
-    using RDTP = DMA_CH1_RXDESC_TAIL_POINTER_fields_::RDTP;
+      DmaCh1RxdescTailPointerFields::RDTP> {
+    using RDTP = DmaCh1RxdescTailPointerFields::RDTP;
   };
 
   // Channel 1 Tx Descriptor Ring Length
-  struct DMA_CH1_TXDESC_RING_LENGTH_fields_ {
+  struct DmaCh1TxdescRingLengthFields {
     // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
     using TDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_TXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh1TxdescRingLengthFields
 
   struct DMA_CH1_TXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D1ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH1_TXDESC_RING_LENGTH_fields_::TDRL,
+      DmaCh1TxdescRingLengthFields::TDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using TDRL = DMA_CH1_TXDESC_RING_LENGTH_fields_::TDRL;
+    using TDRL = DmaCh1TxdescRingLengthFields::TDRL;
   };
 
   // Channel 1 Rx Descriptor Ring Length
-  struct DMA_CH1_RXDESC_RING_LENGTH_fields_ {
+  struct DmaCh1RxdescRingLengthFields {
     // Receive Descriptor Ring Length This register sets the maximum number of Rx descriptors in the circular descriptor ring.
     using RDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_RXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh1RxdescRingLengthFields
 
   struct DMA_CH1_RXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D1B0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH1_RXDESC_RING_LENGTH_fields_::RDRL,
+      DmaCh1RxdescRingLengthFields::RDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using RDRL = DMA_CH1_RXDESC_RING_LENGTH_fields_::RDRL;
+    using RDRL = DmaCh1RxdescRingLengthFields::RDRL;
   };
 
   // Channel 1 Interrupt Enable
-  struct DMA_CH1_INTERRUPT_ENABLE_fields_ {
+  struct DmaCh1InterruptEnableFields {
     enum class eTIE : std::uint32_t {
       // Transmit Interrupt is disabled
       eDISABLE = 0,
@@ -20819,79 +20819,79 @@ struct EnetQos {
     using AIE = ftl::mmio::Field<1, 14, eAIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Normal Interrupt Summary Enable When this bit is set, the normal interrupt summary is enabled.
     using NIE = ftl::mmio::Field<1, 15, eNIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_INTERRUPT_ENABLE_fields_
+  };  // struct DmaCh1InterruptEnableFields
 
   struct DMA_CH1_INTERRUPT_ENABLE : ftl::mmio::Register<
       0x4043D1B4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::TIE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::TXSE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::TBUE,
+      DmaCh1InterruptEnableFields::TIE,
+      DmaCh1InterruptEnableFields::TXSE,
+      DmaCh1InterruptEnableFields::TBUE,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::RIE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::RBUE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::RSE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::RWTE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::ETIE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::ERIE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::FBEE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::CDEE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::AIE,
-      DMA_CH1_INTERRUPT_ENABLE_fields_::NIE,
+      DmaCh1InterruptEnableFields::RIE,
+      DmaCh1InterruptEnableFields::RBUE,
+      DmaCh1InterruptEnableFields::RSE,
+      DmaCh1InterruptEnableFields::RWTE,
+      DmaCh1InterruptEnableFields::ETIE,
+      DmaCh1InterruptEnableFields::ERIE,
+      DmaCh1InterruptEnableFields::FBEE,
+      DmaCh1InterruptEnableFields::CDEE,
+      DmaCh1InterruptEnableFields::AIE,
+      DmaCh1InterruptEnableFields::NIE,
       ftl::mmio::Reserved<16, 16>> {
-    using eTIE = DMA_CH1_INTERRUPT_ENABLE_fields_::eTIE;
-    using eTXSE = DMA_CH1_INTERRUPT_ENABLE_fields_::eTXSE;
-    using eTBUE = DMA_CH1_INTERRUPT_ENABLE_fields_::eTBUE;
-    using eRIE = DMA_CH1_INTERRUPT_ENABLE_fields_::eRIE;
-    using eRBUE = DMA_CH1_INTERRUPT_ENABLE_fields_::eRBUE;
-    using eRSE = DMA_CH1_INTERRUPT_ENABLE_fields_::eRSE;
-    using eRWTE = DMA_CH1_INTERRUPT_ENABLE_fields_::eRWTE;
-    using eETIE = DMA_CH1_INTERRUPT_ENABLE_fields_::eETIE;
-    using eERIE = DMA_CH1_INTERRUPT_ENABLE_fields_::eERIE;
-    using eFBEE = DMA_CH1_INTERRUPT_ENABLE_fields_::eFBEE;
-    using eCDEE = DMA_CH1_INTERRUPT_ENABLE_fields_::eCDEE;
-    using eAIE = DMA_CH1_INTERRUPT_ENABLE_fields_::eAIE;
-    using eNIE = DMA_CH1_INTERRUPT_ENABLE_fields_::eNIE;
-    using TIE = DMA_CH1_INTERRUPT_ENABLE_fields_::TIE;
-    using TXSE = DMA_CH1_INTERRUPT_ENABLE_fields_::TXSE;
-    using TBUE = DMA_CH1_INTERRUPT_ENABLE_fields_::TBUE;
-    using RIE = DMA_CH1_INTERRUPT_ENABLE_fields_::RIE;
-    using RBUE = DMA_CH1_INTERRUPT_ENABLE_fields_::RBUE;
-    using RSE = DMA_CH1_INTERRUPT_ENABLE_fields_::RSE;
-    using RWTE = DMA_CH1_INTERRUPT_ENABLE_fields_::RWTE;
-    using ETIE = DMA_CH1_INTERRUPT_ENABLE_fields_::ETIE;
-    using ERIE = DMA_CH1_INTERRUPT_ENABLE_fields_::ERIE;
-    using FBEE = DMA_CH1_INTERRUPT_ENABLE_fields_::FBEE;
-    using CDEE = DMA_CH1_INTERRUPT_ENABLE_fields_::CDEE;
-    using AIE = DMA_CH1_INTERRUPT_ENABLE_fields_::AIE;
-    using NIE = DMA_CH1_INTERRUPT_ENABLE_fields_::NIE;
+    using eTIE = DmaCh1InterruptEnableFields::eTIE;
+    using eTXSE = DmaCh1InterruptEnableFields::eTXSE;
+    using eTBUE = DmaCh1InterruptEnableFields::eTBUE;
+    using eRIE = DmaCh1InterruptEnableFields::eRIE;
+    using eRBUE = DmaCh1InterruptEnableFields::eRBUE;
+    using eRSE = DmaCh1InterruptEnableFields::eRSE;
+    using eRWTE = DmaCh1InterruptEnableFields::eRWTE;
+    using eETIE = DmaCh1InterruptEnableFields::eETIE;
+    using eERIE = DmaCh1InterruptEnableFields::eERIE;
+    using eFBEE = DmaCh1InterruptEnableFields::eFBEE;
+    using eCDEE = DmaCh1InterruptEnableFields::eCDEE;
+    using eAIE = DmaCh1InterruptEnableFields::eAIE;
+    using eNIE = DmaCh1InterruptEnableFields::eNIE;
+    using TIE = DmaCh1InterruptEnableFields::TIE;
+    using TXSE = DmaCh1InterruptEnableFields::TXSE;
+    using TBUE = DmaCh1InterruptEnableFields::TBUE;
+    using RIE = DmaCh1InterruptEnableFields::RIE;
+    using RBUE = DmaCh1InterruptEnableFields::RBUE;
+    using RSE = DmaCh1InterruptEnableFields::RSE;
+    using RWTE = DmaCh1InterruptEnableFields::RWTE;
+    using ETIE = DmaCh1InterruptEnableFields::ETIE;
+    using ERIE = DmaCh1InterruptEnableFields::ERIE;
+    using FBEE = DmaCh1InterruptEnableFields::FBEE;
+    using CDEE = DmaCh1InterruptEnableFields::CDEE;
+    using AIE = DmaCh1InterruptEnableFields::AIE;
+    using NIE = DmaCh1InterruptEnableFields::NIE;
   };
 
   // Channel 1 Receive Interrupt Watchdog Timer
-  struct DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
+  struct DmaCh1RxInterruptWatchdogTimerFields {
     // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
     using RWT = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Interrupt Watchdog Timer Count Units This fields indicates the number of system clock cycles corresponding to one unit in RWT field.
     using RWTU = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER_fields_
+  };  // struct DmaCh1RxInterruptWatchdogTimerFields
 
   struct DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
       0x4043D1B8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT,
+      DmaCh1RxInterruptWatchdogTimerFields::RWT,
       ftl::mmio::Reserved<8, 8>,
-      DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU,
+      DmaCh1RxInterruptWatchdogTimerFields::RWTU,
       ftl::mmio::Reserved<14, 18>> {
-    using RWT = DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT;
-    using RWTU = DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
+    using RWT = DmaCh1RxInterruptWatchdogTimerFields::RWT;
+    using RWTU = DmaCh1RxInterruptWatchdogTimerFields::RWTU;
   };
 
   // Channel 1 Slot Function Control and Status
-  struct DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
+  struct DmaCh1SlotFunctionControlStatusFields {
     enum class eESC : std::uint32_t {
       // Slot Comparison is disabled
       eDISABLE = 0,
@@ -20914,89 +20914,89 @@ struct EnetQos {
     using SIV = ftl::mmio::Field<12, 4, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Reference Slot Number This field gives the current value of the reference slot number in the DMA.
     using RSN = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_
+  };  // struct DmaCh1SlotFunctionControlStatusFields
 
   struct DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
       0x4043D1BCu,
       std::uint32_t,
       0x000007C0u,
       ftl::mmio::RW,
-      DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC,
-      DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC,
+      DmaCh1SlotFunctionControlStatusFields::ESC,
+      DmaCh1SlotFunctionControlStatusFields::ASC,
       ftl::mmio::Reserved<2, 2>,
-      DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV,
-      DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN,
+      DmaCh1SlotFunctionControlStatusFields::SIV,
+      DmaCh1SlotFunctionControlStatusFields::RSN,
       ftl::mmio::Reserved<12, 20>> {
-    using eESC = DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::eESC;
-    using eASC = DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::eASC;
-    using ESC = DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC;
-    using ASC = DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC;
-    using SIV = DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV;
-    using RSN = DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
+    using eESC = DmaCh1SlotFunctionControlStatusFields::eESC;
+    using eASC = DmaCh1SlotFunctionControlStatusFields::eASC;
+    using ESC = DmaCh1SlotFunctionControlStatusFields::ESC;
+    using ASC = DmaCh1SlotFunctionControlStatusFields::ASC;
+    using SIV = DmaCh1SlotFunctionControlStatusFields::SIV;
+    using RSN = DmaCh1SlotFunctionControlStatusFields::RSN;
   };
 
   // Channel 1 Current Application Transmit Descriptor
-  struct DMA_CH1_CURRENT_APP_TXDESC_fields_ {
+  struct DmaCh1CurrentAppTxdescFields {
     // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
     using CURTDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_CURRENT_APP_TXDESC_fields_
+  };  // struct DmaCh1CurrentAppTxdescFields
 
   struct DMA_CH1_CURRENT_APP_TXDESC : ftl::mmio::Register<
       0x4043D1C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH1_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
-    using CURTDESAPTR = DMA_CH1_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
+      DmaCh1CurrentAppTxdescFields::CURTDESAPTR> {
+    using CURTDESAPTR = DmaCh1CurrentAppTxdescFields::CURTDESAPTR;
   };
 
   // Channel 1 Current Application Receive Descriptor
-  struct DMA_CH1_CURRENT_APP_RXDESC_fields_ {
+  struct DmaCh1CurrentAppRxdescFields {
     // Application Receive Descriptor Address Pointer The DMA updates this pointer during Rx operation.
     using CURRDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_CURRENT_APP_RXDESC_fields_
+  };  // struct DmaCh1CurrentAppRxdescFields
 
   struct DMA_CH1_CURRENT_APP_RXDESC : ftl::mmio::Register<
       0x4043D1CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH1_CURRENT_APP_RXDESC_fields_::CURRDESAPTR> {
-    using CURRDESAPTR = DMA_CH1_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
+      DmaCh1CurrentAppRxdescFields::CURRDESAPTR> {
+    using CURRDESAPTR = DmaCh1CurrentAppRxdescFields::CURRDESAPTR;
   };
 
   // Channel 1 Current Application Transmit Buffer Address
-  struct DMA_CH1_CURRENT_APP_TXBUFFER_fields_ {
+  struct DmaCh1CurrentAppTxbufferFields {
     // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
     using CURTBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_CURRENT_APP_TXBUFFER_fields_
+  };  // struct DmaCh1CurrentAppTxbufferFields
 
   struct DMA_CH1_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
       0x4043D1D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH1_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
-    using CURTBUFAPTR = DMA_CH1_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
+      DmaCh1CurrentAppTxbufferFields::CURTBUFAPTR> {
+    using CURTBUFAPTR = DmaCh1CurrentAppTxbufferFields::CURTBUFAPTR;
   };
 
   // Channel 1 Current Application Receive Buffer Address
-  struct DMA_CH1_CURRENT_APP_RXBUFFER_fields_ {
+  struct DmaCh1CurrentAppRxbufferFields {
     // Application Receive Buffer Address Pointer The DMA updates this pointer during Rx operation.
     using CURRBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_CURRENT_APP_RXBUFFER_fields_
+  };  // struct DmaCh1CurrentAppRxbufferFields
 
   struct DMA_CH1_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
       0x4043D1DCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH1_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR> {
-    using CURRBUFAPTR = DMA_CH1_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
+      DmaCh1CurrentAppRxbufferFields::CURRBUFAPTR> {
+    using CURRBUFAPTR = DmaCh1CurrentAppRxbufferFields::CURRBUFAPTR;
   };
 
   // DMA Channel 1 Status
-  struct DMA_CH1_STATUS_fields_ {
+  struct DmaCh1StatusFields {
     enum class eTI : std::uint32_t {
       // Transmit Interrupt status not detected
       eINACTIVE = 0,
@@ -21118,62 +21118,62 @@ struct EnetQos {
     using TEB = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx DMA Error Bits This field indicates the type of error that caused a Bus Error.
     using REB = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_STATUS_fields_
+  };  // struct DmaCh1StatusFields
 
   struct DMA_CH1_STATUS : ftl::mmio::Register<
       0x4043D1E0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH1_STATUS_fields_::TI,
-      DMA_CH1_STATUS_fields_::TPS,
-      DMA_CH1_STATUS_fields_::TBU,
+      DmaCh1StatusFields::TI,
+      DmaCh1StatusFields::TPS,
+      DmaCh1StatusFields::TBU,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH1_STATUS_fields_::RI,
-      DMA_CH1_STATUS_fields_::RBU,
-      DMA_CH1_STATUS_fields_::RPS,
-      DMA_CH1_STATUS_fields_::RWT,
-      DMA_CH1_STATUS_fields_::ETI,
-      DMA_CH1_STATUS_fields_::ERI,
-      DMA_CH1_STATUS_fields_::FBE,
-      DMA_CH1_STATUS_fields_::CDE,
-      DMA_CH1_STATUS_fields_::AIS,
-      DMA_CH1_STATUS_fields_::NIS,
-      DMA_CH1_STATUS_fields_::TEB,
-      DMA_CH1_STATUS_fields_::REB,
+      DmaCh1StatusFields::RI,
+      DmaCh1StatusFields::RBU,
+      DmaCh1StatusFields::RPS,
+      DmaCh1StatusFields::RWT,
+      DmaCh1StatusFields::ETI,
+      DmaCh1StatusFields::ERI,
+      DmaCh1StatusFields::FBE,
+      DmaCh1StatusFields::CDE,
+      DmaCh1StatusFields::AIS,
+      DmaCh1StatusFields::NIS,
+      DmaCh1StatusFields::TEB,
+      DmaCh1StatusFields::REB,
       ftl::mmio::Reserved<10, 22>> {
-    using eTI = DMA_CH1_STATUS_fields_::eTI;
-    using eTPS = DMA_CH1_STATUS_fields_::eTPS;
-    using eTBU = DMA_CH1_STATUS_fields_::eTBU;
-    using eRI = DMA_CH1_STATUS_fields_::eRI;
-    using eRBU = DMA_CH1_STATUS_fields_::eRBU;
-    using eRPS = DMA_CH1_STATUS_fields_::eRPS;
-    using eRWT = DMA_CH1_STATUS_fields_::eRWT;
-    using eETI = DMA_CH1_STATUS_fields_::eETI;
-    using eERI = DMA_CH1_STATUS_fields_::eERI;
-    using eFBE = DMA_CH1_STATUS_fields_::eFBE;
-    using eCDE = DMA_CH1_STATUS_fields_::eCDE;
-    using eAIS = DMA_CH1_STATUS_fields_::eAIS;
-    using eNIS = DMA_CH1_STATUS_fields_::eNIS;
-    using TI = DMA_CH1_STATUS_fields_::TI;
-    using TPS = DMA_CH1_STATUS_fields_::TPS;
-    using TBU = DMA_CH1_STATUS_fields_::TBU;
-    using RI = DMA_CH1_STATUS_fields_::RI;
-    using RBU = DMA_CH1_STATUS_fields_::RBU;
-    using RPS = DMA_CH1_STATUS_fields_::RPS;
-    using RWT = DMA_CH1_STATUS_fields_::RWT;
-    using ETI = DMA_CH1_STATUS_fields_::ETI;
-    using ERI = DMA_CH1_STATUS_fields_::ERI;
-    using FBE = DMA_CH1_STATUS_fields_::FBE;
-    using CDE = DMA_CH1_STATUS_fields_::CDE;
-    using AIS = DMA_CH1_STATUS_fields_::AIS;
-    using NIS = DMA_CH1_STATUS_fields_::NIS;
-    using TEB = DMA_CH1_STATUS_fields_::TEB;
-    using REB = DMA_CH1_STATUS_fields_::REB;
+    using eTI = DmaCh1StatusFields::eTI;
+    using eTPS = DmaCh1StatusFields::eTPS;
+    using eTBU = DmaCh1StatusFields::eTBU;
+    using eRI = DmaCh1StatusFields::eRI;
+    using eRBU = DmaCh1StatusFields::eRBU;
+    using eRPS = DmaCh1StatusFields::eRPS;
+    using eRWT = DmaCh1StatusFields::eRWT;
+    using eETI = DmaCh1StatusFields::eETI;
+    using eERI = DmaCh1StatusFields::eERI;
+    using eFBE = DmaCh1StatusFields::eFBE;
+    using eCDE = DmaCh1StatusFields::eCDE;
+    using eAIS = DmaCh1StatusFields::eAIS;
+    using eNIS = DmaCh1StatusFields::eNIS;
+    using TI = DmaCh1StatusFields::TI;
+    using TPS = DmaCh1StatusFields::TPS;
+    using TBU = DmaCh1StatusFields::TBU;
+    using RI = DmaCh1StatusFields::RI;
+    using RBU = DmaCh1StatusFields::RBU;
+    using RPS = DmaCh1StatusFields::RPS;
+    using RWT = DmaCh1StatusFields::RWT;
+    using ETI = DmaCh1StatusFields::ETI;
+    using ERI = DmaCh1StatusFields::ERI;
+    using FBE = DmaCh1StatusFields::FBE;
+    using CDE = DmaCh1StatusFields::CDE;
+    using AIS = DmaCh1StatusFields::AIS;
+    using NIS = DmaCh1StatusFields::NIS;
+    using TEB = DmaCh1StatusFields::TEB;
+    using REB = DmaCh1StatusFields::REB;
   };
 
   // Channel 1 Missed Frame Counter
-  struct DMA_CH1_MISS_FRAME_CNT_fields_ {
+  struct DmaCh1MissFrameCntFields {
     enum class eMFCO : std::uint32_t {
       // Miss Frame Counter overflow not occurred
       eINACTIVE = 0,
@@ -21185,24 +21185,24 @@ struct EnetQos {
     using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
     using MFCO = ftl::mmio::Field<1, 15, eMFCO, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_MISS_FRAME_CNT_fields_
+  };  // struct DmaCh1MissFrameCntFields
 
   struct DMA_CH1_MISS_FRAME_CNT : ftl::mmio::Register<
       0x4043D1E4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH1_MISS_FRAME_CNT_fields_::MFC,
+      DmaCh1MissFrameCntFields::MFC,
       ftl::mmio::Reserved<4, 11>,
-      DMA_CH1_MISS_FRAME_CNT_fields_::MFCO,
+      DmaCh1MissFrameCntFields::MFCO,
       ftl::mmio::Reserved<16, 16>> {
-    using eMFCO = DMA_CH1_MISS_FRAME_CNT_fields_::eMFCO;
-    using MFC = DMA_CH1_MISS_FRAME_CNT_fields_::MFC;
-    using MFCO = DMA_CH1_MISS_FRAME_CNT_fields_::MFCO;
+    using eMFCO = DmaCh1MissFrameCntFields::eMFCO;
+    using MFC = DmaCh1MissFrameCntFields::MFC;
+    using MFCO = DmaCh1MissFrameCntFields::MFCO;
   };
 
   // Channel 1 RXP Frames Accepted Counter
-  struct DMA_CH1_RXP_ACCEPT_CNT_fields_ {
+  struct DmaCh1RxpAcceptCntFields {
     enum class eRXPACOF : std::uint32_t {
       // Rx Parser Accept Counter overflow not occurred
       eINACTIVE = 0,
@@ -21214,38 +21214,38 @@ struct EnetQos {
     using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
     using RXPACOF = ftl::mmio::Field<1, 31, eRXPACOF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_RXP_ACCEPT_CNT_fields_
+  };  // struct DmaCh1RxpAcceptCntFields
 
   struct DMA_CH1_RXP_ACCEPT_CNT : ftl::mmio::Register<
       0x4043D1E8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH1_RXP_ACCEPT_CNT_fields_::RXPAC,
-      DMA_CH1_RXP_ACCEPT_CNT_fields_::RXPACOF> {
-    using eRXPACOF = DMA_CH1_RXP_ACCEPT_CNT_fields_::eRXPACOF;
-    using RXPAC = DMA_CH1_RXP_ACCEPT_CNT_fields_::RXPAC;
-    using RXPACOF = DMA_CH1_RXP_ACCEPT_CNT_fields_::RXPACOF;
+      DmaCh1RxpAcceptCntFields::RXPAC,
+      DmaCh1RxpAcceptCntFields::RXPACOF> {
+    using eRXPACOF = DmaCh1RxpAcceptCntFields::eRXPACOF;
+    using RXPAC = DmaCh1RxpAcceptCntFields::RXPAC;
+    using RXPACOF = DmaCh1RxpAcceptCntFields::RXPACOF;
   };
 
   // Channel 1 Receive ERI Counter
-  struct DMA_CH1_RX_ERI_CNT_fields_ {
+  struct DmaCh1RxEriCntFields {
     // ERI Counter When ERIC bit of RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
     using ECNT = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH1_RX_ERI_CNT_fields_
+  };  // struct DmaCh1RxEriCntFields
 
   struct DMA_CH1_RX_ERI_CNT : ftl::mmio::Register<
       0x4043D1ECu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH1_RX_ERI_CNT_fields_::ECNT,
+      DmaCh1RxEriCntFields::ECNT,
       ftl::mmio::Reserved<20, 12>> {
-    using ECNT = DMA_CH1_RX_ERI_CNT_fields_::ECNT;
+    using ECNT = DmaCh1RxEriCntFields::ECNT;
   };
 
   // DMA Channel 2 Control
-  struct DMA_CH2_CONTROL_fields_ {
+  struct DmaCh2ControlFields {
     enum class ePBLx8 : std::uint32_t {
       // 8xPBL mode is disabled
       eDISABLE = 0,
@@ -21257,7 +21257,7 @@ struct EnetQos {
     using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
     // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
     using DSL = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_CONTROL_fields_
+  };  // struct DmaCh2ControlFields
 
   struct DMA_CH2_CONTROL : ftl::mmio::Register<
       0x4043D200u,
@@ -21265,17 +21265,17 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<16, 0>,
-      DMA_CH2_CONTROL_fields_::PBLx8,
+      DmaCh2ControlFields::PBLx8,
       ftl::mmio::Reserved<1, 17>,
-      DMA_CH2_CONTROL_fields_::DSL,
+      DmaCh2ControlFields::DSL,
       ftl::mmio::Reserved<11, 21>> {
-    using ePBLx8 = DMA_CH2_CONTROL_fields_::ePBLx8;
-    using PBLx8 = DMA_CH2_CONTROL_fields_::PBLx8;
-    using DSL = DMA_CH2_CONTROL_fields_::DSL;
+    using ePBLx8 = DmaCh2ControlFields::ePBLx8;
+    using PBLx8 = DmaCh2ControlFields::PBLx8;
+    using DSL = DmaCh2ControlFields::DSL;
   };
 
   // DMA Channel 2 Transmit Control
-  struct DMA_CH2_TX_CONTROL_fields_ {
+  struct DmaCh2TxControlFields {
     enum class eST : std::uint32_t {
       // Stop Transmission Command
       eSTOP = 0,
@@ -21314,35 +21314,35 @@ struct EnetQos {
     using TxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enhanced Descriptor Enable When this bit is set, the corresponding channel uses Enhanced Descriptors that are 32 Bytes for both Normal and Context Descriptors.
     using EDSE = ftl::mmio::Field<1, 28, eEDSE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_TX_CONTROL_fields_
+  };  // struct DmaCh2TxControlFields
 
   struct DMA_CH2_TX_CONTROL : ftl::mmio::Register<
       0x4043D204u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH2_TX_CONTROL_fields_::ST,
+      DmaCh2TxControlFields::ST,
       ftl::mmio::Reserved<3, 1>,
-      DMA_CH2_TX_CONTROL_fields_::OSF,
+      DmaCh2TxControlFields::OSF,
       ftl::mmio::Reserved<10, 5>,
-      DMA_CH2_TX_CONTROL_fields_::IPBL,
-      DMA_CH2_TX_CONTROL_fields_::TxPBL,
+      DmaCh2TxControlFields::IPBL,
+      DmaCh2TxControlFields::TxPBL,
       ftl::mmio::Reserved<6, 22>,
-      DMA_CH2_TX_CONTROL_fields_::EDSE,
+      DmaCh2TxControlFields::EDSE,
       ftl::mmio::Reserved<3, 29>> {
-    using eST = DMA_CH2_TX_CONTROL_fields_::eST;
-    using eOSF = DMA_CH2_TX_CONTROL_fields_::eOSF;
-    using eIPBL = DMA_CH2_TX_CONTROL_fields_::eIPBL;
-    using eEDSE = DMA_CH2_TX_CONTROL_fields_::eEDSE;
-    using ST = DMA_CH2_TX_CONTROL_fields_::ST;
-    using OSF = DMA_CH2_TX_CONTROL_fields_::OSF;
-    using IPBL = DMA_CH2_TX_CONTROL_fields_::IPBL;
-    using TxPBL = DMA_CH2_TX_CONTROL_fields_::TxPBL;
-    using EDSE = DMA_CH2_TX_CONTROL_fields_::EDSE;
+    using eST = DmaCh2TxControlFields::eST;
+    using eOSF = DmaCh2TxControlFields::eOSF;
+    using eIPBL = DmaCh2TxControlFields::eIPBL;
+    using eEDSE = DmaCh2TxControlFields::eEDSE;
+    using ST = DmaCh2TxControlFields::ST;
+    using OSF = DmaCh2TxControlFields::OSF;
+    using IPBL = DmaCh2TxControlFields::IPBL;
+    using TxPBL = DmaCh2TxControlFields::TxPBL;
+    using EDSE = DmaCh2TxControlFields::EDSE;
   };
 
   // DMA Channel 2 Receive Control
-  struct DMA_CH2_RX_CONTROL_fields_ {
+  struct DmaCh2RxControlFields {
     enum class eSR : std::uint32_t {
       // Stop Receive
       eSTOP = 0,
@@ -21367,34 +21367,34 @@ struct EnetQos {
     using RxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Rx Packet Flush.
     using RPF = ftl::mmio::Field<1, 31, eRPF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_RX_CONTROL_fields_
+  };  // struct DmaCh2RxControlFields
 
   struct DMA_CH2_RX_CONTROL : ftl::mmio::Register<
       0x4043D208u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH2_RX_CONTROL_fields_::SR,
-      DMA_CH2_RX_CONTROL_fields_::RBSZ_x_0,
-      DMA_CH2_RX_CONTROL_fields_::RBSZ_13_y,
+      DmaCh2RxControlFields::SR,
+      DmaCh2RxControlFields::RBSZ_x_0,
+      DmaCh2RxControlFields::RBSZ_13_y,
       ftl::mmio::Reserved<1, 15>,
-      DMA_CH2_RX_CONTROL_fields_::RxPBL,
+      DmaCh2RxControlFields::RxPBL,
       ftl::mmio::Reserved<9, 22>,
-      DMA_CH2_RX_CONTROL_fields_::RPF> {
-    using eSR = DMA_CH2_RX_CONTROL_fields_::eSR;
-    using eRPF = DMA_CH2_RX_CONTROL_fields_::eRPF;
-    using SR = DMA_CH2_RX_CONTROL_fields_::SR;
-    using RBSZ_x_0 = DMA_CH2_RX_CONTROL_fields_::RBSZ_x_0;
-    using RBSZ_13_y = DMA_CH2_RX_CONTROL_fields_::RBSZ_13_y;
-    using RxPBL = DMA_CH2_RX_CONTROL_fields_::RxPBL;
-    using RPF = DMA_CH2_RX_CONTROL_fields_::RPF;
+      DmaCh2RxControlFields::RPF> {
+    using eSR = DmaCh2RxControlFields::eSR;
+    using eRPF = DmaCh2RxControlFields::eRPF;
+    using SR = DmaCh2RxControlFields::SR;
+    using RBSZ_x_0 = DmaCh2RxControlFields::RBSZ_x_0;
+    using RBSZ_13_y = DmaCh2RxControlFields::RBSZ_13_y;
+    using RxPBL = DmaCh2RxControlFields::RxPBL;
+    using RPF = DmaCh2RxControlFields::RPF;
   };
 
   // Channel 2 Tx Descriptor List Address
-  struct DMA_CH2_TXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh2TxdescListAddressFields {
     // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
     using TDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_TXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh2TxdescListAddressFields
 
   struct DMA_CH2_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D214u,
@@ -21402,15 +21402,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH2_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
-    using TDESLA = DMA_CH2_TXDESC_LIST_ADDRESS_fields_::TDESLA;
+      DmaCh2TxdescListAddressFields::TDESLA> {
+    using TDESLA = DmaCh2TxdescListAddressFields::TDESLA;
   };
 
   // Channel 2 Rx Descriptor List Address
-  struct DMA_CH2_RXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh2RxdescListAddressFields {
     // Start of Receive List This field contains the base address of the first descriptor in the Rx Descriptor list.
     using RDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_RXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh2RxdescListAddressFields
 
   struct DMA_CH2_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D21Cu,
@@ -21418,15 +21418,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH2_RXDESC_LIST_ADDRESS_fields_::RDESLA> {
-    using RDESLA = DMA_CH2_RXDESC_LIST_ADDRESS_fields_::RDESLA;
+      DmaCh2RxdescListAddressFields::RDESLA> {
+    using RDESLA = DmaCh2RxdescListAddressFields::RDESLA;
   };
 
   // Channel 2 Tx Descriptor Tail Pointer
-  struct DMA_CH2_TXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh2TxdescTailPointerFields {
     // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
     using TDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_TXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh2TxdescTailPointerFields
 
   struct DMA_CH2_TXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D220u,
@@ -21434,15 +21434,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH2_TXDESC_TAIL_POINTER_fields_::TDTP> {
-    using TDTP = DMA_CH2_TXDESC_TAIL_POINTER_fields_::TDTP;
+      DmaCh2TxdescTailPointerFields::TDTP> {
+    using TDTP = DmaCh2TxdescTailPointerFields::TDTP;
   };
 
   // Channel 2 Rx Descriptor Tail Pointer
-  struct DMA_CH2_RXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh2RxdescTailPointerFields {
     // Receive Descriptor Tail Pointer This field contains the tail pointer for the Rx descriptor ring.
     using RDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_RXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh2RxdescTailPointerFields
 
   struct DMA_CH2_RXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D228u,
@@ -21450,44 +21450,44 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH2_RXDESC_TAIL_POINTER_fields_::RDTP> {
-    using RDTP = DMA_CH2_RXDESC_TAIL_POINTER_fields_::RDTP;
+      DmaCh2RxdescTailPointerFields::RDTP> {
+    using RDTP = DmaCh2RxdescTailPointerFields::RDTP;
   };
 
   // Channel 2 Tx Descriptor Ring Length
-  struct DMA_CH2_TXDESC_RING_LENGTH_fields_ {
+  struct DmaCh2TxdescRingLengthFields {
     // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
     using TDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_TXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh2TxdescRingLengthFields
 
   struct DMA_CH2_TXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D22Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH2_TXDESC_RING_LENGTH_fields_::TDRL,
+      DmaCh2TxdescRingLengthFields::TDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using TDRL = DMA_CH2_TXDESC_RING_LENGTH_fields_::TDRL;
+    using TDRL = DmaCh2TxdescRingLengthFields::TDRL;
   };
 
   // Channel 2 Rx Descriptor Ring Length
-  struct DMA_CH2_RXDESC_RING_LENGTH_fields_ {
+  struct DmaCh2RxdescRingLengthFields {
     // Receive Descriptor Ring Length This register sets the maximum number of Rx descriptors in the circular descriptor ring.
     using RDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_RXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh2RxdescRingLengthFields
 
   struct DMA_CH2_RXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D230u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH2_RXDESC_RING_LENGTH_fields_::RDRL,
+      DmaCh2RxdescRingLengthFields::RDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using RDRL = DMA_CH2_RXDESC_RING_LENGTH_fields_::RDRL;
+    using RDRL = DmaCh2RxdescRingLengthFields::RDRL;
   };
 
   // Channel 2 Interrupt Enable
-  struct DMA_CH2_INTERRUPT_ENABLE_fields_ {
+  struct DmaCh2InterruptEnableFields {
     enum class eTIE : std::uint32_t {
       // Transmit Interrupt is disabled
       eDISABLE = 0,
@@ -21605,79 +21605,79 @@ struct EnetQos {
     using AIE = ftl::mmio::Field<1, 14, eAIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Normal Interrupt Summary Enable When this bit is set, the normal interrupt summary is enabled.
     using NIE = ftl::mmio::Field<1, 15, eNIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_INTERRUPT_ENABLE_fields_
+  };  // struct DmaCh2InterruptEnableFields
 
   struct DMA_CH2_INTERRUPT_ENABLE : ftl::mmio::Register<
       0x4043D234u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::TIE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::TXSE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::TBUE,
+      DmaCh2InterruptEnableFields::TIE,
+      DmaCh2InterruptEnableFields::TXSE,
+      DmaCh2InterruptEnableFields::TBUE,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::RIE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::RBUE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::RSE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::RWTE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::ETIE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::ERIE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::FBEE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::CDEE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::AIE,
-      DMA_CH2_INTERRUPT_ENABLE_fields_::NIE,
+      DmaCh2InterruptEnableFields::RIE,
+      DmaCh2InterruptEnableFields::RBUE,
+      DmaCh2InterruptEnableFields::RSE,
+      DmaCh2InterruptEnableFields::RWTE,
+      DmaCh2InterruptEnableFields::ETIE,
+      DmaCh2InterruptEnableFields::ERIE,
+      DmaCh2InterruptEnableFields::FBEE,
+      DmaCh2InterruptEnableFields::CDEE,
+      DmaCh2InterruptEnableFields::AIE,
+      DmaCh2InterruptEnableFields::NIE,
       ftl::mmio::Reserved<16, 16>> {
-    using eTIE = DMA_CH2_INTERRUPT_ENABLE_fields_::eTIE;
-    using eTXSE = DMA_CH2_INTERRUPT_ENABLE_fields_::eTXSE;
-    using eTBUE = DMA_CH2_INTERRUPT_ENABLE_fields_::eTBUE;
-    using eRIE = DMA_CH2_INTERRUPT_ENABLE_fields_::eRIE;
-    using eRBUE = DMA_CH2_INTERRUPT_ENABLE_fields_::eRBUE;
-    using eRSE = DMA_CH2_INTERRUPT_ENABLE_fields_::eRSE;
-    using eRWTE = DMA_CH2_INTERRUPT_ENABLE_fields_::eRWTE;
-    using eETIE = DMA_CH2_INTERRUPT_ENABLE_fields_::eETIE;
-    using eERIE = DMA_CH2_INTERRUPT_ENABLE_fields_::eERIE;
-    using eFBEE = DMA_CH2_INTERRUPT_ENABLE_fields_::eFBEE;
-    using eCDEE = DMA_CH2_INTERRUPT_ENABLE_fields_::eCDEE;
-    using eAIE = DMA_CH2_INTERRUPT_ENABLE_fields_::eAIE;
-    using eNIE = DMA_CH2_INTERRUPT_ENABLE_fields_::eNIE;
-    using TIE = DMA_CH2_INTERRUPT_ENABLE_fields_::TIE;
-    using TXSE = DMA_CH2_INTERRUPT_ENABLE_fields_::TXSE;
-    using TBUE = DMA_CH2_INTERRUPT_ENABLE_fields_::TBUE;
-    using RIE = DMA_CH2_INTERRUPT_ENABLE_fields_::RIE;
-    using RBUE = DMA_CH2_INTERRUPT_ENABLE_fields_::RBUE;
-    using RSE = DMA_CH2_INTERRUPT_ENABLE_fields_::RSE;
-    using RWTE = DMA_CH2_INTERRUPT_ENABLE_fields_::RWTE;
-    using ETIE = DMA_CH2_INTERRUPT_ENABLE_fields_::ETIE;
-    using ERIE = DMA_CH2_INTERRUPT_ENABLE_fields_::ERIE;
-    using FBEE = DMA_CH2_INTERRUPT_ENABLE_fields_::FBEE;
-    using CDEE = DMA_CH2_INTERRUPT_ENABLE_fields_::CDEE;
-    using AIE = DMA_CH2_INTERRUPT_ENABLE_fields_::AIE;
-    using NIE = DMA_CH2_INTERRUPT_ENABLE_fields_::NIE;
+    using eTIE = DmaCh2InterruptEnableFields::eTIE;
+    using eTXSE = DmaCh2InterruptEnableFields::eTXSE;
+    using eTBUE = DmaCh2InterruptEnableFields::eTBUE;
+    using eRIE = DmaCh2InterruptEnableFields::eRIE;
+    using eRBUE = DmaCh2InterruptEnableFields::eRBUE;
+    using eRSE = DmaCh2InterruptEnableFields::eRSE;
+    using eRWTE = DmaCh2InterruptEnableFields::eRWTE;
+    using eETIE = DmaCh2InterruptEnableFields::eETIE;
+    using eERIE = DmaCh2InterruptEnableFields::eERIE;
+    using eFBEE = DmaCh2InterruptEnableFields::eFBEE;
+    using eCDEE = DmaCh2InterruptEnableFields::eCDEE;
+    using eAIE = DmaCh2InterruptEnableFields::eAIE;
+    using eNIE = DmaCh2InterruptEnableFields::eNIE;
+    using TIE = DmaCh2InterruptEnableFields::TIE;
+    using TXSE = DmaCh2InterruptEnableFields::TXSE;
+    using TBUE = DmaCh2InterruptEnableFields::TBUE;
+    using RIE = DmaCh2InterruptEnableFields::RIE;
+    using RBUE = DmaCh2InterruptEnableFields::RBUE;
+    using RSE = DmaCh2InterruptEnableFields::RSE;
+    using RWTE = DmaCh2InterruptEnableFields::RWTE;
+    using ETIE = DmaCh2InterruptEnableFields::ETIE;
+    using ERIE = DmaCh2InterruptEnableFields::ERIE;
+    using FBEE = DmaCh2InterruptEnableFields::FBEE;
+    using CDEE = DmaCh2InterruptEnableFields::CDEE;
+    using AIE = DmaCh2InterruptEnableFields::AIE;
+    using NIE = DmaCh2InterruptEnableFields::NIE;
   };
 
   // Channel 2 Receive Interrupt Watchdog Timer
-  struct DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
+  struct DmaCh2RxInterruptWatchdogTimerFields {
     // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
     using RWT = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Interrupt Watchdog Timer Count Units This fields indicates the number of system clock cycles corresponding to one unit in RWT field.
     using RWTU = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER_fields_
+  };  // struct DmaCh2RxInterruptWatchdogTimerFields
 
   struct DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
       0x4043D238u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT,
+      DmaCh2RxInterruptWatchdogTimerFields::RWT,
       ftl::mmio::Reserved<8, 8>,
-      DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU,
+      DmaCh2RxInterruptWatchdogTimerFields::RWTU,
       ftl::mmio::Reserved<14, 18>> {
-    using RWT = DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT;
-    using RWTU = DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
+    using RWT = DmaCh2RxInterruptWatchdogTimerFields::RWT;
+    using RWTU = DmaCh2RxInterruptWatchdogTimerFields::RWTU;
   };
 
   // Channel 2 Slot Function Control and Status
-  struct DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
+  struct DmaCh2SlotFunctionControlStatusFields {
     enum class eESC : std::uint32_t {
       // Slot Comparison is disabled
       eDISABLE = 0,
@@ -21700,89 +21700,89 @@ struct EnetQos {
     using SIV = ftl::mmio::Field<12, 4, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Reference Slot Number This field gives the current value of the reference slot number in the DMA.
     using RSN = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_
+  };  // struct DmaCh2SlotFunctionControlStatusFields
 
   struct DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
       0x4043D23Cu,
       std::uint32_t,
       0x000007C0u,
       ftl::mmio::RW,
-      DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC,
-      DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC,
+      DmaCh2SlotFunctionControlStatusFields::ESC,
+      DmaCh2SlotFunctionControlStatusFields::ASC,
       ftl::mmio::Reserved<2, 2>,
-      DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV,
-      DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN,
+      DmaCh2SlotFunctionControlStatusFields::SIV,
+      DmaCh2SlotFunctionControlStatusFields::RSN,
       ftl::mmio::Reserved<12, 20>> {
-    using eESC = DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::eESC;
-    using eASC = DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::eASC;
-    using ESC = DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC;
-    using ASC = DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC;
-    using SIV = DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV;
-    using RSN = DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
+    using eESC = DmaCh2SlotFunctionControlStatusFields::eESC;
+    using eASC = DmaCh2SlotFunctionControlStatusFields::eASC;
+    using ESC = DmaCh2SlotFunctionControlStatusFields::ESC;
+    using ASC = DmaCh2SlotFunctionControlStatusFields::ASC;
+    using SIV = DmaCh2SlotFunctionControlStatusFields::SIV;
+    using RSN = DmaCh2SlotFunctionControlStatusFields::RSN;
   };
 
   // Channel 2 Current Application Transmit Descriptor
-  struct DMA_CH2_CURRENT_APP_TXDESC_fields_ {
+  struct DmaCh2CurrentAppTxdescFields {
     // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
     using CURTDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_CURRENT_APP_TXDESC_fields_
+  };  // struct DmaCh2CurrentAppTxdescFields
 
   struct DMA_CH2_CURRENT_APP_TXDESC : ftl::mmio::Register<
       0x4043D244u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH2_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
-    using CURTDESAPTR = DMA_CH2_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
+      DmaCh2CurrentAppTxdescFields::CURTDESAPTR> {
+    using CURTDESAPTR = DmaCh2CurrentAppTxdescFields::CURTDESAPTR;
   };
 
   // Channel 2 Current Application Receive Descriptor
-  struct DMA_CH2_CURRENT_APP_RXDESC_fields_ {
+  struct DmaCh2CurrentAppRxdescFields {
     // Application Receive Descriptor Address Pointer The DMA updates this pointer during Rx operation.
     using CURRDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_CURRENT_APP_RXDESC_fields_
+  };  // struct DmaCh2CurrentAppRxdescFields
 
   struct DMA_CH2_CURRENT_APP_RXDESC : ftl::mmio::Register<
       0x4043D24Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH2_CURRENT_APP_RXDESC_fields_::CURRDESAPTR> {
-    using CURRDESAPTR = DMA_CH2_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
+      DmaCh2CurrentAppRxdescFields::CURRDESAPTR> {
+    using CURRDESAPTR = DmaCh2CurrentAppRxdescFields::CURRDESAPTR;
   };
 
   // Channel 2 Current Application Transmit Buffer Address
-  struct DMA_CH2_CURRENT_APP_TXBUFFER_fields_ {
+  struct DmaCh2CurrentAppTxbufferFields {
     // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
     using CURTBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_CURRENT_APP_TXBUFFER_fields_
+  };  // struct DmaCh2CurrentAppTxbufferFields
 
   struct DMA_CH2_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
       0x4043D254u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH2_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
-    using CURTBUFAPTR = DMA_CH2_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
+      DmaCh2CurrentAppTxbufferFields::CURTBUFAPTR> {
+    using CURTBUFAPTR = DmaCh2CurrentAppTxbufferFields::CURTBUFAPTR;
   };
 
   // Channel 2 Current Application Receive Buffer Address
-  struct DMA_CH2_CURRENT_APP_RXBUFFER_fields_ {
+  struct DmaCh2CurrentAppRxbufferFields {
     // Application Receive Buffer Address Pointer The DMA updates this pointer during Rx operation.
     using CURRBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_CURRENT_APP_RXBUFFER_fields_
+  };  // struct DmaCh2CurrentAppRxbufferFields
 
   struct DMA_CH2_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
       0x4043D25Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH2_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR> {
-    using CURRBUFAPTR = DMA_CH2_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
+      DmaCh2CurrentAppRxbufferFields::CURRBUFAPTR> {
+    using CURRBUFAPTR = DmaCh2CurrentAppRxbufferFields::CURRBUFAPTR;
   };
 
   // DMA Channel 2 Status
-  struct DMA_CH2_STATUS_fields_ {
+  struct DmaCh2StatusFields {
     enum class eTI : std::uint32_t {
       // Transmit Interrupt status not detected
       eINACTIVE = 0,
@@ -21904,62 +21904,62 @@ struct EnetQos {
     using TEB = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx DMA Error Bits This field indicates the type of error that caused a Bus Error.
     using REB = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_STATUS_fields_
+  };  // struct DmaCh2StatusFields
 
   struct DMA_CH2_STATUS : ftl::mmio::Register<
       0x4043D260u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH2_STATUS_fields_::TI,
-      DMA_CH2_STATUS_fields_::TPS,
-      DMA_CH2_STATUS_fields_::TBU,
+      DmaCh2StatusFields::TI,
+      DmaCh2StatusFields::TPS,
+      DmaCh2StatusFields::TBU,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH2_STATUS_fields_::RI,
-      DMA_CH2_STATUS_fields_::RBU,
-      DMA_CH2_STATUS_fields_::RPS,
-      DMA_CH2_STATUS_fields_::RWT,
-      DMA_CH2_STATUS_fields_::ETI,
-      DMA_CH2_STATUS_fields_::ERI,
-      DMA_CH2_STATUS_fields_::FBE,
-      DMA_CH2_STATUS_fields_::CDE,
-      DMA_CH2_STATUS_fields_::AIS,
-      DMA_CH2_STATUS_fields_::NIS,
-      DMA_CH2_STATUS_fields_::TEB,
-      DMA_CH2_STATUS_fields_::REB,
+      DmaCh2StatusFields::RI,
+      DmaCh2StatusFields::RBU,
+      DmaCh2StatusFields::RPS,
+      DmaCh2StatusFields::RWT,
+      DmaCh2StatusFields::ETI,
+      DmaCh2StatusFields::ERI,
+      DmaCh2StatusFields::FBE,
+      DmaCh2StatusFields::CDE,
+      DmaCh2StatusFields::AIS,
+      DmaCh2StatusFields::NIS,
+      DmaCh2StatusFields::TEB,
+      DmaCh2StatusFields::REB,
       ftl::mmio::Reserved<10, 22>> {
-    using eTI = DMA_CH2_STATUS_fields_::eTI;
-    using eTPS = DMA_CH2_STATUS_fields_::eTPS;
-    using eTBU = DMA_CH2_STATUS_fields_::eTBU;
-    using eRI = DMA_CH2_STATUS_fields_::eRI;
-    using eRBU = DMA_CH2_STATUS_fields_::eRBU;
-    using eRPS = DMA_CH2_STATUS_fields_::eRPS;
-    using eRWT = DMA_CH2_STATUS_fields_::eRWT;
-    using eETI = DMA_CH2_STATUS_fields_::eETI;
-    using eERI = DMA_CH2_STATUS_fields_::eERI;
-    using eFBE = DMA_CH2_STATUS_fields_::eFBE;
-    using eCDE = DMA_CH2_STATUS_fields_::eCDE;
-    using eAIS = DMA_CH2_STATUS_fields_::eAIS;
-    using eNIS = DMA_CH2_STATUS_fields_::eNIS;
-    using TI = DMA_CH2_STATUS_fields_::TI;
-    using TPS = DMA_CH2_STATUS_fields_::TPS;
-    using TBU = DMA_CH2_STATUS_fields_::TBU;
-    using RI = DMA_CH2_STATUS_fields_::RI;
-    using RBU = DMA_CH2_STATUS_fields_::RBU;
-    using RPS = DMA_CH2_STATUS_fields_::RPS;
-    using RWT = DMA_CH2_STATUS_fields_::RWT;
-    using ETI = DMA_CH2_STATUS_fields_::ETI;
-    using ERI = DMA_CH2_STATUS_fields_::ERI;
-    using FBE = DMA_CH2_STATUS_fields_::FBE;
-    using CDE = DMA_CH2_STATUS_fields_::CDE;
-    using AIS = DMA_CH2_STATUS_fields_::AIS;
-    using NIS = DMA_CH2_STATUS_fields_::NIS;
-    using TEB = DMA_CH2_STATUS_fields_::TEB;
-    using REB = DMA_CH2_STATUS_fields_::REB;
+    using eTI = DmaCh2StatusFields::eTI;
+    using eTPS = DmaCh2StatusFields::eTPS;
+    using eTBU = DmaCh2StatusFields::eTBU;
+    using eRI = DmaCh2StatusFields::eRI;
+    using eRBU = DmaCh2StatusFields::eRBU;
+    using eRPS = DmaCh2StatusFields::eRPS;
+    using eRWT = DmaCh2StatusFields::eRWT;
+    using eETI = DmaCh2StatusFields::eETI;
+    using eERI = DmaCh2StatusFields::eERI;
+    using eFBE = DmaCh2StatusFields::eFBE;
+    using eCDE = DmaCh2StatusFields::eCDE;
+    using eAIS = DmaCh2StatusFields::eAIS;
+    using eNIS = DmaCh2StatusFields::eNIS;
+    using TI = DmaCh2StatusFields::TI;
+    using TPS = DmaCh2StatusFields::TPS;
+    using TBU = DmaCh2StatusFields::TBU;
+    using RI = DmaCh2StatusFields::RI;
+    using RBU = DmaCh2StatusFields::RBU;
+    using RPS = DmaCh2StatusFields::RPS;
+    using RWT = DmaCh2StatusFields::RWT;
+    using ETI = DmaCh2StatusFields::ETI;
+    using ERI = DmaCh2StatusFields::ERI;
+    using FBE = DmaCh2StatusFields::FBE;
+    using CDE = DmaCh2StatusFields::CDE;
+    using AIS = DmaCh2StatusFields::AIS;
+    using NIS = DmaCh2StatusFields::NIS;
+    using TEB = DmaCh2StatusFields::TEB;
+    using REB = DmaCh2StatusFields::REB;
   };
 
   // Channel 2 Missed Frame Counter
-  struct DMA_CH2_MISS_FRAME_CNT_fields_ {
+  struct DmaCh2MissFrameCntFields {
     enum class eMFCO : std::uint32_t {
       // Miss Frame Counter overflow not occurred
       eINACTIVE = 0,
@@ -21971,24 +21971,24 @@ struct EnetQos {
     using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
     using MFCO = ftl::mmio::Field<1, 15, eMFCO, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_MISS_FRAME_CNT_fields_
+  };  // struct DmaCh2MissFrameCntFields
 
   struct DMA_CH2_MISS_FRAME_CNT : ftl::mmio::Register<
       0x4043D264u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH2_MISS_FRAME_CNT_fields_::MFC,
+      DmaCh2MissFrameCntFields::MFC,
       ftl::mmio::Reserved<4, 11>,
-      DMA_CH2_MISS_FRAME_CNT_fields_::MFCO,
+      DmaCh2MissFrameCntFields::MFCO,
       ftl::mmio::Reserved<16, 16>> {
-    using eMFCO = DMA_CH2_MISS_FRAME_CNT_fields_::eMFCO;
-    using MFC = DMA_CH2_MISS_FRAME_CNT_fields_::MFC;
-    using MFCO = DMA_CH2_MISS_FRAME_CNT_fields_::MFCO;
+    using eMFCO = DmaCh2MissFrameCntFields::eMFCO;
+    using MFC = DmaCh2MissFrameCntFields::MFC;
+    using MFCO = DmaCh2MissFrameCntFields::MFCO;
   };
 
   // Channel 2 RXP Frames Accepted Counter
-  struct DMA_CH2_RXP_ACCEPT_CNT_fields_ {
+  struct DmaCh2RxpAcceptCntFields {
     enum class eRXPACOF : std::uint32_t {
       // Rx Parser Accept Counter overflow not occurred
       eINACTIVE = 0,
@@ -22000,38 +22000,38 @@ struct EnetQos {
     using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
     using RXPACOF = ftl::mmio::Field<1, 31, eRXPACOF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_RXP_ACCEPT_CNT_fields_
+  };  // struct DmaCh2RxpAcceptCntFields
 
   struct DMA_CH2_RXP_ACCEPT_CNT : ftl::mmio::Register<
       0x4043D268u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH2_RXP_ACCEPT_CNT_fields_::RXPAC,
-      DMA_CH2_RXP_ACCEPT_CNT_fields_::RXPACOF> {
-    using eRXPACOF = DMA_CH2_RXP_ACCEPT_CNT_fields_::eRXPACOF;
-    using RXPAC = DMA_CH2_RXP_ACCEPT_CNT_fields_::RXPAC;
-    using RXPACOF = DMA_CH2_RXP_ACCEPT_CNT_fields_::RXPACOF;
+      DmaCh2RxpAcceptCntFields::RXPAC,
+      DmaCh2RxpAcceptCntFields::RXPACOF> {
+    using eRXPACOF = DmaCh2RxpAcceptCntFields::eRXPACOF;
+    using RXPAC = DmaCh2RxpAcceptCntFields::RXPAC;
+    using RXPACOF = DmaCh2RxpAcceptCntFields::RXPACOF;
   };
 
   // Channel 2 Receive ERI Counter
-  struct DMA_CH2_RX_ERI_CNT_fields_ {
+  struct DmaCh2RxEriCntFields {
     // ERI Counter When ERIC bit of DMA_CH2_RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
     using ECNT = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH2_RX_ERI_CNT_fields_
+  };  // struct DmaCh2RxEriCntFields
 
   struct DMA_CH2_RX_ERI_CNT : ftl::mmio::Register<
       0x4043D26Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH2_RX_ERI_CNT_fields_::ECNT,
+      DmaCh2RxEriCntFields::ECNT,
       ftl::mmio::Reserved<20, 12>> {
-    using ECNT = DMA_CH2_RX_ERI_CNT_fields_::ECNT;
+    using ECNT = DmaCh2RxEriCntFields::ECNT;
   };
 
   // DMA Channel 3 Control
-  struct DMA_CH3_CONTROL_fields_ {
+  struct DmaCh3ControlFields {
     enum class ePBLx8 : std::uint32_t {
       // 8xPBL mode is disabled
       eDISABLE = 0,
@@ -22043,7 +22043,7 @@ struct EnetQos {
     using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
     // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
     using DSL = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_CONTROL_fields_
+  };  // struct DmaCh3ControlFields
 
   struct DMA_CH3_CONTROL : ftl::mmio::Register<
       0x4043D280u,
@@ -22051,17 +22051,17 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<16, 0>,
-      DMA_CH3_CONTROL_fields_::PBLx8,
+      DmaCh3ControlFields::PBLx8,
       ftl::mmio::Reserved<1, 17>,
-      DMA_CH3_CONTROL_fields_::DSL,
+      DmaCh3ControlFields::DSL,
       ftl::mmio::Reserved<11, 21>> {
-    using ePBLx8 = DMA_CH3_CONTROL_fields_::ePBLx8;
-    using PBLx8 = DMA_CH3_CONTROL_fields_::PBLx8;
-    using DSL = DMA_CH3_CONTROL_fields_::DSL;
+    using ePBLx8 = DmaCh3ControlFields::ePBLx8;
+    using PBLx8 = DmaCh3ControlFields::PBLx8;
+    using DSL = DmaCh3ControlFields::DSL;
   };
 
   // DMA Channel 3 Transmit Control
-  struct DMA_CH3_TX_CONTROL_fields_ {
+  struct DmaCh3TxControlFields {
     enum class eST : std::uint32_t {
       // Stop Transmission Command
       eSTOP = 0,
@@ -22100,35 +22100,35 @@ struct EnetQos {
     using TxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enhanced Descriptor Enable When this bit is set, the corresponding channel uses Enhanced Descriptors that are 32 Bytes for both Normal and Context Descriptors.
     using EDSE = ftl::mmio::Field<1, 28, eEDSE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_TX_CONTROL_fields_
+  };  // struct DmaCh3TxControlFields
 
   struct DMA_CH3_TX_CONTROL : ftl::mmio::Register<
       0x4043D284u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH3_TX_CONTROL_fields_::ST,
+      DmaCh3TxControlFields::ST,
       ftl::mmio::Reserved<3, 1>,
-      DMA_CH3_TX_CONTROL_fields_::OSF,
+      DmaCh3TxControlFields::OSF,
       ftl::mmio::Reserved<10, 5>,
-      DMA_CH3_TX_CONTROL_fields_::IPBL,
-      DMA_CH3_TX_CONTROL_fields_::TxPBL,
+      DmaCh3TxControlFields::IPBL,
+      DmaCh3TxControlFields::TxPBL,
       ftl::mmio::Reserved<6, 22>,
-      DMA_CH3_TX_CONTROL_fields_::EDSE,
+      DmaCh3TxControlFields::EDSE,
       ftl::mmio::Reserved<3, 29>> {
-    using eST = DMA_CH3_TX_CONTROL_fields_::eST;
-    using eOSF = DMA_CH3_TX_CONTROL_fields_::eOSF;
-    using eIPBL = DMA_CH3_TX_CONTROL_fields_::eIPBL;
-    using eEDSE = DMA_CH3_TX_CONTROL_fields_::eEDSE;
-    using ST = DMA_CH3_TX_CONTROL_fields_::ST;
-    using OSF = DMA_CH3_TX_CONTROL_fields_::OSF;
-    using IPBL = DMA_CH3_TX_CONTROL_fields_::IPBL;
-    using TxPBL = DMA_CH3_TX_CONTROL_fields_::TxPBL;
-    using EDSE = DMA_CH3_TX_CONTROL_fields_::EDSE;
+    using eST = DmaCh3TxControlFields::eST;
+    using eOSF = DmaCh3TxControlFields::eOSF;
+    using eIPBL = DmaCh3TxControlFields::eIPBL;
+    using eEDSE = DmaCh3TxControlFields::eEDSE;
+    using ST = DmaCh3TxControlFields::ST;
+    using OSF = DmaCh3TxControlFields::OSF;
+    using IPBL = DmaCh3TxControlFields::IPBL;
+    using TxPBL = DmaCh3TxControlFields::TxPBL;
+    using EDSE = DmaCh3TxControlFields::EDSE;
   };
 
   // DMA Channel 3 Receive Control
-  struct DMA_CH3_RX_CONTROL_fields_ {
+  struct DmaCh3RxControlFields {
     enum class eSR : std::uint32_t {
       // Stop Receive
       eSTOP = 0,
@@ -22153,34 +22153,34 @@ struct EnetQos {
     using RxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Rx Packet Flush.
     using RPF = ftl::mmio::Field<1, 31, eRPF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_RX_CONTROL_fields_
+  };  // struct DmaCh3RxControlFields
 
   struct DMA_CH3_RX_CONTROL : ftl::mmio::Register<
       0x4043D288u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH3_RX_CONTROL_fields_::SR,
-      DMA_CH3_RX_CONTROL_fields_::RBSZ_x_0,
-      DMA_CH3_RX_CONTROL_fields_::RBSZ_13_y,
+      DmaCh3RxControlFields::SR,
+      DmaCh3RxControlFields::RBSZ_x_0,
+      DmaCh3RxControlFields::RBSZ_13_y,
       ftl::mmio::Reserved<1, 15>,
-      DMA_CH3_RX_CONTROL_fields_::RxPBL,
+      DmaCh3RxControlFields::RxPBL,
       ftl::mmio::Reserved<9, 22>,
-      DMA_CH3_RX_CONTROL_fields_::RPF> {
-    using eSR = DMA_CH3_RX_CONTROL_fields_::eSR;
-    using eRPF = DMA_CH3_RX_CONTROL_fields_::eRPF;
-    using SR = DMA_CH3_RX_CONTROL_fields_::SR;
-    using RBSZ_x_0 = DMA_CH3_RX_CONTROL_fields_::RBSZ_x_0;
-    using RBSZ_13_y = DMA_CH3_RX_CONTROL_fields_::RBSZ_13_y;
-    using RxPBL = DMA_CH3_RX_CONTROL_fields_::RxPBL;
-    using RPF = DMA_CH3_RX_CONTROL_fields_::RPF;
+      DmaCh3RxControlFields::RPF> {
+    using eSR = DmaCh3RxControlFields::eSR;
+    using eRPF = DmaCh3RxControlFields::eRPF;
+    using SR = DmaCh3RxControlFields::SR;
+    using RBSZ_x_0 = DmaCh3RxControlFields::RBSZ_x_0;
+    using RBSZ_13_y = DmaCh3RxControlFields::RBSZ_13_y;
+    using RxPBL = DmaCh3RxControlFields::RxPBL;
+    using RPF = DmaCh3RxControlFields::RPF;
   };
 
   // Channel 3 Tx Descriptor List Address
-  struct DMA_CH3_TXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh3TxdescListAddressFields {
     // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
     using TDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_TXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh3TxdescListAddressFields
 
   struct DMA_CH3_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D294u,
@@ -22188,15 +22188,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH3_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
-    using TDESLA = DMA_CH3_TXDESC_LIST_ADDRESS_fields_::TDESLA;
+      DmaCh3TxdescListAddressFields::TDESLA> {
+    using TDESLA = DmaCh3TxdescListAddressFields::TDESLA;
   };
 
   // Channel 3 Rx Descriptor List Address
-  struct DMA_CH3_RXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh3RxdescListAddressFields {
     // Start of Receive List This field contains the base address of the first descriptor in the Rx Descriptor list.
     using RDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_RXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh3RxdescListAddressFields
 
   struct DMA_CH3_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D29Cu,
@@ -22204,15 +22204,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH3_RXDESC_LIST_ADDRESS_fields_::RDESLA> {
-    using RDESLA = DMA_CH3_RXDESC_LIST_ADDRESS_fields_::RDESLA;
+      DmaCh3RxdescListAddressFields::RDESLA> {
+    using RDESLA = DmaCh3RxdescListAddressFields::RDESLA;
   };
 
   // Channel 3 Tx Descriptor Tail Pointer
-  struct DMA_CH3_TXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh3TxdescTailPointerFields {
     // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
     using TDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_TXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh3TxdescTailPointerFields
 
   struct DMA_CH3_TXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D2A0u,
@@ -22220,15 +22220,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH3_TXDESC_TAIL_POINTER_fields_::TDTP> {
-    using TDTP = DMA_CH3_TXDESC_TAIL_POINTER_fields_::TDTP;
+      DmaCh3TxdescTailPointerFields::TDTP> {
+    using TDTP = DmaCh3TxdescTailPointerFields::TDTP;
   };
 
   // Channel 3 Rx Descriptor Tail Pointer
-  struct DMA_CH3_RXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh3RxdescTailPointerFields {
     // Receive Descriptor Tail Pointer This field contains the tail pointer for the Rx descriptor ring.
     using RDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_RXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh3RxdescTailPointerFields
 
   struct DMA_CH3_RXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D2A8u,
@@ -22236,44 +22236,44 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH3_RXDESC_TAIL_POINTER_fields_::RDTP> {
-    using RDTP = DMA_CH3_RXDESC_TAIL_POINTER_fields_::RDTP;
+      DmaCh3RxdescTailPointerFields::RDTP> {
+    using RDTP = DmaCh3RxdescTailPointerFields::RDTP;
   };
 
   // Channel 3 Tx Descriptor Ring Length
-  struct DMA_CH3_TXDESC_RING_LENGTH_fields_ {
+  struct DmaCh3TxdescRingLengthFields {
     // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
     using TDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_TXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh3TxdescRingLengthFields
 
   struct DMA_CH3_TXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D2ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH3_TXDESC_RING_LENGTH_fields_::TDRL,
+      DmaCh3TxdescRingLengthFields::TDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using TDRL = DMA_CH3_TXDESC_RING_LENGTH_fields_::TDRL;
+    using TDRL = DmaCh3TxdescRingLengthFields::TDRL;
   };
 
   // Channel 3 Rx Descriptor Ring Length
-  struct DMA_CH3_RXDESC_RING_LENGTH_fields_ {
+  struct DmaCh3RxdescRingLengthFields {
     // Receive Descriptor Ring Length This register sets the maximum number of Rx descriptors in the circular descriptor ring.
     using RDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_RXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh3RxdescRingLengthFields
 
   struct DMA_CH3_RXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D2B0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH3_RXDESC_RING_LENGTH_fields_::RDRL,
+      DmaCh3RxdescRingLengthFields::RDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using RDRL = DMA_CH3_RXDESC_RING_LENGTH_fields_::RDRL;
+    using RDRL = DmaCh3RxdescRingLengthFields::RDRL;
   };
 
   // Channel 3 Interrupt Enable
-  struct DMA_CH3_INTERRUPT_ENABLE_fields_ {
+  struct DmaCh3InterruptEnableFields {
     enum class eTIE : std::uint32_t {
       // Transmit Interrupt is disabled
       eDISABLE = 0,
@@ -22391,79 +22391,79 @@ struct EnetQos {
     using AIE = ftl::mmio::Field<1, 14, eAIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Normal Interrupt Summary Enable When this bit is set, the normal interrupt summary is enabled.
     using NIE = ftl::mmio::Field<1, 15, eNIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_INTERRUPT_ENABLE_fields_
+  };  // struct DmaCh3InterruptEnableFields
 
   struct DMA_CH3_INTERRUPT_ENABLE : ftl::mmio::Register<
       0x4043D2B4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::TIE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::TXSE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::TBUE,
+      DmaCh3InterruptEnableFields::TIE,
+      DmaCh3InterruptEnableFields::TXSE,
+      DmaCh3InterruptEnableFields::TBUE,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::RIE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::RBUE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::RSE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::RWTE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::ETIE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::ERIE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::FBEE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::CDEE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::AIE,
-      DMA_CH3_INTERRUPT_ENABLE_fields_::NIE,
+      DmaCh3InterruptEnableFields::RIE,
+      DmaCh3InterruptEnableFields::RBUE,
+      DmaCh3InterruptEnableFields::RSE,
+      DmaCh3InterruptEnableFields::RWTE,
+      DmaCh3InterruptEnableFields::ETIE,
+      DmaCh3InterruptEnableFields::ERIE,
+      DmaCh3InterruptEnableFields::FBEE,
+      DmaCh3InterruptEnableFields::CDEE,
+      DmaCh3InterruptEnableFields::AIE,
+      DmaCh3InterruptEnableFields::NIE,
       ftl::mmio::Reserved<16, 16>> {
-    using eTIE = DMA_CH3_INTERRUPT_ENABLE_fields_::eTIE;
-    using eTXSE = DMA_CH3_INTERRUPT_ENABLE_fields_::eTXSE;
-    using eTBUE = DMA_CH3_INTERRUPT_ENABLE_fields_::eTBUE;
-    using eRIE = DMA_CH3_INTERRUPT_ENABLE_fields_::eRIE;
-    using eRBUE = DMA_CH3_INTERRUPT_ENABLE_fields_::eRBUE;
-    using eRSE = DMA_CH3_INTERRUPT_ENABLE_fields_::eRSE;
-    using eRWTE = DMA_CH3_INTERRUPT_ENABLE_fields_::eRWTE;
-    using eETIE = DMA_CH3_INTERRUPT_ENABLE_fields_::eETIE;
-    using eERIE = DMA_CH3_INTERRUPT_ENABLE_fields_::eERIE;
-    using eFBEE = DMA_CH3_INTERRUPT_ENABLE_fields_::eFBEE;
-    using eCDEE = DMA_CH3_INTERRUPT_ENABLE_fields_::eCDEE;
-    using eAIE = DMA_CH3_INTERRUPT_ENABLE_fields_::eAIE;
-    using eNIE = DMA_CH3_INTERRUPT_ENABLE_fields_::eNIE;
-    using TIE = DMA_CH3_INTERRUPT_ENABLE_fields_::TIE;
-    using TXSE = DMA_CH3_INTERRUPT_ENABLE_fields_::TXSE;
-    using TBUE = DMA_CH3_INTERRUPT_ENABLE_fields_::TBUE;
-    using RIE = DMA_CH3_INTERRUPT_ENABLE_fields_::RIE;
-    using RBUE = DMA_CH3_INTERRUPT_ENABLE_fields_::RBUE;
-    using RSE = DMA_CH3_INTERRUPT_ENABLE_fields_::RSE;
-    using RWTE = DMA_CH3_INTERRUPT_ENABLE_fields_::RWTE;
-    using ETIE = DMA_CH3_INTERRUPT_ENABLE_fields_::ETIE;
-    using ERIE = DMA_CH3_INTERRUPT_ENABLE_fields_::ERIE;
-    using FBEE = DMA_CH3_INTERRUPT_ENABLE_fields_::FBEE;
-    using CDEE = DMA_CH3_INTERRUPT_ENABLE_fields_::CDEE;
-    using AIE = DMA_CH3_INTERRUPT_ENABLE_fields_::AIE;
-    using NIE = DMA_CH3_INTERRUPT_ENABLE_fields_::NIE;
+    using eTIE = DmaCh3InterruptEnableFields::eTIE;
+    using eTXSE = DmaCh3InterruptEnableFields::eTXSE;
+    using eTBUE = DmaCh3InterruptEnableFields::eTBUE;
+    using eRIE = DmaCh3InterruptEnableFields::eRIE;
+    using eRBUE = DmaCh3InterruptEnableFields::eRBUE;
+    using eRSE = DmaCh3InterruptEnableFields::eRSE;
+    using eRWTE = DmaCh3InterruptEnableFields::eRWTE;
+    using eETIE = DmaCh3InterruptEnableFields::eETIE;
+    using eERIE = DmaCh3InterruptEnableFields::eERIE;
+    using eFBEE = DmaCh3InterruptEnableFields::eFBEE;
+    using eCDEE = DmaCh3InterruptEnableFields::eCDEE;
+    using eAIE = DmaCh3InterruptEnableFields::eAIE;
+    using eNIE = DmaCh3InterruptEnableFields::eNIE;
+    using TIE = DmaCh3InterruptEnableFields::TIE;
+    using TXSE = DmaCh3InterruptEnableFields::TXSE;
+    using TBUE = DmaCh3InterruptEnableFields::TBUE;
+    using RIE = DmaCh3InterruptEnableFields::RIE;
+    using RBUE = DmaCh3InterruptEnableFields::RBUE;
+    using RSE = DmaCh3InterruptEnableFields::RSE;
+    using RWTE = DmaCh3InterruptEnableFields::RWTE;
+    using ETIE = DmaCh3InterruptEnableFields::ETIE;
+    using ERIE = DmaCh3InterruptEnableFields::ERIE;
+    using FBEE = DmaCh3InterruptEnableFields::FBEE;
+    using CDEE = DmaCh3InterruptEnableFields::CDEE;
+    using AIE = DmaCh3InterruptEnableFields::AIE;
+    using NIE = DmaCh3InterruptEnableFields::NIE;
   };
 
   // Channel 3 Receive Interrupt Watchdog Time
-  struct DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
+  struct DmaCh3RxInterruptWatchdogTimerFields {
     // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
     using RWT = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Interrupt Watchdog Timer Count Units This fields indicates the number of system clock cycles corresponding to one unit in RWT field.
     using RWTU = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER_fields_
+  };  // struct DmaCh3RxInterruptWatchdogTimerFields
 
   struct DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
       0x4043D2B8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT,
+      DmaCh3RxInterruptWatchdogTimerFields::RWT,
       ftl::mmio::Reserved<8, 8>,
-      DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU,
+      DmaCh3RxInterruptWatchdogTimerFields::RWTU,
       ftl::mmio::Reserved<14, 18>> {
-    using RWT = DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT;
-    using RWTU = DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
+    using RWT = DmaCh3RxInterruptWatchdogTimerFields::RWT;
+    using RWTU = DmaCh3RxInterruptWatchdogTimerFields::RWTU;
   };
 
   // Channel 3 Slot Function Control and Status
-  struct DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
+  struct DmaCh3SlotFunctionControlStatusFields {
     enum class eESC : std::uint32_t {
       // Slot Comparison is disabled
       eDISABLE = 0,
@@ -22486,89 +22486,89 @@ struct EnetQos {
     using SIV = ftl::mmio::Field<12, 4, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Reference Slot Number This field gives the current value of the reference slot number in the DMA.
     using RSN = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_
+  };  // struct DmaCh3SlotFunctionControlStatusFields
 
   struct DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
       0x4043D2BCu,
       std::uint32_t,
       0x000007C0u,
       ftl::mmio::RW,
-      DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC,
-      DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC,
+      DmaCh3SlotFunctionControlStatusFields::ESC,
+      DmaCh3SlotFunctionControlStatusFields::ASC,
       ftl::mmio::Reserved<2, 2>,
-      DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV,
-      DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN,
+      DmaCh3SlotFunctionControlStatusFields::SIV,
+      DmaCh3SlotFunctionControlStatusFields::RSN,
       ftl::mmio::Reserved<12, 20>> {
-    using eESC = DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::eESC;
-    using eASC = DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::eASC;
-    using ESC = DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC;
-    using ASC = DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC;
-    using SIV = DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV;
-    using RSN = DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
+    using eESC = DmaCh3SlotFunctionControlStatusFields::eESC;
+    using eASC = DmaCh3SlotFunctionControlStatusFields::eASC;
+    using ESC = DmaCh3SlotFunctionControlStatusFields::ESC;
+    using ASC = DmaCh3SlotFunctionControlStatusFields::ASC;
+    using SIV = DmaCh3SlotFunctionControlStatusFields::SIV;
+    using RSN = DmaCh3SlotFunctionControlStatusFields::RSN;
   };
 
   // Channel 3 Current Application Transmit Descriptor
-  struct DMA_CH3_CURRENT_APP_TXDESC_fields_ {
+  struct DmaCh3CurrentAppTxdescFields {
     // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
     using CURTDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_CURRENT_APP_TXDESC_fields_
+  };  // struct DmaCh3CurrentAppTxdescFields
 
   struct DMA_CH3_CURRENT_APP_TXDESC : ftl::mmio::Register<
       0x4043D2C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH3_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
-    using CURTDESAPTR = DMA_CH3_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
+      DmaCh3CurrentAppTxdescFields::CURTDESAPTR> {
+    using CURTDESAPTR = DmaCh3CurrentAppTxdescFields::CURTDESAPTR;
   };
 
   // Channel 3 Current Application Receive Descriptor
-  struct DMA_CH3_CURRENT_APP_RXDESC_fields_ {
+  struct DmaCh3CurrentAppRxdescFields {
     // Application Receive Descriptor Address Pointer The DMA updates this pointer during Rx operation.
     using CURRDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_CURRENT_APP_RXDESC_fields_
+  };  // struct DmaCh3CurrentAppRxdescFields
 
   struct DMA_CH3_CURRENT_APP_RXDESC : ftl::mmio::Register<
       0x4043D2CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH3_CURRENT_APP_RXDESC_fields_::CURRDESAPTR> {
-    using CURRDESAPTR = DMA_CH3_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
+      DmaCh3CurrentAppRxdescFields::CURRDESAPTR> {
+    using CURRDESAPTR = DmaCh3CurrentAppRxdescFields::CURRDESAPTR;
   };
 
   // Channel 3 Current Application Transmit Buffer Address
-  struct DMA_CH3_CURRENT_APP_TXBUFFER_fields_ {
+  struct DmaCh3CurrentAppTxbufferFields {
     // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
     using CURTBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_CURRENT_APP_TXBUFFER_fields_
+  };  // struct DmaCh3CurrentAppTxbufferFields
 
   struct DMA_CH3_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
       0x4043D2D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH3_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
-    using CURTBUFAPTR = DMA_CH3_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
+      DmaCh3CurrentAppTxbufferFields::CURTBUFAPTR> {
+    using CURTBUFAPTR = DmaCh3CurrentAppTxbufferFields::CURTBUFAPTR;
   };
 
   // Channel 3 Current Application Receive Buffer Address
-  struct DMA_CH3_CURRENT_APP_RXBUFFER_fields_ {
+  struct DmaCh3CurrentAppRxbufferFields {
     // Application Receive Buffer Address Pointer The DMA updates this pointer during Rx operation.
     using CURRBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_CURRENT_APP_RXBUFFER_fields_
+  };  // struct DmaCh3CurrentAppRxbufferFields
 
   struct DMA_CH3_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
       0x4043D2DCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH3_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR> {
-    using CURRBUFAPTR = DMA_CH3_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
+      DmaCh3CurrentAppRxbufferFields::CURRBUFAPTR> {
+    using CURRBUFAPTR = DmaCh3CurrentAppRxbufferFields::CURRBUFAPTR;
   };
 
   // DMA Channel 3 Status
-  struct DMA_CH3_STATUS_fields_ {
+  struct DmaCh3StatusFields {
     enum class eTI : std::uint32_t {
       // Transmit Interrupt status not detected
       eINACTIVE = 0,
@@ -22690,62 +22690,62 @@ struct EnetQos {
     using TEB = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx DMA Error Bits This field indicates the type of error that caused a Bus Error.
     using REB = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_STATUS_fields_
+  };  // struct DmaCh3StatusFields
 
   struct DMA_CH3_STATUS : ftl::mmio::Register<
       0x4043D2E0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH3_STATUS_fields_::TI,
-      DMA_CH3_STATUS_fields_::TPS,
-      DMA_CH3_STATUS_fields_::TBU,
+      DmaCh3StatusFields::TI,
+      DmaCh3StatusFields::TPS,
+      DmaCh3StatusFields::TBU,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH3_STATUS_fields_::RI,
-      DMA_CH3_STATUS_fields_::RBU,
-      DMA_CH3_STATUS_fields_::RPS,
-      DMA_CH3_STATUS_fields_::RWT,
-      DMA_CH3_STATUS_fields_::ETI,
-      DMA_CH3_STATUS_fields_::ERI,
-      DMA_CH3_STATUS_fields_::FBE,
-      DMA_CH3_STATUS_fields_::CDE,
-      DMA_CH3_STATUS_fields_::AIS,
-      DMA_CH3_STATUS_fields_::NIS,
-      DMA_CH3_STATUS_fields_::TEB,
-      DMA_CH3_STATUS_fields_::REB,
+      DmaCh3StatusFields::RI,
+      DmaCh3StatusFields::RBU,
+      DmaCh3StatusFields::RPS,
+      DmaCh3StatusFields::RWT,
+      DmaCh3StatusFields::ETI,
+      DmaCh3StatusFields::ERI,
+      DmaCh3StatusFields::FBE,
+      DmaCh3StatusFields::CDE,
+      DmaCh3StatusFields::AIS,
+      DmaCh3StatusFields::NIS,
+      DmaCh3StatusFields::TEB,
+      DmaCh3StatusFields::REB,
       ftl::mmio::Reserved<10, 22>> {
-    using eTI = DMA_CH3_STATUS_fields_::eTI;
-    using eTPS = DMA_CH3_STATUS_fields_::eTPS;
-    using eTBU = DMA_CH3_STATUS_fields_::eTBU;
-    using eRI = DMA_CH3_STATUS_fields_::eRI;
-    using eRBU = DMA_CH3_STATUS_fields_::eRBU;
-    using eRPS = DMA_CH3_STATUS_fields_::eRPS;
-    using eRWT = DMA_CH3_STATUS_fields_::eRWT;
-    using eETI = DMA_CH3_STATUS_fields_::eETI;
-    using eERI = DMA_CH3_STATUS_fields_::eERI;
-    using eFBE = DMA_CH3_STATUS_fields_::eFBE;
-    using eCDE = DMA_CH3_STATUS_fields_::eCDE;
-    using eAIS = DMA_CH3_STATUS_fields_::eAIS;
-    using eNIS = DMA_CH3_STATUS_fields_::eNIS;
-    using TI = DMA_CH3_STATUS_fields_::TI;
-    using TPS = DMA_CH3_STATUS_fields_::TPS;
-    using TBU = DMA_CH3_STATUS_fields_::TBU;
-    using RI = DMA_CH3_STATUS_fields_::RI;
-    using RBU = DMA_CH3_STATUS_fields_::RBU;
-    using RPS = DMA_CH3_STATUS_fields_::RPS;
-    using RWT = DMA_CH3_STATUS_fields_::RWT;
-    using ETI = DMA_CH3_STATUS_fields_::ETI;
-    using ERI = DMA_CH3_STATUS_fields_::ERI;
-    using FBE = DMA_CH3_STATUS_fields_::FBE;
-    using CDE = DMA_CH3_STATUS_fields_::CDE;
-    using AIS = DMA_CH3_STATUS_fields_::AIS;
-    using NIS = DMA_CH3_STATUS_fields_::NIS;
-    using TEB = DMA_CH3_STATUS_fields_::TEB;
-    using REB = DMA_CH3_STATUS_fields_::REB;
+    using eTI = DmaCh3StatusFields::eTI;
+    using eTPS = DmaCh3StatusFields::eTPS;
+    using eTBU = DmaCh3StatusFields::eTBU;
+    using eRI = DmaCh3StatusFields::eRI;
+    using eRBU = DmaCh3StatusFields::eRBU;
+    using eRPS = DmaCh3StatusFields::eRPS;
+    using eRWT = DmaCh3StatusFields::eRWT;
+    using eETI = DmaCh3StatusFields::eETI;
+    using eERI = DmaCh3StatusFields::eERI;
+    using eFBE = DmaCh3StatusFields::eFBE;
+    using eCDE = DmaCh3StatusFields::eCDE;
+    using eAIS = DmaCh3StatusFields::eAIS;
+    using eNIS = DmaCh3StatusFields::eNIS;
+    using TI = DmaCh3StatusFields::TI;
+    using TPS = DmaCh3StatusFields::TPS;
+    using TBU = DmaCh3StatusFields::TBU;
+    using RI = DmaCh3StatusFields::RI;
+    using RBU = DmaCh3StatusFields::RBU;
+    using RPS = DmaCh3StatusFields::RPS;
+    using RWT = DmaCh3StatusFields::RWT;
+    using ETI = DmaCh3StatusFields::ETI;
+    using ERI = DmaCh3StatusFields::ERI;
+    using FBE = DmaCh3StatusFields::FBE;
+    using CDE = DmaCh3StatusFields::CDE;
+    using AIS = DmaCh3StatusFields::AIS;
+    using NIS = DmaCh3StatusFields::NIS;
+    using TEB = DmaCh3StatusFields::TEB;
+    using REB = DmaCh3StatusFields::REB;
   };
 
   // Channel 3 Missed Frame Counter
-  struct DMA_CH3_MISS_FRAME_CNT_fields_ {
+  struct DmaCh3MissFrameCntFields {
     enum class eMFCO : std::uint32_t {
       // Miss Frame Counter overflow not occurred
       eINACTIVE = 0,
@@ -22757,24 +22757,24 @@ struct EnetQos {
     using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
     using MFCO = ftl::mmio::Field<1, 15, eMFCO, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_MISS_FRAME_CNT_fields_
+  };  // struct DmaCh3MissFrameCntFields
 
   struct DMA_CH3_MISS_FRAME_CNT : ftl::mmio::Register<
       0x4043D2E4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH3_MISS_FRAME_CNT_fields_::MFC,
+      DmaCh3MissFrameCntFields::MFC,
       ftl::mmio::Reserved<4, 11>,
-      DMA_CH3_MISS_FRAME_CNT_fields_::MFCO,
+      DmaCh3MissFrameCntFields::MFCO,
       ftl::mmio::Reserved<16, 16>> {
-    using eMFCO = DMA_CH3_MISS_FRAME_CNT_fields_::eMFCO;
-    using MFC = DMA_CH3_MISS_FRAME_CNT_fields_::MFC;
-    using MFCO = DMA_CH3_MISS_FRAME_CNT_fields_::MFCO;
+    using eMFCO = DmaCh3MissFrameCntFields::eMFCO;
+    using MFC = DmaCh3MissFrameCntFields::MFC;
+    using MFCO = DmaCh3MissFrameCntFields::MFCO;
   };
 
   // Channel 3 RXP Frames Accepted Counter
-  struct DMA_CH3_RXP_ACCEPT_CNT_fields_ {
+  struct DmaCh3RxpAcceptCntFields {
     enum class eRXPACOF : std::uint32_t {
       // Rx Parser Accept Counter overflow not occurred
       eINACTIVE = 0,
@@ -22786,38 +22786,38 @@ struct EnetQos {
     using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
     using RXPACOF = ftl::mmio::Field<1, 31, eRXPACOF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_RXP_ACCEPT_CNT_fields_
+  };  // struct DmaCh3RxpAcceptCntFields
 
   struct DMA_CH3_RXP_ACCEPT_CNT : ftl::mmio::Register<
       0x4043D2E8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH3_RXP_ACCEPT_CNT_fields_::RXPAC,
-      DMA_CH3_RXP_ACCEPT_CNT_fields_::RXPACOF> {
-    using eRXPACOF = DMA_CH3_RXP_ACCEPT_CNT_fields_::eRXPACOF;
-    using RXPAC = DMA_CH3_RXP_ACCEPT_CNT_fields_::RXPAC;
-    using RXPACOF = DMA_CH3_RXP_ACCEPT_CNT_fields_::RXPACOF;
+      DmaCh3RxpAcceptCntFields::RXPAC,
+      DmaCh3RxpAcceptCntFields::RXPACOF> {
+    using eRXPACOF = DmaCh3RxpAcceptCntFields::eRXPACOF;
+    using RXPAC = DmaCh3RxpAcceptCntFields::RXPAC;
+    using RXPACOF = DmaCh3RxpAcceptCntFields::RXPACOF;
   };
 
   // Channel 3 Receive ERI Counter
-  struct DMA_CH3_RX_ERI_CNT_fields_ {
+  struct DmaCh3RxEriCntFields {
     // ERI Counter When ERIC bit of DMA_CH3_RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
     using ECNT = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH3_RX_ERI_CNT_fields_
+  };  // struct DmaCh3RxEriCntFields
 
   struct DMA_CH3_RX_ERI_CNT : ftl::mmio::Register<
       0x4043D2ECu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH3_RX_ERI_CNT_fields_::ECNT,
+      DmaCh3RxEriCntFields::ECNT,
       ftl::mmio::Reserved<20, 12>> {
-    using ECNT = DMA_CH3_RX_ERI_CNT_fields_::ECNT;
+    using ECNT = DmaCh3RxEriCntFields::ECNT;
   };
 
   // DMA Channel 4 Control
-  struct DMA_CH4_CONTROL_fields_ {
+  struct DmaCh4ControlFields {
     enum class ePBLx8 : std::uint32_t {
       // 8xPBL mode is disabled
       eDISABLE = 0,
@@ -22829,7 +22829,7 @@ struct EnetQos {
     using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
     // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
     using DSL = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_CONTROL_fields_
+  };  // struct DmaCh4ControlFields
 
   struct DMA_CH4_CONTROL : ftl::mmio::Register<
       0x4043D300u,
@@ -22837,17 +22837,17 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<16, 0>,
-      DMA_CH4_CONTROL_fields_::PBLx8,
+      DmaCh4ControlFields::PBLx8,
       ftl::mmio::Reserved<1, 17>,
-      DMA_CH4_CONTROL_fields_::DSL,
+      DmaCh4ControlFields::DSL,
       ftl::mmio::Reserved<11, 21>> {
-    using ePBLx8 = DMA_CH4_CONTROL_fields_::ePBLx8;
-    using PBLx8 = DMA_CH4_CONTROL_fields_::PBLx8;
-    using DSL = DMA_CH4_CONTROL_fields_::DSL;
+    using ePBLx8 = DmaCh4ControlFields::ePBLx8;
+    using PBLx8 = DmaCh4ControlFields::PBLx8;
+    using DSL = DmaCh4ControlFields::DSL;
   };
 
   // DMA Channel 4 Transmit Control
-  struct DMA_CH4_TX_CONTROL_fields_ {
+  struct DmaCh4TxControlFields {
     enum class eST : std::uint32_t {
       // Stop Transmission Command
       eSTOP = 0,
@@ -22886,35 +22886,35 @@ struct EnetQos {
     using TxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enhanced Descriptor Enable When this bit is set, the corresponding channel uses Enhanced Descriptors that are 32 Bytes for both Normal and Context Descriptors.
     using EDSE = ftl::mmio::Field<1, 28, eEDSE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_TX_CONTROL_fields_
+  };  // struct DmaCh4TxControlFields
 
   struct DMA_CH4_TX_CONTROL : ftl::mmio::Register<
       0x4043D304u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH4_TX_CONTROL_fields_::ST,
+      DmaCh4TxControlFields::ST,
       ftl::mmio::Reserved<3, 1>,
-      DMA_CH4_TX_CONTROL_fields_::OSF,
+      DmaCh4TxControlFields::OSF,
       ftl::mmio::Reserved<10, 5>,
-      DMA_CH4_TX_CONTROL_fields_::IPBL,
-      DMA_CH4_TX_CONTROL_fields_::TxPBL,
+      DmaCh4TxControlFields::IPBL,
+      DmaCh4TxControlFields::TxPBL,
       ftl::mmio::Reserved<6, 22>,
-      DMA_CH4_TX_CONTROL_fields_::EDSE,
+      DmaCh4TxControlFields::EDSE,
       ftl::mmio::Reserved<3, 29>> {
-    using eST = DMA_CH4_TX_CONTROL_fields_::eST;
-    using eOSF = DMA_CH4_TX_CONTROL_fields_::eOSF;
-    using eIPBL = DMA_CH4_TX_CONTROL_fields_::eIPBL;
-    using eEDSE = DMA_CH4_TX_CONTROL_fields_::eEDSE;
-    using ST = DMA_CH4_TX_CONTROL_fields_::ST;
-    using OSF = DMA_CH4_TX_CONTROL_fields_::OSF;
-    using IPBL = DMA_CH4_TX_CONTROL_fields_::IPBL;
-    using TxPBL = DMA_CH4_TX_CONTROL_fields_::TxPBL;
-    using EDSE = DMA_CH4_TX_CONTROL_fields_::EDSE;
+    using eST = DmaCh4TxControlFields::eST;
+    using eOSF = DmaCh4TxControlFields::eOSF;
+    using eIPBL = DmaCh4TxControlFields::eIPBL;
+    using eEDSE = DmaCh4TxControlFields::eEDSE;
+    using ST = DmaCh4TxControlFields::ST;
+    using OSF = DmaCh4TxControlFields::OSF;
+    using IPBL = DmaCh4TxControlFields::IPBL;
+    using TxPBL = DmaCh4TxControlFields::TxPBL;
+    using EDSE = DmaCh4TxControlFields::EDSE;
   };
 
   // DMA Channel 4 Receive Control
-  struct DMA_CH4_RX_CONTROL_fields_ {
+  struct DmaCh4RxControlFields {
     enum class eSR : std::uint32_t {
       // Stop Receive
       eSTOP = 0,
@@ -22939,34 +22939,34 @@ struct EnetQos {
     using RxPBL = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Rx Packet Flush.
     using RPF = ftl::mmio::Field<1, 31, eRPF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_RX_CONTROL_fields_
+  };  // struct DmaCh4RxControlFields
 
   struct DMA_CH4_RX_CONTROL : ftl::mmio::Register<
       0x4043D308u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH4_RX_CONTROL_fields_::SR,
-      DMA_CH4_RX_CONTROL_fields_::RBSZ_x_0,
-      DMA_CH4_RX_CONTROL_fields_::RBSZ_13_y,
+      DmaCh4RxControlFields::SR,
+      DmaCh4RxControlFields::RBSZ_x_0,
+      DmaCh4RxControlFields::RBSZ_13_y,
       ftl::mmio::Reserved<1, 15>,
-      DMA_CH4_RX_CONTROL_fields_::RxPBL,
+      DmaCh4RxControlFields::RxPBL,
       ftl::mmio::Reserved<9, 22>,
-      DMA_CH4_RX_CONTROL_fields_::RPF> {
-    using eSR = DMA_CH4_RX_CONTROL_fields_::eSR;
-    using eRPF = DMA_CH4_RX_CONTROL_fields_::eRPF;
-    using SR = DMA_CH4_RX_CONTROL_fields_::SR;
-    using RBSZ_x_0 = DMA_CH4_RX_CONTROL_fields_::RBSZ_x_0;
-    using RBSZ_13_y = DMA_CH4_RX_CONTROL_fields_::RBSZ_13_y;
-    using RxPBL = DMA_CH4_RX_CONTROL_fields_::RxPBL;
-    using RPF = DMA_CH4_RX_CONTROL_fields_::RPF;
+      DmaCh4RxControlFields::RPF> {
+    using eSR = DmaCh4RxControlFields::eSR;
+    using eRPF = DmaCh4RxControlFields::eRPF;
+    using SR = DmaCh4RxControlFields::SR;
+    using RBSZ_x_0 = DmaCh4RxControlFields::RBSZ_x_0;
+    using RBSZ_13_y = DmaCh4RxControlFields::RBSZ_13_y;
+    using RxPBL = DmaCh4RxControlFields::RxPBL;
+    using RPF = DmaCh4RxControlFields::RPF;
   };
 
   // Channel 4 Tx Descriptor List Address
-  struct DMA_CH4_TXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh4TxdescListAddressFields {
     // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
     using TDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_TXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh4TxdescListAddressFields
 
   struct DMA_CH4_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D314u,
@@ -22974,15 +22974,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH4_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
-    using TDESLA = DMA_CH4_TXDESC_LIST_ADDRESS_fields_::TDESLA;
+      DmaCh4TxdescListAddressFields::TDESLA> {
+    using TDESLA = DmaCh4TxdescListAddressFields::TDESLA;
   };
 
   // Channel 4 Rx Descriptor List Address
-  struct DMA_CH4_RXDESC_LIST_ADDRESS_fields_ {
+  struct DmaCh4RxdescListAddressFields {
     // Start of Receive List This field contains the base address of the first descriptor in the Rx Descriptor list.
     using RDESLA = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_RXDESC_LIST_ADDRESS_fields_
+  };  // struct DmaCh4RxdescListAddressFields
 
   struct DMA_CH4_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
       0x4043D31Cu,
@@ -22990,15 +22990,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH4_RXDESC_LIST_ADDRESS_fields_::RDESLA> {
-    using RDESLA = DMA_CH4_RXDESC_LIST_ADDRESS_fields_::RDESLA;
+      DmaCh4RxdescListAddressFields::RDESLA> {
+    using RDESLA = DmaCh4RxdescListAddressFields::RDESLA;
   };
 
   // Channel 4 Tx Descriptor Tail Pointer
-  struct DMA_CH4_TXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh4TxdescTailPointerFields {
     // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
     using TDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_TXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh4TxdescTailPointerFields
 
   struct DMA_CH4_TXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D320u,
@@ -23006,15 +23006,15 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH4_TXDESC_TAIL_POINTER_fields_::TDTP> {
-    using TDTP = DMA_CH4_TXDESC_TAIL_POINTER_fields_::TDTP;
+      DmaCh4TxdescTailPointerFields::TDTP> {
+    using TDTP = DmaCh4TxdescTailPointerFields::TDTP;
   };
 
   // Channel 4 Rx Descriptor Tail Pointer
-  struct DMA_CH4_RXDESC_TAIL_POINTER_fields_ {
+  struct DmaCh4RxdescTailPointerFields {
     // Receive Descriptor Tail Pointer This field contains the tail pointer for the Rx descriptor ring.
     using RDTP = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_RXDESC_TAIL_POINTER_fields_
+  };  // struct DmaCh4RxdescTailPointerFields
 
   struct DMA_CH4_RXDESC_TAIL_POINTER : ftl::mmio::Register<
       0x4043D328u,
@@ -23022,44 +23022,44 @@ struct EnetQos {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      DMA_CH4_RXDESC_TAIL_POINTER_fields_::RDTP> {
-    using RDTP = DMA_CH4_RXDESC_TAIL_POINTER_fields_::RDTP;
+      DmaCh4RxdescTailPointerFields::RDTP> {
+    using RDTP = DmaCh4RxdescTailPointerFields::RDTP;
   };
 
   // Channel 4 Tx Descriptor Ring Length
-  struct DMA_CH4_TXDESC_RING_LENGTH_fields_ {
+  struct DmaCh4TxdescRingLengthFields {
     // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
     using TDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_TXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh4TxdescRingLengthFields
 
   struct DMA_CH4_TXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D32Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH4_TXDESC_RING_LENGTH_fields_::TDRL,
+      DmaCh4TxdescRingLengthFields::TDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using TDRL = DMA_CH4_TXDESC_RING_LENGTH_fields_::TDRL;
+    using TDRL = DmaCh4TxdescRingLengthFields::TDRL;
   };
 
   // Channel 4 Rx Descriptor Ring Length
-  struct DMA_CH4_RXDESC_RING_LENGTH_fields_ {
+  struct DmaCh4RxdescRingLengthFields {
     // Receive Descriptor Ring Length This register sets the maximum number of Rx descriptors in the circular descriptor ring.
     using RDRL = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_RXDESC_RING_LENGTH_fields_
+  };  // struct DmaCh4RxdescRingLengthFields
 
   struct DMA_CH4_RXDESC_RING_LENGTH : ftl::mmio::Register<
       0x4043D330u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH4_RXDESC_RING_LENGTH_fields_::RDRL,
+      DmaCh4RxdescRingLengthFields::RDRL,
       ftl::mmio::Reserved<22, 10>> {
-    using RDRL = DMA_CH4_RXDESC_RING_LENGTH_fields_::RDRL;
+    using RDRL = DmaCh4RxdescRingLengthFields::RDRL;
   };
 
   // Channel 4 Interrupt Enable
-  struct DMA_CH4_INTERRUPT_ENABLE_fields_ {
+  struct DmaCh4InterruptEnableFields {
     enum class eTIE : std::uint32_t {
       // Transmit Interrupt is disabled
       eDISABLE = 0,
@@ -23177,79 +23177,79 @@ struct EnetQos {
     using AIE = ftl::mmio::Field<1, 14, eAIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Normal Interrupt Summary Enable When this bit is set, the normal interrupt summary is enabled.
     using NIE = ftl::mmio::Field<1, 15, eNIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_INTERRUPT_ENABLE_fields_
+  };  // struct DmaCh4InterruptEnableFields
 
   struct DMA_CH4_INTERRUPT_ENABLE : ftl::mmio::Register<
       0x4043D334u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::TIE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::TXSE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::TBUE,
+      DmaCh4InterruptEnableFields::TIE,
+      DmaCh4InterruptEnableFields::TXSE,
+      DmaCh4InterruptEnableFields::TBUE,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::RIE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::RBUE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::RSE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::RWTE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::ETIE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::ERIE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::FBEE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::CDEE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::AIE,
-      DMA_CH4_INTERRUPT_ENABLE_fields_::NIE,
+      DmaCh4InterruptEnableFields::RIE,
+      DmaCh4InterruptEnableFields::RBUE,
+      DmaCh4InterruptEnableFields::RSE,
+      DmaCh4InterruptEnableFields::RWTE,
+      DmaCh4InterruptEnableFields::ETIE,
+      DmaCh4InterruptEnableFields::ERIE,
+      DmaCh4InterruptEnableFields::FBEE,
+      DmaCh4InterruptEnableFields::CDEE,
+      DmaCh4InterruptEnableFields::AIE,
+      DmaCh4InterruptEnableFields::NIE,
       ftl::mmio::Reserved<16, 16>> {
-    using eTIE = DMA_CH4_INTERRUPT_ENABLE_fields_::eTIE;
-    using eTXSE = DMA_CH4_INTERRUPT_ENABLE_fields_::eTXSE;
-    using eTBUE = DMA_CH4_INTERRUPT_ENABLE_fields_::eTBUE;
-    using eRIE = DMA_CH4_INTERRUPT_ENABLE_fields_::eRIE;
-    using eRBUE = DMA_CH4_INTERRUPT_ENABLE_fields_::eRBUE;
-    using eRSE = DMA_CH4_INTERRUPT_ENABLE_fields_::eRSE;
-    using eRWTE = DMA_CH4_INTERRUPT_ENABLE_fields_::eRWTE;
-    using eETIE = DMA_CH4_INTERRUPT_ENABLE_fields_::eETIE;
-    using eERIE = DMA_CH4_INTERRUPT_ENABLE_fields_::eERIE;
-    using eFBEE = DMA_CH4_INTERRUPT_ENABLE_fields_::eFBEE;
-    using eCDEE = DMA_CH4_INTERRUPT_ENABLE_fields_::eCDEE;
-    using eAIE = DMA_CH4_INTERRUPT_ENABLE_fields_::eAIE;
-    using eNIE = DMA_CH4_INTERRUPT_ENABLE_fields_::eNIE;
-    using TIE = DMA_CH4_INTERRUPT_ENABLE_fields_::TIE;
-    using TXSE = DMA_CH4_INTERRUPT_ENABLE_fields_::TXSE;
-    using TBUE = DMA_CH4_INTERRUPT_ENABLE_fields_::TBUE;
-    using RIE = DMA_CH4_INTERRUPT_ENABLE_fields_::RIE;
-    using RBUE = DMA_CH4_INTERRUPT_ENABLE_fields_::RBUE;
-    using RSE = DMA_CH4_INTERRUPT_ENABLE_fields_::RSE;
-    using RWTE = DMA_CH4_INTERRUPT_ENABLE_fields_::RWTE;
-    using ETIE = DMA_CH4_INTERRUPT_ENABLE_fields_::ETIE;
-    using ERIE = DMA_CH4_INTERRUPT_ENABLE_fields_::ERIE;
-    using FBEE = DMA_CH4_INTERRUPT_ENABLE_fields_::FBEE;
-    using CDEE = DMA_CH4_INTERRUPT_ENABLE_fields_::CDEE;
-    using AIE = DMA_CH4_INTERRUPT_ENABLE_fields_::AIE;
-    using NIE = DMA_CH4_INTERRUPT_ENABLE_fields_::NIE;
+    using eTIE = DmaCh4InterruptEnableFields::eTIE;
+    using eTXSE = DmaCh4InterruptEnableFields::eTXSE;
+    using eTBUE = DmaCh4InterruptEnableFields::eTBUE;
+    using eRIE = DmaCh4InterruptEnableFields::eRIE;
+    using eRBUE = DmaCh4InterruptEnableFields::eRBUE;
+    using eRSE = DmaCh4InterruptEnableFields::eRSE;
+    using eRWTE = DmaCh4InterruptEnableFields::eRWTE;
+    using eETIE = DmaCh4InterruptEnableFields::eETIE;
+    using eERIE = DmaCh4InterruptEnableFields::eERIE;
+    using eFBEE = DmaCh4InterruptEnableFields::eFBEE;
+    using eCDEE = DmaCh4InterruptEnableFields::eCDEE;
+    using eAIE = DmaCh4InterruptEnableFields::eAIE;
+    using eNIE = DmaCh4InterruptEnableFields::eNIE;
+    using TIE = DmaCh4InterruptEnableFields::TIE;
+    using TXSE = DmaCh4InterruptEnableFields::TXSE;
+    using TBUE = DmaCh4InterruptEnableFields::TBUE;
+    using RIE = DmaCh4InterruptEnableFields::RIE;
+    using RBUE = DmaCh4InterruptEnableFields::RBUE;
+    using RSE = DmaCh4InterruptEnableFields::RSE;
+    using RWTE = DmaCh4InterruptEnableFields::RWTE;
+    using ETIE = DmaCh4InterruptEnableFields::ETIE;
+    using ERIE = DmaCh4InterruptEnableFields::ERIE;
+    using FBEE = DmaCh4InterruptEnableFields::FBEE;
+    using CDEE = DmaCh4InterruptEnableFields::CDEE;
+    using AIE = DmaCh4InterruptEnableFields::AIE;
+    using NIE = DmaCh4InterruptEnableFields::NIE;
   };
 
   // Channel 4 Receive Interrupt Watchdog Timer
-  struct DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
+  struct DmaCh4RxInterruptWatchdogTimerFields {
     // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
     using RWT = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Interrupt Watchdog Timer Count Units This fields indicates the number of system clock cycles corresponding to one unit in RWT field.
     using RWTU = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER_fields_
+  };  // struct DmaCh4RxInterruptWatchdogTimerFields
 
   struct DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
       0x4043D338u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT,
+      DmaCh4RxInterruptWatchdogTimerFields::RWT,
       ftl::mmio::Reserved<8, 8>,
-      DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU,
+      DmaCh4RxInterruptWatchdogTimerFields::RWTU,
       ftl::mmio::Reserved<14, 18>> {
-    using RWT = DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWT;
-    using RWTU = DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
+    using RWT = DmaCh4RxInterruptWatchdogTimerFields::RWT;
+    using RWTU = DmaCh4RxInterruptWatchdogTimerFields::RWTU;
   };
 
   // Channel 4 Slot Function Control and Status
-  struct DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
+  struct DmaCh4SlotFunctionControlStatusFields {
     enum class eESC : std::uint32_t {
       // Slot Comparison is disabled
       eDISABLE = 0,
@@ -23272,89 +23272,89 @@ struct EnetQos {
     using SIV = ftl::mmio::Field<12, 4, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Reference Slot Number This field gives the current value of the reference slot number in the DMA.
     using RSN = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_
+  };  // struct DmaCh4SlotFunctionControlStatusFields
 
   struct DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
       0x4043D33Cu,
       std::uint32_t,
       0x000007C0u,
       ftl::mmio::RW,
-      DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC,
-      DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC,
+      DmaCh4SlotFunctionControlStatusFields::ESC,
+      DmaCh4SlotFunctionControlStatusFields::ASC,
       ftl::mmio::Reserved<2, 2>,
-      DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV,
-      DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN,
+      DmaCh4SlotFunctionControlStatusFields::SIV,
+      DmaCh4SlotFunctionControlStatusFields::RSN,
       ftl::mmio::Reserved<12, 20>> {
-    using eESC = DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::eESC;
-    using eASC = DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::eASC;
-    using ESC = DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::ESC;
-    using ASC = DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::ASC;
-    using SIV = DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::SIV;
-    using RSN = DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
+    using eESC = DmaCh4SlotFunctionControlStatusFields::eESC;
+    using eASC = DmaCh4SlotFunctionControlStatusFields::eASC;
+    using ESC = DmaCh4SlotFunctionControlStatusFields::ESC;
+    using ASC = DmaCh4SlotFunctionControlStatusFields::ASC;
+    using SIV = DmaCh4SlotFunctionControlStatusFields::SIV;
+    using RSN = DmaCh4SlotFunctionControlStatusFields::RSN;
   };
 
   // Channel 4 Current Application Transmit Descriptor
-  struct DMA_CH4_CURRENT_APP_TXDESC_fields_ {
+  struct DmaCh4CurrentAppTxdescFields {
     // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
     using CURTDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_CURRENT_APP_TXDESC_fields_
+  };  // struct DmaCh4CurrentAppTxdescFields
 
   struct DMA_CH4_CURRENT_APP_TXDESC : ftl::mmio::Register<
       0x4043D344u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH4_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
-    using CURTDESAPTR = DMA_CH4_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
+      DmaCh4CurrentAppTxdescFields::CURTDESAPTR> {
+    using CURTDESAPTR = DmaCh4CurrentAppTxdescFields::CURTDESAPTR;
   };
 
   // Channel 4 Current Application Receive Descriptor
-  struct DMA_CH4_CURRENT_APP_RXDESC_fields_ {
+  struct DmaCh4CurrentAppRxdescFields {
     // Application Receive Descriptor Address Pointer The DMA updates this pointer during Rx operation.
     using CURRDESAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_CURRENT_APP_RXDESC_fields_
+  };  // struct DmaCh4CurrentAppRxdescFields
 
   struct DMA_CH4_CURRENT_APP_RXDESC : ftl::mmio::Register<
       0x4043D34Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH4_CURRENT_APP_RXDESC_fields_::CURRDESAPTR> {
-    using CURRDESAPTR = DMA_CH4_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
+      DmaCh4CurrentAppRxdescFields::CURRDESAPTR> {
+    using CURRDESAPTR = DmaCh4CurrentAppRxdescFields::CURRDESAPTR;
   };
 
   // Channel 4 Current Application Transmit Buffer Address
-  struct DMA_CH4_CURRENT_APP_TXBUFFER_fields_ {
+  struct DmaCh4CurrentAppTxbufferFields {
     // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
     using CURTBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_CURRENT_APP_TXBUFFER_fields_
+  };  // struct DmaCh4CurrentAppTxbufferFields
 
   struct DMA_CH4_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
       0x4043D354u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH4_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
-    using CURTBUFAPTR = DMA_CH4_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
+      DmaCh4CurrentAppTxbufferFields::CURTBUFAPTR> {
+    using CURTBUFAPTR = DmaCh4CurrentAppTxbufferFields::CURTBUFAPTR;
   };
 
   // Channel 4 Current Application Receive Buffer Address
-  struct DMA_CH4_CURRENT_APP_RXBUFFER_fields_ {
+  struct DmaCh4CurrentAppRxbufferFields {
     // Application Receive Buffer Address Pointer The DMA updates this pointer during Rx operation.
     using CURRBUFAPTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_CURRENT_APP_RXBUFFER_fields_
+  };  // struct DmaCh4CurrentAppRxbufferFields
 
   struct DMA_CH4_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
       0x4043D35Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH4_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR> {
-    using CURRBUFAPTR = DMA_CH4_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
+      DmaCh4CurrentAppRxbufferFields::CURRBUFAPTR> {
+    using CURRBUFAPTR = DmaCh4CurrentAppRxbufferFields::CURRBUFAPTR;
   };
 
   // DMA Channel 4 Status
-  struct DMA_CH4_STATUS_fields_ {
+  struct DmaCh4StatusFields {
     enum class eTI : std::uint32_t {
       // Transmit Interrupt status not detected
       eINACTIVE = 0,
@@ -23476,62 +23476,62 @@ struct EnetQos {
     using TEB = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx DMA Error Bits This field indicates the type of error that caused a Bus Error.
     using REB = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_STATUS_fields_
+  };  // struct DmaCh4StatusFields
 
   struct DMA_CH4_STATUS : ftl::mmio::Register<
       0x4043D360u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DMA_CH4_STATUS_fields_::TI,
-      DMA_CH4_STATUS_fields_::TPS,
-      DMA_CH4_STATUS_fields_::TBU,
+      DmaCh4StatusFields::TI,
+      DmaCh4StatusFields::TPS,
+      DmaCh4StatusFields::TBU,
       ftl::mmio::Reserved<3, 3>,
-      DMA_CH4_STATUS_fields_::RI,
-      DMA_CH4_STATUS_fields_::RBU,
-      DMA_CH4_STATUS_fields_::RPS,
-      DMA_CH4_STATUS_fields_::RWT,
-      DMA_CH4_STATUS_fields_::ETI,
-      DMA_CH4_STATUS_fields_::ERI,
-      DMA_CH4_STATUS_fields_::FBE,
-      DMA_CH4_STATUS_fields_::CDE,
-      DMA_CH4_STATUS_fields_::AIS,
-      DMA_CH4_STATUS_fields_::NIS,
-      DMA_CH4_STATUS_fields_::TEB,
-      DMA_CH4_STATUS_fields_::REB,
+      DmaCh4StatusFields::RI,
+      DmaCh4StatusFields::RBU,
+      DmaCh4StatusFields::RPS,
+      DmaCh4StatusFields::RWT,
+      DmaCh4StatusFields::ETI,
+      DmaCh4StatusFields::ERI,
+      DmaCh4StatusFields::FBE,
+      DmaCh4StatusFields::CDE,
+      DmaCh4StatusFields::AIS,
+      DmaCh4StatusFields::NIS,
+      DmaCh4StatusFields::TEB,
+      DmaCh4StatusFields::REB,
       ftl::mmio::Reserved<10, 22>> {
-    using eTI = DMA_CH4_STATUS_fields_::eTI;
-    using eTPS = DMA_CH4_STATUS_fields_::eTPS;
-    using eTBU = DMA_CH4_STATUS_fields_::eTBU;
-    using eRI = DMA_CH4_STATUS_fields_::eRI;
-    using eRBU = DMA_CH4_STATUS_fields_::eRBU;
-    using eRPS = DMA_CH4_STATUS_fields_::eRPS;
-    using eRWT = DMA_CH4_STATUS_fields_::eRWT;
-    using eETI = DMA_CH4_STATUS_fields_::eETI;
-    using eERI = DMA_CH4_STATUS_fields_::eERI;
-    using eFBE = DMA_CH4_STATUS_fields_::eFBE;
-    using eCDE = DMA_CH4_STATUS_fields_::eCDE;
-    using eAIS = DMA_CH4_STATUS_fields_::eAIS;
-    using eNIS = DMA_CH4_STATUS_fields_::eNIS;
-    using TI = DMA_CH4_STATUS_fields_::TI;
-    using TPS = DMA_CH4_STATUS_fields_::TPS;
-    using TBU = DMA_CH4_STATUS_fields_::TBU;
-    using RI = DMA_CH4_STATUS_fields_::RI;
-    using RBU = DMA_CH4_STATUS_fields_::RBU;
-    using RPS = DMA_CH4_STATUS_fields_::RPS;
-    using RWT = DMA_CH4_STATUS_fields_::RWT;
-    using ETI = DMA_CH4_STATUS_fields_::ETI;
-    using ERI = DMA_CH4_STATUS_fields_::ERI;
-    using FBE = DMA_CH4_STATUS_fields_::FBE;
-    using CDE = DMA_CH4_STATUS_fields_::CDE;
-    using AIS = DMA_CH4_STATUS_fields_::AIS;
-    using NIS = DMA_CH4_STATUS_fields_::NIS;
-    using TEB = DMA_CH4_STATUS_fields_::TEB;
-    using REB = DMA_CH4_STATUS_fields_::REB;
+    using eTI = DmaCh4StatusFields::eTI;
+    using eTPS = DmaCh4StatusFields::eTPS;
+    using eTBU = DmaCh4StatusFields::eTBU;
+    using eRI = DmaCh4StatusFields::eRI;
+    using eRBU = DmaCh4StatusFields::eRBU;
+    using eRPS = DmaCh4StatusFields::eRPS;
+    using eRWT = DmaCh4StatusFields::eRWT;
+    using eETI = DmaCh4StatusFields::eETI;
+    using eERI = DmaCh4StatusFields::eERI;
+    using eFBE = DmaCh4StatusFields::eFBE;
+    using eCDE = DmaCh4StatusFields::eCDE;
+    using eAIS = DmaCh4StatusFields::eAIS;
+    using eNIS = DmaCh4StatusFields::eNIS;
+    using TI = DmaCh4StatusFields::TI;
+    using TPS = DmaCh4StatusFields::TPS;
+    using TBU = DmaCh4StatusFields::TBU;
+    using RI = DmaCh4StatusFields::RI;
+    using RBU = DmaCh4StatusFields::RBU;
+    using RPS = DmaCh4StatusFields::RPS;
+    using RWT = DmaCh4StatusFields::RWT;
+    using ETI = DmaCh4StatusFields::ETI;
+    using ERI = DmaCh4StatusFields::ERI;
+    using FBE = DmaCh4StatusFields::FBE;
+    using CDE = DmaCh4StatusFields::CDE;
+    using AIS = DmaCh4StatusFields::AIS;
+    using NIS = DmaCh4StatusFields::NIS;
+    using TEB = DmaCh4StatusFields::TEB;
+    using REB = DmaCh4StatusFields::REB;
   };
 
   // Channel 4 Missed Frame Counter
-  struct DMA_CH4_MISS_FRAME_CNT_fields_ {
+  struct DmaCh4MissFrameCntFields {
     enum class eMFCO : std::uint32_t {
       // Miss Frame Counter overflow not occurred
       eINACTIVE = 0,
@@ -23543,24 +23543,24 @@ struct EnetQos {
     using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
     using MFCO = ftl::mmio::Field<1, 15, eMFCO, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_MISS_FRAME_CNT_fields_
+  };  // struct DmaCh4MissFrameCntFields
 
   struct DMA_CH4_MISS_FRAME_CNT : ftl::mmio::Register<
       0x4043D364u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH4_MISS_FRAME_CNT_fields_::MFC,
+      DmaCh4MissFrameCntFields::MFC,
       ftl::mmio::Reserved<4, 11>,
-      DMA_CH4_MISS_FRAME_CNT_fields_::MFCO,
+      DmaCh4MissFrameCntFields::MFCO,
       ftl::mmio::Reserved<16, 16>> {
-    using eMFCO = DMA_CH4_MISS_FRAME_CNT_fields_::eMFCO;
-    using MFC = DMA_CH4_MISS_FRAME_CNT_fields_::MFC;
-    using MFCO = DMA_CH4_MISS_FRAME_CNT_fields_::MFCO;
+    using eMFCO = DmaCh4MissFrameCntFields::eMFCO;
+    using MFC = DmaCh4MissFrameCntFields::MFC;
+    using MFCO = DmaCh4MissFrameCntFields::MFCO;
   };
 
   // Channel 4 RXP Frames Accepted Counter
-  struct DMA_CH4_RXP_ACCEPT_CNT_fields_ {
+  struct DmaCh4RxpAcceptCntFields {
     enum class eRXPACOF : std::uint32_t {
       // Rx Parser Accept Counter overflow not occurred
       eINACTIVE = 0,
@@ -23572,34 +23572,34 @@ struct EnetQos {
     using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
     using RXPACOF = ftl::mmio::Field<1, 31, eRXPACOF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_RXP_ACCEPT_CNT_fields_
+  };  // struct DmaCh4RxpAcceptCntFields
 
   struct DMA_CH4_RXP_ACCEPT_CNT : ftl::mmio::Register<
       0x4043D368u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH4_RXP_ACCEPT_CNT_fields_::RXPAC,
-      DMA_CH4_RXP_ACCEPT_CNT_fields_::RXPACOF> {
-    using eRXPACOF = DMA_CH4_RXP_ACCEPT_CNT_fields_::eRXPACOF;
-    using RXPAC = DMA_CH4_RXP_ACCEPT_CNT_fields_::RXPAC;
-    using RXPACOF = DMA_CH4_RXP_ACCEPT_CNT_fields_::RXPACOF;
+      DmaCh4RxpAcceptCntFields::RXPAC,
+      DmaCh4RxpAcceptCntFields::RXPACOF> {
+    using eRXPACOF = DmaCh4RxpAcceptCntFields::eRXPACOF;
+    using RXPAC = DmaCh4RxpAcceptCntFields::RXPAC;
+    using RXPACOF = DmaCh4RxpAcceptCntFields::RXPACOF;
   };
 
   // Channel 4 Receive ERI Counter
-  struct DMA_CH4_RX_ERI_CNT_fields_ {
+  struct DmaCh4RxEriCntFields {
     // ERI Counter When ERIC bit of DMA_CH4_RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
     using ECNT = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DMA_CH4_RX_ERI_CNT_fields_
+  };  // struct DmaCh4RxEriCntFields
 
   struct DMA_CH4_RX_ERI_CNT : ftl::mmio::Register<
       0x4043D36Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      DMA_CH4_RX_ERI_CNT_fields_::ECNT,
+      DmaCh4RxEriCntFields::ECNT,
       ftl::mmio::Reserved<20, 12>> {
-    using ECNT = DMA_CH4_RX_ERI_CNT_fields_::ECNT;
+    using ECNT = DmaCh4RxEriCntFields::ECNT;
   };
 
 };

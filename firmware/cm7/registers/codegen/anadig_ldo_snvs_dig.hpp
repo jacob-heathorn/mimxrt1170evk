@@ -10,27 +10,27 @@ namespace regs {
 
 struct AnadigLdoSnvsDig {
   // PMU_LDO_SNVS_DIG_REGISTER
-  struct PMU_LDO_SNVS_DIG_fields_ {
+  struct PmuLdoSnvsDigFields {
     // REG_LP_EN
     using REG_LP_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // test_override
     using TEST_OVERRIDE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // REG_EN
     using REG_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PMU_LDO_SNVS_DIG_fields_
+  };  // struct PmuLdoSnvsDigFields
 
   struct PMU_LDO_SNVS_DIG : ftl::mmio::Register<
       0x40C84540u,
       std::uint32_t,
       0x00000001u,
       ftl::mmio::RW,
-      PMU_LDO_SNVS_DIG_fields_::REG_LP_EN,
-      PMU_LDO_SNVS_DIG_fields_::TEST_OVERRIDE,
-      PMU_LDO_SNVS_DIG_fields_::REG_EN,
+      PmuLdoSnvsDigFields::REG_LP_EN,
+      PmuLdoSnvsDigFields::TEST_OVERRIDE,
+      PmuLdoSnvsDigFields::REG_EN,
       ftl::mmio::Reserved<29, 3>> {
-    using REG_LP_EN = PMU_LDO_SNVS_DIG_fields_::REG_LP_EN;
-    using TEST_OVERRIDE = PMU_LDO_SNVS_DIG_fields_::TEST_OVERRIDE;
-    using REG_EN = PMU_LDO_SNVS_DIG_fields_::REG_EN;
+    using REG_LP_EN = PmuLdoSnvsDigFields::REG_LP_EN;
+    using TEST_OVERRIDE = PmuLdoSnvsDigFields::TEST_OVERRIDE;
+    using REG_EN = PmuLdoSnvsDigFields::REG_EN;
   };
 
 };

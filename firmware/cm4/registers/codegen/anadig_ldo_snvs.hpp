@@ -10,7 +10,7 @@ namespace regs {
 
 struct AnadigLdoSnvs {
   // PMU_LDO_LPSR_ANA_REGISTER
-  struct PMU_LDO_LPSR_ANA_fields_ {
+  struct PmuLdoLpsrAnaFields {
     enum class eLPSR_ANA_CONTROL_MODE : std::uint32_t {
       // SW Control
       esw = 0,
@@ -43,57 +43,57 @@ struct AnadigLdoSnvs {
     using TRACK_MODE_EN = ftl::mmio::Field<1, 19, eTRACK_MODE_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // pull_down_20ua_en
     using PULL_DOWN_20UA_EN = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PMU_LDO_LPSR_ANA_fields_
+  };  // struct PmuLdoLpsrAnaFields
 
   struct PMU_LDO_LPSR_ANA : ftl::mmio::Register<
       0x40C84510u,
       std::uint32_t,
       0x00000108u,
       ftl::mmio::RW,
-      PMU_LDO_LPSR_ANA_fields_::REG_LP_EN,
+      PmuLdoLpsrAnaFields::REG_LP_EN,
       ftl::mmio::Reserved<1, 1>,
-      PMU_LDO_LPSR_ANA_fields_::REG_DISABLE,
-      PMU_LDO_LPSR_ANA_fields_::PULL_DOWN_2MA_EN,
-      PMU_LDO_LPSR_ANA_fields_::LPSR_ANA_CONTROL_MODE,
-      PMU_LDO_LPSR_ANA_fields_::BYPASS_MODE_EN,
-      PMU_LDO_LPSR_ANA_fields_::STANDBY_EN,
+      PmuLdoLpsrAnaFields::REG_DISABLE,
+      PmuLdoLpsrAnaFields::PULL_DOWN_2MA_EN,
+      PmuLdoLpsrAnaFields::LPSR_ANA_CONTROL_MODE,
+      PmuLdoLpsrAnaFields::BYPASS_MODE_EN,
+      PmuLdoLpsrAnaFields::STANDBY_EN,
       ftl::mmio::Reserved<1, 7>,
-      PMU_LDO_LPSR_ANA_fields_::ALWAYS_4MA_PULLDOWN_EN,
+      PmuLdoLpsrAnaFields::ALWAYS_4MA_PULLDOWN_EN,
       ftl::mmio::Reserved<10, 9>,
-      PMU_LDO_LPSR_ANA_fields_::TRACK_MODE_EN,
-      PMU_LDO_LPSR_ANA_fields_::PULL_DOWN_20UA_EN,
+      PmuLdoLpsrAnaFields::TRACK_MODE_EN,
+      PmuLdoLpsrAnaFields::PULL_DOWN_20UA_EN,
       ftl::mmio::Reserved<11, 21>> {
-    using eLPSR_ANA_CONTROL_MODE = PMU_LDO_LPSR_ANA_fields_::eLPSR_ANA_CONTROL_MODE;
-    using eTRACK_MODE_EN = PMU_LDO_LPSR_ANA_fields_::eTRACK_MODE_EN;
-    using REG_LP_EN = PMU_LDO_LPSR_ANA_fields_::REG_LP_EN;
-    using REG_DISABLE = PMU_LDO_LPSR_ANA_fields_::REG_DISABLE;
-    using PULL_DOWN_2MA_EN = PMU_LDO_LPSR_ANA_fields_::PULL_DOWN_2MA_EN;
-    using LPSR_ANA_CONTROL_MODE = PMU_LDO_LPSR_ANA_fields_::LPSR_ANA_CONTROL_MODE;
-    using BYPASS_MODE_EN = PMU_LDO_LPSR_ANA_fields_::BYPASS_MODE_EN;
-    using STANDBY_EN = PMU_LDO_LPSR_ANA_fields_::STANDBY_EN;
-    using ALWAYS_4MA_PULLDOWN_EN = PMU_LDO_LPSR_ANA_fields_::ALWAYS_4MA_PULLDOWN_EN;
-    using TRACK_MODE_EN = PMU_LDO_LPSR_ANA_fields_::TRACK_MODE_EN;
-    using PULL_DOWN_20UA_EN = PMU_LDO_LPSR_ANA_fields_::PULL_DOWN_20UA_EN;
+    using eLPSR_ANA_CONTROL_MODE = PmuLdoLpsrAnaFields::eLPSR_ANA_CONTROL_MODE;
+    using eTRACK_MODE_EN = PmuLdoLpsrAnaFields::eTRACK_MODE_EN;
+    using REG_LP_EN = PmuLdoLpsrAnaFields::REG_LP_EN;
+    using REG_DISABLE = PmuLdoLpsrAnaFields::REG_DISABLE;
+    using PULL_DOWN_2MA_EN = PmuLdoLpsrAnaFields::PULL_DOWN_2MA_EN;
+    using LPSR_ANA_CONTROL_MODE = PmuLdoLpsrAnaFields::LPSR_ANA_CONTROL_MODE;
+    using BYPASS_MODE_EN = PmuLdoLpsrAnaFields::BYPASS_MODE_EN;
+    using STANDBY_EN = PmuLdoLpsrAnaFields::STANDBY_EN;
+    using ALWAYS_4MA_PULLDOWN_EN = PmuLdoLpsrAnaFields::ALWAYS_4MA_PULLDOWN_EN;
+    using TRACK_MODE_EN = PmuLdoLpsrAnaFields::TRACK_MODE_EN;
+    using PULL_DOWN_20UA_EN = PmuLdoLpsrAnaFields::PULL_DOWN_20UA_EN;
   };
 
   // PMU_LDO_LPSR_DIG_2_REGISTER
-  struct PMU_LDO_LPSR_DIG_2_fields_ {
+  struct PmuLdoLpsrDig2Fields {
     // voltage_step_inc
     using VOLTAGE_STEP_INC = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PMU_LDO_LPSR_DIG_2_fields_
+  };  // struct PmuLdoLpsrDig2Fields
 
   struct PMU_LDO_LPSR_DIG_2 : ftl::mmio::Register<
       0x40C84520u,
       std::uint32_t,
       0x00000002u,
       ftl::mmio::RW,
-      PMU_LDO_LPSR_DIG_2_fields_::VOLTAGE_STEP_INC,
+      PmuLdoLpsrDig2Fields::VOLTAGE_STEP_INC,
       ftl::mmio::Reserved<30, 2>> {
-    using VOLTAGE_STEP_INC = PMU_LDO_LPSR_DIG_2_fields_::VOLTAGE_STEP_INC;
+    using VOLTAGE_STEP_INC = PmuLdoLpsrDig2Fields::VOLTAGE_STEP_INC;
   };
 
   // PMU_LDO_LPSR_DIG_REGISTER
-  struct PMU_LDO_LPSR_DIG_fields_ {
+  struct PmuLdoLpsrDigFields {
     enum class eLPSR_DIG_CONTROL_MODE : std::uint32_t {
       // SW Control
       esw = 0,
@@ -180,7 +180,7 @@ struct AnadigLdoSnvs {
     using BYPASS_MODE = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // VOLTAGE_SELECT
     using VOLTAGE_SELECT = ftl::mmio::Field<5, 20, eVOLTAGE_SELECT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PMU_LDO_LPSR_DIG_fields_
+  };  // struct PmuLdoLpsrDigFields
 
   struct PMU_LDO_LPSR_DIG : ftl::mmio::Register<
       0x40C84530u,
@@ -188,24 +188,24 @@ struct AnadigLdoSnvs {
       0x01301C05u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      PMU_LDO_LPSR_DIG_fields_::REG_EN,
+      PmuLdoLpsrDigFields::REG_EN,
       ftl::mmio::Reserved<2, 3>,
-      PMU_LDO_LPSR_DIG_fields_::LPSR_DIG_CONTROL_MODE,
-      PMU_LDO_LPSR_DIG_fields_::STANDBY_EN,
+      PmuLdoLpsrDigFields::LPSR_DIG_CONTROL_MODE,
+      PmuLdoLpsrDigFields::STANDBY_EN,
       ftl::mmio::Reserved<10, 7>,
-      PMU_LDO_LPSR_DIG_fields_::TRACKING_MODE,
-      PMU_LDO_LPSR_DIG_fields_::BYPASS_MODE,
+      PmuLdoLpsrDigFields::TRACKING_MODE,
+      PmuLdoLpsrDigFields::BYPASS_MODE,
       ftl::mmio::Reserved<1, 19>,
-      PMU_LDO_LPSR_DIG_fields_::VOLTAGE_SELECT,
+      PmuLdoLpsrDigFields::VOLTAGE_SELECT,
       ftl::mmio::Reserved<7, 25>> {
-    using eLPSR_DIG_CONTROL_MODE = PMU_LDO_LPSR_DIG_fields_::eLPSR_DIG_CONTROL_MODE;
-    using eVOLTAGE_SELECT = PMU_LDO_LPSR_DIG_fields_::eVOLTAGE_SELECT;
-    using REG_EN = PMU_LDO_LPSR_DIG_fields_::REG_EN;
-    using LPSR_DIG_CONTROL_MODE = PMU_LDO_LPSR_DIG_fields_::LPSR_DIG_CONTROL_MODE;
-    using STANDBY_EN = PMU_LDO_LPSR_DIG_fields_::STANDBY_EN;
-    using TRACKING_MODE = PMU_LDO_LPSR_DIG_fields_::TRACKING_MODE;
-    using BYPASS_MODE = PMU_LDO_LPSR_DIG_fields_::BYPASS_MODE;
-    using VOLTAGE_SELECT = PMU_LDO_LPSR_DIG_fields_::VOLTAGE_SELECT;
+    using eLPSR_DIG_CONTROL_MODE = PmuLdoLpsrDigFields::eLPSR_DIG_CONTROL_MODE;
+    using eVOLTAGE_SELECT = PmuLdoLpsrDigFields::eVOLTAGE_SELECT;
+    using REG_EN = PmuLdoLpsrDigFields::REG_EN;
+    using LPSR_DIG_CONTROL_MODE = PmuLdoLpsrDigFields::LPSR_DIG_CONTROL_MODE;
+    using STANDBY_EN = PmuLdoLpsrDigFields::STANDBY_EN;
+    using TRACKING_MODE = PmuLdoLpsrDigFields::TRACKING_MODE;
+    using BYPASS_MODE = PmuLdoLpsrDigFields::BYPASS_MODE;
+    using VOLTAGE_SELECT = PmuLdoLpsrDigFields::VOLTAGE_SELECT;
   };
 
 };

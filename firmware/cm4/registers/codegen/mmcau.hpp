@@ -10,7 +10,7 @@ namespace regs {
 
 struct Mmcau {
   // Status Register
-  struct CASR_fields_ {
+  struct CasrFields {
     enum class eIC : std::uint32_t {
       // No illegal commands issued.
       eIC_0 = 0,
@@ -38,45 +38,45 @@ struct Mmcau {
     using DPE = ftl::mmio::Field<1, 1, eDPE, ftl::mmio::RW, ftl::mmio::Normal>;
     // CAU Version
     using VER = ftl::mmio::Field<4, 28, eVER, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CASR_fields_
+  };  // struct CasrFields
 
   struct CASR : ftl::mmio::Register<
       0xE0081000u,
       std::uint32_t,
       0x20000000u,
       ftl::mmio::RW,
-      CASR_fields_::IC,
-      CASR_fields_::DPE,
+      CasrFields::IC,
+      CasrFields::DPE,
       ftl::mmio::Reserved<26, 2>,
-      CASR_fields_::VER> {
-    using eIC = CASR_fields_::eIC;
-    using eDPE = CASR_fields_::eDPE;
-    using eVER = CASR_fields_::eVER;
-    using IC = CASR_fields_::IC;
-    using DPE = CASR_fields_::DPE;
-    using VER = CASR_fields_::VER;
+      CasrFields::VER> {
+    using eIC = CasrFields::eIC;
+    using eDPE = CasrFields::eDPE;
+    using eVER = CasrFields::eVER;
+    using IC = CasrFields::IC;
+    using DPE = CasrFields::DPE;
+    using VER = CasrFields::VER;
   };
 
   // Accumulator
-  struct CAA_fields_ {
+  struct CaaFields {
     // Accumulator
     using ACC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CAA_fields_
+  };  // struct CaaFields
 
   struct CAA : ftl::mmio::Register<
       0xE0081004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CAA_fields_::ACC> {
-    using ACC = CAA_fields_::ACC;
+      CaaFields::ACC> {
+    using ACC = CaaFields::ACC;
   };
 
   // General Purpose Register
-  struct CA_fields_ {
+  struct CaFields {
     // General Purpose Registers
     using CAn = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CA_fields_
+  };  // struct CaFields
 
   template<std::uint32_t Index>
   struct CA : ftl::mmio::Register<
@@ -84,9 +84,9 @@ struct Mmcau {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CA_fields_::CAn> {
+      CaFields::CAn> {
     static_assert(Index < 9u, "CA: Index out of range");
-    using CAn = CA_fields_::CAn;
+    using CAn = CaFields::CAn;
   };
 
 };

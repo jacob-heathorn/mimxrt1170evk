@@ -10,7 +10,7 @@ namespace regs {
 
 struct GpcSetPointCtrl {
   // SP Authentication Control
-  struct SP_AUTHEN_CTRL_fields_ {
+  struct SpAuthenCtrlFields {
     enum class eUSER : std::uint32_t {
       // Allow only privilege mode to access setpoint control registers
       eb0 = 0,
@@ -37,55 +37,55 @@ struct GpcSetPointCtrl {
     using LOCK_LIST = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Configuration lock
     using LOCK_CFG = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_AUTHEN_CTRL_fields_
+  };  // struct SpAuthenCtrlFields
 
   struct SP_AUTHEN_CTRL : ftl::mmio::Register<
       0x40C02004u,
       std::uint32_t,
       0x00000F00u,
       ftl::mmio::RW,
-      SP_AUTHEN_CTRL_fields_::USER,
-      SP_AUTHEN_CTRL_fields_::NONSECURE,
+      SpAuthenCtrlFields::USER,
+      SpAuthenCtrlFields::NONSECURE,
       ftl::mmio::Reserved<2, 2>,
-      SP_AUTHEN_CTRL_fields_::LOCK_SETTING,
+      SpAuthenCtrlFields::LOCK_SETTING,
       ftl::mmio::Reserved<3, 5>,
-      SP_AUTHEN_CTRL_fields_::WHITE_LIST,
-      SP_AUTHEN_CTRL_fields_::LOCK_LIST,
+      SpAuthenCtrlFields::WHITE_LIST,
+      SpAuthenCtrlFields::LOCK_LIST,
       ftl::mmio::Reserved<7, 13>,
-      SP_AUTHEN_CTRL_fields_::LOCK_CFG,
+      SpAuthenCtrlFields::LOCK_CFG,
       ftl::mmio::Reserved<11, 21>> {
-    using eUSER = SP_AUTHEN_CTRL_fields_::eUSER;
-    using eNONSECURE = SP_AUTHEN_CTRL_fields_::eNONSECURE;
-    using USER = SP_AUTHEN_CTRL_fields_::USER;
-    using NONSECURE = SP_AUTHEN_CTRL_fields_::NONSECURE;
-    using LOCK_SETTING = SP_AUTHEN_CTRL_fields_::LOCK_SETTING;
-    using WHITE_LIST = SP_AUTHEN_CTRL_fields_::WHITE_LIST;
-    using LOCK_LIST = SP_AUTHEN_CTRL_fields_::LOCK_LIST;
-    using LOCK_CFG = SP_AUTHEN_CTRL_fields_::LOCK_CFG;
+    using eUSER = SpAuthenCtrlFields::eUSER;
+    using eNONSECURE = SpAuthenCtrlFields::eNONSECURE;
+    using USER = SpAuthenCtrlFields::USER;
+    using NONSECURE = SpAuthenCtrlFields::NONSECURE;
+    using LOCK_SETTING = SpAuthenCtrlFields::LOCK_SETTING;
+    using WHITE_LIST = SpAuthenCtrlFields::WHITE_LIST;
+    using LOCK_LIST = SpAuthenCtrlFields::LOCK_LIST;
+    using LOCK_CFG = SpAuthenCtrlFields::LOCK_CFG;
   };
 
   // SP Interrupt Control
-  struct SP_INT_CTRL_fields_ {
+  struct SpIntCtrlFields {
     // no_allowed_set_point interrupt enable
     using NO_ALLOWED_SP_INT_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // no_allowed_set_point interrupt
     using NO_ALLOWED_SP_INT = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct SP_INT_CTRL_fields_
+  };  // struct SpIntCtrlFields
 
   struct SP_INT_CTRL : ftl::mmio::Register<
       0x40C02008u,
       std::uint32_t,
       0x00000001u,
       ftl::mmio::RW,
-      SP_INT_CTRL_fields_::NO_ALLOWED_SP_INT_EN,
-      SP_INT_CTRL_fields_::NO_ALLOWED_SP_INT,
+      SpIntCtrlFields::NO_ALLOWED_SP_INT_EN,
+      SpIntCtrlFields::NO_ALLOWED_SP_INT,
       ftl::mmio::Reserved<30, 2>> {
-    using NO_ALLOWED_SP_INT_EN = SP_INT_CTRL_fields_::NO_ALLOWED_SP_INT_EN;
-    using NO_ALLOWED_SP_INT = SP_INT_CTRL_fields_::NO_ALLOWED_SP_INT;
+    using NO_ALLOWED_SP_INT_EN = SpIntCtrlFields::NO_ALLOWED_SP_INT_EN;
+    using NO_ALLOWED_SP_INT = SpIntCtrlFields::NO_ALLOWED_SP_INT;
   };
 
   // CPU SP Request
-  struct SP_CPU_REQ_fields_ {
+  struct SpCpuReqFields {
     // Setpoint requested by CPU0
     using SP_REQ_CPU0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Setpoint requested by CPU1
@@ -102,33 +102,33 @@ struct GpcSetPointCtrl {
     using SP_ACCEPTED_CPU2 = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // CPU3 Setpoint accepted by SP controller
     using SP_ACCEPTED_CPU3 = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SP_CPU_REQ_fields_
+  };  // struct SpCpuReqFields
 
   struct SP_CPU_REQ : ftl::mmio::Register<
       0x40C02010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SP_CPU_REQ_fields_::SP_REQ_CPU0,
-      SP_CPU_REQ_fields_::SP_REQ_CPU1,
-      SP_CPU_REQ_fields_::SP_REQ_CPU2,
-      SP_CPU_REQ_fields_::SP_REQ_CPU3,
-      SP_CPU_REQ_fields_::SP_ACCEPTED_CPU0,
-      SP_CPU_REQ_fields_::SP_ACCEPTED_CPU1,
-      SP_CPU_REQ_fields_::SP_ACCEPTED_CPU2,
-      SP_CPU_REQ_fields_::SP_ACCEPTED_CPU3> {
-    using SP_REQ_CPU0 = SP_CPU_REQ_fields_::SP_REQ_CPU0;
-    using SP_REQ_CPU1 = SP_CPU_REQ_fields_::SP_REQ_CPU1;
-    using SP_REQ_CPU2 = SP_CPU_REQ_fields_::SP_REQ_CPU2;
-    using SP_REQ_CPU3 = SP_CPU_REQ_fields_::SP_REQ_CPU3;
-    using SP_ACCEPTED_CPU0 = SP_CPU_REQ_fields_::SP_ACCEPTED_CPU0;
-    using SP_ACCEPTED_CPU1 = SP_CPU_REQ_fields_::SP_ACCEPTED_CPU1;
-    using SP_ACCEPTED_CPU2 = SP_CPU_REQ_fields_::SP_ACCEPTED_CPU2;
-    using SP_ACCEPTED_CPU3 = SP_CPU_REQ_fields_::SP_ACCEPTED_CPU3;
+      SpCpuReqFields::SP_REQ_CPU0,
+      SpCpuReqFields::SP_REQ_CPU1,
+      SpCpuReqFields::SP_REQ_CPU2,
+      SpCpuReqFields::SP_REQ_CPU3,
+      SpCpuReqFields::SP_ACCEPTED_CPU0,
+      SpCpuReqFields::SP_ACCEPTED_CPU1,
+      SpCpuReqFields::SP_ACCEPTED_CPU2,
+      SpCpuReqFields::SP_ACCEPTED_CPU3> {
+    using SP_REQ_CPU0 = SpCpuReqFields::SP_REQ_CPU0;
+    using SP_REQ_CPU1 = SpCpuReqFields::SP_REQ_CPU1;
+    using SP_REQ_CPU2 = SpCpuReqFields::SP_REQ_CPU2;
+    using SP_REQ_CPU3 = SpCpuReqFields::SP_REQ_CPU3;
+    using SP_ACCEPTED_CPU0 = SpCpuReqFields::SP_ACCEPTED_CPU0;
+    using SP_ACCEPTED_CPU1 = SpCpuReqFields::SP_ACCEPTED_CPU1;
+    using SP_ACCEPTED_CPU2 = SpCpuReqFields::SP_ACCEPTED_CPU2;
+    using SP_ACCEPTED_CPU3 = SpCpuReqFields::SP_ACCEPTED_CPU3;
   };
 
   // SP System Status
-  struct SP_SYS_STAT_fields_ {
+  struct SpSysStatFields {
     // Allowed Setpoints by all current CPU Setpoint requests
     using SYS_SP_ALLOWED = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // The Setpoint chosen as the target setpoint
@@ -137,42 +137,42 @@ struct GpcSetPointCtrl {
     using SYS_SP_CURRENT = ftl::mmio::Field<4, 20, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Previous Setpoint, only valid when not SP trans busy
     using SYS_SP_PREVIOUS = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SP_SYS_STAT_fields_
+  };  // struct SpSysStatFields
 
   struct SP_SYS_STAT : ftl::mmio::Register<
       0x40C02014u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RO,
-      SP_SYS_STAT_fields_::SYS_SP_ALLOWED,
-      SP_SYS_STAT_fields_::SYS_SP_TARGET,
-      SP_SYS_STAT_fields_::SYS_SP_CURRENT,
-      SP_SYS_STAT_fields_::SYS_SP_PREVIOUS,
+      SpSysStatFields::SYS_SP_ALLOWED,
+      SpSysStatFields::SYS_SP_TARGET,
+      SpSysStatFields::SYS_SP_CURRENT,
+      SpSysStatFields::SYS_SP_PREVIOUS,
       ftl::mmio::Reserved<4, 28>> {
-    using SYS_SP_ALLOWED = SP_SYS_STAT_fields_::SYS_SP_ALLOWED;
-    using SYS_SP_TARGET = SP_SYS_STAT_fields_::SYS_SP_TARGET;
-    using SYS_SP_CURRENT = SP_SYS_STAT_fields_::SYS_SP_CURRENT;
-    using SYS_SP_PREVIOUS = SP_SYS_STAT_fields_::SYS_SP_PREVIOUS;
+    using SYS_SP_ALLOWED = SpSysStatFields::SYS_SP_ALLOWED;
+    using SYS_SP_TARGET = SpSysStatFields::SYS_SP_TARGET;
+    using SYS_SP_CURRENT = SpSysStatFields::SYS_SP_CURRENT;
+    using SYS_SP_PREVIOUS = SpSysStatFields::SYS_SP_PREVIOUS;
   };
 
   // SP ROSC Control
-  struct SP_ROSC_CTRL_fields_ {
+  struct SpRoscCtrlFields {
     // Allow shutting off the ROSC
     using SP_ALLOW_ROSC_OFF = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_ROSC_CTRL_fields_
+  };  // struct SpRoscCtrlFields
 
   struct SP_ROSC_CTRL : ftl::mmio::Register<
       0x40C0201Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SP_ROSC_CTRL_fields_::SP_ALLOW_ROSC_OFF,
+      SpRoscCtrlFields::SP_ALLOW_ROSC_OFF,
       ftl::mmio::Reserved<16, 16>> {
-    using SP_ALLOW_ROSC_OFF = SP_ROSC_CTRL_fields_::SP_ALLOW_ROSC_OFF;
+    using SP_ALLOW_ROSC_OFF = SpRoscCtrlFields::SP_ALLOW_ROSC_OFF;
   };
 
   // SP0~7 Priority
-  struct SP_PRIORITY_0_7_fields_ {
+  struct SpPriority07Fields {
     // priority of Setpoint 0
     using SYS_SP0_PRIORITY = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // priority of Setpoint 1
@@ -189,33 +189,33 @@ struct GpcSetPointCtrl {
     using SYS_SP6_PRIORITY = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // priority of Setpoint 7
     using SYS_SP7_PRIORITY = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_PRIORITY_0_7_fields_
+  };  // struct SpPriority07Fields
 
   struct SP_PRIORITY_0_7 : ftl::mmio::Register<
       0x40C02040u,
       std::uint32_t,
       0x76543210u,
       ftl::mmio::RW,
-      SP_PRIORITY_0_7_fields_::SYS_SP0_PRIORITY,
-      SP_PRIORITY_0_7_fields_::SYS_SP1_PRIORITY,
-      SP_PRIORITY_0_7_fields_::SYS_SP2_PRIORITY,
-      SP_PRIORITY_0_7_fields_::SYS_SP3_PRIORITY,
-      SP_PRIORITY_0_7_fields_::SYS_SP4_PRIORITY,
-      SP_PRIORITY_0_7_fields_::SYS_SP5_PRIORITY,
-      SP_PRIORITY_0_7_fields_::SYS_SP6_PRIORITY,
-      SP_PRIORITY_0_7_fields_::SYS_SP7_PRIORITY> {
-    using SYS_SP0_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP0_PRIORITY;
-    using SYS_SP1_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP1_PRIORITY;
-    using SYS_SP2_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP2_PRIORITY;
-    using SYS_SP3_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP3_PRIORITY;
-    using SYS_SP4_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP4_PRIORITY;
-    using SYS_SP5_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP5_PRIORITY;
-    using SYS_SP6_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP6_PRIORITY;
-    using SYS_SP7_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP7_PRIORITY;
+      SpPriority07Fields::SYS_SP0_PRIORITY,
+      SpPriority07Fields::SYS_SP1_PRIORITY,
+      SpPriority07Fields::SYS_SP2_PRIORITY,
+      SpPriority07Fields::SYS_SP3_PRIORITY,
+      SpPriority07Fields::SYS_SP4_PRIORITY,
+      SpPriority07Fields::SYS_SP5_PRIORITY,
+      SpPriority07Fields::SYS_SP6_PRIORITY,
+      SpPriority07Fields::SYS_SP7_PRIORITY> {
+    using SYS_SP0_PRIORITY = SpPriority07Fields::SYS_SP0_PRIORITY;
+    using SYS_SP1_PRIORITY = SpPriority07Fields::SYS_SP1_PRIORITY;
+    using SYS_SP2_PRIORITY = SpPriority07Fields::SYS_SP2_PRIORITY;
+    using SYS_SP3_PRIORITY = SpPriority07Fields::SYS_SP3_PRIORITY;
+    using SYS_SP4_PRIORITY = SpPriority07Fields::SYS_SP4_PRIORITY;
+    using SYS_SP5_PRIORITY = SpPriority07Fields::SYS_SP5_PRIORITY;
+    using SYS_SP6_PRIORITY = SpPriority07Fields::SYS_SP6_PRIORITY;
+    using SYS_SP7_PRIORITY = SpPriority07Fields::SYS_SP7_PRIORITY;
   };
 
   // SP8~15 Priority
-  struct SP_PRIORITY_8_15_fields_ {
+  struct SpPriority815Fields {
     // priority of Setpoint 8
     using SYS_SP8_PRIORITY = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // priority of Setpoint 9
@@ -232,33 +232,33 @@ struct GpcSetPointCtrl {
     using SYS_SP14_PRIORITY = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // priority of Setpoint 15
     using SYS_SP15_PRIORITY = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_PRIORITY_8_15_fields_
+  };  // struct SpPriority815Fields
 
   struct SP_PRIORITY_8_15 : ftl::mmio::Register<
       0x40C02044u,
       std::uint32_t,
       0xFEDCBA98u,
       ftl::mmio::RW,
-      SP_PRIORITY_8_15_fields_::SYS_SP8_PRIORITY,
-      SP_PRIORITY_8_15_fields_::SYS_SP9_PRIORITY,
-      SP_PRIORITY_8_15_fields_::SYS_SP10_PRIORITY,
-      SP_PRIORITY_8_15_fields_::SYS_SP11_PRIORITY,
-      SP_PRIORITY_8_15_fields_::SYS_SP12_PRIORITY,
-      SP_PRIORITY_8_15_fields_::SYS_SP13_PRIORITY,
-      SP_PRIORITY_8_15_fields_::SYS_SP14_PRIORITY,
-      SP_PRIORITY_8_15_fields_::SYS_SP15_PRIORITY> {
-    using SYS_SP8_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP8_PRIORITY;
-    using SYS_SP9_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP9_PRIORITY;
-    using SYS_SP10_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP10_PRIORITY;
-    using SYS_SP11_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP11_PRIORITY;
-    using SYS_SP12_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP12_PRIORITY;
-    using SYS_SP13_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP13_PRIORITY;
-    using SYS_SP14_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP14_PRIORITY;
-    using SYS_SP15_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP15_PRIORITY;
+      SpPriority815Fields::SYS_SP8_PRIORITY,
+      SpPriority815Fields::SYS_SP9_PRIORITY,
+      SpPriority815Fields::SYS_SP10_PRIORITY,
+      SpPriority815Fields::SYS_SP11_PRIORITY,
+      SpPriority815Fields::SYS_SP12_PRIORITY,
+      SpPriority815Fields::SYS_SP13_PRIORITY,
+      SpPriority815Fields::SYS_SP14_PRIORITY,
+      SpPriority815Fields::SYS_SP15_PRIORITY> {
+    using SYS_SP8_PRIORITY = SpPriority815Fields::SYS_SP8_PRIORITY;
+    using SYS_SP9_PRIORITY = SpPriority815Fields::SYS_SP9_PRIORITY;
+    using SYS_SP10_PRIORITY = SpPriority815Fields::SYS_SP10_PRIORITY;
+    using SYS_SP11_PRIORITY = SpPriority815Fields::SYS_SP11_PRIORITY;
+    using SYS_SP12_PRIORITY = SpPriority815Fields::SYS_SP12_PRIORITY;
+    using SYS_SP13_PRIORITY = SpPriority815Fields::SYS_SP13_PRIORITY;
+    using SYS_SP14_PRIORITY = SpPriority815Fields::SYS_SP14_PRIORITY;
+    using SYS_SP15_PRIORITY = SpPriority815Fields::SYS_SP15_PRIORITY;
   };
 
   // SP SSAR save control
-  struct SP_SSAR_SAVE_CTRL_fields_ {
+  struct SpSsarSaveCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -276,26 +276,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_SSAR_SAVE_CTRL_fields_
+  };  // struct SpSsarSaveCtrlFields
 
   struct SP_SSAR_SAVE_CTRL : ftl::mmio::Register<
       0x40C02100u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_SSAR_SAVE_CTRL_fields_::STEP_CNT,
+      SpSsarSaveCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_SSAR_SAVE_CTRL_fields_::CNT_MODE,
+      SpSsarSaveCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_SSAR_SAVE_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_SSAR_SAVE_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_SSAR_SAVE_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_SSAR_SAVE_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_SSAR_SAVE_CTRL_fields_::DISABLE;
+      SpSsarSaveCtrlFields::DISABLE> {
+    using eCNT_MODE = SpSsarSaveCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpSsarSaveCtrlFields::STEP_CNT;
+    using CNT_MODE = SpSsarSaveCtrlFields::CNT_MODE;
+    using DISABLE = SpSsarSaveCtrlFields::DISABLE;
   };
 
   // SP LPCG off control
-  struct SP_LPCG_OFF_CTRL_fields_ {
+  struct SpLpcgOffCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -313,26 +313,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_LPCG_OFF_CTRL_fields_
+  };  // struct SpLpcgOffCtrlFields
 
   struct SP_LPCG_OFF_CTRL : ftl::mmio::Register<
       0x40C02110u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_LPCG_OFF_CTRL_fields_::STEP_CNT,
+      SpLpcgOffCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_LPCG_OFF_CTRL_fields_::CNT_MODE,
+      SpLpcgOffCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_LPCG_OFF_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_LPCG_OFF_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_LPCG_OFF_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_LPCG_OFF_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_LPCG_OFF_CTRL_fields_::DISABLE;
+      SpLpcgOffCtrlFields::DISABLE> {
+    using eCNT_MODE = SpLpcgOffCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpLpcgOffCtrlFields::STEP_CNT;
+    using CNT_MODE = SpLpcgOffCtrlFields::CNT_MODE;
+    using DISABLE = SpLpcgOffCtrlFields::DISABLE;
   };
 
   // SP group down control
-  struct SP_GROUP_DOWN_CTRL_fields_ {
+  struct SpGroupDownCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -350,26 +350,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_GROUP_DOWN_CTRL_fields_
+  };  // struct SpGroupDownCtrlFields
 
   struct SP_GROUP_DOWN_CTRL : ftl::mmio::Register<
       0x40C02120u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_GROUP_DOWN_CTRL_fields_::STEP_CNT,
+      SpGroupDownCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_GROUP_DOWN_CTRL_fields_::CNT_MODE,
+      SpGroupDownCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_GROUP_DOWN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_GROUP_DOWN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_GROUP_DOWN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_GROUP_DOWN_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_GROUP_DOWN_CTRL_fields_::DISABLE;
+      SpGroupDownCtrlFields::DISABLE> {
+    using eCNT_MODE = SpGroupDownCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpGroupDownCtrlFields::STEP_CNT;
+    using CNT_MODE = SpGroupDownCtrlFields::CNT_MODE;
+    using DISABLE = SpGroupDownCtrlFields::DISABLE;
   };
 
   // SP root down control
-  struct SP_ROOT_DOWN_CTRL_fields_ {
+  struct SpRootDownCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -387,26 +387,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_ROOT_DOWN_CTRL_fields_
+  };  // struct SpRootDownCtrlFields
 
   struct SP_ROOT_DOWN_CTRL : ftl::mmio::Register<
       0x40C02130u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_ROOT_DOWN_CTRL_fields_::STEP_CNT,
+      SpRootDownCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_ROOT_DOWN_CTRL_fields_::CNT_MODE,
+      SpRootDownCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_ROOT_DOWN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_ROOT_DOWN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_ROOT_DOWN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_ROOT_DOWN_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_ROOT_DOWN_CTRL_fields_::DISABLE;
+      SpRootDownCtrlFields::DISABLE> {
+    using eCNT_MODE = SpRootDownCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpRootDownCtrlFields::STEP_CNT;
+    using CNT_MODE = SpRootDownCtrlFields::CNT_MODE;
+    using DISABLE = SpRootDownCtrlFields::DISABLE;
   };
 
   // SP PLL off control
-  struct SP_PLL_OFF_CTRL_fields_ {
+  struct SpPllOffCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -424,26 +424,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_PLL_OFF_CTRL_fields_
+  };  // struct SpPllOffCtrlFields
 
   struct SP_PLL_OFF_CTRL : ftl::mmio::Register<
       0x40C02140u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_PLL_OFF_CTRL_fields_::STEP_CNT,
+      SpPllOffCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_PLL_OFF_CTRL_fields_::CNT_MODE,
+      SpPllOffCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_PLL_OFF_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_PLL_OFF_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_PLL_OFF_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_PLL_OFF_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_PLL_OFF_CTRL_fields_::DISABLE;
+      SpPllOffCtrlFields::DISABLE> {
+    using eCNT_MODE = SpPllOffCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpPllOffCtrlFields::STEP_CNT;
+    using CNT_MODE = SpPllOffCtrlFields::CNT_MODE;
+    using DISABLE = SpPllOffCtrlFields::DISABLE;
   };
 
   // SP ISO on control
-  struct SP_ISO_ON_CTRL_fields_ {
+  struct SpIsoOnCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -461,26 +461,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_ISO_ON_CTRL_fields_
+  };  // struct SpIsoOnCtrlFields
 
   struct SP_ISO_ON_CTRL : ftl::mmio::Register<
       0x40C02150u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_ISO_ON_CTRL_fields_::STEP_CNT,
+      SpIsoOnCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_ISO_ON_CTRL_fields_::CNT_MODE,
+      SpIsoOnCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_ISO_ON_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_ISO_ON_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_ISO_ON_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_ISO_ON_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_ISO_ON_CTRL_fields_::DISABLE;
+      SpIsoOnCtrlFields::DISABLE> {
+    using eCNT_MODE = SpIsoOnCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpIsoOnCtrlFields::STEP_CNT;
+    using CNT_MODE = SpIsoOnCtrlFields::CNT_MODE;
+    using DISABLE = SpIsoOnCtrlFields::DISABLE;
   };
 
   // SP reset early control
-  struct SP_RESET_EARLY_CTRL_fields_ {
+  struct SpResetEarlyCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -498,26 +498,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_RESET_EARLY_CTRL_fields_
+  };  // struct SpResetEarlyCtrlFields
 
   struct SP_RESET_EARLY_CTRL : ftl::mmio::Register<
       0x40C02160u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_RESET_EARLY_CTRL_fields_::STEP_CNT,
+      SpResetEarlyCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_RESET_EARLY_CTRL_fields_::CNT_MODE,
+      SpResetEarlyCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_RESET_EARLY_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_RESET_EARLY_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_RESET_EARLY_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_RESET_EARLY_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_RESET_EARLY_CTRL_fields_::DISABLE;
+      SpResetEarlyCtrlFields::DISABLE> {
+    using eCNT_MODE = SpResetEarlyCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpResetEarlyCtrlFields::STEP_CNT;
+    using CNT_MODE = SpResetEarlyCtrlFields::CNT_MODE;
+    using DISABLE = SpResetEarlyCtrlFields::DISABLE;
   };
 
   // SP power off control
-  struct SP_POWER_OFF_CTRL_fields_ {
+  struct SpPowerOffCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -535,26 +535,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_POWER_OFF_CTRL_fields_
+  };  // struct SpPowerOffCtrlFields
 
   struct SP_POWER_OFF_CTRL : ftl::mmio::Register<
       0x40C02170u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_POWER_OFF_CTRL_fields_::STEP_CNT,
+      SpPowerOffCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_POWER_OFF_CTRL_fields_::CNT_MODE,
+      SpPowerOffCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_POWER_OFF_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_POWER_OFF_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_POWER_OFF_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_POWER_OFF_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_POWER_OFF_CTRL_fields_::DISABLE;
+      SpPowerOffCtrlFields::DISABLE> {
+    using eCNT_MODE = SpPowerOffCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpPowerOffCtrlFields::STEP_CNT;
+    using CNT_MODE = SpPowerOffCtrlFields::CNT_MODE;
+    using DISABLE = SpPowerOffCtrlFields::DISABLE;
   };
 
   // SP bias off control
-  struct SP_BIAS_OFF_CTRL_fields_ {
+  struct SpBiasOffCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -572,26 +572,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_BIAS_OFF_CTRL_fields_
+  };  // struct SpBiasOffCtrlFields
 
   struct SP_BIAS_OFF_CTRL : ftl::mmio::Register<
       0x40C02180u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_BIAS_OFF_CTRL_fields_::STEP_CNT,
+      SpBiasOffCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_BIAS_OFF_CTRL_fields_::CNT_MODE,
+      SpBiasOffCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_BIAS_OFF_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_BIAS_OFF_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_BIAS_OFF_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_BIAS_OFF_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_BIAS_OFF_CTRL_fields_::DISABLE;
+      SpBiasOffCtrlFields::DISABLE> {
+    using eCNT_MODE = SpBiasOffCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpBiasOffCtrlFields::STEP_CNT;
+    using CNT_MODE = SpBiasOffCtrlFields::CNT_MODE;
+    using DISABLE = SpBiasOffCtrlFields::DISABLE;
   };
 
   // SP bandgap and PLL_LDO off control
-  struct SP_BG_PLDO_OFF_CTRL_fields_ {
+  struct SpBgPldoOffCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -609,26 +609,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_BG_PLDO_OFF_CTRL_fields_
+  };  // struct SpBgPldoOffCtrlFields
 
   struct SP_BG_PLDO_OFF_CTRL : ftl::mmio::Register<
       0x40C02190u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_BG_PLDO_OFF_CTRL_fields_::STEP_CNT,
+      SpBgPldoOffCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_BG_PLDO_OFF_CTRL_fields_::CNT_MODE,
+      SpBgPldoOffCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_BG_PLDO_OFF_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_BG_PLDO_OFF_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_BG_PLDO_OFF_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_BG_PLDO_OFF_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_BG_PLDO_OFF_CTRL_fields_::DISABLE;
+      SpBgPldoOffCtrlFields::DISABLE> {
+    using eCNT_MODE = SpBgPldoOffCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpBgPldoOffCtrlFields::STEP_CNT;
+    using CNT_MODE = SpBgPldoOffCtrlFields::CNT_MODE;
+    using DISABLE = SpBgPldoOffCtrlFields::DISABLE;
   };
 
   // SP LDO pre control
-  struct SP_LDO_PRE_CTRL_fields_ {
+  struct SpLdoPreCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -646,26 +646,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_LDO_PRE_CTRL_fields_
+  };  // struct SpLdoPreCtrlFields
 
   struct SP_LDO_PRE_CTRL : ftl::mmio::Register<
       0x40C021A0u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_LDO_PRE_CTRL_fields_::STEP_CNT,
+      SpLdoPreCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_LDO_PRE_CTRL_fields_::CNT_MODE,
+      SpLdoPreCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_LDO_PRE_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_LDO_PRE_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_LDO_PRE_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_LDO_PRE_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_LDO_PRE_CTRL_fields_::DISABLE;
+      SpLdoPreCtrlFields::DISABLE> {
+    using eCNT_MODE = SpLdoPreCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpLdoPreCtrlFields::STEP_CNT;
+    using CNT_MODE = SpLdoPreCtrlFields::CNT_MODE;
+    using DISABLE = SpLdoPreCtrlFields::DISABLE;
   };
 
   // SP DCDC down control
-  struct SP_DCDC_DOWN_CTRL_fields_ {
+  struct SpDcdcDownCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -683,26 +683,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_DCDC_DOWN_CTRL_fields_
+  };  // struct SpDcdcDownCtrlFields
 
   struct SP_DCDC_DOWN_CTRL : ftl::mmio::Register<
       0x40C021B0u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_DCDC_DOWN_CTRL_fields_::STEP_CNT,
+      SpDcdcDownCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_DCDC_DOWN_CTRL_fields_::CNT_MODE,
+      SpDcdcDownCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_DCDC_DOWN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_DCDC_DOWN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_DCDC_DOWN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_DCDC_DOWN_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_DCDC_DOWN_CTRL_fields_::DISABLE;
+      SpDcdcDownCtrlFields::DISABLE> {
+    using eCNT_MODE = SpDcdcDownCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpDcdcDownCtrlFields::STEP_CNT;
+    using CNT_MODE = SpDcdcDownCtrlFields::CNT_MODE;
+    using DISABLE = SpDcdcDownCtrlFields::DISABLE;
   };
 
   // SP DCDC up control
-  struct SP_DCDC_UP_CTRL_fields_ {
+  struct SpDcdcUpCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -720,26 +720,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_DCDC_UP_CTRL_fields_
+  };  // struct SpDcdcUpCtrlFields
 
   struct SP_DCDC_UP_CTRL : ftl::mmio::Register<
       0x40C02200u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_DCDC_UP_CTRL_fields_::STEP_CNT,
+      SpDcdcUpCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_DCDC_UP_CTRL_fields_::CNT_MODE,
+      SpDcdcUpCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_DCDC_UP_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_DCDC_UP_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_DCDC_UP_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_DCDC_UP_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_DCDC_UP_CTRL_fields_::DISABLE;
+      SpDcdcUpCtrlFields::DISABLE> {
+    using eCNT_MODE = SpDcdcUpCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpDcdcUpCtrlFields::STEP_CNT;
+    using CNT_MODE = SpDcdcUpCtrlFields::CNT_MODE;
+    using DISABLE = SpDcdcUpCtrlFields::DISABLE;
   };
 
   // SP LDO post control
-  struct SP_LDO_POST_CTRL_fields_ {
+  struct SpLdoPostCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -757,26 +757,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_LDO_POST_CTRL_fields_
+  };  // struct SpLdoPostCtrlFields
 
   struct SP_LDO_POST_CTRL : ftl::mmio::Register<
       0x40C02210u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_LDO_POST_CTRL_fields_::STEP_CNT,
+      SpLdoPostCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_LDO_POST_CTRL_fields_::CNT_MODE,
+      SpLdoPostCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_LDO_POST_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_LDO_POST_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_LDO_POST_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_LDO_POST_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_LDO_POST_CTRL_fields_::DISABLE;
+      SpLdoPostCtrlFields::DISABLE> {
+    using eCNT_MODE = SpLdoPostCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpLdoPostCtrlFields::STEP_CNT;
+    using CNT_MODE = SpLdoPostCtrlFields::CNT_MODE;
+    using DISABLE = SpLdoPostCtrlFields::DISABLE;
   };
 
   // SP bandgap and PLL_LDO on control
-  struct SP_BG_PLDO_ON_CTRL_fields_ {
+  struct SpBgPldoOnCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -794,26 +794,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_BG_PLDO_ON_CTRL_fields_
+  };  // struct SpBgPldoOnCtrlFields
 
   struct SP_BG_PLDO_ON_CTRL : ftl::mmio::Register<
       0x40C02220u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_BG_PLDO_ON_CTRL_fields_::STEP_CNT,
+      SpBgPldoOnCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_BG_PLDO_ON_CTRL_fields_::CNT_MODE,
+      SpBgPldoOnCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_BG_PLDO_ON_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_BG_PLDO_ON_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_BG_PLDO_ON_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_BG_PLDO_ON_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_BG_PLDO_ON_CTRL_fields_::DISABLE;
+      SpBgPldoOnCtrlFields::DISABLE> {
+    using eCNT_MODE = SpBgPldoOnCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpBgPldoOnCtrlFields::STEP_CNT;
+    using CNT_MODE = SpBgPldoOnCtrlFields::CNT_MODE;
+    using DISABLE = SpBgPldoOnCtrlFields::DISABLE;
   };
 
   // SP bias on control
-  struct SP_BIAS_ON_CTRL_fields_ {
+  struct SpBiasOnCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -831,26 +831,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_BIAS_ON_CTRL_fields_
+  };  // struct SpBiasOnCtrlFields
 
   struct SP_BIAS_ON_CTRL : ftl::mmio::Register<
       0x40C02230u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_BIAS_ON_CTRL_fields_::STEP_CNT,
+      SpBiasOnCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_BIAS_ON_CTRL_fields_::CNT_MODE,
+      SpBiasOnCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_BIAS_ON_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_BIAS_ON_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_BIAS_ON_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_BIAS_ON_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_BIAS_ON_CTRL_fields_::DISABLE;
+      SpBiasOnCtrlFields::DISABLE> {
+    using eCNT_MODE = SpBiasOnCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpBiasOnCtrlFields::STEP_CNT;
+    using CNT_MODE = SpBiasOnCtrlFields::CNT_MODE;
+    using DISABLE = SpBiasOnCtrlFields::DISABLE;
   };
 
   // SP power on control
-  struct SP_POWER_ON_CTRL_fields_ {
+  struct SpPowerOnCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -868,26 +868,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_POWER_ON_CTRL_fields_
+  };  // struct SpPowerOnCtrlFields
 
   struct SP_POWER_ON_CTRL : ftl::mmio::Register<
       0x40C02240u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_POWER_ON_CTRL_fields_::STEP_CNT,
+      SpPowerOnCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_POWER_ON_CTRL_fields_::CNT_MODE,
+      SpPowerOnCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_POWER_ON_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_POWER_ON_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_POWER_ON_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_POWER_ON_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_POWER_ON_CTRL_fields_::DISABLE;
+      SpPowerOnCtrlFields::DISABLE> {
+    using eCNT_MODE = SpPowerOnCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpPowerOnCtrlFields::STEP_CNT;
+    using CNT_MODE = SpPowerOnCtrlFields::CNT_MODE;
+    using DISABLE = SpPowerOnCtrlFields::DISABLE;
   };
 
   // SP reset late control
-  struct SP_RESET_LATE_CTRL_fields_ {
+  struct SpResetLateCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -905,26 +905,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_RESET_LATE_CTRL_fields_
+  };  // struct SpResetLateCtrlFields
 
   struct SP_RESET_LATE_CTRL : ftl::mmio::Register<
       0x40C02250u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_RESET_LATE_CTRL_fields_::STEP_CNT,
+      SpResetLateCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_RESET_LATE_CTRL_fields_::CNT_MODE,
+      SpResetLateCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_RESET_LATE_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_RESET_LATE_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_RESET_LATE_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_RESET_LATE_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_RESET_LATE_CTRL_fields_::DISABLE;
+      SpResetLateCtrlFields::DISABLE> {
+    using eCNT_MODE = SpResetLateCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpResetLateCtrlFields::STEP_CNT;
+    using CNT_MODE = SpResetLateCtrlFields::CNT_MODE;
+    using DISABLE = SpResetLateCtrlFields::DISABLE;
   };
 
   // SP ISO off control
-  struct SP_ISO_OFF_CTRL_fields_ {
+  struct SpIsoOffCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -942,26 +942,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_ISO_OFF_CTRL_fields_
+  };  // struct SpIsoOffCtrlFields
 
   struct SP_ISO_OFF_CTRL : ftl::mmio::Register<
       0x40C02260u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_ISO_OFF_CTRL_fields_::STEP_CNT,
+      SpIsoOffCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_ISO_OFF_CTRL_fields_::CNT_MODE,
+      SpIsoOffCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_ISO_OFF_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_ISO_OFF_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_ISO_OFF_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_ISO_OFF_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_ISO_OFF_CTRL_fields_::DISABLE;
+      SpIsoOffCtrlFields::DISABLE> {
+    using eCNT_MODE = SpIsoOffCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpIsoOffCtrlFields::STEP_CNT;
+    using CNT_MODE = SpIsoOffCtrlFields::CNT_MODE;
+    using DISABLE = SpIsoOffCtrlFields::DISABLE;
   };
 
   // SP PLL on control
-  struct SP_PLL_ON_CTRL_fields_ {
+  struct SpPllOnCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -979,26 +979,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_PLL_ON_CTRL_fields_
+  };  // struct SpPllOnCtrlFields
 
   struct SP_PLL_ON_CTRL : ftl::mmio::Register<
       0x40C02270u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_PLL_ON_CTRL_fields_::STEP_CNT,
+      SpPllOnCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_PLL_ON_CTRL_fields_::CNT_MODE,
+      SpPllOnCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_PLL_ON_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_PLL_ON_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_PLL_ON_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_PLL_ON_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_PLL_ON_CTRL_fields_::DISABLE;
+      SpPllOnCtrlFields::DISABLE> {
+    using eCNT_MODE = SpPllOnCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpPllOnCtrlFields::STEP_CNT;
+    using CNT_MODE = SpPllOnCtrlFields::CNT_MODE;
+    using DISABLE = SpPllOnCtrlFields::DISABLE;
   };
 
   // SP root up control
-  struct SP_ROOT_UP_CTRL_fields_ {
+  struct SpRootUpCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -1016,26 +1016,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_ROOT_UP_CTRL_fields_
+  };  // struct SpRootUpCtrlFields
 
   struct SP_ROOT_UP_CTRL : ftl::mmio::Register<
       0x40C02280u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_ROOT_UP_CTRL_fields_::STEP_CNT,
+      SpRootUpCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_ROOT_UP_CTRL_fields_::CNT_MODE,
+      SpRootUpCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_ROOT_UP_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_ROOT_UP_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_ROOT_UP_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_ROOT_UP_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_ROOT_UP_CTRL_fields_::DISABLE;
+      SpRootUpCtrlFields::DISABLE> {
+    using eCNT_MODE = SpRootUpCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpRootUpCtrlFields::STEP_CNT;
+    using CNT_MODE = SpRootUpCtrlFields::CNT_MODE;
+    using DISABLE = SpRootUpCtrlFields::DISABLE;
   };
 
   // SP group up control
-  struct SP_GROUP_UP_CTRL_fields_ {
+  struct SpGroupUpCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -1053,26 +1053,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_GROUP_UP_CTRL_fields_
+  };  // struct SpGroupUpCtrlFields
 
   struct SP_GROUP_UP_CTRL : ftl::mmio::Register<
       0x40C02290u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_GROUP_UP_CTRL_fields_::STEP_CNT,
+      SpGroupUpCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_GROUP_UP_CTRL_fields_::CNT_MODE,
+      SpGroupUpCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_GROUP_UP_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_GROUP_UP_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_GROUP_UP_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_GROUP_UP_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_GROUP_UP_CTRL_fields_::DISABLE;
+      SpGroupUpCtrlFields::DISABLE> {
+    using eCNT_MODE = SpGroupUpCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpGroupUpCtrlFields::STEP_CNT;
+    using CNT_MODE = SpGroupUpCtrlFields::CNT_MODE;
+    using DISABLE = SpGroupUpCtrlFields::DISABLE;
   };
 
   // SP LPCG on control
-  struct SP_LPCG_ON_CTRL_fields_ {
+  struct SpLpcgOnCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -1090,26 +1090,26 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_LPCG_ON_CTRL_fields_
+  };  // struct SpLpcgOnCtrlFields
 
   struct SP_LPCG_ON_CTRL : ftl::mmio::Register<
       0x40C022A0u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_LPCG_ON_CTRL_fields_::STEP_CNT,
+      SpLpcgOnCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_LPCG_ON_CTRL_fields_::CNT_MODE,
+      SpLpcgOnCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_LPCG_ON_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_LPCG_ON_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_LPCG_ON_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_LPCG_ON_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_LPCG_ON_CTRL_fields_::DISABLE;
+      SpLpcgOnCtrlFields::DISABLE> {
+    using eCNT_MODE = SpLpcgOnCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpLpcgOnCtrlFields::STEP_CNT;
+    using CNT_MODE = SpLpcgOnCtrlFields::CNT_MODE;
+    using DISABLE = SpLpcgOnCtrlFields::DISABLE;
   };
 
   // SP SSAR restore control
-  struct SP_SSAR_RESTORE_CTRL_fields_ {
+  struct SpSsarRestoreCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -1127,22 +1127,22 @@ struct GpcSetPointCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SP_SSAR_RESTORE_CTRL_fields_
+  };  // struct SpSsarRestoreCtrlFields
 
   struct SP_SSAR_RESTORE_CTRL : ftl::mmio::Register<
       0x40C022B0u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      SP_SSAR_RESTORE_CTRL_fields_::STEP_CNT,
+      SpSsarRestoreCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      SP_SSAR_RESTORE_CTRL_fields_::CNT_MODE,
+      SpSsarRestoreCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      SP_SSAR_RESTORE_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = SP_SSAR_RESTORE_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = SP_SSAR_RESTORE_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = SP_SSAR_RESTORE_CTRL_fields_::CNT_MODE;
-    using DISABLE = SP_SSAR_RESTORE_CTRL_fields_::DISABLE;
+      SpSsarRestoreCtrlFields::DISABLE> {
+    using eCNT_MODE = SpSsarRestoreCtrlFields::eCNT_MODE;
+    using STEP_CNT = SpSsarRestoreCtrlFields::STEP_CNT;
+    using CNT_MODE = SpSsarRestoreCtrlFields::CNT_MODE;
+    using DISABLE = SpSsarRestoreCtrlFields::DISABLE;
   };
 
 };

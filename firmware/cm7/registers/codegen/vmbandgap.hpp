@@ -10,7 +10,7 @@ namespace regs {
 
 struct Vmbandgap {
   // Analog Control Register CTRL0
-  struct CTRL0_fields_ {
+  struct Ctrl0Fields {
     // Master power-down for bandgap module
     using REFTOP_PWD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Power-down for bandgap voltage-reference buffer
@@ -21,28 +21,28 @@ struct Vmbandgap {
     using REFTOP_LOWPOWER = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // bandgap self-bias control bit
     using REFTOP_SELFBIASOFF = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL0_fields_
+  };  // struct Ctrl0Fields
 
   struct CTRL0 : ftl::mmio::Register<
       0x00000000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL0_fields_::REFTOP_PWD,
-      CTRL0_fields_::REFTOP_LINREGREF_PWD,
-      CTRL0_fields_::REFTOP_PWDVBGUP,
-      CTRL0_fields_::REFTOP_LOWPOWER,
-      CTRL0_fields_::REFTOP_SELFBIASOFF,
+      Ctrl0Fields::REFTOP_PWD,
+      Ctrl0Fields::REFTOP_LINREGREF_PWD,
+      Ctrl0Fields::REFTOP_PWDVBGUP,
+      Ctrl0Fields::REFTOP_LOWPOWER,
+      Ctrl0Fields::REFTOP_SELFBIASOFF,
       ftl::mmio::Reserved<27, 5>> {
-    using REFTOP_PWD = CTRL0_fields_::REFTOP_PWD;
-    using REFTOP_LINREGREF_PWD = CTRL0_fields_::REFTOP_LINREGREF_PWD;
-    using REFTOP_PWDVBGUP = CTRL0_fields_::REFTOP_PWDVBGUP;
-    using REFTOP_LOWPOWER = CTRL0_fields_::REFTOP_LOWPOWER;
-    using REFTOP_SELFBIASOFF = CTRL0_fields_::REFTOP_SELFBIASOFF;
+    using REFTOP_PWD = Ctrl0Fields::REFTOP_PWD;
+    using REFTOP_LINREGREF_PWD = Ctrl0Fields::REFTOP_LINREGREF_PWD;
+    using REFTOP_PWDVBGUP = Ctrl0Fields::REFTOP_PWDVBGUP;
+    using REFTOP_LOWPOWER = Ctrl0Fields::REFTOP_LOWPOWER;
+    using REFTOP_SELFBIASOFF = Ctrl0Fields::REFTOP_SELFBIASOFF;
   };
 
   // Analog Control Register CTRL0
-  struct CTRL0_SET_fields_ {
+  struct Ctrl0SetFields {
     // Master power-down for bandgap module
     using REFTOP_PWD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Power-down for bandgap voltage-reference buffer
@@ -53,28 +53,28 @@ struct Vmbandgap {
     using REFTOP_LOWPOWER = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // bandgap self-bias control bit
     using REFTOP_SELFBIASOFF = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct CTRL0_SET_fields_
+  };  // struct Ctrl0SetFields
 
   struct CTRL0_SET : ftl::mmio::Register<
       0x00000004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL0_SET_fields_::REFTOP_PWD,
-      CTRL0_SET_fields_::REFTOP_LINREGREF_PWD,
-      CTRL0_SET_fields_::REFTOP_PWDVBGUP,
-      CTRL0_SET_fields_::REFTOP_LOWPOWER,
-      CTRL0_SET_fields_::REFTOP_SELFBIASOFF,
+      Ctrl0SetFields::REFTOP_PWD,
+      Ctrl0SetFields::REFTOP_LINREGREF_PWD,
+      Ctrl0SetFields::REFTOP_PWDVBGUP,
+      Ctrl0SetFields::REFTOP_LOWPOWER,
+      Ctrl0SetFields::REFTOP_SELFBIASOFF,
       ftl::mmio::Reserved<27, 5>> {
-    using REFTOP_PWD = CTRL0_SET_fields_::REFTOP_PWD;
-    using REFTOP_LINREGREF_PWD = CTRL0_SET_fields_::REFTOP_LINREGREF_PWD;
-    using REFTOP_PWDVBGUP = CTRL0_SET_fields_::REFTOP_PWDVBGUP;
-    using REFTOP_LOWPOWER = CTRL0_SET_fields_::REFTOP_LOWPOWER;
-    using REFTOP_SELFBIASOFF = CTRL0_SET_fields_::REFTOP_SELFBIASOFF;
+    using REFTOP_PWD = Ctrl0SetFields::REFTOP_PWD;
+    using REFTOP_LINREGREF_PWD = Ctrl0SetFields::REFTOP_LINREGREF_PWD;
+    using REFTOP_PWDVBGUP = Ctrl0SetFields::REFTOP_PWDVBGUP;
+    using REFTOP_LOWPOWER = Ctrl0SetFields::REFTOP_LOWPOWER;
+    using REFTOP_SELFBIASOFF = Ctrl0SetFields::REFTOP_SELFBIASOFF;
   };
 
   // Analog Control Register CTRL0
-  struct CTRL0_CLR_fields_ {
+  struct Ctrl0ClrFields {
     // Master power-down for bandgap module
     using REFTOP_PWD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Power-down for bandgap voltage-reference buffer
@@ -85,28 +85,28 @@ struct Vmbandgap {
     using REFTOP_LOWPOWER = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // bandgap self-bias control bit
     using REFTOP_SELFBIASOFF = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct CTRL0_CLR_fields_
+  };  // struct Ctrl0ClrFields
 
   struct CTRL0_CLR : ftl::mmio::Register<
       0x00000008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL0_CLR_fields_::REFTOP_PWD,
-      CTRL0_CLR_fields_::REFTOP_LINREGREF_PWD,
-      CTRL0_CLR_fields_::REFTOP_PWDVBGUP,
-      CTRL0_CLR_fields_::REFTOP_LOWPOWER,
-      CTRL0_CLR_fields_::REFTOP_SELFBIASOFF,
+      Ctrl0ClrFields::REFTOP_PWD,
+      Ctrl0ClrFields::REFTOP_LINREGREF_PWD,
+      Ctrl0ClrFields::REFTOP_PWDVBGUP,
+      Ctrl0ClrFields::REFTOP_LOWPOWER,
+      Ctrl0ClrFields::REFTOP_SELFBIASOFF,
       ftl::mmio::Reserved<27, 5>> {
-    using REFTOP_PWD = CTRL0_CLR_fields_::REFTOP_PWD;
-    using REFTOP_LINREGREF_PWD = CTRL0_CLR_fields_::REFTOP_LINREGREF_PWD;
-    using REFTOP_PWDVBGUP = CTRL0_CLR_fields_::REFTOP_PWDVBGUP;
-    using REFTOP_LOWPOWER = CTRL0_CLR_fields_::REFTOP_LOWPOWER;
-    using REFTOP_SELFBIASOFF = CTRL0_CLR_fields_::REFTOP_SELFBIASOFF;
+    using REFTOP_PWD = Ctrl0ClrFields::REFTOP_PWD;
+    using REFTOP_LINREGREF_PWD = Ctrl0ClrFields::REFTOP_LINREGREF_PWD;
+    using REFTOP_PWDVBGUP = Ctrl0ClrFields::REFTOP_PWDVBGUP;
+    using REFTOP_LOWPOWER = Ctrl0ClrFields::REFTOP_LOWPOWER;
+    using REFTOP_SELFBIASOFF = Ctrl0ClrFields::REFTOP_SELFBIASOFF;
   };
 
   // Analog Control Register CTRL0
-  struct CTRL0_TOG_fields_ {
+  struct Ctrl0TogFields {
     // Master power-down for bandgap module
     using REFTOP_PWD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Power-down for bandgap voltage-reference buffer
@@ -117,28 +117,28 @@ struct Vmbandgap {
     using REFTOP_LOWPOWER = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // bandgap self-bias control bit
     using REFTOP_SELFBIASOFF = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct CTRL0_TOG_fields_
+  };  // struct Ctrl0TogFields
 
   struct CTRL0_TOG : ftl::mmio::Register<
       0x0000000Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL0_TOG_fields_::REFTOP_PWD,
-      CTRL0_TOG_fields_::REFTOP_LINREGREF_PWD,
-      CTRL0_TOG_fields_::REFTOP_PWDVBGUP,
-      CTRL0_TOG_fields_::REFTOP_LOWPOWER,
-      CTRL0_TOG_fields_::REFTOP_SELFBIASOFF,
+      Ctrl0TogFields::REFTOP_PWD,
+      Ctrl0TogFields::REFTOP_LINREGREF_PWD,
+      Ctrl0TogFields::REFTOP_PWDVBGUP,
+      Ctrl0TogFields::REFTOP_LOWPOWER,
+      Ctrl0TogFields::REFTOP_SELFBIASOFF,
       ftl::mmio::Reserved<27, 5>> {
-    using REFTOP_PWD = CTRL0_TOG_fields_::REFTOP_PWD;
-    using REFTOP_LINREGREF_PWD = CTRL0_TOG_fields_::REFTOP_LINREGREF_PWD;
-    using REFTOP_PWDVBGUP = CTRL0_TOG_fields_::REFTOP_PWDVBGUP;
-    using REFTOP_LOWPOWER = CTRL0_TOG_fields_::REFTOP_LOWPOWER;
-    using REFTOP_SELFBIASOFF = CTRL0_TOG_fields_::REFTOP_SELFBIASOFF;
+    using REFTOP_PWD = Ctrl0TogFields::REFTOP_PWD;
+    using REFTOP_LINREGREF_PWD = Ctrl0TogFields::REFTOP_LINREGREF_PWD;
+    using REFTOP_PWDVBGUP = Ctrl0TogFields::REFTOP_PWDVBGUP;
+    using REFTOP_LOWPOWER = Ctrl0TogFields::REFTOP_LOWPOWER;
+    using REFTOP_SELFBIASOFF = Ctrl0TogFields::REFTOP_SELFBIASOFF;
   };
 
   // Analog Status Register STAT0
-  struct STAT0_fields_ {
+  struct Stat0Fields {
     // Brief description here
     using REFTOP_VBGUP = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Brief description here
@@ -147,26 +147,26 @@ struct Vmbandgap {
     using VDD2_PORB = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Brief description here
     using VDD3_PORB = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct STAT0_fields_
+  };  // struct Stat0Fields
 
   struct STAT0 : ftl::mmio::Register<
       0x00000050u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      STAT0_fields_::REFTOP_VBGUP,
-      STAT0_fields_::VDD1_PORB,
-      STAT0_fields_::VDD2_PORB,
-      STAT0_fields_::VDD3_PORB,
+      Stat0Fields::REFTOP_VBGUP,
+      Stat0Fields::VDD1_PORB,
+      Stat0Fields::VDD2_PORB,
+      Stat0Fields::VDD3_PORB,
       ftl::mmio::Reserved<28, 4>> {
-    using REFTOP_VBGUP = STAT0_fields_::REFTOP_VBGUP;
-    using VDD1_PORB = STAT0_fields_::VDD1_PORB;
-    using VDD2_PORB = STAT0_fields_::VDD2_PORB;
-    using VDD3_PORB = STAT0_fields_::VDD3_PORB;
+    using REFTOP_VBGUP = Stat0Fields::REFTOP_VBGUP;
+    using VDD1_PORB = Stat0Fields::VDD1_PORB;
+    using VDD2_PORB = Stat0Fields::VDD2_PORB;
+    using VDD3_PORB = Stat0Fields::VDD3_PORB;
   };
 
   // Analog Status Register STAT0
-  struct STAT0_SET_fields_ {
+  struct Stat0SetFields {
     // Brief description here
     using REFTOP_VBGUP = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
     // Brief description here
@@ -175,26 +175,26 @@ struct Vmbandgap {
     using VDD2_PORB = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
     // Brief description here
     using VDD3_PORB = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
-  };  // struct STAT0_SET_fields_
+  };  // struct Stat0SetFields
 
   struct STAT0_SET : ftl::mmio::Register<
       0x00000054u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      STAT0_SET_fields_::REFTOP_VBGUP,
-      STAT0_SET_fields_::VDD1_PORB,
-      STAT0_SET_fields_::VDD2_PORB,
-      STAT0_SET_fields_::VDD3_PORB,
+      Stat0SetFields::REFTOP_VBGUP,
+      Stat0SetFields::VDD1_PORB,
+      Stat0SetFields::VDD2_PORB,
+      Stat0SetFields::VDD3_PORB,
       ftl::mmio::Reserved<28, 4>> {
-    using REFTOP_VBGUP = STAT0_SET_fields_::REFTOP_VBGUP;
-    using VDD1_PORB = STAT0_SET_fields_::VDD1_PORB;
-    using VDD2_PORB = STAT0_SET_fields_::VDD2_PORB;
-    using VDD3_PORB = STAT0_SET_fields_::VDD3_PORB;
+    using REFTOP_VBGUP = Stat0SetFields::REFTOP_VBGUP;
+    using VDD1_PORB = Stat0SetFields::VDD1_PORB;
+    using VDD2_PORB = Stat0SetFields::VDD2_PORB;
+    using VDD3_PORB = Stat0SetFields::VDD3_PORB;
   };
 
   // Analog Status Register STAT0
-  struct STAT0_CLR_fields_ {
+  struct Stat0ClrFields {
     // Brief description here
     using REFTOP_VBGUP = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
     // Brief description here
@@ -203,26 +203,26 @@ struct Vmbandgap {
     using VDD2_PORB = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
     // Brief description here
     using VDD3_PORB = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
-  };  // struct STAT0_CLR_fields_
+  };  // struct Stat0ClrFields
 
   struct STAT0_CLR : ftl::mmio::Register<
       0x00000058u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      STAT0_CLR_fields_::REFTOP_VBGUP,
-      STAT0_CLR_fields_::VDD1_PORB,
-      STAT0_CLR_fields_::VDD2_PORB,
-      STAT0_CLR_fields_::VDD3_PORB,
+      Stat0ClrFields::REFTOP_VBGUP,
+      Stat0ClrFields::VDD1_PORB,
+      Stat0ClrFields::VDD2_PORB,
+      Stat0ClrFields::VDD3_PORB,
       ftl::mmio::Reserved<28, 4>> {
-    using REFTOP_VBGUP = STAT0_CLR_fields_::REFTOP_VBGUP;
-    using VDD1_PORB = STAT0_CLR_fields_::VDD1_PORB;
-    using VDD2_PORB = STAT0_CLR_fields_::VDD2_PORB;
-    using VDD3_PORB = STAT0_CLR_fields_::VDD3_PORB;
+    using REFTOP_VBGUP = Stat0ClrFields::REFTOP_VBGUP;
+    using VDD1_PORB = Stat0ClrFields::VDD1_PORB;
+    using VDD2_PORB = Stat0ClrFields::VDD2_PORB;
+    using VDD3_PORB = Stat0ClrFields::VDD3_PORB;
   };
 
   // Analog Status Register STAT0
-  struct STAT0_TOG_fields_ {
+  struct Stat0TogFields {
     // Brief description here
     using REFTOP_VBGUP = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
     // Brief description here
@@ -231,22 +231,22 @@ struct Vmbandgap {
     using VDD2_PORB = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
     // Brief description here
     using VDD3_PORB = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
-  };  // struct STAT0_TOG_fields_
+  };  // struct Stat0TogFields
 
   struct STAT0_TOG : ftl::mmio::Register<
       0x0000005Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      STAT0_TOG_fields_::REFTOP_VBGUP,
-      STAT0_TOG_fields_::VDD1_PORB,
-      STAT0_TOG_fields_::VDD2_PORB,
-      STAT0_TOG_fields_::VDD3_PORB,
+      Stat0TogFields::REFTOP_VBGUP,
+      Stat0TogFields::VDD1_PORB,
+      Stat0TogFields::VDD2_PORB,
+      Stat0TogFields::VDD3_PORB,
       ftl::mmio::Reserved<28, 4>> {
-    using REFTOP_VBGUP = STAT0_TOG_fields_::REFTOP_VBGUP;
-    using VDD1_PORB = STAT0_TOG_fields_::VDD1_PORB;
-    using VDD2_PORB = STAT0_TOG_fields_::VDD2_PORB;
-    using VDD3_PORB = STAT0_TOG_fields_::VDD3_PORB;
+    using REFTOP_VBGUP = Stat0TogFields::REFTOP_VBGUP;
+    using VDD1_PORB = Stat0TogFields::VDD1_PORB;
+    using VDD2_PORB = Stat0TogFields::VDD2_PORB;
+    using VDD3_PORB = Stat0TogFields::VDD3_PORB;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct Snvs {
   // SNVS_HP Lock Register
-  struct HPLR_fields_ {
+  struct HplrFields {
     enum class eZMK_WSL : std::uint32_t {
       // Write access is allowed
       eWRITE_ALLOWED = 0,
@@ -173,74 +173,74 @@ struct Snvs {
     using AT4_SL = ftl::mmio::Field<1, 27, eAT4_SL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Active Tamper 5 Soft Lock When set, prevents any writes to the Active Tamper 5 registers
     using AT5_SL = ftl::mmio::Field<1, 28, eAT5_SL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPLR_fields_
+  };  // struct HplrFields
 
   struct HPLR : ftl::mmio::Register<
       0x40C90000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPLR_fields_::ZMK_WSL,
-      HPLR_fields_::ZMK_RSL,
-      HPLR_fields_::SRTC_SL,
-      HPLR_fields_::LPCALB_SL,
-      HPLR_fields_::MC_SL,
-      HPLR_fields_::GPR_SL,
-      HPLR_fields_::LPSVCR_SL,
-      HPLR_fields_::LPTGFCR_SL,
-      HPLR_fields_::LPSECR_SL,
-      HPLR_fields_::MKS_SL,
+      HplrFields::ZMK_WSL,
+      HplrFields::ZMK_RSL,
+      HplrFields::SRTC_SL,
+      HplrFields::LPCALB_SL,
+      HplrFields::MC_SL,
+      HplrFields::GPR_SL,
+      HplrFields::LPSVCR_SL,
+      HplrFields::LPTGFCR_SL,
+      HplrFields::LPSECR_SL,
+      HplrFields::MKS_SL,
       ftl::mmio::Reserved<6, 10>,
-      HPLR_fields_::HPSVCR_L,
-      HPLR_fields_::HPSICR_L,
-      HPLR_fields_::HAC_L,
+      HplrFields::HPSVCR_L,
+      HplrFields::HPSICR_L,
+      HplrFields::HAC_L,
       ftl::mmio::Reserved<5, 19>,
-      HPLR_fields_::AT1_SL,
-      HPLR_fields_::AT2_SL,
-      HPLR_fields_::AT3_SL,
-      HPLR_fields_::AT4_SL,
-      HPLR_fields_::AT5_SL,
+      HplrFields::AT1_SL,
+      HplrFields::AT2_SL,
+      HplrFields::AT3_SL,
+      HplrFields::AT4_SL,
+      HplrFields::AT5_SL,
       ftl::mmio::Reserved<3, 29>> {
-    using eZMK_WSL = HPLR_fields_::eZMK_WSL;
-    using eZMK_RSL = HPLR_fields_::eZMK_RSL;
-    using eSRTC_SL = HPLR_fields_::eSRTC_SL;
-    using eLPCALB_SL = HPLR_fields_::eLPCALB_SL;
-    using eMC_SL = HPLR_fields_::eMC_SL;
-    using eGPR_SL = HPLR_fields_::eGPR_SL;
-    using eLPSVCR_SL = HPLR_fields_::eLPSVCR_SL;
-    using eLPTGFCR_SL = HPLR_fields_::eLPTGFCR_SL;
-    using eLPSECR_SL = HPLR_fields_::eLPSECR_SL;
-    using eMKS_SL = HPLR_fields_::eMKS_SL;
-    using eHPSVCR_L = HPLR_fields_::eHPSVCR_L;
-    using eHPSICR_L = HPLR_fields_::eHPSICR_L;
-    using eHAC_L = HPLR_fields_::eHAC_L;
-    using eAT1_SL = HPLR_fields_::eAT1_SL;
-    using eAT2_SL = HPLR_fields_::eAT2_SL;
-    using eAT3_SL = HPLR_fields_::eAT3_SL;
-    using eAT4_SL = HPLR_fields_::eAT4_SL;
-    using eAT5_SL = HPLR_fields_::eAT5_SL;
-    using ZMK_WSL = HPLR_fields_::ZMK_WSL;
-    using ZMK_RSL = HPLR_fields_::ZMK_RSL;
-    using SRTC_SL = HPLR_fields_::SRTC_SL;
-    using LPCALB_SL = HPLR_fields_::LPCALB_SL;
-    using MC_SL = HPLR_fields_::MC_SL;
-    using GPR_SL = HPLR_fields_::GPR_SL;
-    using LPSVCR_SL = HPLR_fields_::LPSVCR_SL;
-    using LPTGFCR_SL = HPLR_fields_::LPTGFCR_SL;
-    using LPSECR_SL = HPLR_fields_::LPSECR_SL;
-    using MKS_SL = HPLR_fields_::MKS_SL;
-    using HPSVCR_L = HPLR_fields_::HPSVCR_L;
-    using HPSICR_L = HPLR_fields_::HPSICR_L;
-    using HAC_L = HPLR_fields_::HAC_L;
-    using AT1_SL = HPLR_fields_::AT1_SL;
-    using AT2_SL = HPLR_fields_::AT2_SL;
-    using AT3_SL = HPLR_fields_::AT3_SL;
-    using AT4_SL = HPLR_fields_::AT4_SL;
-    using AT5_SL = HPLR_fields_::AT5_SL;
+    using eZMK_WSL = HplrFields::eZMK_WSL;
+    using eZMK_RSL = HplrFields::eZMK_RSL;
+    using eSRTC_SL = HplrFields::eSRTC_SL;
+    using eLPCALB_SL = HplrFields::eLPCALB_SL;
+    using eMC_SL = HplrFields::eMC_SL;
+    using eGPR_SL = HplrFields::eGPR_SL;
+    using eLPSVCR_SL = HplrFields::eLPSVCR_SL;
+    using eLPTGFCR_SL = HplrFields::eLPTGFCR_SL;
+    using eLPSECR_SL = HplrFields::eLPSECR_SL;
+    using eMKS_SL = HplrFields::eMKS_SL;
+    using eHPSVCR_L = HplrFields::eHPSVCR_L;
+    using eHPSICR_L = HplrFields::eHPSICR_L;
+    using eHAC_L = HplrFields::eHAC_L;
+    using eAT1_SL = HplrFields::eAT1_SL;
+    using eAT2_SL = HplrFields::eAT2_SL;
+    using eAT3_SL = HplrFields::eAT3_SL;
+    using eAT4_SL = HplrFields::eAT4_SL;
+    using eAT5_SL = HplrFields::eAT5_SL;
+    using ZMK_WSL = HplrFields::ZMK_WSL;
+    using ZMK_RSL = HplrFields::ZMK_RSL;
+    using SRTC_SL = HplrFields::SRTC_SL;
+    using LPCALB_SL = HplrFields::LPCALB_SL;
+    using MC_SL = HplrFields::MC_SL;
+    using GPR_SL = HplrFields::GPR_SL;
+    using LPSVCR_SL = HplrFields::LPSVCR_SL;
+    using LPTGFCR_SL = HplrFields::LPTGFCR_SL;
+    using LPSECR_SL = HplrFields::LPSECR_SL;
+    using MKS_SL = HplrFields::MKS_SL;
+    using HPSVCR_L = HplrFields::HPSVCR_L;
+    using HPSICR_L = HplrFields::HPSICR_L;
+    using HAC_L = HplrFields::HAC_L;
+    using AT1_SL = HplrFields::AT1_SL;
+    using AT2_SL = HplrFields::AT2_SL;
+    using AT3_SL = HplrFields::AT3_SL;
+    using AT4_SL = HplrFields::AT4_SL;
+    using AT5_SL = HplrFields::AT5_SL;
   };
 
   // SNVS_HP Command Register
-  struct HPCOMR_fields_ {
+  struct HpcomrFields {
     enum class eSSM_ST_DIS : std::uint32_t {
       // Secure to Trusted State transition is enabled
       eENABLED = 0,
@@ -334,61 +334,61 @@ struct Snvs {
     using HAC_STOP = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Non-Privileged Software Access Enable When set, allows non-privileged software to access all SNVS registers, including those that are privileged software read/write access only
     using NPSWA_EN = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPCOMR_fields_
+  };  // struct HpcomrFields
 
   struct HPCOMR : ftl::mmio::Register<
       0x40C90004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPCOMR_fields_::SSM_ST,
-      HPCOMR_fields_::SSM_ST_DIS,
-      HPCOMR_fields_::SSM_SFNS_DIS,
+      HpcomrFields::SSM_ST,
+      HpcomrFields::SSM_ST_DIS,
+      HpcomrFields::SSM_SFNS_DIS,
       ftl::mmio::Reserved<1, 3>,
-      HPCOMR_fields_::LP_SWR,
-      HPCOMR_fields_::LP_SWR_DIS,
+      HpcomrFields::LP_SWR,
+      HpcomrFields::LP_SWR_DIS,
       ftl::mmio::Reserved<2, 6>,
-      HPCOMR_fields_::SW_SV,
-      HPCOMR_fields_::SW_FSV,
-      HPCOMR_fields_::SW_LPSV,
+      HpcomrFields::SW_SV,
+      HpcomrFields::SW_FSV,
+      HpcomrFields::SW_LPSV,
       ftl::mmio::Reserved<1, 11>,
-      HPCOMR_fields_::PROG_ZMK,
-      HPCOMR_fields_::MKS_EN,
+      HpcomrFields::PROG_ZMK,
+      HpcomrFields::MKS_EN,
       ftl::mmio::Reserved<2, 14>,
-      HPCOMR_fields_::HAC_EN,
-      HPCOMR_fields_::HAC_LOAD,
-      HPCOMR_fields_::HAC_CLEAR,
-      HPCOMR_fields_::HAC_STOP,
+      HpcomrFields::HAC_EN,
+      HpcomrFields::HAC_LOAD,
+      HpcomrFields::HAC_CLEAR,
+      HpcomrFields::HAC_STOP,
       ftl::mmio::Reserved<11, 20>,
-      HPCOMR_fields_::NPSWA_EN> {
-    using eSSM_ST_DIS = HPCOMR_fields_::eSSM_ST_DIS;
-    using eSSM_SFNS_DIS = HPCOMR_fields_::eSSM_SFNS_DIS;
-    using eLP_SWR = HPCOMR_fields_::eLP_SWR;
-    using eLP_SWR_DIS = HPCOMR_fields_::eLP_SWR_DIS;
-    using ePROG_ZMK = HPCOMR_fields_::ePROG_ZMK;
-    using eMKS_EN = HPCOMR_fields_::eMKS_EN;
-    using eHAC_EN = HPCOMR_fields_::eHAC_EN;
-    using eHAC_LOAD = HPCOMR_fields_::eHAC_LOAD;
-    using eHAC_CLEAR = HPCOMR_fields_::eHAC_CLEAR;
-    using SSM_ST = HPCOMR_fields_::SSM_ST;
-    using SSM_ST_DIS = HPCOMR_fields_::SSM_ST_DIS;
-    using SSM_SFNS_DIS = HPCOMR_fields_::SSM_SFNS_DIS;
-    using LP_SWR = HPCOMR_fields_::LP_SWR;
-    using LP_SWR_DIS = HPCOMR_fields_::LP_SWR_DIS;
-    using SW_SV = HPCOMR_fields_::SW_SV;
-    using SW_FSV = HPCOMR_fields_::SW_FSV;
-    using SW_LPSV = HPCOMR_fields_::SW_LPSV;
-    using PROG_ZMK = HPCOMR_fields_::PROG_ZMK;
-    using MKS_EN = HPCOMR_fields_::MKS_EN;
-    using HAC_EN = HPCOMR_fields_::HAC_EN;
-    using HAC_LOAD = HPCOMR_fields_::HAC_LOAD;
-    using HAC_CLEAR = HPCOMR_fields_::HAC_CLEAR;
-    using HAC_STOP = HPCOMR_fields_::HAC_STOP;
-    using NPSWA_EN = HPCOMR_fields_::NPSWA_EN;
+      HpcomrFields::NPSWA_EN> {
+    using eSSM_ST_DIS = HpcomrFields::eSSM_ST_DIS;
+    using eSSM_SFNS_DIS = HpcomrFields::eSSM_SFNS_DIS;
+    using eLP_SWR = HpcomrFields::eLP_SWR;
+    using eLP_SWR_DIS = HpcomrFields::eLP_SWR_DIS;
+    using ePROG_ZMK = HpcomrFields::ePROG_ZMK;
+    using eMKS_EN = HpcomrFields::eMKS_EN;
+    using eHAC_EN = HpcomrFields::eHAC_EN;
+    using eHAC_LOAD = HpcomrFields::eHAC_LOAD;
+    using eHAC_CLEAR = HpcomrFields::eHAC_CLEAR;
+    using SSM_ST = HpcomrFields::SSM_ST;
+    using SSM_ST_DIS = HpcomrFields::SSM_ST_DIS;
+    using SSM_SFNS_DIS = HpcomrFields::SSM_SFNS_DIS;
+    using LP_SWR = HpcomrFields::LP_SWR;
+    using LP_SWR_DIS = HpcomrFields::LP_SWR_DIS;
+    using SW_SV = HpcomrFields::SW_SV;
+    using SW_FSV = HpcomrFields::SW_FSV;
+    using SW_LPSV = HpcomrFields::SW_LPSV;
+    using PROG_ZMK = HpcomrFields::PROG_ZMK;
+    using MKS_EN = HpcomrFields::MKS_EN;
+    using HAC_EN = HpcomrFields::HAC_EN;
+    using HAC_LOAD = HpcomrFields::HAC_LOAD;
+    using HAC_CLEAR = HpcomrFields::HAC_CLEAR;
+    using HAC_STOP = HpcomrFields::HAC_STOP;
+    using NPSWA_EN = HpcomrFields::NPSWA_EN;
   };
 
   // SNVS_HP Control Register
-  struct HPCR_fields_ {
+  struct HpcrFields {
     enum class eRTC_EN : std::uint32_t {
       // RTC is disabled
       eDISABLED = 0,
@@ -505,49 +505,49 @@ struct Snvs {
     using BTN_CONFIG = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Button interrupt mask
     using BTN_MASK = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPCR_fields_
+  };  // struct HpcrFields
 
   struct HPCR : ftl::mmio::Register<
       0x40C90008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPCR_fields_::RTC_EN,
-      HPCR_fields_::HPTA_EN,
-      HPCR_fields_::DIS_PI,
-      HPCR_fields_::PI_EN,
-      HPCR_fields_::PI_FREQ,
-      HPCR_fields_::HPCALB_EN,
+      HpcrFields::RTC_EN,
+      HpcrFields::HPTA_EN,
+      HpcrFields::DIS_PI,
+      HpcrFields::PI_EN,
+      HpcrFields::PI_FREQ,
+      HpcrFields::HPCALB_EN,
       ftl::mmio::Reserved<1, 9>,
-      HPCR_fields_::HPCALB_VAL,
+      HpcrFields::HPCALB_VAL,
       ftl::mmio::Reserved<1, 15>,
-      HPCR_fields_::HP_TS,
+      HpcrFields::HP_TS,
       ftl::mmio::Reserved<7, 17>,
-      HPCR_fields_::BTN_CONFIG,
-      HPCR_fields_::BTN_MASK,
+      HpcrFields::BTN_CONFIG,
+      HpcrFields::BTN_MASK,
       ftl::mmio::Reserved<4, 28>> {
-    using eRTC_EN = HPCR_fields_::eRTC_EN;
-    using eHPTA_EN = HPCR_fields_::eHPTA_EN;
-    using eDIS_PI = HPCR_fields_::eDIS_PI;
-    using ePI_EN = HPCR_fields_::ePI_EN;
-    using ePI_FREQ = HPCR_fields_::ePI_FREQ;
-    using eHPCALB_EN = HPCR_fields_::eHPCALB_EN;
-    using eHPCALB_VAL = HPCR_fields_::eHPCALB_VAL;
-    using eHP_TS = HPCR_fields_::eHP_TS;
-    using RTC_EN = HPCR_fields_::RTC_EN;
-    using HPTA_EN = HPCR_fields_::HPTA_EN;
-    using DIS_PI = HPCR_fields_::DIS_PI;
-    using PI_EN = HPCR_fields_::PI_EN;
-    using PI_FREQ = HPCR_fields_::PI_FREQ;
-    using HPCALB_EN = HPCR_fields_::HPCALB_EN;
-    using HPCALB_VAL = HPCR_fields_::HPCALB_VAL;
-    using HP_TS = HPCR_fields_::HP_TS;
-    using BTN_CONFIG = HPCR_fields_::BTN_CONFIG;
-    using BTN_MASK = HPCR_fields_::BTN_MASK;
+    using eRTC_EN = HpcrFields::eRTC_EN;
+    using eHPTA_EN = HpcrFields::eHPTA_EN;
+    using eDIS_PI = HpcrFields::eDIS_PI;
+    using ePI_EN = HpcrFields::ePI_EN;
+    using ePI_FREQ = HpcrFields::ePI_FREQ;
+    using eHPCALB_EN = HpcrFields::eHPCALB_EN;
+    using eHPCALB_VAL = HpcrFields::eHPCALB_VAL;
+    using eHP_TS = HpcrFields::eHP_TS;
+    using RTC_EN = HpcrFields::RTC_EN;
+    using HPTA_EN = HpcrFields::HPTA_EN;
+    using DIS_PI = HpcrFields::DIS_PI;
+    using PI_EN = HpcrFields::PI_EN;
+    using PI_FREQ = HpcrFields::PI_FREQ;
+    using HPCALB_EN = HpcrFields::HPCALB_EN;
+    using HPCALB_VAL = HpcrFields::HPCALB_VAL;
+    using HP_TS = HpcrFields::HP_TS;
+    using BTN_CONFIG = HpcrFields::BTN_CONFIG;
+    using BTN_MASK = HpcrFields::BTN_MASK;
   };
 
   // SNVS_HP Security Interrupt Control Register
-  struct HPSICR_fields_ {
+  struct HpsicrFields {
     enum class eCAAM_EN : std::uint32_t {
       // CAAM Security Violation Interrupt is Disabled
       eDISABLED = 0,
@@ -602,37 +602,37 @@ struct Snvs {
     using OCOTP_EN = ftl::mmio::Field<1, 5, eOCOTP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // LP Security Violation Interrupt Enable This bit enables generating of the security interrupt to the host processor upon security violation signal from the LP section
     using LPSVI_EN = ftl::mmio::Field<1, 31, eLPSVI_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPSICR_fields_
+  };  // struct HpsicrFields
 
   struct HPSICR : ftl::mmio::Register<
       0x40C9000Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPSICR_fields_::CAAM_EN,
-      HPSICR_fields_::JTAGC_EN,
-      HPSICR_fields_::WDOG2_EN,
+      HpsicrFields::CAAM_EN,
+      HpsicrFields::JTAGC_EN,
+      HpsicrFields::WDOG2_EN,
       ftl::mmio::Reserved<1, 3>,
-      HPSICR_fields_::SRC_EN,
-      HPSICR_fields_::OCOTP_EN,
+      HpsicrFields::SRC_EN,
+      HpsicrFields::OCOTP_EN,
       ftl::mmio::Reserved<25, 6>,
-      HPSICR_fields_::LPSVI_EN> {
-    using eCAAM_EN = HPSICR_fields_::eCAAM_EN;
-    using eJTAGC_EN = HPSICR_fields_::eJTAGC_EN;
-    using eWDOG2_EN = HPSICR_fields_::eWDOG2_EN;
-    using eSRC_EN = HPSICR_fields_::eSRC_EN;
-    using eOCOTP_EN = HPSICR_fields_::eOCOTP_EN;
-    using eLPSVI_EN = HPSICR_fields_::eLPSVI_EN;
-    using CAAM_EN = HPSICR_fields_::CAAM_EN;
-    using JTAGC_EN = HPSICR_fields_::JTAGC_EN;
-    using WDOG2_EN = HPSICR_fields_::WDOG2_EN;
-    using SRC_EN = HPSICR_fields_::SRC_EN;
-    using OCOTP_EN = HPSICR_fields_::OCOTP_EN;
-    using LPSVI_EN = HPSICR_fields_::LPSVI_EN;
+      HpsicrFields::LPSVI_EN> {
+    using eCAAM_EN = HpsicrFields::eCAAM_EN;
+    using eJTAGC_EN = HpsicrFields::eJTAGC_EN;
+    using eWDOG2_EN = HpsicrFields::eWDOG2_EN;
+    using eSRC_EN = HpsicrFields::eSRC_EN;
+    using eOCOTP_EN = HpsicrFields::eOCOTP_EN;
+    using eLPSVI_EN = HpsicrFields::eLPSVI_EN;
+    using CAAM_EN = HpsicrFields::CAAM_EN;
+    using JTAGC_EN = HpsicrFields::JTAGC_EN;
+    using WDOG2_EN = HpsicrFields::WDOG2_EN;
+    using SRC_EN = HpsicrFields::SRC_EN;
+    using OCOTP_EN = HpsicrFields::OCOTP_EN;
+    using LPSVI_EN = HpsicrFields::LPSVI_EN;
   };
 
   // SNVS_HP Security Violation Control Register
-  struct HPSVCR_fields_ {
+  struct HpsvcrFields {
     enum class eCAAM_CFG : std::uint32_t {
       // CAAM Security Violation is a non-fatal violation
       eNON_FATAL = 0,
@@ -691,37 +691,37 @@ struct Snvs {
     using OCOTP_CFG = ftl::mmio::Field<2, 5, eOCOTP_CFG, ftl::mmio::RW, ftl::mmio::Normal>;
     // LP Security Violation Configuration This field configures the LP security violation source.
     using LPSV_CFG = ftl::mmio::Field<2, 30, eLPSV_CFG, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPSVCR_fields_
+  };  // struct HpsvcrFields
 
   struct HPSVCR : ftl::mmio::Register<
       0x40C90010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPSVCR_fields_::CAAM_CFG,
-      HPSVCR_fields_::JTAGC_CFG,
-      HPSVCR_fields_::WDOG2_CFG,
+      HpsvcrFields::CAAM_CFG,
+      HpsvcrFields::JTAGC_CFG,
+      HpsvcrFields::WDOG2_CFG,
       ftl::mmio::Reserved<1, 3>,
-      HPSVCR_fields_::SRC_CFG,
-      HPSVCR_fields_::OCOTP_CFG,
+      HpsvcrFields::SRC_CFG,
+      HpsvcrFields::OCOTP_CFG,
       ftl::mmio::Reserved<23, 7>,
-      HPSVCR_fields_::LPSV_CFG> {
-    using eCAAM_CFG = HPSVCR_fields_::eCAAM_CFG;
-    using eJTAGC_CFG = HPSVCR_fields_::eJTAGC_CFG;
-    using eWDOG2_CFG = HPSVCR_fields_::eWDOG2_CFG;
-    using eSRC_CFG = HPSVCR_fields_::eSRC_CFG;
-    using eOCOTP_CFG = HPSVCR_fields_::eOCOTP_CFG;
-    using eLPSV_CFG = HPSVCR_fields_::eLPSV_CFG;
-    using CAAM_CFG = HPSVCR_fields_::CAAM_CFG;
-    using JTAGC_CFG = HPSVCR_fields_::JTAGC_CFG;
-    using WDOG2_CFG = HPSVCR_fields_::WDOG2_CFG;
-    using SRC_CFG = HPSVCR_fields_::SRC_CFG;
-    using OCOTP_CFG = HPSVCR_fields_::OCOTP_CFG;
-    using LPSV_CFG = HPSVCR_fields_::LPSV_CFG;
+      HpsvcrFields::LPSV_CFG> {
+    using eCAAM_CFG = HpsvcrFields::eCAAM_CFG;
+    using eJTAGC_CFG = HpsvcrFields::eJTAGC_CFG;
+    using eWDOG2_CFG = HpsvcrFields::eWDOG2_CFG;
+    using eSRC_CFG = HpsvcrFields::eSRC_CFG;
+    using eOCOTP_CFG = HpsvcrFields::eOCOTP_CFG;
+    using eLPSV_CFG = HpsvcrFields::eLPSV_CFG;
+    using CAAM_CFG = HpsvcrFields::CAAM_CFG;
+    using JTAGC_CFG = HpsvcrFields::JTAGC_CFG;
+    using WDOG2_CFG = HpsvcrFields::WDOG2_CFG;
+    using SRC_CFG = HpsvcrFields::SRC_CFG;
+    using OCOTP_CFG = HpsvcrFields::OCOTP_CFG;
+    using LPSV_CFG = HpsvcrFields::LPSV_CFG;
   };
 
   // SNVS_HP Status Register
-  struct HPSR_fields_ {
+  struct HpsrFields {
     enum class eHPTA : std::uint32_t {
       // No time alarm interrupt occurred.
       eNOREPORT = 0,
@@ -800,47 +800,47 @@ struct Snvs {
     using OTPMK_ZERO = ftl::mmio::Field<1, 27, eOTPMK_ZERO, ftl::mmio::RO, ftl::mmio::Normal>;
     // Zeroizable Master Key is Equal to Zero
     using ZMK_ZERO = ftl::mmio::Field<1, 31, eZMK_ZERO, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HPSR_fields_
+  };  // struct HpsrFields
 
   struct HPSR : ftl::mmio::Register<
       0x40C90014u,
       std::uint32_t,
       0x8000B000u,
       ftl::mmio::RW,
-      HPSR_fields_::HPTA,
-      HPSR_fields_::PI,
+      HpsrFields::HPTA,
+      HpsrFields::PI,
       ftl::mmio::Reserved<2, 2>,
-      HPSR_fields_::LPDIS,
+      HpsrFields::LPDIS,
       ftl::mmio::Reserved<1, 5>,
-      HPSR_fields_::BTN,
-      HPSR_fields_::BI,
-      HPSR_fields_::SSM_STATE,
-      HPSR_fields_::SYS_SECURITY_CFG,
-      HPSR_fields_::SYS_SECURE_BOOT,
+      HpsrFields::BTN,
+      HpsrFields::BI,
+      HpsrFields::SSM_STATE,
+      HpsrFields::SYS_SECURITY_CFG,
+      HpsrFields::SYS_SECURE_BOOT,
       ftl::mmio::Reserved<11, 16>,
-      HPSR_fields_::OTPMK_ZERO,
+      HpsrFields::OTPMK_ZERO,
       ftl::mmio::Reserved<3, 28>,
-      HPSR_fields_::ZMK_ZERO> {
-    using eHPTA = HPSR_fields_::eHPTA;
-    using ePI = HPSR_fields_::ePI;
-    using eSSM_STATE = HPSR_fields_::eSSM_STATE;
-    using eSYS_SECURITY_CFG = HPSR_fields_::eSYS_SECURITY_CFG;
-    using eOTPMK_ZERO = HPSR_fields_::eOTPMK_ZERO;
-    using eZMK_ZERO = HPSR_fields_::eZMK_ZERO;
-    using HPTA = HPSR_fields_::HPTA;
-    using PI = HPSR_fields_::PI;
-    using LPDIS = HPSR_fields_::LPDIS;
-    using BTN = HPSR_fields_::BTN;
-    using BI = HPSR_fields_::BI;
-    using SSM_STATE = HPSR_fields_::SSM_STATE;
-    using SYS_SECURITY_CFG = HPSR_fields_::SYS_SECURITY_CFG;
-    using SYS_SECURE_BOOT = HPSR_fields_::SYS_SECURE_BOOT;
-    using OTPMK_ZERO = HPSR_fields_::OTPMK_ZERO;
-    using ZMK_ZERO = HPSR_fields_::ZMK_ZERO;
+      HpsrFields::ZMK_ZERO> {
+    using eHPTA = HpsrFields::eHPTA;
+    using ePI = HpsrFields::ePI;
+    using eSSM_STATE = HpsrFields::eSSM_STATE;
+    using eSYS_SECURITY_CFG = HpsrFields::eSYS_SECURITY_CFG;
+    using eOTPMK_ZERO = HpsrFields::eOTPMK_ZERO;
+    using eZMK_ZERO = HpsrFields::eZMK_ZERO;
+    using HPTA = HpsrFields::HPTA;
+    using PI = HpsrFields::PI;
+    using LPDIS = HpsrFields::LPDIS;
+    using BTN = HpsrFields::BTN;
+    using BI = HpsrFields::BI;
+    using SSM_STATE = HpsrFields::SSM_STATE;
+    using SYS_SECURITY_CFG = HpsrFields::SYS_SECURITY_CFG;
+    using SYS_SECURE_BOOT = HpsrFields::SYS_SECURE_BOOT;
+    using OTPMK_ZERO = HpsrFields::OTPMK_ZERO;
+    using ZMK_ZERO = HpsrFields::ZMK_ZERO;
   };
 
   // SNVS_HP Security Violation Status Register
-  struct HPSVSR_fields_ {
+  struct HpsvsrFields {
     enum class eCAAM : std::uint32_t {
       // No CAAM Security Violation security violation was detected.
       eNOREPORT = 0,
@@ -905,141 +905,141 @@ struct Snvs {
     using ZMK_ECC_FAIL = ftl::mmio::Field<1, 27, eZMK_ECC_FAIL, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // LP Security Violation A security volation was detected in the SNVS low power section
     using LP_SEC_VIO = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HPSVSR_fields_
+  };  // struct HpsvsrFields
 
   struct HPSVSR : ftl::mmio::Register<
       0x40C90018u,
       std::uint32_t,
       0x80000000u,
       ftl::mmio::RW,
-      HPSVSR_fields_::CAAM,
-      HPSVSR_fields_::JTAGC,
-      HPSVSR_fields_::WDOG2,
+      HpsvsrFields::CAAM,
+      HpsvsrFields::JTAGC,
+      HpsvsrFields::WDOG2,
       ftl::mmio::Reserved<1, 3>,
-      HPSVSR_fields_::SRC,
-      HPSVSR_fields_::OCOTP,
+      HpsvsrFields::SRC,
+      HpsvsrFields::OCOTP,
       ftl::mmio::Reserved<7, 6>,
-      HPSVSR_fields_::SW_SV,
-      HPSVSR_fields_::SW_FSV,
-      HPSVSR_fields_::SW_LPSV,
-      HPSVSR_fields_::ZMK_SYNDROME,
+      HpsvsrFields::SW_SV,
+      HpsvsrFields::SW_FSV,
+      HpsvsrFields::SW_LPSV,
+      HpsvsrFields::ZMK_SYNDROME,
       ftl::mmio::Reserved<2, 25>,
-      HPSVSR_fields_::ZMK_ECC_FAIL,
+      HpsvsrFields::ZMK_ECC_FAIL,
       ftl::mmio::Reserved<3, 28>,
-      HPSVSR_fields_::LP_SEC_VIO> {
-    using eCAAM = HPSVSR_fields_::eCAAM;
-    using eJTAGC = HPSVSR_fields_::eJTAGC;
-    using eWDOG2 = HPSVSR_fields_::eWDOG2;
-    using eSRC = HPSVSR_fields_::eSRC;
-    using eOCOTP = HPSVSR_fields_::eOCOTP;
-    using eZMK_ECC_FAIL = HPSVSR_fields_::eZMK_ECC_FAIL;
-    using CAAM = HPSVSR_fields_::CAAM;
-    using JTAGC = HPSVSR_fields_::JTAGC;
-    using WDOG2 = HPSVSR_fields_::WDOG2;
-    using SRC = HPSVSR_fields_::SRC;
-    using OCOTP = HPSVSR_fields_::OCOTP;
-    using SW_SV = HPSVSR_fields_::SW_SV;
-    using SW_FSV = HPSVSR_fields_::SW_FSV;
-    using SW_LPSV = HPSVSR_fields_::SW_LPSV;
-    using ZMK_SYNDROME = HPSVSR_fields_::ZMK_SYNDROME;
-    using ZMK_ECC_FAIL = HPSVSR_fields_::ZMK_ECC_FAIL;
-    using LP_SEC_VIO = HPSVSR_fields_::LP_SEC_VIO;
+      HpsvsrFields::LP_SEC_VIO> {
+    using eCAAM = HpsvsrFields::eCAAM;
+    using eJTAGC = HpsvsrFields::eJTAGC;
+    using eWDOG2 = HpsvsrFields::eWDOG2;
+    using eSRC = HpsvsrFields::eSRC;
+    using eOCOTP = HpsvsrFields::eOCOTP;
+    using eZMK_ECC_FAIL = HpsvsrFields::eZMK_ECC_FAIL;
+    using CAAM = HpsvsrFields::CAAM;
+    using JTAGC = HpsvsrFields::JTAGC;
+    using WDOG2 = HpsvsrFields::WDOG2;
+    using SRC = HpsvsrFields::SRC;
+    using OCOTP = HpsvsrFields::OCOTP;
+    using SW_SV = HpsvsrFields::SW_SV;
+    using SW_FSV = HpsvsrFields::SW_FSV;
+    using SW_LPSV = HpsvsrFields::SW_LPSV;
+    using ZMK_SYNDROME = HpsvsrFields::ZMK_SYNDROME;
+    using ZMK_ECC_FAIL = HpsvsrFields::ZMK_ECC_FAIL;
+    using LP_SEC_VIO = HpsvsrFields::LP_SEC_VIO;
   };
 
   // SNVS_HP High Assurance Counter IV Register
-  struct HPHACIVR_fields_ {
+  struct HphacivrFields {
     // High Assurance Counter Initial Value This register is used to set the starting count value to the high assurance counter
     using HAC_COUNTER_IV = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPHACIVR_fields_
+  };  // struct HphacivrFields
 
   struct HPHACIVR : ftl::mmio::Register<
       0x40C9001Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPHACIVR_fields_::HAC_COUNTER_IV> {
-    using HAC_COUNTER_IV = HPHACIVR_fields_::HAC_COUNTER_IV;
+      HphacivrFields::HAC_COUNTER_IV> {
+    using HAC_COUNTER_IV = HphacivrFields::HAC_COUNTER_IV;
   };
 
   // SNVS_HP High Assurance Counter Register
-  struct HPHACR_fields_ {
+  struct HphacrFields {
     // High Assurance Counter When the HAC_EN bit is set and the SSM is in the soft fail state, this counter starts to count down with the system clock
     using HAC_COUNTER = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HPHACR_fields_
+  };  // struct HphacrFields
 
   struct HPHACR : ftl::mmio::Register<
       0x40C90020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      HPHACR_fields_::HAC_COUNTER> {
-    using HAC_COUNTER = HPHACR_fields_::HAC_COUNTER;
+      HphacrFields::HAC_COUNTER> {
+    using HAC_COUNTER = HphacrFields::HAC_COUNTER;
   };
 
   // SNVS_HP Real Time Counter MSB Register
-  struct HPRTCMR_fields_ {
+  struct HprtcmrFields {
     // HP Real Time Counter The most-significant 15 bits of the RTC
     using RTC = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPRTCMR_fields_
+  };  // struct HprtcmrFields
 
   struct HPRTCMR : ftl::mmio::Register<
       0x40C90024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPRTCMR_fields_::RTC,
+      HprtcmrFields::RTC,
       ftl::mmio::Reserved<17, 15>> {
-    using RTC = HPRTCMR_fields_::RTC;
+    using RTC = HprtcmrFields::RTC;
   };
 
   // SNVS_HP Real Time Counter LSB Register
-  struct HPRTCLR_fields_ {
+  struct HprtclrFields {
     // HP Real Time Counter least-significant 32 bits
     using RTC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPRTCLR_fields_
+  };  // struct HprtclrFields
 
   struct HPRTCLR : ftl::mmio::Register<
       0x40C90028u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPRTCLR_fields_::RTC> {
-    using RTC = HPRTCLR_fields_::RTC;
+      HprtclrFields::RTC> {
+    using RTC = HprtclrFields::RTC;
   };
 
   // SNVS_HP Time Alarm MSB Register
-  struct HPTAMR_fields_ {
+  struct HptamrFields {
     // HP Time Alarm, most-significant 15 bits
     using HPTA_MS = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPTAMR_fields_
+  };  // struct HptamrFields
 
   struct HPTAMR : ftl::mmio::Register<
       0x40C9002Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPTAMR_fields_::HPTA_MS,
+      HptamrFields::HPTA_MS,
       ftl::mmio::Reserved<17, 15>> {
-    using HPTA_MS = HPTAMR_fields_::HPTA_MS;
+    using HPTA_MS = HptamrFields::HPTA_MS;
   };
 
   // SNVS_HP Time Alarm LSB Register
-  struct HPTALR_fields_ {
+  struct HptalrFields {
     // HP Time Alarm, 32 least-significant bits
     using HPTA_LS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HPTALR_fields_
+  };  // struct HptalrFields
 
   struct HPTALR : ftl::mmio::Register<
       0x40C90030u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      HPTALR_fields_::HPTA_LS> {
-    using HPTA_LS = HPTALR_fields_::HPTA_LS;
+      HptalrFields::HPTA_LS> {
+    using HPTA_LS = HptalrFields::HPTA_LS;
   };
 
   // SNVS_LP Lock Register
-  struct LPLR_fields_ {
+  struct LplrFields {
     enum class eZMK_WHL : std::uint32_t {
       // Write access is allowed.
       eWRITE_ACCESS_ALLOWED = 0,
@@ -1175,64 +1175,64 @@ struct Snvs {
     using AT4_HL = ftl::mmio::Field<1, 27, eAT4_HL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Active Tamper 5 Hard Lock When set, prevents any writes to the Active Tamper 5 registers
     using AT5_HL = ftl::mmio::Field<1, 28, eAT5_HL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPLR_fields_
+  };  // struct LplrFields
 
   struct LPLR : ftl::mmio::Register<
       0x40C90034u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPLR_fields_::ZMK_WHL,
-      LPLR_fields_::ZMK_RHL,
-      LPLR_fields_::SRTC_HL,
-      LPLR_fields_::LPCALB_HL,
-      LPLR_fields_::MC_HL,
-      LPLR_fields_::GPR_HL,
-      LPLR_fields_::LPSVCR_HL,
-      LPLR_fields_::LPTGFCR_HL,
-      LPLR_fields_::LPSECR_HL,
-      LPLR_fields_::MKS_HL,
+      LplrFields::ZMK_WHL,
+      LplrFields::ZMK_RHL,
+      LplrFields::SRTC_HL,
+      LplrFields::LPCALB_HL,
+      LplrFields::MC_HL,
+      LplrFields::GPR_HL,
+      LplrFields::LPSVCR_HL,
+      LplrFields::LPTGFCR_HL,
+      LplrFields::LPSECR_HL,
+      LplrFields::MKS_HL,
       ftl::mmio::Reserved<14, 10>,
-      LPLR_fields_::AT1_HL,
-      LPLR_fields_::AT2_HL,
-      LPLR_fields_::AT3_HL,
-      LPLR_fields_::AT4_HL,
-      LPLR_fields_::AT5_HL,
+      LplrFields::AT1_HL,
+      LplrFields::AT2_HL,
+      LplrFields::AT3_HL,
+      LplrFields::AT4_HL,
+      LplrFields::AT5_HL,
       ftl::mmio::Reserved<3, 29>> {
-    using eZMK_WHL = LPLR_fields_::eZMK_WHL;
-    using eZMK_RHL = LPLR_fields_::eZMK_RHL;
-    using eSRTC_HL = LPLR_fields_::eSRTC_HL;
-    using eLPCALB_HL = LPLR_fields_::eLPCALB_HL;
-    using eMC_HL = LPLR_fields_::eMC_HL;
-    using eGPR_HL = LPLR_fields_::eGPR_HL;
-    using eLPSVCR_HL = LPLR_fields_::eLPSVCR_HL;
-    using eLPTGFCR_HL = LPLR_fields_::eLPTGFCR_HL;
-    using eLPSECR_HL = LPLR_fields_::eLPSECR_HL;
-    using eMKS_HL = LPLR_fields_::eMKS_HL;
-    using eAT1_HL = LPLR_fields_::eAT1_HL;
-    using eAT2_HL = LPLR_fields_::eAT2_HL;
-    using eAT3_HL = LPLR_fields_::eAT3_HL;
-    using eAT4_HL = LPLR_fields_::eAT4_HL;
-    using eAT5_HL = LPLR_fields_::eAT5_HL;
-    using ZMK_WHL = LPLR_fields_::ZMK_WHL;
-    using ZMK_RHL = LPLR_fields_::ZMK_RHL;
-    using SRTC_HL = LPLR_fields_::SRTC_HL;
-    using LPCALB_HL = LPLR_fields_::LPCALB_HL;
-    using MC_HL = LPLR_fields_::MC_HL;
-    using GPR_HL = LPLR_fields_::GPR_HL;
-    using LPSVCR_HL = LPLR_fields_::LPSVCR_HL;
-    using LPTGFCR_HL = LPLR_fields_::LPTGFCR_HL;
-    using LPSECR_HL = LPLR_fields_::LPSECR_HL;
-    using MKS_HL = LPLR_fields_::MKS_HL;
-    using AT1_HL = LPLR_fields_::AT1_HL;
-    using AT2_HL = LPLR_fields_::AT2_HL;
-    using AT3_HL = LPLR_fields_::AT3_HL;
-    using AT4_HL = LPLR_fields_::AT4_HL;
-    using AT5_HL = LPLR_fields_::AT5_HL;
+    using eZMK_WHL = LplrFields::eZMK_WHL;
+    using eZMK_RHL = LplrFields::eZMK_RHL;
+    using eSRTC_HL = LplrFields::eSRTC_HL;
+    using eLPCALB_HL = LplrFields::eLPCALB_HL;
+    using eMC_HL = LplrFields::eMC_HL;
+    using eGPR_HL = LplrFields::eGPR_HL;
+    using eLPSVCR_HL = LplrFields::eLPSVCR_HL;
+    using eLPTGFCR_HL = LplrFields::eLPTGFCR_HL;
+    using eLPSECR_HL = LplrFields::eLPSECR_HL;
+    using eMKS_HL = LplrFields::eMKS_HL;
+    using eAT1_HL = LplrFields::eAT1_HL;
+    using eAT2_HL = LplrFields::eAT2_HL;
+    using eAT3_HL = LplrFields::eAT3_HL;
+    using eAT4_HL = LplrFields::eAT4_HL;
+    using eAT5_HL = LplrFields::eAT5_HL;
+    using ZMK_WHL = LplrFields::ZMK_WHL;
+    using ZMK_RHL = LplrFields::ZMK_RHL;
+    using SRTC_HL = LplrFields::SRTC_HL;
+    using LPCALB_HL = LplrFields::LPCALB_HL;
+    using MC_HL = LplrFields::MC_HL;
+    using GPR_HL = LplrFields::GPR_HL;
+    using LPSVCR_HL = LplrFields::LPSVCR_HL;
+    using LPTGFCR_HL = LplrFields::LPTGFCR_HL;
+    using LPSECR_HL = LplrFields::LPSECR_HL;
+    using MKS_HL = LplrFields::MKS_HL;
+    using AT1_HL = LplrFields::AT1_HL;
+    using AT2_HL = LplrFields::AT2_HL;
+    using AT3_HL = LplrFields::AT3_HL;
+    using AT4_HL = LplrFields::AT4_HL;
+    using AT5_HL = LplrFields::AT5_HL;
   };
 
   // SNVS_LP Control Register
-  struct LPCR_fields_ {
+  struct LpcrFields {
     enum class eSRTC_ENV : std::uint32_t {
       // SRTC is disabled or invalid.
       eDISABLED = 0,
@@ -1333,60 +1333,60 @@ struct Snvs {
     using PK_OVERRIDE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // General Purpose Registers Zeroization Disable
     using GPR_Z_DIS = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPCR_fields_
+  };  // struct LpcrFields
 
   struct LPCR : ftl::mmio::Register<
       0x40C90038u,
       std::uint32_t,
       0x00000020u,
       ftl::mmio::RW,
-      LPCR_fields_::SRTC_ENV,
-      LPCR_fields_::LPTA_EN,
-      LPCR_fields_::MC_ENV,
-      LPCR_fields_::LPWUI_EN,
-      LPCR_fields_::SRTC_INV_EN,
-      LPCR_fields_::DP_EN,
-      LPCR_fields_::TOP,
-      LPCR_fields_::LVD_EN,
-      LPCR_fields_::LPCALB_EN,
+      LpcrFields::SRTC_ENV,
+      LpcrFields::LPTA_EN,
+      LpcrFields::MC_ENV,
+      LpcrFields::LPWUI_EN,
+      LpcrFields::SRTC_INV_EN,
+      LpcrFields::DP_EN,
+      LpcrFields::TOP,
+      LpcrFields::LVD_EN,
+      LpcrFields::LPCALB_EN,
       ftl::mmio::Reserved<1, 9>,
-      LPCR_fields_::LPCALB_VAL,
+      LpcrFields::LPCALB_VAL,
       ftl::mmio::Reserved<1, 15>,
-      LPCR_fields_::BTN_PRESS_TIME,
-      LPCR_fields_::DEBOUNCE,
-      LPCR_fields_::ON_TIME,
-      LPCR_fields_::PK_EN,
-      LPCR_fields_::PK_OVERRIDE,
-      LPCR_fields_::GPR_Z_DIS,
+      LpcrFields::BTN_PRESS_TIME,
+      LpcrFields::DEBOUNCE,
+      LpcrFields::ON_TIME,
+      LpcrFields::PK_EN,
+      LpcrFields::PK_OVERRIDE,
+      LpcrFields::GPR_Z_DIS,
       ftl::mmio::Reserved<7, 25>> {
-    using eSRTC_ENV = LPCR_fields_::eSRTC_ENV;
-    using eLPTA_EN = LPCR_fields_::eLPTA_EN;
-    using eMC_ENV = LPCR_fields_::eMC_ENV;
-    using eSRTC_INV_EN = LPCR_fields_::eSRTC_INV_EN;
-    using eDP_EN = LPCR_fields_::eDP_EN;
-    using eTOP = LPCR_fields_::eTOP;
-    using eLPCALB_EN = LPCR_fields_::eLPCALB_EN;
-    using eLPCALB_VAL = LPCR_fields_::eLPCALB_VAL;
-    using SRTC_ENV = LPCR_fields_::SRTC_ENV;
-    using LPTA_EN = LPCR_fields_::LPTA_EN;
-    using MC_ENV = LPCR_fields_::MC_ENV;
-    using LPWUI_EN = LPCR_fields_::LPWUI_EN;
-    using SRTC_INV_EN = LPCR_fields_::SRTC_INV_EN;
-    using DP_EN = LPCR_fields_::DP_EN;
-    using TOP = LPCR_fields_::TOP;
-    using LVD_EN = LPCR_fields_::LVD_EN;
-    using LPCALB_EN = LPCR_fields_::LPCALB_EN;
-    using LPCALB_VAL = LPCR_fields_::LPCALB_VAL;
-    using BTN_PRESS_TIME = LPCR_fields_::BTN_PRESS_TIME;
-    using DEBOUNCE = LPCR_fields_::DEBOUNCE;
-    using ON_TIME = LPCR_fields_::ON_TIME;
-    using PK_EN = LPCR_fields_::PK_EN;
-    using PK_OVERRIDE = LPCR_fields_::PK_OVERRIDE;
-    using GPR_Z_DIS = LPCR_fields_::GPR_Z_DIS;
+    using eSRTC_ENV = LpcrFields::eSRTC_ENV;
+    using eLPTA_EN = LpcrFields::eLPTA_EN;
+    using eMC_ENV = LpcrFields::eMC_ENV;
+    using eSRTC_INV_EN = LpcrFields::eSRTC_INV_EN;
+    using eDP_EN = LpcrFields::eDP_EN;
+    using eTOP = LpcrFields::eTOP;
+    using eLPCALB_EN = LpcrFields::eLPCALB_EN;
+    using eLPCALB_VAL = LpcrFields::eLPCALB_VAL;
+    using SRTC_ENV = LpcrFields::SRTC_ENV;
+    using LPTA_EN = LpcrFields::LPTA_EN;
+    using MC_ENV = LpcrFields::MC_ENV;
+    using LPWUI_EN = LpcrFields::LPWUI_EN;
+    using SRTC_INV_EN = LpcrFields::SRTC_INV_EN;
+    using DP_EN = LpcrFields::DP_EN;
+    using TOP = LpcrFields::TOP;
+    using LVD_EN = LpcrFields::LVD_EN;
+    using LPCALB_EN = LpcrFields::LPCALB_EN;
+    using LPCALB_VAL = LpcrFields::LPCALB_VAL;
+    using BTN_PRESS_TIME = LpcrFields::BTN_PRESS_TIME;
+    using DEBOUNCE = LpcrFields::DEBOUNCE;
+    using ON_TIME = LpcrFields::ON_TIME;
+    using PK_EN = LpcrFields::PK_EN;
+    using PK_OVERRIDE = LpcrFields::PK_OVERRIDE;
+    using GPR_Z_DIS = LpcrFields::GPR_Z_DIS;
   };
 
   // SNVS_LP Master Key Control Register
-  struct LPMKCR_fields_ {
+  struct LpmkcrFields {
     enum class eMASTER_KEY_SEL : std::uint32_t {
       // Select one time programmable master key.
       eSELECT_OTPMK = 0,
@@ -1427,33 +1427,33 @@ struct Snvs {
     using ZMK_ECC_EN = ftl::mmio::Field<1, 4, eZMK_ECC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Zeroizable Master Key Error Correcting Code Value This field is automatically calculated and set when one is written into ZMK_ECC_EN bit of this register
     using ZMK_ECC_VALUE = ftl::mmio::Field<9, 7, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LPMKCR_fields_
+  };  // struct LpmkcrFields
 
   struct LPMKCR : ftl::mmio::Register<
       0x40C9003Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPMKCR_fields_::MASTER_KEY_SEL,
-      LPMKCR_fields_::ZMK_HWP,
-      LPMKCR_fields_::ZMK_VAL,
-      LPMKCR_fields_::ZMK_ECC_EN,
+      LpmkcrFields::MASTER_KEY_SEL,
+      LpmkcrFields::ZMK_HWP,
+      LpmkcrFields::ZMK_VAL,
+      LpmkcrFields::ZMK_ECC_EN,
       ftl::mmio::Reserved<2, 5>,
-      LPMKCR_fields_::ZMK_ECC_VALUE,
+      LpmkcrFields::ZMK_ECC_VALUE,
       ftl::mmio::Reserved<16, 16>> {
-    using eMASTER_KEY_SEL = LPMKCR_fields_::eMASTER_KEY_SEL;
-    using eZMK_HWP = LPMKCR_fields_::eZMK_HWP;
-    using eZMK_VAL = LPMKCR_fields_::eZMK_VAL;
-    using eZMK_ECC_EN = LPMKCR_fields_::eZMK_ECC_EN;
-    using MASTER_KEY_SEL = LPMKCR_fields_::MASTER_KEY_SEL;
-    using ZMK_HWP = LPMKCR_fields_::ZMK_HWP;
-    using ZMK_VAL = LPMKCR_fields_::ZMK_VAL;
-    using ZMK_ECC_EN = LPMKCR_fields_::ZMK_ECC_EN;
-    using ZMK_ECC_VALUE = LPMKCR_fields_::ZMK_ECC_VALUE;
+    using eMASTER_KEY_SEL = LpmkcrFields::eMASTER_KEY_SEL;
+    using eZMK_HWP = LpmkcrFields::eZMK_HWP;
+    using eZMK_VAL = LpmkcrFields::eZMK_VAL;
+    using eZMK_ECC_EN = LpmkcrFields::eZMK_ECC_EN;
+    using MASTER_KEY_SEL = LpmkcrFields::MASTER_KEY_SEL;
+    using ZMK_HWP = LpmkcrFields::ZMK_HWP;
+    using ZMK_VAL = LpmkcrFields::ZMK_VAL;
+    using ZMK_ECC_EN = LpmkcrFields::ZMK_ECC_EN;
+    using ZMK_ECC_VALUE = LpmkcrFields::ZMK_ECC_VALUE;
   };
 
   // SNVS_LP Security Violation Control Register
-  struct LPSVCR_fields_ {
+  struct LpsvcrFields {
     enum class eCAAM_EN : std::uint32_t {
       // CAAM Security Violation is disabled in the LP domain.
       eDISABLED = 0,
@@ -1499,34 +1499,34 @@ struct Snvs {
     using SRC_EN = ftl::mmio::Field<1, 4, eSRC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // OCOTP attack error Enable This bit enables OCOTP attack error Input
     using OCOTP_EN = ftl::mmio::Field<1, 5, eOCOTP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPSVCR_fields_
+  };  // struct LpsvcrFields
 
   struct LPSVCR : ftl::mmio::Register<
       0x40C90040u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPSVCR_fields_::CAAM_EN,
-      LPSVCR_fields_::JTAGC_EN,
-      LPSVCR_fields_::WDOG2_EN,
+      LpsvcrFields::CAAM_EN,
+      LpsvcrFields::JTAGC_EN,
+      LpsvcrFields::WDOG2_EN,
       ftl::mmio::Reserved<1, 3>,
-      LPSVCR_fields_::SRC_EN,
-      LPSVCR_fields_::OCOTP_EN,
+      LpsvcrFields::SRC_EN,
+      LpsvcrFields::OCOTP_EN,
       ftl::mmio::Reserved<26, 6>> {
-    using eCAAM_EN = LPSVCR_fields_::eCAAM_EN;
-    using eJTAGC_EN = LPSVCR_fields_::eJTAGC_EN;
-    using eWDOG2_EN = LPSVCR_fields_::eWDOG2_EN;
-    using eSRC_EN = LPSVCR_fields_::eSRC_EN;
-    using eOCOTP_EN = LPSVCR_fields_::eOCOTP_EN;
-    using CAAM_EN = LPSVCR_fields_::CAAM_EN;
-    using JTAGC_EN = LPSVCR_fields_::JTAGC_EN;
-    using WDOG2_EN = LPSVCR_fields_::WDOG2_EN;
-    using SRC_EN = LPSVCR_fields_::SRC_EN;
-    using OCOTP_EN = LPSVCR_fields_::OCOTP_EN;
+    using eCAAM_EN = LpsvcrFields::eCAAM_EN;
+    using eJTAGC_EN = LpsvcrFields::eJTAGC_EN;
+    using eWDOG2_EN = LpsvcrFields::eWDOG2_EN;
+    using eSRC_EN = LpsvcrFields::eSRC_EN;
+    using eOCOTP_EN = LpsvcrFields::eOCOTP_EN;
+    using CAAM_EN = LpsvcrFields::CAAM_EN;
+    using JTAGC_EN = LpsvcrFields::JTAGC_EN;
+    using WDOG2_EN = LpsvcrFields::WDOG2_EN;
+    using SRC_EN = LpsvcrFields::SRC_EN;
+    using OCOTP_EN = LpsvcrFields::OCOTP_EN;
   };
 
   // SNVS_LP Tamper Glitch Filters Configuration Register
-  struct LPTGFCR_fields_ {
+  struct LptgfcrFields {
     enum class eWMTGF_EN : std::uint32_t {
       // Wire-mesh tamper glitch filter is bypassed.
       eBYPASSED = 0,
@@ -1560,34 +1560,34 @@ struct Snvs {
     using ETGF2 = ftl::mmio::Field<7, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // External Tamper Glitch Filter 2 Enable When set, enables the external tamper glitch filter 2.
     using ETGF2_EN = ftl::mmio::Field<1, 31, eETGF2_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPTGFCR_fields_
+  };  // struct LptgfcrFields
 
   struct LPTGFCR : ftl::mmio::Register<
       0x40C90044u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPTGFCR_fields_::WMTGF,
+      LptgfcrFields::WMTGF,
       ftl::mmio::Reserved<2, 5>,
-      LPTGFCR_fields_::WMTGF_EN,
+      LptgfcrFields::WMTGF_EN,
       ftl::mmio::Reserved<8, 8>,
-      LPTGFCR_fields_::ETGF1,
-      LPTGFCR_fields_::ETGF1_EN,
-      LPTGFCR_fields_::ETGF2,
-      LPTGFCR_fields_::ETGF2_EN> {
-    using eWMTGF_EN = LPTGFCR_fields_::eWMTGF_EN;
-    using eETGF1_EN = LPTGFCR_fields_::eETGF1_EN;
-    using eETGF2_EN = LPTGFCR_fields_::eETGF2_EN;
-    using WMTGF = LPTGFCR_fields_::WMTGF;
-    using WMTGF_EN = LPTGFCR_fields_::WMTGF_EN;
-    using ETGF1 = LPTGFCR_fields_::ETGF1;
-    using ETGF1_EN = LPTGFCR_fields_::ETGF1_EN;
-    using ETGF2 = LPTGFCR_fields_::ETGF2;
-    using ETGF2_EN = LPTGFCR_fields_::ETGF2_EN;
+      LptgfcrFields::ETGF1,
+      LptgfcrFields::ETGF1_EN,
+      LptgfcrFields::ETGF2,
+      LptgfcrFields::ETGF2_EN> {
+    using eWMTGF_EN = LptgfcrFields::eWMTGF_EN;
+    using eETGF1_EN = LptgfcrFields::eETGF1_EN;
+    using eETGF2_EN = LptgfcrFields::eETGF2_EN;
+    using WMTGF = LptgfcrFields::WMTGF;
+    using WMTGF_EN = LptgfcrFields::WMTGF_EN;
+    using ETGF1 = LptgfcrFields::ETGF1;
+    using ETGF1_EN = LptgfcrFields::ETGF1_EN;
+    using ETGF2 = LptgfcrFields::ETGF2;
+    using ETGF2_EN = LptgfcrFields::ETGF2_EN;
   };
 
   // SNVS_LP Tamper Detect Configuration Register
-  struct LPTDCR_fields_ {
+  struct LptdcrFields {
     enum class eSRTCR_EN : std::uint32_t {
       // SRTC rollover is disabled.
       eDISABLED = 0,
@@ -1706,7 +1706,7 @@ struct Snvs {
     using VRC = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Oscillator Bypass When OSCB=1 the osc_bypass signal is asserted
     using OSCB = ftl::mmio::Field<1, 28, eOSCB, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPTDCR_fields_
+  };  // struct LptdcrFields
 
   struct LPTDCR : ftl::mmio::Register<
       0x40C90048u,
@@ -1714,62 +1714,62 @@ struct Snvs {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      LPTDCR_fields_::SRTCR_EN,
-      LPTDCR_fields_::MCR_EN,
+      LptdcrFields::SRTCR_EN,
+      LptdcrFields::MCR_EN,
       ftl::mmio::Reserved<1, 3>,
-      LPTDCR_fields_::CT_EN,
-      LPTDCR_fields_::TT_EN,
-      LPTDCR_fields_::VT_EN,
-      LPTDCR_fields_::WMT1_EN,
-      LPTDCR_fields_::WMT2_EN,
-      LPTDCR_fields_::ET1_EN,
-      LPTDCR_fields_::ET2_EN,
-      LPTDCR_fields_::ET1P,
-      LPTDCR_fields_::ET2P,
+      LptdcrFields::CT_EN,
+      LptdcrFields::TT_EN,
+      LptdcrFields::VT_EN,
+      LptdcrFields::WMT1_EN,
+      LptdcrFields::WMT2_EN,
+      LptdcrFields::ET1_EN,
+      LptdcrFields::ET2_EN,
+      LptdcrFields::ET1P,
+      LptdcrFields::ET2P,
       ftl::mmio::Reserved<1, 13>,
-      LPTDCR_fields_::PFD_OBSERV,
-      LPTDCR_fields_::POR_OBSERV,
-      LPTDCR_fields_::LTDC,
+      LptdcrFields::PFD_OBSERV,
+      LptdcrFields::POR_OBSERV,
+      LptdcrFields::LTDC,
       ftl::mmio::Reserved<1, 19>,
-      LPTDCR_fields_::HTDC,
+      LptdcrFields::HTDC,
       ftl::mmio::Reserved<1, 23>,
-      LPTDCR_fields_::VRC,
+      LptdcrFields::VRC,
       ftl::mmio::Reserved<1, 27>,
-      LPTDCR_fields_::OSCB,
+      LptdcrFields::OSCB,
       ftl::mmio::Reserved<3, 29>> {
-    using eSRTCR_EN = LPTDCR_fields_::eSRTCR_EN;
-    using eMCR_EN = LPTDCR_fields_::eMCR_EN;
-    using eCT_EN = LPTDCR_fields_::eCT_EN;
-    using eTT_EN = LPTDCR_fields_::eTT_EN;
-    using eVT_EN = LPTDCR_fields_::eVT_EN;
-    using eWMT1_EN = LPTDCR_fields_::eWMT1_EN;
-    using eWMT2_EN = LPTDCR_fields_::eWMT2_EN;
-    using eET1_EN = LPTDCR_fields_::eET1_EN;
-    using eET2_EN = LPTDCR_fields_::eET2_EN;
-    using eET1P = LPTDCR_fields_::eET1P;
-    using eET2P = LPTDCR_fields_::eET2P;
-    using eOSCB = LPTDCR_fields_::eOSCB;
-    using SRTCR_EN = LPTDCR_fields_::SRTCR_EN;
-    using MCR_EN = LPTDCR_fields_::MCR_EN;
-    using CT_EN = LPTDCR_fields_::CT_EN;
-    using TT_EN = LPTDCR_fields_::TT_EN;
-    using VT_EN = LPTDCR_fields_::VT_EN;
-    using WMT1_EN = LPTDCR_fields_::WMT1_EN;
-    using WMT2_EN = LPTDCR_fields_::WMT2_EN;
-    using ET1_EN = LPTDCR_fields_::ET1_EN;
-    using ET2_EN = LPTDCR_fields_::ET2_EN;
-    using ET1P = LPTDCR_fields_::ET1P;
-    using ET2P = LPTDCR_fields_::ET2P;
-    using PFD_OBSERV = LPTDCR_fields_::PFD_OBSERV;
-    using POR_OBSERV = LPTDCR_fields_::POR_OBSERV;
-    using LTDC = LPTDCR_fields_::LTDC;
-    using HTDC = LPTDCR_fields_::HTDC;
-    using VRC = LPTDCR_fields_::VRC;
-    using OSCB = LPTDCR_fields_::OSCB;
+    using eSRTCR_EN = LptdcrFields::eSRTCR_EN;
+    using eMCR_EN = LptdcrFields::eMCR_EN;
+    using eCT_EN = LptdcrFields::eCT_EN;
+    using eTT_EN = LptdcrFields::eTT_EN;
+    using eVT_EN = LptdcrFields::eVT_EN;
+    using eWMT1_EN = LptdcrFields::eWMT1_EN;
+    using eWMT2_EN = LptdcrFields::eWMT2_EN;
+    using eET1_EN = LptdcrFields::eET1_EN;
+    using eET2_EN = LptdcrFields::eET2_EN;
+    using eET1P = LptdcrFields::eET1P;
+    using eET2P = LptdcrFields::eET2P;
+    using eOSCB = LptdcrFields::eOSCB;
+    using SRTCR_EN = LptdcrFields::SRTCR_EN;
+    using MCR_EN = LptdcrFields::MCR_EN;
+    using CT_EN = LptdcrFields::CT_EN;
+    using TT_EN = LptdcrFields::TT_EN;
+    using VT_EN = LptdcrFields::VT_EN;
+    using WMT1_EN = LptdcrFields::WMT1_EN;
+    using WMT2_EN = LptdcrFields::WMT2_EN;
+    using ET1_EN = LptdcrFields::ET1_EN;
+    using ET2_EN = LptdcrFields::ET2_EN;
+    using ET1P = LptdcrFields::ET1P;
+    using ET2P = LptdcrFields::ET2P;
+    using PFD_OBSERV = LptdcrFields::PFD_OBSERV;
+    using POR_OBSERV = LptdcrFields::POR_OBSERV;
+    using LTDC = LptdcrFields::LTDC;
+    using HTDC = LptdcrFields::HTDC;
+    using VRC = LptdcrFields::VRC;
+    using OSCB = LptdcrFields::OSCB;
   };
 
   // SNVS_LP Status Register
-  struct LPSR_fields_ {
+  struct LpsrFields {
     enum class eLPTA : std::uint32_t {
       // No time alarm interrupt occurred.
       eNOREPORT = 0,
@@ -1914,180 +1914,180 @@ struct Snvs {
     using LPNS = ftl::mmio::Field<1, 30, eLPNS, ftl::mmio::RO, ftl::mmio::Normal>;
     // LP Section is Secured Indicates that the LP section is provisioned/programmed in the secure or trusted state
     using LPS = ftl::mmio::Field<1, 31, eLPS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LPSR_fields_
+  };  // struct LpsrFields
 
   struct LPSR : ftl::mmio::Register<
       0x40C9004Cu,
       std::uint32_t,
       0x00000008u,
       ftl::mmio::RW,
-      LPSR_fields_::LPTA,
-      LPSR_fields_::SRTCR,
-      LPSR_fields_::MCR,
-      LPSR_fields_::LVD,
-      LPSR_fields_::CTD,
-      LPSR_fields_::TTD,
-      LPSR_fields_::VTD,
-      LPSR_fields_::WMT1D,
-      LPSR_fields_::WMT2D,
-      LPSR_fields_::ET1D,
-      LPSR_fields_::ET2D,
+      LpsrFields::LPTA,
+      LpsrFields::SRTCR,
+      LpsrFields::MCR,
+      LpsrFields::LVD,
+      LpsrFields::CTD,
+      LpsrFields::TTD,
+      LpsrFields::VTD,
+      LpsrFields::WMT1D,
+      LpsrFields::WMT2D,
+      LpsrFields::ET1D,
+      LpsrFields::ET2D,
       ftl::mmio::Reserved<5, 11>,
-      LPSR_fields_::ESVD,
-      LPSR_fields_::EO,
-      LPSR_fields_::SPOF,
+      LpsrFields::ESVD,
+      LpsrFields::EO,
+      LpsrFields::SPOF,
       ftl::mmio::Reserved<11, 19>,
-      LPSR_fields_::LPNS,
-      LPSR_fields_::LPS> {
-    using eLPTA = LPSR_fields_::eLPTA;
-    using eSRTCR = LPSR_fields_::eSRTCR;
-    using eMCR = LPSR_fields_::eMCR;
-    using eLVD = LPSR_fields_::eLVD;
-    using eCTD = LPSR_fields_::eCTD;
-    using eTTD = LPSR_fields_::eTTD;
-    using eVTD = LPSR_fields_::eVTD;
-    using eWMT1D = LPSR_fields_::eWMT1D;
-    using eWMT2D = LPSR_fields_::eWMT2D;
-    using eET1D = LPSR_fields_::eET1D;
-    using eET2D = LPSR_fields_::eET2D;
-    using eESVD = LPSR_fields_::eESVD;
-    using eEO = LPSR_fields_::eEO;
-    using eSPOF = LPSR_fields_::eSPOF;
-    using eLPNS = LPSR_fields_::eLPNS;
-    using eLPS = LPSR_fields_::eLPS;
-    using LPTA = LPSR_fields_::LPTA;
-    using SRTCR = LPSR_fields_::SRTCR;
-    using MCR = LPSR_fields_::MCR;
-    using LVD = LPSR_fields_::LVD;
-    using CTD = LPSR_fields_::CTD;
-    using TTD = LPSR_fields_::TTD;
-    using VTD = LPSR_fields_::VTD;
-    using WMT1D = LPSR_fields_::WMT1D;
-    using WMT2D = LPSR_fields_::WMT2D;
-    using ET1D = LPSR_fields_::ET1D;
-    using ET2D = LPSR_fields_::ET2D;
-    using ESVD = LPSR_fields_::ESVD;
-    using EO = LPSR_fields_::EO;
-    using SPOF = LPSR_fields_::SPOF;
-    using LPNS = LPSR_fields_::LPNS;
-    using LPS = LPSR_fields_::LPS;
+      LpsrFields::LPNS,
+      LpsrFields::LPS> {
+    using eLPTA = LpsrFields::eLPTA;
+    using eSRTCR = LpsrFields::eSRTCR;
+    using eMCR = LpsrFields::eMCR;
+    using eLVD = LpsrFields::eLVD;
+    using eCTD = LpsrFields::eCTD;
+    using eTTD = LpsrFields::eTTD;
+    using eVTD = LpsrFields::eVTD;
+    using eWMT1D = LpsrFields::eWMT1D;
+    using eWMT2D = LpsrFields::eWMT2D;
+    using eET1D = LpsrFields::eET1D;
+    using eET2D = LpsrFields::eET2D;
+    using eESVD = LpsrFields::eESVD;
+    using eEO = LpsrFields::eEO;
+    using eSPOF = LpsrFields::eSPOF;
+    using eLPNS = LpsrFields::eLPNS;
+    using eLPS = LpsrFields::eLPS;
+    using LPTA = LpsrFields::LPTA;
+    using SRTCR = LpsrFields::SRTCR;
+    using MCR = LpsrFields::MCR;
+    using LVD = LpsrFields::LVD;
+    using CTD = LpsrFields::CTD;
+    using TTD = LpsrFields::TTD;
+    using VTD = LpsrFields::VTD;
+    using WMT1D = LpsrFields::WMT1D;
+    using WMT2D = LpsrFields::WMT2D;
+    using ET1D = LpsrFields::ET1D;
+    using ET2D = LpsrFields::ET2D;
+    using ESVD = LpsrFields::ESVD;
+    using EO = LpsrFields::EO;
+    using SPOF = LpsrFields::SPOF;
+    using LPNS = LpsrFields::LPNS;
+    using LPS = LpsrFields::LPS;
   };
 
   // SNVS_LP Secure Real Time Counter MSB Register
-  struct LPSRTCMR_fields_ {
+  struct LpsrtcmrFields {
     // LP Secure Real Time Counter The most-significant 15 bits of the SRTC
     using SRTC = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPSRTCMR_fields_
+  };  // struct LpsrtcmrFields
 
   struct LPSRTCMR : ftl::mmio::Register<
       0x40C90050u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPSRTCMR_fields_::SRTC,
+      LpsrtcmrFields::SRTC,
       ftl::mmio::Reserved<17, 15>> {
-    using SRTC = LPSRTCMR_fields_::SRTC;
+    using SRTC = LpsrtcmrFields::SRTC;
   };
 
   // SNVS_LP Secure Real Time Counter LSB Register
-  struct LPSRTCLR_fields_ {
+  struct LpsrtclrFields {
     // LP Secure Real Time Counter least-significant 32 bits This register can be programmed only when SRTC is not active and not locked, meaning the SRTC_ENV, SRTC_SL, and SRTC_HL bits are not set
     using SRTC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPSRTCLR_fields_
+  };  // struct LpsrtclrFields
 
   struct LPSRTCLR : ftl::mmio::Register<
       0x40C90054u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPSRTCLR_fields_::SRTC> {
-    using SRTC = LPSRTCLR_fields_::SRTC;
+      LpsrtclrFields::SRTC> {
+    using SRTC = LpsrtclrFields::SRTC;
   };
 
   // SNVS_LP Time Alarm Register
-  struct LPTAR_fields_ {
+  struct LptarFields {
     // LP Time Alarm This register can be programmed only when the LP time alarm is disabled (LPTA_EN bit is not set)
     using LPTA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPTAR_fields_
+  };  // struct LptarFields
 
   struct LPTAR : ftl::mmio::Register<
       0x40C90058u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPTAR_fields_::LPTA> {
-    using LPTA = LPTAR_fields_::LPTA;
+      LptarFields::LPTA> {
+    using LPTA = LptarFields::LPTA;
   };
 
   // SNVS_LP Secure Monotonic Counter MSB Register
-  struct LPSMCMR_fields_ {
+  struct LpsmcmrFields {
     // Monotonic Counter most-significant 16 Bits Note that writing to this register does not change the value of this field to the value that was written
     using MON_COUNTER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Monotonic Counter Era Bits These bits are inputs to the module and typically connect to fuses
     using MC_ERA_BITS = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LPSMCMR_fields_
+  };  // struct LpsmcmrFields
 
   struct LPSMCMR : ftl::mmio::Register<
       0x40C9005Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPSMCMR_fields_::MON_COUNTER,
-      LPSMCMR_fields_::MC_ERA_BITS> {
-    using MON_COUNTER = LPSMCMR_fields_::MON_COUNTER;
-    using MC_ERA_BITS = LPSMCMR_fields_::MC_ERA_BITS;
+      LpsmcmrFields::MON_COUNTER,
+      LpsmcmrFields::MC_ERA_BITS> {
+    using MON_COUNTER = LpsmcmrFields::MON_COUNTER;
+    using MC_ERA_BITS = LpsmcmrFields::MC_ERA_BITS;
   };
 
   // SNVS_LP Secure Monotonic Counter LSB Register
-  struct LPSMCLR_fields_ {
+  struct LpsmclrFields {
     // Monotonic Counter bits Note that writing to this register does not change the value of this field to the value that was written
     using MON_COUNTER = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPSMCLR_fields_
+  };  // struct LpsmclrFields
 
   struct LPSMCLR : ftl::mmio::Register<
       0x40C90060u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPSMCLR_fields_::MON_COUNTER> {
-    using MON_COUNTER = LPSMCLR_fields_::MON_COUNTER;
+      LpsmclrFields::MON_COUNTER> {
+    using MON_COUNTER = LpsmclrFields::MON_COUNTER;
   };
 
   // SNVS_LP Digital Low-Voltage Detector Register
-  struct LPLVDR_fields_ {
+  struct LplvdrFields {
     // Low-Voltage Detector Value
     using LVD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPLVDR_fields_
+  };  // struct LplvdrFields
 
   struct LPLVDR : ftl::mmio::Register<
       0x40C90064u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPLVDR_fields_::LVD> {
-    using LVD = LPLVDR_fields_::LVD;
+      LplvdrFields::LVD> {
+    using LVD = LplvdrFields::LVD;
   };
 
   // SNVS_LP General Purpose Register 0 (legacy alias)
-  struct LPGPR0_legacy_alias_fields_ {
+  struct Lpgpr0LegacyAliasFields {
     // General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPGPR0_legacy_alias_fields_
+  };  // struct Lpgpr0LegacyAliasFields
 
   struct LPGPR0_legacy_alias : ftl::mmio::Register<
       0x40C90068u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPGPR0_legacy_alias_fields_::GPR> {
-    using GPR = LPGPR0_legacy_alias_fields_::GPR;
+      Lpgpr0LegacyAliasFields::GPR> {
+    using GPR = Lpgpr0LegacyAliasFields::GPR;
   };
 
   // SNVS_LP Zeroizable Master Key Register
-  struct LPZMKR_fields_ {
+  struct LpzmkrFields {
     // Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     using ZMK = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPZMKR_fields_
+  };  // struct LpzmkrFields
 
   template<std::uint32_t Index>
   struct LPZMKR : ftl::mmio::Register<
@@ -2095,16 +2095,16 @@ struct Snvs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPZMKR_fields_::ZMK> {
+      LpzmkrFields::ZMK> {
     static_assert(Index < 8u, "LPZMKR: Index out of range");
-    using ZMK = LPZMKR_fields_::ZMK;
+    using ZMK = LpzmkrFields::ZMK;
   };
 
   // SNVS_LP General Purpose Registers 0 .. 3
-  struct LPGPR_alias_fields_ {
+  struct LpgprAliasFields {
     // General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPGPR_alias_fields_
+  };  // struct LpgprAliasFields
 
   template<std::uint32_t Index>
   struct LPGPR_alias : ftl::mmio::Register<
@@ -2112,13 +2112,13 @@ struct Snvs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPGPR_alias_fields_::GPR> {
+      LpgprAliasFields::GPR> {
     static_assert(Index < 4u, "LPGPR_alias: Index out of range");
-    using GPR = LPGPR_alias_fields_::GPR;
+    using GPR = LpgprAliasFields::GPR;
   };
 
   // SNVS_LP Tamper Detectors Config 2 Register
-  struct LPTDC2R_fields_ {
+  struct Lptdc2rFields {
     enum class eET3_EN : std::uint32_t {
       // External tamper 3 is disabled.
       eDISABLED = 0,
@@ -2263,67 +2263,67 @@ struct Snvs {
     using ET9P = ftl::mmio::Field<1, 22, eET9P, ftl::mmio::RW, ftl::mmio::Normal>;
     // External Tampering 10 Polarity This bit is used to determine the polarity of external tamper 10.
     using ET10P = ftl::mmio::Field<1, 23, eET10P, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPTDC2R_fields_
+  };  // struct Lptdc2rFields
 
   struct LPTDC2R : ftl::mmio::Register<
       0x40C900A0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPTDC2R_fields_::ET3_EN,
-      LPTDC2R_fields_::ET4_EN,
-      LPTDC2R_fields_::ET5_EN,
-      LPTDC2R_fields_::ET6_EN,
-      LPTDC2R_fields_::ET7_EN,
-      LPTDC2R_fields_::ET8_EN,
-      LPTDC2R_fields_::ET9_EN,
-      LPTDC2R_fields_::ET10_EN,
+      Lptdc2rFields::ET3_EN,
+      Lptdc2rFields::ET4_EN,
+      Lptdc2rFields::ET5_EN,
+      Lptdc2rFields::ET6_EN,
+      Lptdc2rFields::ET7_EN,
+      Lptdc2rFields::ET8_EN,
+      Lptdc2rFields::ET9_EN,
+      Lptdc2rFields::ET10_EN,
       ftl::mmio::Reserved<8, 8>,
-      LPTDC2R_fields_::ET3P,
-      LPTDC2R_fields_::ET4P,
-      LPTDC2R_fields_::ET5P,
-      LPTDC2R_fields_::ET6P,
-      LPTDC2R_fields_::ET7P,
-      LPTDC2R_fields_::ET8P,
-      LPTDC2R_fields_::ET9P,
-      LPTDC2R_fields_::ET10P,
+      Lptdc2rFields::ET3P,
+      Lptdc2rFields::ET4P,
+      Lptdc2rFields::ET5P,
+      Lptdc2rFields::ET6P,
+      Lptdc2rFields::ET7P,
+      Lptdc2rFields::ET8P,
+      Lptdc2rFields::ET9P,
+      Lptdc2rFields::ET10P,
       ftl::mmio::Reserved<8, 24>> {
-    using eET3_EN = LPTDC2R_fields_::eET3_EN;
-    using eET4_EN = LPTDC2R_fields_::eET4_EN;
-    using eET5_EN = LPTDC2R_fields_::eET5_EN;
-    using eET6_EN = LPTDC2R_fields_::eET6_EN;
-    using eET7_EN = LPTDC2R_fields_::eET7_EN;
-    using eET8_EN = LPTDC2R_fields_::eET8_EN;
-    using eET9_EN = LPTDC2R_fields_::eET9_EN;
-    using eET10_EN = LPTDC2R_fields_::eET10_EN;
-    using eET3P = LPTDC2R_fields_::eET3P;
-    using eET4P = LPTDC2R_fields_::eET4P;
-    using eET5P = LPTDC2R_fields_::eET5P;
-    using eET6P = LPTDC2R_fields_::eET6P;
-    using eET7P = LPTDC2R_fields_::eET7P;
-    using eET8P = LPTDC2R_fields_::eET8P;
-    using eET9P = LPTDC2R_fields_::eET9P;
-    using eET10P = LPTDC2R_fields_::eET10P;
-    using ET3_EN = LPTDC2R_fields_::ET3_EN;
-    using ET4_EN = LPTDC2R_fields_::ET4_EN;
-    using ET5_EN = LPTDC2R_fields_::ET5_EN;
-    using ET6_EN = LPTDC2R_fields_::ET6_EN;
-    using ET7_EN = LPTDC2R_fields_::ET7_EN;
-    using ET8_EN = LPTDC2R_fields_::ET8_EN;
-    using ET9_EN = LPTDC2R_fields_::ET9_EN;
-    using ET10_EN = LPTDC2R_fields_::ET10_EN;
-    using ET3P = LPTDC2R_fields_::ET3P;
-    using ET4P = LPTDC2R_fields_::ET4P;
-    using ET5P = LPTDC2R_fields_::ET5P;
-    using ET6P = LPTDC2R_fields_::ET6P;
-    using ET7P = LPTDC2R_fields_::ET7P;
-    using ET8P = LPTDC2R_fields_::ET8P;
-    using ET9P = LPTDC2R_fields_::ET9P;
-    using ET10P = LPTDC2R_fields_::ET10P;
+    using eET3_EN = Lptdc2rFields::eET3_EN;
+    using eET4_EN = Lptdc2rFields::eET4_EN;
+    using eET5_EN = Lptdc2rFields::eET5_EN;
+    using eET6_EN = Lptdc2rFields::eET6_EN;
+    using eET7_EN = Lptdc2rFields::eET7_EN;
+    using eET8_EN = Lptdc2rFields::eET8_EN;
+    using eET9_EN = Lptdc2rFields::eET9_EN;
+    using eET10_EN = Lptdc2rFields::eET10_EN;
+    using eET3P = Lptdc2rFields::eET3P;
+    using eET4P = Lptdc2rFields::eET4P;
+    using eET5P = Lptdc2rFields::eET5P;
+    using eET6P = Lptdc2rFields::eET6P;
+    using eET7P = Lptdc2rFields::eET7P;
+    using eET8P = Lptdc2rFields::eET8P;
+    using eET9P = Lptdc2rFields::eET9P;
+    using eET10P = Lptdc2rFields::eET10P;
+    using ET3_EN = Lptdc2rFields::ET3_EN;
+    using ET4_EN = Lptdc2rFields::ET4_EN;
+    using ET5_EN = Lptdc2rFields::ET5_EN;
+    using ET6_EN = Lptdc2rFields::ET6_EN;
+    using ET7_EN = Lptdc2rFields::ET7_EN;
+    using ET8_EN = Lptdc2rFields::ET8_EN;
+    using ET9_EN = Lptdc2rFields::ET9_EN;
+    using ET10_EN = Lptdc2rFields::ET10_EN;
+    using ET3P = Lptdc2rFields::ET3P;
+    using ET4P = Lptdc2rFields::ET4P;
+    using ET5P = Lptdc2rFields::ET5P;
+    using ET6P = Lptdc2rFields::ET6P;
+    using ET7P = Lptdc2rFields::ET7P;
+    using ET8P = Lptdc2rFields::ET8P;
+    using ET9P = Lptdc2rFields::ET9P;
+    using ET10P = Lptdc2rFields::ET10P;
   };
 
   // SNVS_LP Tamper Detectors Status Register
-  struct LPTDSR_fields_ {
+  struct LptdsrFields {
     enum class eET3D : std::uint32_t {
       // External tamper 3 is not detected.
       eNOREPORT = 0,
@@ -2396,42 +2396,42 @@ struct Snvs {
     using ET9D = ftl::mmio::Field<1, 6, eET9D, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // External Tampering 10 Detected
     using ET10D = ftl::mmio::Field<1, 7, eET10D, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct LPTDSR_fields_
+  };  // struct LptdsrFields
 
   struct LPTDSR : ftl::mmio::Register<
       0x40C900A4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPTDSR_fields_::ET3D,
-      LPTDSR_fields_::ET4D,
-      LPTDSR_fields_::ET5D,
-      LPTDSR_fields_::ET6D,
-      LPTDSR_fields_::ET7D,
-      LPTDSR_fields_::ET8D,
-      LPTDSR_fields_::ET9D,
-      LPTDSR_fields_::ET10D,
+      LptdsrFields::ET3D,
+      LptdsrFields::ET4D,
+      LptdsrFields::ET5D,
+      LptdsrFields::ET6D,
+      LptdsrFields::ET7D,
+      LptdsrFields::ET8D,
+      LptdsrFields::ET9D,
+      LptdsrFields::ET10D,
       ftl::mmio::Reserved<24, 8>> {
-    using eET3D = LPTDSR_fields_::eET3D;
-    using eET4D = LPTDSR_fields_::eET4D;
-    using eET5D = LPTDSR_fields_::eET5D;
-    using eET6D = LPTDSR_fields_::eET6D;
-    using eET7D = LPTDSR_fields_::eET7D;
-    using eET8D = LPTDSR_fields_::eET8D;
-    using eET9D = LPTDSR_fields_::eET9D;
-    using eET10D = LPTDSR_fields_::eET10D;
-    using ET3D = LPTDSR_fields_::ET3D;
-    using ET4D = LPTDSR_fields_::ET4D;
-    using ET5D = LPTDSR_fields_::ET5D;
-    using ET6D = LPTDSR_fields_::ET6D;
-    using ET7D = LPTDSR_fields_::ET7D;
-    using ET8D = LPTDSR_fields_::ET8D;
-    using ET9D = LPTDSR_fields_::ET9D;
-    using ET10D = LPTDSR_fields_::ET10D;
+    using eET3D = LptdsrFields::eET3D;
+    using eET4D = LptdsrFields::eET4D;
+    using eET5D = LptdsrFields::eET5D;
+    using eET6D = LptdsrFields::eET6D;
+    using eET7D = LptdsrFields::eET7D;
+    using eET8D = LptdsrFields::eET8D;
+    using eET9D = LptdsrFields::eET9D;
+    using eET10D = LptdsrFields::eET10D;
+    using ET3D = LptdsrFields::ET3D;
+    using ET4D = LptdsrFields::ET4D;
+    using ET5D = LptdsrFields::ET5D;
+    using ET6D = LptdsrFields::ET6D;
+    using ET7D = LptdsrFields::ET7D;
+    using ET8D = LptdsrFields::ET8D;
+    using ET9D = LptdsrFields::ET9D;
+    using ET10D = LptdsrFields::ET10D;
   };
 
   // SNVS_LP Tamper Glitch Filter 1 Configuration Register
-  struct LPTGF1CR_fields_ {
+  struct Lptgf1crFields {
     enum class eETGF3_EN : std::uint32_t {
       // External tamper glitch filter 3 is bypassed.
       eBYPASSED = 0,
@@ -2476,37 +2476,37 @@ struct Snvs {
     using ETGF6 = ftl::mmio::Field<7, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // External Tamper Glitch Filter 6 Enable When set, enables the external tamper glitch filter 6.
     using ETGF6_EN = ftl::mmio::Field<1, 31, eETGF6_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPTGF1CR_fields_
+  };  // struct Lptgf1crFields
 
   struct LPTGF1CR : ftl::mmio::Register<
       0x40C900A8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPTGF1CR_fields_::ETGF3,
-      LPTGF1CR_fields_::ETGF3_EN,
-      LPTGF1CR_fields_::ETGF4,
-      LPTGF1CR_fields_::ETGF4_EN,
-      LPTGF1CR_fields_::ETGF5,
-      LPTGF1CR_fields_::ETGF5_EN,
-      LPTGF1CR_fields_::ETGF6,
-      LPTGF1CR_fields_::ETGF6_EN> {
-    using eETGF3_EN = LPTGF1CR_fields_::eETGF3_EN;
-    using eETGF4_EN = LPTGF1CR_fields_::eETGF4_EN;
-    using eETGF5_EN = LPTGF1CR_fields_::eETGF5_EN;
-    using eETGF6_EN = LPTGF1CR_fields_::eETGF6_EN;
-    using ETGF3 = LPTGF1CR_fields_::ETGF3;
-    using ETGF3_EN = LPTGF1CR_fields_::ETGF3_EN;
-    using ETGF4 = LPTGF1CR_fields_::ETGF4;
-    using ETGF4_EN = LPTGF1CR_fields_::ETGF4_EN;
-    using ETGF5 = LPTGF1CR_fields_::ETGF5;
-    using ETGF5_EN = LPTGF1CR_fields_::ETGF5_EN;
-    using ETGF6 = LPTGF1CR_fields_::ETGF6;
-    using ETGF6_EN = LPTGF1CR_fields_::ETGF6_EN;
+      Lptgf1crFields::ETGF3,
+      Lptgf1crFields::ETGF3_EN,
+      Lptgf1crFields::ETGF4,
+      Lptgf1crFields::ETGF4_EN,
+      Lptgf1crFields::ETGF5,
+      Lptgf1crFields::ETGF5_EN,
+      Lptgf1crFields::ETGF6,
+      Lptgf1crFields::ETGF6_EN> {
+    using eETGF3_EN = Lptgf1crFields::eETGF3_EN;
+    using eETGF4_EN = Lptgf1crFields::eETGF4_EN;
+    using eETGF5_EN = Lptgf1crFields::eETGF5_EN;
+    using eETGF6_EN = Lptgf1crFields::eETGF6_EN;
+    using ETGF3 = Lptgf1crFields::ETGF3;
+    using ETGF3_EN = Lptgf1crFields::ETGF3_EN;
+    using ETGF4 = Lptgf1crFields::ETGF4;
+    using ETGF4_EN = Lptgf1crFields::ETGF4_EN;
+    using ETGF5 = Lptgf1crFields::ETGF5;
+    using ETGF5_EN = Lptgf1crFields::ETGF5_EN;
+    using ETGF6 = Lptgf1crFields::ETGF6;
+    using ETGF6_EN = Lptgf1crFields::ETGF6_EN;
   };
 
   // SNVS_LP Tamper Glitch Filter 2 Configuration Register
-  struct LPTGF2CR_fields_ {
+  struct Lptgf2crFields {
     enum class eETGF7_EN : std::uint32_t {
       // External tamper glitch filter 7 is bypassed.
       eBYPASSED = 0,
@@ -2551,132 +2551,132 @@ struct Snvs {
     using ETGF10 = ftl::mmio::Field<7, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // External Tamper Glitch Filter 10 Enable When set, enables the external tamper glitch filter 10.
     using ETGF10_EN = ftl::mmio::Field<1, 31, eETGF10_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPTGF2CR_fields_
+  };  // struct Lptgf2crFields
 
   struct LPTGF2CR : ftl::mmio::Register<
       0x40C900ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPTGF2CR_fields_::ETGF7,
-      LPTGF2CR_fields_::ETGF7_EN,
-      LPTGF2CR_fields_::ETGF8,
-      LPTGF2CR_fields_::ETGF8_EN,
-      LPTGF2CR_fields_::ETGF9,
-      LPTGF2CR_fields_::ETGF9_EN,
-      LPTGF2CR_fields_::ETGF10,
-      LPTGF2CR_fields_::ETGF10_EN> {
-    using eETGF7_EN = LPTGF2CR_fields_::eETGF7_EN;
-    using eETGF8_EN = LPTGF2CR_fields_::eETGF8_EN;
-    using eETGF9_EN = LPTGF2CR_fields_::eETGF9_EN;
-    using eETGF10_EN = LPTGF2CR_fields_::eETGF10_EN;
-    using ETGF7 = LPTGF2CR_fields_::ETGF7;
-    using ETGF7_EN = LPTGF2CR_fields_::ETGF7_EN;
-    using ETGF8 = LPTGF2CR_fields_::ETGF8;
-    using ETGF8_EN = LPTGF2CR_fields_::ETGF8_EN;
-    using ETGF9 = LPTGF2CR_fields_::ETGF9;
-    using ETGF9_EN = LPTGF2CR_fields_::ETGF9_EN;
-    using ETGF10 = LPTGF2CR_fields_::ETGF10;
-    using ETGF10_EN = LPTGF2CR_fields_::ETGF10_EN;
+      Lptgf2crFields::ETGF7,
+      Lptgf2crFields::ETGF7_EN,
+      Lptgf2crFields::ETGF8,
+      Lptgf2crFields::ETGF8_EN,
+      Lptgf2crFields::ETGF9,
+      Lptgf2crFields::ETGF9_EN,
+      Lptgf2crFields::ETGF10,
+      Lptgf2crFields::ETGF10_EN> {
+    using eETGF7_EN = Lptgf2crFields::eETGF7_EN;
+    using eETGF8_EN = Lptgf2crFields::eETGF8_EN;
+    using eETGF9_EN = Lptgf2crFields::eETGF9_EN;
+    using eETGF10_EN = Lptgf2crFields::eETGF10_EN;
+    using ETGF7 = Lptgf2crFields::ETGF7;
+    using ETGF7_EN = Lptgf2crFields::ETGF7_EN;
+    using ETGF8 = Lptgf2crFields::ETGF8;
+    using ETGF8_EN = Lptgf2crFields::ETGF8_EN;
+    using ETGF9 = Lptgf2crFields::ETGF9;
+    using ETGF9_EN = Lptgf2crFields::ETGF9_EN;
+    using ETGF10 = Lptgf2crFields::ETGF10;
+    using ETGF10_EN = Lptgf2crFields::ETGF10_EN;
   };
 
   // SNVS_LP Active Tamper 1 Configuration Register
-  struct LPAT1CR_fields_ {
+  struct Lpat1crFields {
     // Active Tamper 1 Initial Seed Default Seed is 1111h.
     using Seed = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
     // Active Tamper 1 Polynomial Default Polynomial is 8400h.
     using Polynomial = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct LPAT1CR_fields_
+  };  // struct Lpat1crFields
 
   struct LPAT1CR : ftl::mmio::Register<
       0x40C900C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      LPAT1CR_fields_::Seed,
-      LPAT1CR_fields_::Polynomial> {
-    using Seed = LPAT1CR_fields_::Seed;
-    using Polynomial = LPAT1CR_fields_::Polynomial;
+      Lpat1crFields::Seed,
+      Lpat1crFields::Polynomial> {
+    using Seed = Lpat1crFields::Seed;
+    using Polynomial = Lpat1crFields::Polynomial;
   };
 
   // SNVS_LP Active Tamper 2 Configuration Register
-  struct LPAT2CR_fields_ {
+  struct Lpat2crFields {
     // Active Tamper 2 Initial Seed Default Seed is 2222h.
     using Seed = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
     // Active Tamper 2 Polynomial Default Polynomial is 9C00h.
     using Polynomial = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct LPAT2CR_fields_
+  };  // struct Lpat2crFields
 
   struct LPAT2CR : ftl::mmio::Register<
       0x40C900C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      LPAT2CR_fields_::Seed,
-      LPAT2CR_fields_::Polynomial> {
-    using Seed = LPAT2CR_fields_::Seed;
-    using Polynomial = LPAT2CR_fields_::Polynomial;
+      Lpat2crFields::Seed,
+      Lpat2crFields::Polynomial> {
+    using Seed = Lpat2crFields::Seed;
+    using Polynomial = Lpat2crFields::Polynomial;
   };
 
   // SNVS_LP Active Tamper 3 Configuration Register
-  struct LPAT3CR_fields_ {
+  struct Lpat3crFields {
     // Active Tamper 3 Initial Seed Default Seed is 3333h.
     using Seed = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
     // Active Tamper 3 Polynomial Default Polynomial is CA00h.
     using Polynomial = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct LPAT3CR_fields_
+  };  // struct Lpat3crFields
 
   struct LPAT3CR : ftl::mmio::Register<
       0x40C900C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      LPAT3CR_fields_::Seed,
-      LPAT3CR_fields_::Polynomial> {
-    using Seed = LPAT3CR_fields_::Seed;
-    using Polynomial = LPAT3CR_fields_::Polynomial;
+      Lpat3crFields::Seed,
+      Lpat3crFields::Polynomial> {
+    using Seed = Lpat3crFields::Seed;
+    using Polynomial = Lpat3crFields::Polynomial;
   };
 
   // SNVS_LP Active Tamper 4 Configuration Register
-  struct LPAT4CR_fields_ {
+  struct Lpat4crFields {
     // Active Tamper 4 Initial Seed Default Seed is 4444h.
     using Seed = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
     // Active Tamper 4 Polynomial Default Polynomial is 8580h.
     using Polynomial = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct LPAT4CR_fields_
+  };  // struct Lpat4crFields
 
   struct LPAT4CR : ftl::mmio::Register<
       0x40C900CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      LPAT4CR_fields_::Seed,
-      LPAT4CR_fields_::Polynomial> {
-    using Seed = LPAT4CR_fields_::Seed;
-    using Polynomial = LPAT4CR_fields_::Polynomial;
+      Lpat4crFields::Seed,
+      Lpat4crFields::Polynomial> {
+    using Seed = Lpat4crFields::Seed;
+    using Polynomial = Lpat4crFields::Polynomial;
   };
 
   // SNVS_LP Active Tamper 5 Configuration Register
-  struct LPAT5CR_fields_ {
+  struct Lpat5crFields {
     // Active Tamper 5 Initial Seed Default Seed is 5555h.
     using Seed = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
     // Active Tamper 5 Polynomial Default Polynomial is A840h.
     using Polynomial = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct LPAT5CR_fields_
+  };  // struct Lpat5crFields
 
   struct LPAT5CR : ftl::mmio::Register<
       0x40C900D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      LPAT5CR_fields_::Seed,
-      LPAT5CR_fields_::Polynomial> {
-    using Seed = LPAT5CR_fields_::Seed;
-    using Polynomial = LPAT5CR_fields_::Polynomial;
+      Lpat5crFields::Seed,
+      Lpat5crFields::Polynomial> {
+    using Seed = Lpat5crFields::Seed;
+    using Polynomial = Lpat5crFields::Polynomial;
   };
 
   // SNVS_LP Active Tamper Control Register
-  struct LPATCTLR_fields_ {
+  struct LpatctlrFields {
     enum class eAT1_EN : std::uint32_t {
       // Active Tamper 1 is disabled.
       eDISABLED = 0,
@@ -2767,49 +2767,49 @@ struct Snvs {
     using AT4_PAD_EN = ftl::mmio::Field<1, 19, eAT4_PAD_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Active Tamper 5 Pad Out Enable When set, enables the Active Tamper 5 external pad.
     using AT5_PAD_EN = ftl::mmio::Field<1, 20, eAT5_PAD_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPATCTLR_fields_
+  };  // struct LpatctlrFields
 
   struct LPATCTLR : ftl::mmio::Register<
       0x40C900E0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPATCTLR_fields_::AT1_EN,
-      LPATCTLR_fields_::AT2_EN,
-      LPATCTLR_fields_::AT3_EN,
-      LPATCTLR_fields_::AT4_EN,
-      LPATCTLR_fields_::AT5_EN,
+      LpatctlrFields::AT1_EN,
+      LpatctlrFields::AT2_EN,
+      LpatctlrFields::AT3_EN,
+      LpatctlrFields::AT4_EN,
+      LpatctlrFields::AT5_EN,
       ftl::mmio::Reserved<11, 5>,
-      LPATCTLR_fields_::AT1_PAD_EN,
-      LPATCTLR_fields_::AT2_PAD_EN,
-      LPATCTLR_fields_::AT3_PAD_EN,
-      LPATCTLR_fields_::AT4_PAD_EN,
-      LPATCTLR_fields_::AT5_PAD_EN,
+      LpatctlrFields::AT1_PAD_EN,
+      LpatctlrFields::AT2_PAD_EN,
+      LpatctlrFields::AT3_PAD_EN,
+      LpatctlrFields::AT4_PAD_EN,
+      LpatctlrFields::AT5_PAD_EN,
       ftl::mmio::Reserved<11, 21>> {
-    using eAT1_EN = LPATCTLR_fields_::eAT1_EN;
-    using eAT2_EN = LPATCTLR_fields_::eAT2_EN;
-    using eAT3_EN = LPATCTLR_fields_::eAT3_EN;
-    using eAT4_EN = LPATCTLR_fields_::eAT4_EN;
-    using eAT5_EN = LPATCTLR_fields_::eAT5_EN;
-    using eAT1_PAD_EN = LPATCTLR_fields_::eAT1_PAD_EN;
-    using eAT2_PAD_EN = LPATCTLR_fields_::eAT2_PAD_EN;
-    using eAT3_PAD_EN = LPATCTLR_fields_::eAT3_PAD_EN;
-    using eAT4_PAD_EN = LPATCTLR_fields_::eAT4_PAD_EN;
-    using eAT5_PAD_EN = LPATCTLR_fields_::eAT5_PAD_EN;
-    using AT1_EN = LPATCTLR_fields_::AT1_EN;
-    using AT2_EN = LPATCTLR_fields_::AT2_EN;
-    using AT3_EN = LPATCTLR_fields_::AT3_EN;
-    using AT4_EN = LPATCTLR_fields_::AT4_EN;
-    using AT5_EN = LPATCTLR_fields_::AT5_EN;
-    using AT1_PAD_EN = LPATCTLR_fields_::AT1_PAD_EN;
-    using AT2_PAD_EN = LPATCTLR_fields_::AT2_PAD_EN;
-    using AT3_PAD_EN = LPATCTLR_fields_::AT3_PAD_EN;
-    using AT4_PAD_EN = LPATCTLR_fields_::AT4_PAD_EN;
-    using AT5_PAD_EN = LPATCTLR_fields_::AT5_PAD_EN;
+    using eAT1_EN = LpatctlrFields::eAT1_EN;
+    using eAT2_EN = LpatctlrFields::eAT2_EN;
+    using eAT3_EN = LpatctlrFields::eAT3_EN;
+    using eAT4_EN = LpatctlrFields::eAT4_EN;
+    using eAT5_EN = LpatctlrFields::eAT5_EN;
+    using eAT1_PAD_EN = LpatctlrFields::eAT1_PAD_EN;
+    using eAT2_PAD_EN = LpatctlrFields::eAT2_PAD_EN;
+    using eAT3_PAD_EN = LpatctlrFields::eAT3_PAD_EN;
+    using eAT4_PAD_EN = LpatctlrFields::eAT4_PAD_EN;
+    using eAT5_PAD_EN = LpatctlrFields::eAT5_PAD_EN;
+    using AT1_EN = LpatctlrFields::AT1_EN;
+    using AT2_EN = LpatctlrFields::AT2_EN;
+    using AT3_EN = LpatctlrFields::AT3_EN;
+    using AT4_EN = LpatctlrFields::AT4_EN;
+    using AT5_EN = LpatctlrFields::AT5_EN;
+    using AT1_PAD_EN = LpatctlrFields::AT1_PAD_EN;
+    using AT2_PAD_EN = LpatctlrFields::AT2_PAD_EN;
+    using AT3_PAD_EN = LpatctlrFields::AT3_PAD_EN;
+    using AT4_PAD_EN = LpatctlrFields::AT4_PAD_EN;
+    using AT5_PAD_EN = LpatctlrFields::AT5_PAD_EN;
   };
 
   // SNVS_LP Active Tamper Clock Control Register
-  struct LPATCLKR_fields_ {
+  struct LpatclkrFields {
     // Active Tamper 1 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
     using AT1_CLK_CTL = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Active Tamper 2 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
@@ -2820,32 +2820,32 @@ struct Snvs {
     using AT4_CLK_CTL = ftl::mmio::Field<2, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Active Tamper 5 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
     using AT5_CLK_CTL = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPATCLKR_fields_
+  };  // struct LpatclkrFields
 
   struct LPATCLKR : ftl::mmio::Register<
       0x40C900E4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPATCLKR_fields_::AT1_CLK_CTL,
+      LpatclkrFields::AT1_CLK_CTL,
       ftl::mmio::Reserved<2, 2>,
-      LPATCLKR_fields_::AT2_CLK_CTL,
+      LpatclkrFields::AT2_CLK_CTL,
       ftl::mmio::Reserved<2, 6>,
-      LPATCLKR_fields_::AT3_CLK_CTL,
+      LpatclkrFields::AT3_CLK_CTL,
       ftl::mmio::Reserved<2, 10>,
-      LPATCLKR_fields_::AT4_CLK_CTL,
+      LpatclkrFields::AT4_CLK_CTL,
       ftl::mmio::Reserved<2, 14>,
-      LPATCLKR_fields_::AT5_CLK_CTL,
+      LpatclkrFields::AT5_CLK_CTL,
       ftl::mmio::Reserved<14, 18>> {
-    using AT1_CLK_CTL = LPATCLKR_fields_::AT1_CLK_CTL;
-    using AT2_CLK_CTL = LPATCLKR_fields_::AT2_CLK_CTL;
-    using AT3_CLK_CTL = LPATCLKR_fields_::AT3_CLK_CTL;
-    using AT4_CLK_CTL = LPATCLKR_fields_::AT4_CLK_CTL;
-    using AT5_CLK_CTL = LPATCLKR_fields_::AT5_CLK_CTL;
+    using AT1_CLK_CTL = LpatclkrFields::AT1_CLK_CTL;
+    using AT2_CLK_CTL = LpatclkrFields::AT2_CLK_CTL;
+    using AT3_CLK_CTL = LpatclkrFields::AT3_CLK_CTL;
+    using AT4_CLK_CTL = LpatclkrFields::AT4_CLK_CTL;
+    using AT5_CLK_CTL = LpatclkrFields::AT5_CLK_CTL;
   };
 
   // SNVS_LP Active Tamper Routing Control 1 Register
-  struct LPATRC1R_fields_ {
+  struct Lpatrc1rFields {
     // External Tamper 1 Routing Control Any undefined selection will be routed to passive
     using ET1RCTL = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // External Tamper 2 Routing Control Any undefined selection will be routed to passive
@@ -2862,65 +2862,65 @@ struct Snvs {
     using ET7RCTL = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // External Tamper 8 Routing Control Any undefined selection will be routed to passive
     using ET8RCTL = ftl::mmio::Field<3, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPATRC1R_fields_
+  };  // struct Lpatrc1rFields
 
   struct LPATRC1R : ftl::mmio::Register<
       0x40C900E8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPATRC1R_fields_::ET1RCTL,
+      Lpatrc1rFields::ET1RCTL,
       ftl::mmio::Reserved<1, 3>,
-      LPATRC1R_fields_::ET2RCTL,
+      Lpatrc1rFields::ET2RCTL,
       ftl::mmio::Reserved<1, 7>,
-      LPATRC1R_fields_::ET3RCTL,
+      Lpatrc1rFields::ET3RCTL,
       ftl::mmio::Reserved<1, 11>,
-      LPATRC1R_fields_::ET4RCTL,
+      Lpatrc1rFields::ET4RCTL,
       ftl::mmio::Reserved<1, 15>,
-      LPATRC1R_fields_::ET5RCTL,
+      Lpatrc1rFields::ET5RCTL,
       ftl::mmio::Reserved<1, 19>,
-      LPATRC1R_fields_::ET6RCTL,
+      Lpatrc1rFields::ET6RCTL,
       ftl::mmio::Reserved<1, 23>,
-      LPATRC1R_fields_::ET7RCTL,
+      Lpatrc1rFields::ET7RCTL,
       ftl::mmio::Reserved<1, 27>,
-      LPATRC1R_fields_::ET8RCTL,
+      Lpatrc1rFields::ET8RCTL,
       ftl::mmio::Reserved<1, 31>> {
-    using ET1RCTL = LPATRC1R_fields_::ET1RCTL;
-    using ET2RCTL = LPATRC1R_fields_::ET2RCTL;
-    using ET3RCTL = LPATRC1R_fields_::ET3RCTL;
-    using ET4RCTL = LPATRC1R_fields_::ET4RCTL;
-    using ET5RCTL = LPATRC1R_fields_::ET5RCTL;
-    using ET6RCTL = LPATRC1R_fields_::ET6RCTL;
-    using ET7RCTL = LPATRC1R_fields_::ET7RCTL;
-    using ET8RCTL = LPATRC1R_fields_::ET8RCTL;
+    using ET1RCTL = Lpatrc1rFields::ET1RCTL;
+    using ET2RCTL = Lpatrc1rFields::ET2RCTL;
+    using ET3RCTL = Lpatrc1rFields::ET3RCTL;
+    using ET4RCTL = Lpatrc1rFields::ET4RCTL;
+    using ET5RCTL = Lpatrc1rFields::ET5RCTL;
+    using ET6RCTL = Lpatrc1rFields::ET6RCTL;
+    using ET7RCTL = Lpatrc1rFields::ET7RCTL;
+    using ET8RCTL = Lpatrc1rFields::ET8RCTL;
   };
 
   // SNVS_LP Active Tamper Routing Control 2 Register
-  struct LPATRC2R_fields_ {
+  struct Lpatrc2rFields {
     // External Tamper 9 Routing Control Any undefined selection will be routed to passive
     using ET9RCTL = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // External Tamper 10 Routing Control Any undefined selection will be routed to passive
     using ET10RCTL = ftl::mmio::Field<3, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPATRC2R_fields_
+  };  // struct Lpatrc2rFields
 
   struct LPATRC2R : ftl::mmio::Register<
       0x40C900ECu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPATRC2R_fields_::ET9RCTL,
+      Lpatrc2rFields::ET9RCTL,
       ftl::mmio::Reserved<1, 3>,
-      LPATRC2R_fields_::ET10RCTL,
+      Lpatrc2rFields::ET10RCTL,
       ftl::mmio::Reserved<25, 7>> {
-    using ET9RCTL = LPATRC2R_fields_::ET9RCTL;
-    using ET10RCTL = LPATRC2R_fields_::ET10RCTL;
+    using ET9RCTL = Lpatrc2rFields::ET9RCTL;
+    using ET10RCTL = Lpatrc2rFields::ET10RCTL;
   };
 
   // SNVS_LP General Purpose Registers 0 .. 3
-  struct LPGPR_fields_ {
+  struct LpgprFields {
     // General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LPGPR_fields_
+  };  // struct LpgprFields
 
   template<std::uint32_t Index>
   struct LPGPR : ftl::mmio::Register<
@@ -2928,41 +2928,41 @@ struct Snvs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      LPGPR_fields_::GPR> {
+      LpgprFields::GPR> {
     static_assert(Index < 4u, "LPGPR: Index out of range");
-    using GPR = LPGPR_fields_::GPR;
+    using GPR = LpgprFields::GPR;
   };
 
   // SNVS_HP Version ID Register 1
-  struct HPVIDR1_fields_ {
+  struct Hpvidr1Fields {
     // SNVS block minor version number
     using MINOR_REV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // SNVS block major version number
     using MAJOR_REV = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // SNVS block ID
     using IP_ID = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HPVIDR1_fields_
+  };  // struct Hpvidr1Fields
 
   struct HPVIDR1 : ftl::mmio::Register<
       0x40C90BF8u,
       std::uint32_t,
       0x003E0103u,
       ftl::mmio::RO,
-      HPVIDR1_fields_::MINOR_REV,
-      HPVIDR1_fields_::MAJOR_REV,
-      HPVIDR1_fields_::IP_ID> {
-    using MINOR_REV = HPVIDR1_fields_::MINOR_REV;
-    using MAJOR_REV = HPVIDR1_fields_::MAJOR_REV;
-    using IP_ID = HPVIDR1_fields_::IP_ID;
+      Hpvidr1Fields::MINOR_REV,
+      Hpvidr1Fields::MAJOR_REV,
+      Hpvidr1Fields::IP_ID> {
+    using MINOR_REV = Hpvidr1Fields::MINOR_REV;
+    using MAJOR_REV = Hpvidr1Fields::MAJOR_REV;
+    using IP_ID = Hpvidr1Fields::IP_ID;
   };
 
   // SNVS_HP Version ID Register 2
-  struct HPVIDR2_fields_ {
+  struct Hpvidr2Fields {
     // SNVS ECO Revision The engineering change order revision number for this release of SNVS.
     using ECO_REV = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // IP Era 00h - Era 1 or 2 03h - Era 3 04h - Era 4 05h - Era 5 06h - Era 6
     using IP_ERA = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HPVIDR2_fields_
+  };  // struct Hpvidr2Fields
 
   struct HPVIDR2 : ftl::mmio::Register<
       0x40C90BFCu,
@@ -2970,11 +2970,11 @@ struct Snvs {
       0x06000500u,
       ftl::mmio::RO,
       ftl::mmio::Reserved<8, 0>,
-      HPVIDR2_fields_::ECO_REV,
+      Hpvidr2Fields::ECO_REV,
       ftl::mmio::Reserved<8, 16>,
-      HPVIDR2_fields_::IP_ERA> {
-    using ECO_REV = HPVIDR2_fields_::ECO_REV;
-    using IP_ERA = HPVIDR2_fields_::IP_ERA;
+      Hpvidr2Fields::IP_ERA> {
+    using ECO_REV = Hpvidr2Fields::ECO_REV;
+    using IP_ERA = Hpvidr2Fields::IP_ERA;
   };
 
 };

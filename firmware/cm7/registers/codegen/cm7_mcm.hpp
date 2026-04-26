@@ -10,7 +10,7 @@ namespace regs {
 
 struct Cm7Mcm {
   // Interrupt Status and Control Register
-  struct ISCR_fields_ {
+  struct IscrFields {
     enum class eWABS : std::uint32_t {
       // No abort
       enoabort = 0,
@@ -146,7 +146,7 @@ struct Cm7Mcm {
     using FIXCE = ftl::mmio::Field<1, 28, eFIXCE, ftl::mmio::RW, ftl::mmio::Normal>;
     // FPU Input Denormal Interrupt Enable
     using FIDCE = ftl::mmio::Field<1, 31, eFIDCE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ISCR_fields_
+  };  // struct IscrFields
 
   struct ISCR : ftl::mmio::Register<
       0xE0080010u,
@@ -154,56 +154,56 @@ struct Cm7Mcm {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<5, 0>,
-      ISCR_fields_::WABS,
-      ISCR_fields_::WABSO,
+      IscrFields::WABS,
+      IscrFields::WABSO,
       ftl::mmio::Reserved<1, 7>,
-      ISCR_fields_::FIOC,
-      ISCR_fields_::FDZC,
-      ISCR_fields_::FOFC,
-      ISCR_fields_::FUFC,
-      ISCR_fields_::FIXC,
+      IscrFields::FIOC,
+      IscrFields::FDZC,
+      IscrFields::FOFC,
+      IscrFields::FUFC,
+      IscrFields::FIXC,
       ftl::mmio::Reserved<2, 13>,
-      ISCR_fields_::FIDC,
+      IscrFields::FIDC,
       ftl::mmio::Reserved<5, 16>,
-      ISCR_fields_::WABE,
+      IscrFields::WABE,
       ftl::mmio::Reserved<2, 22>,
-      ISCR_fields_::FIOCE,
-      ISCR_fields_::FDZCE,
-      ISCR_fields_::FOFCE,
-      ISCR_fields_::FUFCE,
-      ISCR_fields_::FIXCE,
+      IscrFields::FIOCE,
+      IscrFields::FDZCE,
+      IscrFields::FOFCE,
+      IscrFields::FUFCE,
+      IscrFields::FIXCE,
       ftl::mmio::Reserved<2, 29>,
-      ISCR_fields_::FIDCE> {
-    using eWABS = ISCR_fields_::eWABS;
-    using eWABSO = ISCR_fields_::eWABSO;
-    using eFIOC = ISCR_fields_::eFIOC;
-    using eFDZC = ISCR_fields_::eFDZC;
-    using eFOFC = ISCR_fields_::eFOFC;
-    using eFUFC = ISCR_fields_::eFUFC;
-    using eFIXC = ISCR_fields_::eFIXC;
-    using eFIDC = ISCR_fields_::eFIDC;
-    using eWABE = ISCR_fields_::eWABE;
-    using eFIOCE = ISCR_fields_::eFIOCE;
-    using eFDZCE = ISCR_fields_::eFDZCE;
-    using eFOFCE = ISCR_fields_::eFOFCE;
-    using eFUFCE = ISCR_fields_::eFUFCE;
-    using eFIXCE = ISCR_fields_::eFIXCE;
-    using eFIDCE = ISCR_fields_::eFIDCE;
-    using WABS = ISCR_fields_::WABS;
-    using WABSO = ISCR_fields_::WABSO;
-    using FIOC = ISCR_fields_::FIOC;
-    using FDZC = ISCR_fields_::FDZC;
-    using FOFC = ISCR_fields_::FOFC;
-    using FUFC = ISCR_fields_::FUFC;
-    using FIXC = ISCR_fields_::FIXC;
-    using FIDC = ISCR_fields_::FIDC;
-    using WABE = ISCR_fields_::WABE;
-    using FIOCE = ISCR_fields_::FIOCE;
-    using FDZCE = ISCR_fields_::FDZCE;
-    using FOFCE = ISCR_fields_::FOFCE;
-    using FUFCE = ISCR_fields_::FUFCE;
-    using FIXCE = ISCR_fields_::FIXCE;
-    using FIDCE = ISCR_fields_::FIDCE;
+      IscrFields::FIDCE> {
+    using eWABS = IscrFields::eWABS;
+    using eWABSO = IscrFields::eWABSO;
+    using eFIOC = IscrFields::eFIOC;
+    using eFDZC = IscrFields::eFDZC;
+    using eFOFC = IscrFields::eFOFC;
+    using eFUFC = IscrFields::eFUFC;
+    using eFIXC = IscrFields::eFIXC;
+    using eFIDC = IscrFields::eFIDC;
+    using eWABE = IscrFields::eWABE;
+    using eFIOCE = IscrFields::eFIOCE;
+    using eFDZCE = IscrFields::eFDZCE;
+    using eFOFCE = IscrFields::eFOFCE;
+    using eFUFCE = IscrFields::eFUFCE;
+    using eFIXCE = IscrFields::eFIXCE;
+    using eFIDCE = IscrFields::eFIDCE;
+    using WABS = IscrFields::WABS;
+    using WABSO = IscrFields::WABSO;
+    using FIOC = IscrFields::FIOC;
+    using FDZC = IscrFields::FDZC;
+    using FOFC = IscrFields::FOFC;
+    using FUFC = IscrFields::FUFC;
+    using FIXC = IscrFields::FIXC;
+    using FIDC = IscrFields::FIDC;
+    using WABE = IscrFields::WABE;
+    using FIOCE = IscrFields::FIOCE;
+    using FDZCE = IscrFields::FDZCE;
+    using FOFCE = IscrFields::FOFCE;
+    using FUFCE = IscrFields::FUFCE;
+    using FIXCE = IscrFields::FIXCE;
+    using FIDCE = IscrFields::FIDCE;
   };
 
 };

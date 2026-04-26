@@ -10,10 +10,10 @@ namespace regs {
 
 struct GpcStbyCtrl {
   // Standby Authentication Control
-  struct STBY_AUTHEN_CTRL_fields_ {
+  struct StbyAuthenCtrlFields {
     // Configuration lock
     using LOCK_CFG = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_AUTHEN_CTRL_fields_
+  };  // struct StbyAuthenCtrlFields
 
   struct STBY_AUTHEN_CTRL : ftl::mmio::Register<
       0x40C02804u,
@@ -21,13 +21,13 @@ struct GpcStbyCtrl {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<20, 0>,
-      STBY_AUTHEN_CTRL_fields_::LOCK_CFG,
+      StbyAuthenCtrlFields::LOCK_CFG,
       ftl::mmio::Reserved<11, 21>> {
-    using LOCK_CFG = STBY_AUTHEN_CTRL_fields_::LOCK_CFG;
+    using LOCK_CFG = StbyAuthenCtrlFields::LOCK_CFG;
   };
 
   // STBY Misc
-  struct STBY_MISC_fields_ {
+  struct StbyMiscFields {
     // Force CPU0 requesting standby mode
     using FORCE_CPU0_STBY = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Force CPU0 requesting standby mode
@@ -36,26 +36,26 @@ struct GpcStbyCtrl {
     using FORCE_CPU2_STBY = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Force CPU3 requesting standby mode
     using FORCE_CPU3_STBY = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_MISC_fields_
+  };  // struct StbyMiscFields
 
   struct STBY_MISC : ftl::mmio::Register<
       0x40C0280Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      STBY_MISC_fields_::FORCE_CPU0_STBY,
-      STBY_MISC_fields_::FORCE_CPU1_STBY,
-      STBY_MISC_fields_::FORCE_CPU2_STBY,
-      STBY_MISC_fields_::FORCE_CPU3_STBY,
+      StbyMiscFields::FORCE_CPU0_STBY,
+      StbyMiscFields::FORCE_CPU1_STBY,
+      StbyMiscFields::FORCE_CPU2_STBY,
+      StbyMiscFields::FORCE_CPU3_STBY,
       ftl::mmio::Reserved<28, 4>> {
-    using FORCE_CPU0_STBY = STBY_MISC_fields_::FORCE_CPU0_STBY;
-    using FORCE_CPU1_STBY = STBY_MISC_fields_::FORCE_CPU1_STBY;
-    using FORCE_CPU2_STBY = STBY_MISC_fields_::FORCE_CPU2_STBY;
-    using FORCE_CPU3_STBY = STBY_MISC_fields_::FORCE_CPU3_STBY;
+    using FORCE_CPU0_STBY = StbyMiscFields::FORCE_CPU0_STBY;
+    using FORCE_CPU1_STBY = StbyMiscFields::FORCE_CPU1_STBY;
+    using FORCE_CPU2_STBY = StbyMiscFields::FORCE_CPU2_STBY;
+    using FORCE_CPU3_STBY = StbyMiscFields::FORCE_CPU3_STBY;
   };
 
   // STBY lpcg_in control
-  struct STBY_LPCG_IN_CTRL_fields_ {
+  struct StbyLpcgInCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -73,26 +73,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_LPCG_IN_CTRL_fields_
+  };  // struct StbyLpcgInCtrlFields
 
   struct STBY_LPCG_IN_CTRL : ftl::mmio::Register<
       0x40C028F0u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_LPCG_IN_CTRL_fields_::STEP_CNT,
+      StbyLpcgInCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_LPCG_IN_CTRL_fields_::CNT_MODE,
+      StbyLpcgInCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_LPCG_IN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_LPCG_IN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_LPCG_IN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_LPCG_IN_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_LPCG_IN_CTRL_fields_::DISABLE;
+      StbyLpcgInCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyLpcgInCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyLpcgInCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyLpcgInCtrlFields::CNT_MODE;
+    using DISABLE = StbyLpcgInCtrlFields::DISABLE;
   };
 
   // STBY pll_in control
-  struct STBY_PLL_IN_CTRL_fields_ {
+  struct StbyPllInCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -110,26 +110,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_PLL_IN_CTRL_fields_
+  };  // struct StbyPllInCtrlFields
 
   struct STBY_PLL_IN_CTRL : ftl::mmio::Register<
       0x40C02900u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_PLL_IN_CTRL_fields_::STEP_CNT,
+      StbyPllInCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_PLL_IN_CTRL_fields_::CNT_MODE,
+      StbyPllInCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_PLL_IN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_PLL_IN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_PLL_IN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_PLL_IN_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_PLL_IN_CTRL_fields_::DISABLE;
+      StbyPllInCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyPllInCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyPllInCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyPllInCtrlFields::CNT_MODE;
+    using DISABLE = StbyPllInCtrlFields::DISABLE;
   };
 
   // STBY bias_in control
-  struct STBY_BIAS_IN_CTRL_fields_ {
+  struct StbyBiasInCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -147,26 +147,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_BIAS_IN_CTRL_fields_
+  };  // struct StbyBiasInCtrlFields
 
   struct STBY_BIAS_IN_CTRL : ftl::mmio::Register<
       0x40C02910u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_BIAS_IN_CTRL_fields_::STEP_CNT,
+      StbyBiasInCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_BIAS_IN_CTRL_fields_::CNT_MODE,
+      StbyBiasInCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_BIAS_IN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_BIAS_IN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_BIAS_IN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_BIAS_IN_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_BIAS_IN_CTRL_fields_::DISABLE;
+      StbyBiasInCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyBiasInCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyBiasInCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyBiasInCtrlFields::CNT_MODE;
+    using DISABLE = StbyBiasInCtrlFields::DISABLE;
   };
 
   // STBY pldo_in control
-  struct STBY_PLDO_IN_CTRL_fields_ {
+  struct StbyPldoInCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -184,26 +184,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_PLDO_IN_CTRL_fields_
+  };  // struct StbyPldoInCtrlFields
 
   struct STBY_PLDO_IN_CTRL : ftl::mmio::Register<
       0x40C02920u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_PLDO_IN_CTRL_fields_::STEP_CNT,
+      StbyPldoInCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_PLDO_IN_CTRL_fields_::CNT_MODE,
+      StbyPldoInCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_PLDO_IN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_PLDO_IN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_PLDO_IN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_PLDO_IN_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_PLDO_IN_CTRL_fields_::DISABLE;
+      StbyPldoInCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyPldoInCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyPldoInCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyPldoInCtrlFields::CNT_MODE;
+    using DISABLE = StbyPldoInCtrlFields::DISABLE;
   };
 
   // STBY bandgap_in control
-  struct STBY_BANDGAP_IN_CTRL_fields_ {
+  struct StbyBandgapInCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -221,26 +221,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_BANDGAP_IN_CTRL_fields_
+  };  // struct StbyBandgapInCtrlFields
 
   struct STBY_BANDGAP_IN_CTRL : ftl::mmio::Register<
       0x40C02928u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_BANDGAP_IN_CTRL_fields_::STEP_CNT,
+      StbyBandgapInCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_BANDGAP_IN_CTRL_fields_::CNT_MODE,
+      StbyBandgapInCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_BANDGAP_IN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_BANDGAP_IN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_BANDGAP_IN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_BANDGAP_IN_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_BANDGAP_IN_CTRL_fields_::DISABLE;
+      StbyBandgapInCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyBandgapInCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyBandgapInCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyBandgapInCtrlFields::CNT_MODE;
+    using DISABLE = StbyBandgapInCtrlFields::DISABLE;
   };
 
   // STBY ldo_in control
-  struct STBY_LDO_IN_CTRL_fields_ {
+  struct StbyLdoInCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -258,26 +258,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_LDO_IN_CTRL_fields_
+  };  // struct StbyLdoInCtrlFields
 
   struct STBY_LDO_IN_CTRL : ftl::mmio::Register<
       0x40C02930u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_LDO_IN_CTRL_fields_::STEP_CNT,
+      StbyLdoInCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_LDO_IN_CTRL_fields_::CNT_MODE,
+      StbyLdoInCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_LDO_IN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_LDO_IN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_LDO_IN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_LDO_IN_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_LDO_IN_CTRL_fields_::DISABLE;
+      StbyLdoInCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyLdoInCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyLdoInCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyLdoInCtrlFields::CNT_MODE;
+    using DISABLE = StbyLdoInCtrlFields::DISABLE;
   };
 
   // STBY dcdc_in control
-  struct STBY_DCDC_IN_CTRL_fields_ {
+  struct StbyDcdcInCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -295,26 +295,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_DCDC_IN_CTRL_fields_
+  };  // struct StbyDcdcInCtrlFields
 
   struct STBY_DCDC_IN_CTRL : ftl::mmio::Register<
       0x40C02940u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_DCDC_IN_CTRL_fields_::STEP_CNT,
+      StbyDcdcInCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_DCDC_IN_CTRL_fields_::CNT_MODE,
+      StbyDcdcInCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_DCDC_IN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_DCDC_IN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_DCDC_IN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_DCDC_IN_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_DCDC_IN_CTRL_fields_::DISABLE;
+      StbyDcdcInCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyDcdcInCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyDcdcInCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyDcdcInCtrlFields::CNT_MODE;
+    using DISABLE = StbyDcdcInCtrlFields::DISABLE;
   };
 
   // STBY PMIC in control
-  struct STBY_PMIC_IN_CTRL_fields_ {
+  struct StbyPmicInCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -332,26 +332,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_PMIC_IN_CTRL_fields_
+  };  // struct StbyPmicInCtrlFields
 
   struct STBY_PMIC_IN_CTRL : ftl::mmio::Register<
       0x40C02950u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_PMIC_IN_CTRL_fields_::STEP_CNT,
+      StbyPmicInCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_PMIC_IN_CTRL_fields_::CNT_MODE,
+      StbyPmicInCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_PMIC_IN_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_PMIC_IN_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_PMIC_IN_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_PMIC_IN_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_PMIC_IN_CTRL_fields_::DISABLE;
+      StbyPmicInCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyPmicInCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyPmicInCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyPmicInCtrlFields::CNT_MODE;
+    using DISABLE = StbyPmicInCtrlFields::DISABLE;
   };
 
   // STBY PMIC out control
-  struct STBY_PMIC_OUT_CTRL_fields_ {
+  struct StbyPmicOutCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -369,26 +369,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_PMIC_OUT_CTRL_fields_
+  };  // struct StbyPmicOutCtrlFields
 
   struct STBY_PMIC_OUT_CTRL : ftl::mmio::Register<
       0x40C02A00u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_PMIC_OUT_CTRL_fields_::STEP_CNT,
+      StbyPmicOutCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_PMIC_OUT_CTRL_fields_::CNT_MODE,
+      StbyPmicOutCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_PMIC_OUT_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_PMIC_OUT_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_PMIC_OUT_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_PMIC_OUT_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_PMIC_OUT_CTRL_fields_::DISABLE;
+      StbyPmicOutCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyPmicOutCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyPmicOutCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyPmicOutCtrlFields::CNT_MODE;
+    using DISABLE = StbyPmicOutCtrlFields::DISABLE;
   };
 
   // STBY DCDC out control
-  struct STBY_DCDC_OUT_CTRL_fields_ {
+  struct StbyDcdcOutCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -406,26 +406,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_DCDC_OUT_CTRL_fields_
+  };  // struct StbyDcdcOutCtrlFields
 
   struct STBY_DCDC_OUT_CTRL : ftl::mmio::Register<
       0x40C02A10u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_DCDC_OUT_CTRL_fields_::STEP_CNT,
+      StbyDcdcOutCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_DCDC_OUT_CTRL_fields_::CNT_MODE,
+      StbyDcdcOutCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_DCDC_OUT_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_DCDC_OUT_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_DCDC_OUT_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_DCDC_OUT_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_DCDC_OUT_CTRL_fields_::DISABLE;
+      StbyDcdcOutCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyDcdcOutCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyDcdcOutCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyDcdcOutCtrlFields::CNT_MODE;
+    using DISABLE = StbyDcdcOutCtrlFields::DISABLE;
   };
 
   // STBY LDO out control
-  struct STBY_LDO_OUT_CTRL_fields_ {
+  struct StbyLdoOutCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -443,26 +443,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_LDO_OUT_CTRL_fields_
+  };  // struct StbyLdoOutCtrlFields
 
   struct STBY_LDO_OUT_CTRL : ftl::mmio::Register<
       0x40C02A20u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_LDO_OUT_CTRL_fields_::STEP_CNT,
+      StbyLdoOutCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_LDO_OUT_CTRL_fields_::CNT_MODE,
+      StbyLdoOutCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_LDO_OUT_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_LDO_OUT_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_LDO_OUT_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_LDO_OUT_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_LDO_OUT_CTRL_fields_::DISABLE;
+      StbyLdoOutCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyLdoOutCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyLdoOutCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyLdoOutCtrlFields::CNT_MODE;
+    using DISABLE = StbyLdoOutCtrlFields::DISABLE;
   };
 
   // STBY bandgap out control
-  struct STBY_BANDGAP_OUT_CTRL_fields_ {
+  struct StbyBandgapOutCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -480,26 +480,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_BANDGAP_OUT_CTRL_fields_
+  };  // struct StbyBandgapOutCtrlFields
 
   struct STBY_BANDGAP_OUT_CTRL : ftl::mmio::Register<
       0x40C02A30u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_BANDGAP_OUT_CTRL_fields_::STEP_CNT,
+      StbyBandgapOutCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_BANDGAP_OUT_CTRL_fields_::CNT_MODE,
+      StbyBandgapOutCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_BANDGAP_OUT_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_BANDGAP_OUT_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_BANDGAP_OUT_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_BANDGAP_OUT_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_BANDGAP_OUT_CTRL_fields_::DISABLE;
+      StbyBandgapOutCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyBandgapOutCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyBandgapOutCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyBandgapOutCtrlFields::CNT_MODE;
+    using DISABLE = StbyBandgapOutCtrlFields::DISABLE;
   };
 
   // STBY pldo out control
-  struct STBY_PLDO_OUT_CTRL_fields_ {
+  struct StbyPldoOutCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -517,26 +517,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_PLDO_OUT_CTRL_fields_
+  };  // struct StbyPldoOutCtrlFields
 
   struct STBY_PLDO_OUT_CTRL : ftl::mmio::Register<
       0x40C02A38u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_PLDO_OUT_CTRL_fields_::STEP_CNT,
+      StbyPldoOutCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_PLDO_OUT_CTRL_fields_::CNT_MODE,
+      StbyPldoOutCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_PLDO_OUT_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_PLDO_OUT_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_PLDO_OUT_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_PLDO_OUT_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_PLDO_OUT_CTRL_fields_::DISABLE;
+      StbyPldoOutCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyPldoOutCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyPldoOutCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyPldoOutCtrlFields::CNT_MODE;
+    using DISABLE = StbyPldoOutCtrlFields::DISABLE;
   };
 
   // STBY bias out control
-  struct STBY_BIAS_OUT_CTRL_fields_ {
+  struct StbyBiasOutCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -554,26 +554,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_BIAS_OUT_CTRL_fields_
+  };  // struct StbyBiasOutCtrlFields
 
   struct STBY_BIAS_OUT_CTRL : ftl::mmio::Register<
       0x40C02A40u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_BIAS_OUT_CTRL_fields_::STEP_CNT,
+      StbyBiasOutCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_BIAS_OUT_CTRL_fields_::CNT_MODE,
+      StbyBiasOutCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_BIAS_OUT_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_BIAS_OUT_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_BIAS_OUT_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_BIAS_OUT_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_BIAS_OUT_CTRL_fields_::DISABLE;
+      StbyBiasOutCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyBiasOutCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyBiasOutCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyBiasOutCtrlFields::CNT_MODE;
+    using DISABLE = StbyBiasOutCtrlFields::DISABLE;
   };
 
   // STBY PLL out control
-  struct STBY_PLL_OUT_CTRL_fields_ {
+  struct StbyPllOutCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -591,26 +591,26 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_PLL_OUT_CTRL_fields_
+  };  // struct StbyPllOutCtrlFields
 
   struct STBY_PLL_OUT_CTRL : ftl::mmio::Register<
       0x40C02A50u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_PLL_OUT_CTRL_fields_::STEP_CNT,
+      StbyPllOutCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_PLL_OUT_CTRL_fields_::CNT_MODE,
+      StbyPllOutCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_PLL_OUT_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_PLL_OUT_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_PLL_OUT_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_PLL_OUT_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_PLL_OUT_CTRL_fields_::DISABLE;
+      StbyPllOutCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyPllOutCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyPllOutCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyPllOutCtrlFields::CNT_MODE;
+    using DISABLE = StbyPllOutCtrlFields::DISABLE;
   };
 
   // STBY LPCG out control
-  struct STBY_LPCG_OUT_CTRL_fields_ {
+  struct StbyLpcgOutCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -628,22 +628,22 @@ struct GpcStbyCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STBY_LPCG_OUT_CTRL_fields_
+  };  // struct StbyLpcgOutCtrlFields
 
   struct STBY_LPCG_OUT_CTRL : ftl::mmio::Register<
       0x40C02A60u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      STBY_LPCG_OUT_CTRL_fields_::STEP_CNT,
+      StbyLpcgOutCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      STBY_LPCG_OUT_CTRL_fields_::CNT_MODE,
+      StbyLpcgOutCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      STBY_LPCG_OUT_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = STBY_LPCG_OUT_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = STBY_LPCG_OUT_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = STBY_LPCG_OUT_CTRL_fields_::CNT_MODE;
-    using DISABLE = STBY_LPCG_OUT_CTRL_fields_::DISABLE;
+      StbyLpcgOutCtrlFields::DISABLE> {
+    using eCNT_MODE = StbyLpcgOutCtrlFields::eCNT_MODE;
+    using STEP_CNT = StbyLpcgOutCtrlFields::STEP_CNT;
+    using CNT_MODE = StbyLpcgOutCtrlFields::CNT_MODE;
+    using DISABLE = StbyLpcgOutCtrlFields::DISABLE;
   };
 
 };

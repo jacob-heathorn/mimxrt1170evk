@@ -10,127 +10,127 @@ namespace regs {
 
 struct Mub {
   // Processor B Transmit Register 0
-  struct TR0_fields_ {
+  struct Tr0Fields {
     // TR0
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TR0_fields_
+  };  // struct Tr0Fields
 
   struct TR0 : ftl::mmio::Register<
       0x40C4C000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TR0_fields_::DATA> {
-    using DATA = TR0_fields_::DATA;
+      Tr0Fields::DATA> {
+    using DATA = Tr0Fields::DATA;
   };
 
   // Processor B Transmit Register 1
-  struct TR1_fields_ {
+  struct Tr1Fields {
     // TR1
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TR1_fields_
+  };  // struct Tr1Fields
 
   struct TR1 : ftl::mmio::Register<
       0x40C4C004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TR1_fields_::DATA> {
-    using DATA = TR1_fields_::DATA;
+      Tr1Fields::DATA> {
+    using DATA = Tr1Fields::DATA;
   };
 
   // Processor B Transmit Register 2
-  struct TR2_fields_ {
+  struct Tr2Fields {
     // TR2
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TR2_fields_
+  };  // struct Tr2Fields
 
   struct TR2 : ftl::mmio::Register<
       0x40C4C008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TR2_fields_::DATA> {
-    using DATA = TR2_fields_::DATA;
+      Tr2Fields::DATA> {
+    using DATA = Tr2Fields::DATA;
   };
 
   // Processor B Transmit Register 3
-  struct TR3_fields_ {
+  struct Tr3Fields {
     // TR3
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TR3_fields_
+  };  // struct Tr3Fields
 
   struct TR3 : ftl::mmio::Register<
       0x40C4C00Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      TR3_fields_::DATA> {
-    using DATA = TR3_fields_::DATA;
+      Tr3Fields::DATA> {
+    using DATA = Tr3Fields::DATA;
   };
 
   // Processor B Receive Register 0
-  struct RR0_fields_ {
+  struct Rr0Fields {
     // RR0
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RR0_fields_
+  };  // struct Rr0Fields
 
   struct RR0 : ftl::mmio::Register<
       0x40C4C010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RR0_fields_::DATA> {
-    using DATA = RR0_fields_::DATA;
+      Rr0Fields::DATA> {
+    using DATA = Rr0Fields::DATA;
   };
 
   // Processor B Receive Register 1
-  struct RR1_fields_ {
+  struct Rr1Fields {
     // RR1
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RR1_fields_
+  };  // struct Rr1Fields
 
   struct RR1 : ftl::mmio::Register<
       0x40C4C014u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RR1_fields_::DATA> {
-    using DATA = RR1_fields_::DATA;
+      Rr1Fields::DATA> {
+    using DATA = Rr1Fields::DATA;
   };
 
   // Processor B Receive Register 2
-  struct RR2_fields_ {
+  struct Rr2Fields {
     // RR2
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RR2_fields_
+  };  // struct Rr2Fields
 
   struct RR2 : ftl::mmio::Register<
       0x40C4C018u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RR2_fields_::DATA> {
-    using DATA = RR2_fields_::DATA;
+      Rr2Fields::DATA> {
+    using DATA = Rr2Fields::DATA;
   };
 
   // Processor B Receive Register 3
-  struct RR3_fields_ {
+  struct Rr3Fields {
     // RR3
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RR3_fields_
+  };  // struct Rr3Fields
 
   struct RR3 : ftl::mmio::Register<
       0x40C4C01Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      RR3_fields_::DATA> {
-    using DATA = RR3_fields_::DATA;
+      Rr3Fields::DATA> {
+    using DATA = Rr3Fields::DATA;
   };
 
   // Processor B Status Register
-  struct SR_fields_ {
+  struct SrFields {
     enum class eFn : std::uint32_t {
       // ABFn bit in MUA.CR register is written 0 (default).
       ezero = 0,
@@ -194,41 +194,41 @@ struct Mub {
     using RFn = ftl::mmio::Field<4, 24, eRFn, ftl::mmio::RO, ftl::mmio::Normal>;
     // GIPn
     using GIPn = ftl::mmio::Field<4, 28, eGIPn, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct SR_fields_
+  };  // struct SrFields
 
   struct SR : ftl::mmio::Register<
       0x40C4C020u,
       std::uint32_t,
       0x00F00080u,
       ftl::mmio::RW,
-      SR_fields_::Fn,
+      SrFields::Fn,
       ftl::mmio::Reserved<1, 3>,
-      SR_fields_::EP,
+      SrFields::EP,
       ftl::mmio::Reserved<2, 5>,
-      SR_fields_::RS,
-      SR_fields_::FUP,
+      SrFields::RS,
+      SrFields::FUP,
       ftl::mmio::Reserved<11, 9>,
-      SR_fields_::TEn,
-      SR_fields_::RFn,
-      SR_fields_::GIPn> {
-    using eFn = SR_fields_::eFn;
-    using eEP = SR_fields_::eEP;
-    using eRS = SR_fields_::eRS;
-    using eFUP = SR_fields_::eFUP;
-    using eTEn = SR_fields_::eTEn;
-    using eRFn = SR_fields_::eRFn;
-    using eGIPn = SR_fields_::eGIPn;
-    using Fn = SR_fields_::Fn;
-    using EP = SR_fields_::EP;
-    using RS = SR_fields_::RS;
-    using FUP = SR_fields_::FUP;
-    using TEn = SR_fields_::TEn;
-    using RFn = SR_fields_::RFn;
-    using GIPn = SR_fields_::GIPn;
+      SrFields::TEn,
+      SrFields::RFn,
+      SrFields::GIPn> {
+    using eFn = SrFields::eFn;
+    using eEP = SrFields::eEP;
+    using eRS = SrFields::eRS;
+    using eFUP = SrFields::eFUP;
+    using eTEn = SrFields::eTEn;
+    using eRFn = SrFields::eRFn;
+    using eGIPn = SrFields::eGIPn;
+    using Fn = SrFields::Fn;
+    using EP = SrFields::EP;
+    using RS = SrFields::RS;
+    using FUP = SrFields::FUP;
+    using TEn = SrFields::TEn;
+    using RFn = SrFields::RFn;
+    using GIPn = SrFields::GIPn;
   };
 
   // Processor B Control Register
-  struct CR_fields_ {
+  struct CrFields {
     enum class eFn : std::uint32_t {
       // Clears the Fn bit in the MUA.SR register.
       eclear = 0,
@@ -274,29 +274,29 @@ struct Mub {
     using RIEn = ftl::mmio::Field<4, 24, eRIEn, ftl::mmio::RW, ftl::mmio::Normal>;
     // GIEn
     using GIEn = ftl::mmio::Field<4, 28, eGIEn, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CR_fields_
+  };  // struct CrFields
 
   struct CR : ftl::mmio::Register<
       0x40C4C024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CR_fields_::Fn,
+      CrFields::Fn,
       ftl::mmio::Reserved<13, 3>,
-      CR_fields_::GIRn,
-      CR_fields_::TIEn,
-      CR_fields_::RIEn,
-      CR_fields_::GIEn> {
-    using eFn = CR_fields_::eFn;
-    using eGIRn = CR_fields_::eGIRn;
-    using eTIEn = CR_fields_::eTIEn;
-    using eRIEn = CR_fields_::eRIEn;
-    using eGIEn = CR_fields_::eGIEn;
-    using Fn = CR_fields_::Fn;
-    using GIRn = CR_fields_::GIRn;
-    using TIEn = CR_fields_::TIEn;
-    using RIEn = CR_fields_::RIEn;
-    using GIEn = CR_fields_::GIEn;
+      CrFields::GIRn,
+      CrFields::TIEn,
+      CrFields::RIEn,
+      CrFields::GIEn> {
+    using eFn = CrFields::eFn;
+    using eGIRn = CrFields::eGIRn;
+    using eTIEn = CrFields::eTIEn;
+    using eRIEn = CrFields::eRIEn;
+    using eGIEn = CrFields::eGIEn;
+    using Fn = CrFields::Fn;
+    using GIRn = CrFields::GIRn;
+    using TIEn = CrFields::TIEn;
+    using RIEn = CrFields::RIEn;
+    using GIEn = CrFields::GIEn;
   };
 
 };

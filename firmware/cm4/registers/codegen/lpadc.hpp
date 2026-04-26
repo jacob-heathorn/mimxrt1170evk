@@ -20,7 +20,7 @@ struct Lpadc {
       0u;
 
   // Version ID Register
-  struct VERID_fields_ {
+  struct VeridFields {
     enum class eRES : std::uint32_t {
       // Up to 13-bit differential/12-bit single ended resolution supported.
       eRES_0 = 0,
@@ -90,45 +90,45 @@ struct Lpadc {
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Major Version Number
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERID_fields_
+  };  // struct VeridFields
 
   struct VERID : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x0100001Au,
       ftl::mmio::RO,
-      typename VERID_fields_::RES,
-      typename VERID_fields_::DIFFEN,
+      typename VeridFields::RES,
+      typename VeridFields::DIFFEN,
       ftl::mmio::Reserved<1, 2>,
-      typename VERID_fields_::MVI,
-      typename VERID_fields_::CSW,
+      typename VeridFields::MVI,
+      typename VeridFields::CSW,
       ftl::mmio::Reserved<1, 7>,
-      typename VERID_fields_::VR1RNGI,
-      typename VERID_fields_::IADCKI,
-      typename VERID_fields_::CALOFSI,
+      typename VeridFields::VR1RNGI,
+      typename VeridFields::IADCKI,
+      typename VeridFields::CALOFSI,
       ftl::mmio::Reserved<5, 11>,
-      typename VERID_fields_::MINOR,
-      typename VERID_fields_::MAJOR> {
-    using eRES = typename VERID_fields_::eRES;
-    using eDIFFEN = typename VERID_fields_::eDIFFEN;
-    using eMVI = typename VERID_fields_::eMVI;
-    using eCSW = typename VERID_fields_::eCSW;
-    using eVR1RNGI = typename VERID_fields_::eVR1RNGI;
-    using eIADCKI = typename VERID_fields_::eIADCKI;
-    using eCALOFSI = typename VERID_fields_::eCALOFSI;
-    using RES = typename VERID_fields_::RES;
-    using DIFFEN = typename VERID_fields_::DIFFEN;
-    using MVI = typename VERID_fields_::MVI;
-    using CSW = typename VERID_fields_::CSW;
-    using VR1RNGI = typename VERID_fields_::VR1RNGI;
-    using IADCKI = typename VERID_fields_::IADCKI;
-    using CALOFSI = typename VERID_fields_::CALOFSI;
-    using MINOR = typename VERID_fields_::MINOR;
-    using MAJOR = typename VERID_fields_::MAJOR;
+      typename VeridFields::MINOR,
+      typename VeridFields::MAJOR> {
+    using eRES = typename VeridFields::eRES;
+    using eDIFFEN = typename VeridFields::eDIFFEN;
+    using eMVI = typename VeridFields::eMVI;
+    using eCSW = typename VeridFields::eCSW;
+    using eVR1RNGI = typename VeridFields::eVR1RNGI;
+    using eIADCKI = typename VeridFields::eIADCKI;
+    using eCALOFSI = typename VeridFields::eCALOFSI;
+    using RES = typename VeridFields::RES;
+    using DIFFEN = typename VeridFields::DIFFEN;
+    using MVI = typename VeridFields::MVI;
+    using CSW = typename VeridFields::CSW;
+    using VR1RNGI = typename VeridFields::VR1RNGI;
+    using IADCKI = typename VeridFields::IADCKI;
+    using CALOFSI = typename VeridFields::CALOFSI;
+    using MINOR = typename VeridFields::MINOR;
+    using MAJOR = typename VeridFields::MAJOR;
   };
 
   // Parameter Register
-  struct PARAM_fields_ {
+  struct ParamFields {
     enum class eTRIG_NUM : std::uint32_t {
       // 8 hardware triggers implemented
       eTRIG_NUM_8 = 8,
@@ -157,29 +157,29 @@ struct Lpadc {
     using CV_NUM = ftl::mmio::Field<8, 16, eCV_NUM, ftl::mmio::RO, ftl::mmio::Normal>;
     // Command Buffer Number
     using CMD_NUM = ftl::mmio::Field<8, 24, eCMD_NUM, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PARAM_fields_
+  };  // struct ParamFields
 
   struct PARAM : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x0F041008u,
       ftl::mmio::RO,
-      typename PARAM_fields_::TRIG_NUM,
-      typename PARAM_fields_::FIFOSIZE,
-      typename PARAM_fields_::CV_NUM,
-      typename PARAM_fields_::CMD_NUM> {
-    using eTRIG_NUM = typename PARAM_fields_::eTRIG_NUM;
-    using eFIFOSIZE = typename PARAM_fields_::eFIFOSIZE;
-    using eCV_NUM = typename PARAM_fields_::eCV_NUM;
-    using eCMD_NUM = typename PARAM_fields_::eCMD_NUM;
-    using TRIG_NUM = typename PARAM_fields_::TRIG_NUM;
-    using FIFOSIZE = typename PARAM_fields_::FIFOSIZE;
-    using CV_NUM = typename PARAM_fields_::CV_NUM;
-    using CMD_NUM = typename PARAM_fields_::CMD_NUM;
+      typename ParamFields::TRIG_NUM,
+      typename ParamFields::FIFOSIZE,
+      typename ParamFields::CV_NUM,
+      typename ParamFields::CMD_NUM> {
+    using eTRIG_NUM = typename ParamFields::eTRIG_NUM;
+    using eFIFOSIZE = typename ParamFields::eFIFOSIZE;
+    using eCV_NUM = typename ParamFields::eCV_NUM;
+    using eCMD_NUM = typename ParamFields::eCMD_NUM;
+    using TRIG_NUM = typename ParamFields::TRIG_NUM;
+    using FIFOSIZE = typename ParamFields::FIFOSIZE;
+    using CV_NUM = typename ParamFields::CV_NUM;
+    using CMD_NUM = typename ParamFields::CMD_NUM;
   };
 
   // LPADC Control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eADCEN : std::uint32_t {
       // LPADC is disabled.
       eADCEN_0 = 0,
@@ -227,34 +227,34 @@ struct Lpadc {
     using TRIG_SRC = ftl::mmio::Field<2, 3, eTRIG_SRC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Reset FIFO
     using RSTFIFO = ftl::mmio::Field<1, 8, eRSTFIFO, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CTRL_fields_::ADCEN,
-      typename CTRL_fields_::RST,
-      typename CTRL_fields_::DOZEN,
-      typename CTRL_fields_::TRIG_SRC,
+      typename CtrlFields::ADCEN,
+      typename CtrlFields::RST,
+      typename CtrlFields::DOZEN,
+      typename CtrlFields::TRIG_SRC,
       ftl::mmio::Reserved<3, 5>,
-      typename CTRL_fields_::RSTFIFO,
+      typename CtrlFields::RSTFIFO,
       ftl::mmio::Reserved<23, 9>> {
-    using eADCEN = typename CTRL_fields_::eADCEN;
-    using eRST = typename CTRL_fields_::eRST;
-    using eDOZEN = typename CTRL_fields_::eDOZEN;
-    using eTRIG_SRC = typename CTRL_fields_::eTRIG_SRC;
-    using eRSTFIFO = typename CTRL_fields_::eRSTFIFO;
-    using ADCEN = typename CTRL_fields_::ADCEN;
-    using RST = typename CTRL_fields_::RST;
-    using DOZEN = typename CTRL_fields_::DOZEN;
-    using TRIG_SRC = typename CTRL_fields_::TRIG_SRC;
-    using RSTFIFO = typename CTRL_fields_::RSTFIFO;
+    using eADCEN = typename CtrlFields::eADCEN;
+    using eRST = typename CtrlFields::eRST;
+    using eDOZEN = typename CtrlFields::eDOZEN;
+    using eTRIG_SRC = typename CtrlFields::eTRIG_SRC;
+    using eRSTFIFO = typename CtrlFields::eRSTFIFO;
+    using ADCEN = typename CtrlFields::ADCEN;
+    using RST = typename CtrlFields::RST;
+    using DOZEN = typename CtrlFields::DOZEN;
+    using TRIG_SRC = typename CtrlFields::TRIG_SRC;
+    using RSTFIFO = typename CtrlFields::RSTFIFO;
   };
 
   // LPADC Status Register
-  struct STAT_fields_ {
+  struct StatFields {
     enum class eRDY : std::uint32_t {
       // Result FIFO data level not above watermark level.
       eRDY_0 = 0,
@@ -328,36 +328,36 @@ struct Lpadc {
     using TRGACT = ftl::mmio::Field<3, 16, eTRGACT, ftl::mmio::RO, ftl::mmio::Normal>;
     // Command Active
     using CMDACT = ftl::mmio::Field<4, 24, eCMDACT, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct STAT_fields_
+  };  // struct StatFields
 
   struct STAT : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename STAT_fields_::RDY,
-      typename STAT_fields_::FOF,
+      typename StatFields::RDY,
+      typename StatFields::FOF,
       ftl::mmio::Reserved<6, 2>,
-      typename STAT_fields_::ADC_ACTIVE,
+      typename StatFields::ADC_ACTIVE,
       ftl::mmio::Reserved<7, 9>,
-      typename STAT_fields_::TRGACT,
+      typename StatFields::TRGACT,
       ftl::mmio::Reserved<5, 19>,
-      typename STAT_fields_::CMDACT,
+      typename StatFields::CMDACT,
       ftl::mmio::Reserved<4, 28>> {
-    using eRDY = typename STAT_fields_::eRDY;
-    using eFOF = typename STAT_fields_::eFOF;
-    using eADC_ACTIVE = typename STAT_fields_::eADC_ACTIVE;
-    using eTRGACT = typename STAT_fields_::eTRGACT;
-    using eCMDACT = typename STAT_fields_::eCMDACT;
-    using RDY = typename STAT_fields_::RDY;
-    using FOF = typename STAT_fields_::FOF;
-    using ADC_ACTIVE = typename STAT_fields_::ADC_ACTIVE;
-    using TRGACT = typename STAT_fields_::TRGACT;
-    using CMDACT = typename STAT_fields_::CMDACT;
+    using eRDY = typename StatFields::eRDY;
+    using eFOF = typename StatFields::eFOF;
+    using eADC_ACTIVE = typename StatFields::eADC_ACTIVE;
+    using eTRGACT = typename StatFields::eTRGACT;
+    using eCMDACT = typename StatFields::eCMDACT;
+    using RDY = typename StatFields::RDY;
+    using FOF = typename StatFields::FOF;
+    using ADC_ACTIVE = typename StatFields::ADC_ACTIVE;
+    using TRGACT = typename StatFields::TRGACT;
+    using CMDACT = typename StatFields::CMDACT;
   };
 
   // Interrupt Enable Register
-  struct IE_fields_ {
+  struct IeFields {
     enum class eFWMIE : std::uint32_t {
       // FIFO watermark interrupts are not enabled.
       eFWMIE_0 = 0,
@@ -376,24 +376,24 @@ struct Lpadc {
     using FWMIE = ftl::mmio::Field<1, 0, eFWMIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Result FIFO Overflow Interrupt Enable
     using FOFIE = ftl::mmio::Field<1, 1, eFOFIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct IE_fields_
+  };  // struct IeFields
 
   struct IE : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename IE_fields_::FWMIE,
-      typename IE_fields_::FOFIE,
+      typename IeFields::FWMIE,
+      typename IeFields::FOFIE,
       ftl::mmio::Reserved<30, 2>> {
-    using eFWMIE = typename IE_fields_::eFWMIE;
-    using eFOFIE = typename IE_fields_::eFOFIE;
-    using FWMIE = typename IE_fields_::FWMIE;
-    using FOFIE = typename IE_fields_::FOFIE;
+    using eFWMIE = typename IeFields::eFWMIE;
+    using eFOFIE = typename IeFields::eFOFIE;
+    using FWMIE = typename IeFields::FWMIE;
+    using FOFIE = typename IeFields::FOFIE;
   };
 
   // DMA Enable Register
-  struct DE_fields_ {
+  struct DeFields {
     enum class eFWMDE : std::uint32_t {
       // DMA request disabled.
       eFWMDE_0 = 0,
@@ -403,21 +403,21 @@ struct Lpadc {
 
     // FIFO Watermark DMA Enable
     using FWMDE = ftl::mmio::Field<1, 0, eFWMDE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DE_fields_
+  };  // struct DeFields
 
   struct DE : ftl::mmio::Register<
       kBase + 0x1Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename DE_fields_::FWMDE,
+      typename DeFields::FWMDE,
       ftl::mmio::Reserved<31, 1>> {
-    using eFWMDE = typename DE_fields_::eFWMDE;
-    using FWMDE = typename DE_fields_::FWMDE;
+    using eFWMDE = typename DeFields::eFWMDE;
+    using FWMDE = typename DeFields::FWMDE;
   };
 
   // LPADC Configuration Register
-  struct CFG_fields_ {
+  struct CfgFields {
     enum class eTPRICTRL : std::uint32_t {
       // If a higher priority trigger is detected during command processing, the current conversion is aborted and the new command specified by the trigger is started.
       eTPRICTRL_0 = 0,
@@ -462,35 +462,35 @@ struct Lpadc {
     using PUDLY = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // LPADC Analog Pre-Enable
     using PWREN = ftl::mmio::Field<1, 28, ePWREN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CFG_fields_
+  };  // struct CfgFields
 
   struct CFG : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint32_t,
       0x00800000u,
       ftl::mmio::RW,
-      typename CFG_fields_::TPRICTRL,
+      typename CfgFields::TPRICTRL,
       ftl::mmio::Reserved<3, 1>,
-      typename CFG_fields_::PWRSEL,
-      typename CFG_fields_::REFSEL,
+      typename CfgFields::PWRSEL,
+      typename CfgFields::REFSEL,
       ftl::mmio::Reserved<8, 8>,
-      typename CFG_fields_::PUDLY,
+      typename CfgFields::PUDLY,
       ftl::mmio::Reserved<4, 24>,
-      typename CFG_fields_::PWREN,
+      typename CfgFields::PWREN,
       ftl::mmio::Reserved<3, 29>> {
-    using eTPRICTRL = typename CFG_fields_::eTPRICTRL;
-    using ePWRSEL = typename CFG_fields_::ePWRSEL;
-    using eREFSEL = typename CFG_fields_::eREFSEL;
-    using ePWREN = typename CFG_fields_::ePWREN;
-    using TPRICTRL = typename CFG_fields_::TPRICTRL;
-    using PWRSEL = typename CFG_fields_::PWRSEL;
-    using REFSEL = typename CFG_fields_::REFSEL;
-    using PUDLY = typename CFG_fields_::PUDLY;
-    using PWREN = typename CFG_fields_::PWREN;
+    using eTPRICTRL = typename CfgFields::eTPRICTRL;
+    using ePWRSEL = typename CfgFields::ePWRSEL;
+    using eREFSEL = typename CfgFields::eREFSEL;
+    using ePWREN = typename CfgFields::ePWREN;
+    using TPRICTRL = typename CfgFields::TPRICTRL;
+    using PWRSEL = typename CfgFields::PWRSEL;
+    using REFSEL = typename CfgFields::REFSEL;
+    using PUDLY = typename CfgFields::PUDLY;
+    using PWREN = typename CfgFields::PWREN;
   };
 
   // LPADC Pause Register
-  struct PAUSE_fields_ {
+  struct PauseFields {
     enum class ePAUSEEN : std::uint32_t {
       // Pause operation disabled
       ePAUSEEN_0 = 0,
@@ -502,23 +502,23 @@ struct Lpadc {
     using PAUSEDLY = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // PAUSE Option Enable
     using PAUSEEN = ftl::mmio::Field<1, 31, ePAUSEEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PAUSE_fields_
+  };  // struct PauseFields
 
   struct PAUSE : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename PAUSE_fields_::PAUSEDLY,
+      typename PauseFields::PAUSEDLY,
       ftl::mmio::Reserved<22, 9>,
-      typename PAUSE_fields_::PAUSEEN> {
-    using ePAUSEEN = typename PAUSE_fields_::ePAUSEEN;
-    using PAUSEDLY = typename PAUSE_fields_::PAUSEDLY;
-    using PAUSEEN = typename PAUSE_fields_::PAUSEEN;
+      typename PauseFields::PAUSEEN> {
+    using ePAUSEEN = typename PauseFields::ePAUSEEN;
+    using PAUSEDLY = typename PauseFields::PAUSEDLY;
+    using PAUSEEN = typename PauseFields::PAUSEEN;
   };
 
   // LPADC FIFO Control Register
-  struct FCTRL_fields_ {
+  struct FctrlFields {
     enum class eFCOUNT : std::uint32_t {
       // No data stored in FIFO
       eFCOUNT_0 = 0,
@@ -573,25 +573,25 @@ struct Lpadc {
     using FCOUNT = ftl::mmio::Field<5, 0, eFCOUNT, ftl::mmio::RO, ftl::mmio::Normal>;
     // Watermark level selection
     using FWMARK = ftl::mmio::Field<4, 16, eFWMARK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FCTRL_fields_
+  };  // struct FctrlFields
 
   struct FCTRL : ftl::mmio::Register<
       kBase + 0x30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename FCTRL_fields_::FCOUNT,
+      typename FctrlFields::FCOUNT,
       ftl::mmio::Reserved<11, 5>,
-      typename FCTRL_fields_::FWMARK,
+      typename FctrlFields::FWMARK,
       ftl::mmio::Reserved<12, 20>> {
-    using eFCOUNT = typename FCTRL_fields_::eFCOUNT;
-    using eFWMARK = typename FCTRL_fields_::eFWMARK;
-    using FCOUNT = typename FCTRL_fields_::FCOUNT;
-    using FWMARK = typename FCTRL_fields_::FWMARK;
+    using eFCOUNT = typename FctrlFields::eFCOUNT;
+    using eFWMARK = typename FctrlFields::eFWMARK;
+    using FCOUNT = typename FctrlFields::FCOUNT;
+    using FWMARK = typename FctrlFields::FWMARK;
   };
 
   // Software Trigger Register
-  struct SWTRIG_fields_ {
+  struct SwtrigFields {
     enum class eSWT0 : std::uint32_t {
       // No trigger 0 event generated.
       eSWT0_0 = 0,
@@ -664,42 +664,42 @@ struct Lpadc {
     using SWT6 = ftl::mmio::Field<1, 6, eSWT6, ftl::mmio::RW, ftl::mmio::Normal>;
     // Software trigger 7 event
     using SWT7 = ftl::mmio::Field<1, 7, eSWT7, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SWTRIG_fields_
+  };  // struct SwtrigFields
 
   struct SWTRIG : ftl::mmio::Register<
       kBase + 0x34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SWTRIG_fields_::SWT0,
-      typename SWTRIG_fields_::SWT1,
-      typename SWTRIG_fields_::SWT2,
-      typename SWTRIG_fields_::SWT3,
-      typename SWTRIG_fields_::SWT4,
-      typename SWTRIG_fields_::SWT5,
-      typename SWTRIG_fields_::SWT6,
-      typename SWTRIG_fields_::SWT7,
+      typename SwtrigFields::SWT0,
+      typename SwtrigFields::SWT1,
+      typename SwtrigFields::SWT2,
+      typename SwtrigFields::SWT3,
+      typename SwtrigFields::SWT4,
+      typename SwtrigFields::SWT5,
+      typename SwtrigFields::SWT6,
+      typename SwtrigFields::SWT7,
       ftl::mmio::Reserved<24, 8>> {
-    using eSWT0 = typename SWTRIG_fields_::eSWT0;
-    using eSWT1 = typename SWTRIG_fields_::eSWT1;
-    using eSWT2 = typename SWTRIG_fields_::eSWT2;
-    using eSWT3 = typename SWTRIG_fields_::eSWT3;
-    using eSWT4 = typename SWTRIG_fields_::eSWT4;
-    using eSWT5 = typename SWTRIG_fields_::eSWT5;
-    using eSWT6 = typename SWTRIG_fields_::eSWT6;
-    using eSWT7 = typename SWTRIG_fields_::eSWT7;
-    using SWT0 = typename SWTRIG_fields_::SWT0;
-    using SWT1 = typename SWTRIG_fields_::SWT1;
-    using SWT2 = typename SWTRIG_fields_::SWT2;
-    using SWT3 = typename SWTRIG_fields_::SWT3;
-    using SWT4 = typename SWTRIG_fields_::SWT4;
-    using SWT5 = typename SWTRIG_fields_::SWT5;
-    using SWT6 = typename SWTRIG_fields_::SWT6;
-    using SWT7 = typename SWTRIG_fields_::SWT7;
+    using eSWT0 = typename SwtrigFields::eSWT0;
+    using eSWT1 = typename SwtrigFields::eSWT1;
+    using eSWT2 = typename SwtrigFields::eSWT2;
+    using eSWT3 = typename SwtrigFields::eSWT3;
+    using eSWT4 = typename SwtrigFields::eSWT4;
+    using eSWT5 = typename SwtrigFields::eSWT5;
+    using eSWT6 = typename SwtrigFields::eSWT6;
+    using eSWT7 = typename SwtrigFields::eSWT7;
+    using SWT0 = typename SwtrigFields::SWT0;
+    using SWT1 = typename SwtrigFields::SWT1;
+    using SWT2 = typename SwtrigFields::SWT2;
+    using SWT3 = typename SwtrigFields::SWT3;
+    using SWT4 = typename SwtrigFields::SWT4;
+    using SWT5 = typename SwtrigFields::SWT5;
+    using SWT6 = typename SwtrigFields::SWT6;
+    using SWT7 = typename SwtrigFields::SWT7;
   };
 
   // Trigger Control Register
-  struct TCTRL_fields_ {
+  struct TctrlFields {
     enum class eHTEN : std::uint32_t {
       // Hardware trigger source disabled
       eHTEN_0 = 0,
@@ -768,7 +768,7 @@ struct Lpadc {
     using TDLY = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Trigger command select
     using TCMD = ftl::mmio::Field<4, 24, eTCMD, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCTRL_fields_
+  };  // struct TctrlFields
 
   template<std::uint32_t Index>
   struct TCTRL : ftl::mmio::Register<
@@ -776,29 +776,29 @@ struct Lpadc {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TCTRL_fields_::HTEN,
-      typename TCTRL_fields_::CMD_SEL,
+      typename TctrlFields::HTEN,
+      typename TctrlFields::CMD_SEL,
       ftl::mmio::Reserved<6, 2>,
-      typename TCTRL_fields_::TPRI,
+      typename TctrlFields::TPRI,
       ftl::mmio::Reserved<5, 11>,
-      typename TCTRL_fields_::TDLY,
+      typename TctrlFields::TDLY,
       ftl::mmio::Reserved<4, 20>,
-      typename TCTRL_fields_::TCMD,
+      typename TctrlFields::TCMD,
       ftl::mmio::Reserved<4, 28>> {
     static_assert(Index < 8u, "TCTRL: Index out of range");
-    using eHTEN = typename TCTRL_fields_::eHTEN;
-    using eCMD_SEL = typename TCTRL_fields_::eCMD_SEL;
-    using eTPRI = typename TCTRL_fields_::eTPRI;
-    using eTCMD = typename TCTRL_fields_::eTCMD;
-    using HTEN = typename TCTRL_fields_::HTEN;
-    using CMD_SEL = typename TCTRL_fields_::CMD_SEL;
-    using TPRI = typename TCTRL_fields_::TPRI;
-    using TDLY = typename TCTRL_fields_::TDLY;
-    using TCMD = typename TCTRL_fields_::TCMD;
+    using eHTEN = typename TctrlFields::eHTEN;
+    using eCMD_SEL = typename TctrlFields::eCMD_SEL;
+    using eTPRI = typename TctrlFields::eTPRI;
+    using eTCMD = typename TctrlFields::eTCMD;
+    using HTEN = typename TctrlFields::HTEN;
+    using CMD_SEL = typename TctrlFields::CMD_SEL;
+    using TPRI = typename TctrlFields::TPRI;
+    using TDLY = typename TctrlFields::TDLY;
+    using TCMD = typename TctrlFields::TCMD;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL1_fields_ {
+  struct Cmdl1Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -855,31 +855,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL1_fields_
+  };  // struct Cmdl1Fields
 
   struct CMDL1 : ftl::mmio::Register<
       kBase + 0x100u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL1_fields_::ADCH,
-      typename CMDL1_fields_::ABSEL,
-      typename CMDL1_fields_::DIFF,
+      typename Cmdl1Fields::ADCH,
+      typename Cmdl1Fields::ABSEL,
+      typename Cmdl1Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL1_fields_::CSCALE,
+      typename Cmdl1Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL1_fields_::eADCH;
-    using eABSEL = typename CMDL1_fields_::eABSEL;
-    using eDIFF = typename CMDL1_fields_::eDIFF;
-    using eCSCALE = typename CMDL1_fields_::eCSCALE;
-    using ADCH = typename CMDL1_fields_::ADCH;
-    using ABSEL = typename CMDL1_fields_::ABSEL;
-    using DIFF = typename CMDL1_fields_::DIFF;
-    using CSCALE = typename CMDL1_fields_::CSCALE;
+    using eADCH = typename Cmdl1Fields::eADCH;
+    using eABSEL = typename Cmdl1Fields::eABSEL;
+    using eDIFF = typename Cmdl1Fields::eDIFF;
+    using eCSCALE = typename Cmdl1Fields::eCSCALE;
+    using ADCH = typename Cmdl1Fields::ADCH;
+    using ABSEL = typename Cmdl1Fields::ABSEL;
+    using DIFF = typename Cmdl1Fields::DIFF;
+    using CSCALE = typename Cmdl1Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH1_fields_ {
+  struct Cmdh1Fields {
     enum class eCMPEN : std::uint32_t {
       // Compare disabled.
       eCMPEN_0 = 0,
@@ -996,40 +996,40 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH1_fields_
+  };  // struct Cmdh1Fields
 
   struct CMDH1 : ftl::mmio::Register<
       kBase + 0x104u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CMDH1_fields_::CMPEN,
+      typename Cmdh1Fields::CMPEN,
       ftl::mmio::Reserved<5, 2>,
-      typename CMDH1_fields_::LWI,
-      typename CMDH1_fields_::STS,
+      typename Cmdh1Fields::LWI,
+      typename Cmdh1Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH1_fields_::AVGS,
+      typename Cmdh1Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH1_fields_::LOOP,
+      typename Cmdh1Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH1_fields_::NEXT,
+      typename Cmdh1Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eCMPEN = typename CMDH1_fields_::eCMPEN;
-    using eLWI = typename CMDH1_fields_::eLWI;
-    using eSTS = typename CMDH1_fields_::eSTS;
-    using eAVGS = typename CMDH1_fields_::eAVGS;
-    using eLOOP = typename CMDH1_fields_::eLOOP;
-    using eNEXT = typename CMDH1_fields_::eNEXT;
-    using CMPEN = typename CMDH1_fields_::CMPEN;
-    using LWI = typename CMDH1_fields_::LWI;
-    using STS = typename CMDH1_fields_::STS;
-    using AVGS = typename CMDH1_fields_::AVGS;
-    using LOOP = typename CMDH1_fields_::LOOP;
-    using NEXT = typename CMDH1_fields_::NEXT;
+    using eCMPEN = typename Cmdh1Fields::eCMPEN;
+    using eLWI = typename Cmdh1Fields::eLWI;
+    using eSTS = typename Cmdh1Fields::eSTS;
+    using eAVGS = typename Cmdh1Fields::eAVGS;
+    using eLOOP = typename Cmdh1Fields::eLOOP;
+    using eNEXT = typename Cmdh1Fields::eNEXT;
+    using CMPEN = typename Cmdh1Fields::CMPEN;
+    using LWI = typename Cmdh1Fields::LWI;
+    using STS = typename Cmdh1Fields::STS;
+    using AVGS = typename Cmdh1Fields::AVGS;
+    using LOOP = typename Cmdh1Fields::LOOP;
+    using NEXT = typename Cmdh1Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL2_fields_ {
+  struct Cmdl2Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -1086,31 +1086,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL2_fields_
+  };  // struct Cmdl2Fields
 
   struct CMDL2 : ftl::mmio::Register<
       kBase + 0x108u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL2_fields_::ADCH,
-      typename CMDL2_fields_::ABSEL,
-      typename CMDL2_fields_::DIFF,
+      typename Cmdl2Fields::ADCH,
+      typename Cmdl2Fields::ABSEL,
+      typename Cmdl2Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL2_fields_::CSCALE,
+      typename Cmdl2Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL2_fields_::eADCH;
-    using eABSEL = typename CMDL2_fields_::eABSEL;
-    using eDIFF = typename CMDL2_fields_::eDIFF;
-    using eCSCALE = typename CMDL2_fields_::eCSCALE;
-    using ADCH = typename CMDL2_fields_::ADCH;
-    using ABSEL = typename CMDL2_fields_::ABSEL;
-    using DIFF = typename CMDL2_fields_::DIFF;
-    using CSCALE = typename CMDL2_fields_::CSCALE;
+    using eADCH = typename Cmdl2Fields::eADCH;
+    using eABSEL = typename Cmdl2Fields::eABSEL;
+    using eDIFF = typename Cmdl2Fields::eDIFF;
+    using eCSCALE = typename Cmdl2Fields::eCSCALE;
+    using ADCH = typename Cmdl2Fields::ADCH;
+    using ABSEL = typename Cmdl2Fields::ABSEL;
+    using DIFF = typename Cmdl2Fields::DIFF;
+    using CSCALE = typename Cmdl2Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH2_fields_ {
+  struct Cmdh2Fields {
     enum class eCMPEN : std::uint32_t {
       // Compare disabled.
       eCMPEN_0 = 0,
@@ -1227,40 +1227,40 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH2_fields_
+  };  // struct Cmdh2Fields
 
   struct CMDH2 : ftl::mmio::Register<
       kBase + 0x10Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CMDH2_fields_::CMPEN,
+      typename Cmdh2Fields::CMPEN,
       ftl::mmio::Reserved<5, 2>,
-      typename CMDH2_fields_::LWI,
-      typename CMDH2_fields_::STS,
+      typename Cmdh2Fields::LWI,
+      typename Cmdh2Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH2_fields_::AVGS,
+      typename Cmdh2Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH2_fields_::LOOP,
+      typename Cmdh2Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH2_fields_::NEXT,
+      typename Cmdh2Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eCMPEN = typename CMDH2_fields_::eCMPEN;
-    using eLWI = typename CMDH2_fields_::eLWI;
-    using eSTS = typename CMDH2_fields_::eSTS;
-    using eAVGS = typename CMDH2_fields_::eAVGS;
-    using eLOOP = typename CMDH2_fields_::eLOOP;
-    using eNEXT = typename CMDH2_fields_::eNEXT;
-    using CMPEN = typename CMDH2_fields_::CMPEN;
-    using LWI = typename CMDH2_fields_::LWI;
-    using STS = typename CMDH2_fields_::STS;
-    using AVGS = typename CMDH2_fields_::AVGS;
-    using LOOP = typename CMDH2_fields_::LOOP;
-    using NEXT = typename CMDH2_fields_::NEXT;
+    using eCMPEN = typename Cmdh2Fields::eCMPEN;
+    using eLWI = typename Cmdh2Fields::eLWI;
+    using eSTS = typename Cmdh2Fields::eSTS;
+    using eAVGS = typename Cmdh2Fields::eAVGS;
+    using eLOOP = typename Cmdh2Fields::eLOOP;
+    using eNEXT = typename Cmdh2Fields::eNEXT;
+    using CMPEN = typename Cmdh2Fields::CMPEN;
+    using LWI = typename Cmdh2Fields::LWI;
+    using STS = typename Cmdh2Fields::STS;
+    using AVGS = typename Cmdh2Fields::AVGS;
+    using LOOP = typename Cmdh2Fields::LOOP;
+    using NEXT = typename Cmdh2Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL3_fields_ {
+  struct Cmdl3Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -1317,31 +1317,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL3_fields_
+  };  // struct Cmdl3Fields
 
   struct CMDL3 : ftl::mmio::Register<
       kBase + 0x110u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL3_fields_::ADCH,
-      typename CMDL3_fields_::ABSEL,
-      typename CMDL3_fields_::DIFF,
+      typename Cmdl3Fields::ADCH,
+      typename Cmdl3Fields::ABSEL,
+      typename Cmdl3Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL3_fields_::CSCALE,
+      typename Cmdl3Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL3_fields_::eADCH;
-    using eABSEL = typename CMDL3_fields_::eABSEL;
-    using eDIFF = typename CMDL3_fields_::eDIFF;
-    using eCSCALE = typename CMDL3_fields_::eCSCALE;
-    using ADCH = typename CMDL3_fields_::ADCH;
-    using ABSEL = typename CMDL3_fields_::ABSEL;
-    using DIFF = typename CMDL3_fields_::DIFF;
-    using CSCALE = typename CMDL3_fields_::CSCALE;
+    using eADCH = typename Cmdl3Fields::eADCH;
+    using eABSEL = typename Cmdl3Fields::eABSEL;
+    using eDIFF = typename Cmdl3Fields::eDIFF;
+    using eCSCALE = typename Cmdl3Fields::eCSCALE;
+    using ADCH = typename Cmdl3Fields::ADCH;
+    using ABSEL = typename Cmdl3Fields::ABSEL;
+    using DIFF = typename Cmdl3Fields::DIFF;
+    using CSCALE = typename Cmdl3Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH3_fields_ {
+  struct Cmdh3Fields {
     enum class eCMPEN : std::uint32_t {
       // Compare disabled.
       eCMPEN_0 = 0,
@@ -1458,40 +1458,40 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH3_fields_
+  };  // struct Cmdh3Fields
 
   struct CMDH3 : ftl::mmio::Register<
       kBase + 0x114u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CMDH3_fields_::CMPEN,
+      typename Cmdh3Fields::CMPEN,
       ftl::mmio::Reserved<5, 2>,
-      typename CMDH3_fields_::LWI,
-      typename CMDH3_fields_::STS,
+      typename Cmdh3Fields::LWI,
+      typename Cmdh3Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH3_fields_::AVGS,
+      typename Cmdh3Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH3_fields_::LOOP,
+      typename Cmdh3Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH3_fields_::NEXT,
+      typename Cmdh3Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eCMPEN = typename CMDH3_fields_::eCMPEN;
-    using eLWI = typename CMDH3_fields_::eLWI;
-    using eSTS = typename CMDH3_fields_::eSTS;
-    using eAVGS = typename CMDH3_fields_::eAVGS;
-    using eLOOP = typename CMDH3_fields_::eLOOP;
-    using eNEXT = typename CMDH3_fields_::eNEXT;
-    using CMPEN = typename CMDH3_fields_::CMPEN;
-    using LWI = typename CMDH3_fields_::LWI;
-    using STS = typename CMDH3_fields_::STS;
-    using AVGS = typename CMDH3_fields_::AVGS;
-    using LOOP = typename CMDH3_fields_::LOOP;
-    using NEXT = typename CMDH3_fields_::NEXT;
+    using eCMPEN = typename Cmdh3Fields::eCMPEN;
+    using eLWI = typename Cmdh3Fields::eLWI;
+    using eSTS = typename Cmdh3Fields::eSTS;
+    using eAVGS = typename Cmdh3Fields::eAVGS;
+    using eLOOP = typename Cmdh3Fields::eLOOP;
+    using eNEXT = typename Cmdh3Fields::eNEXT;
+    using CMPEN = typename Cmdh3Fields::CMPEN;
+    using LWI = typename Cmdh3Fields::LWI;
+    using STS = typename Cmdh3Fields::STS;
+    using AVGS = typename Cmdh3Fields::AVGS;
+    using LOOP = typename Cmdh3Fields::LOOP;
+    using NEXT = typename Cmdh3Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL4_fields_ {
+  struct Cmdl4Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -1548,31 +1548,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL4_fields_
+  };  // struct Cmdl4Fields
 
   struct CMDL4 : ftl::mmio::Register<
       kBase + 0x118u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL4_fields_::ADCH,
-      typename CMDL4_fields_::ABSEL,
-      typename CMDL4_fields_::DIFF,
+      typename Cmdl4Fields::ADCH,
+      typename Cmdl4Fields::ABSEL,
+      typename Cmdl4Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL4_fields_::CSCALE,
+      typename Cmdl4Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL4_fields_::eADCH;
-    using eABSEL = typename CMDL4_fields_::eABSEL;
-    using eDIFF = typename CMDL4_fields_::eDIFF;
-    using eCSCALE = typename CMDL4_fields_::eCSCALE;
-    using ADCH = typename CMDL4_fields_::ADCH;
-    using ABSEL = typename CMDL4_fields_::ABSEL;
-    using DIFF = typename CMDL4_fields_::DIFF;
-    using CSCALE = typename CMDL4_fields_::CSCALE;
+    using eADCH = typename Cmdl4Fields::eADCH;
+    using eABSEL = typename Cmdl4Fields::eABSEL;
+    using eDIFF = typename Cmdl4Fields::eDIFF;
+    using eCSCALE = typename Cmdl4Fields::eCSCALE;
+    using ADCH = typename Cmdl4Fields::ADCH;
+    using ABSEL = typename Cmdl4Fields::ABSEL;
+    using DIFF = typename Cmdl4Fields::DIFF;
+    using CSCALE = typename Cmdl4Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH4_fields_ {
+  struct Cmdh4Fields {
     enum class eCMPEN : std::uint32_t {
       // Compare disabled.
       eCMPEN_0 = 0,
@@ -1689,40 +1689,40 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH4_fields_
+  };  // struct Cmdh4Fields
 
   struct CMDH4 : ftl::mmio::Register<
       kBase + 0x11Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CMDH4_fields_::CMPEN,
+      typename Cmdh4Fields::CMPEN,
       ftl::mmio::Reserved<5, 2>,
-      typename CMDH4_fields_::LWI,
-      typename CMDH4_fields_::STS,
+      typename Cmdh4Fields::LWI,
+      typename Cmdh4Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH4_fields_::AVGS,
+      typename Cmdh4Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH4_fields_::LOOP,
+      typename Cmdh4Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH4_fields_::NEXT,
+      typename Cmdh4Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eCMPEN = typename CMDH4_fields_::eCMPEN;
-    using eLWI = typename CMDH4_fields_::eLWI;
-    using eSTS = typename CMDH4_fields_::eSTS;
-    using eAVGS = typename CMDH4_fields_::eAVGS;
-    using eLOOP = typename CMDH4_fields_::eLOOP;
-    using eNEXT = typename CMDH4_fields_::eNEXT;
-    using CMPEN = typename CMDH4_fields_::CMPEN;
-    using LWI = typename CMDH4_fields_::LWI;
-    using STS = typename CMDH4_fields_::STS;
-    using AVGS = typename CMDH4_fields_::AVGS;
-    using LOOP = typename CMDH4_fields_::LOOP;
-    using NEXT = typename CMDH4_fields_::NEXT;
+    using eCMPEN = typename Cmdh4Fields::eCMPEN;
+    using eLWI = typename Cmdh4Fields::eLWI;
+    using eSTS = typename Cmdh4Fields::eSTS;
+    using eAVGS = typename Cmdh4Fields::eAVGS;
+    using eLOOP = typename Cmdh4Fields::eLOOP;
+    using eNEXT = typename Cmdh4Fields::eNEXT;
+    using CMPEN = typename Cmdh4Fields::CMPEN;
+    using LWI = typename Cmdh4Fields::LWI;
+    using STS = typename Cmdh4Fields::STS;
+    using AVGS = typename Cmdh4Fields::AVGS;
+    using LOOP = typename Cmdh4Fields::LOOP;
+    using NEXT = typename Cmdh4Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL5_fields_ {
+  struct Cmdl5Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -1779,31 +1779,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL5_fields_
+  };  // struct Cmdl5Fields
 
   struct CMDL5 : ftl::mmio::Register<
       kBase + 0x120u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL5_fields_::ADCH,
-      typename CMDL5_fields_::ABSEL,
-      typename CMDL5_fields_::DIFF,
+      typename Cmdl5Fields::ADCH,
+      typename Cmdl5Fields::ABSEL,
+      typename Cmdl5Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL5_fields_::CSCALE,
+      typename Cmdl5Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL5_fields_::eADCH;
-    using eABSEL = typename CMDL5_fields_::eABSEL;
-    using eDIFF = typename CMDL5_fields_::eDIFF;
-    using eCSCALE = typename CMDL5_fields_::eCSCALE;
-    using ADCH = typename CMDL5_fields_::ADCH;
-    using ABSEL = typename CMDL5_fields_::ABSEL;
-    using DIFF = typename CMDL5_fields_::DIFF;
-    using CSCALE = typename CMDL5_fields_::CSCALE;
+    using eADCH = typename Cmdl5Fields::eADCH;
+    using eABSEL = typename Cmdl5Fields::eABSEL;
+    using eDIFF = typename Cmdl5Fields::eDIFF;
+    using eCSCALE = typename Cmdl5Fields::eCSCALE;
+    using ADCH = typename Cmdl5Fields::ADCH;
+    using ABSEL = typename Cmdl5Fields::ABSEL;
+    using DIFF = typename Cmdl5Fields::DIFF;
+    using CSCALE = typename Cmdl5Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH5_fields_ {
+  struct Cmdh5Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -1909,7 +1909,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH5_fields_
+  };  // struct Cmdh5Fields
 
   struct CMDH5 : ftl::mmio::Register<
       kBase + 0x124u,
@@ -1917,29 +1917,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH5_fields_::LWI,
-      typename CMDH5_fields_::STS,
+      typename Cmdh5Fields::LWI,
+      typename Cmdh5Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH5_fields_::AVGS,
+      typename Cmdh5Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH5_fields_::LOOP,
+      typename Cmdh5Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH5_fields_::NEXT,
+      typename Cmdh5Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH5_fields_::eLWI;
-    using eSTS = typename CMDH5_fields_::eSTS;
-    using eAVGS = typename CMDH5_fields_::eAVGS;
-    using eLOOP = typename CMDH5_fields_::eLOOP;
-    using eNEXT = typename CMDH5_fields_::eNEXT;
-    using LWI = typename CMDH5_fields_::LWI;
-    using STS = typename CMDH5_fields_::STS;
-    using AVGS = typename CMDH5_fields_::AVGS;
-    using LOOP = typename CMDH5_fields_::LOOP;
-    using NEXT = typename CMDH5_fields_::NEXT;
+    using eLWI = typename Cmdh5Fields::eLWI;
+    using eSTS = typename Cmdh5Fields::eSTS;
+    using eAVGS = typename Cmdh5Fields::eAVGS;
+    using eLOOP = typename Cmdh5Fields::eLOOP;
+    using eNEXT = typename Cmdh5Fields::eNEXT;
+    using LWI = typename Cmdh5Fields::LWI;
+    using STS = typename Cmdh5Fields::STS;
+    using AVGS = typename Cmdh5Fields::AVGS;
+    using LOOP = typename Cmdh5Fields::LOOP;
+    using NEXT = typename Cmdh5Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL6_fields_ {
+  struct Cmdl6Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -1996,31 +1996,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL6_fields_
+  };  // struct Cmdl6Fields
 
   struct CMDL6 : ftl::mmio::Register<
       kBase + 0x128u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL6_fields_::ADCH,
-      typename CMDL6_fields_::ABSEL,
-      typename CMDL6_fields_::DIFF,
+      typename Cmdl6Fields::ADCH,
+      typename Cmdl6Fields::ABSEL,
+      typename Cmdl6Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL6_fields_::CSCALE,
+      typename Cmdl6Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL6_fields_::eADCH;
-    using eABSEL = typename CMDL6_fields_::eABSEL;
-    using eDIFF = typename CMDL6_fields_::eDIFF;
-    using eCSCALE = typename CMDL6_fields_::eCSCALE;
-    using ADCH = typename CMDL6_fields_::ADCH;
-    using ABSEL = typename CMDL6_fields_::ABSEL;
-    using DIFF = typename CMDL6_fields_::DIFF;
-    using CSCALE = typename CMDL6_fields_::CSCALE;
+    using eADCH = typename Cmdl6Fields::eADCH;
+    using eABSEL = typename Cmdl6Fields::eABSEL;
+    using eDIFF = typename Cmdl6Fields::eDIFF;
+    using eCSCALE = typename Cmdl6Fields::eCSCALE;
+    using ADCH = typename Cmdl6Fields::ADCH;
+    using ABSEL = typename Cmdl6Fields::ABSEL;
+    using DIFF = typename Cmdl6Fields::DIFF;
+    using CSCALE = typename Cmdl6Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH6_fields_ {
+  struct Cmdh6Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -2126,7 +2126,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH6_fields_
+  };  // struct Cmdh6Fields
 
   struct CMDH6 : ftl::mmio::Register<
       kBase + 0x12Cu,
@@ -2134,29 +2134,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH6_fields_::LWI,
-      typename CMDH6_fields_::STS,
+      typename Cmdh6Fields::LWI,
+      typename Cmdh6Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH6_fields_::AVGS,
+      typename Cmdh6Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH6_fields_::LOOP,
+      typename Cmdh6Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH6_fields_::NEXT,
+      typename Cmdh6Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH6_fields_::eLWI;
-    using eSTS = typename CMDH6_fields_::eSTS;
-    using eAVGS = typename CMDH6_fields_::eAVGS;
-    using eLOOP = typename CMDH6_fields_::eLOOP;
-    using eNEXT = typename CMDH6_fields_::eNEXT;
-    using LWI = typename CMDH6_fields_::LWI;
-    using STS = typename CMDH6_fields_::STS;
-    using AVGS = typename CMDH6_fields_::AVGS;
-    using LOOP = typename CMDH6_fields_::LOOP;
-    using NEXT = typename CMDH6_fields_::NEXT;
+    using eLWI = typename Cmdh6Fields::eLWI;
+    using eSTS = typename Cmdh6Fields::eSTS;
+    using eAVGS = typename Cmdh6Fields::eAVGS;
+    using eLOOP = typename Cmdh6Fields::eLOOP;
+    using eNEXT = typename Cmdh6Fields::eNEXT;
+    using LWI = typename Cmdh6Fields::LWI;
+    using STS = typename Cmdh6Fields::STS;
+    using AVGS = typename Cmdh6Fields::AVGS;
+    using LOOP = typename Cmdh6Fields::LOOP;
+    using NEXT = typename Cmdh6Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL7_fields_ {
+  struct Cmdl7Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -2213,31 +2213,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL7_fields_
+  };  // struct Cmdl7Fields
 
   struct CMDL7 : ftl::mmio::Register<
       kBase + 0x130u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL7_fields_::ADCH,
-      typename CMDL7_fields_::ABSEL,
-      typename CMDL7_fields_::DIFF,
+      typename Cmdl7Fields::ADCH,
+      typename Cmdl7Fields::ABSEL,
+      typename Cmdl7Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL7_fields_::CSCALE,
+      typename Cmdl7Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL7_fields_::eADCH;
-    using eABSEL = typename CMDL7_fields_::eABSEL;
-    using eDIFF = typename CMDL7_fields_::eDIFF;
-    using eCSCALE = typename CMDL7_fields_::eCSCALE;
-    using ADCH = typename CMDL7_fields_::ADCH;
-    using ABSEL = typename CMDL7_fields_::ABSEL;
-    using DIFF = typename CMDL7_fields_::DIFF;
-    using CSCALE = typename CMDL7_fields_::CSCALE;
+    using eADCH = typename Cmdl7Fields::eADCH;
+    using eABSEL = typename Cmdl7Fields::eABSEL;
+    using eDIFF = typename Cmdl7Fields::eDIFF;
+    using eCSCALE = typename Cmdl7Fields::eCSCALE;
+    using ADCH = typename Cmdl7Fields::ADCH;
+    using ABSEL = typename Cmdl7Fields::ABSEL;
+    using DIFF = typename Cmdl7Fields::DIFF;
+    using CSCALE = typename Cmdl7Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH7_fields_ {
+  struct Cmdh7Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -2343,7 +2343,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH7_fields_
+  };  // struct Cmdh7Fields
 
   struct CMDH7 : ftl::mmio::Register<
       kBase + 0x134u,
@@ -2351,29 +2351,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH7_fields_::LWI,
-      typename CMDH7_fields_::STS,
+      typename Cmdh7Fields::LWI,
+      typename Cmdh7Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH7_fields_::AVGS,
+      typename Cmdh7Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH7_fields_::LOOP,
+      typename Cmdh7Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH7_fields_::NEXT,
+      typename Cmdh7Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH7_fields_::eLWI;
-    using eSTS = typename CMDH7_fields_::eSTS;
-    using eAVGS = typename CMDH7_fields_::eAVGS;
-    using eLOOP = typename CMDH7_fields_::eLOOP;
-    using eNEXT = typename CMDH7_fields_::eNEXT;
-    using LWI = typename CMDH7_fields_::LWI;
-    using STS = typename CMDH7_fields_::STS;
-    using AVGS = typename CMDH7_fields_::AVGS;
-    using LOOP = typename CMDH7_fields_::LOOP;
-    using NEXT = typename CMDH7_fields_::NEXT;
+    using eLWI = typename Cmdh7Fields::eLWI;
+    using eSTS = typename Cmdh7Fields::eSTS;
+    using eAVGS = typename Cmdh7Fields::eAVGS;
+    using eLOOP = typename Cmdh7Fields::eLOOP;
+    using eNEXT = typename Cmdh7Fields::eNEXT;
+    using LWI = typename Cmdh7Fields::LWI;
+    using STS = typename Cmdh7Fields::STS;
+    using AVGS = typename Cmdh7Fields::AVGS;
+    using LOOP = typename Cmdh7Fields::LOOP;
+    using NEXT = typename Cmdh7Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL8_fields_ {
+  struct Cmdl8Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -2430,31 +2430,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL8_fields_
+  };  // struct Cmdl8Fields
 
   struct CMDL8 : ftl::mmio::Register<
       kBase + 0x138u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL8_fields_::ADCH,
-      typename CMDL8_fields_::ABSEL,
-      typename CMDL8_fields_::DIFF,
+      typename Cmdl8Fields::ADCH,
+      typename Cmdl8Fields::ABSEL,
+      typename Cmdl8Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL8_fields_::CSCALE,
+      typename Cmdl8Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL8_fields_::eADCH;
-    using eABSEL = typename CMDL8_fields_::eABSEL;
-    using eDIFF = typename CMDL8_fields_::eDIFF;
-    using eCSCALE = typename CMDL8_fields_::eCSCALE;
-    using ADCH = typename CMDL8_fields_::ADCH;
-    using ABSEL = typename CMDL8_fields_::ABSEL;
-    using DIFF = typename CMDL8_fields_::DIFF;
-    using CSCALE = typename CMDL8_fields_::CSCALE;
+    using eADCH = typename Cmdl8Fields::eADCH;
+    using eABSEL = typename Cmdl8Fields::eABSEL;
+    using eDIFF = typename Cmdl8Fields::eDIFF;
+    using eCSCALE = typename Cmdl8Fields::eCSCALE;
+    using ADCH = typename Cmdl8Fields::ADCH;
+    using ABSEL = typename Cmdl8Fields::ABSEL;
+    using DIFF = typename Cmdl8Fields::DIFF;
+    using CSCALE = typename Cmdl8Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH8_fields_ {
+  struct Cmdh8Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -2560,7 +2560,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH8_fields_
+  };  // struct Cmdh8Fields
 
   struct CMDH8 : ftl::mmio::Register<
       kBase + 0x13Cu,
@@ -2568,29 +2568,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH8_fields_::LWI,
-      typename CMDH8_fields_::STS,
+      typename Cmdh8Fields::LWI,
+      typename Cmdh8Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH8_fields_::AVGS,
+      typename Cmdh8Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH8_fields_::LOOP,
+      typename Cmdh8Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH8_fields_::NEXT,
+      typename Cmdh8Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH8_fields_::eLWI;
-    using eSTS = typename CMDH8_fields_::eSTS;
-    using eAVGS = typename CMDH8_fields_::eAVGS;
-    using eLOOP = typename CMDH8_fields_::eLOOP;
-    using eNEXT = typename CMDH8_fields_::eNEXT;
-    using LWI = typename CMDH8_fields_::LWI;
-    using STS = typename CMDH8_fields_::STS;
-    using AVGS = typename CMDH8_fields_::AVGS;
-    using LOOP = typename CMDH8_fields_::LOOP;
-    using NEXT = typename CMDH8_fields_::NEXT;
+    using eLWI = typename Cmdh8Fields::eLWI;
+    using eSTS = typename Cmdh8Fields::eSTS;
+    using eAVGS = typename Cmdh8Fields::eAVGS;
+    using eLOOP = typename Cmdh8Fields::eLOOP;
+    using eNEXT = typename Cmdh8Fields::eNEXT;
+    using LWI = typename Cmdh8Fields::LWI;
+    using STS = typename Cmdh8Fields::STS;
+    using AVGS = typename Cmdh8Fields::AVGS;
+    using LOOP = typename Cmdh8Fields::LOOP;
+    using NEXT = typename Cmdh8Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL9_fields_ {
+  struct Cmdl9Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -2647,31 +2647,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL9_fields_
+  };  // struct Cmdl9Fields
 
   struct CMDL9 : ftl::mmio::Register<
       kBase + 0x140u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL9_fields_::ADCH,
-      typename CMDL9_fields_::ABSEL,
-      typename CMDL9_fields_::DIFF,
+      typename Cmdl9Fields::ADCH,
+      typename Cmdl9Fields::ABSEL,
+      typename Cmdl9Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL9_fields_::CSCALE,
+      typename Cmdl9Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL9_fields_::eADCH;
-    using eABSEL = typename CMDL9_fields_::eABSEL;
-    using eDIFF = typename CMDL9_fields_::eDIFF;
-    using eCSCALE = typename CMDL9_fields_::eCSCALE;
-    using ADCH = typename CMDL9_fields_::ADCH;
-    using ABSEL = typename CMDL9_fields_::ABSEL;
-    using DIFF = typename CMDL9_fields_::DIFF;
-    using CSCALE = typename CMDL9_fields_::CSCALE;
+    using eADCH = typename Cmdl9Fields::eADCH;
+    using eABSEL = typename Cmdl9Fields::eABSEL;
+    using eDIFF = typename Cmdl9Fields::eDIFF;
+    using eCSCALE = typename Cmdl9Fields::eCSCALE;
+    using ADCH = typename Cmdl9Fields::ADCH;
+    using ABSEL = typename Cmdl9Fields::ABSEL;
+    using DIFF = typename Cmdl9Fields::DIFF;
+    using CSCALE = typename Cmdl9Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH9_fields_ {
+  struct Cmdh9Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -2777,7 +2777,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH9_fields_
+  };  // struct Cmdh9Fields
 
   struct CMDH9 : ftl::mmio::Register<
       kBase + 0x144u,
@@ -2785,29 +2785,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH9_fields_::LWI,
-      typename CMDH9_fields_::STS,
+      typename Cmdh9Fields::LWI,
+      typename Cmdh9Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH9_fields_::AVGS,
+      typename Cmdh9Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH9_fields_::LOOP,
+      typename Cmdh9Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH9_fields_::NEXT,
+      typename Cmdh9Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH9_fields_::eLWI;
-    using eSTS = typename CMDH9_fields_::eSTS;
-    using eAVGS = typename CMDH9_fields_::eAVGS;
-    using eLOOP = typename CMDH9_fields_::eLOOP;
-    using eNEXT = typename CMDH9_fields_::eNEXT;
-    using LWI = typename CMDH9_fields_::LWI;
-    using STS = typename CMDH9_fields_::STS;
-    using AVGS = typename CMDH9_fields_::AVGS;
-    using LOOP = typename CMDH9_fields_::LOOP;
-    using NEXT = typename CMDH9_fields_::NEXT;
+    using eLWI = typename Cmdh9Fields::eLWI;
+    using eSTS = typename Cmdh9Fields::eSTS;
+    using eAVGS = typename Cmdh9Fields::eAVGS;
+    using eLOOP = typename Cmdh9Fields::eLOOP;
+    using eNEXT = typename Cmdh9Fields::eNEXT;
+    using LWI = typename Cmdh9Fields::LWI;
+    using STS = typename Cmdh9Fields::STS;
+    using AVGS = typename Cmdh9Fields::AVGS;
+    using LOOP = typename Cmdh9Fields::LOOP;
+    using NEXT = typename Cmdh9Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL10_fields_ {
+  struct Cmdl10Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -2864,31 +2864,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL10_fields_
+  };  // struct Cmdl10Fields
 
   struct CMDL10 : ftl::mmio::Register<
       kBase + 0x148u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL10_fields_::ADCH,
-      typename CMDL10_fields_::ABSEL,
-      typename CMDL10_fields_::DIFF,
+      typename Cmdl10Fields::ADCH,
+      typename Cmdl10Fields::ABSEL,
+      typename Cmdl10Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL10_fields_::CSCALE,
+      typename Cmdl10Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL10_fields_::eADCH;
-    using eABSEL = typename CMDL10_fields_::eABSEL;
-    using eDIFF = typename CMDL10_fields_::eDIFF;
-    using eCSCALE = typename CMDL10_fields_::eCSCALE;
-    using ADCH = typename CMDL10_fields_::ADCH;
-    using ABSEL = typename CMDL10_fields_::ABSEL;
-    using DIFF = typename CMDL10_fields_::DIFF;
-    using CSCALE = typename CMDL10_fields_::CSCALE;
+    using eADCH = typename Cmdl10Fields::eADCH;
+    using eABSEL = typename Cmdl10Fields::eABSEL;
+    using eDIFF = typename Cmdl10Fields::eDIFF;
+    using eCSCALE = typename Cmdl10Fields::eCSCALE;
+    using ADCH = typename Cmdl10Fields::ADCH;
+    using ABSEL = typename Cmdl10Fields::ABSEL;
+    using DIFF = typename Cmdl10Fields::DIFF;
+    using CSCALE = typename Cmdl10Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH10_fields_ {
+  struct Cmdh10Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -2994,7 +2994,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH10_fields_
+  };  // struct Cmdh10Fields
 
   struct CMDH10 : ftl::mmio::Register<
       kBase + 0x14Cu,
@@ -3002,29 +3002,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH10_fields_::LWI,
-      typename CMDH10_fields_::STS,
+      typename Cmdh10Fields::LWI,
+      typename Cmdh10Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH10_fields_::AVGS,
+      typename Cmdh10Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH10_fields_::LOOP,
+      typename Cmdh10Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH10_fields_::NEXT,
+      typename Cmdh10Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH10_fields_::eLWI;
-    using eSTS = typename CMDH10_fields_::eSTS;
-    using eAVGS = typename CMDH10_fields_::eAVGS;
-    using eLOOP = typename CMDH10_fields_::eLOOP;
-    using eNEXT = typename CMDH10_fields_::eNEXT;
-    using LWI = typename CMDH10_fields_::LWI;
-    using STS = typename CMDH10_fields_::STS;
-    using AVGS = typename CMDH10_fields_::AVGS;
-    using LOOP = typename CMDH10_fields_::LOOP;
-    using NEXT = typename CMDH10_fields_::NEXT;
+    using eLWI = typename Cmdh10Fields::eLWI;
+    using eSTS = typename Cmdh10Fields::eSTS;
+    using eAVGS = typename Cmdh10Fields::eAVGS;
+    using eLOOP = typename Cmdh10Fields::eLOOP;
+    using eNEXT = typename Cmdh10Fields::eNEXT;
+    using LWI = typename Cmdh10Fields::LWI;
+    using STS = typename Cmdh10Fields::STS;
+    using AVGS = typename Cmdh10Fields::AVGS;
+    using LOOP = typename Cmdh10Fields::LOOP;
+    using NEXT = typename Cmdh10Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL11_fields_ {
+  struct Cmdl11Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -3081,31 +3081,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL11_fields_
+  };  // struct Cmdl11Fields
 
   struct CMDL11 : ftl::mmio::Register<
       kBase + 0x150u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL11_fields_::ADCH,
-      typename CMDL11_fields_::ABSEL,
-      typename CMDL11_fields_::DIFF,
+      typename Cmdl11Fields::ADCH,
+      typename Cmdl11Fields::ABSEL,
+      typename Cmdl11Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL11_fields_::CSCALE,
+      typename Cmdl11Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL11_fields_::eADCH;
-    using eABSEL = typename CMDL11_fields_::eABSEL;
-    using eDIFF = typename CMDL11_fields_::eDIFF;
-    using eCSCALE = typename CMDL11_fields_::eCSCALE;
-    using ADCH = typename CMDL11_fields_::ADCH;
-    using ABSEL = typename CMDL11_fields_::ABSEL;
-    using DIFF = typename CMDL11_fields_::DIFF;
-    using CSCALE = typename CMDL11_fields_::CSCALE;
+    using eADCH = typename Cmdl11Fields::eADCH;
+    using eABSEL = typename Cmdl11Fields::eABSEL;
+    using eDIFF = typename Cmdl11Fields::eDIFF;
+    using eCSCALE = typename Cmdl11Fields::eCSCALE;
+    using ADCH = typename Cmdl11Fields::ADCH;
+    using ABSEL = typename Cmdl11Fields::ABSEL;
+    using DIFF = typename Cmdl11Fields::DIFF;
+    using CSCALE = typename Cmdl11Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH11_fields_ {
+  struct Cmdh11Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -3211,7 +3211,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH11_fields_
+  };  // struct Cmdh11Fields
 
   struct CMDH11 : ftl::mmio::Register<
       kBase + 0x154u,
@@ -3219,29 +3219,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH11_fields_::LWI,
-      typename CMDH11_fields_::STS,
+      typename Cmdh11Fields::LWI,
+      typename Cmdh11Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH11_fields_::AVGS,
+      typename Cmdh11Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH11_fields_::LOOP,
+      typename Cmdh11Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH11_fields_::NEXT,
+      typename Cmdh11Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH11_fields_::eLWI;
-    using eSTS = typename CMDH11_fields_::eSTS;
-    using eAVGS = typename CMDH11_fields_::eAVGS;
-    using eLOOP = typename CMDH11_fields_::eLOOP;
-    using eNEXT = typename CMDH11_fields_::eNEXT;
-    using LWI = typename CMDH11_fields_::LWI;
-    using STS = typename CMDH11_fields_::STS;
-    using AVGS = typename CMDH11_fields_::AVGS;
-    using LOOP = typename CMDH11_fields_::LOOP;
-    using NEXT = typename CMDH11_fields_::NEXT;
+    using eLWI = typename Cmdh11Fields::eLWI;
+    using eSTS = typename Cmdh11Fields::eSTS;
+    using eAVGS = typename Cmdh11Fields::eAVGS;
+    using eLOOP = typename Cmdh11Fields::eLOOP;
+    using eNEXT = typename Cmdh11Fields::eNEXT;
+    using LWI = typename Cmdh11Fields::LWI;
+    using STS = typename Cmdh11Fields::STS;
+    using AVGS = typename Cmdh11Fields::AVGS;
+    using LOOP = typename Cmdh11Fields::LOOP;
+    using NEXT = typename Cmdh11Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL12_fields_ {
+  struct Cmdl12Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -3298,31 +3298,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL12_fields_
+  };  // struct Cmdl12Fields
 
   struct CMDL12 : ftl::mmio::Register<
       kBase + 0x158u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL12_fields_::ADCH,
-      typename CMDL12_fields_::ABSEL,
-      typename CMDL12_fields_::DIFF,
+      typename Cmdl12Fields::ADCH,
+      typename Cmdl12Fields::ABSEL,
+      typename Cmdl12Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL12_fields_::CSCALE,
+      typename Cmdl12Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL12_fields_::eADCH;
-    using eABSEL = typename CMDL12_fields_::eABSEL;
-    using eDIFF = typename CMDL12_fields_::eDIFF;
-    using eCSCALE = typename CMDL12_fields_::eCSCALE;
-    using ADCH = typename CMDL12_fields_::ADCH;
-    using ABSEL = typename CMDL12_fields_::ABSEL;
-    using DIFF = typename CMDL12_fields_::DIFF;
-    using CSCALE = typename CMDL12_fields_::CSCALE;
+    using eADCH = typename Cmdl12Fields::eADCH;
+    using eABSEL = typename Cmdl12Fields::eABSEL;
+    using eDIFF = typename Cmdl12Fields::eDIFF;
+    using eCSCALE = typename Cmdl12Fields::eCSCALE;
+    using ADCH = typename Cmdl12Fields::ADCH;
+    using ABSEL = typename Cmdl12Fields::ABSEL;
+    using DIFF = typename Cmdl12Fields::DIFF;
+    using CSCALE = typename Cmdl12Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH12_fields_ {
+  struct Cmdh12Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -3428,7 +3428,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH12_fields_
+  };  // struct Cmdh12Fields
 
   struct CMDH12 : ftl::mmio::Register<
       kBase + 0x15Cu,
@@ -3436,29 +3436,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH12_fields_::LWI,
-      typename CMDH12_fields_::STS,
+      typename Cmdh12Fields::LWI,
+      typename Cmdh12Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH12_fields_::AVGS,
+      typename Cmdh12Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH12_fields_::LOOP,
+      typename Cmdh12Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH12_fields_::NEXT,
+      typename Cmdh12Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH12_fields_::eLWI;
-    using eSTS = typename CMDH12_fields_::eSTS;
-    using eAVGS = typename CMDH12_fields_::eAVGS;
-    using eLOOP = typename CMDH12_fields_::eLOOP;
-    using eNEXT = typename CMDH12_fields_::eNEXT;
-    using LWI = typename CMDH12_fields_::LWI;
-    using STS = typename CMDH12_fields_::STS;
-    using AVGS = typename CMDH12_fields_::AVGS;
-    using LOOP = typename CMDH12_fields_::LOOP;
-    using NEXT = typename CMDH12_fields_::NEXT;
+    using eLWI = typename Cmdh12Fields::eLWI;
+    using eSTS = typename Cmdh12Fields::eSTS;
+    using eAVGS = typename Cmdh12Fields::eAVGS;
+    using eLOOP = typename Cmdh12Fields::eLOOP;
+    using eNEXT = typename Cmdh12Fields::eNEXT;
+    using LWI = typename Cmdh12Fields::LWI;
+    using STS = typename Cmdh12Fields::STS;
+    using AVGS = typename Cmdh12Fields::AVGS;
+    using LOOP = typename Cmdh12Fields::LOOP;
+    using NEXT = typename Cmdh12Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL13_fields_ {
+  struct Cmdl13Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -3515,31 +3515,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL13_fields_
+  };  // struct Cmdl13Fields
 
   struct CMDL13 : ftl::mmio::Register<
       kBase + 0x160u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL13_fields_::ADCH,
-      typename CMDL13_fields_::ABSEL,
-      typename CMDL13_fields_::DIFF,
+      typename Cmdl13Fields::ADCH,
+      typename Cmdl13Fields::ABSEL,
+      typename Cmdl13Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL13_fields_::CSCALE,
+      typename Cmdl13Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL13_fields_::eADCH;
-    using eABSEL = typename CMDL13_fields_::eABSEL;
-    using eDIFF = typename CMDL13_fields_::eDIFF;
-    using eCSCALE = typename CMDL13_fields_::eCSCALE;
-    using ADCH = typename CMDL13_fields_::ADCH;
-    using ABSEL = typename CMDL13_fields_::ABSEL;
-    using DIFF = typename CMDL13_fields_::DIFF;
-    using CSCALE = typename CMDL13_fields_::CSCALE;
+    using eADCH = typename Cmdl13Fields::eADCH;
+    using eABSEL = typename Cmdl13Fields::eABSEL;
+    using eDIFF = typename Cmdl13Fields::eDIFF;
+    using eCSCALE = typename Cmdl13Fields::eCSCALE;
+    using ADCH = typename Cmdl13Fields::ADCH;
+    using ABSEL = typename Cmdl13Fields::ABSEL;
+    using DIFF = typename Cmdl13Fields::DIFF;
+    using CSCALE = typename Cmdl13Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH13_fields_ {
+  struct Cmdh13Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -3645,7 +3645,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH13_fields_
+  };  // struct Cmdh13Fields
 
   struct CMDH13 : ftl::mmio::Register<
       kBase + 0x164u,
@@ -3653,29 +3653,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH13_fields_::LWI,
-      typename CMDH13_fields_::STS,
+      typename Cmdh13Fields::LWI,
+      typename Cmdh13Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH13_fields_::AVGS,
+      typename Cmdh13Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH13_fields_::LOOP,
+      typename Cmdh13Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH13_fields_::NEXT,
+      typename Cmdh13Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH13_fields_::eLWI;
-    using eSTS = typename CMDH13_fields_::eSTS;
-    using eAVGS = typename CMDH13_fields_::eAVGS;
-    using eLOOP = typename CMDH13_fields_::eLOOP;
-    using eNEXT = typename CMDH13_fields_::eNEXT;
-    using LWI = typename CMDH13_fields_::LWI;
-    using STS = typename CMDH13_fields_::STS;
-    using AVGS = typename CMDH13_fields_::AVGS;
-    using LOOP = typename CMDH13_fields_::LOOP;
-    using NEXT = typename CMDH13_fields_::NEXT;
+    using eLWI = typename Cmdh13Fields::eLWI;
+    using eSTS = typename Cmdh13Fields::eSTS;
+    using eAVGS = typename Cmdh13Fields::eAVGS;
+    using eLOOP = typename Cmdh13Fields::eLOOP;
+    using eNEXT = typename Cmdh13Fields::eNEXT;
+    using LWI = typename Cmdh13Fields::LWI;
+    using STS = typename Cmdh13Fields::STS;
+    using AVGS = typename Cmdh13Fields::AVGS;
+    using LOOP = typename Cmdh13Fields::LOOP;
+    using NEXT = typename Cmdh13Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL14_fields_ {
+  struct Cmdl14Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -3732,31 +3732,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL14_fields_
+  };  // struct Cmdl14Fields
 
   struct CMDL14 : ftl::mmio::Register<
       kBase + 0x168u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL14_fields_::ADCH,
-      typename CMDL14_fields_::ABSEL,
-      typename CMDL14_fields_::DIFF,
+      typename Cmdl14Fields::ADCH,
+      typename Cmdl14Fields::ABSEL,
+      typename Cmdl14Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL14_fields_::CSCALE,
+      typename Cmdl14Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL14_fields_::eADCH;
-    using eABSEL = typename CMDL14_fields_::eABSEL;
-    using eDIFF = typename CMDL14_fields_::eDIFF;
-    using eCSCALE = typename CMDL14_fields_::eCSCALE;
-    using ADCH = typename CMDL14_fields_::ADCH;
-    using ABSEL = typename CMDL14_fields_::ABSEL;
-    using DIFF = typename CMDL14_fields_::DIFF;
-    using CSCALE = typename CMDL14_fields_::CSCALE;
+    using eADCH = typename Cmdl14Fields::eADCH;
+    using eABSEL = typename Cmdl14Fields::eABSEL;
+    using eDIFF = typename Cmdl14Fields::eDIFF;
+    using eCSCALE = typename Cmdl14Fields::eCSCALE;
+    using ADCH = typename Cmdl14Fields::ADCH;
+    using ABSEL = typename Cmdl14Fields::ABSEL;
+    using DIFF = typename Cmdl14Fields::DIFF;
+    using CSCALE = typename Cmdl14Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH14_fields_ {
+  struct Cmdh14Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -3862,7 +3862,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH14_fields_
+  };  // struct Cmdh14Fields
 
   struct CMDH14 : ftl::mmio::Register<
       kBase + 0x16Cu,
@@ -3870,29 +3870,29 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH14_fields_::LWI,
-      typename CMDH14_fields_::STS,
+      typename Cmdh14Fields::LWI,
+      typename Cmdh14Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH14_fields_::AVGS,
+      typename Cmdh14Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH14_fields_::LOOP,
+      typename Cmdh14Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH14_fields_::NEXT,
+      typename Cmdh14Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH14_fields_::eLWI;
-    using eSTS = typename CMDH14_fields_::eSTS;
-    using eAVGS = typename CMDH14_fields_::eAVGS;
-    using eLOOP = typename CMDH14_fields_::eLOOP;
-    using eNEXT = typename CMDH14_fields_::eNEXT;
-    using LWI = typename CMDH14_fields_::LWI;
-    using STS = typename CMDH14_fields_::STS;
-    using AVGS = typename CMDH14_fields_::AVGS;
-    using LOOP = typename CMDH14_fields_::LOOP;
-    using NEXT = typename CMDH14_fields_::NEXT;
+    using eLWI = typename Cmdh14Fields::eLWI;
+    using eSTS = typename Cmdh14Fields::eSTS;
+    using eAVGS = typename Cmdh14Fields::eAVGS;
+    using eLOOP = typename Cmdh14Fields::eLOOP;
+    using eNEXT = typename Cmdh14Fields::eNEXT;
+    using LWI = typename Cmdh14Fields::LWI;
+    using STS = typename Cmdh14Fields::STS;
+    using AVGS = typename Cmdh14Fields::AVGS;
+    using LOOP = typename Cmdh14Fields::LOOP;
+    using NEXT = typename Cmdh14Fields::NEXT;
   };
 
   // LPADC Command Low Buffer Register
-  struct CMDL15_fields_ {
+  struct Cmdl15Fields {
     enum class eADCH : std::uint32_t {
       // Select CH0A or CH0B or CH0A/CH0B pair.
       eADCH_0 = 0,
@@ -3949,31 +3949,31 @@ struct Lpadc {
     using DIFF = ftl::mmio::Field<1, 6, eDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Channel Scale
     using CSCALE = ftl::mmio::Field<1, 13, eCSCALE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDL15_fields_
+  };  // struct Cmdl15Fields
 
   struct CMDL15 : ftl::mmio::Register<
       kBase + 0x170u,
       std::uint32_t,
       0x00002000u,
       ftl::mmio::RW,
-      typename CMDL15_fields_::ADCH,
-      typename CMDL15_fields_::ABSEL,
-      typename CMDL15_fields_::DIFF,
+      typename Cmdl15Fields::ADCH,
+      typename Cmdl15Fields::ABSEL,
+      typename Cmdl15Fields::DIFF,
       ftl::mmio::Reserved<6, 7>,
-      typename CMDL15_fields_::CSCALE,
+      typename Cmdl15Fields::CSCALE,
       ftl::mmio::Reserved<18, 14>> {
-    using eADCH = typename CMDL15_fields_::eADCH;
-    using eABSEL = typename CMDL15_fields_::eABSEL;
-    using eDIFF = typename CMDL15_fields_::eDIFF;
-    using eCSCALE = typename CMDL15_fields_::eCSCALE;
-    using ADCH = typename CMDL15_fields_::ADCH;
-    using ABSEL = typename CMDL15_fields_::ABSEL;
-    using DIFF = typename CMDL15_fields_::DIFF;
-    using CSCALE = typename CMDL15_fields_::CSCALE;
+    using eADCH = typename Cmdl15Fields::eADCH;
+    using eABSEL = typename Cmdl15Fields::eABSEL;
+    using eDIFF = typename Cmdl15Fields::eDIFF;
+    using eCSCALE = typename Cmdl15Fields::eCSCALE;
+    using ADCH = typename Cmdl15Fields::ADCH;
+    using ABSEL = typename Cmdl15Fields::ABSEL;
+    using DIFF = typename Cmdl15Fields::DIFF;
+    using CSCALE = typename Cmdl15Fields::CSCALE;
   };
 
   // LPADC Command High Buffer Register
-  struct CMDH15_fields_ {
+  struct Cmdh15Fields {
     enum class eLWI : std::uint32_t {
       // Auto channel increment disabled
       eLWI_0 = 0,
@@ -4079,7 +4079,7 @@ struct Lpadc {
     using LOOP = ftl::mmio::Field<4, 16, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Next Command Select
     using NEXT = ftl::mmio::Field<4, 24, eNEXT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMDH15_fields_
+  };  // struct Cmdh15Fields
 
   struct CMDH15 : ftl::mmio::Register<
       kBase + 0x174u,
@@ -4087,34 +4087,34 @@ struct Lpadc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      typename CMDH15_fields_::LWI,
-      typename CMDH15_fields_::STS,
+      typename Cmdh15Fields::LWI,
+      typename Cmdh15Fields::STS,
       ftl::mmio::Reserved<1, 11>,
-      typename CMDH15_fields_::AVGS,
+      typename Cmdh15Fields::AVGS,
       ftl::mmio::Reserved<1, 15>,
-      typename CMDH15_fields_::LOOP,
+      typename Cmdh15Fields::LOOP,
       ftl::mmio::Reserved<4, 20>,
-      typename CMDH15_fields_::NEXT,
+      typename Cmdh15Fields::NEXT,
       ftl::mmio::Reserved<4, 28>> {
-    using eLWI = typename CMDH15_fields_::eLWI;
-    using eSTS = typename CMDH15_fields_::eSTS;
-    using eAVGS = typename CMDH15_fields_::eAVGS;
-    using eLOOP = typename CMDH15_fields_::eLOOP;
-    using eNEXT = typename CMDH15_fields_::eNEXT;
-    using LWI = typename CMDH15_fields_::LWI;
-    using STS = typename CMDH15_fields_::STS;
-    using AVGS = typename CMDH15_fields_::AVGS;
-    using LOOP = typename CMDH15_fields_::LOOP;
-    using NEXT = typename CMDH15_fields_::NEXT;
+    using eLWI = typename Cmdh15Fields::eLWI;
+    using eSTS = typename Cmdh15Fields::eSTS;
+    using eAVGS = typename Cmdh15Fields::eAVGS;
+    using eLOOP = typename Cmdh15Fields::eLOOP;
+    using eNEXT = typename Cmdh15Fields::eNEXT;
+    using LWI = typename Cmdh15Fields::LWI;
+    using STS = typename Cmdh15Fields::STS;
+    using AVGS = typename Cmdh15Fields::AVGS;
+    using LOOP = typename Cmdh15Fields::LOOP;
+    using NEXT = typename Cmdh15Fields::NEXT;
   };
 
   // Compare Value Register
-  struct CV_fields_ {
+  struct CvFields {
     // Compare Value Low
     using CVL = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Compare Value High.
     using CVH = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CV_fields_
+  };  // struct CvFields
 
   template<std::uint32_t Index>
   struct CV : ftl::mmio::Register<
@@ -4122,15 +4122,15 @@ struct Lpadc {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CV_fields_::CVL,
-      typename CV_fields_::CVH> {
+      typename CvFields::CVL,
+      typename CvFields::CVH> {
     static_assert(Index < 4u, "CV: Index out of range");
-    using CVL = typename CV_fields_::CVL;
-    using CVH = typename CV_fields_::CVH;
+    using CVL = typename CvFields::CVL;
+    using CVH = typename CvFields::CVH;
   };
 
   // LPADC Data Result FIFO Register
-  struct RESFIFO_fields_ {
+  struct ResfifoFields {
     enum class eTSRC : std::uint32_t {
       // Trigger source 0 initiated this conversion.
       eTSRC_0 = 0,
@@ -4217,29 +4217,29 @@ struct Lpadc {
     using CMDSRC = ftl::mmio::Field<4, 24, eCMDSRC, ftl::mmio::RO, ftl::mmio::Normal>;
     // FIFO entry is valid
     using VALID = ftl::mmio::Field<1, 31, eVALID, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RESFIFO_fields_
+  };  // struct ResfifoFields
 
   struct RESFIFO : ftl::mmio::Register<
       kBase + 0x300u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename RESFIFO_fields_::D,
-      typename RESFIFO_fields_::TSRC,
+      typename ResfifoFields::D,
+      typename ResfifoFields::TSRC,
       ftl::mmio::Reserved<1, 19>,
-      typename RESFIFO_fields_::LOOPCNT,
-      typename RESFIFO_fields_::CMDSRC,
+      typename ResfifoFields::LOOPCNT,
+      typename ResfifoFields::CMDSRC,
       ftl::mmio::Reserved<3, 28>,
-      typename RESFIFO_fields_::VALID> {
-    using eTSRC = typename RESFIFO_fields_::eTSRC;
-    using eLOOPCNT = typename RESFIFO_fields_::eLOOPCNT;
-    using eCMDSRC = typename RESFIFO_fields_::eCMDSRC;
-    using eVALID = typename RESFIFO_fields_::eVALID;
-    using D = typename RESFIFO_fields_::D;
-    using TSRC = typename RESFIFO_fields_::TSRC;
-    using LOOPCNT = typename RESFIFO_fields_::LOOPCNT;
-    using CMDSRC = typename RESFIFO_fields_::CMDSRC;
-    using VALID = typename RESFIFO_fields_::VALID;
+      typename ResfifoFields::VALID> {
+    using eTSRC = typename ResfifoFields::eTSRC;
+    using eLOOPCNT = typename ResfifoFields::eLOOPCNT;
+    using eCMDSRC = typename ResfifoFields::eCMDSRC;
+    using eVALID = typename ResfifoFields::eVALID;
+    using D = typename ResfifoFields::D;
+    using TSRC = typename ResfifoFields::TSRC;
+    using LOOPCNT = typename ResfifoFields::LOOPCNT;
+    using CMDSRC = typename ResfifoFields::CMDSRC;
+    using VALID = typename ResfifoFields::VALID;
   };
 
 };

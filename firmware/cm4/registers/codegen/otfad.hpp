@@ -20,7 +20,7 @@ struct Otfad {
       0u;
 
   // Control Register
-  struct CR_fields_ {
+  struct CrFields {
     enum class eFERR : std::uint32_t {
       // No effect on the SR[KBERE] indicator.
       eNO_EFFECT = 0,
@@ -84,7 +84,7 @@ struct Otfad {
     using SKBP = ftl::mmio::Field<1, 30, eSKBP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Global OTFAD Enable
     using GE = ftl::mmio::Field<1, 31, eGE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CR_fields_
+  };  // struct CrFields
 
   struct CR : ftl::mmio::Register<
       kBase + 0xC00u,
@@ -92,34 +92,34 @@ struct Otfad {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      typename CR_fields_::FERR,
+      typename CrFields::FERR,
       ftl::mmio::Reserved<1, 2>,
-      typename CR_fields_::FLDM,
-      typename CR_fields_::KBSE,
-      typename CR_fields_::KBPE,
+      typename CrFields::FLDM,
+      typename CrFields::KBSE,
+      typename CrFields::KBPE,
       ftl::mmio::Reserved<1, 6>,
-      typename CR_fields_::RRAE,
+      typename CrFields::RRAE,
       ftl::mmio::Reserved<22, 8>,
-      typename CR_fields_::SKBP,
-      typename CR_fields_::GE> {
-    using eFERR = typename CR_fields_::eFERR;
-    using eFLDM = typename CR_fields_::eFLDM;
-    using eKBSE = typename CR_fields_::eKBSE;
-    using eKBPE = typename CR_fields_::eKBPE;
-    using eRRAE = typename CR_fields_::eRRAE;
-    using eSKBP = typename CR_fields_::eSKBP;
-    using eGE = typename CR_fields_::eGE;
-    using FERR = typename CR_fields_::FERR;
-    using FLDM = typename CR_fields_::FLDM;
-    using KBSE = typename CR_fields_::KBSE;
-    using KBPE = typename CR_fields_::KBPE;
-    using RRAE = typename CR_fields_::RRAE;
-    using SKBP = typename CR_fields_::SKBP;
-    using GE = typename CR_fields_::GE;
+      typename CrFields::SKBP,
+      typename CrFields::GE> {
+    using eFERR = typename CrFields::eFERR;
+    using eFLDM = typename CrFields::eFLDM;
+    using eKBSE = typename CrFields::eKBSE;
+    using eKBPE = typename CrFields::eKBPE;
+    using eRRAE = typename CrFields::eRRAE;
+    using eSKBP = typename CrFields::eSKBP;
+    using eGE = typename CrFields::eGE;
+    using FERR = typename CrFields::FERR;
+    using FLDM = typename CrFields::FLDM;
+    using KBSE = typename CrFields::KBSE;
+    using KBPE = typename CrFields::KBPE;
+    using RRAE = typename CrFields::RRAE;
+    using SKBP = typename CrFields::SKBP;
+    using GE = typename CrFields::GE;
   };
 
   // Status Register
-  struct SR_fields_ {
+  struct SrFields {
     enum class eKBERR : std::uint32_t {
       // No key blob error detected.
       eNO_KB_ERR = 0,
@@ -256,70 +256,70 @@ struct Otfad {
     using KBPE = ftl::mmio::Field<1, 30, eKBPE, ftl::mmio::RO, ftl::mmio::Normal>;
     // Key Blob Processing Done
     using KBD = ftl::mmio::Field<1, 31, eKBD, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SR_fields_
+  };  // struct SrFields
 
   struct SR : ftl::mmio::Register<
       kBase + 0xC04u,
       std::uint32_t,
       0x00000040u,
       ftl::mmio::RW,
-      typename SR_fields_::KBERR,
-      typename SR_fields_::MDPCP,
-      typename SR_fields_::MODE,
-      typename SR_fields_::NCTX,
-      typename SR_fields_::CTXER0,
-      typename SR_fields_::CTXER1,
-      typename SR_fields_::CTXER2,
-      typename SR_fields_::CTXER3,
+      typename SrFields::KBERR,
+      typename SrFields::MDPCP,
+      typename SrFields::MODE,
+      typename SrFields::NCTX,
+      typename SrFields::CTXER0,
+      typename SrFields::CTXER1,
+      typename SrFields::CTXER2,
+      typename SrFields::CTXER3,
       ftl::mmio::Reserved<4, 12>,
-      typename SR_fields_::CTXIE0,
-      typename SR_fields_::CTXIE1,
-      typename SR_fields_::CTXIE2,
-      typename SR_fields_::CTXIE3,
+      typename SrFields::CTXIE0,
+      typename SrFields::CTXIE1,
+      typename SrFields::CTXIE2,
+      typename SrFields::CTXIE3,
       ftl::mmio::Reserved<4, 20>,
-      typename SR_fields_::HRL,
-      typename SR_fields_::RRAM,
-      typename SR_fields_::GEM,
-      typename SR_fields_::KBPE,
-      typename SR_fields_::KBD> {
-    using eKBERR = typename SR_fields_::eKBERR;
-    using eMODE = typename SR_fields_::eMODE;
-    using eCTXER0 = typename SR_fields_::eCTXER0;
-    using eCTXER1 = typename SR_fields_::eCTXER1;
-    using eCTXER2 = typename SR_fields_::eCTXER2;
-    using eCTXER3 = typename SR_fields_::eCTXER3;
-    using eCTXIE0 = typename SR_fields_::eCTXIE0;
-    using eCTXIE1 = typename SR_fields_::eCTXIE1;
-    using eCTXIE2 = typename SR_fields_::eCTXIE2;
-    using eCTXIE3 = typename SR_fields_::eCTXIE3;
-    using eRRAM = typename SR_fields_::eRRAM;
-    using eGEM = typename SR_fields_::eGEM;
-    using eKBPE = typename SR_fields_::eKBPE;
-    using eKBD = typename SR_fields_::eKBD;
-    using KBERR = typename SR_fields_::KBERR;
-    using MDPCP = typename SR_fields_::MDPCP;
-    using MODE = typename SR_fields_::MODE;
-    using NCTX = typename SR_fields_::NCTX;
-    using CTXER0 = typename SR_fields_::CTXER0;
-    using CTXER1 = typename SR_fields_::CTXER1;
-    using CTXER2 = typename SR_fields_::CTXER2;
-    using CTXER3 = typename SR_fields_::CTXER3;
-    using CTXIE0 = typename SR_fields_::CTXIE0;
-    using CTXIE1 = typename SR_fields_::CTXIE1;
-    using CTXIE2 = typename SR_fields_::CTXIE2;
-    using CTXIE3 = typename SR_fields_::CTXIE3;
-    using HRL = typename SR_fields_::HRL;
-    using RRAM = typename SR_fields_::RRAM;
-    using GEM = typename SR_fields_::GEM;
-    using KBPE = typename SR_fields_::KBPE;
-    using KBD = typename SR_fields_::KBD;
+      typename SrFields::HRL,
+      typename SrFields::RRAM,
+      typename SrFields::GEM,
+      typename SrFields::KBPE,
+      typename SrFields::KBD> {
+    using eKBERR = typename SrFields::eKBERR;
+    using eMODE = typename SrFields::eMODE;
+    using eCTXER0 = typename SrFields::eCTXER0;
+    using eCTXER1 = typename SrFields::eCTXER1;
+    using eCTXER2 = typename SrFields::eCTXER2;
+    using eCTXER3 = typename SrFields::eCTXER3;
+    using eCTXIE0 = typename SrFields::eCTXIE0;
+    using eCTXIE1 = typename SrFields::eCTXIE1;
+    using eCTXIE2 = typename SrFields::eCTXIE2;
+    using eCTXIE3 = typename SrFields::eCTXIE3;
+    using eRRAM = typename SrFields::eRRAM;
+    using eGEM = typename SrFields::eGEM;
+    using eKBPE = typename SrFields::eKBPE;
+    using eKBD = typename SrFields::eKBD;
+    using KBERR = typename SrFields::KBERR;
+    using MDPCP = typename SrFields::MDPCP;
+    using MODE = typename SrFields::MODE;
+    using NCTX = typename SrFields::NCTX;
+    using CTXER0 = typename SrFields::CTXER0;
+    using CTXER1 = typename SrFields::CTXER1;
+    using CTXER2 = typename SrFields::CTXER2;
+    using CTXER3 = typename SrFields::CTXER3;
+    using CTXIE0 = typename SrFields::CTXIE0;
+    using CTXIE1 = typename SrFields::CTXIE1;
+    using CTXIE2 = typename SrFields::CTXIE2;
+    using CTXIE3 = typename SrFields::CTXIE3;
+    using HRL = typename SrFields::HRL;
+    using RRAM = typename SrFields::RRAM;
+    using GEM = typename SrFields::GEM;
+    using KBPE = typename SrFields::KBPE;
+    using KBD = typename SrFields::KBD;
   };
 
   // AES Key Word
-  struct CTX_KEY_fields_ {
+  struct CtxKeyFields {
     // AES Key
     using KEY = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTX_KEY_fields_
+  };  // struct CtxKeyFields
 
   template<std::uint32_t ClusterIndex, std::uint32_t ArrayIndex>
   struct CTX_KEY : ftl::mmio::Register<
@@ -327,17 +327,17 @@ struct Otfad {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CTX_KEY_fields_::KEY> {
+      typename CtxKeyFields::KEY> {
     static_assert(ClusterIndex < 4u, "CTX_KEY: ClusterIndex out of range");
     static_assert(ArrayIndex < 4u, "CTX_KEY: ArrayIndex out of range");
-    using KEY = typename CTX_KEY_fields_::KEY;
+    using KEY = typename CtxKeyFields::KEY;
   };
 
   // AES Counter Word
-  struct CTX_CTR_fields_ {
+  struct CtxCtrFields {
     // AES Counter
     using CTR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTX_CTR_fields_
+  };  // struct CtxCtrFields
 
   template<std::uint32_t ClusterIndex, std::uint32_t ArrayIndex>
   struct CTX_CTR : ftl::mmio::Register<
@@ -345,17 +345,17 @@ struct Otfad {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CTX_CTR_fields_::CTR> {
+      typename CtxCtrFields::CTR> {
     static_assert(ClusterIndex < 4u, "CTX_CTR: ClusterIndex out of range");
     static_assert(ArrayIndex < 2u, "CTX_CTR: ArrayIndex out of range");
-    using CTR = typename CTX_CTR_fields_::CTR;
+    using CTR = typename CtxCtrFields::CTR;
   };
 
   // AES Region Descriptor Word0
-  struct CTX_RGD_W0_fields_ {
+  struct CtxRgdW0Fields {
     // Start Address
     using SRTADDR = ftl::mmio::Field<22, 10, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTX_RGD_W0_fields_
+  };  // struct CtxRgdW0Fields
 
   template<std::uint32_t ClusterIndex>
   struct CTX_RGD_W0 : ftl::mmio::Register<
@@ -364,13 +364,13 @@ struct Otfad {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename CTX_RGD_W0_fields_::SRTADDR> {
+      typename CtxRgdW0Fields::SRTADDR> {
     static_assert(ClusterIndex < 4u, "CTX_RGD_W0: ClusterIndex out of range");
-    using SRTADDR = typename CTX_RGD_W0_fields_::SRTADDR;
+    using SRTADDR = typename CtxRgdW0Fields::SRTADDR;
   };
 
   // AES Region Descriptor Word1
-  struct CTX_RGD_W1_fields_ {
+  struct CtxRgdW1Fields {
     enum class eVLD : std::uint32_t {
       // Context is invalid.
       eNOT_VALID = 0,
@@ -400,7 +400,7 @@ struct Otfad {
     using RO = ftl::mmio::Field<1, 2, eRO, ftl::mmio::RW, ftl::mmio::Normal>;
     // End Address
     using ENDADDR = ftl::mmio::Field<22, 10, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTX_RGD_W1_fields_
+  };  // struct CtxRgdW1Fields
 
   template<std::uint32_t ClusterIndex>
   struct CTX_RGD_W1 : ftl::mmio::Register<
@@ -408,19 +408,19 @@ struct Otfad {
       std::uint32_t,
       0x000003F8u,
       ftl::mmio::RW,
-      typename CTX_RGD_W1_fields_::VLD,
-      typename CTX_RGD_W1_fields_::ADE,
-      typename CTX_RGD_W1_fields_::RO,
+      typename CtxRgdW1Fields::VLD,
+      typename CtxRgdW1Fields::ADE,
+      typename CtxRgdW1Fields::RO,
       ftl::mmio::Reserved<7, 3>,
-      typename CTX_RGD_W1_fields_::ENDADDR> {
+      typename CtxRgdW1Fields::ENDADDR> {
     static_assert(ClusterIndex < 4u, "CTX_RGD_W1: ClusterIndex out of range");
-    using eVLD = typename CTX_RGD_W1_fields_::eVLD;
-    using eADE = typename CTX_RGD_W1_fields_::eADE;
-    using eRO = typename CTX_RGD_W1_fields_::eRO;
-    using VLD = typename CTX_RGD_W1_fields_::VLD;
-    using ADE = typename CTX_RGD_W1_fields_::ADE;
-    using RO = typename CTX_RGD_W1_fields_::RO;
-    using ENDADDR = typename CTX_RGD_W1_fields_::ENDADDR;
+    using eVLD = typename CtxRgdW1Fields::eVLD;
+    using eADE = typename CtxRgdW1Fields::eADE;
+    using eRO = typename CtxRgdW1Fields::eRO;
+    using VLD = typename CtxRgdW1Fields::VLD;
+    using ADE = typename CtxRgdW1Fields::ADE;
+    using RO = typename CtxRgdW1Fields::RO;
+    using ENDADDR = typename CtxRgdW1Fields::ENDADDR;
   };
 
 };

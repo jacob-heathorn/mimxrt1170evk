@@ -10,7 +10,7 @@ namespace regs {
 
 struct Dmamux1 {
   // Channel index Configuration Register
-  struct CHCFG_fields_ {
+  struct ChcfgFields {
     enum class eA_ON : std::uint32_t {
       // DMA Channel Always ON function is disabled
       eA_ON_0 = 0,
@@ -40,7 +40,7 @@ struct Dmamux1 {
     using TRIG = ftl::mmio::Field<1, 30, eTRIG, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA Mux Channel Enable
     using ENBL = ftl::mmio::Field<1, 31, eENBL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CHCFG_fields_
+  };  // struct ChcfgFields
 
   template<std::uint32_t Index>
   struct CHCFG : ftl::mmio::Register<
@@ -48,19 +48,19 @@ struct Dmamux1 {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CHCFG_fields_::SOURCE,
+      ChcfgFields::SOURCE,
       ftl::mmio::Reserved<21, 8>,
-      CHCFG_fields_::A_ON,
-      CHCFG_fields_::TRIG,
-      CHCFG_fields_::ENBL> {
+      ChcfgFields::A_ON,
+      ChcfgFields::TRIG,
+      ChcfgFields::ENBL> {
     static_assert(Index < 32u, "CHCFG: Index out of range");
-    using eA_ON = CHCFG_fields_::eA_ON;
-    using eTRIG = CHCFG_fields_::eTRIG;
-    using eENBL = CHCFG_fields_::eENBL;
-    using SOURCE = CHCFG_fields_::SOURCE;
-    using A_ON = CHCFG_fields_::A_ON;
-    using TRIG = CHCFG_fields_::TRIG;
-    using ENBL = CHCFG_fields_::ENBL;
+    using eA_ON = ChcfgFields::eA_ON;
+    using eTRIG = ChcfgFields::eTRIG;
+    using eENBL = ChcfgFields::eENBL;
+    using SOURCE = ChcfgFields::SOURCE;
+    using A_ON = ChcfgFields::A_ON;
+    using TRIG = ChcfgFields::TRIG;
+    using ENBL = ChcfgFields::ENBL;
   };
 
 };

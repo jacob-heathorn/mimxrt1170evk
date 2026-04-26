@@ -20,7 +20,7 @@ struct Pit {
       0u;
 
   // PIT Module Control Register
-  struct MCR_fields_ {
+  struct McrFields {
     enum class eFRZ : std::uint32_t {
       // Timers continue to run in Debug mode.
       et000001 = 0,
@@ -39,57 +39,57 @@ struct Pit {
     using FRZ = ftl::mmio::Field<1, 0, eFRZ, ftl::mmio::RW, ftl::mmio::Normal>;
     // Module Disable for PIT
     using MDIS = ftl::mmio::Field<1, 1, eMDIS, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MCR_fields_
+  };  // struct McrFields
 
   struct MCR : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x00000002u,
       ftl::mmio::RW,
-      typename MCR_fields_::FRZ,
-      typename MCR_fields_::MDIS,
+      typename McrFields::FRZ,
+      typename McrFields::MDIS,
       ftl::mmio::Reserved<30, 2>> {
-    using eFRZ = typename MCR_fields_::eFRZ;
-    using eMDIS = typename MCR_fields_::eMDIS;
-    using FRZ = typename MCR_fields_::FRZ;
-    using MDIS = typename MCR_fields_::MDIS;
+    using eFRZ = typename McrFields::eFRZ;
+    using eMDIS = typename McrFields::eMDIS;
+    using FRZ = typename McrFields::FRZ;
+    using MDIS = typename McrFields::MDIS;
   };
 
   // PIT Upper Lifetime Timer Register
-  struct LTMR64H_fields_ {
+  struct Ltmr64hFields {
     // Life Timer value
     using LTH = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LTMR64H_fields_
+  };  // struct Ltmr64hFields
 
   struct LTMR64H : ftl::mmio::Register<
       kBase + 0xE0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename LTMR64H_fields_::LTH> {
-    using LTH = typename LTMR64H_fields_::LTH;
+      typename Ltmr64hFields::LTH> {
+    using LTH = typename Ltmr64hFields::LTH;
   };
 
   // PIT Lower Lifetime Timer Register
-  struct LTMR64L_fields_ {
+  struct Ltmr64lFields {
     // Life Timer value
     using LTL = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LTMR64L_fields_
+  };  // struct Ltmr64lFields
 
   struct LTMR64L : ftl::mmio::Register<
       kBase + 0xE4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename LTMR64L_fields_::LTL> {
-    using LTL = typename LTMR64L_fields_::LTL;
+      typename Ltmr64lFields::LTL> {
+    using LTL = typename Ltmr64lFields::LTL;
   };
 
   // Timer Load Value Register
-  struct LDVAL_fields_ {
+  struct LdvalFields {
     // Timer Start Value
     using TSV = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct LDVAL_fields_
+  };  // struct LdvalFields
 
   template<std::uint32_t ClusterIndex>
   struct LDVAL : ftl::mmio::Register<
@@ -97,16 +97,16 @@ struct Pit {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename LDVAL_fields_::TSV> {
+      typename LdvalFields::TSV> {
     static_assert(ClusterIndex < 4u, "LDVAL: ClusterIndex out of range");
-    using TSV = typename LDVAL_fields_::TSV;
+    using TSV = typename LdvalFields::TSV;
   };
 
   // Current Timer Value Register
-  struct CVAL_fields_ {
+  struct CvalFields {
     // Current Timer Value
     using TVL = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CVAL_fields_
+  };  // struct CvalFields
 
   template<std::uint32_t ClusterIndex>
   struct CVAL : ftl::mmio::Register<
@@ -114,13 +114,13 @@ struct Pit {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CVAL_fields_::TVL> {
+      typename CvalFields::TVL> {
     static_assert(ClusterIndex < 4u, "CVAL: ClusterIndex out of range");
-    using TVL = typename CVAL_fields_::TVL;
+    using TVL = typename CvalFields::TVL;
   };
 
   // Timer Control Register
-  struct TCTRL_fields_ {
+  struct TctrlFields {
     enum class eTEN : std::uint32_t {
       // Timer n is disabled.
       et02981 = 0,
@@ -148,7 +148,7 @@ struct Pit {
     using TIE = ftl::mmio::Field<1, 1, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Chain Mode
     using CHN = ftl::mmio::Field<1, 2, eCHN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCTRL_fields_
+  };  // struct TctrlFields
 
   template<std::uint32_t ClusterIndex>
   struct TCTRL : ftl::mmio::Register<
@@ -156,21 +156,21 @@ struct Pit {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TCTRL_fields_::TEN,
-      typename TCTRL_fields_::TIE,
-      typename TCTRL_fields_::CHN,
+      typename TctrlFields::TEN,
+      typename TctrlFields::TIE,
+      typename TctrlFields::CHN,
       ftl::mmio::Reserved<29, 3>> {
     static_assert(ClusterIndex < 4u, "TCTRL: ClusterIndex out of range");
-    using eTEN = typename TCTRL_fields_::eTEN;
-    using eTIE = typename TCTRL_fields_::eTIE;
-    using eCHN = typename TCTRL_fields_::eCHN;
-    using TEN = typename TCTRL_fields_::TEN;
-    using TIE = typename TCTRL_fields_::TIE;
-    using CHN = typename TCTRL_fields_::CHN;
+    using eTEN = typename TctrlFields::eTEN;
+    using eTIE = typename TctrlFields::eTIE;
+    using eCHN = typename TctrlFields::eCHN;
+    using TEN = typename TctrlFields::TEN;
+    using TIE = typename TctrlFields::TIE;
+    using CHN = typename TctrlFields::CHN;
   };
 
   // Timer Flag Register
-  struct TFLG_fields_ {
+  struct TflgFields {
     enum class eTIF : std::uint32_t {
       // Timeout has not yet occurred.
       et0022331 = 0,
@@ -180,7 +180,7 @@ struct Pit {
 
     // Timer Interrupt Flag
     using TIF = ftl::mmio::Field<1, 0, eTIF, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct TFLG_fields_
+  };  // struct TflgFields
 
   template<std::uint32_t ClusterIndex>
   struct TFLG : ftl::mmio::Register<
@@ -188,11 +188,11 @@ struct Pit {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TFLG_fields_::TIF,
+      typename TflgFields::TIF,
       ftl::mmio::Reserved<31, 1>> {
     static_assert(ClusterIndex < 4u, "TFLG: ClusterIndex out of range");
-    using eTIF = typename TFLG_fields_::eTIF;
-    using TIF = typename TFLG_fields_::TIF;
+    using eTIF = typename TflgFields::eTIF;
+    using TIF = typename TflgFields::TIF;
   };
 
 };

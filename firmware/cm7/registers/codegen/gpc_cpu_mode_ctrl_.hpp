@@ -20,7 +20,7 @@ struct GpcCpuModeCtrl {
       0u;
 
   // CM Authentication Control
-  struct CM_AUTHEN_CTRL_fields_ {
+  struct CmAuthenCtrlFields {
     enum class eUSER : std::uint32_t {
       // Allow only privilege mode to access CPU mode control registers
       eb0 = 0,
@@ -47,35 +47,35 @@ struct GpcCpuModeCtrl {
     using LOCK_LIST = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Configuration lock
     using LOCK_CFG = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_AUTHEN_CTRL_fields_
+  };  // struct CmAuthenCtrlFields
 
   struct CM_AUTHEN_CTRL : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00000F00u,
       ftl::mmio::RW,
-      typename CM_AUTHEN_CTRL_fields_::USER,
-      typename CM_AUTHEN_CTRL_fields_::NONSECURE,
+      typename CmAuthenCtrlFields::USER,
+      typename CmAuthenCtrlFields::NONSECURE,
       ftl::mmio::Reserved<2, 2>,
-      typename CM_AUTHEN_CTRL_fields_::LOCK_SETTING,
+      typename CmAuthenCtrlFields::LOCK_SETTING,
       ftl::mmio::Reserved<3, 5>,
-      typename CM_AUTHEN_CTRL_fields_::WHITE_LIST,
-      typename CM_AUTHEN_CTRL_fields_::LOCK_LIST,
+      typename CmAuthenCtrlFields::WHITE_LIST,
+      typename CmAuthenCtrlFields::LOCK_LIST,
       ftl::mmio::Reserved<7, 13>,
-      typename CM_AUTHEN_CTRL_fields_::LOCK_CFG,
+      typename CmAuthenCtrlFields::LOCK_CFG,
       ftl::mmio::Reserved<11, 21>> {
-    using eUSER = typename CM_AUTHEN_CTRL_fields_::eUSER;
-    using eNONSECURE = typename CM_AUTHEN_CTRL_fields_::eNONSECURE;
-    using USER = typename CM_AUTHEN_CTRL_fields_::USER;
-    using NONSECURE = typename CM_AUTHEN_CTRL_fields_::NONSECURE;
-    using LOCK_SETTING = typename CM_AUTHEN_CTRL_fields_::LOCK_SETTING;
-    using WHITE_LIST = typename CM_AUTHEN_CTRL_fields_::WHITE_LIST;
-    using LOCK_LIST = typename CM_AUTHEN_CTRL_fields_::LOCK_LIST;
-    using LOCK_CFG = typename CM_AUTHEN_CTRL_fields_::LOCK_CFG;
+    using eUSER = typename CmAuthenCtrlFields::eUSER;
+    using eNONSECURE = typename CmAuthenCtrlFields::eNONSECURE;
+    using USER = typename CmAuthenCtrlFields::USER;
+    using NONSECURE = typename CmAuthenCtrlFields::NONSECURE;
+    using LOCK_SETTING = typename CmAuthenCtrlFields::LOCK_SETTING;
+    using WHITE_LIST = typename CmAuthenCtrlFields::WHITE_LIST;
+    using LOCK_LIST = typename CmAuthenCtrlFields::LOCK_LIST;
+    using LOCK_CFG = typename CmAuthenCtrlFields::LOCK_CFG;
   };
 
   // CM Interrupt Control
-  struct CM_INT_CTRL_fields_ {
+  struct CmIntCtrlFields {
     enum class eSP_REQ_NOT_ALLOWED_SLEEP_INT_EN : std::uint32_t {
       // Interrupt disable
       eb0 = 0,
@@ -109,34 +109,34 @@ struct GpcCpuModeCtrl {
     using SP_REQ_NOT_ALLOWED_WAKEUP_INT = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // sp_req_not_allowed_for_soft interrupt status and clear register
     using SP_REQ_NOT_ALLOWED_SOFT_INT = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct CM_INT_CTRL_fields_
+  };  // struct CmIntCtrlFields
 
   struct CM_INT_CTRL : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x00000007u,
       ftl::mmio::RW,
-      typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_SLEEP_INT_EN,
-      typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_WAKEUP_INT_EN,
-      typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_SOFT_INT_EN,
+      typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_SLEEP_INT_EN,
+      typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_WAKEUP_INT_EN,
+      typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_SOFT_INT_EN,
       ftl::mmio::Reserved<13, 3>,
-      typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_SLEEP_INT,
-      typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_WAKEUP_INT,
-      typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_SOFT_INT,
+      typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_SLEEP_INT,
+      typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_WAKEUP_INT,
+      typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_SOFT_INT,
       ftl::mmio::Reserved<13, 19>> {
-    using eSP_REQ_NOT_ALLOWED_SLEEP_INT_EN = typename CM_INT_CTRL_fields_::eSP_REQ_NOT_ALLOWED_SLEEP_INT_EN;
-    using eSP_REQ_NOT_ALLOWED_WAKEUP_INT_EN = typename CM_INT_CTRL_fields_::eSP_REQ_NOT_ALLOWED_WAKEUP_INT_EN;
-    using eSP_REQ_NOT_ALLOWED_SOFT_INT_EN = typename CM_INT_CTRL_fields_::eSP_REQ_NOT_ALLOWED_SOFT_INT_EN;
-    using SP_REQ_NOT_ALLOWED_SLEEP_INT_EN = typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_SLEEP_INT_EN;
-    using SP_REQ_NOT_ALLOWED_WAKEUP_INT_EN = typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_WAKEUP_INT_EN;
-    using SP_REQ_NOT_ALLOWED_SOFT_INT_EN = typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_SOFT_INT_EN;
-    using SP_REQ_NOT_ALLOWED_SLEEP_INT = typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_SLEEP_INT;
-    using SP_REQ_NOT_ALLOWED_WAKEUP_INT = typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_WAKEUP_INT;
-    using SP_REQ_NOT_ALLOWED_SOFT_INT = typename CM_INT_CTRL_fields_::SP_REQ_NOT_ALLOWED_SOFT_INT;
+    using eSP_REQ_NOT_ALLOWED_SLEEP_INT_EN = typename CmIntCtrlFields::eSP_REQ_NOT_ALLOWED_SLEEP_INT_EN;
+    using eSP_REQ_NOT_ALLOWED_WAKEUP_INT_EN = typename CmIntCtrlFields::eSP_REQ_NOT_ALLOWED_WAKEUP_INT_EN;
+    using eSP_REQ_NOT_ALLOWED_SOFT_INT_EN = typename CmIntCtrlFields::eSP_REQ_NOT_ALLOWED_SOFT_INT_EN;
+    using SP_REQ_NOT_ALLOWED_SLEEP_INT_EN = typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_SLEEP_INT_EN;
+    using SP_REQ_NOT_ALLOWED_WAKEUP_INT_EN = typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_WAKEUP_INT_EN;
+    using SP_REQ_NOT_ALLOWED_SOFT_INT_EN = typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_SOFT_INT_EN;
+    using SP_REQ_NOT_ALLOWED_SLEEP_INT = typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_SLEEP_INT;
+    using SP_REQ_NOT_ALLOWED_WAKEUP_INT = typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_WAKEUP_INT;
+    using SP_REQ_NOT_ALLOWED_SOFT_INT = typename CmIntCtrlFields::SP_REQ_NOT_ALLOWED_SOFT_INT;
   };
 
   // Miscellaneous
-  struct CM_MISC_fields_ {
+  struct CmMiscFields {
     enum class eNMI_STAT : std::uint32_t {
       // NMI is not asserting
       eb0 = 0,
@@ -159,29 +159,29 @@ struct GpcCpuModeCtrl {
     using SLEEP_HOLD_STAT = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Master CPU
     using MASTER_CPU = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_MISC_fields_
+  };  // struct CmMiscFields
 
   struct CM_MISC : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000006u,
       ftl::mmio::RW,
-      typename CM_MISC_fields_::NMI_STAT,
-      typename CM_MISC_fields_::SLEEP_HOLD_EN,
-      typename CM_MISC_fields_::SLEEP_HOLD_STAT,
+      typename CmMiscFields::NMI_STAT,
+      typename CmMiscFields::SLEEP_HOLD_EN,
+      typename CmMiscFields::SLEEP_HOLD_STAT,
       ftl::mmio::Reserved<1, 3>,
-      typename CM_MISC_fields_::MASTER_CPU,
+      typename CmMiscFields::MASTER_CPU,
       ftl::mmio::Reserved<27, 5>> {
-    using eNMI_STAT = typename CM_MISC_fields_::eNMI_STAT;
-    using eSLEEP_HOLD_EN = typename CM_MISC_fields_::eSLEEP_HOLD_EN;
-    using NMI_STAT = typename CM_MISC_fields_::NMI_STAT;
-    using SLEEP_HOLD_EN = typename CM_MISC_fields_::SLEEP_HOLD_EN;
-    using SLEEP_HOLD_STAT = typename CM_MISC_fields_::SLEEP_HOLD_STAT;
-    using MASTER_CPU = typename CM_MISC_fields_::MASTER_CPU;
+    using eNMI_STAT = typename CmMiscFields::eNMI_STAT;
+    using eSLEEP_HOLD_EN = typename CmMiscFields::eSLEEP_HOLD_EN;
+    using NMI_STAT = typename CmMiscFields::NMI_STAT;
+    using SLEEP_HOLD_EN = typename CmMiscFields::SLEEP_HOLD_EN;
+    using SLEEP_HOLD_STAT = typename CmMiscFields::SLEEP_HOLD_STAT;
+    using MASTER_CPU = typename CmMiscFields::MASTER_CPU;
   };
 
   // CPU mode control
-  struct CM_MODE_CTRL_fields_ {
+  struct CmModeCtrlFields {
     enum class eCPU_MODE_TARGET : std::uint32_t {
       // Stay in RUN mode
       eb0 = 0,
@@ -204,25 +204,25 @@ struct GpcCpuModeCtrl {
     using CPU_MODE_TARGET = ftl::mmio::Field<2, 0, eCPU_MODE_TARGET, ftl::mmio::RW, ftl::mmio::Normal>;
     // WFE assertion can be sleep event
     using WFE_EN = ftl::mmio::Field<1, 4, eWFE_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_MODE_CTRL_fields_
+  };  // struct CmModeCtrlFields
 
   struct CM_MODE_CTRL : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_MODE_CTRL_fields_::CPU_MODE_TARGET,
+      typename CmModeCtrlFields::CPU_MODE_TARGET,
       ftl::mmio::Reserved<2, 2>,
-      typename CM_MODE_CTRL_fields_::WFE_EN,
+      typename CmModeCtrlFields::WFE_EN,
       ftl::mmio::Reserved<27, 5>> {
-    using eCPU_MODE_TARGET = typename CM_MODE_CTRL_fields_::eCPU_MODE_TARGET;
-    using eWFE_EN = typename CM_MODE_CTRL_fields_::eWFE_EN;
-    using CPU_MODE_TARGET = typename CM_MODE_CTRL_fields_::CPU_MODE_TARGET;
-    using WFE_EN = typename CM_MODE_CTRL_fields_::WFE_EN;
+    using eCPU_MODE_TARGET = typename CmModeCtrlFields::eCPU_MODE_TARGET;
+    using eWFE_EN = typename CmModeCtrlFields::eWFE_EN;
+    using CPU_MODE_TARGET = typename CmModeCtrlFields::CPU_MODE_TARGET;
+    using WFE_EN = typename CmModeCtrlFields::WFE_EN;
   };
 
   // CM CPU mode Status
-  struct CM_MODE_STAT_fields_ {
+  struct CmModeStatFields {
     enum class eCPU_MODE_CURRENT : std::uint32_t {
       // CPU is currently in RUN mode
       eRUN = 0,
@@ -249,144 +249,144 @@ struct GpcCpuModeCtrl {
     using CPU_MODE_CURRENT = ftl::mmio::Field<2, 0, eCPU_MODE_CURRENT, ftl::mmio::RO, ftl::mmio::Normal>;
     // Previous CPU mode
     using CPU_MODE_PREVIOUS = ftl::mmio::Field<2, 2, eCPU_MODE_PREVIOUS, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_MODE_STAT_fields_
+  };  // struct CmModeStatFields
 
   struct CM_MODE_STAT : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_MODE_STAT_fields_::CPU_MODE_CURRENT,
-      typename CM_MODE_STAT_fields_::CPU_MODE_PREVIOUS,
+      typename CmModeStatFields::CPU_MODE_CURRENT,
+      typename CmModeStatFields::CPU_MODE_PREVIOUS,
       ftl::mmio::Reserved<28, 4>> {
-    using eCPU_MODE_CURRENT = typename CM_MODE_STAT_fields_::eCPU_MODE_CURRENT;
-    using eCPU_MODE_PREVIOUS = typename CM_MODE_STAT_fields_::eCPU_MODE_PREVIOUS;
-    using CPU_MODE_CURRENT = typename CM_MODE_STAT_fields_::CPU_MODE_CURRENT;
-    using CPU_MODE_PREVIOUS = typename CM_MODE_STAT_fields_::CPU_MODE_PREVIOUS;
+    using eCPU_MODE_CURRENT = typename CmModeStatFields::eCPU_MODE_CURRENT;
+    using eCPU_MODE_PREVIOUS = typename CmModeStatFields::eCPU_MODE_PREVIOUS;
+    using CPU_MODE_CURRENT = typename CmModeStatFields::CPU_MODE_CURRENT;
+    using CPU_MODE_PREVIOUS = typename CmModeStatFields::CPU_MODE_PREVIOUS;
   };
 
   // CM IRQ0~31 wakeup mask
-  struct CM_IRQ_WAKEUP_MASK_0_fields_ {
+  struct CmIrqWakeupMask0Fields {
     // "1" means the IRQ cannot wakeup CPU platform
     using IRQ_WAKEUP_MASK_0_31 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_MASK_0_fields_
+  };  // struct CmIrqWakeupMask0Fields
 
   struct CM_IRQ_WAKEUP_MASK_0 : ftl::mmio::Register<
       kBase + 0x100u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_IRQ_WAKEUP_MASK_0_fields_::IRQ_WAKEUP_MASK_0_31> {
-    using IRQ_WAKEUP_MASK_0_31 = typename CM_IRQ_WAKEUP_MASK_0_fields_::IRQ_WAKEUP_MASK_0_31;
+      typename CmIrqWakeupMask0Fields::IRQ_WAKEUP_MASK_0_31> {
+    using IRQ_WAKEUP_MASK_0_31 = typename CmIrqWakeupMask0Fields::IRQ_WAKEUP_MASK_0_31;
   };
 
   // CM IRQ32~63 wakeup mask
-  struct CM_IRQ_WAKEUP_MASK_1_fields_ {
+  struct CmIrqWakeupMask1Fields {
     // "1" means the IRQ cannot wakeup CPU platform
     using IRQ_WAKEUP_MASK_32_63 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_MASK_1_fields_
+  };  // struct CmIrqWakeupMask1Fields
 
   struct CM_IRQ_WAKEUP_MASK_1 : ftl::mmio::Register<
       kBase + 0x104u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_IRQ_WAKEUP_MASK_1_fields_::IRQ_WAKEUP_MASK_32_63> {
-    using IRQ_WAKEUP_MASK_32_63 = typename CM_IRQ_WAKEUP_MASK_1_fields_::IRQ_WAKEUP_MASK_32_63;
+      typename CmIrqWakeupMask1Fields::IRQ_WAKEUP_MASK_32_63> {
+    using IRQ_WAKEUP_MASK_32_63 = typename CmIrqWakeupMask1Fields::IRQ_WAKEUP_MASK_32_63;
   };
 
   // CM IRQ64~95 wakeup mask
-  struct CM_IRQ_WAKEUP_MASK_2_fields_ {
+  struct CmIrqWakeupMask2Fields {
     // "1" means the IRQ cannot wakeup CPU platform
     using IRQ_WAKEUP_MASK_64_95 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_MASK_2_fields_
+  };  // struct CmIrqWakeupMask2Fields
 
   struct CM_IRQ_WAKEUP_MASK_2 : ftl::mmio::Register<
       kBase + 0x108u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_IRQ_WAKEUP_MASK_2_fields_::IRQ_WAKEUP_MASK_64_95> {
-    using IRQ_WAKEUP_MASK_64_95 = typename CM_IRQ_WAKEUP_MASK_2_fields_::IRQ_WAKEUP_MASK_64_95;
+      typename CmIrqWakeupMask2Fields::IRQ_WAKEUP_MASK_64_95> {
+    using IRQ_WAKEUP_MASK_64_95 = typename CmIrqWakeupMask2Fields::IRQ_WAKEUP_MASK_64_95;
   };
 
   // CM IRQ96~127 wakeup mask
-  struct CM_IRQ_WAKEUP_MASK_3_fields_ {
+  struct CmIrqWakeupMask3Fields {
     // "1" means the IRQ cannot wakeup CPU platform
     using IRQ_WAKEUP_MASK_96_127 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_MASK_3_fields_
+  };  // struct CmIrqWakeupMask3Fields
 
   struct CM_IRQ_WAKEUP_MASK_3 : ftl::mmio::Register<
       kBase + 0x10Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_IRQ_WAKEUP_MASK_3_fields_::IRQ_WAKEUP_MASK_96_127> {
-    using IRQ_WAKEUP_MASK_96_127 = typename CM_IRQ_WAKEUP_MASK_3_fields_::IRQ_WAKEUP_MASK_96_127;
+      typename CmIrqWakeupMask3Fields::IRQ_WAKEUP_MASK_96_127> {
+    using IRQ_WAKEUP_MASK_96_127 = typename CmIrqWakeupMask3Fields::IRQ_WAKEUP_MASK_96_127;
   };
 
   // CM IRQ128~159 wakeup mask
-  struct CM_IRQ_WAKEUP_MASK_4_fields_ {
+  struct CmIrqWakeupMask4Fields {
     // "1" means the IRQ cannot wakeup CPU platform
     using IRQ_WAKEUP_MASK_128_159 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_MASK_4_fields_
+  };  // struct CmIrqWakeupMask4Fields
 
   struct CM_IRQ_WAKEUP_MASK_4 : ftl::mmio::Register<
       kBase + 0x110u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_IRQ_WAKEUP_MASK_4_fields_::IRQ_WAKEUP_MASK_128_159> {
-    using IRQ_WAKEUP_MASK_128_159 = typename CM_IRQ_WAKEUP_MASK_4_fields_::IRQ_WAKEUP_MASK_128_159;
+      typename CmIrqWakeupMask4Fields::IRQ_WAKEUP_MASK_128_159> {
+    using IRQ_WAKEUP_MASK_128_159 = typename CmIrqWakeupMask4Fields::IRQ_WAKEUP_MASK_128_159;
   };
 
   // CM IRQ160~191 wakeup mask
-  struct CM_IRQ_WAKEUP_MASK_5_fields_ {
+  struct CmIrqWakeupMask5Fields {
     // "1" means the IRQ cannot wakeup CPU platform
     using IRQ_WAKEUP_MASK_160_191 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_MASK_5_fields_
+  };  // struct CmIrqWakeupMask5Fields
 
   struct CM_IRQ_WAKEUP_MASK_5 : ftl::mmio::Register<
       kBase + 0x114u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_IRQ_WAKEUP_MASK_5_fields_::IRQ_WAKEUP_MASK_160_191> {
-    using IRQ_WAKEUP_MASK_160_191 = typename CM_IRQ_WAKEUP_MASK_5_fields_::IRQ_WAKEUP_MASK_160_191;
+      typename CmIrqWakeupMask5Fields::IRQ_WAKEUP_MASK_160_191> {
+    using IRQ_WAKEUP_MASK_160_191 = typename CmIrqWakeupMask5Fields::IRQ_WAKEUP_MASK_160_191;
   };
 
   // CM IRQ192~223 wakeup mask
-  struct CM_IRQ_WAKEUP_MASK_6_fields_ {
+  struct CmIrqWakeupMask6Fields {
     // "1" means the IRQ cannot wakeup CPU platform
     using IRQ_WAKEUP_MASK_192_223 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_MASK_6_fields_
+  };  // struct CmIrqWakeupMask6Fields
 
   struct CM_IRQ_WAKEUP_MASK_6 : ftl::mmio::Register<
       kBase + 0x118u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_IRQ_WAKEUP_MASK_6_fields_::IRQ_WAKEUP_MASK_192_223> {
-    using IRQ_WAKEUP_MASK_192_223 = typename CM_IRQ_WAKEUP_MASK_6_fields_::IRQ_WAKEUP_MASK_192_223;
+      typename CmIrqWakeupMask6Fields::IRQ_WAKEUP_MASK_192_223> {
+    using IRQ_WAKEUP_MASK_192_223 = typename CmIrqWakeupMask6Fields::IRQ_WAKEUP_MASK_192_223;
   };
 
   // CM IRQ224~255 wakeup mask
-  struct CM_IRQ_WAKEUP_MASK_7_fields_ {
+  struct CmIrqWakeupMask7Fields {
     // "1" means the IRQ cannot wakeup CPU platform
     using IRQ_WAKEUP_MASK_224_255 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_MASK_7_fields_
+  };  // struct CmIrqWakeupMask7Fields
 
   struct CM_IRQ_WAKEUP_MASK_7 : ftl::mmio::Register<
       kBase + 0x11Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_IRQ_WAKEUP_MASK_7_fields_::IRQ_WAKEUP_MASK_224_255> {
-    using IRQ_WAKEUP_MASK_224_255 = typename CM_IRQ_WAKEUP_MASK_7_fields_::IRQ_WAKEUP_MASK_224_255;
+      typename CmIrqWakeupMask7Fields::IRQ_WAKEUP_MASK_224_255> {
+    using IRQ_WAKEUP_MASK_224_255 = typename CmIrqWakeupMask7Fields::IRQ_WAKEUP_MASK_224_255;
   };
 
   // CM non-irq wakeup mask
-  struct CM_NON_IRQ_WAKEUP_MASK_fields_ {
+  struct CmNonIrqWakeupMaskFields {
     enum class eEVENT_WAKEUP_MASK : std::uint32_t {
       // The event cannot wakeup CPU platform
       eb1 = 1,
@@ -396,23 +396,23 @@ struct GpcCpuModeCtrl {
     using EVENT_WAKEUP_MASK = ftl::mmio::Field<1, 0, eEVENT_WAKEUP_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
     // "1" means the debug_wakeup_request cannot wakeup CPU platform
     using DEBUG_WAKEUP_MASK = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_NON_IRQ_WAKEUP_MASK_fields_
+  };  // struct CmNonIrqWakeupMaskFields
 
   struct CM_NON_IRQ_WAKEUP_MASK : ftl::mmio::Register<
       kBase + 0x140u,
       std::uint32_t,
       0x00000001u,
       ftl::mmio::RW,
-      typename CM_NON_IRQ_WAKEUP_MASK_fields_::EVENT_WAKEUP_MASK,
-      typename CM_NON_IRQ_WAKEUP_MASK_fields_::DEBUG_WAKEUP_MASK,
+      typename CmNonIrqWakeupMaskFields::EVENT_WAKEUP_MASK,
+      typename CmNonIrqWakeupMaskFields::DEBUG_WAKEUP_MASK,
       ftl::mmio::Reserved<30, 2>> {
-    using eEVENT_WAKEUP_MASK = typename CM_NON_IRQ_WAKEUP_MASK_fields_::eEVENT_WAKEUP_MASK;
-    using EVENT_WAKEUP_MASK = typename CM_NON_IRQ_WAKEUP_MASK_fields_::EVENT_WAKEUP_MASK;
-    using DEBUG_WAKEUP_MASK = typename CM_NON_IRQ_WAKEUP_MASK_fields_::DEBUG_WAKEUP_MASK;
+    using eEVENT_WAKEUP_MASK = typename CmNonIrqWakeupMaskFields::eEVENT_WAKEUP_MASK;
+    using EVENT_WAKEUP_MASK = typename CmNonIrqWakeupMaskFields::EVENT_WAKEUP_MASK;
+    using DEBUG_WAKEUP_MASK = typename CmNonIrqWakeupMaskFields::DEBUG_WAKEUP_MASK;
   };
 
   // CM IRQ0~31 wakeup status
-  struct CM_IRQ_WAKEUP_STAT_0_fields_ {
+  struct CmIrqWakeupStat0Fields {
     enum class eIRQ_WAKEUP_STAT_0_31 : std::uint32_t {
       // None
       eb0 = 0,
@@ -422,20 +422,20 @@ struct GpcCpuModeCtrl {
 
     // IRQ status
     using IRQ_WAKEUP_STAT_0_31 = ftl::mmio::Field<32, 0, eIRQ_WAKEUP_STAT_0_31, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_STAT_0_fields_
+  };  // struct CmIrqWakeupStat0Fields
 
   struct CM_IRQ_WAKEUP_STAT_0 : ftl::mmio::Register<
       kBase + 0x150u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_IRQ_WAKEUP_STAT_0_fields_::IRQ_WAKEUP_STAT_0_31> {
-    using eIRQ_WAKEUP_STAT_0_31 = typename CM_IRQ_WAKEUP_STAT_0_fields_::eIRQ_WAKEUP_STAT_0_31;
-    using IRQ_WAKEUP_STAT_0_31 = typename CM_IRQ_WAKEUP_STAT_0_fields_::IRQ_WAKEUP_STAT_0_31;
+      typename CmIrqWakeupStat0Fields::IRQ_WAKEUP_STAT_0_31> {
+    using eIRQ_WAKEUP_STAT_0_31 = typename CmIrqWakeupStat0Fields::eIRQ_WAKEUP_STAT_0_31;
+    using IRQ_WAKEUP_STAT_0_31 = typename CmIrqWakeupStat0Fields::IRQ_WAKEUP_STAT_0_31;
   };
 
   // CM IRQ32~63 wakeup status
-  struct CM_IRQ_WAKEUP_STAT_1_fields_ {
+  struct CmIrqWakeupStat1Fields {
     enum class eIRQ_WAKEUP_STAT_32_63 : std::uint32_t {
       // None
       eb0 = 0,
@@ -445,20 +445,20 @@ struct GpcCpuModeCtrl {
 
     // IRQ status
     using IRQ_WAKEUP_STAT_32_63 = ftl::mmio::Field<32, 0, eIRQ_WAKEUP_STAT_32_63, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_STAT_1_fields_
+  };  // struct CmIrqWakeupStat1Fields
 
   struct CM_IRQ_WAKEUP_STAT_1 : ftl::mmio::Register<
       kBase + 0x154u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_IRQ_WAKEUP_STAT_1_fields_::IRQ_WAKEUP_STAT_32_63> {
-    using eIRQ_WAKEUP_STAT_32_63 = typename CM_IRQ_WAKEUP_STAT_1_fields_::eIRQ_WAKEUP_STAT_32_63;
-    using IRQ_WAKEUP_STAT_32_63 = typename CM_IRQ_WAKEUP_STAT_1_fields_::IRQ_WAKEUP_STAT_32_63;
+      typename CmIrqWakeupStat1Fields::IRQ_WAKEUP_STAT_32_63> {
+    using eIRQ_WAKEUP_STAT_32_63 = typename CmIrqWakeupStat1Fields::eIRQ_WAKEUP_STAT_32_63;
+    using IRQ_WAKEUP_STAT_32_63 = typename CmIrqWakeupStat1Fields::IRQ_WAKEUP_STAT_32_63;
   };
 
   // CM IRQ64~95 wakeup status
-  struct CM_IRQ_WAKEUP_STAT_2_fields_ {
+  struct CmIrqWakeupStat2Fields {
     enum class eIRQ_WAKEUP_STAT_64_95 : std::uint32_t {
       // None
       eb0 = 0,
@@ -468,20 +468,20 @@ struct GpcCpuModeCtrl {
 
     // IRQ status
     using IRQ_WAKEUP_STAT_64_95 = ftl::mmio::Field<32, 0, eIRQ_WAKEUP_STAT_64_95, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_STAT_2_fields_
+  };  // struct CmIrqWakeupStat2Fields
 
   struct CM_IRQ_WAKEUP_STAT_2 : ftl::mmio::Register<
       kBase + 0x158u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_IRQ_WAKEUP_STAT_2_fields_::IRQ_WAKEUP_STAT_64_95> {
-    using eIRQ_WAKEUP_STAT_64_95 = typename CM_IRQ_WAKEUP_STAT_2_fields_::eIRQ_WAKEUP_STAT_64_95;
-    using IRQ_WAKEUP_STAT_64_95 = typename CM_IRQ_WAKEUP_STAT_2_fields_::IRQ_WAKEUP_STAT_64_95;
+      typename CmIrqWakeupStat2Fields::IRQ_WAKEUP_STAT_64_95> {
+    using eIRQ_WAKEUP_STAT_64_95 = typename CmIrqWakeupStat2Fields::eIRQ_WAKEUP_STAT_64_95;
+    using IRQ_WAKEUP_STAT_64_95 = typename CmIrqWakeupStat2Fields::IRQ_WAKEUP_STAT_64_95;
   };
 
   // CM IRQ96~127 wakeup status
-  struct CM_IRQ_WAKEUP_STAT_3_fields_ {
+  struct CmIrqWakeupStat3Fields {
     enum class eIRQ_WAKEUP_STAT_96_127 : std::uint32_t {
       // None
       eb0 = 0,
@@ -491,20 +491,20 @@ struct GpcCpuModeCtrl {
 
     // IRQ status
     using IRQ_WAKEUP_STAT_96_127 = ftl::mmio::Field<32, 0, eIRQ_WAKEUP_STAT_96_127, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_STAT_3_fields_
+  };  // struct CmIrqWakeupStat3Fields
 
   struct CM_IRQ_WAKEUP_STAT_3 : ftl::mmio::Register<
       kBase + 0x15Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_IRQ_WAKEUP_STAT_3_fields_::IRQ_WAKEUP_STAT_96_127> {
-    using eIRQ_WAKEUP_STAT_96_127 = typename CM_IRQ_WAKEUP_STAT_3_fields_::eIRQ_WAKEUP_STAT_96_127;
-    using IRQ_WAKEUP_STAT_96_127 = typename CM_IRQ_WAKEUP_STAT_3_fields_::IRQ_WAKEUP_STAT_96_127;
+      typename CmIrqWakeupStat3Fields::IRQ_WAKEUP_STAT_96_127> {
+    using eIRQ_WAKEUP_STAT_96_127 = typename CmIrqWakeupStat3Fields::eIRQ_WAKEUP_STAT_96_127;
+    using IRQ_WAKEUP_STAT_96_127 = typename CmIrqWakeupStat3Fields::IRQ_WAKEUP_STAT_96_127;
   };
 
   // CM IRQ128~159 wakeup status
-  struct CM_IRQ_WAKEUP_STAT_4_fields_ {
+  struct CmIrqWakeupStat4Fields {
     enum class eIRQ_WAKEUP_STAT_128_159 : std::uint32_t {
       // None
       eb0 = 0,
@@ -514,20 +514,20 @@ struct GpcCpuModeCtrl {
 
     // IRQ status
     using IRQ_WAKEUP_STAT_128_159 = ftl::mmio::Field<32, 0, eIRQ_WAKEUP_STAT_128_159, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_STAT_4_fields_
+  };  // struct CmIrqWakeupStat4Fields
 
   struct CM_IRQ_WAKEUP_STAT_4 : ftl::mmio::Register<
       kBase + 0x160u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_IRQ_WAKEUP_STAT_4_fields_::IRQ_WAKEUP_STAT_128_159> {
-    using eIRQ_WAKEUP_STAT_128_159 = typename CM_IRQ_WAKEUP_STAT_4_fields_::eIRQ_WAKEUP_STAT_128_159;
-    using IRQ_WAKEUP_STAT_128_159 = typename CM_IRQ_WAKEUP_STAT_4_fields_::IRQ_WAKEUP_STAT_128_159;
+      typename CmIrqWakeupStat4Fields::IRQ_WAKEUP_STAT_128_159> {
+    using eIRQ_WAKEUP_STAT_128_159 = typename CmIrqWakeupStat4Fields::eIRQ_WAKEUP_STAT_128_159;
+    using IRQ_WAKEUP_STAT_128_159 = typename CmIrqWakeupStat4Fields::IRQ_WAKEUP_STAT_128_159;
   };
 
   // CM IRQ160~191 wakeup status
-  struct CM_IRQ_WAKEUP_STAT_5_fields_ {
+  struct CmIrqWakeupStat5Fields {
     enum class eIRQ_WAKEUP_STAT_160_191 : std::uint32_t {
       // None
       eb0 = 0,
@@ -537,20 +537,20 @@ struct GpcCpuModeCtrl {
 
     // IRQ status
     using IRQ_WAKEUP_STAT_160_191 = ftl::mmio::Field<32, 0, eIRQ_WAKEUP_STAT_160_191, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_STAT_5_fields_
+  };  // struct CmIrqWakeupStat5Fields
 
   struct CM_IRQ_WAKEUP_STAT_5 : ftl::mmio::Register<
       kBase + 0x164u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_IRQ_WAKEUP_STAT_5_fields_::IRQ_WAKEUP_STAT_160_191> {
-    using eIRQ_WAKEUP_STAT_160_191 = typename CM_IRQ_WAKEUP_STAT_5_fields_::eIRQ_WAKEUP_STAT_160_191;
-    using IRQ_WAKEUP_STAT_160_191 = typename CM_IRQ_WAKEUP_STAT_5_fields_::IRQ_WAKEUP_STAT_160_191;
+      typename CmIrqWakeupStat5Fields::IRQ_WAKEUP_STAT_160_191> {
+    using eIRQ_WAKEUP_STAT_160_191 = typename CmIrqWakeupStat5Fields::eIRQ_WAKEUP_STAT_160_191;
+    using IRQ_WAKEUP_STAT_160_191 = typename CmIrqWakeupStat5Fields::IRQ_WAKEUP_STAT_160_191;
   };
 
   // CM IRQ192~223 wakeup status
-  struct CM_IRQ_WAKEUP_STAT_6_fields_ {
+  struct CmIrqWakeupStat6Fields {
     enum class eIRQ_WAKEUP_STAT_192_223 : std::uint32_t {
       // None
       eb0 = 0,
@@ -560,20 +560,20 @@ struct GpcCpuModeCtrl {
 
     // IRQ status
     using IRQ_WAKEUP_STAT_192_223 = ftl::mmio::Field<32, 0, eIRQ_WAKEUP_STAT_192_223, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_STAT_6_fields_
+  };  // struct CmIrqWakeupStat6Fields
 
   struct CM_IRQ_WAKEUP_STAT_6 : ftl::mmio::Register<
       kBase + 0x168u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_IRQ_WAKEUP_STAT_6_fields_::IRQ_WAKEUP_STAT_192_223> {
-    using eIRQ_WAKEUP_STAT_192_223 = typename CM_IRQ_WAKEUP_STAT_6_fields_::eIRQ_WAKEUP_STAT_192_223;
-    using IRQ_WAKEUP_STAT_192_223 = typename CM_IRQ_WAKEUP_STAT_6_fields_::IRQ_WAKEUP_STAT_192_223;
+      typename CmIrqWakeupStat6Fields::IRQ_WAKEUP_STAT_192_223> {
+    using eIRQ_WAKEUP_STAT_192_223 = typename CmIrqWakeupStat6Fields::eIRQ_WAKEUP_STAT_192_223;
+    using IRQ_WAKEUP_STAT_192_223 = typename CmIrqWakeupStat6Fields::IRQ_WAKEUP_STAT_192_223;
   };
 
   // CM IRQ224~255 wakeup status
-  struct CM_IRQ_WAKEUP_STAT_7_fields_ {
+  struct CmIrqWakeupStat7Fields {
     enum class eIRQ_WAKEUP_MASK_224_255 : std::uint32_t {
       // None
       eb0 = 0,
@@ -583,20 +583,20 @@ struct GpcCpuModeCtrl {
 
     // IRQ status
     using IRQ_WAKEUP_MASK_224_255 = ftl::mmio::Field<32, 0, eIRQ_WAKEUP_MASK_224_255, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_IRQ_WAKEUP_STAT_7_fields_
+  };  // struct CmIrqWakeupStat7Fields
 
   struct CM_IRQ_WAKEUP_STAT_7 : ftl::mmio::Register<
       kBase + 0x16Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_IRQ_WAKEUP_STAT_7_fields_::IRQ_WAKEUP_MASK_224_255> {
-    using eIRQ_WAKEUP_MASK_224_255 = typename CM_IRQ_WAKEUP_STAT_7_fields_::eIRQ_WAKEUP_MASK_224_255;
-    using IRQ_WAKEUP_MASK_224_255 = typename CM_IRQ_WAKEUP_STAT_7_fields_::IRQ_WAKEUP_MASK_224_255;
+      typename CmIrqWakeupStat7Fields::IRQ_WAKEUP_MASK_224_255> {
+    using eIRQ_WAKEUP_MASK_224_255 = typename CmIrqWakeupStat7Fields::eIRQ_WAKEUP_MASK_224_255;
+    using IRQ_WAKEUP_MASK_224_255 = typename CmIrqWakeupStat7Fields::IRQ_WAKEUP_MASK_224_255;
   };
 
   // CM non-irq wakeup status
-  struct CM_NON_IRQ_WAKEUP_STAT_fields_ {
+  struct CmNonIrqWakeupStatFields {
     enum class eEVENT_WAKEUP_STAT : std::uint32_t {
       // Interrupt is asserting (pending)
       eb1 = 1,
@@ -606,23 +606,23 @@ struct GpcCpuModeCtrl {
     using EVENT_WAKEUP_STAT = ftl::mmio::Field<1, 0, eEVENT_WAKEUP_STAT, ftl::mmio::RO, ftl::mmio::Normal>;
     // Debug wakeup status
     using DEBUG_WAKEUP_STAT = ftl::mmio::Field<1, 1, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_NON_IRQ_WAKEUP_STAT_fields_
+  };  // struct CmNonIrqWakeupStatFields
 
   struct CM_NON_IRQ_WAKEUP_STAT : ftl::mmio::Register<
       kBase + 0x190u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_NON_IRQ_WAKEUP_STAT_fields_::EVENT_WAKEUP_STAT,
-      typename CM_NON_IRQ_WAKEUP_STAT_fields_::DEBUG_WAKEUP_STAT,
+      typename CmNonIrqWakeupStatFields::EVENT_WAKEUP_STAT,
+      typename CmNonIrqWakeupStatFields::DEBUG_WAKEUP_STAT,
       ftl::mmio::Reserved<30, 2>> {
-    using eEVENT_WAKEUP_STAT = typename CM_NON_IRQ_WAKEUP_STAT_fields_::eEVENT_WAKEUP_STAT;
-    using EVENT_WAKEUP_STAT = typename CM_NON_IRQ_WAKEUP_STAT_fields_::EVENT_WAKEUP_STAT;
-    using DEBUG_WAKEUP_STAT = typename CM_NON_IRQ_WAKEUP_STAT_fields_::DEBUG_WAKEUP_STAT;
+    using eEVENT_WAKEUP_STAT = typename CmNonIrqWakeupStatFields::eEVENT_WAKEUP_STAT;
+    using EVENT_WAKEUP_STAT = typename CmNonIrqWakeupStatFields::EVENT_WAKEUP_STAT;
+    using DEBUG_WAKEUP_STAT = typename CmNonIrqWakeupStatFields::DEBUG_WAKEUP_STAT;
   };
 
   // CM sleep SSAR control
-  struct CM_SLEEP_SSAR_CTRL_fields_ {
+  struct CmSleepSsarCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -640,26 +640,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SLEEP_SSAR_CTRL_fields_
+  };  // struct CmSleepSsarCtrlFields
 
   struct CM_SLEEP_SSAR_CTRL : ftl::mmio::Register<
       kBase + 0x200u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_SLEEP_SSAR_CTRL_fields_::STEP_CNT,
+      typename CmSleepSsarCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_SLEEP_SSAR_CTRL_fields_::CNT_MODE,
+      typename CmSleepSsarCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_SLEEP_SSAR_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_SLEEP_SSAR_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_SLEEP_SSAR_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_SLEEP_SSAR_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_SLEEP_SSAR_CTRL_fields_::DISABLE;
+      typename CmSleepSsarCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmSleepSsarCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmSleepSsarCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmSleepSsarCtrlFields::CNT_MODE;
+    using DISABLE = typename CmSleepSsarCtrlFields::DISABLE;
   };
 
   // CM sleep LPCG control
-  struct CM_SLEEP_LPCG_CTRL_fields_ {
+  struct CmSleepLpcgCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -677,26 +677,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SLEEP_LPCG_CTRL_fields_
+  };  // struct CmSleepLpcgCtrlFields
 
   struct CM_SLEEP_LPCG_CTRL : ftl::mmio::Register<
       kBase + 0x208u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_SLEEP_LPCG_CTRL_fields_::STEP_CNT,
+      typename CmSleepLpcgCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_SLEEP_LPCG_CTRL_fields_::CNT_MODE,
+      typename CmSleepLpcgCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_SLEEP_LPCG_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_SLEEP_LPCG_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_SLEEP_LPCG_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_SLEEP_LPCG_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_SLEEP_LPCG_CTRL_fields_::DISABLE;
+      typename CmSleepLpcgCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmSleepLpcgCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmSleepLpcgCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmSleepLpcgCtrlFields::CNT_MODE;
+    using DISABLE = typename CmSleepLpcgCtrlFields::DISABLE;
   };
 
   // CM sleep PLL control
-  struct CM_SLEEP_PLL_CTRL_fields_ {
+  struct CmSleepPllCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -714,26 +714,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SLEEP_PLL_CTRL_fields_
+  };  // struct CmSleepPllCtrlFields
 
   struct CM_SLEEP_PLL_CTRL : ftl::mmio::Register<
       kBase + 0x210u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_SLEEP_PLL_CTRL_fields_::STEP_CNT,
+      typename CmSleepPllCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_SLEEP_PLL_CTRL_fields_::CNT_MODE,
+      typename CmSleepPllCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_SLEEP_PLL_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_SLEEP_PLL_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_SLEEP_PLL_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_SLEEP_PLL_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_SLEEP_PLL_CTRL_fields_::DISABLE;
+      typename CmSleepPllCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmSleepPllCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmSleepPllCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmSleepPllCtrlFields::CNT_MODE;
+    using DISABLE = typename CmSleepPllCtrlFields::DISABLE;
   };
 
   // CM sleep isolation control
-  struct CM_SLEEP_ISO_CTRL_fields_ {
+  struct CmSleepIsoCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -751,26 +751,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SLEEP_ISO_CTRL_fields_
+  };  // struct CmSleepIsoCtrlFields
 
   struct CM_SLEEP_ISO_CTRL : ftl::mmio::Register<
       kBase + 0x218u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_SLEEP_ISO_CTRL_fields_::STEP_CNT,
+      typename CmSleepIsoCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_SLEEP_ISO_CTRL_fields_::CNT_MODE,
+      typename CmSleepIsoCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_SLEEP_ISO_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_SLEEP_ISO_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_SLEEP_ISO_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_SLEEP_ISO_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_SLEEP_ISO_CTRL_fields_::DISABLE;
+      typename CmSleepIsoCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmSleepIsoCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmSleepIsoCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmSleepIsoCtrlFields::CNT_MODE;
+    using DISABLE = typename CmSleepIsoCtrlFields::DISABLE;
   };
 
   // CM sleep reset control
-  struct CM_SLEEP_RESET_CTRL_fields_ {
+  struct CmSleepResetCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -788,26 +788,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SLEEP_RESET_CTRL_fields_
+  };  // struct CmSleepResetCtrlFields
 
   struct CM_SLEEP_RESET_CTRL : ftl::mmio::Register<
       kBase + 0x220u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_SLEEP_RESET_CTRL_fields_::STEP_CNT,
+      typename CmSleepResetCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_SLEEP_RESET_CTRL_fields_::CNT_MODE,
+      typename CmSleepResetCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_SLEEP_RESET_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_SLEEP_RESET_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_SLEEP_RESET_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_SLEEP_RESET_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_SLEEP_RESET_CTRL_fields_::DISABLE;
+      typename CmSleepResetCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmSleepResetCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmSleepResetCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmSleepResetCtrlFields::CNT_MODE;
+    using DISABLE = typename CmSleepResetCtrlFields::DISABLE;
   };
 
   // CM sleep power control
-  struct CM_SLEEP_POWER_CTRL_fields_ {
+  struct CmSleepPowerCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -825,26 +825,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SLEEP_POWER_CTRL_fields_
+  };  // struct CmSleepPowerCtrlFields
 
   struct CM_SLEEP_POWER_CTRL : ftl::mmio::Register<
       kBase + 0x228u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_SLEEP_POWER_CTRL_fields_::STEP_CNT,
+      typename CmSleepPowerCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_SLEEP_POWER_CTRL_fields_::CNT_MODE,
+      typename CmSleepPowerCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_SLEEP_POWER_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_SLEEP_POWER_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_SLEEP_POWER_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_SLEEP_POWER_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_SLEEP_POWER_CTRL_fields_::DISABLE;
+      typename CmSleepPowerCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmSleepPowerCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmSleepPowerCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmSleepPowerCtrlFields::CNT_MODE;
+    using DISABLE = typename CmSleepPowerCtrlFields::DISABLE;
   };
 
   // CM wakeup power control
-  struct CM_WAKEUP_POWER_CTRL_fields_ {
+  struct CmWakeupPowerCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -862,26 +862,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_WAKEUP_POWER_CTRL_fields_
+  };  // struct CmWakeupPowerCtrlFields
 
   struct CM_WAKEUP_POWER_CTRL : ftl::mmio::Register<
       kBase + 0x290u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_WAKEUP_POWER_CTRL_fields_::STEP_CNT,
+      typename CmWakeupPowerCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_WAKEUP_POWER_CTRL_fields_::CNT_MODE,
+      typename CmWakeupPowerCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_WAKEUP_POWER_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_WAKEUP_POWER_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_WAKEUP_POWER_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_WAKEUP_POWER_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_WAKEUP_POWER_CTRL_fields_::DISABLE;
+      typename CmWakeupPowerCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmWakeupPowerCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmWakeupPowerCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmWakeupPowerCtrlFields::CNT_MODE;
+    using DISABLE = typename CmWakeupPowerCtrlFields::DISABLE;
   };
 
   // CM wakeup reset control
-  struct CM_WAKEUP_RESET_CTRL_fields_ {
+  struct CmWakeupResetCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -899,26 +899,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_WAKEUP_RESET_CTRL_fields_
+  };  // struct CmWakeupResetCtrlFields
 
   struct CM_WAKEUP_RESET_CTRL : ftl::mmio::Register<
       kBase + 0x298u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_WAKEUP_RESET_CTRL_fields_::STEP_CNT,
+      typename CmWakeupResetCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_WAKEUP_RESET_CTRL_fields_::CNT_MODE,
+      typename CmWakeupResetCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_WAKEUP_RESET_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_WAKEUP_RESET_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_WAKEUP_RESET_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_WAKEUP_RESET_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_WAKEUP_RESET_CTRL_fields_::DISABLE;
+      typename CmWakeupResetCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmWakeupResetCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmWakeupResetCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmWakeupResetCtrlFields::CNT_MODE;
+    using DISABLE = typename CmWakeupResetCtrlFields::DISABLE;
   };
 
   // CM wakeup isolation control
-  struct CM_WAKEUP_ISO_CTRL_fields_ {
+  struct CmWakeupIsoCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -936,26 +936,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_WAKEUP_ISO_CTRL_fields_
+  };  // struct CmWakeupIsoCtrlFields
 
   struct CM_WAKEUP_ISO_CTRL : ftl::mmio::Register<
       kBase + 0x2A0u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_WAKEUP_ISO_CTRL_fields_::STEP_CNT,
+      typename CmWakeupIsoCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_WAKEUP_ISO_CTRL_fields_::CNT_MODE,
+      typename CmWakeupIsoCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_WAKEUP_ISO_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_WAKEUP_ISO_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_WAKEUP_ISO_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_WAKEUP_ISO_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_WAKEUP_ISO_CTRL_fields_::DISABLE;
+      typename CmWakeupIsoCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmWakeupIsoCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmWakeupIsoCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmWakeupIsoCtrlFields::CNT_MODE;
+    using DISABLE = typename CmWakeupIsoCtrlFields::DISABLE;
   };
 
   // CM wakeup PLL control
-  struct CM_WAKEUP_PLL_CTRL_fields_ {
+  struct CmWakeupPllCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -973,26 +973,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_WAKEUP_PLL_CTRL_fields_
+  };  // struct CmWakeupPllCtrlFields
 
   struct CM_WAKEUP_PLL_CTRL : ftl::mmio::Register<
       kBase + 0x2A8u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_WAKEUP_PLL_CTRL_fields_::STEP_CNT,
+      typename CmWakeupPllCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_WAKEUP_PLL_CTRL_fields_::CNT_MODE,
+      typename CmWakeupPllCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_WAKEUP_PLL_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_WAKEUP_PLL_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_WAKEUP_PLL_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_WAKEUP_PLL_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_WAKEUP_PLL_CTRL_fields_::DISABLE;
+      typename CmWakeupPllCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmWakeupPllCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmWakeupPllCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmWakeupPllCtrlFields::CNT_MODE;
+    using DISABLE = typename CmWakeupPllCtrlFields::DISABLE;
   };
 
   // CM wakeup LPCG control
-  struct CM_WAKEUP_LPCG_CTRL_fields_ {
+  struct CmWakeupLpcgCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -1010,26 +1010,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_WAKEUP_LPCG_CTRL_fields_
+  };  // struct CmWakeupLpcgCtrlFields
 
   struct CM_WAKEUP_LPCG_CTRL : ftl::mmio::Register<
       kBase + 0x2B0u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_WAKEUP_LPCG_CTRL_fields_::STEP_CNT,
+      typename CmWakeupLpcgCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_WAKEUP_LPCG_CTRL_fields_::CNT_MODE,
+      typename CmWakeupLpcgCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_WAKEUP_LPCG_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_WAKEUP_LPCG_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_WAKEUP_LPCG_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_WAKEUP_LPCG_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_WAKEUP_LPCG_CTRL_fields_::DISABLE;
+      typename CmWakeupLpcgCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmWakeupLpcgCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmWakeupLpcgCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmWakeupLpcgCtrlFields::CNT_MODE;
+    using DISABLE = typename CmWakeupLpcgCtrlFields::DISABLE;
   };
 
   // CM wakeup SSAR control
-  struct CM_WAKEUP_SSAR_CTRL_fields_ {
+  struct CmWakeupSsarCtrlFields {
     enum class eCNT_MODE : std::uint32_t {
       // Counter disable mode: not use step counter, step completes once receiving step_done
       eb0 = 0,
@@ -1047,26 +1047,26 @@ struct GpcCpuModeCtrl {
     using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable this step
     using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_WAKEUP_SSAR_CTRL_fields_
+  };  // struct CmWakeupSsarCtrlFields
 
   struct CM_WAKEUP_SSAR_CTRL : ftl::mmio::Register<
       kBase + 0x2B8u,
       std::uint32_t,
       0x00000004u,
       ftl::mmio::RW,
-      typename CM_WAKEUP_SSAR_CTRL_fields_::STEP_CNT,
+      typename CmWakeupSsarCtrlFields::STEP_CNT,
       ftl::mmio::Reserved<12, 16>,
-      typename CM_WAKEUP_SSAR_CTRL_fields_::CNT_MODE,
+      typename CmWakeupSsarCtrlFields::CNT_MODE,
       ftl::mmio::Reserved<1, 30>,
-      typename CM_WAKEUP_SSAR_CTRL_fields_::DISABLE> {
-    using eCNT_MODE = typename CM_WAKEUP_SSAR_CTRL_fields_::eCNT_MODE;
-    using STEP_CNT = typename CM_WAKEUP_SSAR_CTRL_fields_::STEP_CNT;
-    using CNT_MODE = typename CM_WAKEUP_SSAR_CTRL_fields_::CNT_MODE;
-    using DISABLE = typename CM_WAKEUP_SSAR_CTRL_fields_::DISABLE;
+      typename CmWakeupSsarCtrlFields::DISABLE> {
+    using eCNT_MODE = typename CmWakeupSsarCtrlFields::eCNT_MODE;
+    using STEP_CNT = typename CmWakeupSsarCtrlFields::STEP_CNT;
+    using CNT_MODE = typename CmWakeupSsarCtrlFields::CNT_MODE;
+    using DISABLE = typename CmWakeupSsarCtrlFields::DISABLE;
   };
 
   // CM Setpoint Control
-  struct CM_SP_CTRL_fields_ {
+  struct CmSpCtrlFields {
     enum class eCPU_SP_WAKEUP_SEL : std::uint32_t {
       // Request SP transition to CPU_SP_WAKEUP
       eb0 = 0,
@@ -1088,377 +1088,377 @@ struct GpcCpuModeCtrl {
     using CPU_SP_WAKEUP = ftl::mmio::Field<4, 11, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Select the Setpoint transiton on the next CPU platform wakeup sequence
     using CPU_SP_WAKEUP_SEL = ftl::mmio::Field<1, 15, eCPU_SP_WAKEUP_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP_CTRL_fields_
+  };  // struct CmSpCtrlFields
 
   struct CM_SP_CTRL : ftl::mmio::Register<
       kBase + 0x300u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_SP_CTRL_fields_::CPU_SP_RUN_EN,
-      typename CM_SP_CTRL_fields_::CPU_SP_RUN,
-      typename CM_SP_CTRL_fields_::CPU_SP_SLEEP_EN,
-      typename CM_SP_CTRL_fields_::CPU_SP_SLEEP,
-      typename CM_SP_CTRL_fields_::CPU_SP_WAKEUP_EN,
-      typename CM_SP_CTRL_fields_::CPU_SP_WAKEUP,
-      typename CM_SP_CTRL_fields_::CPU_SP_WAKEUP_SEL,
+      typename CmSpCtrlFields::CPU_SP_RUN_EN,
+      typename CmSpCtrlFields::CPU_SP_RUN,
+      typename CmSpCtrlFields::CPU_SP_SLEEP_EN,
+      typename CmSpCtrlFields::CPU_SP_SLEEP,
+      typename CmSpCtrlFields::CPU_SP_WAKEUP_EN,
+      typename CmSpCtrlFields::CPU_SP_WAKEUP,
+      typename CmSpCtrlFields::CPU_SP_WAKEUP_SEL,
       ftl::mmio::Reserved<16, 16>> {
-    using eCPU_SP_WAKEUP_SEL = typename CM_SP_CTRL_fields_::eCPU_SP_WAKEUP_SEL;
-    using CPU_SP_RUN_EN = typename CM_SP_CTRL_fields_::CPU_SP_RUN_EN;
-    using CPU_SP_RUN = typename CM_SP_CTRL_fields_::CPU_SP_RUN;
-    using CPU_SP_SLEEP_EN = typename CM_SP_CTRL_fields_::CPU_SP_SLEEP_EN;
-    using CPU_SP_SLEEP = typename CM_SP_CTRL_fields_::CPU_SP_SLEEP;
-    using CPU_SP_WAKEUP_EN = typename CM_SP_CTRL_fields_::CPU_SP_WAKEUP_EN;
-    using CPU_SP_WAKEUP = typename CM_SP_CTRL_fields_::CPU_SP_WAKEUP;
-    using CPU_SP_WAKEUP_SEL = typename CM_SP_CTRL_fields_::CPU_SP_WAKEUP_SEL;
+    using eCPU_SP_WAKEUP_SEL = typename CmSpCtrlFields::eCPU_SP_WAKEUP_SEL;
+    using CPU_SP_RUN_EN = typename CmSpCtrlFields::CPU_SP_RUN_EN;
+    using CPU_SP_RUN = typename CmSpCtrlFields::CPU_SP_RUN;
+    using CPU_SP_SLEEP_EN = typename CmSpCtrlFields::CPU_SP_SLEEP_EN;
+    using CPU_SP_SLEEP = typename CmSpCtrlFields::CPU_SP_SLEEP;
+    using CPU_SP_WAKEUP_EN = typename CmSpCtrlFields::CPU_SP_WAKEUP_EN;
+    using CPU_SP_WAKEUP = typename CmSpCtrlFields::CPU_SP_WAKEUP;
+    using CPU_SP_WAKEUP_SEL = typename CmSpCtrlFields::CPU_SP_WAKEUP_SEL;
   };
 
   // CM Setpoint Status
-  struct CM_SP_STAT_fields_ {
+  struct CmSpStatFields {
     // The current Setpoint of the system
     using CPU_SP_CURRENT = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // The previous Setpoint of the system
     using CPU_SP_PREVIOUS = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // The requested Setpoint from the CPU platform
     using CPU_SP_TARGET = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_SP_STAT_fields_
+  };  // struct CmSpStatFields
 
   struct CM_SP_STAT : ftl::mmio::Register<
       kBase + 0x304u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CM_SP_STAT_fields_::CPU_SP_CURRENT,
-      typename CM_SP_STAT_fields_::CPU_SP_PREVIOUS,
-      typename CM_SP_STAT_fields_::CPU_SP_TARGET,
+      typename CmSpStatFields::CPU_SP_CURRENT,
+      typename CmSpStatFields::CPU_SP_PREVIOUS,
+      typename CmSpStatFields::CPU_SP_TARGET,
       ftl::mmio::Reserved<20, 12>> {
-    using CPU_SP_CURRENT = typename CM_SP_STAT_fields_::CPU_SP_CURRENT;
-    using CPU_SP_PREVIOUS = typename CM_SP_STAT_fields_::CPU_SP_PREVIOUS;
-    using CPU_SP_TARGET = typename CM_SP_STAT_fields_::CPU_SP_TARGET;
+    using CPU_SP_CURRENT = typename CmSpStatFields::CPU_SP_CURRENT;
+    using CPU_SP_PREVIOUS = typename CmSpStatFields::CPU_SP_PREVIOUS;
+    using CPU_SP_TARGET = typename CmSpStatFields::CPU_SP_TARGET;
   };
 
   // CM Run Mode Setpoint Allowed
-  struct CM_RUN_MODE_MAPPING_fields_ {
+  struct CmRunModeMappingFields {
     // Defines which Setpoint is allowed when CPU enters RUN mode. Each bit stands for 1 Setpoint, locked by LOCK_CFG field
     using CPU_RUN_MODE_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_RUN_MODE_MAPPING_fields_
+  };  // struct CmRunModeMappingFields
 
   struct CM_RUN_MODE_MAPPING : ftl::mmio::Register<
       kBase + 0x310u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_RUN_MODE_MAPPING_fields_::CPU_RUN_MODE_MAPPING,
+      typename CmRunModeMappingFields::CPU_RUN_MODE_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_RUN_MODE_MAPPING = typename CM_RUN_MODE_MAPPING_fields_::CPU_RUN_MODE_MAPPING;
+    using CPU_RUN_MODE_MAPPING = typename CmRunModeMappingFields::CPU_RUN_MODE_MAPPING;
   };
 
   // CM Wait Mode Setpoint Allowed
-  struct CM_WAIT_MODE_MAPPING_fields_ {
+  struct CmWaitModeMappingFields {
     // Defines which Setpoint is allowed when CPU enters WAIT mode. Each bit stands for 1 Setpoint, locked by LOCK_CFG
     using CPU_WAIT_MODE_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_WAIT_MODE_MAPPING_fields_
+  };  // struct CmWaitModeMappingFields
 
   struct CM_WAIT_MODE_MAPPING : ftl::mmio::Register<
       kBase + 0x314u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_WAIT_MODE_MAPPING_fields_::CPU_WAIT_MODE_MAPPING,
+      typename CmWaitModeMappingFields::CPU_WAIT_MODE_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_WAIT_MODE_MAPPING = typename CM_WAIT_MODE_MAPPING_fields_::CPU_WAIT_MODE_MAPPING;
+    using CPU_WAIT_MODE_MAPPING = typename CmWaitModeMappingFields::CPU_WAIT_MODE_MAPPING;
   };
 
   // CM Stop Mode Setpoint Allowed
-  struct CM_STOP_MODE_MAPPING_fields_ {
+  struct CmStopModeMappingFields {
     // Defines which Setpoint is allowed when CPU enters STOP mode. Each bit stands for 1 Setpoint, locked by LOCK_CFG
     using CPU_STOP_MODE_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_STOP_MODE_MAPPING_fields_
+  };  // struct CmStopModeMappingFields
 
   struct CM_STOP_MODE_MAPPING : ftl::mmio::Register<
       kBase + 0x318u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_STOP_MODE_MAPPING_fields_::CPU_STOP_MODE_MAPPING,
+      typename CmStopModeMappingFields::CPU_STOP_MODE_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_STOP_MODE_MAPPING = typename CM_STOP_MODE_MAPPING_fields_::CPU_STOP_MODE_MAPPING;
+    using CPU_STOP_MODE_MAPPING = typename CmStopModeMappingFields::CPU_STOP_MODE_MAPPING;
   };
 
   // CM Suspend Mode Setpoint Allowed
-  struct CM_SUSPEND_MODE_MAPPING_fields_ {
+  struct CmSuspendModeMappingFields {
     // Defines which Setpoint is allowed when CPU enters SUSPEND mode. Each bit stands for 1 Setpoint, locked by LOCK_CFG
     using CPU_SUSPEND_MODE_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SUSPEND_MODE_MAPPING_fields_
+  };  // struct CmSuspendModeMappingFields
 
   struct CM_SUSPEND_MODE_MAPPING : ftl::mmio::Register<
       kBase + 0x31Cu,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SUSPEND_MODE_MAPPING_fields_::CPU_SUSPEND_MODE_MAPPING,
+      typename CmSuspendModeMappingFields::CPU_SUSPEND_MODE_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SUSPEND_MODE_MAPPING = typename CM_SUSPEND_MODE_MAPPING_fields_::CPU_SUSPEND_MODE_MAPPING;
+    using CPU_SUSPEND_MODE_MAPPING = typename CmSuspendModeMappingFields::CPU_SUSPEND_MODE_MAPPING;
   };
 
   // CM Setpoint 0 Mapping
-  struct CM_SP0_MAPPING_fields_ {
+  struct CmSp0MappingFields {
     // Defines when SP0 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP0_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP0_MAPPING_fields_
+  };  // struct CmSp0MappingFields
 
   struct CM_SP0_MAPPING : ftl::mmio::Register<
       kBase + 0x320u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP0_MAPPING_fields_::CPU_SP0_MAPPING,
+      typename CmSp0MappingFields::CPU_SP0_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP0_MAPPING = typename CM_SP0_MAPPING_fields_::CPU_SP0_MAPPING;
+    using CPU_SP0_MAPPING = typename CmSp0MappingFields::CPU_SP0_MAPPING;
   };
 
   // CM Setpoint 1 Mapping
-  struct CM_SP1_MAPPING_fields_ {
+  struct CmSp1MappingFields {
     // Defines when SP1 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP1_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP1_MAPPING_fields_
+  };  // struct CmSp1MappingFields
 
   struct CM_SP1_MAPPING : ftl::mmio::Register<
       kBase + 0x324u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP1_MAPPING_fields_::CPU_SP1_MAPPING,
+      typename CmSp1MappingFields::CPU_SP1_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP1_MAPPING = typename CM_SP1_MAPPING_fields_::CPU_SP1_MAPPING;
+    using CPU_SP1_MAPPING = typename CmSp1MappingFields::CPU_SP1_MAPPING;
   };
 
   // CM Setpoint 2 Mapping
-  struct CM_SP2_MAPPING_fields_ {
+  struct CmSp2MappingFields {
     // Defines when SP2 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP2_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP2_MAPPING_fields_
+  };  // struct CmSp2MappingFields
 
   struct CM_SP2_MAPPING : ftl::mmio::Register<
       kBase + 0x328u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP2_MAPPING_fields_::CPU_SP2_MAPPING,
+      typename CmSp2MappingFields::CPU_SP2_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP2_MAPPING = typename CM_SP2_MAPPING_fields_::CPU_SP2_MAPPING;
+    using CPU_SP2_MAPPING = typename CmSp2MappingFields::CPU_SP2_MAPPING;
   };
 
   // CM Setpoint 3 Mapping
-  struct CM_SP3_MAPPING_fields_ {
+  struct CmSp3MappingFields {
     // Defines when SP3 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP3_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP3_MAPPING_fields_
+  };  // struct CmSp3MappingFields
 
   struct CM_SP3_MAPPING : ftl::mmio::Register<
       kBase + 0x32Cu,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP3_MAPPING_fields_::CPU_SP3_MAPPING,
+      typename CmSp3MappingFields::CPU_SP3_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP3_MAPPING = typename CM_SP3_MAPPING_fields_::CPU_SP3_MAPPING;
+    using CPU_SP3_MAPPING = typename CmSp3MappingFields::CPU_SP3_MAPPING;
   };
 
   // CM Setpoint 4 Mapping
-  struct CM_SP4_MAPPING_fields_ {
+  struct CmSp4MappingFields {
     // Defines when SP4 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP4_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP4_MAPPING_fields_
+  };  // struct CmSp4MappingFields
 
   struct CM_SP4_MAPPING : ftl::mmio::Register<
       kBase + 0x330u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP4_MAPPING_fields_::CPU_SP4_MAPPING,
+      typename CmSp4MappingFields::CPU_SP4_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP4_MAPPING = typename CM_SP4_MAPPING_fields_::CPU_SP4_MAPPING;
+    using CPU_SP4_MAPPING = typename CmSp4MappingFields::CPU_SP4_MAPPING;
   };
 
   // CM Setpoint 5 Mapping
-  struct CM_SP5_MAPPING_fields_ {
+  struct CmSp5MappingFields {
     // Defines when SP5 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP5_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP5_MAPPING_fields_
+  };  // struct CmSp5MappingFields
 
   struct CM_SP5_MAPPING : ftl::mmio::Register<
       kBase + 0x334u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP5_MAPPING_fields_::CPU_SP5_MAPPING,
+      typename CmSp5MappingFields::CPU_SP5_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP5_MAPPING = typename CM_SP5_MAPPING_fields_::CPU_SP5_MAPPING;
+    using CPU_SP5_MAPPING = typename CmSp5MappingFields::CPU_SP5_MAPPING;
   };
 
   // CM Setpoint 6 Mapping
-  struct CM_SP6_MAPPING_fields_ {
+  struct CmSp6MappingFields {
     // Defines when SP6 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP6_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP6_MAPPING_fields_
+  };  // struct CmSp6MappingFields
 
   struct CM_SP6_MAPPING : ftl::mmio::Register<
       kBase + 0x338u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP6_MAPPING_fields_::CPU_SP6_MAPPING,
+      typename CmSp6MappingFields::CPU_SP6_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP6_MAPPING = typename CM_SP6_MAPPING_fields_::CPU_SP6_MAPPING;
+    using CPU_SP6_MAPPING = typename CmSp6MappingFields::CPU_SP6_MAPPING;
   };
 
   // CM Setpoint 7 Mapping
-  struct CM_SP7_MAPPING_fields_ {
+  struct CmSp7MappingFields {
     // Defines when SP7 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP7_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP7_MAPPING_fields_
+  };  // struct CmSp7MappingFields
 
   struct CM_SP7_MAPPING : ftl::mmio::Register<
       kBase + 0x33Cu,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP7_MAPPING_fields_::CPU_SP7_MAPPING,
+      typename CmSp7MappingFields::CPU_SP7_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP7_MAPPING = typename CM_SP7_MAPPING_fields_::CPU_SP7_MAPPING;
+    using CPU_SP7_MAPPING = typename CmSp7MappingFields::CPU_SP7_MAPPING;
   };
 
   // CM Setpoint 8 Mapping
-  struct CM_SP8_MAPPING_fields_ {
+  struct CmSp8MappingFields {
     // Defines when SP8 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP8_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP8_MAPPING_fields_
+  };  // struct CmSp8MappingFields
 
   struct CM_SP8_MAPPING : ftl::mmio::Register<
       kBase + 0x340u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP8_MAPPING_fields_::CPU_SP8_MAPPING,
+      typename CmSp8MappingFields::CPU_SP8_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP8_MAPPING = typename CM_SP8_MAPPING_fields_::CPU_SP8_MAPPING;
+    using CPU_SP8_MAPPING = typename CmSp8MappingFields::CPU_SP8_MAPPING;
   };
 
   // CM Setpoint 9 Mapping
-  struct CM_SP9_MAPPING_fields_ {
+  struct CmSp9MappingFields {
     // Defines when SP9 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP9_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP9_MAPPING_fields_
+  };  // struct CmSp9MappingFields
 
   struct CM_SP9_MAPPING : ftl::mmio::Register<
       kBase + 0x344u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP9_MAPPING_fields_::CPU_SP9_MAPPING,
+      typename CmSp9MappingFields::CPU_SP9_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP9_MAPPING = typename CM_SP9_MAPPING_fields_::CPU_SP9_MAPPING;
+    using CPU_SP9_MAPPING = typename CmSp9MappingFields::CPU_SP9_MAPPING;
   };
 
   // CM Setpoint 10 Mapping
-  struct CM_SP10_MAPPING_fields_ {
+  struct CmSp10MappingFields {
     // Defines when SP10 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP10_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP10_MAPPING_fields_
+  };  // struct CmSp10MappingFields
 
   struct CM_SP10_MAPPING : ftl::mmio::Register<
       kBase + 0x348u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP10_MAPPING_fields_::CPU_SP10_MAPPING,
+      typename CmSp10MappingFields::CPU_SP10_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP10_MAPPING = typename CM_SP10_MAPPING_fields_::CPU_SP10_MAPPING;
+    using CPU_SP10_MAPPING = typename CmSp10MappingFields::CPU_SP10_MAPPING;
   };
 
   // CM Setpoint 11 Mapping
-  struct CM_SP11_MAPPING_fields_ {
+  struct CmSp11MappingFields {
     // Defines when SP11 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP11_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP11_MAPPING_fields_
+  };  // struct CmSp11MappingFields
 
   struct CM_SP11_MAPPING : ftl::mmio::Register<
       kBase + 0x34Cu,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP11_MAPPING_fields_::CPU_SP11_MAPPING,
+      typename CmSp11MappingFields::CPU_SP11_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP11_MAPPING = typename CM_SP11_MAPPING_fields_::CPU_SP11_MAPPING;
+    using CPU_SP11_MAPPING = typename CmSp11MappingFields::CPU_SP11_MAPPING;
   };
 
   // CM Setpoint 12 Mapping
-  struct CM_SP12_MAPPING_fields_ {
+  struct CmSp12MappingFields {
     // Defines when SP12 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP12_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP12_MAPPING_fields_
+  };  // struct CmSp12MappingFields
 
   struct CM_SP12_MAPPING : ftl::mmio::Register<
       kBase + 0x350u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP12_MAPPING_fields_::CPU_SP12_MAPPING,
+      typename CmSp12MappingFields::CPU_SP12_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP12_MAPPING = typename CM_SP12_MAPPING_fields_::CPU_SP12_MAPPING;
+    using CPU_SP12_MAPPING = typename CmSp12MappingFields::CPU_SP12_MAPPING;
   };
 
   // CM Setpoint 13 Mapping
-  struct CM_SP13_MAPPING_fields_ {
+  struct CmSp13MappingFields {
     // Defines when SP13 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP13_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP13_MAPPING_fields_
+  };  // struct CmSp13MappingFields
 
   struct CM_SP13_MAPPING : ftl::mmio::Register<
       kBase + 0x354u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP13_MAPPING_fields_::CPU_SP13_MAPPING,
+      typename CmSp13MappingFields::CPU_SP13_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP13_MAPPING = typename CM_SP13_MAPPING_fields_::CPU_SP13_MAPPING;
+    using CPU_SP13_MAPPING = typename CmSp13MappingFields::CPU_SP13_MAPPING;
   };
 
   // CM Setpoint 14 Mapping
-  struct CM_SP14_MAPPING_fields_ {
+  struct CmSp14MappingFields {
     // Defines when SP14 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP14_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP14_MAPPING_fields_
+  };  // struct CmSp14MappingFields
 
   struct CM_SP14_MAPPING : ftl::mmio::Register<
       kBase + 0x358u,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP14_MAPPING_fields_::CPU_SP14_MAPPING,
+      typename CmSp14MappingFields::CPU_SP14_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP14_MAPPING = typename CM_SP14_MAPPING_fields_::CPU_SP14_MAPPING;
+    using CPU_SP14_MAPPING = typename CmSp14MappingFields::CPU_SP14_MAPPING;
   };
 
   // CM Setpoint 15 Mapping
-  struct CM_SP15_MAPPING_fields_ {
+  struct CmSp15MappingFields {
     // Defines when SP15 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     using CPU_SP15_MAPPING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CM_SP15_MAPPING_fields_
+  };  // struct CmSp15MappingFields
 
   struct CM_SP15_MAPPING : ftl::mmio::Register<
       kBase + 0x35Cu,
       std::uint32_t,
       0x0000FFFFu,
       ftl::mmio::RW,
-      typename CM_SP15_MAPPING_fields_::CPU_SP15_MAPPING,
+      typename CmSp15MappingFields::CPU_SP15_MAPPING,
       ftl::mmio::Reserved<16, 16>> {
-    using CPU_SP15_MAPPING = typename CM_SP15_MAPPING_fields_::CPU_SP15_MAPPING;
+    using CPU_SP15_MAPPING = typename CmSp15MappingFields::CPU_SP15_MAPPING;
   };
 
   // CM standby control
-  struct CM_STBY_CTRL_fields_ {
+  struct CmStbyCtrlFields {
     // 0x1: Request the chip into standby mode when CPU entering WAIT mode, locked by LOCK_CFG field.
     using STBY_WAIT = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // 0x1: Request the chip into standby mode when CPU entering STOP mode, locked by LOCK_CFG field.
@@ -1469,25 +1469,25 @@ struct GpcCpuModeCtrl {
     using STBY_SLEEP_BUSY = ftl::mmio::Field<1, 16, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Indicate the CPU is busy exiting standby mode.
     using STBY_WAKEUP_BUSY = ftl::mmio::Field<1, 17, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CM_STBY_CTRL_fields_
+  };  // struct CmStbyCtrlFields
 
   struct CM_STBY_CTRL : ftl::mmio::Register<
       kBase + 0x380u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CM_STBY_CTRL_fields_::STBY_WAIT,
-      typename CM_STBY_CTRL_fields_::STBY_STOP,
-      typename CM_STBY_CTRL_fields_::STBY_SUSPEND,
+      typename CmStbyCtrlFields::STBY_WAIT,
+      typename CmStbyCtrlFields::STBY_STOP,
+      typename CmStbyCtrlFields::STBY_SUSPEND,
       ftl::mmio::Reserved<13, 3>,
-      typename CM_STBY_CTRL_fields_::STBY_SLEEP_BUSY,
-      typename CM_STBY_CTRL_fields_::STBY_WAKEUP_BUSY,
+      typename CmStbyCtrlFields::STBY_SLEEP_BUSY,
+      typename CmStbyCtrlFields::STBY_WAKEUP_BUSY,
       ftl::mmio::Reserved<14, 18>> {
-    using STBY_WAIT = typename CM_STBY_CTRL_fields_::STBY_WAIT;
-    using STBY_STOP = typename CM_STBY_CTRL_fields_::STBY_STOP;
-    using STBY_SUSPEND = typename CM_STBY_CTRL_fields_::STBY_SUSPEND;
-    using STBY_SLEEP_BUSY = typename CM_STBY_CTRL_fields_::STBY_SLEEP_BUSY;
-    using STBY_WAKEUP_BUSY = typename CM_STBY_CTRL_fields_::STBY_WAKEUP_BUSY;
+    using STBY_WAIT = typename CmStbyCtrlFields::STBY_WAIT;
+    using STBY_STOP = typename CmStbyCtrlFields::STBY_STOP;
+    using STBY_SUSPEND = typename CmStbyCtrlFields::STBY_SUSPEND;
+    using STBY_SLEEP_BUSY = typename CmStbyCtrlFields::STBY_SLEEP_BUSY;
+    using STBY_WAKEUP_BUSY = typename CmStbyCtrlFields::STBY_WAKEUP_BUSY;
   };
 
 };

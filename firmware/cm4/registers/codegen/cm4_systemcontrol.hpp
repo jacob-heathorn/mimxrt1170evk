@@ -10,31 +10,31 @@ namespace regs {
 
 struct Cm4Systemcontrol {
   // Auxiliary Control Register,
-  struct SCB_ACTLR_fields_ {
+  struct ScbActlrFields {
     // Disables interruption of multi-cycle instructions.
     using DISMCYCINT = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disables write buffer use during default memory map accesses.
     using DISDEFWBUF = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disables folding of IT instructions.
     using DISFOLD = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_ACTLR_fields_
+  };  // struct ScbActlrFields
 
   struct SCB_ACTLR : ftl::mmio::Register<
       0xE000E008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_ACTLR_fields_::DISMCYCINT,
-      SCB_ACTLR_fields_::DISDEFWBUF,
-      SCB_ACTLR_fields_::DISFOLD,
+      ScbActlrFields::DISMCYCINT,
+      ScbActlrFields::DISDEFWBUF,
+      ScbActlrFields::DISFOLD,
       ftl::mmio::Reserved<29, 3>> {
-    using DISMCYCINT = SCB_ACTLR_fields_::DISMCYCINT;
-    using DISDEFWBUF = SCB_ACTLR_fields_::DISDEFWBUF;
-    using DISFOLD = SCB_ACTLR_fields_::DISFOLD;
+    using DISMCYCINT = ScbActlrFields::DISMCYCINT;
+    using DISDEFWBUF = ScbActlrFields::DISDEFWBUF;
+    using DISFOLD = ScbActlrFields::DISFOLD;
   };
 
   // CPUID Base Register
-  struct SCB_CPUID_fields_ {
+  struct ScbCpuidFields {
     // Indicates patch release: 0x0 = Patch 0
     using REVISION = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Indicates part number
@@ -43,26 +43,26 @@ struct Cm4Systemcontrol {
     using VARIANT = ftl::mmio::Field<4, 20, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Implementer code
     using IMPLEMENTER = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SCB_CPUID_fields_
+  };  // struct ScbCpuidFields
 
   struct SCB_CPUID : ftl::mmio::Register<
       0xE000ED00u,
       std::uint32_t,
       0x410FC240u,
       ftl::mmio::RO,
-      SCB_CPUID_fields_::REVISION,
-      SCB_CPUID_fields_::PARTNO,
+      ScbCpuidFields::REVISION,
+      ScbCpuidFields::PARTNO,
       ftl::mmio::Reserved<4, 16>,
-      SCB_CPUID_fields_::VARIANT,
-      SCB_CPUID_fields_::IMPLEMENTER> {
-    using REVISION = SCB_CPUID_fields_::REVISION;
-    using PARTNO = SCB_CPUID_fields_::PARTNO;
-    using VARIANT = SCB_CPUID_fields_::VARIANT;
-    using IMPLEMENTER = SCB_CPUID_fields_::IMPLEMENTER;
+      ScbCpuidFields::VARIANT,
+      ScbCpuidFields::IMPLEMENTER> {
+    using REVISION = ScbCpuidFields::REVISION;
+    using PARTNO = ScbCpuidFields::PARTNO;
+    using VARIANT = ScbCpuidFields::VARIANT;
+    using IMPLEMENTER = ScbCpuidFields::IMPLEMENTER;
   };
 
   // Interrupt Control and State Register
-  struct SCB_ICSR_fields_ {
+  struct ScbIcsrFields {
     enum class eRETTOBASE : std::uint32_t {
       // there are preempted active exceptions to execute
       eRETTOBASE_0 = 0,
@@ -132,51 +132,51 @@ struct Cm4Systemcontrol {
     using PENDSVSET = ftl::mmio::Field<1, 28, ePENDSVSET, ftl::mmio::RW, ftl::mmio::Normal>;
     // no description available
     using NMIPENDSET = ftl::mmio::Field<1, 31, eNMIPENDSET, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_ICSR_fields_
+  };  // struct ScbIcsrFields
 
   struct SCB_ICSR : ftl::mmio::Register<
       0xE000ED04u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_ICSR_fields_::VECTACTIVE,
+      ScbIcsrFields::VECTACTIVE,
       ftl::mmio::Reserved<2, 9>,
-      SCB_ICSR_fields_::RETTOBASE,
-      SCB_ICSR_fields_::VECTPENDING,
+      ScbIcsrFields::RETTOBASE,
+      ScbIcsrFields::VECTPENDING,
       ftl::mmio::Reserved<4, 18>,
-      SCB_ICSR_fields_::ISRPENDING,
-      SCB_ICSR_fields_::ISRPREEMPT,
+      ScbIcsrFields::ISRPENDING,
+      ScbIcsrFields::ISRPREEMPT,
       ftl::mmio::Reserved<1, 24>,
-      SCB_ICSR_fields_::PENDSTCLR,
-      SCB_ICSR_fields_::PENDSTSET,
-      SCB_ICSR_fields_::PENDSVCLR,
-      SCB_ICSR_fields_::PENDSVSET,
+      ScbIcsrFields::PENDSTCLR,
+      ScbIcsrFields::PENDSTSET,
+      ScbIcsrFields::PENDSVCLR,
+      ScbIcsrFields::PENDSVSET,
       ftl::mmio::Reserved<2, 29>,
-      SCB_ICSR_fields_::NMIPENDSET> {
-    using eRETTOBASE = SCB_ICSR_fields_::eRETTOBASE;
-    using eISRPREEMPT = SCB_ICSR_fields_::eISRPREEMPT;
-    using ePENDSTCLR = SCB_ICSR_fields_::ePENDSTCLR;
-    using ePENDSTSET = SCB_ICSR_fields_::ePENDSTSET;
-    using ePENDSVCLR = SCB_ICSR_fields_::ePENDSVCLR;
-    using ePENDSVSET = SCB_ICSR_fields_::ePENDSVSET;
-    using eNMIPENDSET = SCB_ICSR_fields_::eNMIPENDSET;
-    using VECTACTIVE = SCB_ICSR_fields_::VECTACTIVE;
-    using RETTOBASE = SCB_ICSR_fields_::RETTOBASE;
-    using VECTPENDING = SCB_ICSR_fields_::VECTPENDING;
-    using ISRPENDING = SCB_ICSR_fields_::ISRPENDING;
-    using ISRPREEMPT = SCB_ICSR_fields_::ISRPREEMPT;
-    using PENDSTCLR = SCB_ICSR_fields_::PENDSTCLR;
-    using PENDSTSET = SCB_ICSR_fields_::PENDSTSET;
-    using PENDSVCLR = SCB_ICSR_fields_::PENDSVCLR;
-    using PENDSVSET = SCB_ICSR_fields_::PENDSVSET;
-    using NMIPENDSET = SCB_ICSR_fields_::NMIPENDSET;
+      ScbIcsrFields::NMIPENDSET> {
+    using eRETTOBASE = ScbIcsrFields::eRETTOBASE;
+    using eISRPREEMPT = ScbIcsrFields::eISRPREEMPT;
+    using ePENDSTCLR = ScbIcsrFields::ePENDSTCLR;
+    using ePENDSTSET = ScbIcsrFields::ePENDSTSET;
+    using ePENDSVCLR = ScbIcsrFields::ePENDSVCLR;
+    using ePENDSVSET = ScbIcsrFields::ePENDSVSET;
+    using eNMIPENDSET = ScbIcsrFields::eNMIPENDSET;
+    using VECTACTIVE = ScbIcsrFields::VECTACTIVE;
+    using RETTOBASE = ScbIcsrFields::RETTOBASE;
+    using VECTPENDING = ScbIcsrFields::VECTPENDING;
+    using ISRPENDING = ScbIcsrFields::ISRPENDING;
+    using ISRPREEMPT = ScbIcsrFields::ISRPREEMPT;
+    using PENDSTCLR = ScbIcsrFields::PENDSTCLR;
+    using PENDSTSET = ScbIcsrFields::PENDSTSET;
+    using PENDSVCLR = ScbIcsrFields::PENDSVCLR;
+    using PENDSVSET = ScbIcsrFields::PENDSVSET;
+    using NMIPENDSET = ScbIcsrFields::NMIPENDSET;
   };
 
   // Vector Table Offset Register
-  struct SCB_VTOR_fields_ {
+  struct ScbVtorFields {
     // Vector table base offset
     using TBLOFF = ftl::mmio::Field<25, 7, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_VTOR_fields_
+  };  // struct ScbVtorFields
 
   struct SCB_VTOR : ftl::mmio::Register<
       0xE000ED08u,
@@ -184,12 +184,12 @@ struct Cm4Systemcontrol {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<7, 0>,
-      SCB_VTOR_fields_::TBLOFF> {
-    using TBLOFF = SCB_VTOR_fields_::TBLOFF;
+      ScbVtorFields::TBLOFF> {
+    using TBLOFF = ScbVtorFields::TBLOFF;
   };
 
   // Application Interrupt and Reset Control Register
-  struct SCB_AIRCR_fields_ {
+  struct ScbAircrFields {
     enum class eSYSRESETREQ : std::uint32_t {
       // no system reset request
       eSYSRESETREQ_0 = 0,
@@ -216,33 +216,33 @@ struct Cm4Systemcontrol {
     using ENDIANNESS = ftl::mmio::Field<1, 15, eENDIANNESS, ftl::mmio::RO, ftl::mmio::Normal>;
     // Register key
     using VECTKEY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_AIRCR_fields_
+  };  // struct ScbAircrFields
 
   struct SCB_AIRCR : ftl::mmio::Register<
       0xE000ED0Cu,
       std::uint32_t,
       0xFA050000u,
       ftl::mmio::RW,
-      SCB_AIRCR_fields_::VECTRESET,
-      SCB_AIRCR_fields_::VECTCLRACTIVE,
-      SCB_AIRCR_fields_::SYSRESETREQ,
+      ScbAircrFields::VECTRESET,
+      ScbAircrFields::VECTCLRACTIVE,
+      ScbAircrFields::SYSRESETREQ,
       ftl::mmio::Reserved<5, 3>,
-      SCB_AIRCR_fields_::PRIGROUP,
+      ScbAircrFields::PRIGROUP,
       ftl::mmio::Reserved<4, 11>,
-      SCB_AIRCR_fields_::ENDIANNESS,
-      SCB_AIRCR_fields_::VECTKEY> {
-    using eSYSRESETREQ = SCB_AIRCR_fields_::eSYSRESETREQ;
-    using eENDIANNESS = SCB_AIRCR_fields_::eENDIANNESS;
-    using VECTRESET = SCB_AIRCR_fields_::VECTRESET;
-    using VECTCLRACTIVE = SCB_AIRCR_fields_::VECTCLRACTIVE;
-    using SYSRESETREQ = SCB_AIRCR_fields_::SYSRESETREQ;
-    using PRIGROUP = SCB_AIRCR_fields_::PRIGROUP;
-    using ENDIANNESS = SCB_AIRCR_fields_::ENDIANNESS;
-    using VECTKEY = SCB_AIRCR_fields_::VECTKEY;
+      ScbAircrFields::ENDIANNESS,
+      ScbAircrFields::VECTKEY> {
+    using eSYSRESETREQ = ScbAircrFields::eSYSRESETREQ;
+    using eENDIANNESS = ScbAircrFields::eENDIANNESS;
+    using VECTRESET = ScbAircrFields::VECTRESET;
+    using VECTCLRACTIVE = ScbAircrFields::VECTCLRACTIVE;
+    using SYSRESETREQ = ScbAircrFields::SYSRESETREQ;
+    using PRIGROUP = ScbAircrFields::PRIGROUP;
+    using ENDIANNESS = ScbAircrFields::ENDIANNESS;
+    using VECTKEY = ScbAircrFields::VECTKEY;
   };
 
   // System Control Register
-  struct SCB_SCR_fields_ {
+  struct ScbScrFields {
     enum class eSLEEPONEXIT : std::uint32_t {
       // o not sleep when returning to Thread mode
       eSLEEPONEXIT_0 = 0,
@@ -270,7 +270,7 @@ struct Cm4Systemcontrol {
     using SLEEPDEEP = ftl::mmio::Field<1, 2, eSLEEPDEEP, ftl::mmio::RW, ftl::mmio::Normal>;
     // no description available
     using SEVONPEND = ftl::mmio::Field<1, 4, eSEVONPEND, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_SCR_fields_
+  };  // struct ScbScrFields
 
   struct SCB_SCR : ftl::mmio::Register<
       0xE000ED10u,
@@ -278,21 +278,21 @@ struct Cm4Systemcontrol {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      SCB_SCR_fields_::SLEEPONEXIT,
-      SCB_SCR_fields_::SLEEPDEEP,
+      ScbScrFields::SLEEPONEXIT,
+      ScbScrFields::SLEEPDEEP,
       ftl::mmio::Reserved<1, 3>,
-      SCB_SCR_fields_::SEVONPEND,
+      ScbScrFields::SEVONPEND,
       ftl::mmio::Reserved<27, 5>> {
-    using eSLEEPONEXIT = SCB_SCR_fields_::eSLEEPONEXIT;
-    using eSLEEPDEEP = SCB_SCR_fields_::eSLEEPDEEP;
-    using eSEVONPEND = SCB_SCR_fields_::eSEVONPEND;
-    using SLEEPONEXIT = SCB_SCR_fields_::SLEEPONEXIT;
-    using SLEEPDEEP = SCB_SCR_fields_::SLEEPDEEP;
-    using SEVONPEND = SCB_SCR_fields_::SEVONPEND;
+    using eSLEEPONEXIT = ScbScrFields::eSLEEPONEXIT;
+    using eSLEEPDEEP = ScbScrFields::eSLEEPDEEP;
+    using eSEVONPEND = ScbScrFields::eSEVONPEND;
+    using SLEEPONEXIT = ScbScrFields::SLEEPONEXIT;
+    using SLEEPDEEP = ScbScrFields::SLEEPDEEP;
+    using SEVONPEND = ScbScrFields::SEVONPEND;
   };
 
   // Configuration and Control Register
-  struct SCB_CCR_fields_ {
+  struct ScbCcrFields {
     enum class eNONBASETHRDENA : std::uint32_t {
       // processor can enter Thread mode only when no exception is active
       eNONBASETHRDENA_0 = 0,
@@ -347,65 +347,65 @@ struct Cm4Systemcontrol {
     using BFHFNMIGN = ftl::mmio::Field<1, 8, eBFHFNMIGN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Indicates stack alignment on exception entry
     using STKALIGN = ftl::mmio::Field<1, 9, eSTKALIGN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_CCR_fields_
+  };  // struct ScbCcrFields
 
   struct SCB_CCR : ftl::mmio::Register<
       0xE000ED14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_CCR_fields_::NONBASETHRDENA,
-      SCB_CCR_fields_::USERSETMPEND,
+      ScbCcrFields::NONBASETHRDENA,
+      ScbCcrFields::USERSETMPEND,
       ftl::mmio::Reserved<1, 2>,
-      SCB_CCR_fields_::UNALIGN_TRP,
-      SCB_CCR_fields_::DIV_0_TRP,
+      ScbCcrFields::UNALIGN_TRP,
+      ScbCcrFields::DIV_0_TRP,
       ftl::mmio::Reserved<3, 5>,
-      SCB_CCR_fields_::BFHFNMIGN,
-      SCB_CCR_fields_::STKALIGN,
+      ScbCcrFields::BFHFNMIGN,
+      ScbCcrFields::STKALIGN,
       ftl::mmio::Reserved<22, 10>> {
-    using eNONBASETHRDENA = SCB_CCR_fields_::eNONBASETHRDENA;
-    using eUSERSETMPEND = SCB_CCR_fields_::eUSERSETMPEND;
-    using eUNALIGN_TRP = SCB_CCR_fields_::eUNALIGN_TRP;
-    using eDIV_0_TRP = SCB_CCR_fields_::eDIV_0_TRP;
-    using eBFHFNMIGN = SCB_CCR_fields_::eBFHFNMIGN;
-    using eSTKALIGN = SCB_CCR_fields_::eSTKALIGN;
-    using NONBASETHRDENA = SCB_CCR_fields_::NONBASETHRDENA;
-    using USERSETMPEND = SCB_CCR_fields_::USERSETMPEND;
-    using UNALIGN_TRP = SCB_CCR_fields_::UNALIGN_TRP;
-    using DIV_0_TRP = SCB_CCR_fields_::DIV_0_TRP;
-    using BFHFNMIGN = SCB_CCR_fields_::BFHFNMIGN;
-    using STKALIGN = SCB_CCR_fields_::STKALIGN;
+    using eNONBASETHRDENA = ScbCcrFields::eNONBASETHRDENA;
+    using eUSERSETMPEND = ScbCcrFields::eUSERSETMPEND;
+    using eUNALIGN_TRP = ScbCcrFields::eUNALIGN_TRP;
+    using eDIV_0_TRP = ScbCcrFields::eDIV_0_TRP;
+    using eBFHFNMIGN = ScbCcrFields::eBFHFNMIGN;
+    using eSTKALIGN = ScbCcrFields::eSTKALIGN;
+    using NONBASETHRDENA = ScbCcrFields::NONBASETHRDENA;
+    using USERSETMPEND = ScbCcrFields::USERSETMPEND;
+    using UNALIGN_TRP = ScbCcrFields::UNALIGN_TRP;
+    using DIV_0_TRP = ScbCcrFields::DIV_0_TRP;
+    using BFHFNMIGN = ScbCcrFields::BFHFNMIGN;
+    using STKALIGN = ScbCcrFields::STKALIGN;
   };
 
   // System Handler Priority Register 1
-  struct SCB_SHPR1_fields_ {
+  struct ScbShpr1Fields {
     // Priority of system handler 4, MemManage
     using PRI_4 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Priority of system handler 5, BusFault
     using PRI_5 = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Priority of system handler 6, UsageFault
     using PRI_6 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_SHPR1_fields_
+  };  // struct ScbShpr1Fields
 
   struct SCB_SHPR1 : ftl::mmio::Register<
       0xE000ED18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_SHPR1_fields_::PRI_4,
-      SCB_SHPR1_fields_::PRI_5,
-      SCB_SHPR1_fields_::PRI_6,
+      ScbShpr1Fields::PRI_4,
+      ScbShpr1Fields::PRI_5,
+      ScbShpr1Fields::PRI_6,
       ftl::mmio::Reserved<8, 24>> {
-    using PRI_4 = SCB_SHPR1_fields_::PRI_4;
-    using PRI_5 = SCB_SHPR1_fields_::PRI_5;
-    using PRI_6 = SCB_SHPR1_fields_::PRI_6;
+    using PRI_4 = ScbShpr1Fields::PRI_4;
+    using PRI_5 = ScbShpr1Fields::PRI_5;
+    using PRI_6 = ScbShpr1Fields::PRI_6;
   };
 
   // System Handler Priority Register 2
-  struct SCB_SHPR2_fields_ {
+  struct ScbShpr2Fields {
     // Priority of system handler 11, SVCall
     using PRI_11 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_SHPR2_fields_
+  };  // struct ScbShpr2Fields
 
   struct SCB_SHPR2 : ftl::mmio::Register<
       0xE000ED1Cu,
@@ -413,17 +413,17 @@ struct Cm4Systemcontrol {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<24, 0>,
-      SCB_SHPR2_fields_::PRI_11> {
-    using PRI_11 = SCB_SHPR2_fields_::PRI_11;
+      ScbShpr2Fields::PRI_11> {
+    using PRI_11 = ScbShpr2Fields::PRI_11;
   };
 
   // System Handler Priority Register 3
-  struct SCB_SHPR3_fields_ {
+  struct ScbShpr3Fields {
     // Priority of system handler 14, PendSV
     using PRI_14 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Priority of system handler 15, SysTick exception
     using PRI_15 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_SHPR3_fields_
+  };  // struct ScbShpr3Fields
 
   struct SCB_SHPR3 : ftl::mmio::Register<
       0xE000ED20u,
@@ -431,14 +431,14 @@ struct Cm4Systemcontrol {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<16, 0>,
-      SCB_SHPR3_fields_::PRI_14,
-      SCB_SHPR3_fields_::PRI_15> {
-    using PRI_14 = SCB_SHPR3_fields_::PRI_14;
-    using PRI_15 = SCB_SHPR3_fields_::PRI_15;
+      ScbShpr3Fields::PRI_14,
+      ScbShpr3Fields::PRI_15> {
+    using PRI_14 = ScbShpr3Fields::PRI_14;
+    using PRI_15 = ScbShpr3Fields::PRI_15;
   };
 
   // System Handler Control and State Register
-  struct SCB_SHCSR_fields_ {
+  struct ScbShcsrFields {
     enum class eMEMFAULTACT : std::uint32_t {
       // exception is not active
       eMEMFAULTACT_0 = 0,
@@ -565,63 +565,63 @@ struct Cm4Systemcontrol {
     using BUSFAULTENA = ftl::mmio::Field<1, 17, eBUSFAULTENA, ftl::mmio::RW, ftl::mmio::Normal>;
     // no description available
     using USGFAULTENA = ftl::mmio::Field<1, 18, eUSGFAULTENA, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_SHCSR_fields_
+  };  // struct ScbShcsrFields
 
   struct SCB_SHCSR : ftl::mmio::Register<
       0xE000ED24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_SHCSR_fields_::MEMFAULTACT,
-      SCB_SHCSR_fields_::BUSFAULTACT,
+      ScbShcsrFields::MEMFAULTACT,
+      ScbShcsrFields::BUSFAULTACT,
       ftl::mmio::Reserved<1, 2>,
-      SCB_SHCSR_fields_::USGFAULTACT,
+      ScbShcsrFields::USGFAULTACT,
       ftl::mmio::Reserved<3, 4>,
-      SCB_SHCSR_fields_::SVCALLACT,
-      SCB_SHCSR_fields_::MONITORACT,
+      ScbShcsrFields::SVCALLACT,
+      ScbShcsrFields::MONITORACT,
       ftl::mmio::Reserved<1, 9>,
-      SCB_SHCSR_fields_::PENDSVACT,
-      SCB_SHCSR_fields_::SYSTICKACT,
-      SCB_SHCSR_fields_::USGFAULTPENDED,
-      SCB_SHCSR_fields_::MEMFAULTPENDED,
-      SCB_SHCSR_fields_::BUSFAULTPENDED,
-      SCB_SHCSR_fields_::SVCALLPENDED,
-      SCB_SHCSR_fields_::MEMFAULTENA,
-      SCB_SHCSR_fields_::BUSFAULTENA,
-      SCB_SHCSR_fields_::USGFAULTENA,
+      ScbShcsrFields::PENDSVACT,
+      ScbShcsrFields::SYSTICKACT,
+      ScbShcsrFields::USGFAULTPENDED,
+      ScbShcsrFields::MEMFAULTPENDED,
+      ScbShcsrFields::BUSFAULTPENDED,
+      ScbShcsrFields::SVCALLPENDED,
+      ScbShcsrFields::MEMFAULTENA,
+      ScbShcsrFields::BUSFAULTENA,
+      ScbShcsrFields::USGFAULTENA,
       ftl::mmio::Reserved<13, 19>> {
-    using eMEMFAULTACT = SCB_SHCSR_fields_::eMEMFAULTACT;
-    using eBUSFAULTACT = SCB_SHCSR_fields_::eBUSFAULTACT;
-    using eUSGFAULTACT = SCB_SHCSR_fields_::eUSGFAULTACT;
-    using eSVCALLACT = SCB_SHCSR_fields_::eSVCALLACT;
-    using eMONITORACT = SCB_SHCSR_fields_::eMONITORACT;
-    using ePENDSVACT = SCB_SHCSR_fields_::ePENDSVACT;
-    using eSYSTICKACT = SCB_SHCSR_fields_::eSYSTICKACT;
-    using eUSGFAULTPENDED = SCB_SHCSR_fields_::eUSGFAULTPENDED;
-    using eMEMFAULTPENDED = SCB_SHCSR_fields_::eMEMFAULTPENDED;
-    using eBUSFAULTPENDED = SCB_SHCSR_fields_::eBUSFAULTPENDED;
-    using eSVCALLPENDED = SCB_SHCSR_fields_::eSVCALLPENDED;
-    using eMEMFAULTENA = SCB_SHCSR_fields_::eMEMFAULTENA;
-    using eBUSFAULTENA = SCB_SHCSR_fields_::eBUSFAULTENA;
-    using eUSGFAULTENA = SCB_SHCSR_fields_::eUSGFAULTENA;
-    using MEMFAULTACT = SCB_SHCSR_fields_::MEMFAULTACT;
-    using BUSFAULTACT = SCB_SHCSR_fields_::BUSFAULTACT;
-    using USGFAULTACT = SCB_SHCSR_fields_::USGFAULTACT;
-    using SVCALLACT = SCB_SHCSR_fields_::SVCALLACT;
-    using MONITORACT = SCB_SHCSR_fields_::MONITORACT;
-    using PENDSVACT = SCB_SHCSR_fields_::PENDSVACT;
-    using SYSTICKACT = SCB_SHCSR_fields_::SYSTICKACT;
-    using USGFAULTPENDED = SCB_SHCSR_fields_::USGFAULTPENDED;
-    using MEMFAULTPENDED = SCB_SHCSR_fields_::MEMFAULTPENDED;
-    using BUSFAULTPENDED = SCB_SHCSR_fields_::BUSFAULTPENDED;
-    using SVCALLPENDED = SCB_SHCSR_fields_::SVCALLPENDED;
-    using MEMFAULTENA = SCB_SHCSR_fields_::MEMFAULTENA;
-    using BUSFAULTENA = SCB_SHCSR_fields_::BUSFAULTENA;
-    using USGFAULTENA = SCB_SHCSR_fields_::USGFAULTENA;
+    using eMEMFAULTACT = ScbShcsrFields::eMEMFAULTACT;
+    using eBUSFAULTACT = ScbShcsrFields::eBUSFAULTACT;
+    using eUSGFAULTACT = ScbShcsrFields::eUSGFAULTACT;
+    using eSVCALLACT = ScbShcsrFields::eSVCALLACT;
+    using eMONITORACT = ScbShcsrFields::eMONITORACT;
+    using ePENDSVACT = ScbShcsrFields::ePENDSVACT;
+    using eSYSTICKACT = ScbShcsrFields::eSYSTICKACT;
+    using eUSGFAULTPENDED = ScbShcsrFields::eUSGFAULTPENDED;
+    using eMEMFAULTPENDED = ScbShcsrFields::eMEMFAULTPENDED;
+    using eBUSFAULTPENDED = ScbShcsrFields::eBUSFAULTPENDED;
+    using eSVCALLPENDED = ScbShcsrFields::eSVCALLPENDED;
+    using eMEMFAULTENA = ScbShcsrFields::eMEMFAULTENA;
+    using eBUSFAULTENA = ScbShcsrFields::eBUSFAULTENA;
+    using eUSGFAULTENA = ScbShcsrFields::eUSGFAULTENA;
+    using MEMFAULTACT = ScbShcsrFields::MEMFAULTACT;
+    using BUSFAULTACT = ScbShcsrFields::BUSFAULTACT;
+    using USGFAULTACT = ScbShcsrFields::USGFAULTACT;
+    using SVCALLACT = ScbShcsrFields::SVCALLACT;
+    using MONITORACT = ScbShcsrFields::MONITORACT;
+    using PENDSVACT = ScbShcsrFields::PENDSVACT;
+    using SYSTICKACT = ScbShcsrFields::SYSTICKACT;
+    using USGFAULTPENDED = ScbShcsrFields::USGFAULTPENDED;
+    using MEMFAULTPENDED = ScbShcsrFields::MEMFAULTPENDED;
+    using BUSFAULTPENDED = ScbShcsrFields::BUSFAULTPENDED;
+    using SVCALLPENDED = ScbShcsrFields::SVCALLPENDED;
+    using MEMFAULTENA = ScbShcsrFields::MEMFAULTENA;
+    using BUSFAULTENA = ScbShcsrFields::BUSFAULTENA;
+    using USGFAULTENA = ScbShcsrFields::USGFAULTENA;
   };
 
   // Configurable Fault Status Registers
-  struct SCB_CFSR_fields_ {
+  struct ScbCfsrFields {
     enum class eIACCVIOL : std::uint32_t {
       // no instruction access violation fault
       eIACCVIOL_0 = 0,
@@ -793,79 +793,79 @@ struct Cm4Systemcontrol {
     using UNALIGNED = ftl::mmio::Field<1, 24, eUNALIGNED, ftl::mmio::RW, ftl::mmio::Normal>;
     // no description available
     using DIVBYZERO = ftl::mmio::Field<1, 25, eDIVBYZERO, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_CFSR_fields_
+  };  // struct ScbCfsrFields
 
   struct SCB_CFSR : ftl::mmio::Register<
       0xE000ED28u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_CFSR_fields_::IACCVIOL,
-      SCB_CFSR_fields_::DACCVIOL,
+      ScbCfsrFields::IACCVIOL,
+      ScbCfsrFields::DACCVIOL,
       ftl::mmio::Reserved<1, 2>,
-      SCB_CFSR_fields_::MUNSTKERR,
-      SCB_CFSR_fields_::MSTKERR,
-      SCB_CFSR_fields_::MLSPERR,
+      ScbCfsrFields::MUNSTKERR,
+      ScbCfsrFields::MSTKERR,
+      ScbCfsrFields::MLSPERR,
       ftl::mmio::Reserved<1, 6>,
-      SCB_CFSR_fields_::MMARVALID,
-      SCB_CFSR_fields_::IBUSERR,
-      SCB_CFSR_fields_::PRECISERR,
-      SCB_CFSR_fields_::IMPRECISERR,
-      SCB_CFSR_fields_::UNSTKERR,
-      SCB_CFSR_fields_::STKERR,
-      SCB_CFSR_fields_::LSPERR,
+      ScbCfsrFields::MMARVALID,
+      ScbCfsrFields::IBUSERR,
+      ScbCfsrFields::PRECISERR,
+      ScbCfsrFields::IMPRECISERR,
+      ScbCfsrFields::UNSTKERR,
+      ScbCfsrFields::STKERR,
+      ScbCfsrFields::LSPERR,
       ftl::mmio::Reserved<1, 14>,
-      SCB_CFSR_fields_::BFARVALID,
-      SCB_CFSR_fields_::UNDEFINSTR,
-      SCB_CFSR_fields_::INVSTATE,
-      SCB_CFSR_fields_::INVPC,
-      SCB_CFSR_fields_::NOCP,
+      ScbCfsrFields::BFARVALID,
+      ScbCfsrFields::UNDEFINSTR,
+      ScbCfsrFields::INVSTATE,
+      ScbCfsrFields::INVPC,
+      ScbCfsrFields::NOCP,
       ftl::mmio::Reserved<4, 20>,
-      SCB_CFSR_fields_::UNALIGNED,
-      SCB_CFSR_fields_::DIVBYZERO,
+      ScbCfsrFields::UNALIGNED,
+      ScbCfsrFields::DIVBYZERO,
       ftl::mmio::Reserved<6, 26>> {
-    using eIACCVIOL = SCB_CFSR_fields_::eIACCVIOL;
-    using eDACCVIOL = SCB_CFSR_fields_::eDACCVIOL;
-    using eMUNSTKERR = SCB_CFSR_fields_::eMUNSTKERR;
-    using eMSTKERR = SCB_CFSR_fields_::eMSTKERR;
-    using eMLSPERR = SCB_CFSR_fields_::eMLSPERR;
-    using eMMARVALID = SCB_CFSR_fields_::eMMARVALID;
-    using eIBUSERR = SCB_CFSR_fields_::eIBUSERR;
-    using ePRECISERR = SCB_CFSR_fields_::ePRECISERR;
-    using eIMPRECISERR = SCB_CFSR_fields_::eIMPRECISERR;
-    using eUNSTKERR = SCB_CFSR_fields_::eUNSTKERR;
-    using eSTKERR = SCB_CFSR_fields_::eSTKERR;
-    using eLSPERR = SCB_CFSR_fields_::eLSPERR;
-    using eBFARVALID = SCB_CFSR_fields_::eBFARVALID;
-    using eUNDEFINSTR = SCB_CFSR_fields_::eUNDEFINSTR;
-    using eINVSTATE = SCB_CFSR_fields_::eINVSTATE;
-    using eINVPC = SCB_CFSR_fields_::eINVPC;
-    using eNOCP = SCB_CFSR_fields_::eNOCP;
-    using eUNALIGNED = SCB_CFSR_fields_::eUNALIGNED;
-    using eDIVBYZERO = SCB_CFSR_fields_::eDIVBYZERO;
-    using IACCVIOL = SCB_CFSR_fields_::IACCVIOL;
-    using DACCVIOL = SCB_CFSR_fields_::DACCVIOL;
-    using MUNSTKERR = SCB_CFSR_fields_::MUNSTKERR;
-    using MSTKERR = SCB_CFSR_fields_::MSTKERR;
-    using MLSPERR = SCB_CFSR_fields_::MLSPERR;
-    using MMARVALID = SCB_CFSR_fields_::MMARVALID;
-    using IBUSERR = SCB_CFSR_fields_::IBUSERR;
-    using PRECISERR = SCB_CFSR_fields_::PRECISERR;
-    using IMPRECISERR = SCB_CFSR_fields_::IMPRECISERR;
-    using UNSTKERR = SCB_CFSR_fields_::UNSTKERR;
-    using STKERR = SCB_CFSR_fields_::STKERR;
-    using LSPERR = SCB_CFSR_fields_::LSPERR;
-    using BFARVALID = SCB_CFSR_fields_::BFARVALID;
-    using UNDEFINSTR = SCB_CFSR_fields_::UNDEFINSTR;
-    using INVSTATE = SCB_CFSR_fields_::INVSTATE;
-    using INVPC = SCB_CFSR_fields_::INVPC;
-    using NOCP = SCB_CFSR_fields_::NOCP;
-    using UNALIGNED = SCB_CFSR_fields_::UNALIGNED;
-    using DIVBYZERO = SCB_CFSR_fields_::DIVBYZERO;
+    using eIACCVIOL = ScbCfsrFields::eIACCVIOL;
+    using eDACCVIOL = ScbCfsrFields::eDACCVIOL;
+    using eMUNSTKERR = ScbCfsrFields::eMUNSTKERR;
+    using eMSTKERR = ScbCfsrFields::eMSTKERR;
+    using eMLSPERR = ScbCfsrFields::eMLSPERR;
+    using eMMARVALID = ScbCfsrFields::eMMARVALID;
+    using eIBUSERR = ScbCfsrFields::eIBUSERR;
+    using ePRECISERR = ScbCfsrFields::ePRECISERR;
+    using eIMPRECISERR = ScbCfsrFields::eIMPRECISERR;
+    using eUNSTKERR = ScbCfsrFields::eUNSTKERR;
+    using eSTKERR = ScbCfsrFields::eSTKERR;
+    using eLSPERR = ScbCfsrFields::eLSPERR;
+    using eBFARVALID = ScbCfsrFields::eBFARVALID;
+    using eUNDEFINSTR = ScbCfsrFields::eUNDEFINSTR;
+    using eINVSTATE = ScbCfsrFields::eINVSTATE;
+    using eINVPC = ScbCfsrFields::eINVPC;
+    using eNOCP = ScbCfsrFields::eNOCP;
+    using eUNALIGNED = ScbCfsrFields::eUNALIGNED;
+    using eDIVBYZERO = ScbCfsrFields::eDIVBYZERO;
+    using IACCVIOL = ScbCfsrFields::IACCVIOL;
+    using DACCVIOL = ScbCfsrFields::DACCVIOL;
+    using MUNSTKERR = ScbCfsrFields::MUNSTKERR;
+    using MSTKERR = ScbCfsrFields::MSTKERR;
+    using MLSPERR = ScbCfsrFields::MLSPERR;
+    using MMARVALID = ScbCfsrFields::MMARVALID;
+    using IBUSERR = ScbCfsrFields::IBUSERR;
+    using PRECISERR = ScbCfsrFields::PRECISERR;
+    using IMPRECISERR = ScbCfsrFields::IMPRECISERR;
+    using UNSTKERR = ScbCfsrFields::UNSTKERR;
+    using STKERR = ScbCfsrFields::STKERR;
+    using LSPERR = ScbCfsrFields::LSPERR;
+    using BFARVALID = ScbCfsrFields::BFARVALID;
+    using UNDEFINSTR = ScbCfsrFields::UNDEFINSTR;
+    using INVSTATE = ScbCfsrFields::INVSTATE;
+    using INVPC = ScbCfsrFields::INVPC;
+    using NOCP = ScbCfsrFields::NOCP;
+    using UNALIGNED = ScbCfsrFields::UNALIGNED;
+    using DIVBYZERO = ScbCfsrFields::DIVBYZERO;
   };
 
   // HardFault Status register
-  struct SCB_HFSR_fields_ {
+  struct ScbHfsrFields {
     enum class eVECTTBL : std::uint32_t {
       // no BusFault on vector table read
       eVECTTBL_0 = 0,
@@ -886,7 +886,7 @@ struct Cm4Systemcontrol {
     using FORCED = ftl::mmio::Field<1, 30, eFORCED, ftl::mmio::RW, ftl::mmio::Normal>;
     // no description available
     using DEBUGEVT = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_HFSR_fields_
+  };  // struct ScbHfsrFields
 
   struct SCB_HFSR : ftl::mmio::Register<
       0xE000ED2Cu,
@@ -894,19 +894,19 @@ struct Cm4Systemcontrol {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      SCB_HFSR_fields_::VECTTBL,
+      ScbHfsrFields::VECTTBL,
       ftl::mmio::Reserved<28, 2>,
-      SCB_HFSR_fields_::FORCED,
-      SCB_HFSR_fields_::DEBUGEVT> {
-    using eVECTTBL = SCB_HFSR_fields_::eVECTTBL;
-    using eFORCED = SCB_HFSR_fields_::eFORCED;
-    using VECTTBL = SCB_HFSR_fields_::VECTTBL;
-    using FORCED = SCB_HFSR_fields_::FORCED;
-    using DEBUGEVT = SCB_HFSR_fields_::DEBUGEVT;
+      ScbHfsrFields::FORCED,
+      ScbHfsrFields::DEBUGEVT> {
+    using eVECTTBL = ScbHfsrFields::eVECTTBL;
+    using eFORCED = ScbHfsrFields::eFORCED;
+    using VECTTBL = ScbHfsrFields::VECTTBL;
+    using FORCED = ScbHfsrFields::FORCED;
+    using DEBUGEVT = ScbHfsrFields::DEBUGEVT;
   };
 
   // Debug Fault Status Register
-  struct SCB_DFSR_fields_ {
+  struct ScbDfsrFields {
     enum class eHALTED : std::uint32_t {
       // No active halt request debug event
       eHALTED_0 = 0,
@@ -952,78 +952,78 @@ struct Cm4Systemcontrol {
     using VCATCH = ftl::mmio::Field<1, 3, eVCATCH, ftl::mmio::RW, ftl::mmio::Normal>;
     // no description available
     using EXTERNAL = ftl::mmio::Field<1, 4, eEXTERNAL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_DFSR_fields_
+  };  // struct ScbDfsrFields
 
   struct SCB_DFSR : ftl::mmio::Register<
       0xE000ED30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_DFSR_fields_::HALTED,
-      SCB_DFSR_fields_::BKPT,
-      SCB_DFSR_fields_::DWTTRAP,
-      SCB_DFSR_fields_::VCATCH,
-      SCB_DFSR_fields_::EXTERNAL,
+      ScbDfsrFields::HALTED,
+      ScbDfsrFields::BKPT,
+      ScbDfsrFields::DWTTRAP,
+      ScbDfsrFields::VCATCH,
+      ScbDfsrFields::EXTERNAL,
       ftl::mmio::Reserved<27, 5>> {
-    using eHALTED = SCB_DFSR_fields_::eHALTED;
-    using eBKPT = SCB_DFSR_fields_::eBKPT;
-    using eDWTTRAP = SCB_DFSR_fields_::eDWTTRAP;
-    using eVCATCH = SCB_DFSR_fields_::eVCATCH;
-    using eEXTERNAL = SCB_DFSR_fields_::eEXTERNAL;
-    using HALTED = SCB_DFSR_fields_::HALTED;
-    using BKPT = SCB_DFSR_fields_::BKPT;
-    using DWTTRAP = SCB_DFSR_fields_::DWTTRAP;
-    using VCATCH = SCB_DFSR_fields_::VCATCH;
-    using EXTERNAL = SCB_DFSR_fields_::EXTERNAL;
+    using eHALTED = ScbDfsrFields::eHALTED;
+    using eBKPT = ScbDfsrFields::eBKPT;
+    using eDWTTRAP = ScbDfsrFields::eDWTTRAP;
+    using eVCATCH = ScbDfsrFields::eVCATCH;
+    using eEXTERNAL = ScbDfsrFields::eEXTERNAL;
+    using HALTED = ScbDfsrFields::HALTED;
+    using BKPT = ScbDfsrFields::BKPT;
+    using DWTTRAP = ScbDfsrFields::DWTTRAP;
+    using VCATCH = ScbDfsrFields::VCATCH;
+    using EXTERNAL = ScbDfsrFields::EXTERNAL;
   };
 
   // MemManage Address Register
-  struct SCB_MMFAR_fields_ {
+  struct ScbMmfarFields {
     // Address of MemManage fault location
     using ADDRESS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_MMFAR_fields_
+  };  // struct ScbMmfarFields
 
   struct SCB_MMFAR : ftl::mmio::Register<
       0xE000ED34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_MMFAR_fields_::ADDRESS> {
-    using ADDRESS = SCB_MMFAR_fields_::ADDRESS;
+      ScbMmfarFields::ADDRESS> {
+    using ADDRESS = ScbMmfarFields::ADDRESS;
   };
 
   // BusFault Address Register
-  struct SCB_BFAR_fields_ {
+  struct ScbBfarFields {
     // Address of the BusFault location
     using ADDRESS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_BFAR_fields_
+  };  // struct ScbBfarFields
 
   struct SCB_BFAR : ftl::mmio::Register<
       0xE000ED38u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_BFAR_fields_::ADDRESS> {
-    using ADDRESS = SCB_BFAR_fields_::ADDRESS;
+      ScbBfarFields::ADDRESS> {
+    using ADDRESS = ScbBfarFields::ADDRESS;
   };
 
   // Auxiliary Fault Status Register
-  struct SCB_AFSR_fields_ {
+  struct ScbAfsrFields {
     // Latched version of the AUXFAULT inputs
     using AUXFAULT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_AFSR_fields_
+  };  // struct ScbAfsrFields
 
   struct SCB_AFSR : ftl::mmio::Register<
       0xE000ED3Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SCB_AFSR_fields_::AUXFAULT> {
-    using AUXFAULT = SCB_AFSR_fields_::AUXFAULT;
+      ScbAfsrFields::AUXFAULT> {
+    using AUXFAULT = ScbAfsrFields::AUXFAULT;
   };
 
   // Coprocessor Access Control Register
-  struct SCB_CPACR_fields_ {
+  struct ScbCpacrFields {
     enum class eCP10 : std::uint32_t {
       // Access denied. Any attempted access generates a NOCP UsageFault
       eCP10_0 = 0,
@@ -1046,7 +1046,7 @@ struct Cm4Systemcontrol {
     using CP10 = ftl::mmio::Field<2, 20, eCP10, ftl::mmio::RW, ftl::mmio::Normal>;
     // Access privileges for coprocessor 11.
     using CP11 = ftl::mmio::Field<2, 22, eCP11, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_CPACR_fields_
+  };  // struct ScbCpacrFields
 
   struct SCB_CPACR : ftl::mmio::Register<
       0xE000ED88u,
@@ -1054,17 +1054,17 @@ struct Cm4Systemcontrol {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<20, 0>,
-      SCB_CPACR_fields_::CP10,
-      SCB_CPACR_fields_::CP11,
+      ScbCpacrFields::CP10,
+      ScbCpacrFields::CP11,
       ftl::mmio::Reserved<8, 24>> {
-    using eCP10 = SCB_CPACR_fields_::eCP10;
-    using eCP11 = SCB_CPACR_fields_::eCP11;
-    using CP10 = SCB_CPACR_fields_::CP10;
-    using CP11 = SCB_CPACR_fields_::CP11;
+    using eCP10 = ScbCpacrFields::eCP10;
+    using eCP11 = ScbCpacrFields::eCP11;
+    using CP10 = ScbCpacrFields::CP10;
+    using CP11 = ScbCpacrFields::CP11;
   };
 
   // Floating-point Context Control Register
-  struct SCB_FPCCR_fields_ {
+  struct ScbFpccrFields {
     enum class eLSPACT : std::uint32_t {
       // Lazy state preservation is not active.
       eLSPACT_0 = 0,
@@ -1146,50 +1146,50 @@ struct Cm4Systemcontrol {
     using LSPEN = ftl::mmio::Field<1, 30, eLSPEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enables CONTROL2 setting on execution of a floating-point instruction. This results in automatic hardware state preservation and restoration, for floating-point context, on exception entry and exit.
     using ASPEN = ftl::mmio::Field<1, 31, eASPEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_FPCCR_fields_
+  };  // struct ScbFpccrFields
 
   struct SCB_FPCCR : ftl::mmio::Register<
       0xE000EF34u,
       std::uint32_t,
       0xC0000000u,
       ftl::mmio::RW,
-      SCB_FPCCR_fields_::LSPACT,
-      SCB_FPCCR_fields_::USER,
+      ScbFpccrFields::LSPACT,
+      ScbFpccrFields::USER,
       ftl::mmio::Reserved<1, 2>,
-      SCB_FPCCR_fields_::THREAD,
-      SCB_FPCCR_fields_::HFRDY,
-      SCB_FPCCR_fields_::MMRDY,
-      SCB_FPCCR_fields_::BFRDY,
+      ScbFpccrFields::THREAD,
+      ScbFpccrFields::HFRDY,
+      ScbFpccrFields::MMRDY,
+      ScbFpccrFields::BFRDY,
       ftl::mmio::Reserved<1, 7>,
-      SCB_FPCCR_fields_::MONRDY,
+      ScbFpccrFields::MONRDY,
       ftl::mmio::Reserved<21, 9>,
-      SCB_FPCCR_fields_::LSPEN,
-      SCB_FPCCR_fields_::ASPEN> {
-    using eLSPACT = SCB_FPCCR_fields_::eLSPACT;
-    using eUSER = SCB_FPCCR_fields_::eUSER;
-    using eTHREAD = SCB_FPCCR_fields_::eTHREAD;
-    using eHFRDY = SCB_FPCCR_fields_::eHFRDY;
-    using eMMRDY = SCB_FPCCR_fields_::eMMRDY;
-    using eBFRDY = SCB_FPCCR_fields_::eBFRDY;
-    using eMONRDY = SCB_FPCCR_fields_::eMONRDY;
-    using eLSPEN = SCB_FPCCR_fields_::eLSPEN;
-    using eASPEN = SCB_FPCCR_fields_::eASPEN;
-    using LSPACT = SCB_FPCCR_fields_::LSPACT;
-    using USER = SCB_FPCCR_fields_::USER;
-    using THREAD = SCB_FPCCR_fields_::THREAD;
-    using HFRDY = SCB_FPCCR_fields_::HFRDY;
-    using MMRDY = SCB_FPCCR_fields_::MMRDY;
-    using BFRDY = SCB_FPCCR_fields_::BFRDY;
-    using MONRDY = SCB_FPCCR_fields_::MONRDY;
-    using LSPEN = SCB_FPCCR_fields_::LSPEN;
-    using ASPEN = SCB_FPCCR_fields_::ASPEN;
+      ScbFpccrFields::LSPEN,
+      ScbFpccrFields::ASPEN> {
+    using eLSPACT = ScbFpccrFields::eLSPACT;
+    using eUSER = ScbFpccrFields::eUSER;
+    using eTHREAD = ScbFpccrFields::eTHREAD;
+    using eHFRDY = ScbFpccrFields::eHFRDY;
+    using eMMRDY = ScbFpccrFields::eMMRDY;
+    using eBFRDY = ScbFpccrFields::eBFRDY;
+    using eMONRDY = ScbFpccrFields::eMONRDY;
+    using eLSPEN = ScbFpccrFields::eLSPEN;
+    using eASPEN = ScbFpccrFields::eASPEN;
+    using LSPACT = ScbFpccrFields::LSPACT;
+    using USER = ScbFpccrFields::USER;
+    using THREAD = ScbFpccrFields::THREAD;
+    using HFRDY = ScbFpccrFields::HFRDY;
+    using MMRDY = ScbFpccrFields::MMRDY;
+    using BFRDY = ScbFpccrFields::BFRDY;
+    using MONRDY = ScbFpccrFields::MONRDY;
+    using LSPEN = ScbFpccrFields::LSPEN;
+    using ASPEN = ScbFpccrFields::ASPEN;
   };
 
   // Floating-point Context Address Register
-  struct SCB_FPCAR_fields_ {
+  struct ScbFpcarFields {
     // The location of the unpopulated floating-point register space allocated on an exception stack frame.
     using ADDRESS = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_FPCAR_fields_
+  };  // struct ScbFpcarFields
 
   struct SCB_FPCAR : ftl::mmio::Register<
       0xE000EF38u,
@@ -1197,12 +1197,12 @@ struct Cm4Systemcontrol {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      SCB_FPCAR_fields_::ADDRESS> {
-    using ADDRESS = SCB_FPCAR_fields_::ADDRESS;
+      ScbFpcarFields::ADDRESS> {
+    using ADDRESS = ScbFpcarFields::ADDRESS;
   };
 
   // Floating-point Default Status Control Register
-  struct SCB_FPDSCR_fields_ {
+  struct ScbFpdscrFields {
     enum class eRMode : std::uint32_t {
       // Round to Nearest (RN) mode
       eRMode_0 = 0,
@@ -1243,7 +1243,7 @@ struct Cm4Systemcontrol {
     using DN = ftl::mmio::Field<1, 25, eDN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Default value for FPSCR.AHP (Alternative half-precision control bit).
     using AHP = ftl::mmio::Field<1, 26, eAHP, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCB_FPDSCR_fields_
+  };  // struct ScbFpdscrFields
 
   struct SCB_FPDSCR : ftl::mmio::Register<
       0xE000EF3Cu,
@@ -1251,19 +1251,19 @@ struct Cm4Systemcontrol {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<22, 0>,
-      SCB_FPDSCR_fields_::RMode,
-      SCB_FPDSCR_fields_::FZ,
-      SCB_FPDSCR_fields_::DN,
-      SCB_FPDSCR_fields_::AHP,
+      ScbFpdscrFields::RMode,
+      ScbFpdscrFields::FZ,
+      ScbFpdscrFields::DN,
+      ScbFpdscrFields::AHP,
       ftl::mmio::Reserved<5, 27>> {
-    using eRMode = SCB_FPDSCR_fields_::eRMode;
-    using eFZ = SCB_FPDSCR_fields_::eFZ;
-    using eDN = SCB_FPDSCR_fields_::eDN;
-    using eAHP = SCB_FPDSCR_fields_::eAHP;
-    using RMode = SCB_FPDSCR_fields_::RMode;
-    using FZ = SCB_FPDSCR_fields_::FZ;
-    using DN = SCB_FPDSCR_fields_::DN;
-    using AHP = SCB_FPDSCR_fields_::AHP;
+    using eRMode = ScbFpdscrFields::eRMode;
+    using eFZ = ScbFpdscrFields::eFZ;
+    using eDN = ScbFpdscrFields::eDN;
+    using eAHP = ScbFpdscrFields::eAHP;
+    using RMode = ScbFpdscrFields::RMode;
+    using FZ = ScbFpdscrFields::FZ;
+    using DN = ScbFpdscrFields::DN;
+    using AHP = ScbFpdscrFields::AHP;
   };
 
 };

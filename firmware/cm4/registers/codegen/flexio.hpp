@@ -20,7 +20,7 @@ struct Flexio {
       0u;
 
   // Version ID Register
-  struct VERID_fields_ {
+  struct VeridFields {
     enum class eFEATURE : std::uint32_t {
       // Standard features implemented.
       estandard = 0,
@@ -38,24 +38,24 @@ struct Flexio {
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Major Version Number
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERID_fields_
+  };  // struct VeridFields
 
   struct VERID : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x02000001u,
       ftl::mmio::RO,
-      typename VERID_fields_::FEATURE,
-      typename VERID_fields_::MINOR,
-      typename VERID_fields_::MAJOR> {
-    using eFEATURE = typename VERID_fields_::eFEATURE;
-    using FEATURE = typename VERID_fields_::FEATURE;
-    using MINOR = typename VERID_fields_::MINOR;
-    using MAJOR = typename VERID_fields_::MAJOR;
+      typename VeridFields::FEATURE,
+      typename VeridFields::MINOR,
+      typename VeridFields::MAJOR> {
+    using eFEATURE = typename VeridFields::eFEATURE;
+    using FEATURE = typename VeridFields::FEATURE;
+    using MINOR = typename VeridFields::MINOR;
+    using MAJOR = typename VeridFields::MAJOR;
   };
 
   // Parameter Register
-  struct PARAM_fields_ {
+  struct ParamFields {
     // Shifter Number
     using SHIFTER = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Timer Number
@@ -64,25 +64,25 @@ struct Flexio {
     using PIN = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Trigger Number
     using TRIGGER = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PARAM_fields_
+  };  // struct ParamFields
 
   struct PARAM : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x02200808u,
       ftl::mmio::RO,
-      typename PARAM_fields_::SHIFTER,
-      typename PARAM_fields_::TIMER,
-      typename PARAM_fields_::PIN,
-      typename PARAM_fields_::TRIGGER> {
-    using SHIFTER = typename PARAM_fields_::SHIFTER;
-    using TIMER = typename PARAM_fields_::TIMER;
-    using PIN = typename PARAM_fields_::PIN;
-    using TRIGGER = typename PARAM_fields_::TRIGGER;
+      typename ParamFields::SHIFTER,
+      typename ParamFields::TIMER,
+      typename ParamFields::PIN,
+      typename ParamFields::TRIGGER> {
+    using SHIFTER = typename ParamFields::SHIFTER;
+    using TIMER = typename ParamFields::TIMER;
+    using PIN = typename ParamFields::PIN;
+    using TRIGGER = typename ParamFields::TRIGGER;
   };
 
   // FlexIO Control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eFLEXEN : std::uint32_t {
       // FlexIO module is disabled.
       edisable = 0,
@@ -128,192 +128,192 @@ struct Flexio {
     using DBGE = ftl::mmio::Field<1, 30, eDBGE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Doze Enable
     using DOZEN = ftl::mmio::Field<1, 31, eDOZEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CTRL_fields_::FLEXEN,
-      typename CTRL_fields_::SWRST,
-      typename CTRL_fields_::FASTACC,
+      typename CtrlFields::FLEXEN,
+      typename CtrlFields::SWRST,
+      typename CtrlFields::FASTACC,
       ftl::mmio::Reserved<27, 3>,
-      typename CTRL_fields_::DBGE,
-      typename CTRL_fields_::DOZEN> {
-    using eFLEXEN = typename CTRL_fields_::eFLEXEN;
-    using eSWRST = typename CTRL_fields_::eSWRST;
-    using eFASTACC = typename CTRL_fields_::eFASTACC;
-    using eDBGE = typename CTRL_fields_::eDBGE;
-    using eDOZEN = typename CTRL_fields_::eDOZEN;
-    using FLEXEN = typename CTRL_fields_::FLEXEN;
-    using SWRST = typename CTRL_fields_::SWRST;
-    using FASTACC = typename CTRL_fields_::FASTACC;
-    using DBGE = typename CTRL_fields_::DBGE;
-    using DOZEN = typename CTRL_fields_::DOZEN;
+      typename CtrlFields::DBGE,
+      typename CtrlFields::DOZEN> {
+    using eFLEXEN = typename CtrlFields::eFLEXEN;
+    using eSWRST = typename CtrlFields::eSWRST;
+    using eFASTACC = typename CtrlFields::eFASTACC;
+    using eDBGE = typename CtrlFields::eDBGE;
+    using eDOZEN = typename CtrlFields::eDOZEN;
+    using FLEXEN = typename CtrlFields::FLEXEN;
+    using SWRST = typename CtrlFields::SWRST;
+    using FASTACC = typename CtrlFields::FASTACC;
+    using DBGE = typename CtrlFields::DBGE;
+    using DOZEN = typename CtrlFields::DOZEN;
   };
 
   // Pin State Register
-  struct PIN_fields_ {
+  struct PinFields {
     // Pin Data Input
     using PDI = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PIN_fields_
+  };  // struct PinFields
 
   struct PIN : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename PIN_fields_::PDI> {
-    using PDI = typename PIN_fields_::PDI;
+      typename PinFields::PDI> {
+    using PDI = typename PinFields::PDI;
   };
 
   // Shifter Status Register
-  struct SHIFTSTAT_fields_ {
+  struct ShiftstatFields {
     // Shifter Status Flag
     using SSF = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct SHIFTSTAT_fields_
+  };  // struct ShiftstatFields
 
   struct SHIFTSTAT : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTSTAT_fields_::SSF,
+      typename ShiftstatFields::SSF,
       ftl::mmio::Reserved<24, 8>> {
-    using SSF = typename SHIFTSTAT_fields_::SSF;
+    using SSF = typename ShiftstatFields::SSF;
   };
 
   // Shifter Error Register
-  struct SHIFTERR_fields_ {
+  struct ShifterrFields {
     // Shifter Error Flags
     using SEF = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct SHIFTERR_fields_
+  };  // struct ShifterrFields
 
   struct SHIFTERR : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTERR_fields_::SEF,
+      typename ShifterrFields::SEF,
       ftl::mmio::Reserved<24, 8>> {
-    using SEF = typename SHIFTERR_fields_::SEF;
+    using SEF = typename ShifterrFields::SEF;
   };
 
   // Timer Status Register
-  struct TIMSTAT_fields_ {
+  struct TimstatFields {
     // Timer Status Flags
     using TSF = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct TIMSTAT_fields_
+  };  // struct TimstatFields
 
   struct TIMSTAT : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TIMSTAT_fields_::TSF,
+      typename TimstatFields::TSF,
       ftl::mmio::Reserved<24, 8>> {
-    using TSF = typename TIMSTAT_fields_::TSF;
+    using TSF = typename TimstatFields::TSF;
   };
 
   // Shifter Status Interrupt Enable
-  struct SHIFTSIEN_fields_ {
+  struct ShiftsienFields {
     // Shifter Status Interrupt Enable
     using SSIE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTSIEN_fields_
+  };  // struct ShiftsienFields
 
   struct SHIFTSIEN : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTSIEN_fields_::SSIE,
+      typename ShiftsienFields::SSIE,
       ftl::mmio::Reserved<24, 8>> {
-    using SSIE = typename SHIFTSIEN_fields_::SSIE;
+    using SSIE = typename ShiftsienFields::SSIE;
   };
 
   // Shifter Error Interrupt Enable
-  struct SHIFTEIEN_fields_ {
+  struct ShifteienFields {
     // Shifter Error Interrupt Enable
     using SEIE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTEIEN_fields_
+  };  // struct ShifteienFields
 
   struct SHIFTEIEN : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTEIEN_fields_::SEIE,
+      typename ShifteienFields::SEIE,
       ftl::mmio::Reserved<24, 8>> {
-    using SEIE = typename SHIFTEIEN_fields_::SEIE;
+    using SEIE = typename ShifteienFields::SEIE;
   };
 
   // Timer Interrupt Enable Register
-  struct TIMIEN_fields_ {
+  struct TimienFields {
     // Timer Status Interrupt Enable
     using TEIE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TIMIEN_fields_
+  };  // struct TimienFields
 
   struct TIMIEN : ftl::mmio::Register<
       kBase + 0x28u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TIMIEN_fields_::TEIE,
+      typename TimienFields::TEIE,
       ftl::mmio::Reserved<24, 8>> {
-    using TEIE = typename TIMIEN_fields_::TEIE;
+    using TEIE = typename TimienFields::TEIE;
   };
 
   // Shifter Status DMA Enable
-  struct SHIFTSDEN_fields_ {
+  struct ShiftsdenFields {
     // Shifter Status DMA Enable
     using SSDE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTSDEN_fields_
+  };  // struct ShiftsdenFields
 
   struct SHIFTSDEN : ftl::mmio::Register<
       kBase + 0x30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTSDEN_fields_::SSDE,
+      typename ShiftsdenFields::SSDE,
       ftl::mmio::Reserved<24, 8>> {
-    using SSDE = typename SHIFTSDEN_fields_::SSDE;
+    using SSDE = typename ShiftsdenFields::SSDE;
   };
 
   // Timer Status DMA Enable
-  struct TIMERSDEN_fields_ {
+  struct TimersdenFields {
     // Timer Status DMA Enable
     using TSDE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TIMERSDEN_fields_
+  };  // struct TimersdenFields
 
   struct TIMERSDEN : ftl::mmio::Register<
       kBase + 0x38u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TIMERSDEN_fields_::TSDE,
+      typename TimersdenFields::TSDE,
       ftl::mmio::Reserved<24, 8>> {
-    using TSDE = typename TIMERSDEN_fields_::TSDE;
+    using TSDE = typename TimersdenFields::TSDE;
   };
 
   // Shifter State Register
-  struct SHIFTSTATE_fields_ {
+  struct ShiftstateFields {
     // Current State Pointer
     using STATE = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTSTATE_fields_
+  };  // struct ShiftstateFields
 
   struct SHIFTSTATE : ftl::mmio::Register<
       kBase + 0x40u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTSTATE_fields_::STATE,
+      typename ShiftstateFields::STATE,
       ftl::mmio::Reserved<29, 3>> {
-    using STATE = typename SHIFTSTATE_fields_::STATE;
+    using STATE = typename ShiftstateFields::STATE;
   };
 
   // Shifter Control N Register
-  struct SHIFTCTL_fields_ {
+  struct ShiftctlFields {
     enum class eSMOD : std::uint32_t {
       // Disabled.
       edisable = 0,
@@ -368,7 +368,7 @@ struct Flexio {
     using TIMPOL = ftl::mmio::Field<1, 23, eTIMPOL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Select
     using TIMSEL = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTCTL_fields_
+  };  // struct ShiftctlFields
 
   template<std::uint32_t Index>
   struct SHIFTCTL : ftl::mmio::Register<
@@ -376,31 +376,31 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTCTL_fields_::SMOD,
+      typename ShiftctlFields::SMOD,
       ftl::mmio::Reserved<4, 3>,
-      typename SHIFTCTL_fields_::PINPOL,
-      typename SHIFTCTL_fields_::PINSEL,
+      typename ShiftctlFields::PINPOL,
+      typename ShiftctlFields::PINSEL,
       ftl::mmio::Reserved<3, 13>,
-      typename SHIFTCTL_fields_::PINCFG,
+      typename ShiftctlFields::PINCFG,
       ftl::mmio::Reserved<5, 18>,
-      typename SHIFTCTL_fields_::TIMPOL,
-      typename SHIFTCTL_fields_::TIMSEL,
+      typename ShiftctlFields::TIMPOL,
+      typename ShiftctlFields::TIMSEL,
       ftl::mmio::Reserved<5, 27>> {
     static_assert(Index < 8u, "SHIFTCTL: Index out of range");
-    using eSMOD = typename SHIFTCTL_fields_::eSMOD;
-    using ePINPOL = typename SHIFTCTL_fields_::ePINPOL;
-    using ePINCFG = typename SHIFTCTL_fields_::ePINCFG;
-    using eTIMPOL = typename SHIFTCTL_fields_::eTIMPOL;
-    using SMOD = typename SHIFTCTL_fields_::SMOD;
-    using PINPOL = typename SHIFTCTL_fields_::PINPOL;
-    using PINSEL = typename SHIFTCTL_fields_::PINSEL;
-    using PINCFG = typename SHIFTCTL_fields_::PINCFG;
-    using TIMPOL = typename SHIFTCTL_fields_::TIMPOL;
-    using TIMSEL = typename SHIFTCTL_fields_::TIMSEL;
+    using eSMOD = typename ShiftctlFields::eSMOD;
+    using ePINPOL = typename ShiftctlFields::ePINPOL;
+    using ePINCFG = typename ShiftctlFields::ePINCFG;
+    using eTIMPOL = typename ShiftctlFields::eTIMPOL;
+    using SMOD = typename ShiftctlFields::SMOD;
+    using PINPOL = typename ShiftctlFields::PINPOL;
+    using PINSEL = typename ShiftctlFields::PINSEL;
+    using PINCFG = typename ShiftctlFields::PINCFG;
+    using TIMPOL = typename ShiftctlFields::TIMPOL;
+    using TIMSEL = typename ShiftctlFields::TIMSEL;
   };
 
   // Shifter Configuration N Register
-  struct SHIFTCFG_fields_ {
+  struct ShiftcfgFields {
     enum class eSSTART : std::uint32_t {
       // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
       evalue00 = 0,
@@ -445,7 +445,7 @@ struct Flexio {
     using LATST = ftl::mmio::Field<1, 9, eLATST, ftl::mmio::RW, ftl::mmio::Normal>;
     // Parallel Width
     using PWIDTH = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTCFG_fields_
+  };  // struct ShiftcfgFields
 
   template<std::uint32_t Index>
   struct SHIFTCFG : ftl::mmio::Register<
@@ -453,32 +453,32 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTCFG_fields_::SSTART,
+      typename ShiftcfgFields::SSTART,
       ftl::mmio::Reserved<2, 2>,
-      typename SHIFTCFG_fields_::SSTOP,
+      typename ShiftcfgFields::SSTOP,
       ftl::mmio::Reserved<2, 6>,
-      typename SHIFTCFG_fields_::INSRC,
-      typename SHIFTCFG_fields_::LATST,
+      typename ShiftcfgFields::INSRC,
+      typename ShiftcfgFields::LATST,
       ftl::mmio::Reserved<6, 10>,
-      typename SHIFTCFG_fields_::PWIDTH,
+      typename ShiftcfgFields::PWIDTH,
       ftl::mmio::Reserved<11, 21>> {
     static_assert(Index < 8u, "SHIFTCFG: Index out of range");
-    using eSSTART = typename SHIFTCFG_fields_::eSSTART;
-    using eSSTOP = typename SHIFTCFG_fields_::eSSTOP;
-    using eINSRC = typename SHIFTCFG_fields_::eINSRC;
-    using eLATST = typename SHIFTCFG_fields_::eLATST;
-    using SSTART = typename SHIFTCFG_fields_::SSTART;
-    using SSTOP = typename SHIFTCFG_fields_::SSTOP;
-    using INSRC = typename SHIFTCFG_fields_::INSRC;
-    using LATST = typename SHIFTCFG_fields_::LATST;
-    using PWIDTH = typename SHIFTCFG_fields_::PWIDTH;
+    using eSSTART = typename ShiftcfgFields::eSSTART;
+    using eSSTOP = typename ShiftcfgFields::eSSTOP;
+    using eINSRC = typename ShiftcfgFields::eINSRC;
+    using eLATST = typename ShiftcfgFields::eLATST;
+    using SSTART = typename ShiftcfgFields::SSTART;
+    using SSTOP = typename ShiftcfgFields::SSTOP;
+    using INSRC = typename ShiftcfgFields::INSRC;
+    using LATST = typename ShiftcfgFields::LATST;
+    using PWIDTH = typename ShiftcfgFields::PWIDTH;
   };
 
   // Shifter Buffer N Register
-  struct SHIFTBUF_fields_ {
+  struct ShiftbufFields {
     // Shift Buffer
     using SHIFTBUF = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUF_fields_
+  };  // struct ShiftbufFields
 
   template<std::uint32_t Index>
   struct SHIFTBUF : ftl::mmio::Register<
@@ -486,16 +486,16 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUF_fields_::SHIFTBUF> {
+      typename ShiftbufFields::SHIFTBUF> {
     static_assert(Index < 8u, "SHIFTBUF: Index out of range");
-    using VALUE = typename SHIFTBUF_fields_::SHIFTBUF;
+    using VALUE = typename ShiftbufFields::SHIFTBUF;
   };
 
   // Shifter Buffer N Bit Swapped Register
-  struct SHIFTBUFBIS_fields_ {
+  struct ShiftbufbisFields {
     // Shift Buffer
     using SHIFTBUFBIS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUFBIS_fields_
+  };  // struct ShiftbufbisFields
 
   template<std::uint32_t Index>
   struct SHIFTBUFBIS : ftl::mmio::Register<
@@ -503,16 +503,16 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUFBIS_fields_::SHIFTBUFBIS> {
+      typename ShiftbufbisFields::SHIFTBUFBIS> {
     static_assert(Index < 8u, "SHIFTBUFBIS: Index out of range");
-    using VALUE = typename SHIFTBUFBIS_fields_::SHIFTBUFBIS;
+    using VALUE = typename ShiftbufbisFields::SHIFTBUFBIS;
   };
 
   // Shifter Buffer N Byte Swapped Register
-  struct SHIFTBUFBYS_fields_ {
+  struct ShiftbufbysFields {
     // Shift Buffer
     using SHIFTBUFBYS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUFBYS_fields_
+  };  // struct ShiftbufbysFields
 
   template<std::uint32_t Index>
   struct SHIFTBUFBYS : ftl::mmio::Register<
@@ -520,16 +520,16 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUFBYS_fields_::SHIFTBUFBYS> {
+      typename ShiftbufbysFields::SHIFTBUFBYS> {
     static_assert(Index < 8u, "SHIFTBUFBYS: Index out of range");
-    using VALUE = typename SHIFTBUFBYS_fields_::SHIFTBUFBYS;
+    using VALUE = typename ShiftbufbysFields::SHIFTBUFBYS;
   };
 
   // Shifter Buffer N Bit Byte Swapped Register
-  struct SHIFTBUFBBS_fields_ {
+  struct ShiftbufbbsFields {
     // Shift Buffer
     using SHIFTBUFBBS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUFBBS_fields_
+  };  // struct ShiftbufbbsFields
 
   template<std::uint32_t Index>
   struct SHIFTBUFBBS : ftl::mmio::Register<
@@ -537,13 +537,13 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUFBBS_fields_::SHIFTBUFBBS> {
+      typename ShiftbufbbsFields::SHIFTBUFBBS> {
     static_assert(Index < 8u, "SHIFTBUFBBS: Index out of range");
-    using VALUE = typename SHIFTBUFBBS_fields_::SHIFTBUFBBS;
+    using VALUE = typename ShiftbufbbsFields::SHIFTBUFBBS;
   };
 
   // Timer Control N Register
-  struct TIMCTL_fields_ {
+  struct TimctlFields {
     enum class eTIMOD : std::uint32_t {
       // Timer Disabled.
       edisable = 0,
@@ -627,7 +627,7 @@ struct Flexio {
     using TRGPOL = ftl::mmio::Field<1, 23, eTRGPOL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Trigger Select
     using TRGSEL = ftl::mmio::Field<6, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TIMCTL_fields_
+  };  // struct TimctlFields
 
   template<std::uint32_t Index>
   struct TIMCTL : ftl::mmio::Register<
@@ -635,40 +635,40 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TIMCTL_fields_::TIMOD,
+      typename TimctlFields::TIMOD,
       ftl::mmio::Reserved<2, 3>,
-      typename TIMCTL_fields_::ONETIM,
-      typename TIMCTL_fields_::PININS,
-      typename TIMCTL_fields_::PINPOL,
-      typename TIMCTL_fields_::PINSEL,
+      typename TimctlFields::ONETIM,
+      typename TimctlFields::PININS,
+      typename TimctlFields::PINPOL,
+      typename TimctlFields::PINSEL,
       ftl::mmio::Reserved<3, 13>,
-      typename TIMCTL_fields_::PINCFG,
+      typename TimctlFields::PINCFG,
       ftl::mmio::Reserved<4, 18>,
-      typename TIMCTL_fields_::TRGSRC,
-      typename TIMCTL_fields_::TRGPOL,
-      typename TIMCTL_fields_::TRGSEL,
+      typename TimctlFields::TRGSRC,
+      typename TimctlFields::TRGPOL,
+      typename TimctlFields::TRGSEL,
       ftl::mmio::Reserved<2, 30>> {
     static_assert(Index < 8u, "TIMCTL: Index out of range");
-    using eTIMOD = typename TIMCTL_fields_::eTIMOD;
-    using eONETIM = typename TIMCTL_fields_::eONETIM;
-    using ePININS = typename TIMCTL_fields_::ePININS;
-    using ePINPOL = typename TIMCTL_fields_::ePINPOL;
-    using ePINCFG = typename TIMCTL_fields_::ePINCFG;
-    using eTRGSRC = typename TIMCTL_fields_::eTRGSRC;
-    using eTRGPOL = typename TIMCTL_fields_::eTRGPOL;
-    using TIMOD = typename TIMCTL_fields_::TIMOD;
-    using ONETIM = typename TIMCTL_fields_::ONETIM;
-    using PININS = typename TIMCTL_fields_::PININS;
-    using PINPOL = typename TIMCTL_fields_::PINPOL;
-    using PINSEL = typename TIMCTL_fields_::PINSEL;
-    using PINCFG = typename TIMCTL_fields_::PINCFG;
-    using TRGSRC = typename TIMCTL_fields_::TRGSRC;
-    using TRGPOL = typename TIMCTL_fields_::TRGPOL;
-    using TRGSEL = typename TIMCTL_fields_::TRGSEL;
+    using eTIMOD = typename TimctlFields::eTIMOD;
+    using eONETIM = typename TimctlFields::eONETIM;
+    using ePININS = typename TimctlFields::ePININS;
+    using ePINPOL = typename TimctlFields::ePINPOL;
+    using ePINCFG = typename TimctlFields::ePINCFG;
+    using eTRGSRC = typename TimctlFields::eTRGSRC;
+    using eTRGPOL = typename TimctlFields::eTRGPOL;
+    using TIMOD = typename TimctlFields::TIMOD;
+    using ONETIM = typename TimctlFields::ONETIM;
+    using PININS = typename TimctlFields::PININS;
+    using PINPOL = typename TimctlFields::PINPOL;
+    using PINSEL = typename TimctlFields::PINSEL;
+    using PINCFG = typename TimctlFields::PINCFG;
+    using TRGSRC = typename TimctlFields::TRGSRC;
+    using TRGPOL = typename TimctlFields::TRGPOL;
+    using TRGSEL = typename TimctlFields::TRGSEL;
   };
 
   // Timer Configuration N Register
-  struct TIMCFG_fields_ {
+  struct TimcfgFields {
     enum class eTSTART : std::uint32_t {
       // Start bit disabled
       edisable = 0,
@@ -784,7 +784,7 @@ struct Flexio {
     using TIMDEC = ftl::mmio::Field<3, 20, eTIMDEC, ftl::mmio::RW, ftl::mmio::Normal>;
     // Timer Output
     using TIMOUT = ftl::mmio::Field<2, 24, eTIMOUT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TIMCFG_fields_
+  };  // struct TimcfgFields
 
   template<std::uint32_t Index>
   struct TIMCFG : ftl::mmio::Register<
@@ -793,42 +793,42 @@ struct Flexio {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      typename TIMCFG_fields_::TSTART,
+      typename TimcfgFields::TSTART,
       ftl::mmio::Reserved<2, 2>,
-      typename TIMCFG_fields_::TSTOP,
+      typename TimcfgFields::TSTOP,
       ftl::mmio::Reserved<2, 6>,
-      typename TIMCFG_fields_::TIMENA,
+      typename TimcfgFields::TIMENA,
       ftl::mmio::Reserved<1, 11>,
-      typename TIMCFG_fields_::TIMDIS,
+      typename TimcfgFields::TIMDIS,
       ftl::mmio::Reserved<1, 15>,
-      typename TIMCFG_fields_::TIMRST,
+      typename TimcfgFields::TIMRST,
       ftl::mmio::Reserved<1, 19>,
-      typename TIMCFG_fields_::TIMDEC,
+      typename TimcfgFields::TIMDEC,
       ftl::mmio::Reserved<1, 23>,
-      typename TIMCFG_fields_::TIMOUT,
+      typename TimcfgFields::TIMOUT,
       ftl::mmio::Reserved<6, 26>> {
     static_assert(Index < 8u, "TIMCFG: Index out of range");
-    using eTSTART = typename TIMCFG_fields_::eTSTART;
-    using eTSTOP = typename TIMCFG_fields_::eTSTOP;
-    using eTIMENA = typename TIMCFG_fields_::eTIMENA;
-    using eTIMDIS = typename TIMCFG_fields_::eTIMDIS;
-    using eTIMRST = typename TIMCFG_fields_::eTIMRST;
-    using eTIMDEC = typename TIMCFG_fields_::eTIMDEC;
-    using eTIMOUT = typename TIMCFG_fields_::eTIMOUT;
-    using TSTART = typename TIMCFG_fields_::TSTART;
-    using TSTOP = typename TIMCFG_fields_::TSTOP;
-    using TIMENA = typename TIMCFG_fields_::TIMENA;
-    using TIMDIS = typename TIMCFG_fields_::TIMDIS;
-    using TIMRST = typename TIMCFG_fields_::TIMRST;
-    using TIMDEC = typename TIMCFG_fields_::TIMDEC;
-    using TIMOUT = typename TIMCFG_fields_::TIMOUT;
+    using eTSTART = typename TimcfgFields::eTSTART;
+    using eTSTOP = typename TimcfgFields::eTSTOP;
+    using eTIMENA = typename TimcfgFields::eTIMENA;
+    using eTIMDIS = typename TimcfgFields::eTIMDIS;
+    using eTIMRST = typename TimcfgFields::eTIMRST;
+    using eTIMDEC = typename TimcfgFields::eTIMDEC;
+    using eTIMOUT = typename TimcfgFields::eTIMOUT;
+    using TSTART = typename TimcfgFields::TSTART;
+    using TSTOP = typename TimcfgFields::TSTOP;
+    using TIMENA = typename TimcfgFields::TIMENA;
+    using TIMDIS = typename TimcfgFields::TIMDIS;
+    using TIMRST = typename TimcfgFields::TIMRST;
+    using TIMDEC = typename TimcfgFields::TIMDEC;
+    using TIMOUT = typename TimcfgFields::TIMOUT;
   };
 
   // Timer Compare N Register
-  struct TIMCMP_fields_ {
+  struct TimcmpFields {
     // Timer Compare Value
     using CMP = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TIMCMP_fields_
+  };  // struct TimcmpFields
 
   template<std::uint32_t Index>
   struct TIMCMP : ftl::mmio::Register<
@@ -836,17 +836,17 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TIMCMP_fields_::CMP,
+      typename TimcmpFields::CMP,
       ftl::mmio::Reserved<16, 16>> {
     static_assert(Index < 8u, "TIMCMP: Index out of range");
-    using CMP = typename TIMCMP_fields_::CMP;
+    using CMP = typename TimcmpFields::CMP;
   };
 
   // Shifter Buffer N Nibble Byte Swapped Register
-  struct SHIFTBUFNBS_fields_ {
+  struct ShiftbufnbsFields {
     // Shift Buffer
     using SHIFTBUFNBS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUFNBS_fields_
+  };  // struct ShiftbufnbsFields
 
   template<std::uint32_t Index>
   struct SHIFTBUFNBS : ftl::mmio::Register<
@@ -854,16 +854,16 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUFNBS_fields_::SHIFTBUFNBS> {
+      typename ShiftbufnbsFields::SHIFTBUFNBS> {
     static_assert(Index < 8u, "SHIFTBUFNBS: Index out of range");
-    using VALUE = typename SHIFTBUFNBS_fields_::SHIFTBUFNBS;
+    using VALUE = typename ShiftbufnbsFields::SHIFTBUFNBS;
   };
 
   // Shifter Buffer N Half Word Swapped Register
-  struct SHIFTBUFHWS_fields_ {
+  struct ShiftbufhwsFields {
     // Shift Buffer
     using SHIFTBUFHWS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUFHWS_fields_
+  };  // struct ShiftbufhwsFields
 
   template<std::uint32_t Index>
   struct SHIFTBUFHWS : ftl::mmio::Register<
@@ -871,16 +871,16 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUFHWS_fields_::SHIFTBUFHWS> {
+      typename ShiftbufhwsFields::SHIFTBUFHWS> {
     static_assert(Index < 8u, "SHIFTBUFHWS: Index out of range");
-    using VALUE = typename SHIFTBUFHWS_fields_::SHIFTBUFHWS;
+    using VALUE = typename ShiftbufhwsFields::SHIFTBUFHWS;
   };
 
   // Shifter Buffer N Nibble Swapped Register
-  struct SHIFTBUFNIS_fields_ {
+  struct ShiftbufnisFields {
     // Shift Buffer
     using SHIFTBUFNIS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUFNIS_fields_
+  };  // struct ShiftbufnisFields
 
   template<std::uint32_t Index>
   struct SHIFTBUFNIS : ftl::mmio::Register<
@@ -888,16 +888,16 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUFNIS_fields_::SHIFTBUFNIS> {
+      typename ShiftbufnisFields::SHIFTBUFNIS> {
     static_assert(Index < 8u, "SHIFTBUFNIS: Index out of range");
-    using VALUE = typename SHIFTBUFNIS_fields_::SHIFTBUFNIS;
+    using VALUE = typename ShiftbufnisFields::SHIFTBUFNIS;
   };
 
   // Shifter Buffer N Odd Even Swapped Register
-  struct SHIFTBUFOES_fields_ {
+  struct ShiftbufoesFields {
     // Shift Buffer
     using SHIFTBUFOES = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUFOES_fields_
+  };  // struct ShiftbufoesFields
 
   template<std::uint32_t Index>
   struct SHIFTBUFOES : ftl::mmio::Register<
@@ -905,16 +905,16 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUFOES_fields_::SHIFTBUFOES> {
+      typename ShiftbufoesFields::SHIFTBUFOES> {
     static_assert(Index < 8u, "SHIFTBUFOES: Index out of range");
-    using VALUE = typename SHIFTBUFOES_fields_::SHIFTBUFOES;
+    using VALUE = typename ShiftbufoesFields::SHIFTBUFOES;
   };
 
   // Shifter Buffer N Even Odd Swapped Register
-  struct SHIFTBUFEOS_fields_ {
+  struct ShiftbufeosFields {
     // Shift Buffer
     using SHIFTBUFEOS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SHIFTBUFEOS_fields_
+  };  // struct ShiftbufeosFields
 
   template<std::uint32_t Index>
   struct SHIFTBUFEOS : ftl::mmio::Register<
@@ -922,9 +922,9 @@ struct Flexio {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SHIFTBUFEOS_fields_::SHIFTBUFEOS> {
+      typename ShiftbufeosFields::SHIFTBUFEOS> {
     static_assert(Index < 8u, "SHIFTBUFEOS: Index out of range");
-    using VALUE = typename SHIFTBUFEOS_fields_::SHIFTBUFEOS;
+    using VALUE = typename ShiftbufeosFields::SHIFTBUFEOS;
   };
 
 };

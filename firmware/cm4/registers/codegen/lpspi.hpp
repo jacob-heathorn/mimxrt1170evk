@@ -24,7 +24,7 @@ struct Lpspi {
       0u;
 
   // Version ID
-  struct VERID_fields_ {
+  struct VeridFields {
     enum class eFEATURE : std::uint32_t {
       // Standard feature set supporting a 32-bit shift register.
       eSTANDARD = 4,
@@ -36,48 +36,48 @@ struct Lpspi {
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Major Version Number
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERID_fields_
+  };  // struct VeridFields
 
   struct VERID : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x01020004u,
       ftl::mmio::RO,
-      typename VERID_fields_::FEATURE,
-      typename VERID_fields_::MINOR,
-      typename VERID_fields_::MAJOR> {
-    using eFEATURE = typename VERID_fields_::eFEATURE;
-    using FEATURE = typename VERID_fields_::FEATURE;
-    using MINOR = typename VERID_fields_::MINOR;
-    using MAJOR = typename VERID_fields_::MAJOR;
+      typename VeridFields::FEATURE,
+      typename VeridFields::MINOR,
+      typename VeridFields::MAJOR> {
+    using eFEATURE = typename VeridFields::eFEATURE;
+    using FEATURE = typename VeridFields::FEATURE;
+    using MINOR = typename VeridFields::MINOR;
+    using MAJOR = typename VeridFields::MAJOR;
   };
 
   // Parameter
-  struct PARAM_fields_ {
+  struct ParamFields {
     // Transmit FIFO Size
     using TXFIFO = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Receive FIFO Size
     using RXFIFO = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // PCS Number
     using PCSNUM = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PARAM_fields_
+  };  // struct ParamFields
 
   struct PARAM : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00040404u,
       ftl::mmio::RO,
-      typename PARAM_fields_::TXFIFO,
-      typename PARAM_fields_::RXFIFO,
-      typename PARAM_fields_::PCSNUM,
+      typename ParamFields::TXFIFO,
+      typename ParamFields::RXFIFO,
+      typename ParamFields::PCSNUM,
       ftl::mmio::Reserved<8, 24>> {
-    using TXFIFO = typename PARAM_fields_::TXFIFO;
-    using RXFIFO = typename PARAM_fields_::RXFIFO;
-    using PCSNUM = typename PARAM_fields_::PCSNUM;
+    using TXFIFO = typename ParamFields::TXFIFO;
+    using RXFIFO = typename ParamFields::RXFIFO;
+    using PCSNUM = typename ParamFields::PCSNUM;
   };
 
   // Control
-  struct CR_fields_ {
+  struct CrFields {
     enum class eMEN : std::uint32_t {
       // Disable
       eDISABLED = 0,
@@ -132,37 +132,37 @@ struct Lpspi {
     using RTF = ftl::mmio::Field<1, 8, eRTF, ftl::mmio::WO, ftl::mmio::Normal>;
     // Reset Receive FIFO
     using RRF = ftl::mmio::Field<1, 9, eRRF, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct CR_fields_
+  };  // struct CrFields
 
   struct CR : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CR_fields_::MEN,
-      typename CR_fields_::RST,
-      typename CR_fields_::DOZEN,
-      typename CR_fields_::DBGEN,
+      typename CrFields::MEN,
+      typename CrFields::RST,
+      typename CrFields::DOZEN,
+      typename CrFields::DBGEN,
       ftl::mmio::Reserved<4, 4>,
-      typename CR_fields_::RTF,
-      typename CR_fields_::RRF,
+      typename CrFields::RTF,
+      typename CrFields::RRF,
       ftl::mmio::Reserved<22, 10>> {
-    using eMEN = typename CR_fields_::eMEN;
-    using eRST = typename CR_fields_::eRST;
-    using eDOZEN = typename CR_fields_::eDOZEN;
-    using eDBGEN = typename CR_fields_::eDBGEN;
-    using eRTF = typename CR_fields_::eRTF;
-    using eRRF = typename CR_fields_::eRRF;
-    using MEN = typename CR_fields_::MEN;
-    using RST = typename CR_fields_::RST;
-    using DOZEN = typename CR_fields_::DOZEN;
-    using DBGEN = typename CR_fields_::DBGEN;
-    using RTF = typename CR_fields_::RTF;
-    using RRF = typename CR_fields_::RRF;
+    using eMEN = typename CrFields::eMEN;
+    using eRST = typename CrFields::eRST;
+    using eDOZEN = typename CrFields::eDOZEN;
+    using eDBGEN = typename CrFields::eDBGEN;
+    using eRTF = typename CrFields::eRTF;
+    using eRRF = typename CrFields::eRRF;
+    using MEN = typename CrFields::MEN;
+    using RST = typename CrFields::RST;
+    using DOZEN = typename CrFields::DOZEN;
+    using DBGEN = typename CrFields::DBGEN;
+    using RTF = typename CrFields::RTF;
+    using RRF = typename CrFields::RRF;
   };
 
   // Status
-  struct SR_fields_ {
+  struct SrFields {
     enum class eTDF : std::uint32_t {
       // Transmit data not requested
       eTXDATA_NOT_REQST = 0,
@@ -244,47 +244,47 @@ struct Lpspi {
     using DMF = ftl::mmio::Field<1, 13, eDMF, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Module Busy Flag
     using MBF = ftl::mmio::Field<1, 24, eMBF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SR_fields_
+  };  // struct SrFields
 
   struct SR : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x00000001u,
       ftl::mmio::RW,
-      typename SR_fields_::TDF,
-      typename SR_fields_::RDF,
+      typename SrFields::TDF,
+      typename SrFields::RDF,
       ftl::mmio::Reserved<6, 2>,
-      typename SR_fields_::WCF,
-      typename SR_fields_::FCF,
-      typename SR_fields_::TCF,
-      typename SR_fields_::TEF,
-      typename SR_fields_::REF,
-      typename SR_fields_::DMF,
+      typename SrFields::WCF,
+      typename SrFields::FCF,
+      typename SrFields::TCF,
+      typename SrFields::TEF,
+      typename SrFields::REF,
+      typename SrFields::DMF,
       ftl::mmio::Reserved<10, 14>,
-      typename SR_fields_::MBF,
+      typename SrFields::MBF,
       ftl::mmio::Reserved<7, 25>> {
-    using eTDF = typename SR_fields_::eTDF;
-    using eRDF = typename SR_fields_::eRDF;
-    using eWCF = typename SR_fields_::eWCF;
-    using eFCF = typename SR_fields_::eFCF;
-    using eTCF = typename SR_fields_::eTCF;
-    using eTEF = typename SR_fields_::eTEF;
-    using eREF = typename SR_fields_::eREF;
-    using eDMF = typename SR_fields_::eDMF;
-    using eMBF = typename SR_fields_::eMBF;
-    using TDF = typename SR_fields_::TDF;
-    using RDF = typename SR_fields_::RDF;
-    using WCF = typename SR_fields_::WCF;
-    using FCF = typename SR_fields_::FCF;
-    using TCF = typename SR_fields_::TCF;
-    using TEF = typename SR_fields_::TEF;
-    using REF = typename SR_fields_::REF;
-    using DMF = typename SR_fields_::DMF;
-    using MBF = typename SR_fields_::MBF;
+    using eTDF = typename SrFields::eTDF;
+    using eRDF = typename SrFields::eRDF;
+    using eWCF = typename SrFields::eWCF;
+    using eFCF = typename SrFields::eFCF;
+    using eTCF = typename SrFields::eTCF;
+    using eTEF = typename SrFields::eTEF;
+    using eREF = typename SrFields::eREF;
+    using eDMF = typename SrFields::eDMF;
+    using eMBF = typename SrFields::eMBF;
+    using TDF = typename SrFields::TDF;
+    using RDF = typename SrFields::RDF;
+    using WCF = typename SrFields::WCF;
+    using FCF = typename SrFields::FCF;
+    using TCF = typename SrFields::TCF;
+    using TEF = typename SrFields::TEF;
+    using REF = typename SrFields::REF;
+    using DMF = typename SrFields::DMF;
+    using MBF = typename SrFields::MBF;
   };
 
   // Interrupt Enable
-  struct IER_fields_ {
+  struct IerFields {
     enum class eTDIE : std::uint32_t {
       // Disable
       eDISABLE = 0,
@@ -357,43 +357,43 @@ struct Lpspi {
     using REIE = ftl::mmio::Field<1, 12, eREIE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Data Match Interrupt Enable
     using DMIE = ftl::mmio::Field<1, 13, eDMIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct IER_fields_
+  };  // struct IerFields
 
   struct IER : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename IER_fields_::TDIE,
-      typename IER_fields_::RDIE,
+      typename IerFields::TDIE,
+      typename IerFields::RDIE,
       ftl::mmio::Reserved<6, 2>,
-      typename IER_fields_::WCIE,
-      typename IER_fields_::FCIE,
-      typename IER_fields_::TCIE,
-      typename IER_fields_::TEIE,
-      typename IER_fields_::REIE,
-      typename IER_fields_::DMIE,
+      typename IerFields::WCIE,
+      typename IerFields::FCIE,
+      typename IerFields::TCIE,
+      typename IerFields::TEIE,
+      typename IerFields::REIE,
+      typename IerFields::DMIE,
       ftl::mmio::Reserved<18, 14>> {
-    using eTDIE = typename IER_fields_::eTDIE;
-    using eRDIE = typename IER_fields_::eRDIE;
-    using eWCIE = typename IER_fields_::eWCIE;
-    using eFCIE = typename IER_fields_::eFCIE;
-    using eTCIE = typename IER_fields_::eTCIE;
-    using eTEIE = typename IER_fields_::eTEIE;
-    using eREIE = typename IER_fields_::eREIE;
-    using eDMIE = typename IER_fields_::eDMIE;
-    using TDIE = typename IER_fields_::TDIE;
-    using RDIE = typename IER_fields_::RDIE;
-    using WCIE = typename IER_fields_::WCIE;
-    using FCIE = typename IER_fields_::FCIE;
-    using TCIE = typename IER_fields_::TCIE;
-    using TEIE = typename IER_fields_::TEIE;
-    using REIE = typename IER_fields_::REIE;
-    using DMIE = typename IER_fields_::DMIE;
+    using eTDIE = typename IerFields::eTDIE;
+    using eRDIE = typename IerFields::eRDIE;
+    using eWCIE = typename IerFields::eWCIE;
+    using eFCIE = typename IerFields::eFCIE;
+    using eTCIE = typename IerFields::eTCIE;
+    using eTEIE = typename IerFields::eTEIE;
+    using eREIE = typename IerFields::eREIE;
+    using eDMIE = typename IerFields::eDMIE;
+    using TDIE = typename IerFields::TDIE;
+    using RDIE = typename IerFields::RDIE;
+    using WCIE = typename IerFields::WCIE;
+    using FCIE = typename IerFields::FCIE;
+    using TCIE = typename IerFields::TCIE;
+    using TEIE = typename IerFields::TEIE;
+    using REIE = typename IerFields::REIE;
+    using DMIE = typename IerFields::DMIE;
   };
 
   // DMA Enable
-  struct DER_fields_ {
+  struct DerFields {
     enum class eTDDE : std::uint32_t {
       // Disable
       eDISABLE = 0,
@@ -412,24 +412,24 @@ struct Lpspi {
     using TDDE = ftl::mmio::Field<1, 0, eTDDE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Data DMA Enable
     using RDDE = ftl::mmio::Field<1, 1, eRDDE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DER_fields_
+  };  // struct DerFields
 
   struct DER : ftl::mmio::Register<
       kBase + 0x1Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename DER_fields_::TDDE,
-      typename DER_fields_::RDDE,
+      typename DerFields::TDDE,
+      typename DerFields::RDDE,
       ftl::mmio::Reserved<30, 2>> {
-    using eTDDE = typename DER_fields_::eTDDE;
-    using eRDDE = typename DER_fields_::eRDDE;
-    using TDDE = typename DER_fields_::TDDE;
-    using RDDE = typename DER_fields_::RDDE;
+    using eTDDE = typename DerFields::eTDDE;
+    using eRDDE = typename DerFields::eRDDE;
+    using TDDE = typename DerFields::TDDE;
+    using RDDE = typename DerFields::RDDE;
   };
 
   // Configuration 0
-  struct CFGR0_fields_ {
+  struct Cfgr0Fields {
     enum class eCIRFIFO : std::uint32_t {
       // Disable
       eDISABLE = 0,
@@ -448,7 +448,7 @@ struct Lpspi {
     using CIRFIFO = ftl::mmio::Field<1, 8, eCIRFIFO, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Data Match Only
     using RDMO = ftl::mmio::Field<1, 9, eRDMO, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CFGR0_fields_
+  };  // struct Cfgr0Fields
 
   struct CFGR0 : ftl::mmio::Register<
       kBase + 0x20u,
@@ -456,17 +456,17 @@ struct Lpspi {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<8, 0>,
-      typename CFGR0_fields_::CIRFIFO,
-      typename CFGR0_fields_::RDMO,
+      typename Cfgr0Fields::CIRFIFO,
+      typename Cfgr0Fields::RDMO,
       ftl::mmio::Reserved<22, 10>> {
-    using eCIRFIFO = typename CFGR0_fields_::eCIRFIFO;
-    using eRDMO = typename CFGR0_fields_::eRDMO;
-    using CIRFIFO = typename CFGR0_fields_::CIRFIFO;
-    using RDMO = typename CFGR0_fields_::RDMO;
+    using eCIRFIFO = typename Cfgr0Fields::eCIRFIFO;
+    using eRDMO = typename Cfgr0Fields::eRDMO;
+    using CIRFIFO = typename Cfgr0Fields::CIRFIFO;
+    using RDMO = typename Cfgr0Fields::RDMO;
   };
 
   // Configuration 1
-  struct CFGR1_fields_ {
+  struct Cfgr1Fields {
     enum class eMASTER : std::uint32_t {
       // Slave mode
       eSLAVE_MODE = 0,
@@ -555,77 +555,77 @@ struct Lpspi {
     using OUTCFG = ftl::mmio::Field<1, 26, eOUTCFG, ftl::mmio::RW, ftl::mmio::Normal>;
     // Peripheral Chip Select Configuration
     using PCSCFG = ftl::mmio::Field<1, 27, ePCSCFG, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CFGR1_fields_
+  };  // struct Cfgr1Fields
 
   struct CFGR1 : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CFGR1_fields_::MASTER,
-      typename CFGR1_fields_::SAMPLE,
-      typename CFGR1_fields_::AUTOPCS,
-      typename CFGR1_fields_::NOSTALL,
+      typename Cfgr1Fields::MASTER,
+      typename Cfgr1Fields::SAMPLE,
+      typename Cfgr1Fields::AUTOPCS,
+      typename Cfgr1Fields::NOSTALL,
       ftl::mmio::Reserved<4, 4>,
-      typename CFGR1_fields_::PCSPOL,
+      typename Cfgr1Fields::PCSPOL,
       ftl::mmio::Reserved<4, 12>,
-      typename CFGR1_fields_::MATCFG,
+      typename Cfgr1Fields::MATCFG,
       ftl::mmio::Reserved<5, 19>,
-      typename CFGR1_fields_::PINCFG,
-      typename CFGR1_fields_::OUTCFG,
-      typename CFGR1_fields_::PCSCFG,
+      typename Cfgr1Fields::PINCFG,
+      typename Cfgr1Fields::OUTCFG,
+      typename Cfgr1Fields::PCSCFG,
       ftl::mmio::Reserved<4, 28>> {
-    using eMASTER = typename CFGR1_fields_::eMASTER;
-    using eSAMPLE = typename CFGR1_fields_::eSAMPLE;
-    using eAUTOPCS = typename CFGR1_fields_::eAUTOPCS;
-    using eNOSTALL = typename CFGR1_fields_::eNOSTALL;
-    using eMATCFG = typename CFGR1_fields_::eMATCFG;
-    using ePINCFG = typename CFGR1_fields_::ePINCFG;
-    using eOUTCFG = typename CFGR1_fields_::eOUTCFG;
-    using ePCSCFG = typename CFGR1_fields_::ePCSCFG;
-    using MASTER = typename CFGR1_fields_::MASTER;
-    using SAMPLE = typename CFGR1_fields_::SAMPLE;
-    using AUTOPCS = typename CFGR1_fields_::AUTOPCS;
-    using NOSTALL = typename CFGR1_fields_::NOSTALL;
-    using PCSPOL = typename CFGR1_fields_::PCSPOL;
-    using MATCFG = typename CFGR1_fields_::MATCFG;
-    using PINCFG = typename CFGR1_fields_::PINCFG;
-    using OUTCFG = typename CFGR1_fields_::OUTCFG;
-    using PCSCFG = typename CFGR1_fields_::PCSCFG;
+    using eMASTER = typename Cfgr1Fields::eMASTER;
+    using eSAMPLE = typename Cfgr1Fields::eSAMPLE;
+    using eAUTOPCS = typename Cfgr1Fields::eAUTOPCS;
+    using eNOSTALL = typename Cfgr1Fields::eNOSTALL;
+    using eMATCFG = typename Cfgr1Fields::eMATCFG;
+    using ePINCFG = typename Cfgr1Fields::ePINCFG;
+    using eOUTCFG = typename Cfgr1Fields::eOUTCFG;
+    using ePCSCFG = typename Cfgr1Fields::ePCSCFG;
+    using MASTER = typename Cfgr1Fields::MASTER;
+    using SAMPLE = typename Cfgr1Fields::SAMPLE;
+    using AUTOPCS = typename Cfgr1Fields::AUTOPCS;
+    using NOSTALL = typename Cfgr1Fields::NOSTALL;
+    using PCSPOL = typename Cfgr1Fields::PCSPOL;
+    using MATCFG = typename Cfgr1Fields::MATCFG;
+    using PINCFG = typename Cfgr1Fields::PINCFG;
+    using OUTCFG = typename Cfgr1Fields::OUTCFG;
+    using PCSCFG = typename Cfgr1Fields::PCSCFG;
   };
 
   // Data Match 0
-  struct DMR0_fields_ {
+  struct Dmr0Fields {
     // Match 0 Value
     using MATCH0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMR0_fields_
+  };  // struct Dmr0Fields
 
   struct DMR0 : ftl::mmio::Register<
       kBase + 0x30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename DMR0_fields_::MATCH0> {
-    using MATCH0 = typename DMR0_fields_::MATCH0;
+      typename Dmr0Fields::MATCH0> {
+    using MATCH0 = typename Dmr0Fields::MATCH0;
   };
 
   // Data Match 1
-  struct DMR1_fields_ {
+  struct Dmr1Fields {
     // Match 1 Value
     using MATCH1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DMR1_fields_
+  };  // struct Dmr1Fields
 
   struct DMR1 : ftl::mmio::Register<
       kBase + 0x34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename DMR1_fields_::MATCH1> {
-    using MATCH1 = typename DMR1_fields_::MATCH1;
+      typename Dmr1Fields::MATCH1> {
+    using MATCH1 = typename Dmr1Fields::MATCH1;
   };
 
   // Clock Configuration
-  struct CCR_fields_ {
+  struct CcrFields {
     // SCK Divider
     using SCKDIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Delay Between Transfers
@@ -634,67 +634,67 @@ struct Lpspi {
     using PCSSCK = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // SCK-to-PCS Delay
     using SCKPCS = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CCR_fields_
+  };  // struct CcrFields
 
   struct CCR : ftl::mmio::Register<
       kBase + 0x40u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CCR_fields_::SCKDIV,
-      typename CCR_fields_::DBT,
-      typename CCR_fields_::PCSSCK,
-      typename CCR_fields_::SCKPCS> {
-    using SCKDIV = typename CCR_fields_::SCKDIV;
-    using DBT = typename CCR_fields_::DBT;
-    using PCSSCK = typename CCR_fields_::PCSSCK;
-    using SCKPCS = typename CCR_fields_::SCKPCS;
+      typename CcrFields::SCKDIV,
+      typename CcrFields::DBT,
+      typename CcrFields::PCSSCK,
+      typename CcrFields::SCKPCS> {
+    using SCKDIV = typename CcrFields::SCKDIV;
+    using DBT = typename CcrFields::DBT;
+    using PCSSCK = typename CcrFields::PCSSCK;
+    using SCKPCS = typename CcrFields::SCKPCS;
   };
 
   // FIFO Control
-  struct FCR_fields_ {
+  struct FcrFields {
     // Transmit FIFO Watermark
     using TXWATER = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive FIFO Watermark
     using RXWATER = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FCR_fields_
+  };  // struct FcrFields
 
   struct FCR : ftl::mmio::Register<
       kBase + 0x58u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename FCR_fields_::TXWATER,
+      typename FcrFields::TXWATER,
       ftl::mmio::Reserved<12, 4>,
-      typename FCR_fields_::RXWATER,
+      typename FcrFields::RXWATER,
       ftl::mmio::Reserved<12, 20>> {
-    using TXWATER = typename FCR_fields_::TXWATER;
-    using RXWATER = typename FCR_fields_::RXWATER;
+    using TXWATER = typename FcrFields::TXWATER;
+    using RXWATER = typename FcrFields::RXWATER;
   };
 
   // FIFO Status
-  struct FSR_fields_ {
+  struct FsrFields {
     // Transmit FIFO Count
     using TXCOUNT = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Receive FIFO Count
     using RXCOUNT = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct FSR_fields_
+  };  // struct FsrFields
 
   struct FSR : ftl::mmio::Register<
       kBase + 0x5Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename FSR_fields_::TXCOUNT,
+      typename FsrFields::TXCOUNT,
       ftl::mmio::Reserved<11, 5>,
-      typename FSR_fields_::RXCOUNT,
+      typename FsrFields::RXCOUNT,
       ftl::mmio::Reserved<11, 21>> {
-    using TXCOUNT = typename FSR_fields_::TXCOUNT;
-    using RXCOUNT = typename FSR_fields_::RXCOUNT;
+    using TXCOUNT = typename FsrFields::TXCOUNT;
+    using RXCOUNT = typename FsrFields::RXCOUNT;
   };
 
   // Transmit Command
-  struct TCR_fields_ {
+  struct TcrFields {
     enum class eWIDTH : std::uint32_t {
       // 1-bit transfer
       eONEBIT = 0,
@@ -814,69 +814,69 @@ struct Lpspi {
     using CPHA = ftl::mmio::Field<1, 30, eCPHA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Clock Polarity
     using CPOL = ftl::mmio::Field<1, 31, eCPOL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCR_fields_
+  };  // struct TcrFields
 
   struct TCR : ftl::mmio::Register<
       kBase + 0x60u,
       std::uint32_t,
       0x0000001Fu,
       ftl::mmio::RW,
-      typename TCR_fields_::FRAMESZ,
+      typename TcrFields::FRAMESZ,
       ftl::mmio::Reserved<4, 12>,
-      typename TCR_fields_::WIDTH,
-      typename TCR_fields_::TXMSK,
-      typename TCR_fields_::RXMSK,
-      typename TCR_fields_::CONTC,
-      typename TCR_fields_::CONT,
-      typename TCR_fields_::BYSW,
-      typename TCR_fields_::LSBF,
-      typename TCR_fields_::PCS,
+      typename TcrFields::WIDTH,
+      typename TcrFields::TXMSK,
+      typename TcrFields::RXMSK,
+      typename TcrFields::CONTC,
+      typename TcrFields::CONT,
+      typename TcrFields::BYSW,
+      typename TcrFields::LSBF,
+      typename TcrFields::PCS,
       ftl::mmio::Reserved<1, 26>,
-      typename TCR_fields_::PRESCALE,
-      typename TCR_fields_::CPHA,
-      typename TCR_fields_::CPOL> {
-    using eWIDTH = typename TCR_fields_::eWIDTH;
-    using eTXMSK = typename TCR_fields_::eTXMSK;
-    using eRXMSK = typename TCR_fields_::eRXMSK;
-    using eCONTC = typename TCR_fields_::eCONTC;
-    using eCONT = typename TCR_fields_::eCONT;
-    using eBYSW = typename TCR_fields_::eBYSW;
-    using eLSBF = typename TCR_fields_::eLSBF;
-    using ePCS = typename TCR_fields_::ePCS;
-    using ePRESCALE = typename TCR_fields_::ePRESCALE;
-    using eCPHA = typename TCR_fields_::eCPHA;
-    using eCPOL = typename TCR_fields_::eCPOL;
-    using FRAMESZ = typename TCR_fields_::FRAMESZ;
-    using WIDTH = typename TCR_fields_::WIDTH;
-    using TXMSK = typename TCR_fields_::TXMSK;
-    using RXMSK = typename TCR_fields_::RXMSK;
-    using CONTC = typename TCR_fields_::CONTC;
-    using CONT = typename TCR_fields_::CONT;
-    using BYSW = typename TCR_fields_::BYSW;
-    using LSBF = typename TCR_fields_::LSBF;
-    using PCS = typename TCR_fields_::PCS;
-    using PRESCALE = typename TCR_fields_::PRESCALE;
-    using CPHA = typename TCR_fields_::CPHA;
-    using CPOL = typename TCR_fields_::CPOL;
+      typename TcrFields::PRESCALE,
+      typename TcrFields::CPHA,
+      typename TcrFields::CPOL> {
+    using eWIDTH = typename TcrFields::eWIDTH;
+    using eTXMSK = typename TcrFields::eTXMSK;
+    using eRXMSK = typename TcrFields::eRXMSK;
+    using eCONTC = typename TcrFields::eCONTC;
+    using eCONT = typename TcrFields::eCONT;
+    using eBYSW = typename TcrFields::eBYSW;
+    using eLSBF = typename TcrFields::eLSBF;
+    using ePCS = typename TcrFields::ePCS;
+    using ePRESCALE = typename TcrFields::ePRESCALE;
+    using eCPHA = typename TcrFields::eCPHA;
+    using eCPOL = typename TcrFields::eCPOL;
+    using FRAMESZ = typename TcrFields::FRAMESZ;
+    using WIDTH = typename TcrFields::WIDTH;
+    using TXMSK = typename TcrFields::TXMSK;
+    using RXMSK = typename TcrFields::RXMSK;
+    using CONTC = typename TcrFields::CONTC;
+    using CONT = typename TcrFields::CONT;
+    using BYSW = typename TcrFields::BYSW;
+    using LSBF = typename TcrFields::LSBF;
+    using PCS = typename TcrFields::PCS;
+    using PRESCALE = typename TcrFields::PRESCALE;
+    using CPHA = typename TcrFields::CPHA;
+    using CPOL = typename TcrFields::CPOL;
   };
 
   // Transmit Data
-  struct TDR_fields_ {
+  struct TdrFields {
     // Transmit Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct TDR_fields_
+  };  // struct TdrFields
 
   struct TDR : ftl::mmio::Register<
       kBase + 0x64u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      typename TDR_fields_::DATA> {
-    using DATA = typename TDR_fields_::DATA;
+      typename TdrFields::DATA> {
+    using DATA = typename TdrFields::DATA;
   };
 
   // Receive Status
-  struct RSR_fields_ {
+  struct RsrFields {
     enum class eSOF : std::uint32_t {
       // Subsequent data word
       eNEXT_DATAWORD = 0,
@@ -895,35 +895,35 @@ struct Lpspi {
     using SOF = ftl::mmio::Field<1, 0, eSOF, ftl::mmio::RO, ftl::mmio::Normal>;
     // RX FIFO Empty
     using RXEMPTY = ftl::mmio::Field<1, 1, eRXEMPTY, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RSR_fields_
+  };  // struct RsrFields
 
   struct RSR : ftl::mmio::Register<
       kBase + 0x70u,
       std::uint32_t,
       0x00000002u,
       ftl::mmio::RO,
-      typename RSR_fields_::SOF,
-      typename RSR_fields_::RXEMPTY,
+      typename RsrFields::SOF,
+      typename RsrFields::RXEMPTY,
       ftl::mmio::Reserved<30, 2>> {
-    using eSOF = typename RSR_fields_::eSOF;
-    using eRXEMPTY = typename RSR_fields_::eRXEMPTY;
-    using SOF = typename RSR_fields_::SOF;
-    using RXEMPTY = typename RSR_fields_::RXEMPTY;
+    using eSOF = typename RsrFields::eSOF;
+    using eRXEMPTY = typename RsrFields::eRXEMPTY;
+    using SOF = typename RsrFields::SOF;
+    using RXEMPTY = typename RsrFields::RXEMPTY;
   };
 
   // Receive Data
-  struct RDR_fields_ {
+  struct RdrFields {
     // Receive Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RDR_fields_
+  };  // struct RdrFields
 
   struct RDR : ftl::mmio::Register<
       kBase + 0x74u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename RDR_fields_::DATA> {
-    using DATA = typename RDR_fields_::DATA;
+      typename RdrFields::DATA> {
+    using DATA = typename RdrFields::DATA;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct Spdif {
   // SPDIF Configuration Register
-  struct SCR_fields_ {
+  struct ScrFields {
     enum class eUSrc_Sel : std::uint32_t {
       // No embedded U channel
       enone = 0,
@@ -145,63 +145,63 @@ struct Spdif {
     using RxFIFO_Off_On = ftl::mmio::Field<1, 22, eRxFIFO_Off_On, ftl::mmio::RW, ftl::mmio::Normal>;
     // RxFIFO_Ctrl
     using RxFIFO_Ctrl = ftl::mmio::Field<1, 23, eRxFIFO_Ctrl, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SCR_fields_
+  };  // struct ScrFields
 
   struct SCR : ftl::mmio::Register<
       0x40400000u,
       std::uint32_t,
       0x00000400u,
       ftl::mmio::RW,
-      SCR_fields_::USrc_Sel,
-      SCR_fields_::TxSel,
-      SCR_fields_::ValCtrl,
-      SCR_fields_::InputSrcSel,
-      SCR_fields_::DMA_TX_En,
-      SCR_fields_::DMA_Rx_En,
-      SCR_fields_::TxFIFO_Ctrl,
-      SCR_fields_::soft_reset,
-      SCR_fields_::LOW_POWER,
+      ScrFields::USrc_Sel,
+      ScrFields::TxSel,
+      ScrFields::ValCtrl,
+      ScrFields::InputSrcSel,
+      ScrFields::DMA_TX_En,
+      ScrFields::DMA_Rx_En,
+      ScrFields::TxFIFO_Ctrl,
+      ScrFields::soft_reset,
+      ScrFields::LOW_POWER,
       ftl::mmio::Reserved<1, 14>,
-      SCR_fields_::TxFIFOEmpty_Sel,
-      SCR_fields_::TxAutoSync,
-      SCR_fields_::RxAutoSync,
-      SCR_fields_::RxFIFOFull_Sel,
-      SCR_fields_::RxFIFO_Rst,
-      SCR_fields_::RxFIFO_Off_On,
-      SCR_fields_::RxFIFO_Ctrl,
+      ScrFields::TxFIFOEmpty_Sel,
+      ScrFields::TxAutoSync,
+      ScrFields::RxAutoSync,
+      ScrFields::RxFIFOFull_Sel,
+      ScrFields::RxFIFO_Rst,
+      ScrFields::RxFIFO_Off_On,
+      ScrFields::RxFIFO_Ctrl,
       ftl::mmio::Reserved<8, 24>> {
-    using eUSrc_Sel = SCR_fields_::eUSrc_Sel;
-    using eTxSel = SCR_fields_::eTxSel;
-    using eValCtrl = SCR_fields_::eValCtrl;
-    using eInputSrcSel = SCR_fields_::eInputSrcSel;
-    using eTxFIFO_Ctrl = SCR_fields_::eTxFIFO_Ctrl;
-    using eTxFIFOEmpty_Sel = SCR_fields_::eTxFIFOEmpty_Sel;
-    using eTxAutoSync = SCR_fields_::eTxAutoSync;
-    using eRxAutoSync = SCR_fields_::eRxAutoSync;
-    using eRxFIFOFull_Sel = SCR_fields_::eRxFIFOFull_Sel;
-    using eRxFIFO_Rst = SCR_fields_::eRxFIFO_Rst;
-    using eRxFIFO_Off_On = SCR_fields_::eRxFIFO_Off_On;
-    using eRxFIFO_Ctrl = SCR_fields_::eRxFIFO_Ctrl;
-    using USrc_Sel = SCR_fields_::USrc_Sel;
-    using TxSel = SCR_fields_::TxSel;
-    using ValCtrl = SCR_fields_::ValCtrl;
-    using InputSrcSel = SCR_fields_::InputSrcSel;
-    using DMA_TX_En = SCR_fields_::DMA_TX_En;
-    using DMA_Rx_En = SCR_fields_::DMA_Rx_En;
-    using TxFIFO_Ctrl = SCR_fields_::TxFIFO_Ctrl;
-    using soft_reset = SCR_fields_::soft_reset;
-    using LOW_POWER = SCR_fields_::LOW_POWER;
-    using TxFIFOEmpty_Sel = SCR_fields_::TxFIFOEmpty_Sel;
-    using TxAutoSync = SCR_fields_::TxAutoSync;
-    using RxAutoSync = SCR_fields_::RxAutoSync;
-    using RxFIFOFull_Sel = SCR_fields_::RxFIFOFull_Sel;
-    using RxFIFO_Rst = SCR_fields_::RxFIFO_Rst;
-    using RxFIFO_Off_On = SCR_fields_::RxFIFO_Off_On;
-    using RxFIFO_Ctrl = SCR_fields_::RxFIFO_Ctrl;
+    using eUSrc_Sel = ScrFields::eUSrc_Sel;
+    using eTxSel = ScrFields::eTxSel;
+    using eValCtrl = ScrFields::eValCtrl;
+    using eInputSrcSel = ScrFields::eInputSrcSel;
+    using eTxFIFO_Ctrl = ScrFields::eTxFIFO_Ctrl;
+    using eTxFIFOEmpty_Sel = ScrFields::eTxFIFOEmpty_Sel;
+    using eTxAutoSync = ScrFields::eTxAutoSync;
+    using eRxAutoSync = ScrFields::eRxAutoSync;
+    using eRxFIFOFull_Sel = ScrFields::eRxFIFOFull_Sel;
+    using eRxFIFO_Rst = ScrFields::eRxFIFO_Rst;
+    using eRxFIFO_Off_On = ScrFields::eRxFIFO_Off_On;
+    using eRxFIFO_Ctrl = ScrFields::eRxFIFO_Ctrl;
+    using USrc_Sel = ScrFields::USrc_Sel;
+    using TxSel = ScrFields::TxSel;
+    using ValCtrl = ScrFields::ValCtrl;
+    using InputSrcSel = ScrFields::InputSrcSel;
+    using DMA_TX_En = ScrFields::DMA_TX_En;
+    using DMA_Rx_En = ScrFields::DMA_Rx_En;
+    using TxFIFO_Ctrl = ScrFields::TxFIFO_Ctrl;
+    using soft_reset = ScrFields::soft_reset;
+    using LOW_POWER = ScrFields::LOW_POWER;
+    using TxFIFOEmpty_Sel = ScrFields::TxFIFOEmpty_Sel;
+    using TxAutoSync = ScrFields::TxAutoSync;
+    using RxAutoSync = ScrFields::RxAutoSync;
+    using RxFIFOFull_Sel = ScrFields::RxFIFOFull_Sel;
+    using RxFIFO_Rst = ScrFields::RxFIFO_Rst;
+    using RxFIFO_Off_On = ScrFields::RxFIFO_Off_On;
+    using RxFIFO_Ctrl = ScrFields::RxFIFO_Ctrl;
   };
 
   // CDText Control Register
-  struct SRCD_fields_ {
+  struct SrcdFields {
     enum class eUSyncMode : std::uint32_t {
       // Non-CD data
       enon_cddata = 0,
@@ -211,7 +211,7 @@ struct Spdif {
 
     // USyncMode
     using USyncMode = ftl::mmio::Field<1, 1, eUSyncMode, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SRCD_fields_
+  };  // struct SrcdFields
 
   struct SRCD : ftl::mmio::Register<
       0x40400004u,
@@ -219,14 +219,14 @@ struct Spdif {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      SRCD_fields_::USyncMode,
+      SrcdFields::USyncMode,
       ftl::mmio::Reserved<30, 2>> {
-    using eUSyncMode = SRCD_fields_::eUSyncMode;
-    using USyncMode = SRCD_fields_::USyncMode;
+    using eUSyncMode = SrcdFields::eUSyncMode;
+    using USyncMode = SrcdFields::USyncMode;
   };
 
   // PhaseConfig Register
-  struct SRPC_fields_ {
+  struct SrpcFields {
     enum class eGainSel : std::uint32_t {
       // 24*(2**10)
       egainsel_0b000 = 0,
@@ -265,7 +265,7 @@ struct Spdif {
     using LOCK = ftl::mmio::Field<1, 6, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // ClkSrc_Sel
     using ClkSrc_Sel = ftl::mmio::Field<4, 7, eClkSrc_Sel, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SRPC_fields_
+  };  // struct SrpcFields
 
   struct SRPC : ftl::mmio::Register<
       0x40400008u,
@@ -273,19 +273,19 @@ struct Spdif {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      SRPC_fields_::GainSel,
-      SRPC_fields_::LOCK,
-      SRPC_fields_::ClkSrc_Sel,
+      SrpcFields::GainSel,
+      SrpcFields::LOCK,
+      SrpcFields::ClkSrc_Sel,
       ftl::mmio::Reserved<21, 11>> {
-    using eGainSel = SRPC_fields_::eGainSel;
-    using eClkSrc_Sel = SRPC_fields_::eClkSrc_Sel;
-    using GainSel = SRPC_fields_::GainSel;
-    using LOCK = SRPC_fields_::LOCK;
-    using ClkSrc_Sel = SRPC_fields_::ClkSrc_Sel;
+    using eGainSel = SrpcFields::eGainSel;
+    using eClkSrc_Sel = SrpcFields::eClkSrc_Sel;
+    using GainSel = SrpcFields::GainSel;
+    using LOCK = SrpcFields::LOCK;
+    using ClkSrc_Sel = SrpcFields::ClkSrc_Sel;
   };
 
   // InterruptEn Register
-  struct SIE_fields_ {
+  struct SieFields {
     // RxFIFOFul
     using RxFIFOFul = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TxEm
@@ -322,55 +322,55 @@ struct Spdif {
     using TxUnOv = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock
     using Lock = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SIE_fields_
+  };  // struct SieFields
 
   struct SIE : ftl::mmio::Register<
       0x4040000Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SIE_fields_::RxFIFOFul,
-      SIE_fields_::TxEm,
-      SIE_fields_::LockLoss,
-      SIE_fields_::RxFIFOResyn,
-      SIE_fields_::RxFIFOUnOv,
-      SIE_fields_::UQErr,
-      SIE_fields_::UQSync,
-      SIE_fields_::QRxOv,
-      SIE_fields_::QRxFul,
-      SIE_fields_::URxOv,
-      SIE_fields_::URxFul,
+      SieFields::RxFIFOFul,
+      SieFields::TxEm,
+      SieFields::LockLoss,
+      SieFields::RxFIFOResyn,
+      SieFields::RxFIFOUnOv,
+      SieFields::UQErr,
+      SieFields::UQSync,
+      SieFields::QRxOv,
+      SieFields::QRxFul,
+      SieFields::URxOv,
+      SieFields::URxFul,
       ftl::mmio::Reserved<3, 11>,
-      SIE_fields_::BitErr,
-      SIE_fields_::SymErr,
-      SIE_fields_::ValNoGood,
-      SIE_fields_::CNew,
-      SIE_fields_::TxResyn,
-      SIE_fields_::TxUnOv,
-      SIE_fields_::Lock,
+      SieFields::BitErr,
+      SieFields::SymErr,
+      SieFields::ValNoGood,
+      SieFields::CNew,
+      SieFields::TxResyn,
+      SieFields::TxUnOv,
+      SieFields::Lock,
       ftl::mmio::Reserved<11, 21>> {
-    using RxFIFOFul = SIE_fields_::RxFIFOFul;
-    using TxEm = SIE_fields_::TxEm;
-    using LockLoss = SIE_fields_::LockLoss;
-    using RxFIFOResyn = SIE_fields_::RxFIFOResyn;
-    using RxFIFOUnOv = SIE_fields_::RxFIFOUnOv;
-    using UQErr = SIE_fields_::UQErr;
-    using UQSync = SIE_fields_::UQSync;
-    using QRxOv = SIE_fields_::QRxOv;
-    using QRxFul = SIE_fields_::QRxFul;
-    using URxOv = SIE_fields_::URxOv;
-    using URxFul = SIE_fields_::URxFul;
-    using BitErr = SIE_fields_::BitErr;
-    using SymErr = SIE_fields_::SymErr;
-    using ValNoGood = SIE_fields_::ValNoGood;
-    using CNew = SIE_fields_::CNew;
-    using TxResyn = SIE_fields_::TxResyn;
-    using TxUnOv = SIE_fields_::TxUnOv;
-    using Lock = SIE_fields_::Lock;
+    using RxFIFOFul = SieFields::RxFIFOFul;
+    using TxEm = SieFields::TxEm;
+    using LockLoss = SieFields::LockLoss;
+    using RxFIFOResyn = SieFields::RxFIFOResyn;
+    using RxFIFOUnOv = SieFields::RxFIFOUnOv;
+    using UQErr = SieFields::UQErr;
+    using UQSync = SieFields::UQSync;
+    using QRxOv = SieFields::QRxOv;
+    using QRxFul = SieFields::QRxFul;
+    using URxOv = SieFields::URxOv;
+    using URxFul = SieFields::URxFul;
+    using BitErr = SieFields::BitErr;
+    using SymErr = SieFields::SymErr;
+    using ValNoGood = SieFields::ValNoGood;
+    using CNew = SieFields::CNew;
+    using TxResyn = SieFields::TxResyn;
+    using TxUnOv = SieFields::TxUnOv;
+    using Lock = SieFields::Lock;
   };
 
   // InterruptClear Register
-  struct SIC_fields_ {
+  struct SicFields {
     // LockLoss
     using LockLoss = ftl::mmio::Field<1, 2, bool, ftl::mmio::WO, ftl::mmio::Normal>;
     // RxFIFOResyn
@@ -399,7 +399,7 @@ struct Spdif {
     using TxUnOv = ftl::mmio::Field<1, 19, bool, ftl::mmio::WO, ftl::mmio::Normal>;
     // Lock
     using Lock = ftl::mmio::Field<1, 20, bool, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct SIC_fields_
+  };  // struct SicFields
 
   struct SIC : ftl::mmio::Register<
       0x40400010u,
@@ -407,41 +407,41 @@ struct Spdif {
       0x00000000u,
       ftl::mmio::WO,
       ftl::mmio::Reserved<2, 0>,
-      SIC_fields_::LockLoss,
-      SIC_fields_::RxFIFOResyn,
-      SIC_fields_::RxFIFOUnOv,
-      SIC_fields_::UQErr,
-      SIC_fields_::UQSync,
-      SIC_fields_::QRxOv,
+      SicFields::LockLoss,
+      SicFields::RxFIFOResyn,
+      SicFields::RxFIFOUnOv,
+      SicFields::UQErr,
+      SicFields::UQSync,
+      SicFields::QRxOv,
       ftl::mmio::Reserved<1, 8>,
-      SIC_fields_::URxOv,
+      SicFields::URxOv,
       ftl::mmio::Reserved<4, 10>,
-      SIC_fields_::BitErr,
-      SIC_fields_::SymErr,
-      SIC_fields_::ValNoGood,
-      SIC_fields_::CNew,
-      SIC_fields_::TxResyn,
-      SIC_fields_::TxUnOv,
-      SIC_fields_::Lock,
+      SicFields::BitErr,
+      SicFields::SymErr,
+      SicFields::ValNoGood,
+      SicFields::CNew,
+      SicFields::TxResyn,
+      SicFields::TxUnOv,
+      SicFields::Lock,
       ftl::mmio::Reserved<11, 21>> {
-    using LockLoss = SIC_fields_::LockLoss;
-    using RxFIFOResyn = SIC_fields_::RxFIFOResyn;
-    using RxFIFOUnOv = SIC_fields_::RxFIFOUnOv;
-    using UQErr = SIC_fields_::UQErr;
-    using UQSync = SIC_fields_::UQSync;
-    using QRxOv = SIC_fields_::QRxOv;
-    using URxOv = SIC_fields_::URxOv;
-    using BitErr = SIC_fields_::BitErr;
-    using SymErr = SIC_fields_::SymErr;
-    using ValNoGood = SIC_fields_::ValNoGood;
-    using CNew = SIC_fields_::CNew;
-    using TxResyn = SIC_fields_::TxResyn;
-    using TxUnOv = SIC_fields_::TxUnOv;
-    using Lock = SIC_fields_::Lock;
+    using LockLoss = SicFields::LockLoss;
+    using RxFIFOResyn = SicFields::RxFIFOResyn;
+    using RxFIFOUnOv = SicFields::RxFIFOUnOv;
+    using UQErr = SicFields::UQErr;
+    using UQSync = SicFields::UQSync;
+    using QRxOv = SicFields::QRxOv;
+    using URxOv = SicFields::URxOv;
+    using BitErr = SicFields::BitErr;
+    using SymErr = SicFields::SymErr;
+    using ValNoGood = SicFields::ValNoGood;
+    using CNew = SicFields::CNew;
+    using TxResyn = SicFields::TxResyn;
+    using TxUnOv = SicFields::TxUnOv;
+    using Lock = SicFields::Lock;
   };
 
   // InterruptStat Register
-  struct SIS_fields_ {
+  struct SisFields {
     // RxFIFOFul
     using RxFIFOFul = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // TxEm
@@ -478,231 +478,231 @@ struct Spdif {
     using TxUnOv = ftl::mmio::Field<1, 19, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Lock
     using Lock = ftl::mmio::Field<1, 20, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SIS_fields_
+  };  // struct SisFields
 
   struct SIS : ftl::mmio::Register<
       0x40400010u,
       std::uint32_t,
       0x00000002u,
       ftl::mmio::RO,
-      SIS_fields_::RxFIFOFul,
-      SIS_fields_::TxEm,
-      SIS_fields_::LockLoss,
-      SIS_fields_::RxFIFOResyn,
-      SIS_fields_::RxFIFOUnOv,
-      SIS_fields_::UQErr,
-      SIS_fields_::UQSync,
-      SIS_fields_::QRxOv,
-      SIS_fields_::QRxFul,
-      SIS_fields_::URxOv,
-      SIS_fields_::URxFul,
+      SisFields::RxFIFOFul,
+      SisFields::TxEm,
+      SisFields::LockLoss,
+      SisFields::RxFIFOResyn,
+      SisFields::RxFIFOUnOv,
+      SisFields::UQErr,
+      SisFields::UQSync,
+      SisFields::QRxOv,
+      SisFields::QRxFul,
+      SisFields::URxOv,
+      SisFields::URxFul,
       ftl::mmio::Reserved<3, 11>,
-      SIS_fields_::BitErr,
-      SIS_fields_::SymErr,
-      SIS_fields_::ValNoGood,
-      SIS_fields_::CNew,
-      SIS_fields_::TxResyn,
-      SIS_fields_::TxUnOv,
-      SIS_fields_::Lock,
+      SisFields::BitErr,
+      SisFields::SymErr,
+      SisFields::ValNoGood,
+      SisFields::CNew,
+      SisFields::TxResyn,
+      SisFields::TxUnOv,
+      SisFields::Lock,
       ftl::mmio::Reserved<11, 21>> {
-    using RxFIFOFul = SIS_fields_::RxFIFOFul;
-    using TxEm = SIS_fields_::TxEm;
-    using LockLoss = SIS_fields_::LockLoss;
-    using RxFIFOResyn = SIS_fields_::RxFIFOResyn;
-    using RxFIFOUnOv = SIS_fields_::RxFIFOUnOv;
-    using UQErr = SIS_fields_::UQErr;
-    using UQSync = SIS_fields_::UQSync;
-    using QRxOv = SIS_fields_::QRxOv;
-    using QRxFul = SIS_fields_::QRxFul;
-    using URxOv = SIS_fields_::URxOv;
-    using URxFul = SIS_fields_::URxFul;
-    using BitErr = SIS_fields_::BitErr;
-    using SymErr = SIS_fields_::SymErr;
-    using ValNoGood = SIS_fields_::ValNoGood;
-    using CNew = SIS_fields_::CNew;
-    using TxResyn = SIS_fields_::TxResyn;
-    using TxUnOv = SIS_fields_::TxUnOv;
-    using Lock = SIS_fields_::Lock;
+    using RxFIFOFul = SisFields::RxFIFOFul;
+    using TxEm = SisFields::TxEm;
+    using LockLoss = SisFields::LockLoss;
+    using RxFIFOResyn = SisFields::RxFIFOResyn;
+    using RxFIFOUnOv = SisFields::RxFIFOUnOv;
+    using UQErr = SisFields::UQErr;
+    using UQSync = SisFields::UQSync;
+    using QRxOv = SisFields::QRxOv;
+    using QRxFul = SisFields::QRxFul;
+    using URxOv = SisFields::URxOv;
+    using URxFul = SisFields::URxFul;
+    using BitErr = SisFields::BitErr;
+    using SymErr = SisFields::SymErr;
+    using ValNoGood = SisFields::ValNoGood;
+    using CNew = SisFields::CNew;
+    using TxResyn = SisFields::TxResyn;
+    using TxUnOv = SisFields::TxUnOv;
+    using Lock = SisFields::Lock;
   };
 
   // SPDIFRxLeft Register
-  struct SRL_fields_ {
+  struct SrlFields {
     // RxDataLeft
     using RxDataLeft = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SRL_fields_
+  };  // struct SrlFields
 
   struct SRL : ftl::mmio::Register<
       0x40400014u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SRL_fields_::RxDataLeft,
+      SrlFields::RxDataLeft,
       ftl::mmio::Reserved<8, 24>> {
-    using RxDataLeft = SRL_fields_::RxDataLeft;
+    using RxDataLeft = SrlFields::RxDataLeft;
   };
 
   // SPDIFRxRight Register
-  struct SRR_fields_ {
+  struct SrrFields {
     // RxDataRight
     using RxDataRight = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SRR_fields_
+  };  // struct SrrFields
 
   struct SRR : ftl::mmio::Register<
       0x40400018u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SRR_fields_::RxDataRight,
+      SrrFields::RxDataRight,
       ftl::mmio::Reserved<8, 24>> {
-    using RxDataRight = SRR_fields_::RxDataRight;
+    using RxDataRight = SrrFields::RxDataRight;
   };
 
   // SPDIFRxCChannel_h Register
-  struct SRCSH_fields_ {
+  struct SrcshFields {
     // RxCChannel_h
     using RxCChannel_h = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SRCSH_fields_
+  };  // struct SrcshFields
 
   struct SRCSH : ftl::mmio::Register<
       0x4040001Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SRCSH_fields_::RxCChannel_h,
+      SrcshFields::RxCChannel_h,
       ftl::mmio::Reserved<8, 24>> {
-    using RxCChannel_h = SRCSH_fields_::RxCChannel_h;
+    using RxCChannel_h = SrcshFields::RxCChannel_h;
   };
 
   // SPDIFRxCChannel_l Register
-  struct SRCSL_fields_ {
+  struct SrcslFields {
     // RxCChannel_l
     using RxCChannel_l = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SRCSL_fields_
+  };  // struct SrcslFields
 
   struct SRCSL : ftl::mmio::Register<
       0x40400020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SRCSL_fields_::RxCChannel_l,
+      SrcslFields::RxCChannel_l,
       ftl::mmio::Reserved<8, 24>> {
-    using RxCChannel_l = SRCSL_fields_::RxCChannel_l;
+    using RxCChannel_l = SrcslFields::RxCChannel_l;
   };
 
   // UchannelRx Register
-  struct SRU_fields_ {
+  struct SruFields {
     // RxUChannel
     using RxUChannel = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SRU_fields_
+  };  // struct SruFields
 
   struct SRU : ftl::mmio::Register<
       0x40400024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SRU_fields_::RxUChannel,
+      SruFields::RxUChannel,
       ftl::mmio::Reserved<8, 24>> {
-    using RxUChannel = SRU_fields_::RxUChannel;
+    using RxUChannel = SruFields::RxUChannel;
   };
 
   // QchannelRx Register
-  struct SRQ_fields_ {
+  struct SrqFields {
     // RxQChannel
     using RxQChannel = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SRQ_fields_
+  };  // struct SrqFields
 
   struct SRQ : ftl::mmio::Register<
       0x40400028u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SRQ_fields_::RxQChannel,
+      SrqFields::RxQChannel,
       ftl::mmio::Reserved<8, 24>> {
-    using RxQChannel = SRQ_fields_::RxQChannel;
+    using RxQChannel = SrqFields::RxQChannel;
   };
 
   // SPDIFTxLeft Register
-  struct STL_fields_ {
+  struct StlFields {
     // TxDataLeft
     using TxDataLeft = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct STL_fields_
+  };  // struct StlFields
 
   struct STL : ftl::mmio::Register<
       0x4040002Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      STL_fields_::TxDataLeft,
+      StlFields::TxDataLeft,
       ftl::mmio::Reserved<8, 24>> {
-    using TxDataLeft = STL_fields_::TxDataLeft;
+    using TxDataLeft = StlFields::TxDataLeft;
   };
 
   // SPDIFTxRight Register
-  struct STR_fields_ {
+  struct StrFields {
     // TxDataRight
     using TxDataRight = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct STR_fields_
+  };  // struct StrFields
 
   struct STR : ftl::mmio::Register<
       0x40400030u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      STR_fields_::TxDataRight,
+      StrFields::TxDataRight,
       ftl::mmio::Reserved<8, 24>> {
-    using TxDataRight = STR_fields_::TxDataRight;
+    using TxDataRight = StrFields::TxDataRight;
   };
 
   // SPDIFTxCChannelCons_h Register
-  struct STCSCH_fields_ {
+  struct StcschFields {
     // TxCChannelCons_h
     using TxCChannelCons_h = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STCSCH_fields_
+  };  // struct StcschFields
 
   struct STCSCH : ftl::mmio::Register<
       0x40400034u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      STCSCH_fields_::TxCChannelCons_h,
+      StcschFields::TxCChannelCons_h,
       ftl::mmio::Reserved<8, 24>> {
-    using TxCChannelCons_h = STCSCH_fields_::TxCChannelCons_h;
+    using TxCChannelCons_h = StcschFields::TxCChannelCons_h;
   };
 
   // SPDIFTxCChannelCons_l Register
-  struct STCSCL_fields_ {
+  struct StcsclFields {
     // TxCChannelCons_l
     using TxCChannelCons_l = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STCSCL_fields_
+  };  // struct StcsclFields
 
   struct STCSCL : ftl::mmio::Register<
       0x40400038u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      STCSCL_fields_::TxCChannelCons_l,
+      StcsclFields::TxCChannelCons_l,
       ftl::mmio::Reserved<8, 24>> {
-    using TxCChannelCons_l = STCSCL_fields_::TxCChannelCons_l;
+    using TxCChannelCons_l = StcsclFields::TxCChannelCons_l;
   };
 
   // FreqMeas Register
-  struct SRFM_fields_ {
+  struct SrfmFields {
     // FreqMeas
     using FreqMeas = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct SRFM_fields_
+  };  // struct SrfmFields
 
   struct SRFM : ftl::mmio::Register<
       0x40400044u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      SRFM_fields_::FreqMeas,
+      SrfmFields::FreqMeas,
       ftl::mmio::Reserved<8, 24>> {
-    using FreqMeas = SRFM_fields_::FreqMeas;
+    using FreqMeas = SrfmFields::FreqMeas;
   };
 
   // SPDIFTxClk Register
-  struct STC_fields_ {
+  struct StcFields {
     enum class eTxClk_DF : std::uint32_t {
       // divider factor is 1
       ediv1 = 0,
@@ -747,26 +747,26 @@ struct Spdif {
     using TxClk_Source = ftl::mmio::Field<3, 8, eTxClk_Source, ftl::mmio::RW, ftl::mmio::Normal>;
     // SYSCLK_DF
     using SYSCLK_DF = ftl::mmio::Field<9, 11, eSYSCLK_DF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STC_fields_
+  };  // struct StcFields
 
   struct STC : ftl::mmio::Register<
       0x40400050u,
       std::uint32_t,
       0x00020F00u,
       ftl::mmio::RW,
-      STC_fields_::TxClk_DF,
-      STC_fields_::tx_all_clk_en,
-      STC_fields_::TxClk_Source,
-      STC_fields_::SYSCLK_DF,
+      StcFields::TxClk_DF,
+      StcFields::tx_all_clk_en,
+      StcFields::TxClk_Source,
+      StcFields::SYSCLK_DF,
       ftl::mmio::Reserved<12, 20>> {
-    using eTxClk_DF = STC_fields_::eTxClk_DF;
-    using etx_all_clk_en = STC_fields_::etx_all_clk_en;
-    using eTxClk_Source = STC_fields_::eTxClk_Source;
-    using eSYSCLK_DF = STC_fields_::eSYSCLK_DF;
-    using TxClk_DF = STC_fields_::TxClk_DF;
-    using tx_all_clk_en = STC_fields_::tx_all_clk_en;
-    using TxClk_Source = STC_fields_::TxClk_Source;
-    using SYSCLK_DF = STC_fields_::SYSCLK_DF;
+    using eTxClk_DF = StcFields::eTxClk_DF;
+    using etx_all_clk_en = StcFields::etx_all_clk_en;
+    using eTxClk_Source = StcFields::eTxClk_Source;
+    using eSYSCLK_DF = StcFields::eSYSCLK_DF;
+    using TxClk_DF = StcFields::TxClk_DF;
+    using tx_all_clk_en = StcFields::tx_all_clk_en;
+    using TxClk_Source = StcFields::TxClk_Source;
+    using SYSCLK_DF = StcFields::SYSCLK_DF;
   };
 
 };

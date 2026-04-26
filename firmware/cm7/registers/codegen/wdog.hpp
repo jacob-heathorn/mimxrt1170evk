@@ -20,7 +20,7 @@ struct Wdog {
       0u;
 
   // Watchdog Control Register
-  struct WCR_fields_ {
+  struct WcrFields {
     enum class eWDZST : std::uint32_t {
       // Continue timer operation (Default).
       eWDZST_0 = 0,
@@ -108,44 +108,44 @@ struct Wdog {
     using WDW = ftl::mmio::Field<1, 7, eWDW, ftl::mmio::RW, ftl::mmio::Normal>;
     // WT
     using WT = ftl::mmio::Field<8, 8, eWT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct WCR_fields_
+  };  // struct WcrFields
 
   struct WCR : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint16_t,
       0x0030u,
       ftl::mmio::RW,
-      typename WCR_fields_::WDZST,
-      typename WCR_fields_::WDBG,
-      typename WCR_fields_::WDE,
-      typename WCR_fields_::WDT,
-      typename WCR_fields_::SRS,
-      typename WCR_fields_::WDA,
-      typename WCR_fields_::SRE,
-      typename WCR_fields_::WDW,
-      typename WCR_fields_::WT> {
-    using eWDZST = typename WCR_fields_::eWDZST;
-    using eWDBG = typename WCR_fields_::eWDBG;
-    using eWDE = typename WCR_fields_::eWDE;
-    using eWDT = typename WCR_fields_::eWDT;
-    using eSRS = typename WCR_fields_::eSRS;
-    using eWDA = typename WCR_fields_::eWDA;
-    using eSRE = typename WCR_fields_::eSRE;
-    using eWDW = typename WCR_fields_::eWDW;
-    using eWT = typename WCR_fields_::eWT;
-    using WDZST = typename WCR_fields_::WDZST;
-    using WDBG = typename WCR_fields_::WDBG;
-    using WDE = typename WCR_fields_::WDE;
-    using WDT = typename WCR_fields_::WDT;
-    using SRS = typename WCR_fields_::SRS;
-    using WDA = typename WCR_fields_::WDA;
-    using SRE = typename WCR_fields_::SRE;
-    using WDW = typename WCR_fields_::WDW;
-    using WT = typename WCR_fields_::WT;
+      typename WcrFields::WDZST,
+      typename WcrFields::WDBG,
+      typename WcrFields::WDE,
+      typename WcrFields::WDT,
+      typename WcrFields::SRS,
+      typename WcrFields::WDA,
+      typename WcrFields::SRE,
+      typename WcrFields::WDW,
+      typename WcrFields::WT> {
+    using eWDZST = typename WcrFields::eWDZST;
+    using eWDBG = typename WcrFields::eWDBG;
+    using eWDE = typename WcrFields::eWDE;
+    using eWDT = typename WcrFields::eWDT;
+    using eSRS = typename WcrFields::eSRS;
+    using eWDA = typename WcrFields::eWDA;
+    using eSRE = typename WcrFields::eSRE;
+    using eWDW = typename WcrFields::eWDW;
+    using eWT = typename WcrFields::eWT;
+    using WDZST = typename WcrFields::WDZST;
+    using WDBG = typename WcrFields::WDBG;
+    using WDE = typename WcrFields::WDE;
+    using WDT = typename WcrFields::WDT;
+    using SRS = typename WcrFields::SRS;
+    using WDA = typename WcrFields::WDA;
+    using SRE = typename WcrFields::SRE;
+    using WDW = typename WcrFields::WDW;
+    using WT = typename WcrFields::WT;
   };
 
   // Watchdog Service Register
-  struct WSR_fields_ {
+  struct WsrFields {
     enum class eWSR : std::uint32_t {
       // Write to the Watchdog Service Register (WDOG_WSR).
       eWSR_21845 = 21845,
@@ -155,20 +155,20 @@ struct Wdog {
 
     // WSR
     using WSR = ftl::mmio::Field<16, 0, eWSR, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct WSR_fields_
+  };  // struct WsrFields
 
   struct WSR : ftl::mmio::Register<
       kBase + 0x2u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename WSR_fields_::WSR> {
-    using eWSR = typename WSR_fields_::eWSR;
-    using VALUE = typename WSR_fields_::WSR;
+      typename WsrFields::WSR> {
+    using eWSR = typename WsrFields::eWSR;
+    using VALUE = typename WsrFields::WSR;
   };
 
   // Watchdog Reset Status Register
-  struct WRSR_fields_ {
+  struct WrsrFields {
     enum class eSFTW : std::uint32_t {
       // Reset is not the result of a software reset.
       eSFTW_0 = 0,
@@ -196,28 +196,28 @@ struct Wdog {
     using TOUT = ftl::mmio::Field<1, 1, eTOUT, ftl::mmio::RO, ftl::mmio::Normal>;
     // POR
     using POR = ftl::mmio::Field<1, 4, ePOR, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct WRSR_fields_
+  };  // struct WrsrFields
 
   struct WRSR : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RO,
-      typename WRSR_fields_::SFTW,
-      typename WRSR_fields_::TOUT,
+      typename WrsrFields::SFTW,
+      typename WrsrFields::TOUT,
       ftl::mmio::Reserved<2, 2>,
-      typename WRSR_fields_::POR,
+      typename WrsrFields::POR,
       ftl::mmio::Reserved<11, 5>> {
-    using eSFTW = typename WRSR_fields_::eSFTW;
-    using eTOUT = typename WRSR_fields_::eTOUT;
-    using ePOR = typename WRSR_fields_::ePOR;
-    using SFTW = typename WRSR_fields_::SFTW;
-    using TOUT = typename WRSR_fields_::TOUT;
-    using POR = typename WRSR_fields_::POR;
+    using eSFTW = typename WrsrFields::eSFTW;
+    using eTOUT = typename WrsrFields::eTOUT;
+    using ePOR = typename WrsrFields::ePOR;
+    using SFTW = typename WrsrFields::SFTW;
+    using TOUT = typename WrsrFields::TOUT;
+    using POR = typename WrsrFields::POR;
   };
 
   // Watchdog Interrupt Control Register
-  struct WICR_fields_ {
+  struct WicrFields {
     enum class eWICT : std::uint32_t {
       // WICT[7:0] = Time duration between interrupt and time-out is 0 seconds.
       eWICT_0 = 0,
@@ -249,27 +249,27 @@ struct Wdog {
     using WTIS = ftl::mmio::Field<1, 14, eWTIS, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // WIE
     using WIE = ftl::mmio::Field<1, 15, eWIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct WICR_fields_
+  };  // struct WicrFields
 
   struct WICR : ftl::mmio::Register<
       kBase + 0x6u,
       std::uint16_t,
       0x0004u,
       ftl::mmio::RW,
-      typename WICR_fields_::WICT,
+      typename WicrFields::WICT,
       ftl::mmio::Reserved<6, 8>,
-      typename WICR_fields_::WTIS,
-      typename WICR_fields_::WIE> {
-    using eWICT = typename WICR_fields_::eWICT;
-    using eWTIS = typename WICR_fields_::eWTIS;
-    using eWIE = typename WICR_fields_::eWIE;
-    using WICT = typename WICR_fields_::WICT;
-    using WTIS = typename WICR_fields_::WTIS;
-    using WIE = typename WICR_fields_::WIE;
+      typename WicrFields::WTIS,
+      typename WicrFields::WIE> {
+    using eWICT = typename WicrFields::eWICT;
+    using eWTIS = typename WicrFields::eWTIS;
+    using eWIE = typename WicrFields::eWIE;
+    using WICT = typename WicrFields::WICT;
+    using WTIS = typename WicrFields::WTIS;
+    using WIE = typename WicrFields::WIE;
   };
 
   // Watchdog Miscellaneous Control Register
-  struct WMCR_fields_ {
+  struct WmcrFields {
     enum class ePDE : std::uint32_t {
       // Power Down Counter of WDOG is disabled.
       ePDE_0 = 0,
@@ -279,17 +279,17 @@ struct Wdog {
 
     // PDE
     using PDE = ftl::mmio::Field<1, 0, ePDE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct WMCR_fields_
+  };  // struct WmcrFields
 
   struct WMCR : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint16_t,
       0x0001u,
       ftl::mmio::RW,
-      typename WMCR_fields_::PDE,
+      typename WmcrFields::PDE,
       ftl::mmio::Reserved<15, 1>> {
-    using ePDE = typename WMCR_fields_::ePDE;
-    using PDE = typename WMCR_fields_::PDE;
+    using ePDE = typename WmcrFields::ePDE;
+    using PDE = typename WmcrFields::PDE;
   };
 
 };

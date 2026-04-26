@@ -20,7 +20,7 @@ struct Usbphy {
       0u;
 
   // USB PHY Power-Down Register
-  struct PWD_fields_ {
+  struct PwdFields {
     enum class eTXPWDFS : std::uint32_t {
       // Normal operation.
       eNORMAL = 0,
@@ -84,7 +84,7 @@ struct Usbphy {
     using RXPWDDIFF = ftl::mmio::Field<1, 19, eRXPWDDIFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXPWDRX
     using RXPWDRX = ftl::mmio::Field<1, 20, eRXPWDRX, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PWD_fields_
+  };  // struct PwdFields
 
   struct PWD : ftl::mmio::Register<
       kBase + 0x0u,
@@ -92,33 +92,33 @@ struct Usbphy {
       0x001E1C00u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename PWD_fields_::TXPWDFS,
-      typename PWD_fields_::TXPWDIBIAS,
-      typename PWD_fields_::TXPWDV2I,
+      typename PwdFields::TXPWDFS,
+      typename PwdFields::TXPWDIBIAS,
+      typename PwdFields::TXPWDV2I,
       ftl::mmio::Reserved<4, 13>,
-      typename PWD_fields_::RXPWDENV,
-      typename PWD_fields_::RXPWD1PT1,
-      typename PWD_fields_::RXPWDDIFF,
-      typename PWD_fields_::RXPWDRX,
+      typename PwdFields::RXPWDENV,
+      typename PwdFields::RXPWD1PT1,
+      typename PwdFields::RXPWDDIFF,
+      typename PwdFields::RXPWDRX,
       ftl::mmio::Reserved<11, 21>> {
-    using eTXPWDFS = typename PWD_fields_::eTXPWDFS;
-    using eTXPWDIBIAS = typename PWD_fields_::eTXPWDIBIAS;
-    using eTXPWDV2I = typename PWD_fields_::eTXPWDV2I;
-    using eRXPWDENV = typename PWD_fields_::eRXPWDENV;
-    using eRXPWD1PT1 = typename PWD_fields_::eRXPWD1PT1;
-    using eRXPWDDIFF = typename PWD_fields_::eRXPWDDIFF;
-    using eRXPWDRX = typename PWD_fields_::eRXPWDRX;
-    using TXPWDFS = typename PWD_fields_::TXPWDFS;
-    using TXPWDIBIAS = typename PWD_fields_::TXPWDIBIAS;
-    using TXPWDV2I = typename PWD_fields_::TXPWDV2I;
-    using RXPWDENV = typename PWD_fields_::RXPWDENV;
-    using RXPWD1PT1 = typename PWD_fields_::RXPWD1PT1;
-    using RXPWDDIFF = typename PWD_fields_::RXPWDDIFF;
-    using RXPWDRX = typename PWD_fields_::RXPWDRX;
+    using eTXPWDFS = typename PwdFields::eTXPWDFS;
+    using eTXPWDIBIAS = typename PwdFields::eTXPWDIBIAS;
+    using eTXPWDV2I = typename PwdFields::eTXPWDV2I;
+    using eRXPWDENV = typename PwdFields::eRXPWDENV;
+    using eRXPWD1PT1 = typename PwdFields::eRXPWD1PT1;
+    using eRXPWDDIFF = typename PwdFields::eRXPWDDIFF;
+    using eRXPWDRX = typename PwdFields::eRXPWDRX;
+    using TXPWDFS = typename PwdFields::TXPWDFS;
+    using TXPWDIBIAS = typename PwdFields::TXPWDIBIAS;
+    using TXPWDV2I = typename PwdFields::TXPWDV2I;
+    using RXPWDENV = typename PwdFields::RXPWDENV;
+    using RXPWD1PT1 = typename PwdFields::RXPWD1PT1;
+    using RXPWDDIFF = typename PwdFields::RXPWDDIFF;
+    using RXPWDRX = typename PwdFields::RXPWDRX;
   };
 
   // USB PHY Power-Down Register
-  struct PWD_SET_fields_ {
+  struct PwdSetFields {
     // TXPWDFS
     using TXPWDFS = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // TXPWDIBIAS
@@ -133,7 +133,7 @@ struct Usbphy {
     using RXPWDDIFF = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // RXPWDRX
     using RXPWDRX = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct PWD_SET_fields_
+  };  // struct PwdSetFields
 
   struct PWD_SET : ftl::mmio::Register<
       kBase + 0x4u,
@@ -141,26 +141,26 @@ struct Usbphy {
       0x001E1C00u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename PWD_SET_fields_::TXPWDFS,
-      typename PWD_SET_fields_::TXPWDIBIAS,
-      typename PWD_SET_fields_::TXPWDV2I,
+      typename PwdSetFields::TXPWDFS,
+      typename PwdSetFields::TXPWDIBIAS,
+      typename PwdSetFields::TXPWDV2I,
       ftl::mmio::Reserved<4, 13>,
-      typename PWD_SET_fields_::RXPWDENV,
-      typename PWD_SET_fields_::RXPWD1PT1,
-      typename PWD_SET_fields_::RXPWDDIFF,
-      typename PWD_SET_fields_::RXPWDRX,
+      typename PwdSetFields::RXPWDENV,
+      typename PwdSetFields::RXPWD1PT1,
+      typename PwdSetFields::RXPWDDIFF,
+      typename PwdSetFields::RXPWDRX,
       ftl::mmio::Reserved<11, 21>> {
-    using TXPWDFS = typename PWD_SET_fields_::TXPWDFS;
-    using TXPWDIBIAS = typename PWD_SET_fields_::TXPWDIBIAS;
-    using TXPWDV2I = typename PWD_SET_fields_::TXPWDV2I;
-    using RXPWDENV = typename PWD_SET_fields_::RXPWDENV;
-    using RXPWD1PT1 = typename PWD_SET_fields_::RXPWD1PT1;
-    using RXPWDDIFF = typename PWD_SET_fields_::RXPWDDIFF;
-    using RXPWDRX = typename PWD_SET_fields_::RXPWDRX;
+    using TXPWDFS = typename PwdSetFields::TXPWDFS;
+    using TXPWDIBIAS = typename PwdSetFields::TXPWDIBIAS;
+    using TXPWDV2I = typename PwdSetFields::TXPWDV2I;
+    using RXPWDENV = typename PwdSetFields::RXPWDENV;
+    using RXPWD1PT1 = typename PwdSetFields::RXPWD1PT1;
+    using RXPWDDIFF = typename PwdSetFields::RXPWDDIFF;
+    using RXPWDRX = typename PwdSetFields::RXPWDRX;
   };
 
   // USB PHY Power-Down Register
-  struct PWD_CLR_fields_ {
+  struct PwdClrFields {
     // TXPWDFS
     using TXPWDFS = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // TXPWDIBIAS
@@ -175,7 +175,7 @@ struct Usbphy {
     using RXPWDDIFF = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // RXPWDRX
     using RXPWDRX = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct PWD_CLR_fields_
+  };  // struct PwdClrFields
 
   struct PWD_CLR : ftl::mmio::Register<
       kBase + 0x8u,
@@ -183,26 +183,26 @@ struct Usbphy {
       0x001E1C00u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename PWD_CLR_fields_::TXPWDFS,
-      typename PWD_CLR_fields_::TXPWDIBIAS,
-      typename PWD_CLR_fields_::TXPWDV2I,
+      typename PwdClrFields::TXPWDFS,
+      typename PwdClrFields::TXPWDIBIAS,
+      typename PwdClrFields::TXPWDV2I,
       ftl::mmio::Reserved<4, 13>,
-      typename PWD_CLR_fields_::RXPWDENV,
-      typename PWD_CLR_fields_::RXPWD1PT1,
-      typename PWD_CLR_fields_::RXPWDDIFF,
-      typename PWD_CLR_fields_::RXPWDRX,
+      typename PwdClrFields::RXPWDENV,
+      typename PwdClrFields::RXPWD1PT1,
+      typename PwdClrFields::RXPWDDIFF,
+      typename PwdClrFields::RXPWDRX,
       ftl::mmio::Reserved<11, 21>> {
-    using TXPWDFS = typename PWD_CLR_fields_::TXPWDFS;
-    using TXPWDIBIAS = typename PWD_CLR_fields_::TXPWDIBIAS;
-    using TXPWDV2I = typename PWD_CLR_fields_::TXPWDV2I;
-    using RXPWDENV = typename PWD_CLR_fields_::RXPWDENV;
-    using RXPWD1PT1 = typename PWD_CLR_fields_::RXPWD1PT1;
-    using RXPWDDIFF = typename PWD_CLR_fields_::RXPWDDIFF;
-    using RXPWDRX = typename PWD_CLR_fields_::RXPWDRX;
+    using TXPWDFS = typename PwdClrFields::TXPWDFS;
+    using TXPWDIBIAS = typename PwdClrFields::TXPWDIBIAS;
+    using TXPWDV2I = typename PwdClrFields::TXPWDV2I;
+    using RXPWDENV = typename PwdClrFields::RXPWDENV;
+    using RXPWD1PT1 = typename PwdClrFields::RXPWD1PT1;
+    using RXPWDDIFF = typename PwdClrFields::RXPWDDIFF;
+    using RXPWDRX = typename PwdClrFields::RXPWDRX;
   };
 
   // USB PHY Power-Down Register
-  struct PWD_TOG_fields_ {
+  struct PwdTogFields {
     // TXPWDFS
     using TXPWDFS = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // TXPWDIBIAS
@@ -217,7 +217,7 @@ struct Usbphy {
     using RXPWDDIFF = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // RXPWDRX
     using RXPWDRX = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct PWD_TOG_fields_
+  };  // struct PwdTogFields
 
   struct PWD_TOG : ftl::mmio::Register<
       kBase + 0xCu,
@@ -225,26 +225,26 @@ struct Usbphy {
       0x001E1C00u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename PWD_TOG_fields_::TXPWDFS,
-      typename PWD_TOG_fields_::TXPWDIBIAS,
-      typename PWD_TOG_fields_::TXPWDV2I,
+      typename PwdTogFields::TXPWDFS,
+      typename PwdTogFields::TXPWDIBIAS,
+      typename PwdTogFields::TXPWDV2I,
       ftl::mmio::Reserved<4, 13>,
-      typename PWD_TOG_fields_::RXPWDENV,
-      typename PWD_TOG_fields_::RXPWD1PT1,
-      typename PWD_TOG_fields_::RXPWDDIFF,
-      typename PWD_TOG_fields_::RXPWDRX,
+      typename PwdTogFields::RXPWDENV,
+      typename PwdTogFields::RXPWD1PT1,
+      typename PwdTogFields::RXPWDDIFF,
+      typename PwdTogFields::RXPWDRX,
       ftl::mmio::Reserved<11, 21>> {
-    using TXPWDFS = typename PWD_TOG_fields_::TXPWDFS;
-    using TXPWDIBIAS = typename PWD_TOG_fields_::TXPWDIBIAS;
-    using TXPWDV2I = typename PWD_TOG_fields_::TXPWDV2I;
-    using RXPWDENV = typename PWD_TOG_fields_::RXPWDENV;
-    using RXPWD1PT1 = typename PWD_TOG_fields_::RXPWD1PT1;
-    using RXPWDDIFF = typename PWD_TOG_fields_::RXPWDDIFF;
-    using RXPWDRX = typename PWD_TOG_fields_::RXPWDRX;
+    using TXPWDFS = typename PwdTogFields::TXPWDFS;
+    using TXPWDIBIAS = typename PwdTogFields::TXPWDIBIAS;
+    using TXPWDV2I = typename PwdTogFields::TXPWDV2I;
+    using RXPWDENV = typename PwdTogFields::RXPWDENV;
+    using RXPWD1PT1 = typename PwdTogFields::RXPWD1PT1;
+    using RXPWDDIFF = typename PwdTogFields::RXPWDDIFF;
+    using RXPWDRX = typename PwdTogFields::RXPWDRX;
   };
 
   // USB PHY Transmitter Control Register
-  struct TX_fields_ {
+  struct TxFields {
     enum class eD_CAL : std::uint32_t {
       // Maximum current, approximately 19% above nominal.
       eMAX = 0,
@@ -260,105 +260,105 @@ struct Usbphy {
     using TXCAL45DN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXCAL45DP
     using TXCAL45DP = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TX_fields_
+  };  // struct TxFields
 
   struct TX : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x10060607u,
       ftl::mmio::RW,
-      typename TX_fields_::D_CAL,
+      typename TxFields::D_CAL,
       ftl::mmio::Reserved<4, 4>,
-      typename TX_fields_::TXCAL45DN,
+      typename TxFields::TXCAL45DN,
       ftl::mmio::Reserved<4, 12>,
-      typename TX_fields_::TXCAL45DP,
+      typename TxFields::TXCAL45DP,
       ftl::mmio::Reserved<12, 20>> {
-    using eD_CAL = typename TX_fields_::eD_CAL;
-    using D_CAL = typename TX_fields_::D_CAL;
-    using TXCAL45DN = typename TX_fields_::TXCAL45DN;
-    using TXCAL45DP = typename TX_fields_::TXCAL45DP;
+    using eD_CAL = typename TxFields::eD_CAL;
+    using D_CAL = typename TxFields::D_CAL;
+    using TXCAL45DN = typename TxFields::TXCAL45DN;
+    using TXCAL45DP = typename TxFields::TXCAL45DP;
   };
 
   // USB PHY Transmitter Control Register
-  struct TX_SET_fields_ {
+  struct TxSetFields {
     // D_CAL
     using D_CAL = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // TXCAL45DN
     using TXCAL45DN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // TXCAL45DP
     using TXCAL45DP = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct TX_SET_fields_
+  };  // struct TxSetFields
 
   struct TX_SET : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x10060607u,
       ftl::mmio::RW,
-      typename TX_SET_fields_::D_CAL,
+      typename TxSetFields::D_CAL,
       ftl::mmio::Reserved<4, 4>,
-      typename TX_SET_fields_::TXCAL45DN,
+      typename TxSetFields::TXCAL45DN,
       ftl::mmio::Reserved<4, 12>,
-      typename TX_SET_fields_::TXCAL45DP,
+      typename TxSetFields::TXCAL45DP,
       ftl::mmio::Reserved<12, 20>> {
-    using D_CAL = typename TX_SET_fields_::D_CAL;
-    using TXCAL45DN = typename TX_SET_fields_::TXCAL45DN;
-    using TXCAL45DP = typename TX_SET_fields_::TXCAL45DP;
+    using D_CAL = typename TxSetFields::D_CAL;
+    using TXCAL45DN = typename TxSetFields::TXCAL45DN;
+    using TXCAL45DP = typename TxSetFields::TXCAL45DP;
   };
 
   // USB PHY Transmitter Control Register
-  struct TX_CLR_fields_ {
+  struct TxClrFields {
     // D_CAL
     using D_CAL = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // TXCAL45DN
     using TXCAL45DN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // TXCAL45DP
     using TXCAL45DP = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct TX_CLR_fields_
+  };  // struct TxClrFields
 
   struct TX_CLR : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x10060607u,
       ftl::mmio::RW,
-      typename TX_CLR_fields_::D_CAL,
+      typename TxClrFields::D_CAL,
       ftl::mmio::Reserved<4, 4>,
-      typename TX_CLR_fields_::TXCAL45DN,
+      typename TxClrFields::TXCAL45DN,
       ftl::mmio::Reserved<4, 12>,
-      typename TX_CLR_fields_::TXCAL45DP,
+      typename TxClrFields::TXCAL45DP,
       ftl::mmio::Reserved<12, 20>> {
-    using D_CAL = typename TX_CLR_fields_::D_CAL;
-    using TXCAL45DN = typename TX_CLR_fields_::TXCAL45DN;
-    using TXCAL45DP = typename TX_CLR_fields_::TXCAL45DP;
+    using D_CAL = typename TxClrFields::D_CAL;
+    using TXCAL45DN = typename TxClrFields::TXCAL45DN;
+    using TXCAL45DP = typename TxClrFields::TXCAL45DP;
   };
 
   // USB PHY Transmitter Control Register
-  struct TX_TOG_fields_ {
+  struct TxTogFields {
     // D_CAL
     using D_CAL = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // TXCAL45DN
     using TXCAL45DN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // TXCAL45DP
     using TXCAL45DP = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct TX_TOG_fields_
+  };  // struct TxTogFields
 
   struct TX_TOG : ftl::mmio::Register<
       kBase + 0x1Cu,
       std::uint32_t,
       0x10060607u,
       ftl::mmio::RW,
-      typename TX_TOG_fields_::D_CAL,
+      typename TxTogFields::D_CAL,
       ftl::mmio::Reserved<4, 4>,
-      typename TX_TOG_fields_::TXCAL45DN,
+      typename TxTogFields::TXCAL45DN,
       ftl::mmio::Reserved<4, 12>,
-      typename TX_TOG_fields_::TXCAL45DP,
+      typename TxTogFields::TXCAL45DP,
       ftl::mmio::Reserved<12, 20>> {
-    using D_CAL = typename TX_TOG_fields_::D_CAL;
-    using TXCAL45DN = typename TX_TOG_fields_::TXCAL45DN;
-    using TXCAL45DP = typename TX_TOG_fields_::TXCAL45DP;
+    using D_CAL = typename TxTogFields::D_CAL;
+    using TXCAL45DN = typename TxTogFields::TXCAL45DN;
+    using TXCAL45DP = typename TxTogFields::TXCAL45DP;
   };
 
   // USB PHY Receiver Control Register
-  struct RX_fields_ {
+  struct RxFields {
     enum class eENVADJ : std::uint32_t {
       // Trip-Level Voltage is 0.1000 V
       eLVL_P1 = 0,
@@ -394,107 +394,107 @@ struct Usbphy {
     using DISCONADJ = ftl::mmio::Field<3, 4, eDISCONADJ, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXDBYPASS
     using RXDBYPASS = ftl::mmio::Field<1, 22, eRXDBYPASS, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RX_fields_
+  };  // struct RxFields
 
   struct RX : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RX_fields_::ENVADJ,
+      typename RxFields::ENVADJ,
       ftl::mmio::Reserved<1, 3>,
-      typename RX_fields_::DISCONADJ,
+      typename RxFields::DISCONADJ,
       ftl::mmio::Reserved<15, 7>,
-      typename RX_fields_::RXDBYPASS,
+      typename RxFields::RXDBYPASS,
       ftl::mmio::Reserved<9, 23>> {
-    using eENVADJ = typename RX_fields_::eENVADJ;
-    using eDISCONADJ = typename RX_fields_::eDISCONADJ;
-    using eRXDBYPASS = typename RX_fields_::eRXDBYPASS;
-    using ENVADJ = typename RX_fields_::ENVADJ;
-    using DISCONADJ = typename RX_fields_::DISCONADJ;
-    using RXDBYPASS = typename RX_fields_::RXDBYPASS;
+    using eENVADJ = typename RxFields::eENVADJ;
+    using eDISCONADJ = typename RxFields::eDISCONADJ;
+    using eRXDBYPASS = typename RxFields::eRXDBYPASS;
+    using ENVADJ = typename RxFields::ENVADJ;
+    using DISCONADJ = typename RxFields::DISCONADJ;
+    using RXDBYPASS = typename RxFields::RXDBYPASS;
   };
 
   // USB PHY Receiver Control Register
-  struct RX_SET_fields_ {
+  struct RxSetFields {
     // ENVADJ
     using ENVADJ = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // DISCONADJ
     using DISCONADJ = ftl::mmio::Field<3, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // RXDBYPASS
     using RXDBYPASS = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct RX_SET_fields_
+  };  // struct RxSetFields
 
   struct RX_SET : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RX_SET_fields_::ENVADJ,
+      typename RxSetFields::ENVADJ,
       ftl::mmio::Reserved<1, 3>,
-      typename RX_SET_fields_::DISCONADJ,
+      typename RxSetFields::DISCONADJ,
       ftl::mmio::Reserved<15, 7>,
-      typename RX_SET_fields_::RXDBYPASS,
+      typename RxSetFields::RXDBYPASS,
       ftl::mmio::Reserved<9, 23>> {
-    using ENVADJ = typename RX_SET_fields_::ENVADJ;
-    using DISCONADJ = typename RX_SET_fields_::DISCONADJ;
-    using RXDBYPASS = typename RX_SET_fields_::RXDBYPASS;
+    using ENVADJ = typename RxSetFields::ENVADJ;
+    using DISCONADJ = typename RxSetFields::DISCONADJ;
+    using RXDBYPASS = typename RxSetFields::RXDBYPASS;
   };
 
   // USB PHY Receiver Control Register
-  struct RX_CLR_fields_ {
+  struct RxClrFields {
     // ENVADJ
     using ENVADJ = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // DISCONADJ
     using DISCONADJ = ftl::mmio::Field<3, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // RXDBYPASS
     using RXDBYPASS = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct RX_CLR_fields_
+  };  // struct RxClrFields
 
   struct RX_CLR : ftl::mmio::Register<
       kBase + 0x28u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RX_CLR_fields_::ENVADJ,
+      typename RxClrFields::ENVADJ,
       ftl::mmio::Reserved<1, 3>,
-      typename RX_CLR_fields_::DISCONADJ,
+      typename RxClrFields::DISCONADJ,
       ftl::mmio::Reserved<15, 7>,
-      typename RX_CLR_fields_::RXDBYPASS,
+      typename RxClrFields::RXDBYPASS,
       ftl::mmio::Reserved<9, 23>> {
-    using ENVADJ = typename RX_CLR_fields_::ENVADJ;
-    using DISCONADJ = typename RX_CLR_fields_::DISCONADJ;
-    using RXDBYPASS = typename RX_CLR_fields_::RXDBYPASS;
+    using ENVADJ = typename RxClrFields::ENVADJ;
+    using DISCONADJ = typename RxClrFields::DISCONADJ;
+    using RXDBYPASS = typename RxClrFields::RXDBYPASS;
   };
 
   // USB PHY Receiver Control Register
-  struct RX_TOG_fields_ {
+  struct RxTogFields {
     // ENVADJ
     using ENVADJ = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // DISCONADJ
     using DISCONADJ = ftl::mmio::Field<3, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // RXDBYPASS
     using RXDBYPASS = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct RX_TOG_fields_
+  };  // struct RxTogFields
 
   struct RX_TOG : ftl::mmio::Register<
       kBase + 0x2Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RX_TOG_fields_::ENVADJ,
+      typename RxTogFields::ENVADJ,
       ftl::mmio::Reserved<1, 3>,
-      typename RX_TOG_fields_::DISCONADJ,
+      typename RxTogFields::DISCONADJ,
       ftl::mmio::Reserved<15, 7>,
-      typename RX_TOG_fields_::RXDBYPASS,
+      typename RxTogFields::RXDBYPASS,
       ftl::mmio::Reserved<9, 23>> {
-    using ENVADJ = typename RX_TOG_fields_::ENVADJ;
-    using DISCONADJ = typename RX_TOG_fields_::DISCONADJ;
-    using RXDBYPASS = typename RX_TOG_fields_::RXDBYPASS;
+    using ENVADJ = typename RxTogFields::ENVADJ;
+    using DISCONADJ = typename RxTogFields::DISCONADJ;
+    using RXDBYPASS = typename RxTogFields::RXDBYPASS;
   };
 
   // USB PHY General Control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eENDEVPLUGINDETECT : std::uint32_t {
       // Disables 200kohm pullup resistors on DP and DN pins
       eDISABLE = 0,
@@ -560,78 +560,78 @@ struct Usbphy {
     using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // SFTRST
     using SFTRST = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       kBase + 0x30u,
       std::uint32_t,
       0x88000000u,
       ftl::mmio::RW,
-      typename CTRL_fields_::ENOTG_ID_CHG_IRQ,
-      typename CTRL_fields_::ENHOSTDISCONDETECT,
-      typename CTRL_fields_::ENIRQHOSTDISCON,
-      typename CTRL_fields_::HOSTDISCONDETECT_IRQ,
-      typename CTRL_fields_::ENDEVPLUGINDETECT,
-      typename CTRL_fields_::DEVPLUGIN_POLARITY,
-      typename CTRL_fields_::OTG_ID_CHG_IRQ,
-      typename CTRL_fields_::ENOTGIDDETECT,
-      typename CTRL_fields_::RESUMEIRQSTICKY,
-      typename CTRL_fields_::ENIRQRESUMEDETECT,
-      typename CTRL_fields_::RESUME_IRQ,
-      typename CTRL_fields_::ENIRQDEVPLUGIN,
-      typename CTRL_fields_::DEVPLUGIN_IRQ,
+      typename CtrlFields::ENOTG_ID_CHG_IRQ,
+      typename CtrlFields::ENHOSTDISCONDETECT,
+      typename CtrlFields::ENIRQHOSTDISCON,
+      typename CtrlFields::HOSTDISCONDETECT_IRQ,
+      typename CtrlFields::ENDEVPLUGINDETECT,
+      typename CtrlFields::DEVPLUGIN_POLARITY,
+      typename CtrlFields::OTG_ID_CHG_IRQ,
+      typename CtrlFields::ENOTGIDDETECT,
+      typename CtrlFields::RESUMEIRQSTICKY,
+      typename CtrlFields::ENIRQRESUMEDETECT,
+      typename CtrlFields::RESUME_IRQ,
+      typename CtrlFields::ENIRQDEVPLUGIN,
+      typename CtrlFields::DEVPLUGIN_IRQ,
       ftl::mmio::Reserved<1, 13>,
-      typename CTRL_fields_::ENUTMILEVEL2,
-      typename CTRL_fields_::ENUTMILEVEL3,
-      typename CTRL_fields_::ENIRQWAKEUP,
-      typename CTRL_fields_::WAKEUP_IRQ,
-      typename CTRL_fields_::AUTORESUME_EN,
-      typename CTRL_fields_::ENAUTOCLR_CLKGATE,
-      typename CTRL_fields_::ENAUTOCLR_PHY_PWD,
-      typename CTRL_fields_::ENDPDMCHG_WKUP,
-      typename CTRL_fields_::ENIDCHG_WKUP,
-      typename CTRL_fields_::ENVBUSCHG_WKUP,
-      typename CTRL_fields_::FSDLL_RST_EN,
+      typename CtrlFields::ENUTMILEVEL2,
+      typename CtrlFields::ENUTMILEVEL3,
+      typename CtrlFields::ENIRQWAKEUP,
+      typename CtrlFields::WAKEUP_IRQ,
+      typename CtrlFields::AUTORESUME_EN,
+      typename CtrlFields::ENAUTOCLR_CLKGATE,
+      typename CtrlFields::ENAUTOCLR_PHY_PWD,
+      typename CtrlFields::ENDPDMCHG_WKUP,
+      typename CtrlFields::ENIDCHG_WKUP,
+      typename CtrlFields::ENVBUSCHG_WKUP,
+      typename CtrlFields::FSDLL_RST_EN,
       ftl::mmio::Reserved<2, 25>,
-      typename CTRL_fields_::OTG_ID_VALUE,
-      typename CTRL_fields_::HOST_FORCE_LS_SE0,
-      typename CTRL_fields_::UTMI_SUSPENDM,
-      typename CTRL_fields_::CLKGATE,
-      typename CTRL_fields_::SFTRST> {
-    using eENDEVPLUGINDETECT = typename CTRL_fields_::eENDEVPLUGINDETECT;
-    using ENOTG_ID_CHG_IRQ = typename CTRL_fields_::ENOTG_ID_CHG_IRQ;
-    using ENHOSTDISCONDETECT = typename CTRL_fields_::ENHOSTDISCONDETECT;
-    using ENIRQHOSTDISCON = typename CTRL_fields_::ENIRQHOSTDISCON;
-    using HOSTDISCONDETECT_IRQ = typename CTRL_fields_::HOSTDISCONDETECT_IRQ;
-    using ENDEVPLUGINDETECT = typename CTRL_fields_::ENDEVPLUGINDETECT;
-    using DEVPLUGIN_POLARITY = typename CTRL_fields_::DEVPLUGIN_POLARITY;
-    using OTG_ID_CHG_IRQ = typename CTRL_fields_::OTG_ID_CHG_IRQ;
-    using ENOTGIDDETECT = typename CTRL_fields_::ENOTGIDDETECT;
-    using RESUMEIRQSTICKY = typename CTRL_fields_::RESUMEIRQSTICKY;
-    using ENIRQRESUMEDETECT = typename CTRL_fields_::ENIRQRESUMEDETECT;
-    using RESUME_IRQ = typename CTRL_fields_::RESUME_IRQ;
-    using ENIRQDEVPLUGIN = typename CTRL_fields_::ENIRQDEVPLUGIN;
-    using DEVPLUGIN_IRQ = typename CTRL_fields_::DEVPLUGIN_IRQ;
-    using ENUTMILEVEL2 = typename CTRL_fields_::ENUTMILEVEL2;
-    using ENUTMILEVEL3 = typename CTRL_fields_::ENUTMILEVEL3;
-    using ENIRQWAKEUP = typename CTRL_fields_::ENIRQWAKEUP;
-    using WAKEUP_IRQ = typename CTRL_fields_::WAKEUP_IRQ;
-    using AUTORESUME_EN = typename CTRL_fields_::AUTORESUME_EN;
-    using ENAUTOCLR_CLKGATE = typename CTRL_fields_::ENAUTOCLR_CLKGATE;
-    using ENAUTOCLR_PHY_PWD = typename CTRL_fields_::ENAUTOCLR_PHY_PWD;
-    using ENDPDMCHG_WKUP = typename CTRL_fields_::ENDPDMCHG_WKUP;
-    using ENIDCHG_WKUP = typename CTRL_fields_::ENIDCHG_WKUP;
-    using ENVBUSCHG_WKUP = typename CTRL_fields_::ENVBUSCHG_WKUP;
-    using FSDLL_RST_EN = typename CTRL_fields_::FSDLL_RST_EN;
-    using OTG_ID_VALUE = typename CTRL_fields_::OTG_ID_VALUE;
-    using HOST_FORCE_LS_SE0 = typename CTRL_fields_::HOST_FORCE_LS_SE0;
-    using UTMI_SUSPENDM = typename CTRL_fields_::UTMI_SUSPENDM;
-    using CLKGATE = typename CTRL_fields_::CLKGATE;
-    using SFTRST = typename CTRL_fields_::SFTRST;
+      typename CtrlFields::OTG_ID_VALUE,
+      typename CtrlFields::HOST_FORCE_LS_SE0,
+      typename CtrlFields::UTMI_SUSPENDM,
+      typename CtrlFields::CLKGATE,
+      typename CtrlFields::SFTRST> {
+    using eENDEVPLUGINDETECT = typename CtrlFields::eENDEVPLUGINDETECT;
+    using ENOTG_ID_CHG_IRQ = typename CtrlFields::ENOTG_ID_CHG_IRQ;
+    using ENHOSTDISCONDETECT = typename CtrlFields::ENHOSTDISCONDETECT;
+    using ENIRQHOSTDISCON = typename CtrlFields::ENIRQHOSTDISCON;
+    using HOSTDISCONDETECT_IRQ = typename CtrlFields::HOSTDISCONDETECT_IRQ;
+    using ENDEVPLUGINDETECT = typename CtrlFields::ENDEVPLUGINDETECT;
+    using DEVPLUGIN_POLARITY = typename CtrlFields::DEVPLUGIN_POLARITY;
+    using OTG_ID_CHG_IRQ = typename CtrlFields::OTG_ID_CHG_IRQ;
+    using ENOTGIDDETECT = typename CtrlFields::ENOTGIDDETECT;
+    using RESUMEIRQSTICKY = typename CtrlFields::RESUMEIRQSTICKY;
+    using ENIRQRESUMEDETECT = typename CtrlFields::ENIRQRESUMEDETECT;
+    using RESUME_IRQ = typename CtrlFields::RESUME_IRQ;
+    using ENIRQDEVPLUGIN = typename CtrlFields::ENIRQDEVPLUGIN;
+    using DEVPLUGIN_IRQ = typename CtrlFields::DEVPLUGIN_IRQ;
+    using ENUTMILEVEL2 = typename CtrlFields::ENUTMILEVEL2;
+    using ENUTMILEVEL3 = typename CtrlFields::ENUTMILEVEL3;
+    using ENIRQWAKEUP = typename CtrlFields::ENIRQWAKEUP;
+    using WAKEUP_IRQ = typename CtrlFields::WAKEUP_IRQ;
+    using AUTORESUME_EN = typename CtrlFields::AUTORESUME_EN;
+    using ENAUTOCLR_CLKGATE = typename CtrlFields::ENAUTOCLR_CLKGATE;
+    using ENAUTOCLR_PHY_PWD = typename CtrlFields::ENAUTOCLR_PHY_PWD;
+    using ENDPDMCHG_WKUP = typename CtrlFields::ENDPDMCHG_WKUP;
+    using ENIDCHG_WKUP = typename CtrlFields::ENIDCHG_WKUP;
+    using ENVBUSCHG_WKUP = typename CtrlFields::ENVBUSCHG_WKUP;
+    using FSDLL_RST_EN = typename CtrlFields::FSDLL_RST_EN;
+    using OTG_ID_VALUE = typename CtrlFields::OTG_ID_VALUE;
+    using HOST_FORCE_LS_SE0 = typename CtrlFields::HOST_FORCE_LS_SE0;
+    using UTMI_SUSPENDM = typename CtrlFields::UTMI_SUSPENDM;
+    using CLKGATE = typename CtrlFields::CLKGATE;
+    using SFTRST = typename CtrlFields::SFTRST;
   };
 
   // USB PHY General Control Register
-  struct CTRL_SET_fields_ {
+  struct CtrlSetFields {
     // ENOTG_ID_CHG_IRQ
     using ENOTG_ID_CHG_IRQ = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // ENHOSTDISCONDETECT
@@ -690,77 +690,77 @@ struct Usbphy {
     using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // SFTRST
     using SFTRST = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct CTRL_SET_fields_
+  };  // struct CtrlSetFields
 
   struct CTRL_SET : ftl::mmio::Register<
       kBase + 0x34u,
       std::uint32_t,
       0x88000000u,
       ftl::mmio::RW,
-      typename CTRL_SET_fields_::ENOTG_ID_CHG_IRQ,
-      typename CTRL_SET_fields_::ENHOSTDISCONDETECT,
-      typename CTRL_SET_fields_::ENIRQHOSTDISCON,
-      typename CTRL_SET_fields_::HOSTDISCONDETECT_IRQ,
-      typename CTRL_SET_fields_::ENDEVPLUGINDETECT,
-      typename CTRL_SET_fields_::DEVPLUGIN_POLARITY,
-      typename CTRL_SET_fields_::OTG_ID_CHG_IRQ,
-      typename CTRL_SET_fields_::ENOTGIDDETECT,
-      typename CTRL_SET_fields_::RESUMEIRQSTICKY,
-      typename CTRL_SET_fields_::ENIRQRESUMEDETECT,
-      typename CTRL_SET_fields_::RESUME_IRQ,
-      typename CTRL_SET_fields_::ENIRQDEVPLUGIN,
-      typename CTRL_SET_fields_::DEVPLUGIN_IRQ,
+      typename CtrlSetFields::ENOTG_ID_CHG_IRQ,
+      typename CtrlSetFields::ENHOSTDISCONDETECT,
+      typename CtrlSetFields::ENIRQHOSTDISCON,
+      typename CtrlSetFields::HOSTDISCONDETECT_IRQ,
+      typename CtrlSetFields::ENDEVPLUGINDETECT,
+      typename CtrlSetFields::DEVPLUGIN_POLARITY,
+      typename CtrlSetFields::OTG_ID_CHG_IRQ,
+      typename CtrlSetFields::ENOTGIDDETECT,
+      typename CtrlSetFields::RESUMEIRQSTICKY,
+      typename CtrlSetFields::ENIRQRESUMEDETECT,
+      typename CtrlSetFields::RESUME_IRQ,
+      typename CtrlSetFields::ENIRQDEVPLUGIN,
+      typename CtrlSetFields::DEVPLUGIN_IRQ,
       ftl::mmio::Reserved<1, 13>,
-      typename CTRL_SET_fields_::ENUTMILEVEL2,
-      typename CTRL_SET_fields_::ENUTMILEVEL3,
-      typename CTRL_SET_fields_::ENIRQWAKEUP,
-      typename CTRL_SET_fields_::WAKEUP_IRQ,
-      typename CTRL_SET_fields_::AUTORESUME_EN,
-      typename CTRL_SET_fields_::ENAUTOCLR_CLKGATE,
-      typename CTRL_SET_fields_::ENAUTOCLR_PHY_PWD,
-      typename CTRL_SET_fields_::ENDPDMCHG_WKUP,
-      typename CTRL_SET_fields_::ENIDCHG_WKUP,
-      typename CTRL_SET_fields_::ENVBUSCHG_WKUP,
-      typename CTRL_SET_fields_::FSDLL_RST_EN,
+      typename CtrlSetFields::ENUTMILEVEL2,
+      typename CtrlSetFields::ENUTMILEVEL3,
+      typename CtrlSetFields::ENIRQWAKEUP,
+      typename CtrlSetFields::WAKEUP_IRQ,
+      typename CtrlSetFields::AUTORESUME_EN,
+      typename CtrlSetFields::ENAUTOCLR_CLKGATE,
+      typename CtrlSetFields::ENAUTOCLR_PHY_PWD,
+      typename CtrlSetFields::ENDPDMCHG_WKUP,
+      typename CtrlSetFields::ENIDCHG_WKUP,
+      typename CtrlSetFields::ENVBUSCHG_WKUP,
+      typename CtrlSetFields::FSDLL_RST_EN,
       ftl::mmio::Reserved<2, 25>,
-      typename CTRL_SET_fields_::OTG_ID_VALUE,
-      typename CTRL_SET_fields_::HOST_FORCE_LS_SE0,
-      typename CTRL_SET_fields_::UTMI_SUSPENDM,
-      typename CTRL_SET_fields_::CLKGATE,
-      typename CTRL_SET_fields_::SFTRST> {
-    using ENOTG_ID_CHG_IRQ = typename CTRL_SET_fields_::ENOTG_ID_CHG_IRQ;
-    using ENHOSTDISCONDETECT = typename CTRL_SET_fields_::ENHOSTDISCONDETECT;
-    using ENIRQHOSTDISCON = typename CTRL_SET_fields_::ENIRQHOSTDISCON;
-    using HOSTDISCONDETECT_IRQ = typename CTRL_SET_fields_::HOSTDISCONDETECT_IRQ;
-    using ENDEVPLUGINDETECT = typename CTRL_SET_fields_::ENDEVPLUGINDETECT;
-    using DEVPLUGIN_POLARITY = typename CTRL_SET_fields_::DEVPLUGIN_POLARITY;
-    using OTG_ID_CHG_IRQ = typename CTRL_SET_fields_::OTG_ID_CHG_IRQ;
-    using ENOTGIDDETECT = typename CTRL_SET_fields_::ENOTGIDDETECT;
-    using RESUMEIRQSTICKY = typename CTRL_SET_fields_::RESUMEIRQSTICKY;
-    using ENIRQRESUMEDETECT = typename CTRL_SET_fields_::ENIRQRESUMEDETECT;
-    using RESUME_IRQ = typename CTRL_SET_fields_::RESUME_IRQ;
-    using ENIRQDEVPLUGIN = typename CTRL_SET_fields_::ENIRQDEVPLUGIN;
-    using DEVPLUGIN_IRQ = typename CTRL_SET_fields_::DEVPLUGIN_IRQ;
-    using ENUTMILEVEL2 = typename CTRL_SET_fields_::ENUTMILEVEL2;
-    using ENUTMILEVEL3 = typename CTRL_SET_fields_::ENUTMILEVEL3;
-    using ENIRQWAKEUP = typename CTRL_SET_fields_::ENIRQWAKEUP;
-    using WAKEUP_IRQ = typename CTRL_SET_fields_::WAKEUP_IRQ;
-    using AUTORESUME_EN = typename CTRL_SET_fields_::AUTORESUME_EN;
-    using ENAUTOCLR_CLKGATE = typename CTRL_SET_fields_::ENAUTOCLR_CLKGATE;
-    using ENAUTOCLR_PHY_PWD = typename CTRL_SET_fields_::ENAUTOCLR_PHY_PWD;
-    using ENDPDMCHG_WKUP = typename CTRL_SET_fields_::ENDPDMCHG_WKUP;
-    using ENIDCHG_WKUP = typename CTRL_SET_fields_::ENIDCHG_WKUP;
-    using ENVBUSCHG_WKUP = typename CTRL_SET_fields_::ENVBUSCHG_WKUP;
-    using FSDLL_RST_EN = typename CTRL_SET_fields_::FSDLL_RST_EN;
-    using OTG_ID_VALUE = typename CTRL_SET_fields_::OTG_ID_VALUE;
-    using HOST_FORCE_LS_SE0 = typename CTRL_SET_fields_::HOST_FORCE_LS_SE0;
-    using UTMI_SUSPENDM = typename CTRL_SET_fields_::UTMI_SUSPENDM;
-    using CLKGATE = typename CTRL_SET_fields_::CLKGATE;
-    using SFTRST = typename CTRL_SET_fields_::SFTRST;
+      typename CtrlSetFields::OTG_ID_VALUE,
+      typename CtrlSetFields::HOST_FORCE_LS_SE0,
+      typename CtrlSetFields::UTMI_SUSPENDM,
+      typename CtrlSetFields::CLKGATE,
+      typename CtrlSetFields::SFTRST> {
+    using ENOTG_ID_CHG_IRQ = typename CtrlSetFields::ENOTG_ID_CHG_IRQ;
+    using ENHOSTDISCONDETECT = typename CtrlSetFields::ENHOSTDISCONDETECT;
+    using ENIRQHOSTDISCON = typename CtrlSetFields::ENIRQHOSTDISCON;
+    using HOSTDISCONDETECT_IRQ = typename CtrlSetFields::HOSTDISCONDETECT_IRQ;
+    using ENDEVPLUGINDETECT = typename CtrlSetFields::ENDEVPLUGINDETECT;
+    using DEVPLUGIN_POLARITY = typename CtrlSetFields::DEVPLUGIN_POLARITY;
+    using OTG_ID_CHG_IRQ = typename CtrlSetFields::OTG_ID_CHG_IRQ;
+    using ENOTGIDDETECT = typename CtrlSetFields::ENOTGIDDETECT;
+    using RESUMEIRQSTICKY = typename CtrlSetFields::RESUMEIRQSTICKY;
+    using ENIRQRESUMEDETECT = typename CtrlSetFields::ENIRQRESUMEDETECT;
+    using RESUME_IRQ = typename CtrlSetFields::RESUME_IRQ;
+    using ENIRQDEVPLUGIN = typename CtrlSetFields::ENIRQDEVPLUGIN;
+    using DEVPLUGIN_IRQ = typename CtrlSetFields::DEVPLUGIN_IRQ;
+    using ENUTMILEVEL2 = typename CtrlSetFields::ENUTMILEVEL2;
+    using ENUTMILEVEL3 = typename CtrlSetFields::ENUTMILEVEL3;
+    using ENIRQWAKEUP = typename CtrlSetFields::ENIRQWAKEUP;
+    using WAKEUP_IRQ = typename CtrlSetFields::WAKEUP_IRQ;
+    using AUTORESUME_EN = typename CtrlSetFields::AUTORESUME_EN;
+    using ENAUTOCLR_CLKGATE = typename CtrlSetFields::ENAUTOCLR_CLKGATE;
+    using ENAUTOCLR_PHY_PWD = typename CtrlSetFields::ENAUTOCLR_PHY_PWD;
+    using ENDPDMCHG_WKUP = typename CtrlSetFields::ENDPDMCHG_WKUP;
+    using ENIDCHG_WKUP = typename CtrlSetFields::ENIDCHG_WKUP;
+    using ENVBUSCHG_WKUP = typename CtrlSetFields::ENVBUSCHG_WKUP;
+    using FSDLL_RST_EN = typename CtrlSetFields::FSDLL_RST_EN;
+    using OTG_ID_VALUE = typename CtrlSetFields::OTG_ID_VALUE;
+    using HOST_FORCE_LS_SE0 = typename CtrlSetFields::HOST_FORCE_LS_SE0;
+    using UTMI_SUSPENDM = typename CtrlSetFields::UTMI_SUSPENDM;
+    using CLKGATE = typename CtrlSetFields::CLKGATE;
+    using SFTRST = typename CtrlSetFields::SFTRST;
   };
 
   // USB PHY General Control Register
-  struct CTRL_CLR_fields_ {
+  struct CtrlClrFields {
     // ENOTG_ID_CHG_IRQ
     using ENOTG_ID_CHG_IRQ = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // ENHOSTDISCONDETECT
@@ -819,77 +819,77 @@ struct Usbphy {
     using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // SFTRST
     using SFTRST = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct CTRL_CLR_fields_
+  };  // struct CtrlClrFields
 
   struct CTRL_CLR : ftl::mmio::Register<
       kBase + 0x38u,
       std::uint32_t,
       0x88000000u,
       ftl::mmio::RW,
-      typename CTRL_CLR_fields_::ENOTG_ID_CHG_IRQ,
-      typename CTRL_CLR_fields_::ENHOSTDISCONDETECT,
-      typename CTRL_CLR_fields_::ENIRQHOSTDISCON,
-      typename CTRL_CLR_fields_::HOSTDISCONDETECT_IRQ,
-      typename CTRL_CLR_fields_::ENDEVPLUGINDETECT,
-      typename CTRL_CLR_fields_::DEVPLUGIN_POLARITY,
-      typename CTRL_CLR_fields_::OTG_ID_CHG_IRQ,
-      typename CTRL_CLR_fields_::ENOTGIDDETECT,
-      typename CTRL_CLR_fields_::RESUMEIRQSTICKY,
-      typename CTRL_CLR_fields_::ENIRQRESUMEDETECT,
-      typename CTRL_CLR_fields_::RESUME_IRQ,
-      typename CTRL_CLR_fields_::ENIRQDEVPLUGIN,
-      typename CTRL_CLR_fields_::DEVPLUGIN_IRQ,
+      typename CtrlClrFields::ENOTG_ID_CHG_IRQ,
+      typename CtrlClrFields::ENHOSTDISCONDETECT,
+      typename CtrlClrFields::ENIRQHOSTDISCON,
+      typename CtrlClrFields::HOSTDISCONDETECT_IRQ,
+      typename CtrlClrFields::ENDEVPLUGINDETECT,
+      typename CtrlClrFields::DEVPLUGIN_POLARITY,
+      typename CtrlClrFields::OTG_ID_CHG_IRQ,
+      typename CtrlClrFields::ENOTGIDDETECT,
+      typename CtrlClrFields::RESUMEIRQSTICKY,
+      typename CtrlClrFields::ENIRQRESUMEDETECT,
+      typename CtrlClrFields::RESUME_IRQ,
+      typename CtrlClrFields::ENIRQDEVPLUGIN,
+      typename CtrlClrFields::DEVPLUGIN_IRQ,
       ftl::mmio::Reserved<1, 13>,
-      typename CTRL_CLR_fields_::ENUTMILEVEL2,
-      typename CTRL_CLR_fields_::ENUTMILEVEL3,
-      typename CTRL_CLR_fields_::ENIRQWAKEUP,
-      typename CTRL_CLR_fields_::WAKEUP_IRQ,
-      typename CTRL_CLR_fields_::AUTORESUME_EN,
-      typename CTRL_CLR_fields_::ENAUTOCLR_CLKGATE,
-      typename CTRL_CLR_fields_::ENAUTOCLR_PHY_PWD,
-      typename CTRL_CLR_fields_::ENDPDMCHG_WKUP,
-      typename CTRL_CLR_fields_::ENIDCHG_WKUP,
-      typename CTRL_CLR_fields_::ENVBUSCHG_WKUP,
-      typename CTRL_CLR_fields_::FSDLL_RST_EN,
+      typename CtrlClrFields::ENUTMILEVEL2,
+      typename CtrlClrFields::ENUTMILEVEL3,
+      typename CtrlClrFields::ENIRQWAKEUP,
+      typename CtrlClrFields::WAKEUP_IRQ,
+      typename CtrlClrFields::AUTORESUME_EN,
+      typename CtrlClrFields::ENAUTOCLR_CLKGATE,
+      typename CtrlClrFields::ENAUTOCLR_PHY_PWD,
+      typename CtrlClrFields::ENDPDMCHG_WKUP,
+      typename CtrlClrFields::ENIDCHG_WKUP,
+      typename CtrlClrFields::ENVBUSCHG_WKUP,
+      typename CtrlClrFields::FSDLL_RST_EN,
       ftl::mmio::Reserved<2, 25>,
-      typename CTRL_CLR_fields_::OTG_ID_VALUE,
-      typename CTRL_CLR_fields_::HOST_FORCE_LS_SE0,
-      typename CTRL_CLR_fields_::UTMI_SUSPENDM,
-      typename CTRL_CLR_fields_::CLKGATE,
-      typename CTRL_CLR_fields_::SFTRST> {
-    using ENOTG_ID_CHG_IRQ = typename CTRL_CLR_fields_::ENOTG_ID_CHG_IRQ;
-    using ENHOSTDISCONDETECT = typename CTRL_CLR_fields_::ENHOSTDISCONDETECT;
-    using ENIRQHOSTDISCON = typename CTRL_CLR_fields_::ENIRQHOSTDISCON;
-    using HOSTDISCONDETECT_IRQ = typename CTRL_CLR_fields_::HOSTDISCONDETECT_IRQ;
-    using ENDEVPLUGINDETECT = typename CTRL_CLR_fields_::ENDEVPLUGINDETECT;
-    using DEVPLUGIN_POLARITY = typename CTRL_CLR_fields_::DEVPLUGIN_POLARITY;
-    using OTG_ID_CHG_IRQ = typename CTRL_CLR_fields_::OTG_ID_CHG_IRQ;
-    using ENOTGIDDETECT = typename CTRL_CLR_fields_::ENOTGIDDETECT;
-    using RESUMEIRQSTICKY = typename CTRL_CLR_fields_::RESUMEIRQSTICKY;
-    using ENIRQRESUMEDETECT = typename CTRL_CLR_fields_::ENIRQRESUMEDETECT;
-    using RESUME_IRQ = typename CTRL_CLR_fields_::RESUME_IRQ;
-    using ENIRQDEVPLUGIN = typename CTRL_CLR_fields_::ENIRQDEVPLUGIN;
-    using DEVPLUGIN_IRQ = typename CTRL_CLR_fields_::DEVPLUGIN_IRQ;
-    using ENUTMILEVEL2 = typename CTRL_CLR_fields_::ENUTMILEVEL2;
-    using ENUTMILEVEL3 = typename CTRL_CLR_fields_::ENUTMILEVEL3;
-    using ENIRQWAKEUP = typename CTRL_CLR_fields_::ENIRQWAKEUP;
-    using WAKEUP_IRQ = typename CTRL_CLR_fields_::WAKEUP_IRQ;
-    using AUTORESUME_EN = typename CTRL_CLR_fields_::AUTORESUME_EN;
-    using ENAUTOCLR_CLKGATE = typename CTRL_CLR_fields_::ENAUTOCLR_CLKGATE;
-    using ENAUTOCLR_PHY_PWD = typename CTRL_CLR_fields_::ENAUTOCLR_PHY_PWD;
-    using ENDPDMCHG_WKUP = typename CTRL_CLR_fields_::ENDPDMCHG_WKUP;
-    using ENIDCHG_WKUP = typename CTRL_CLR_fields_::ENIDCHG_WKUP;
-    using ENVBUSCHG_WKUP = typename CTRL_CLR_fields_::ENVBUSCHG_WKUP;
-    using FSDLL_RST_EN = typename CTRL_CLR_fields_::FSDLL_RST_EN;
-    using OTG_ID_VALUE = typename CTRL_CLR_fields_::OTG_ID_VALUE;
-    using HOST_FORCE_LS_SE0 = typename CTRL_CLR_fields_::HOST_FORCE_LS_SE0;
-    using UTMI_SUSPENDM = typename CTRL_CLR_fields_::UTMI_SUSPENDM;
-    using CLKGATE = typename CTRL_CLR_fields_::CLKGATE;
-    using SFTRST = typename CTRL_CLR_fields_::SFTRST;
+      typename CtrlClrFields::OTG_ID_VALUE,
+      typename CtrlClrFields::HOST_FORCE_LS_SE0,
+      typename CtrlClrFields::UTMI_SUSPENDM,
+      typename CtrlClrFields::CLKGATE,
+      typename CtrlClrFields::SFTRST> {
+    using ENOTG_ID_CHG_IRQ = typename CtrlClrFields::ENOTG_ID_CHG_IRQ;
+    using ENHOSTDISCONDETECT = typename CtrlClrFields::ENHOSTDISCONDETECT;
+    using ENIRQHOSTDISCON = typename CtrlClrFields::ENIRQHOSTDISCON;
+    using HOSTDISCONDETECT_IRQ = typename CtrlClrFields::HOSTDISCONDETECT_IRQ;
+    using ENDEVPLUGINDETECT = typename CtrlClrFields::ENDEVPLUGINDETECT;
+    using DEVPLUGIN_POLARITY = typename CtrlClrFields::DEVPLUGIN_POLARITY;
+    using OTG_ID_CHG_IRQ = typename CtrlClrFields::OTG_ID_CHG_IRQ;
+    using ENOTGIDDETECT = typename CtrlClrFields::ENOTGIDDETECT;
+    using RESUMEIRQSTICKY = typename CtrlClrFields::RESUMEIRQSTICKY;
+    using ENIRQRESUMEDETECT = typename CtrlClrFields::ENIRQRESUMEDETECT;
+    using RESUME_IRQ = typename CtrlClrFields::RESUME_IRQ;
+    using ENIRQDEVPLUGIN = typename CtrlClrFields::ENIRQDEVPLUGIN;
+    using DEVPLUGIN_IRQ = typename CtrlClrFields::DEVPLUGIN_IRQ;
+    using ENUTMILEVEL2 = typename CtrlClrFields::ENUTMILEVEL2;
+    using ENUTMILEVEL3 = typename CtrlClrFields::ENUTMILEVEL3;
+    using ENIRQWAKEUP = typename CtrlClrFields::ENIRQWAKEUP;
+    using WAKEUP_IRQ = typename CtrlClrFields::WAKEUP_IRQ;
+    using AUTORESUME_EN = typename CtrlClrFields::AUTORESUME_EN;
+    using ENAUTOCLR_CLKGATE = typename CtrlClrFields::ENAUTOCLR_CLKGATE;
+    using ENAUTOCLR_PHY_PWD = typename CtrlClrFields::ENAUTOCLR_PHY_PWD;
+    using ENDPDMCHG_WKUP = typename CtrlClrFields::ENDPDMCHG_WKUP;
+    using ENIDCHG_WKUP = typename CtrlClrFields::ENIDCHG_WKUP;
+    using ENVBUSCHG_WKUP = typename CtrlClrFields::ENVBUSCHG_WKUP;
+    using FSDLL_RST_EN = typename CtrlClrFields::FSDLL_RST_EN;
+    using OTG_ID_VALUE = typename CtrlClrFields::OTG_ID_VALUE;
+    using HOST_FORCE_LS_SE0 = typename CtrlClrFields::HOST_FORCE_LS_SE0;
+    using UTMI_SUSPENDM = typename CtrlClrFields::UTMI_SUSPENDM;
+    using CLKGATE = typename CtrlClrFields::CLKGATE;
+    using SFTRST = typename CtrlClrFields::SFTRST;
   };
 
   // USB PHY General Control Register
-  struct CTRL_TOG_fields_ {
+  struct CtrlTogFields {
     // ENOTG_ID_CHG_IRQ
     using ENOTG_ID_CHG_IRQ = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // ENHOSTDISCONDETECT
@@ -948,77 +948,77 @@ struct Usbphy {
     using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // SFTRST
     using SFTRST = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct CTRL_TOG_fields_
+  };  // struct CtrlTogFields
 
   struct CTRL_TOG : ftl::mmio::Register<
       kBase + 0x3Cu,
       std::uint32_t,
       0x88000000u,
       ftl::mmio::RW,
-      typename CTRL_TOG_fields_::ENOTG_ID_CHG_IRQ,
-      typename CTRL_TOG_fields_::ENHOSTDISCONDETECT,
-      typename CTRL_TOG_fields_::ENIRQHOSTDISCON,
-      typename CTRL_TOG_fields_::HOSTDISCONDETECT_IRQ,
-      typename CTRL_TOG_fields_::ENDEVPLUGINDETECT,
-      typename CTRL_TOG_fields_::DEVPLUGIN_POLARITY,
-      typename CTRL_TOG_fields_::OTG_ID_CHG_IRQ,
-      typename CTRL_TOG_fields_::ENOTGIDDETECT,
-      typename CTRL_TOG_fields_::RESUMEIRQSTICKY,
-      typename CTRL_TOG_fields_::ENIRQRESUMEDETECT,
-      typename CTRL_TOG_fields_::RESUME_IRQ,
-      typename CTRL_TOG_fields_::ENIRQDEVPLUGIN,
-      typename CTRL_TOG_fields_::DEVPLUGIN_IRQ,
+      typename CtrlTogFields::ENOTG_ID_CHG_IRQ,
+      typename CtrlTogFields::ENHOSTDISCONDETECT,
+      typename CtrlTogFields::ENIRQHOSTDISCON,
+      typename CtrlTogFields::HOSTDISCONDETECT_IRQ,
+      typename CtrlTogFields::ENDEVPLUGINDETECT,
+      typename CtrlTogFields::DEVPLUGIN_POLARITY,
+      typename CtrlTogFields::OTG_ID_CHG_IRQ,
+      typename CtrlTogFields::ENOTGIDDETECT,
+      typename CtrlTogFields::RESUMEIRQSTICKY,
+      typename CtrlTogFields::ENIRQRESUMEDETECT,
+      typename CtrlTogFields::RESUME_IRQ,
+      typename CtrlTogFields::ENIRQDEVPLUGIN,
+      typename CtrlTogFields::DEVPLUGIN_IRQ,
       ftl::mmio::Reserved<1, 13>,
-      typename CTRL_TOG_fields_::ENUTMILEVEL2,
-      typename CTRL_TOG_fields_::ENUTMILEVEL3,
-      typename CTRL_TOG_fields_::ENIRQWAKEUP,
-      typename CTRL_TOG_fields_::WAKEUP_IRQ,
-      typename CTRL_TOG_fields_::AUTORESUME_EN,
-      typename CTRL_TOG_fields_::ENAUTOCLR_CLKGATE,
-      typename CTRL_TOG_fields_::ENAUTOCLR_PHY_PWD,
-      typename CTRL_TOG_fields_::ENDPDMCHG_WKUP,
-      typename CTRL_TOG_fields_::ENIDCHG_WKUP,
-      typename CTRL_TOG_fields_::ENVBUSCHG_WKUP,
-      typename CTRL_TOG_fields_::FSDLL_RST_EN,
+      typename CtrlTogFields::ENUTMILEVEL2,
+      typename CtrlTogFields::ENUTMILEVEL3,
+      typename CtrlTogFields::ENIRQWAKEUP,
+      typename CtrlTogFields::WAKEUP_IRQ,
+      typename CtrlTogFields::AUTORESUME_EN,
+      typename CtrlTogFields::ENAUTOCLR_CLKGATE,
+      typename CtrlTogFields::ENAUTOCLR_PHY_PWD,
+      typename CtrlTogFields::ENDPDMCHG_WKUP,
+      typename CtrlTogFields::ENIDCHG_WKUP,
+      typename CtrlTogFields::ENVBUSCHG_WKUP,
+      typename CtrlTogFields::FSDLL_RST_EN,
       ftl::mmio::Reserved<2, 25>,
-      typename CTRL_TOG_fields_::OTG_ID_VALUE,
-      typename CTRL_TOG_fields_::HOST_FORCE_LS_SE0,
-      typename CTRL_TOG_fields_::UTMI_SUSPENDM,
-      typename CTRL_TOG_fields_::CLKGATE,
-      typename CTRL_TOG_fields_::SFTRST> {
-    using ENOTG_ID_CHG_IRQ = typename CTRL_TOG_fields_::ENOTG_ID_CHG_IRQ;
-    using ENHOSTDISCONDETECT = typename CTRL_TOG_fields_::ENHOSTDISCONDETECT;
-    using ENIRQHOSTDISCON = typename CTRL_TOG_fields_::ENIRQHOSTDISCON;
-    using HOSTDISCONDETECT_IRQ = typename CTRL_TOG_fields_::HOSTDISCONDETECT_IRQ;
-    using ENDEVPLUGINDETECT = typename CTRL_TOG_fields_::ENDEVPLUGINDETECT;
-    using DEVPLUGIN_POLARITY = typename CTRL_TOG_fields_::DEVPLUGIN_POLARITY;
-    using OTG_ID_CHG_IRQ = typename CTRL_TOG_fields_::OTG_ID_CHG_IRQ;
-    using ENOTGIDDETECT = typename CTRL_TOG_fields_::ENOTGIDDETECT;
-    using RESUMEIRQSTICKY = typename CTRL_TOG_fields_::RESUMEIRQSTICKY;
-    using ENIRQRESUMEDETECT = typename CTRL_TOG_fields_::ENIRQRESUMEDETECT;
-    using RESUME_IRQ = typename CTRL_TOG_fields_::RESUME_IRQ;
-    using ENIRQDEVPLUGIN = typename CTRL_TOG_fields_::ENIRQDEVPLUGIN;
-    using DEVPLUGIN_IRQ = typename CTRL_TOG_fields_::DEVPLUGIN_IRQ;
-    using ENUTMILEVEL2 = typename CTRL_TOG_fields_::ENUTMILEVEL2;
-    using ENUTMILEVEL3 = typename CTRL_TOG_fields_::ENUTMILEVEL3;
-    using ENIRQWAKEUP = typename CTRL_TOG_fields_::ENIRQWAKEUP;
-    using WAKEUP_IRQ = typename CTRL_TOG_fields_::WAKEUP_IRQ;
-    using AUTORESUME_EN = typename CTRL_TOG_fields_::AUTORESUME_EN;
-    using ENAUTOCLR_CLKGATE = typename CTRL_TOG_fields_::ENAUTOCLR_CLKGATE;
-    using ENAUTOCLR_PHY_PWD = typename CTRL_TOG_fields_::ENAUTOCLR_PHY_PWD;
-    using ENDPDMCHG_WKUP = typename CTRL_TOG_fields_::ENDPDMCHG_WKUP;
-    using ENIDCHG_WKUP = typename CTRL_TOG_fields_::ENIDCHG_WKUP;
-    using ENVBUSCHG_WKUP = typename CTRL_TOG_fields_::ENVBUSCHG_WKUP;
-    using FSDLL_RST_EN = typename CTRL_TOG_fields_::FSDLL_RST_EN;
-    using OTG_ID_VALUE = typename CTRL_TOG_fields_::OTG_ID_VALUE;
-    using HOST_FORCE_LS_SE0 = typename CTRL_TOG_fields_::HOST_FORCE_LS_SE0;
-    using UTMI_SUSPENDM = typename CTRL_TOG_fields_::UTMI_SUSPENDM;
-    using CLKGATE = typename CTRL_TOG_fields_::CLKGATE;
-    using SFTRST = typename CTRL_TOG_fields_::SFTRST;
+      typename CtrlTogFields::OTG_ID_VALUE,
+      typename CtrlTogFields::HOST_FORCE_LS_SE0,
+      typename CtrlTogFields::UTMI_SUSPENDM,
+      typename CtrlTogFields::CLKGATE,
+      typename CtrlTogFields::SFTRST> {
+    using ENOTG_ID_CHG_IRQ = typename CtrlTogFields::ENOTG_ID_CHG_IRQ;
+    using ENHOSTDISCONDETECT = typename CtrlTogFields::ENHOSTDISCONDETECT;
+    using ENIRQHOSTDISCON = typename CtrlTogFields::ENIRQHOSTDISCON;
+    using HOSTDISCONDETECT_IRQ = typename CtrlTogFields::HOSTDISCONDETECT_IRQ;
+    using ENDEVPLUGINDETECT = typename CtrlTogFields::ENDEVPLUGINDETECT;
+    using DEVPLUGIN_POLARITY = typename CtrlTogFields::DEVPLUGIN_POLARITY;
+    using OTG_ID_CHG_IRQ = typename CtrlTogFields::OTG_ID_CHG_IRQ;
+    using ENOTGIDDETECT = typename CtrlTogFields::ENOTGIDDETECT;
+    using RESUMEIRQSTICKY = typename CtrlTogFields::RESUMEIRQSTICKY;
+    using ENIRQRESUMEDETECT = typename CtrlTogFields::ENIRQRESUMEDETECT;
+    using RESUME_IRQ = typename CtrlTogFields::RESUME_IRQ;
+    using ENIRQDEVPLUGIN = typename CtrlTogFields::ENIRQDEVPLUGIN;
+    using DEVPLUGIN_IRQ = typename CtrlTogFields::DEVPLUGIN_IRQ;
+    using ENUTMILEVEL2 = typename CtrlTogFields::ENUTMILEVEL2;
+    using ENUTMILEVEL3 = typename CtrlTogFields::ENUTMILEVEL3;
+    using ENIRQWAKEUP = typename CtrlTogFields::ENIRQWAKEUP;
+    using WAKEUP_IRQ = typename CtrlTogFields::WAKEUP_IRQ;
+    using AUTORESUME_EN = typename CtrlTogFields::AUTORESUME_EN;
+    using ENAUTOCLR_CLKGATE = typename CtrlTogFields::ENAUTOCLR_CLKGATE;
+    using ENAUTOCLR_PHY_PWD = typename CtrlTogFields::ENAUTOCLR_PHY_PWD;
+    using ENDPDMCHG_WKUP = typename CtrlTogFields::ENDPDMCHG_WKUP;
+    using ENIDCHG_WKUP = typename CtrlTogFields::ENIDCHG_WKUP;
+    using ENVBUSCHG_WKUP = typename CtrlTogFields::ENVBUSCHG_WKUP;
+    using FSDLL_RST_EN = typename CtrlTogFields::FSDLL_RST_EN;
+    using OTG_ID_VALUE = typename CtrlTogFields::OTG_ID_VALUE;
+    using HOST_FORCE_LS_SE0 = typename CtrlTogFields::HOST_FORCE_LS_SE0;
+    using UTMI_SUSPENDM = typename CtrlTogFields::UTMI_SUSPENDM;
+    using CLKGATE = typename CtrlTogFields::CLKGATE;
+    using SFTRST = typename CtrlTogFields::SFTRST;
   };
 
   // USB PHY Status Register
-  struct STATUS_fields_ {
+  struct StatusFields {
     enum class eHOSTDISCONDETECT_STATUS : std::uint32_t {
       // USB cable disconnect has not been detected at the local host
       eNOT_DET = 0,
@@ -1041,7 +1041,7 @@ struct Usbphy {
     using OTGID_STATUS = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RESUME_STATUS
     using RESUME_STATUS = ftl::mmio::Field<1, 10, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct STATUS_fields_
+  };  // struct StatusFields
 
   struct STATUS : ftl::mmio::Register<
       kBase + 0x40u,
@@ -1049,24 +1049,24 @@ struct Usbphy {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      typename STATUS_fields_::HOSTDISCONDETECT_STATUS,
+      typename StatusFields::HOSTDISCONDETECT_STATUS,
       ftl::mmio::Reserved<2, 4>,
-      typename STATUS_fields_::DEVPLUGIN_STATUS,
+      typename StatusFields::DEVPLUGIN_STATUS,
       ftl::mmio::Reserved<1, 7>,
-      typename STATUS_fields_::OTGID_STATUS,
+      typename StatusFields::OTGID_STATUS,
       ftl::mmio::Reserved<1, 9>,
-      typename STATUS_fields_::RESUME_STATUS,
+      typename StatusFields::RESUME_STATUS,
       ftl::mmio::Reserved<21, 11>> {
-    using eHOSTDISCONDETECT_STATUS = typename STATUS_fields_::eHOSTDISCONDETECT_STATUS;
-    using eDEVPLUGIN_STATUS = typename STATUS_fields_::eDEVPLUGIN_STATUS;
-    using HOSTDISCONDETECT_STATUS = typename STATUS_fields_::HOSTDISCONDETECT_STATUS;
-    using DEVPLUGIN_STATUS = typename STATUS_fields_::DEVPLUGIN_STATUS;
-    using OTGID_STATUS = typename STATUS_fields_::OTGID_STATUS;
-    using RESUME_STATUS = typename STATUS_fields_::RESUME_STATUS;
+    using eHOSTDISCONDETECT_STATUS = typename StatusFields::eHOSTDISCONDETECT_STATUS;
+    using eDEVPLUGIN_STATUS = typename StatusFields::eDEVPLUGIN_STATUS;
+    using HOSTDISCONDETECT_STATUS = typename StatusFields::HOSTDISCONDETECT_STATUS;
+    using DEVPLUGIN_STATUS = typename StatusFields::DEVPLUGIN_STATUS;
+    using OTGID_STATUS = typename StatusFields::OTGID_STATUS;
+    using RESUME_STATUS = typename StatusFields::RESUME_STATUS;
   };
 
   // USB PHY Debug Register
-  struct DEBUG_fields_ {
+  struct DebugFields {
     // OTGIDPIOLOCK
     using OTGIDPIOLOCK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // DEBUG_INTERFACE_HOLD
@@ -1089,43 +1089,43 @@ struct Usbphy {
     using HOST_RESUME_DEBUG = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // CLKGATE
     using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DEBUG_fields_
+  };  // struct DebugFields
 
   struct DEBUG : ftl::mmio::Register<
       kBase + 0x50u,
       std::uint32_t,
       0x7F180000u,
       ftl::mmio::RW,
-      typename DEBUG_fields_::OTGIDPIOLOCK,
-      typename DEBUG_fields_::DEBUG_INTERFACE_HOLD,
-      typename DEBUG_fields_::HSTPULLDOWN,
-      typename DEBUG_fields_::ENHSTPULLDOWN,
+      typename DebugFields::OTGIDPIOLOCK,
+      typename DebugFields::DEBUG_INTERFACE_HOLD,
+      typename DebugFields::HSTPULLDOWN,
+      typename DebugFields::ENHSTPULLDOWN,
       ftl::mmio::Reserved<2, 6>,
-      typename DEBUG_fields_::TX2RXCOUNT,
-      typename DEBUG_fields_::ENTX2RXCOUNT,
+      typename DebugFields::TX2RXCOUNT,
+      typename DebugFields::ENTX2RXCOUNT,
       ftl::mmio::Reserved<3, 13>,
-      typename DEBUG_fields_::SQUELCHRESETCOUNT,
+      typename DebugFields::SQUELCHRESETCOUNT,
       ftl::mmio::Reserved<3, 21>,
-      typename DEBUG_fields_::ENSQUELCHRESET,
-      typename DEBUG_fields_::SQUELCHRESETLENGTH,
-      typename DEBUG_fields_::HOST_RESUME_DEBUG,
-      typename DEBUG_fields_::CLKGATE,
+      typename DebugFields::ENSQUELCHRESET,
+      typename DebugFields::SQUELCHRESETLENGTH,
+      typename DebugFields::HOST_RESUME_DEBUG,
+      typename DebugFields::CLKGATE,
       ftl::mmio::Reserved<1, 31>> {
-    using OTGIDPIOLOCK = typename DEBUG_fields_::OTGIDPIOLOCK;
-    using DEBUG_INTERFACE_HOLD = typename DEBUG_fields_::DEBUG_INTERFACE_HOLD;
-    using HSTPULLDOWN = typename DEBUG_fields_::HSTPULLDOWN;
-    using ENHSTPULLDOWN = typename DEBUG_fields_::ENHSTPULLDOWN;
-    using TX2RXCOUNT = typename DEBUG_fields_::TX2RXCOUNT;
-    using ENTX2RXCOUNT = typename DEBUG_fields_::ENTX2RXCOUNT;
-    using SQUELCHRESETCOUNT = typename DEBUG_fields_::SQUELCHRESETCOUNT;
-    using ENSQUELCHRESET = typename DEBUG_fields_::ENSQUELCHRESET;
-    using SQUELCHRESETLENGTH = typename DEBUG_fields_::SQUELCHRESETLENGTH;
-    using HOST_RESUME_DEBUG = typename DEBUG_fields_::HOST_RESUME_DEBUG;
-    using CLKGATE = typename DEBUG_fields_::CLKGATE;
+    using OTGIDPIOLOCK = typename DebugFields::OTGIDPIOLOCK;
+    using DEBUG_INTERFACE_HOLD = typename DebugFields::DEBUG_INTERFACE_HOLD;
+    using HSTPULLDOWN = typename DebugFields::HSTPULLDOWN;
+    using ENHSTPULLDOWN = typename DebugFields::ENHSTPULLDOWN;
+    using TX2RXCOUNT = typename DebugFields::TX2RXCOUNT;
+    using ENTX2RXCOUNT = typename DebugFields::ENTX2RXCOUNT;
+    using SQUELCHRESETCOUNT = typename DebugFields::SQUELCHRESETCOUNT;
+    using ENSQUELCHRESET = typename DebugFields::ENSQUELCHRESET;
+    using SQUELCHRESETLENGTH = typename DebugFields::SQUELCHRESETLENGTH;
+    using HOST_RESUME_DEBUG = typename DebugFields::HOST_RESUME_DEBUG;
+    using CLKGATE = typename DebugFields::CLKGATE;
   };
 
   // USB PHY Debug Register
-  struct DEBUG_SET_fields_ {
+  struct DebugSetFields {
     // OTGIDPIOLOCK
     using OTGIDPIOLOCK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // DEBUG_INTERFACE_HOLD
@@ -1148,43 +1148,43 @@ struct Usbphy {
     using HOST_RESUME_DEBUG = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // CLKGATE
     using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct DEBUG_SET_fields_
+  };  // struct DebugSetFields
 
   struct DEBUG_SET : ftl::mmio::Register<
       kBase + 0x54u,
       std::uint32_t,
       0x7F180000u,
       ftl::mmio::RW,
-      typename DEBUG_SET_fields_::OTGIDPIOLOCK,
-      typename DEBUG_SET_fields_::DEBUG_INTERFACE_HOLD,
-      typename DEBUG_SET_fields_::HSTPULLDOWN,
-      typename DEBUG_SET_fields_::ENHSTPULLDOWN,
+      typename DebugSetFields::OTGIDPIOLOCK,
+      typename DebugSetFields::DEBUG_INTERFACE_HOLD,
+      typename DebugSetFields::HSTPULLDOWN,
+      typename DebugSetFields::ENHSTPULLDOWN,
       ftl::mmio::Reserved<2, 6>,
-      typename DEBUG_SET_fields_::TX2RXCOUNT,
-      typename DEBUG_SET_fields_::ENTX2RXCOUNT,
+      typename DebugSetFields::TX2RXCOUNT,
+      typename DebugSetFields::ENTX2RXCOUNT,
       ftl::mmio::Reserved<3, 13>,
-      typename DEBUG_SET_fields_::SQUELCHRESETCOUNT,
+      typename DebugSetFields::SQUELCHRESETCOUNT,
       ftl::mmio::Reserved<3, 21>,
-      typename DEBUG_SET_fields_::ENSQUELCHRESET,
-      typename DEBUG_SET_fields_::SQUELCHRESETLENGTH,
-      typename DEBUG_SET_fields_::HOST_RESUME_DEBUG,
-      typename DEBUG_SET_fields_::CLKGATE,
+      typename DebugSetFields::ENSQUELCHRESET,
+      typename DebugSetFields::SQUELCHRESETLENGTH,
+      typename DebugSetFields::HOST_RESUME_DEBUG,
+      typename DebugSetFields::CLKGATE,
       ftl::mmio::Reserved<1, 31>> {
-    using OTGIDPIOLOCK = typename DEBUG_SET_fields_::OTGIDPIOLOCK;
-    using DEBUG_INTERFACE_HOLD = typename DEBUG_SET_fields_::DEBUG_INTERFACE_HOLD;
-    using HSTPULLDOWN = typename DEBUG_SET_fields_::HSTPULLDOWN;
-    using ENHSTPULLDOWN = typename DEBUG_SET_fields_::ENHSTPULLDOWN;
-    using TX2RXCOUNT = typename DEBUG_SET_fields_::TX2RXCOUNT;
-    using ENTX2RXCOUNT = typename DEBUG_SET_fields_::ENTX2RXCOUNT;
-    using SQUELCHRESETCOUNT = typename DEBUG_SET_fields_::SQUELCHRESETCOUNT;
-    using ENSQUELCHRESET = typename DEBUG_SET_fields_::ENSQUELCHRESET;
-    using SQUELCHRESETLENGTH = typename DEBUG_SET_fields_::SQUELCHRESETLENGTH;
-    using HOST_RESUME_DEBUG = typename DEBUG_SET_fields_::HOST_RESUME_DEBUG;
-    using CLKGATE = typename DEBUG_SET_fields_::CLKGATE;
+    using OTGIDPIOLOCK = typename DebugSetFields::OTGIDPIOLOCK;
+    using DEBUG_INTERFACE_HOLD = typename DebugSetFields::DEBUG_INTERFACE_HOLD;
+    using HSTPULLDOWN = typename DebugSetFields::HSTPULLDOWN;
+    using ENHSTPULLDOWN = typename DebugSetFields::ENHSTPULLDOWN;
+    using TX2RXCOUNT = typename DebugSetFields::TX2RXCOUNT;
+    using ENTX2RXCOUNT = typename DebugSetFields::ENTX2RXCOUNT;
+    using SQUELCHRESETCOUNT = typename DebugSetFields::SQUELCHRESETCOUNT;
+    using ENSQUELCHRESET = typename DebugSetFields::ENSQUELCHRESET;
+    using SQUELCHRESETLENGTH = typename DebugSetFields::SQUELCHRESETLENGTH;
+    using HOST_RESUME_DEBUG = typename DebugSetFields::HOST_RESUME_DEBUG;
+    using CLKGATE = typename DebugSetFields::CLKGATE;
   };
 
   // USB PHY Debug Register
-  struct DEBUG_CLR_fields_ {
+  struct DebugClrFields {
     // OTGIDPIOLOCK
     using OTGIDPIOLOCK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // DEBUG_INTERFACE_HOLD
@@ -1207,43 +1207,43 @@ struct Usbphy {
     using HOST_RESUME_DEBUG = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // CLKGATE
     using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct DEBUG_CLR_fields_
+  };  // struct DebugClrFields
 
   struct DEBUG_CLR : ftl::mmio::Register<
       kBase + 0x58u,
       std::uint32_t,
       0x7F180000u,
       ftl::mmio::RW,
-      typename DEBUG_CLR_fields_::OTGIDPIOLOCK,
-      typename DEBUG_CLR_fields_::DEBUG_INTERFACE_HOLD,
-      typename DEBUG_CLR_fields_::HSTPULLDOWN,
-      typename DEBUG_CLR_fields_::ENHSTPULLDOWN,
+      typename DebugClrFields::OTGIDPIOLOCK,
+      typename DebugClrFields::DEBUG_INTERFACE_HOLD,
+      typename DebugClrFields::HSTPULLDOWN,
+      typename DebugClrFields::ENHSTPULLDOWN,
       ftl::mmio::Reserved<2, 6>,
-      typename DEBUG_CLR_fields_::TX2RXCOUNT,
-      typename DEBUG_CLR_fields_::ENTX2RXCOUNT,
+      typename DebugClrFields::TX2RXCOUNT,
+      typename DebugClrFields::ENTX2RXCOUNT,
       ftl::mmio::Reserved<3, 13>,
-      typename DEBUG_CLR_fields_::SQUELCHRESETCOUNT,
+      typename DebugClrFields::SQUELCHRESETCOUNT,
       ftl::mmio::Reserved<3, 21>,
-      typename DEBUG_CLR_fields_::ENSQUELCHRESET,
-      typename DEBUG_CLR_fields_::SQUELCHRESETLENGTH,
-      typename DEBUG_CLR_fields_::HOST_RESUME_DEBUG,
-      typename DEBUG_CLR_fields_::CLKGATE,
+      typename DebugClrFields::ENSQUELCHRESET,
+      typename DebugClrFields::SQUELCHRESETLENGTH,
+      typename DebugClrFields::HOST_RESUME_DEBUG,
+      typename DebugClrFields::CLKGATE,
       ftl::mmio::Reserved<1, 31>> {
-    using OTGIDPIOLOCK = typename DEBUG_CLR_fields_::OTGIDPIOLOCK;
-    using DEBUG_INTERFACE_HOLD = typename DEBUG_CLR_fields_::DEBUG_INTERFACE_HOLD;
-    using HSTPULLDOWN = typename DEBUG_CLR_fields_::HSTPULLDOWN;
-    using ENHSTPULLDOWN = typename DEBUG_CLR_fields_::ENHSTPULLDOWN;
-    using TX2RXCOUNT = typename DEBUG_CLR_fields_::TX2RXCOUNT;
-    using ENTX2RXCOUNT = typename DEBUG_CLR_fields_::ENTX2RXCOUNT;
-    using SQUELCHRESETCOUNT = typename DEBUG_CLR_fields_::SQUELCHRESETCOUNT;
-    using ENSQUELCHRESET = typename DEBUG_CLR_fields_::ENSQUELCHRESET;
-    using SQUELCHRESETLENGTH = typename DEBUG_CLR_fields_::SQUELCHRESETLENGTH;
-    using HOST_RESUME_DEBUG = typename DEBUG_CLR_fields_::HOST_RESUME_DEBUG;
-    using CLKGATE = typename DEBUG_CLR_fields_::CLKGATE;
+    using OTGIDPIOLOCK = typename DebugClrFields::OTGIDPIOLOCK;
+    using DEBUG_INTERFACE_HOLD = typename DebugClrFields::DEBUG_INTERFACE_HOLD;
+    using HSTPULLDOWN = typename DebugClrFields::HSTPULLDOWN;
+    using ENHSTPULLDOWN = typename DebugClrFields::ENHSTPULLDOWN;
+    using TX2RXCOUNT = typename DebugClrFields::TX2RXCOUNT;
+    using ENTX2RXCOUNT = typename DebugClrFields::ENTX2RXCOUNT;
+    using SQUELCHRESETCOUNT = typename DebugClrFields::SQUELCHRESETCOUNT;
+    using ENSQUELCHRESET = typename DebugClrFields::ENSQUELCHRESET;
+    using SQUELCHRESETLENGTH = typename DebugClrFields::SQUELCHRESETLENGTH;
+    using HOST_RESUME_DEBUG = typename DebugClrFields::HOST_RESUME_DEBUG;
+    using CLKGATE = typename DebugClrFields::CLKGATE;
   };
 
   // USB PHY Debug Register
-  struct DEBUG_TOG_fields_ {
+  struct DebugTogFields {
     // OTGIDPIOLOCK
     using OTGIDPIOLOCK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // DEBUG_INTERFACE_HOLD
@@ -1266,66 +1266,66 @@ struct Usbphy {
     using HOST_RESUME_DEBUG = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // CLKGATE
     using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct DEBUG_TOG_fields_
+  };  // struct DebugTogFields
 
   struct DEBUG_TOG : ftl::mmio::Register<
       kBase + 0x5Cu,
       std::uint32_t,
       0x7F180000u,
       ftl::mmio::RW,
-      typename DEBUG_TOG_fields_::OTGIDPIOLOCK,
-      typename DEBUG_TOG_fields_::DEBUG_INTERFACE_HOLD,
-      typename DEBUG_TOG_fields_::HSTPULLDOWN,
-      typename DEBUG_TOG_fields_::ENHSTPULLDOWN,
+      typename DebugTogFields::OTGIDPIOLOCK,
+      typename DebugTogFields::DEBUG_INTERFACE_HOLD,
+      typename DebugTogFields::HSTPULLDOWN,
+      typename DebugTogFields::ENHSTPULLDOWN,
       ftl::mmio::Reserved<2, 6>,
-      typename DEBUG_TOG_fields_::TX2RXCOUNT,
-      typename DEBUG_TOG_fields_::ENTX2RXCOUNT,
+      typename DebugTogFields::TX2RXCOUNT,
+      typename DebugTogFields::ENTX2RXCOUNT,
       ftl::mmio::Reserved<3, 13>,
-      typename DEBUG_TOG_fields_::SQUELCHRESETCOUNT,
+      typename DebugTogFields::SQUELCHRESETCOUNT,
       ftl::mmio::Reserved<3, 21>,
-      typename DEBUG_TOG_fields_::ENSQUELCHRESET,
-      typename DEBUG_TOG_fields_::SQUELCHRESETLENGTH,
-      typename DEBUG_TOG_fields_::HOST_RESUME_DEBUG,
-      typename DEBUG_TOG_fields_::CLKGATE,
+      typename DebugTogFields::ENSQUELCHRESET,
+      typename DebugTogFields::SQUELCHRESETLENGTH,
+      typename DebugTogFields::HOST_RESUME_DEBUG,
+      typename DebugTogFields::CLKGATE,
       ftl::mmio::Reserved<1, 31>> {
-    using OTGIDPIOLOCK = typename DEBUG_TOG_fields_::OTGIDPIOLOCK;
-    using DEBUG_INTERFACE_HOLD = typename DEBUG_TOG_fields_::DEBUG_INTERFACE_HOLD;
-    using HSTPULLDOWN = typename DEBUG_TOG_fields_::HSTPULLDOWN;
-    using ENHSTPULLDOWN = typename DEBUG_TOG_fields_::ENHSTPULLDOWN;
-    using TX2RXCOUNT = typename DEBUG_TOG_fields_::TX2RXCOUNT;
-    using ENTX2RXCOUNT = typename DEBUG_TOG_fields_::ENTX2RXCOUNT;
-    using SQUELCHRESETCOUNT = typename DEBUG_TOG_fields_::SQUELCHRESETCOUNT;
-    using ENSQUELCHRESET = typename DEBUG_TOG_fields_::ENSQUELCHRESET;
-    using SQUELCHRESETLENGTH = typename DEBUG_TOG_fields_::SQUELCHRESETLENGTH;
-    using HOST_RESUME_DEBUG = typename DEBUG_TOG_fields_::HOST_RESUME_DEBUG;
-    using CLKGATE = typename DEBUG_TOG_fields_::CLKGATE;
+    using OTGIDPIOLOCK = typename DebugTogFields::OTGIDPIOLOCK;
+    using DEBUG_INTERFACE_HOLD = typename DebugTogFields::DEBUG_INTERFACE_HOLD;
+    using HSTPULLDOWN = typename DebugTogFields::HSTPULLDOWN;
+    using ENHSTPULLDOWN = typename DebugTogFields::ENHSTPULLDOWN;
+    using TX2RXCOUNT = typename DebugTogFields::TX2RXCOUNT;
+    using ENTX2RXCOUNT = typename DebugTogFields::ENTX2RXCOUNT;
+    using SQUELCHRESETCOUNT = typename DebugTogFields::SQUELCHRESETCOUNT;
+    using ENSQUELCHRESET = typename DebugTogFields::ENSQUELCHRESET;
+    using SQUELCHRESETLENGTH = typename DebugTogFields::SQUELCHRESETLENGTH;
+    using HOST_RESUME_DEBUG = typename DebugTogFields::HOST_RESUME_DEBUG;
+    using CLKGATE = typename DebugTogFields::CLKGATE;
   };
 
   // UTMI Debug Status Register 0
-  struct DEBUG0_STATUS_fields_ {
+  struct Debug0StatusFields {
     // LOOP_BACK_FAIL_COUNT
     using LOOP_BACK_FAIL_COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // UTMI_RXERROR_FAIL_COUNT
     using UTMI_RXERROR_FAIL_COUNT = ftl::mmio::Field<10, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // SQUELCH_COUNT
     using SQUELCH_COUNT = ftl::mmio::Field<6, 26, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DEBUG0_STATUS_fields_
+  };  // struct Debug0StatusFields
 
   struct DEBUG0_STATUS : ftl::mmio::Register<
       kBase + 0x60u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename DEBUG0_STATUS_fields_::LOOP_BACK_FAIL_COUNT,
-      typename DEBUG0_STATUS_fields_::UTMI_RXERROR_FAIL_COUNT,
-      typename DEBUG0_STATUS_fields_::SQUELCH_COUNT> {
-    using LOOP_BACK_FAIL_COUNT = typename DEBUG0_STATUS_fields_::LOOP_BACK_FAIL_COUNT;
-    using UTMI_RXERROR_FAIL_COUNT = typename DEBUG0_STATUS_fields_::UTMI_RXERROR_FAIL_COUNT;
-    using SQUELCH_COUNT = typename DEBUG0_STATUS_fields_::SQUELCH_COUNT;
+      typename Debug0StatusFields::LOOP_BACK_FAIL_COUNT,
+      typename Debug0StatusFields::UTMI_RXERROR_FAIL_COUNT,
+      typename Debug0StatusFields::SQUELCH_COUNT> {
+    using LOOP_BACK_FAIL_COUNT = typename Debug0StatusFields::LOOP_BACK_FAIL_COUNT;
+    using UTMI_RXERROR_FAIL_COUNT = typename Debug0StatusFields::UTMI_RXERROR_FAIL_COUNT;
+    using SQUELCH_COUNT = typename Debug0StatusFields::SQUELCH_COUNT;
   };
 
   // UTMI Debug Status Register 1
-  struct DEBUG1_fields_ {
+  struct Debug1Fields {
     enum class eENTAILADJVD : std::uint32_t {
       // Delay is nominal
       eNOM_DELAY = 0,
@@ -1349,7 +1349,7 @@ struct Usbphy {
     using USB2_REFBIAS_VBGADJ = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Bias current control for usb2_phy
     using USB2_REFBIAS_TST = ftl::mmio::Field<2, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DEBUG1_fields_
+  };  // struct Debug1Fields
 
   struct DEBUG1 : ftl::mmio::Register<
       kBase + 0x70u,
@@ -1357,24 +1357,24 @@ struct Usbphy {
       0x00001000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<13, 0>,
-      typename DEBUG1_fields_::ENTAILADJVD,
-      typename DEBUG1_fields_::USB2_REFBIAS_SELFBIASOFF,
-      typename DEBUG1_fields_::USB2_REFBIAS_PWDVBGUP,
-      typename DEBUG1_fields_::USB2_REFBIAS_LOWPWR,
-      typename DEBUG1_fields_::USB2_REFBIAS_VBGADJ,
-      typename DEBUG1_fields_::USB2_REFBIAS_TST,
+      typename Debug1Fields::ENTAILADJVD,
+      typename Debug1Fields::USB2_REFBIAS_SELFBIASOFF,
+      typename Debug1Fields::USB2_REFBIAS_PWDVBGUP,
+      typename Debug1Fields::USB2_REFBIAS_LOWPWR,
+      typename Debug1Fields::USB2_REFBIAS_VBGADJ,
+      typename Debug1Fields::USB2_REFBIAS_TST,
       ftl::mmio::Reserved<9, 23>> {
-    using eENTAILADJVD = typename DEBUG1_fields_::eENTAILADJVD;
-    using ENTAILADJVD = typename DEBUG1_fields_::ENTAILADJVD;
-    using USB2_REFBIAS_SELFBIASOFF = typename DEBUG1_fields_::USB2_REFBIAS_SELFBIASOFF;
-    using USB2_REFBIAS_PWDVBGUP = typename DEBUG1_fields_::USB2_REFBIAS_PWDVBGUP;
-    using USB2_REFBIAS_LOWPWR = typename DEBUG1_fields_::USB2_REFBIAS_LOWPWR;
-    using USB2_REFBIAS_VBGADJ = typename DEBUG1_fields_::USB2_REFBIAS_VBGADJ;
-    using USB2_REFBIAS_TST = typename DEBUG1_fields_::USB2_REFBIAS_TST;
+    using eENTAILADJVD = typename Debug1Fields::eENTAILADJVD;
+    using ENTAILADJVD = typename Debug1Fields::ENTAILADJVD;
+    using USB2_REFBIAS_SELFBIASOFF = typename Debug1Fields::USB2_REFBIAS_SELFBIASOFF;
+    using USB2_REFBIAS_PWDVBGUP = typename Debug1Fields::USB2_REFBIAS_PWDVBGUP;
+    using USB2_REFBIAS_LOWPWR = typename Debug1Fields::USB2_REFBIAS_LOWPWR;
+    using USB2_REFBIAS_VBGADJ = typename Debug1Fields::USB2_REFBIAS_VBGADJ;
+    using USB2_REFBIAS_TST = typename Debug1Fields::USB2_REFBIAS_TST;
   };
 
   // UTMI Debug Status Register 1
-  struct DEBUG1_SET_fields_ {
+  struct Debug1SetFields {
     // ENTAILADJVD
     using ENTAILADJVD = ftl::mmio::Field<2, 13, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power.
@@ -1387,7 +1387,7 @@ struct Usbphy {
     using USB2_REFBIAS_VBGADJ = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Bias current control for usb2_phy
     using USB2_REFBIAS_TST = ftl::mmio::Field<2, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct DEBUG1_SET_fields_
+  };  // struct Debug1SetFields
 
   struct DEBUG1_SET : ftl::mmio::Register<
       kBase + 0x74u,
@@ -1395,23 +1395,23 @@ struct Usbphy {
       0x00001000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<13, 0>,
-      typename DEBUG1_SET_fields_::ENTAILADJVD,
-      typename DEBUG1_SET_fields_::USB2_REFBIAS_SELFBIASOFF,
-      typename DEBUG1_SET_fields_::USB2_REFBIAS_PWDVBGUP,
-      typename DEBUG1_SET_fields_::USB2_REFBIAS_LOWPWR,
-      typename DEBUG1_SET_fields_::USB2_REFBIAS_VBGADJ,
-      typename DEBUG1_SET_fields_::USB2_REFBIAS_TST,
+      typename Debug1SetFields::ENTAILADJVD,
+      typename Debug1SetFields::USB2_REFBIAS_SELFBIASOFF,
+      typename Debug1SetFields::USB2_REFBIAS_PWDVBGUP,
+      typename Debug1SetFields::USB2_REFBIAS_LOWPWR,
+      typename Debug1SetFields::USB2_REFBIAS_VBGADJ,
+      typename Debug1SetFields::USB2_REFBIAS_TST,
       ftl::mmio::Reserved<9, 23>> {
-    using ENTAILADJVD = typename DEBUG1_SET_fields_::ENTAILADJVD;
-    using USB2_REFBIAS_SELFBIASOFF = typename DEBUG1_SET_fields_::USB2_REFBIAS_SELFBIASOFF;
-    using USB2_REFBIAS_PWDVBGUP = typename DEBUG1_SET_fields_::USB2_REFBIAS_PWDVBGUP;
-    using USB2_REFBIAS_LOWPWR = typename DEBUG1_SET_fields_::USB2_REFBIAS_LOWPWR;
-    using USB2_REFBIAS_VBGADJ = typename DEBUG1_SET_fields_::USB2_REFBIAS_VBGADJ;
-    using USB2_REFBIAS_TST = typename DEBUG1_SET_fields_::USB2_REFBIAS_TST;
+    using ENTAILADJVD = typename Debug1SetFields::ENTAILADJVD;
+    using USB2_REFBIAS_SELFBIASOFF = typename Debug1SetFields::USB2_REFBIAS_SELFBIASOFF;
+    using USB2_REFBIAS_PWDVBGUP = typename Debug1SetFields::USB2_REFBIAS_PWDVBGUP;
+    using USB2_REFBIAS_LOWPWR = typename Debug1SetFields::USB2_REFBIAS_LOWPWR;
+    using USB2_REFBIAS_VBGADJ = typename Debug1SetFields::USB2_REFBIAS_VBGADJ;
+    using USB2_REFBIAS_TST = typename Debug1SetFields::USB2_REFBIAS_TST;
   };
 
   // UTMI Debug Status Register 1
-  struct DEBUG1_CLR_fields_ {
+  struct Debug1ClrFields {
     // ENTAILADJVD
     using ENTAILADJVD = ftl::mmio::Field<2, 13, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power.
@@ -1424,7 +1424,7 @@ struct Usbphy {
     using USB2_REFBIAS_VBGADJ = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Bias current control for usb2_phy
     using USB2_REFBIAS_TST = ftl::mmio::Field<2, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct DEBUG1_CLR_fields_
+  };  // struct Debug1ClrFields
 
   struct DEBUG1_CLR : ftl::mmio::Register<
       kBase + 0x78u,
@@ -1432,23 +1432,23 @@ struct Usbphy {
       0x00001000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<13, 0>,
-      typename DEBUG1_CLR_fields_::ENTAILADJVD,
-      typename DEBUG1_CLR_fields_::USB2_REFBIAS_SELFBIASOFF,
-      typename DEBUG1_CLR_fields_::USB2_REFBIAS_PWDVBGUP,
-      typename DEBUG1_CLR_fields_::USB2_REFBIAS_LOWPWR,
-      typename DEBUG1_CLR_fields_::USB2_REFBIAS_VBGADJ,
-      typename DEBUG1_CLR_fields_::USB2_REFBIAS_TST,
+      typename Debug1ClrFields::ENTAILADJVD,
+      typename Debug1ClrFields::USB2_REFBIAS_SELFBIASOFF,
+      typename Debug1ClrFields::USB2_REFBIAS_PWDVBGUP,
+      typename Debug1ClrFields::USB2_REFBIAS_LOWPWR,
+      typename Debug1ClrFields::USB2_REFBIAS_VBGADJ,
+      typename Debug1ClrFields::USB2_REFBIAS_TST,
       ftl::mmio::Reserved<9, 23>> {
-    using ENTAILADJVD = typename DEBUG1_CLR_fields_::ENTAILADJVD;
-    using USB2_REFBIAS_SELFBIASOFF = typename DEBUG1_CLR_fields_::USB2_REFBIAS_SELFBIASOFF;
-    using USB2_REFBIAS_PWDVBGUP = typename DEBUG1_CLR_fields_::USB2_REFBIAS_PWDVBGUP;
-    using USB2_REFBIAS_LOWPWR = typename DEBUG1_CLR_fields_::USB2_REFBIAS_LOWPWR;
-    using USB2_REFBIAS_VBGADJ = typename DEBUG1_CLR_fields_::USB2_REFBIAS_VBGADJ;
-    using USB2_REFBIAS_TST = typename DEBUG1_CLR_fields_::USB2_REFBIAS_TST;
+    using ENTAILADJVD = typename Debug1ClrFields::ENTAILADJVD;
+    using USB2_REFBIAS_SELFBIASOFF = typename Debug1ClrFields::USB2_REFBIAS_SELFBIASOFF;
+    using USB2_REFBIAS_PWDVBGUP = typename Debug1ClrFields::USB2_REFBIAS_PWDVBGUP;
+    using USB2_REFBIAS_LOWPWR = typename Debug1ClrFields::USB2_REFBIAS_LOWPWR;
+    using USB2_REFBIAS_VBGADJ = typename Debug1ClrFields::USB2_REFBIAS_VBGADJ;
+    using USB2_REFBIAS_TST = typename Debug1ClrFields::USB2_REFBIAS_TST;
   };
 
   // UTMI Debug Status Register 1
-  struct DEBUG1_TOG_fields_ {
+  struct Debug1TogFields {
     // ENTAILADJVD
     using ENTAILADJVD = ftl::mmio::Field<2, 13, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power.
@@ -1461,7 +1461,7 @@ struct Usbphy {
     using USB2_REFBIAS_VBGADJ = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Bias current control for usb2_phy
     using USB2_REFBIAS_TST = ftl::mmio::Field<2, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct DEBUG1_TOG_fields_
+  };  // struct Debug1TogFields
 
   struct DEBUG1_TOG : ftl::mmio::Register<
       kBase + 0x7Cu,
@@ -1469,46 +1469,46 @@ struct Usbphy {
       0x00001000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<13, 0>,
-      typename DEBUG1_TOG_fields_::ENTAILADJVD,
-      typename DEBUG1_TOG_fields_::USB2_REFBIAS_SELFBIASOFF,
-      typename DEBUG1_TOG_fields_::USB2_REFBIAS_PWDVBGUP,
-      typename DEBUG1_TOG_fields_::USB2_REFBIAS_LOWPWR,
-      typename DEBUG1_TOG_fields_::USB2_REFBIAS_VBGADJ,
-      typename DEBUG1_TOG_fields_::USB2_REFBIAS_TST,
+      typename Debug1TogFields::ENTAILADJVD,
+      typename Debug1TogFields::USB2_REFBIAS_SELFBIASOFF,
+      typename Debug1TogFields::USB2_REFBIAS_PWDVBGUP,
+      typename Debug1TogFields::USB2_REFBIAS_LOWPWR,
+      typename Debug1TogFields::USB2_REFBIAS_VBGADJ,
+      typename Debug1TogFields::USB2_REFBIAS_TST,
       ftl::mmio::Reserved<9, 23>> {
-    using ENTAILADJVD = typename DEBUG1_TOG_fields_::ENTAILADJVD;
-    using USB2_REFBIAS_SELFBIASOFF = typename DEBUG1_TOG_fields_::USB2_REFBIAS_SELFBIASOFF;
-    using USB2_REFBIAS_PWDVBGUP = typename DEBUG1_TOG_fields_::USB2_REFBIAS_PWDVBGUP;
-    using USB2_REFBIAS_LOWPWR = typename DEBUG1_TOG_fields_::USB2_REFBIAS_LOWPWR;
-    using USB2_REFBIAS_VBGADJ = typename DEBUG1_TOG_fields_::USB2_REFBIAS_VBGADJ;
-    using USB2_REFBIAS_TST = typename DEBUG1_TOG_fields_::USB2_REFBIAS_TST;
+    using ENTAILADJVD = typename Debug1TogFields::ENTAILADJVD;
+    using USB2_REFBIAS_SELFBIASOFF = typename Debug1TogFields::USB2_REFBIAS_SELFBIASOFF;
+    using USB2_REFBIAS_PWDVBGUP = typename Debug1TogFields::USB2_REFBIAS_PWDVBGUP;
+    using USB2_REFBIAS_LOWPWR = typename Debug1TogFields::USB2_REFBIAS_LOWPWR;
+    using USB2_REFBIAS_VBGADJ = typename Debug1TogFields::USB2_REFBIAS_VBGADJ;
+    using USB2_REFBIAS_TST = typename Debug1TogFields::USB2_REFBIAS_TST;
   };
 
   // UTMI RTL Version
-  struct VERSION_fields_ {
+  struct VersionFields {
     // STEP
     using STEP = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // MINOR
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // MAJOR
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERSION_fields_
+  };  // struct VersionFields
 
   struct VERSION : ftl::mmio::Register<
       kBase + 0x80u,
       std::uint32_t,
       0x04030000u,
       ftl::mmio::RO,
-      typename VERSION_fields_::STEP,
-      typename VERSION_fields_::MINOR,
-      typename VERSION_fields_::MAJOR> {
-    using STEP = typename VERSION_fields_::STEP;
-    using MINOR = typename VERSION_fields_::MINOR;
-    using MAJOR = typename VERSION_fields_::MAJOR;
+      typename VersionFields::STEP,
+      typename VersionFields::MINOR,
+      typename VersionFields::MAJOR> {
+    using STEP = typename VersionFields::STEP;
+    using MINOR = typename VersionFields::MINOR;
+    using MAJOR = typename VersionFields::MAJOR;
   };
 
   // USB PHY PLL Control/Status Register
-  struct PLL_SIC_fields_ {
+  struct PllSicFields {
     enum class eREFBIAS_PWD_SEL : std::uint32_t {
       // Selects PLL_POWER to control the reference bias
       ePLL_PWR = 0,
@@ -1562,7 +1562,7 @@ struct Usbphy {
     using PLL_DIV_SEL = ftl::mmio::Field<3, 22, ePLL_DIV_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
     // PLL_LOCK
     using PLL_LOCK = ftl::mmio::Field<1, 31, ePLL_LOCK, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PLL_SIC_fields_
+  };  // struct PllSicFields
 
   struct PLL_SIC : ftl::mmio::Register<
       kBase + 0xA0u,
@@ -1570,38 +1570,38 @@ struct Usbphy {
       0x00D12000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename PLL_SIC_fields_::PLL_POSTDIV,
+      typename PllSicFields::PLL_POSTDIV,
       ftl::mmio::Reserved<1, 5>,
-      typename PLL_SIC_fields_::PLL_EN_USB_CLKS,
+      typename PllSicFields::PLL_EN_USB_CLKS,
       ftl::mmio::Reserved<5, 7>,
-      typename PLL_SIC_fields_::PLL_POWER,
-      typename PLL_SIC_fields_::PLL_ENABLE,
+      typename PllSicFields::PLL_POWER,
+      typename PllSicFields::PLL_ENABLE,
       ftl::mmio::Reserved<2, 14>,
-      typename PLL_SIC_fields_::PLL_BYPASS,
+      typename PllSicFields::PLL_BYPASS,
       ftl::mmio::Reserved<2, 17>,
-      typename PLL_SIC_fields_::REFBIAS_PWD_SEL,
-      typename PLL_SIC_fields_::REFBIAS_PWD,
-      typename PLL_SIC_fields_::PLL_REG_ENABLE,
-      typename PLL_SIC_fields_::PLL_DIV_SEL,
+      typename PllSicFields::REFBIAS_PWD_SEL,
+      typename PllSicFields::REFBIAS_PWD,
+      typename PllSicFields::PLL_REG_ENABLE,
+      typename PllSicFields::PLL_DIV_SEL,
       ftl::mmio::Reserved<6, 25>,
-      typename PLL_SIC_fields_::PLL_LOCK> {
-    using eREFBIAS_PWD_SEL = typename PLL_SIC_fields_::eREFBIAS_PWD_SEL;
-    using ePLL_DIV_SEL = typename PLL_SIC_fields_::ePLL_DIV_SEL;
-    using ePLL_LOCK = typename PLL_SIC_fields_::ePLL_LOCK;
-    using PLL_POSTDIV = typename PLL_SIC_fields_::PLL_POSTDIV;
-    using PLL_EN_USB_CLKS = typename PLL_SIC_fields_::PLL_EN_USB_CLKS;
-    using PLL_POWER = typename PLL_SIC_fields_::PLL_POWER;
-    using PLL_ENABLE = typename PLL_SIC_fields_::PLL_ENABLE;
-    using PLL_BYPASS = typename PLL_SIC_fields_::PLL_BYPASS;
-    using REFBIAS_PWD_SEL = typename PLL_SIC_fields_::REFBIAS_PWD_SEL;
-    using REFBIAS_PWD = typename PLL_SIC_fields_::REFBIAS_PWD;
-    using PLL_REG_ENABLE = typename PLL_SIC_fields_::PLL_REG_ENABLE;
-    using PLL_DIV_SEL = typename PLL_SIC_fields_::PLL_DIV_SEL;
-    using PLL_LOCK = typename PLL_SIC_fields_::PLL_LOCK;
+      typename PllSicFields::PLL_LOCK> {
+    using eREFBIAS_PWD_SEL = typename PllSicFields::eREFBIAS_PWD_SEL;
+    using ePLL_DIV_SEL = typename PllSicFields::ePLL_DIV_SEL;
+    using ePLL_LOCK = typename PllSicFields::ePLL_LOCK;
+    using PLL_POSTDIV = typename PllSicFields::PLL_POSTDIV;
+    using PLL_EN_USB_CLKS = typename PllSicFields::PLL_EN_USB_CLKS;
+    using PLL_POWER = typename PllSicFields::PLL_POWER;
+    using PLL_ENABLE = typename PllSicFields::PLL_ENABLE;
+    using PLL_BYPASS = typename PllSicFields::PLL_BYPASS;
+    using REFBIAS_PWD_SEL = typename PllSicFields::REFBIAS_PWD_SEL;
+    using REFBIAS_PWD = typename PllSicFields::REFBIAS_PWD;
+    using PLL_REG_ENABLE = typename PllSicFields::PLL_REG_ENABLE;
+    using PLL_DIV_SEL = typename PllSicFields::PLL_DIV_SEL;
+    using PLL_LOCK = typename PllSicFields::PLL_LOCK;
   };
 
   // USB PHY PLL Control/Status Register
-  struct PLL_SIC_SET_fields_ {
+  struct PllSicSetFields {
     // PLL_POSTDIV
     using PLL_POSTDIV = ftl::mmio::Field<3, 2, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // PLL_EN_USB_CLKS
@@ -1622,7 +1622,7 @@ struct Usbphy {
     using PLL_DIV_SEL = ftl::mmio::Field<3, 22, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // PLL_LOCK
     using PLL_LOCK = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
-  };  // struct PLL_SIC_SET_fields_
+  };  // struct PllSicSetFields
 
   struct PLL_SIC_SET : ftl::mmio::Register<
       kBase + 0xA4u,
@@ -1630,35 +1630,35 @@ struct Usbphy {
       0x00D12000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename PLL_SIC_SET_fields_::PLL_POSTDIV,
+      typename PllSicSetFields::PLL_POSTDIV,
       ftl::mmio::Reserved<1, 5>,
-      typename PLL_SIC_SET_fields_::PLL_EN_USB_CLKS,
+      typename PllSicSetFields::PLL_EN_USB_CLKS,
       ftl::mmio::Reserved<5, 7>,
-      typename PLL_SIC_SET_fields_::PLL_POWER,
-      typename PLL_SIC_SET_fields_::PLL_ENABLE,
+      typename PllSicSetFields::PLL_POWER,
+      typename PllSicSetFields::PLL_ENABLE,
       ftl::mmio::Reserved<2, 14>,
-      typename PLL_SIC_SET_fields_::PLL_BYPASS,
+      typename PllSicSetFields::PLL_BYPASS,
       ftl::mmio::Reserved<2, 17>,
-      typename PLL_SIC_SET_fields_::REFBIAS_PWD_SEL,
-      typename PLL_SIC_SET_fields_::REFBIAS_PWD,
-      typename PLL_SIC_SET_fields_::PLL_REG_ENABLE,
-      typename PLL_SIC_SET_fields_::PLL_DIV_SEL,
+      typename PllSicSetFields::REFBIAS_PWD_SEL,
+      typename PllSicSetFields::REFBIAS_PWD,
+      typename PllSicSetFields::PLL_REG_ENABLE,
+      typename PllSicSetFields::PLL_DIV_SEL,
       ftl::mmio::Reserved<6, 25>,
-      typename PLL_SIC_SET_fields_::PLL_LOCK> {
-    using PLL_POSTDIV = typename PLL_SIC_SET_fields_::PLL_POSTDIV;
-    using PLL_EN_USB_CLKS = typename PLL_SIC_SET_fields_::PLL_EN_USB_CLKS;
-    using PLL_POWER = typename PLL_SIC_SET_fields_::PLL_POWER;
-    using PLL_ENABLE = typename PLL_SIC_SET_fields_::PLL_ENABLE;
-    using PLL_BYPASS = typename PLL_SIC_SET_fields_::PLL_BYPASS;
-    using REFBIAS_PWD_SEL = typename PLL_SIC_SET_fields_::REFBIAS_PWD_SEL;
-    using REFBIAS_PWD = typename PLL_SIC_SET_fields_::REFBIAS_PWD;
-    using PLL_REG_ENABLE = typename PLL_SIC_SET_fields_::PLL_REG_ENABLE;
-    using PLL_DIV_SEL = typename PLL_SIC_SET_fields_::PLL_DIV_SEL;
-    using PLL_LOCK = typename PLL_SIC_SET_fields_::PLL_LOCK;
+      typename PllSicSetFields::PLL_LOCK> {
+    using PLL_POSTDIV = typename PllSicSetFields::PLL_POSTDIV;
+    using PLL_EN_USB_CLKS = typename PllSicSetFields::PLL_EN_USB_CLKS;
+    using PLL_POWER = typename PllSicSetFields::PLL_POWER;
+    using PLL_ENABLE = typename PllSicSetFields::PLL_ENABLE;
+    using PLL_BYPASS = typename PllSicSetFields::PLL_BYPASS;
+    using REFBIAS_PWD_SEL = typename PllSicSetFields::REFBIAS_PWD_SEL;
+    using REFBIAS_PWD = typename PllSicSetFields::REFBIAS_PWD;
+    using PLL_REG_ENABLE = typename PllSicSetFields::PLL_REG_ENABLE;
+    using PLL_DIV_SEL = typename PllSicSetFields::PLL_DIV_SEL;
+    using PLL_LOCK = typename PllSicSetFields::PLL_LOCK;
   };
 
   // USB PHY PLL Control/Status Register
-  struct PLL_SIC_CLR_fields_ {
+  struct PllSicClrFields {
     // PLL_POSTDIV
     using PLL_POSTDIV = ftl::mmio::Field<3, 2, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // PLL_EN_USB_CLKS
@@ -1679,7 +1679,7 @@ struct Usbphy {
     using PLL_DIV_SEL = ftl::mmio::Field<3, 22, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // PLL_LOCK
     using PLL_LOCK = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
-  };  // struct PLL_SIC_CLR_fields_
+  };  // struct PllSicClrFields
 
   struct PLL_SIC_CLR : ftl::mmio::Register<
       kBase + 0xA8u,
@@ -1687,35 +1687,35 @@ struct Usbphy {
       0x00D12000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename PLL_SIC_CLR_fields_::PLL_POSTDIV,
+      typename PllSicClrFields::PLL_POSTDIV,
       ftl::mmio::Reserved<1, 5>,
-      typename PLL_SIC_CLR_fields_::PLL_EN_USB_CLKS,
+      typename PllSicClrFields::PLL_EN_USB_CLKS,
       ftl::mmio::Reserved<5, 7>,
-      typename PLL_SIC_CLR_fields_::PLL_POWER,
-      typename PLL_SIC_CLR_fields_::PLL_ENABLE,
+      typename PllSicClrFields::PLL_POWER,
+      typename PllSicClrFields::PLL_ENABLE,
       ftl::mmio::Reserved<2, 14>,
-      typename PLL_SIC_CLR_fields_::PLL_BYPASS,
+      typename PllSicClrFields::PLL_BYPASS,
       ftl::mmio::Reserved<2, 17>,
-      typename PLL_SIC_CLR_fields_::REFBIAS_PWD_SEL,
-      typename PLL_SIC_CLR_fields_::REFBIAS_PWD,
-      typename PLL_SIC_CLR_fields_::PLL_REG_ENABLE,
-      typename PLL_SIC_CLR_fields_::PLL_DIV_SEL,
+      typename PllSicClrFields::REFBIAS_PWD_SEL,
+      typename PllSicClrFields::REFBIAS_PWD,
+      typename PllSicClrFields::PLL_REG_ENABLE,
+      typename PllSicClrFields::PLL_DIV_SEL,
       ftl::mmio::Reserved<6, 25>,
-      typename PLL_SIC_CLR_fields_::PLL_LOCK> {
-    using PLL_POSTDIV = typename PLL_SIC_CLR_fields_::PLL_POSTDIV;
-    using PLL_EN_USB_CLKS = typename PLL_SIC_CLR_fields_::PLL_EN_USB_CLKS;
-    using PLL_POWER = typename PLL_SIC_CLR_fields_::PLL_POWER;
-    using PLL_ENABLE = typename PLL_SIC_CLR_fields_::PLL_ENABLE;
-    using PLL_BYPASS = typename PLL_SIC_CLR_fields_::PLL_BYPASS;
-    using REFBIAS_PWD_SEL = typename PLL_SIC_CLR_fields_::REFBIAS_PWD_SEL;
-    using REFBIAS_PWD = typename PLL_SIC_CLR_fields_::REFBIAS_PWD;
-    using PLL_REG_ENABLE = typename PLL_SIC_CLR_fields_::PLL_REG_ENABLE;
-    using PLL_DIV_SEL = typename PLL_SIC_CLR_fields_::PLL_DIV_SEL;
-    using PLL_LOCK = typename PLL_SIC_CLR_fields_::PLL_LOCK;
+      typename PllSicClrFields::PLL_LOCK> {
+    using PLL_POSTDIV = typename PllSicClrFields::PLL_POSTDIV;
+    using PLL_EN_USB_CLKS = typename PllSicClrFields::PLL_EN_USB_CLKS;
+    using PLL_POWER = typename PllSicClrFields::PLL_POWER;
+    using PLL_ENABLE = typename PllSicClrFields::PLL_ENABLE;
+    using PLL_BYPASS = typename PllSicClrFields::PLL_BYPASS;
+    using REFBIAS_PWD_SEL = typename PllSicClrFields::REFBIAS_PWD_SEL;
+    using REFBIAS_PWD = typename PllSicClrFields::REFBIAS_PWD;
+    using PLL_REG_ENABLE = typename PllSicClrFields::PLL_REG_ENABLE;
+    using PLL_DIV_SEL = typename PllSicClrFields::PLL_DIV_SEL;
+    using PLL_LOCK = typename PllSicClrFields::PLL_LOCK;
   };
 
   // USB PHY PLL Control/Status Register
-  struct PLL_SIC_TOG_fields_ {
+  struct PllSicTogFields {
     // PLL_POSTDIV
     using PLL_POSTDIV = ftl::mmio::Field<3, 2, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // PLL_EN_USB_CLKS
@@ -1736,7 +1736,7 @@ struct Usbphy {
     using PLL_DIV_SEL = ftl::mmio::Field<3, 22, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // PLL_LOCK
     using PLL_LOCK = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
-  };  // struct PLL_SIC_TOG_fields_
+  };  // struct PllSicTogFields
 
   struct PLL_SIC_TOG : ftl::mmio::Register<
       kBase + 0xACu,
@@ -1744,35 +1744,35 @@ struct Usbphy {
       0x00D12000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename PLL_SIC_TOG_fields_::PLL_POSTDIV,
+      typename PllSicTogFields::PLL_POSTDIV,
       ftl::mmio::Reserved<1, 5>,
-      typename PLL_SIC_TOG_fields_::PLL_EN_USB_CLKS,
+      typename PllSicTogFields::PLL_EN_USB_CLKS,
       ftl::mmio::Reserved<5, 7>,
-      typename PLL_SIC_TOG_fields_::PLL_POWER,
-      typename PLL_SIC_TOG_fields_::PLL_ENABLE,
+      typename PllSicTogFields::PLL_POWER,
+      typename PllSicTogFields::PLL_ENABLE,
       ftl::mmio::Reserved<2, 14>,
-      typename PLL_SIC_TOG_fields_::PLL_BYPASS,
+      typename PllSicTogFields::PLL_BYPASS,
       ftl::mmio::Reserved<2, 17>,
-      typename PLL_SIC_TOG_fields_::REFBIAS_PWD_SEL,
-      typename PLL_SIC_TOG_fields_::REFBIAS_PWD,
-      typename PLL_SIC_TOG_fields_::PLL_REG_ENABLE,
-      typename PLL_SIC_TOG_fields_::PLL_DIV_SEL,
+      typename PllSicTogFields::REFBIAS_PWD_SEL,
+      typename PllSicTogFields::REFBIAS_PWD,
+      typename PllSicTogFields::PLL_REG_ENABLE,
+      typename PllSicTogFields::PLL_DIV_SEL,
       ftl::mmio::Reserved<6, 25>,
-      typename PLL_SIC_TOG_fields_::PLL_LOCK> {
-    using PLL_POSTDIV = typename PLL_SIC_TOG_fields_::PLL_POSTDIV;
-    using PLL_EN_USB_CLKS = typename PLL_SIC_TOG_fields_::PLL_EN_USB_CLKS;
-    using PLL_POWER = typename PLL_SIC_TOG_fields_::PLL_POWER;
-    using PLL_ENABLE = typename PLL_SIC_TOG_fields_::PLL_ENABLE;
-    using PLL_BYPASS = typename PLL_SIC_TOG_fields_::PLL_BYPASS;
-    using REFBIAS_PWD_SEL = typename PLL_SIC_TOG_fields_::REFBIAS_PWD_SEL;
-    using REFBIAS_PWD = typename PLL_SIC_TOG_fields_::REFBIAS_PWD;
-    using PLL_REG_ENABLE = typename PLL_SIC_TOG_fields_::PLL_REG_ENABLE;
-    using PLL_DIV_SEL = typename PLL_SIC_TOG_fields_::PLL_DIV_SEL;
-    using PLL_LOCK = typename PLL_SIC_TOG_fields_::PLL_LOCK;
+      typename PllSicTogFields::PLL_LOCK> {
+    using PLL_POSTDIV = typename PllSicTogFields::PLL_POSTDIV;
+    using PLL_EN_USB_CLKS = typename PllSicTogFields::PLL_EN_USB_CLKS;
+    using PLL_POWER = typename PllSicTogFields::PLL_POWER;
+    using PLL_ENABLE = typename PllSicTogFields::PLL_ENABLE;
+    using PLL_BYPASS = typename PllSicTogFields::PLL_BYPASS;
+    using REFBIAS_PWD_SEL = typename PllSicTogFields::REFBIAS_PWD_SEL;
+    using REFBIAS_PWD = typename PllSicTogFields::REFBIAS_PWD;
+    using PLL_REG_ENABLE = typename PllSicTogFields::PLL_REG_ENABLE;
+    using PLL_DIV_SEL = typename PllSicTogFields::PLL_DIV_SEL;
+    using PLL_LOCK = typename PllSicTogFields::PLL_LOCK;
   };
 
   // USB PHY VBUS Detect Control Register
-  struct USB1_VBUS_DETECT_fields_ {
+  struct Usb1VbusDetectFields {
     enum class eVBUSVALID_THRESH : std::uint32_t {
       // 4.0 V
       eVOLT_4 = 0,
@@ -1873,57 +1873,57 @@ struct Usbphy {
     using DISCHARGE_VBUS = ftl::mmio::Field<1, 26, eDISCHARGE_VBUS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enables resistors used for an older method of resistive battery charger detection
     using EN_CHARGER_RESISTOR = ftl::mmio::Field<1, 31, eEN_CHARGER_RESISTOR, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct USB1_VBUS_DETECT_fields_
+  };  // struct Usb1VbusDetectFields
 
   struct USB1_VBUS_DETECT : ftl::mmio::Register<
       kBase + 0xC0u,
       std::uint32_t,
       0x00700004u,
       ftl::mmio::RW,
-      typename USB1_VBUS_DETECT_fields_::VBUSVALID_THRESH,
-      typename USB1_VBUS_DETECT_fields_::VBUS_OVERRIDE_EN,
-      typename USB1_VBUS_DETECT_fields_::SESSEND_OVERRIDE,
-      typename USB1_VBUS_DETECT_fields_::BVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_fields_::AVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_fields_::VBUSVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_fields_::VBUSVALID_SEL,
-      typename USB1_VBUS_DETECT_fields_::VBUS_SOURCE_SEL,
-      typename USB1_VBUS_DETECT_fields_::ID_OVERRIDE_EN,
-      typename USB1_VBUS_DETECT_fields_::ID_OVERRIDE,
+      typename Usb1VbusDetectFields::VBUSVALID_THRESH,
+      typename Usb1VbusDetectFields::VBUS_OVERRIDE_EN,
+      typename Usb1VbusDetectFields::SESSEND_OVERRIDE,
+      typename Usb1VbusDetectFields::BVALID_OVERRIDE,
+      typename Usb1VbusDetectFields::AVALID_OVERRIDE,
+      typename Usb1VbusDetectFields::VBUSVALID_OVERRIDE,
+      typename Usb1VbusDetectFields::VBUSVALID_SEL,
+      typename Usb1VbusDetectFields::VBUS_SOURCE_SEL,
+      typename Usb1VbusDetectFields::ID_OVERRIDE_EN,
+      typename Usb1VbusDetectFields::ID_OVERRIDE,
       ftl::mmio::Reserved<5, 13>,
-      typename USB1_VBUS_DETECT_fields_::VBUSVALID_TO_SESSVALID,
+      typename Usb1VbusDetectFields::VBUSVALID_TO_SESSVALID,
       ftl::mmio::Reserved<1, 19>,
-      typename USB1_VBUS_DETECT_fields_::PWRUP_CMPS,
+      typename Usb1VbusDetectFields::PWRUP_CMPS,
       ftl::mmio::Reserved<3, 23>,
-      typename USB1_VBUS_DETECT_fields_::DISCHARGE_VBUS,
+      typename Usb1VbusDetectFields::DISCHARGE_VBUS,
       ftl::mmio::Reserved<4, 27>,
-      typename USB1_VBUS_DETECT_fields_::EN_CHARGER_RESISTOR> {
-    using eVBUSVALID_THRESH = typename USB1_VBUS_DETECT_fields_::eVBUSVALID_THRESH;
-    using eVBUS_OVERRIDE_EN = typename USB1_VBUS_DETECT_fields_::eVBUS_OVERRIDE_EN;
-    using eVBUSVALID_SEL = typename USB1_VBUS_DETECT_fields_::eVBUSVALID_SEL;
-    using eVBUS_SOURCE_SEL = typename USB1_VBUS_DETECT_fields_::eVBUS_SOURCE_SEL;
-    using eVBUSVALID_TO_SESSVALID = typename USB1_VBUS_DETECT_fields_::eVBUSVALID_TO_SESSVALID;
-    using ePWRUP_CMPS = typename USB1_VBUS_DETECT_fields_::ePWRUP_CMPS;
-    using eDISCHARGE_VBUS = typename USB1_VBUS_DETECT_fields_::eDISCHARGE_VBUS;
-    using eEN_CHARGER_RESISTOR = typename USB1_VBUS_DETECT_fields_::eEN_CHARGER_RESISTOR;
-    using VBUSVALID_THRESH = typename USB1_VBUS_DETECT_fields_::VBUSVALID_THRESH;
-    using VBUS_OVERRIDE_EN = typename USB1_VBUS_DETECT_fields_::VBUS_OVERRIDE_EN;
-    using SESSEND_OVERRIDE = typename USB1_VBUS_DETECT_fields_::SESSEND_OVERRIDE;
-    using BVALID_OVERRIDE = typename USB1_VBUS_DETECT_fields_::BVALID_OVERRIDE;
-    using AVALID_OVERRIDE = typename USB1_VBUS_DETECT_fields_::AVALID_OVERRIDE;
-    using VBUSVALID_OVERRIDE = typename USB1_VBUS_DETECT_fields_::VBUSVALID_OVERRIDE;
-    using VBUSVALID_SEL = typename USB1_VBUS_DETECT_fields_::VBUSVALID_SEL;
-    using VBUS_SOURCE_SEL = typename USB1_VBUS_DETECT_fields_::VBUS_SOURCE_SEL;
-    using ID_OVERRIDE_EN = typename USB1_VBUS_DETECT_fields_::ID_OVERRIDE_EN;
-    using ID_OVERRIDE = typename USB1_VBUS_DETECT_fields_::ID_OVERRIDE;
-    using VBUSVALID_TO_SESSVALID = typename USB1_VBUS_DETECT_fields_::VBUSVALID_TO_SESSVALID;
-    using PWRUP_CMPS = typename USB1_VBUS_DETECT_fields_::PWRUP_CMPS;
-    using DISCHARGE_VBUS = typename USB1_VBUS_DETECT_fields_::DISCHARGE_VBUS;
-    using EN_CHARGER_RESISTOR = typename USB1_VBUS_DETECT_fields_::EN_CHARGER_RESISTOR;
+      typename Usb1VbusDetectFields::EN_CHARGER_RESISTOR> {
+    using eVBUSVALID_THRESH = typename Usb1VbusDetectFields::eVBUSVALID_THRESH;
+    using eVBUS_OVERRIDE_EN = typename Usb1VbusDetectFields::eVBUS_OVERRIDE_EN;
+    using eVBUSVALID_SEL = typename Usb1VbusDetectFields::eVBUSVALID_SEL;
+    using eVBUS_SOURCE_SEL = typename Usb1VbusDetectFields::eVBUS_SOURCE_SEL;
+    using eVBUSVALID_TO_SESSVALID = typename Usb1VbusDetectFields::eVBUSVALID_TO_SESSVALID;
+    using ePWRUP_CMPS = typename Usb1VbusDetectFields::ePWRUP_CMPS;
+    using eDISCHARGE_VBUS = typename Usb1VbusDetectFields::eDISCHARGE_VBUS;
+    using eEN_CHARGER_RESISTOR = typename Usb1VbusDetectFields::eEN_CHARGER_RESISTOR;
+    using VBUSVALID_THRESH = typename Usb1VbusDetectFields::VBUSVALID_THRESH;
+    using VBUS_OVERRIDE_EN = typename Usb1VbusDetectFields::VBUS_OVERRIDE_EN;
+    using SESSEND_OVERRIDE = typename Usb1VbusDetectFields::SESSEND_OVERRIDE;
+    using BVALID_OVERRIDE = typename Usb1VbusDetectFields::BVALID_OVERRIDE;
+    using AVALID_OVERRIDE = typename Usb1VbusDetectFields::AVALID_OVERRIDE;
+    using VBUSVALID_OVERRIDE = typename Usb1VbusDetectFields::VBUSVALID_OVERRIDE;
+    using VBUSVALID_SEL = typename Usb1VbusDetectFields::VBUSVALID_SEL;
+    using VBUS_SOURCE_SEL = typename Usb1VbusDetectFields::VBUS_SOURCE_SEL;
+    using ID_OVERRIDE_EN = typename Usb1VbusDetectFields::ID_OVERRIDE_EN;
+    using ID_OVERRIDE = typename Usb1VbusDetectFields::ID_OVERRIDE;
+    using VBUSVALID_TO_SESSVALID = typename Usb1VbusDetectFields::VBUSVALID_TO_SESSVALID;
+    using PWRUP_CMPS = typename Usb1VbusDetectFields::PWRUP_CMPS;
+    using DISCHARGE_VBUS = typename Usb1VbusDetectFields::DISCHARGE_VBUS;
+    using EN_CHARGER_RESISTOR = typename Usb1VbusDetectFields::EN_CHARGER_RESISTOR;
   };
 
   // USB PHY VBUS Detect Control Register
-  struct USB1_VBUS_DETECT_SET_fields_ {
+  struct Usb1VbusDetectSetFields {
     // VBUSVALID_THRESH
     using VBUSVALID_THRESH = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // VBUS detect signal override enable
@@ -1952,49 +1952,49 @@ struct Usbphy {
     using DISCHARGE_VBUS = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Enables resistors used for an older method of resistive battery charger detection
     using EN_CHARGER_RESISTOR = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct USB1_VBUS_DETECT_SET_fields_
+  };  // struct Usb1VbusDetectSetFields
 
   struct USB1_VBUS_DETECT_SET : ftl::mmio::Register<
       kBase + 0xC4u,
       std::uint32_t,
       0x00700004u,
       ftl::mmio::RW,
-      typename USB1_VBUS_DETECT_SET_fields_::VBUSVALID_THRESH,
-      typename USB1_VBUS_DETECT_SET_fields_::VBUS_OVERRIDE_EN,
-      typename USB1_VBUS_DETECT_SET_fields_::SESSEND_OVERRIDE,
-      typename USB1_VBUS_DETECT_SET_fields_::BVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_SET_fields_::AVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_SET_fields_::VBUSVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_SET_fields_::VBUSVALID_SEL,
-      typename USB1_VBUS_DETECT_SET_fields_::VBUS_SOURCE_SEL,
-      typename USB1_VBUS_DETECT_SET_fields_::ID_OVERRIDE_EN,
-      typename USB1_VBUS_DETECT_SET_fields_::ID_OVERRIDE,
+      typename Usb1VbusDetectSetFields::VBUSVALID_THRESH,
+      typename Usb1VbusDetectSetFields::VBUS_OVERRIDE_EN,
+      typename Usb1VbusDetectSetFields::SESSEND_OVERRIDE,
+      typename Usb1VbusDetectSetFields::BVALID_OVERRIDE,
+      typename Usb1VbusDetectSetFields::AVALID_OVERRIDE,
+      typename Usb1VbusDetectSetFields::VBUSVALID_OVERRIDE,
+      typename Usb1VbusDetectSetFields::VBUSVALID_SEL,
+      typename Usb1VbusDetectSetFields::VBUS_SOURCE_SEL,
+      typename Usb1VbusDetectSetFields::ID_OVERRIDE_EN,
+      typename Usb1VbusDetectSetFields::ID_OVERRIDE,
       ftl::mmio::Reserved<5, 13>,
-      typename USB1_VBUS_DETECT_SET_fields_::VBUSVALID_TO_SESSVALID,
+      typename Usb1VbusDetectSetFields::VBUSVALID_TO_SESSVALID,
       ftl::mmio::Reserved<1, 19>,
-      typename USB1_VBUS_DETECT_SET_fields_::PWRUP_CMPS,
+      typename Usb1VbusDetectSetFields::PWRUP_CMPS,
       ftl::mmio::Reserved<3, 23>,
-      typename USB1_VBUS_DETECT_SET_fields_::DISCHARGE_VBUS,
+      typename Usb1VbusDetectSetFields::DISCHARGE_VBUS,
       ftl::mmio::Reserved<4, 27>,
-      typename USB1_VBUS_DETECT_SET_fields_::EN_CHARGER_RESISTOR> {
-    using VBUSVALID_THRESH = typename USB1_VBUS_DETECT_SET_fields_::VBUSVALID_THRESH;
-    using VBUS_OVERRIDE_EN = typename USB1_VBUS_DETECT_SET_fields_::VBUS_OVERRIDE_EN;
-    using SESSEND_OVERRIDE = typename USB1_VBUS_DETECT_SET_fields_::SESSEND_OVERRIDE;
-    using BVALID_OVERRIDE = typename USB1_VBUS_DETECT_SET_fields_::BVALID_OVERRIDE;
-    using AVALID_OVERRIDE = typename USB1_VBUS_DETECT_SET_fields_::AVALID_OVERRIDE;
-    using VBUSVALID_OVERRIDE = typename USB1_VBUS_DETECT_SET_fields_::VBUSVALID_OVERRIDE;
-    using VBUSVALID_SEL = typename USB1_VBUS_DETECT_SET_fields_::VBUSVALID_SEL;
-    using VBUS_SOURCE_SEL = typename USB1_VBUS_DETECT_SET_fields_::VBUS_SOURCE_SEL;
-    using ID_OVERRIDE_EN = typename USB1_VBUS_DETECT_SET_fields_::ID_OVERRIDE_EN;
-    using ID_OVERRIDE = typename USB1_VBUS_DETECT_SET_fields_::ID_OVERRIDE;
-    using VBUSVALID_TO_SESSVALID = typename USB1_VBUS_DETECT_SET_fields_::VBUSVALID_TO_SESSVALID;
-    using PWRUP_CMPS = typename USB1_VBUS_DETECT_SET_fields_::PWRUP_CMPS;
-    using DISCHARGE_VBUS = typename USB1_VBUS_DETECT_SET_fields_::DISCHARGE_VBUS;
-    using EN_CHARGER_RESISTOR = typename USB1_VBUS_DETECT_SET_fields_::EN_CHARGER_RESISTOR;
+      typename Usb1VbusDetectSetFields::EN_CHARGER_RESISTOR> {
+    using VBUSVALID_THRESH = typename Usb1VbusDetectSetFields::VBUSVALID_THRESH;
+    using VBUS_OVERRIDE_EN = typename Usb1VbusDetectSetFields::VBUS_OVERRIDE_EN;
+    using SESSEND_OVERRIDE = typename Usb1VbusDetectSetFields::SESSEND_OVERRIDE;
+    using BVALID_OVERRIDE = typename Usb1VbusDetectSetFields::BVALID_OVERRIDE;
+    using AVALID_OVERRIDE = typename Usb1VbusDetectSetFields::AVALID_OVERRIDE;
+    using VBUSVALID_OVERRIDE = typename Usb1VbusDetectSetFields::VBUSVALID_OVERRIDE;
+    using VBUSVALID_SEL = typename Usb1VbusDetectSetFields::VBUSVALID_SEL;
+    using VBUS_SOURCE_SEL = typename Usb1VbusDetectSetFields::VBUS_SOURCE_SEL;
+    using ID_OVERRIDE_EN = typename Usb1VbusDetectSetFields::ID_OVERRIDE_EN;
+    using ID_OVERRIDE = typename Usb1VbusDetectSetFields::ID_OVERRIDE;
+    using VBUSVALID_TO_SESSVALID = typename Usb1VbusDetectSetFields::VBUSVALID_TO_SESSVALID;
+    using PWRUP_CMPS = typename Usb1VbusDetectSetFields::PWRUP_CMPS;
+    using DISCHARGE_VBUS = typename Usb1VbusDetectSetFields::DISCHARGE_VBUS;
+    using EN_CHARGER_RESISTOR = typename Usb1VbusDetectSetFields::EN_CHARGER_RESISTOR;
   };
 
   // USB PHY VBUS Detect Control Register
-  struct USB1_VBUS_DETECT_CLR_fields_ {
+  struct Usb1VbusDetectClrFields {
     // VBUSVALID_THRESH
     using VBUSVALID_THRESH = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // VBUS detect signal override enable
@@ -2023,49 +2023,49 @@ struct Usbphy {
     using DISCHARGE_VBUS = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Enables resistors used for an older method of resistive battery charger detection
     using EN_CHARGER_RESISTOR = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct USB1_VBUS_DETECT_CLR_fields_
+  };  // struct Usb1VbusDetectClrFields
 
   struct USB1_VBUS_DETECT_CLR : ftl::mmio::Register<
       kBase + 0xC8u,
       std::uint32_t,
       0x00700004u,
       ftl::mmio::RW,
-      typename USB1_VBUS_DETECT_CLR_fields_::VBUSVALID_THRESH,
-      typename USB1_VBUS_DETECT_CLR_fields_::VBUS_OVERRIDE_EN,
-      typename USB1_VBUS_DETECT_CLR_fields_::SESSEND_OVERRIDE,
-      typename USB1_VBUS_DETECT_CLR_fields_::BVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_CLR_fields_::AVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_CLR_fields_::VBUSVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_CLR_fields_::VBUSVALID_SEL,
-      typename USB1_VBUS_DETECT_CLR_fields_::VBUS_SOURCE_SEL,
-      typename USB1_VBUS_DETECT_CLR_fields_::ID_OVERRIDE_EN,
-      typename USB1_VBUS_DETECT_CLR_fields_::ID_OVERRIDE,
+      typename Usb1VbusDetectClrFields::VBUSVALID_THRESH,
+      typename Usb1VbusDetectClrFields::VBUS_OVERRIDE_EN,
+      typename Usb1VbusDetectClrFields::SESSEND_OVERRIDE,
+      typename Usb1VbusDetectClrFields::BVALID_OVERRIDE,
+      typename Usb1VbusDetectClrFields::AVALID_OVERRIDE,
+      typename Usb1VbusDetectClrFields::VBUSVALID_OVERRIDE,
+      typename Usb1VbusDetectClrFields::VBUSVALID_SEL,
+      typename Usb1VbusDetectClrFields::VBUS_SOURCE_SEL,
+      typename Usb1VbusDetectClrFields::ID_OVERRIDE_EN,
+      typename Usb1VbusDetectClrFields::ID_OVERRIDE,
       ftl::mmio::Reserved<5, 13>,
-      typename USB1_VBUS_DETECT_CLR_fields_::VBUSVALID_TO_SESSVALID,
+      typename Usb1VbusDetectClrFields::VBUSVALID_TO_SESSVALID,
       ftl::mmio::Reserved<1, 19>,
-      typename USB1_VBUS_DETECT_CLR_fields_::PWRUP_CMPS,
+      typename Usb1VbusDetectClrFields::PWRUP_CMPS,
       ftl::mmio::Reserved<3, 23>,
-      typename USB1_VBUS_DETECT_CLR_fields_::DISCHARGE_VBUS,
+      typename Usb1VbusDetectClrFields::DISCHARGE_VBUS,
       ftl::mmio::Reserved<4, 27>,
-      typename USB1_VBUS_DETECT_CLR_fields_::EN_CHARGER_RESISTOR> {
-    using VBUSVALID_THRESH = typename USB1_VBUS_DETECT_CLR_fields_::VBUSVALID_THRESH;
-    using VBUS_OVERRIDE_EN = typename USB1_VBUS_DETECT_CLR_fields_::VBUS_OVERRIDE_EN;
-    using SESSEND_OVERRIDE = typename USB1_VBUS_DETECT_CLR_fields_::SESSEND_OVERRIDE;
-    using BVALID_OVERRIDE = typename USB1_VBUS_DETECT_CLR_fields_::BVALID_OVERRIDE;
-    using AVALID_OVERRIDE = typename USB1_VBUS_DETECT_CLR_fields_::AVALID_OVERRIDE;
-    using VBUSVALID_OVERRIDE = typename USB1_VBUS_DETECT_CLR_fields_::VBUSVALID_OVERRIDE;
-    using VBUSVALID_SEL = typename USB1_VBUS_DETECT_CLR_fields_::VBUSVALID_SEL;
-    using VBUS_SOURCE_SEL = typename USB1_VBUS_DETECT_CLR_fields_::VBUS_SOURCE_SEL;
-    using ID_OVERRIDE_EN = typename USB1_VBUS_DETECT_CLR_fields_::ID_OVERRIDE_EN;
-    using ID_OVERRIDE = typename USB1_VBUS_DETECT_CLR_fields_::ID_OVERRIDE;
-    using VBUSVALID_TO_SESSVALID = typename USB1_VBUS_DETECT_CLR_fields_::VBUSVALID_TO_SESSVALID;
-    using PWRUP_CMPS = typename USB1_VBUS_DETECT_CLR_fields_::PWRUP_CMPS;
-    using DISCHARGE_VBUS = typename USB1_VBUS_DETECT_CLR_fields_::DISCHARGE_VBUS;
-    using EN_CHARGER_RESISTOR = typename USB1_VBUS_DETECT_CLR_fields_::EN_CHARGER_RESISTOR;
+      typename Usb1VbusDetectClrFields::EN_CHARGER_RESISTOR> {
+    using VBUSVALID_THRESH = typename Usb1VbusDetectClrFields::VBUSVALID_THRESH;
+    using VBUS_OVERRIDE_EN = typename Usb1VbusDetectClrFields::VBUS_OVERRIDE_EN;
+    using SESSEND_OVERRIDE = typename Usb1VbusDetectClrFields::SESSEND_OVERRIDE;
+    using BVALID_OVERRIDE = typename Usb1VbusDetectClrFields::BVALID_OVERRIDE;
+    using AVALID_OVERRIDE = typename Usb1VbusDetectClrFields::AVALID_OVERRIDE;
+    using VBUSVALID_OVERRIDE = typename Usb1VbusDetectClrFields::VBUSVALID_OVERRIDE;
+    using VBUSVALID_SEL = typename Usb1VbusDetectClrFields::VBUSVALID_SEL;
+    using VBUS_SOURCE_SEL = typename Usb1VbusDetectClrFields::VBUS_SOURCE_SEL;
+    using ID_OVERRIDE_EN = typename Usb1VbusDetectClrFields::ID_OVERRIDE_EN;
+    using ID_OVERRIDE = typename Usb1VbusDetectClrFields::ID_OVERRIDE;
+    using VBUSVALID_TO_SESSVALID = typename Usb1VbusDetectClrFields::VBUSVALID_TO_SESSVALID;
+    using PWRUP_CMPS = typename Usb1VbusDetectClrFields::PWRUP_CMPS;
+    using DISCHARGE_VBUS = typename Usb1VbusDetectClrFields::DISCHARGE_VBUS;
+    using EN_CHARGER_RESISTOR = typename Usb1VbusDetectClrFields::EN_CHARGER_RESISTOR;
   };
 
   // USB PHY VBUS Detect Control Register
-  struct USB1_VBUS_DETECT_TOG_fields_ {
+  struct Usb1VbusDetectTogFields {
     // VBUSVALID_THRESH
     using VBUSVALID_THRESH = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // VBUS detect signal override enable
@@ -2094,49 +2094,49 @@ struct Usbphy {
     using DISCHARGE_VBUS = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Enables resistors used for an older method of resistive battery charger detection
     using EN_CHARGER_RESISTOR = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct USB1_VBUS_DETECT_TOG_fields_
+  };  // struct Usb1VbusDetectTogFields
 
   struct USB1_VBUS_DETECT_TOG : ftl::mmio::Register<
       kBase + 0xCCu,
       std::uint32_t,
       0x00700004u,
       ftl::mmio::RW,
-      typename USB1_VBUS_DETECT_TOG_fields_::VBUSVALID_THRESH,
-      typename USB1_VBUS_DETECT_TOG_fields_::VBUS_OVERRIDE_EN,
-      typename USB1_VBUS_DETECT_TOG_fields_::SESSEND_OVERRIDE,
-      typename USB1_VBUS_DETECT_TOG_fields_::BVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_TOG_fields_::AVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_TOG_fields_::VBUSVALID_OVERRIDE,
-      typename USB1_VBUS_DETECT_TOG_fields_::VBUSVALID_SEL,
-      typename USB1_VBUS_DETECT_TOG_fields_::VBUS_SOURCE_SEL,
-      typename USB1_VBUS_DETECT_TOG_fields_::ID_OVERRIDE_EN,
-      typename USB1_VBUS_DETECT_TOG_fields_::ID_OVERRIDE,
+      typename Usb1VbusDetectTogFields::VBUSVALID_THRESH,
+      typename Usb1VbusDetectTogFields::VBUS_OVERRIDE_EN,
+      typename Usb1VbusDetectTogFields::SESSEND_OVERRIDE,
+      typename Usb1VbusDetectTogFields::BVALID_OVERRIDE,
+      typename Usb1VbusDetectTogFields::AVALID_OVERRIDE,
+      typename Usb1VbusDetectTogFields::VBUSVALID_OVERRIDE,
+      typename Usb1VbusDetectTogFields::VBUSVALID_SEL,
+      typename Usb1VbusDetectTogFields::VBUS_SOURCE_SEL,
+      typename Usb1VbusDetectTogFields::ID_OVERRIDE_EN,
+      typename Usb1VbusDetectTogFields::ID_OVERRIDE,
       ftl::mmio::Reserved<5, 13>,
-      typename USB1_VBUS_DETECT_TOG_fields_::VBUSVALID_TO_SESSVALID,
+      typename Usb1VbusDetectTogFields::VBUSVALID_TO_SESSVALID,
       ftl::mmio::Reserved<1, 19>,
-      typename USB1_VBUS_DETECT_TOG_fields_::PWRUP_CMPS,
+      typename Usb1VbusDetectTogFields::PWRUP_CMPS,
       ftl::mmio::Reserved<3, 23>,
-      typename USB1_VBUS_DETECT_TOG_fields_::DISCHARGE_VBUS,
+      typename Usb1VbusDetectTogFields::DISCHARGE_VBUS,
       ftl::mmio::Reserved<4, 27>,
-      typename USB1_VBUS_DETECT_TOG_fields_::EN_CHARGER_RESISTOR> {
-    using VBUSVALID_THRESH = typename USB1_VBUS_DETECT_TOG_fields_::VBUSVALID_THRESH;
-    using VBUS_OVERRIDE_EN = typename USB1_VBUS_DETECT_TOG_fields_::VBUS_OVERRIDE_EN;
-    using SESSEND_OVERRIDE = typename USB1_VBUS_DETECT_TOG_fields_::SESSEND_OVERRIDE;
-    using BVALID_OVERRIDE = typename USB1_VBUS_DETECT_TOG_fields_::BVALID_OVERRIDE;
-    using AVALID_OVERRIDE = typename USB1_VBUS_DETECT_TOG_fields_::AVALID_OVERRIDE;
-    using VBUSVALID_OVERRIDE = typename USB1_VBUS_DETECT_TOG_fields_::VBUSVALID_OVERRIDE;
-    using VBUSVALID_SEL = typename USB1_VBUS_DETECT_TOG_fields_::VBUSVALID_SEL;
-    using VBUS_SOURCE_SEL = typename USB1_VBUS_DETECT_TOG_fields_::VBUS_SOURCE_SEL;
-    using ID_OVERRIDE_EN = typename USB1_VBUS_DETECT_TOG_fields_::ID_OVERRIDE_EN;
-    using ID_OVERRIDE = typename USB1_VBUS_DETECT_TOG_fields_::ID_OVERRIDE;
-    using VBUSVALID_TO_SESSVALID = typename USB1_VBUS_DETECT_TOG_fields_::VBUSVALID_TO_SESSVALID;
-    using PWRUP_CMPS = typename USB1_VBUS_DETECT_TOG_fields_::PWRUP_CMPS;
-    using DISCHARGE_VBUS = typename USB1_VBUS_DETECT_TOG_fields_::DISCHARGE_VBUS;
-    using EN_CHARGER_RESISTOR = typename USB1_VBUS_DETECT_TOG_fields_::EN_CHARGER_RESISTOR;
+      typename Usb1VbusDetectTogFields::EN_CHARGER_RESISTOR> {
+    using VBUSVALID_THRESH = typename Usb1VbusDetectTogFields::VBUSVALID_THRESH;
+    using VBUS_OVERRIDE_EN = typename Usb1VbusDetectTogFields::VBUS_OVERRIDE_EN;
+    using SESSEND_OVERRIDE = typename Usb1VbusDetectTogFields::SESSEND_OVERRIDE;
+    using BVALID_OVERRIDE = typename Usb1VbusDetectTogFields::BVALID_OVERRIDE;
+    using AVALID_OVERRIDE = typename Usb1VbusDetectTogFields::AVALID_OVERRIDE;
+    using VBUSVALID_OVERRIDE = typename Usb1VbusDetectTogFields::VBUSVALID_OVERRIDE;
+    using VBUSVALID_SEL = typename Usb1VbusDetectTogFields::VBUSVALID_SEL;
+    using VBUS_SOURCE_SEL = typename Usb1VbusDetectTogFields::VBUS_SOURCE_SEL;
+    using ID_OVERRIDE_EN = typename Usb1VbusDetectTogFields::ID_OVERRIDE_EN;
+    using ID_OVERRIDE = typename Usb1VbusDetectTogFields::ID_OVERRIDE;
+    using VBUSVALID_TO_SESSVALID = typename Usb1VbusDetectTogFields::VBUSVALID_TO_SESSVALID;
+    using PWRUP_CMPS = typename Usb1VbusDetectTogFields::PWRUP_CMPS;
+    using DISCHARGE_VBUS = typename Usb1VbusDetectTogFields::DISCHARGE_VBUS;
+    using EN_CHARGER_RESISTOR = typename Usb1VbusDetectTogFields::EN_CHARGER_RESISTOR;
   };
 
   // USB PHY VBUS Detector Status Register
-  struct USB1_VBUS_DET_STAT_fields_ {
+  struct Usb1VbusDetStatFields {
     enum class eSESSEND : std::uint32_t {
       // The VBUS voltage is above the Session Valid threshold
       eABOVE = 0,
@@ -2182,33 +2182,33 @@ struct Usbphy {
     using VBUS_VALID = ftl::mmio::Field<1, 3, eVBUS_VALID, ftl::mmio::RO, ftl::mmio::Normal>;
     // VBUS_VALID_3V detector status
     using VBUS_VALID_3V = ftl::mmio::Field<1, 4, eVBUS_VALID_3V, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct USB1_VBUS_DET_STAT_fields_
+  };  // struct Usb1VbusDetStatFields
 
   struct USB1_VBUS_DET_STAT : ftl::mmio::Register<
       kBase + 0xD0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename USB1_VBUS_DET_STAT_fields_::SESSEND,
-      typename USB1_VBUS_DET_STAT_fields_::BVALID,
-      typename USB1_VBUS_DET_STAT_fields_::AVALID,
-      typename USB1_VBUS_DET_STAT_fields_::VBUS_VALID,
-      typename USB1_VBUS_DET_STAT_fields_::VBUS_VALID_3V,
+      typename Usb1VbusDetStatFields::SESSEND,
+      typename Usb1VbusDetStatFields::BVALID,
+      typename Usb1VbusDetStatFields::AVALID,
+      typename Usb1VbusDetStatFields::VBUS_VALID,
+      typename Usb1VbusDetStatFields::VBUS_VALID_3V,
       ftl::mmio::Reserved<27, 5>> {
-    using eSESSEND = typename USB1_VBUS_DET_STAT_fields_::eSESSEND;
-    using eBVALID = typename USB1_VBUS_DET_STAT_fields_::eBVALID;
-    using eAVALID = typename USB1_VBUS_DET_STAT_fields_::eAVALID;
-    using eVBUS_VALID = typename USB1_VBUS_DET_STAT_fields_::eVBUS_VALID;
-    using eVBUS_VALID_3V = typename USB1_VBUS_DET_STAT_fields_::eVBUS_VALID_3V;
-    using SESSEND = typename USB1_VBUS_DET_STAT_fields_::SESSEND;
-    using BVALID = typename USB1_VBUS_DET_STAT_fields_::BVALID;
-    using AVALID = typename USB1_VBUS_DET_STAT_fields_::AVALID;
-    using VBUS_VALID = typename USB1_VBUS_DET_STAT_fields_::VBUS_VALID;
-    using VBUS_VALID_3V = typename USB1_VBUS_DET_STAT_fields_::VBUS_VALID_3V;
+    using eSESSEND = typename Usb1VbusDetStatFields::eSESSEND;
+    using eBVALID = typename Usb1VbusDetStatFields::eBVALID;
+    using eAVALID = typename Usb1VbusDetStatFields::eAVALID;
+    using eVBUS_VALID = typename Usb1VbusDetStatFields::eVBUS_VALID;
+    using eVBUS_VALID_3V = typename Usb1VbusDetStatFields::eVBUS_VALID_3V;
+    using SESSEND = typename Usb1VbusDetStatFields::SESSEND;
+    using BVALID = typename Usb1VbusDetStatFields::BVALID;
+    using AVALID = typename Usb1VbusDetStatFields::AVALID;
+    using VBUS_VALID = typename Usb1VbusDetStatFields::VBUS_VALID;
+    using VBUS_VALID_3V = typename Usb1VbusDetStatFields::VBUS_VALID_3V;
   };
 
   // USB PHY Charger Detect Control Register
-  struct USB1_CHRG_DETECT_fields_ {
+  struct Usb1ChrgDetectFields {
     enum class eBGR_BIAS : std::uint32_t {
       // Use local bias powered from USB1_VBUS for 10uA reference (Default)
       eLOCAL_BIAS = 0,
@@ -2220,7 +2220,7 @@ struct Usbphy {
     using PULLUP_DP = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // BGR_BIAS
     using BGR_BIAS = ftl::mmio::Field<1, 23, eBGR_BIAS, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct USB1_CHRG_DETECT_fields_
+  };  // struct Usb1ChrgDetectFields
 
   struct USB1_CHRG_DETECT : ftl::mmio::Register<
       kBase + 0xE0u,
@@ -2228,22 +2228,22 @@ struct Usbphy {
       0x80180000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename USB1_CHRG_DETECT_fields_::PULLUP_DP,
+      typename Usb1ChrgDetectFields::PULLUP_DP,
       ftl::mmio::Reserved<20, 3>,
-      typename USB1_CHRG_DETECT_fields_::BGR_BIAS,
+      typename Usb1ChrgDetectFields::BGR_BIAS,
       ftl::mmio::Reserved<8, 24>> {
-    using eBGR_BIAS = typename USB1_CHRG_DETECT_fields_::eBGR_BIAS;
-    using PULLUP_DP = typename USB1_CHRG_DETECT_fields_::PULLUP_DP;
-    using BGR_BIAS = typename USB1_CHRG_DETECT_fields_::BGR_BIAS;
+    using eBGR_BIAS = typename Usb1ChrgDetectFields::eBGR_BIAS;
+    using PULLUP_DP = typename Usb1ChrgDetectFields::PULLUP_DP;
+    using BGR_BIAS = typename Usb1ChrgDetectFields::BGR_BIAS;
   };
 
   // USB PHY Charger Detect Control Register
-  struct USB1_CHRG_DETECT_SET_fields_ {
+  struct Usb1ChrgDetectSetFields {
     // PULLUP_DP
     using PULLUP_DP = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // BGR_BIAS
     using BGR_BIAS = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct USB1_CHRG_DETECT_SET_fields_
+  };  // struct Usb1ChrgDetectSetFields
 
   struct USB1_CHRG_DETECT_SET : ftl::mmio::Register<
       kBase + 0xE4u,
@@ -2251,21 +2251,21 @@ struct Usbphy {
       0x80180000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename USB1_CHRG_DETECT_SET_fields_::PULLUP_DP,
+      typename Usb1ChrgDetectSetFields::PULLUP_DP,
       ftl::mmio::Reserved<20, 3>,
-      typename USB1_CHRG_DETECT_SET_fields_::BGR_BIAS,
+      typename Usb1ChrgDetectSetFields::BGR_BIAS,
       ftl::mmio::Reserved<8, 24>> {
-    using PULLUP_DP = typename USB1_CHRG_DETECT_SET_fields_::PULLUP_DP;
-    using BGR_BIAS = typename USB1_CHRG_DETECT_SET_fields_::BGR_BIAS;
+    using PULLUP_DP = typename Usb1ChrgDetectSetFields::PULLUP_DP;
+    using BGR_BIAS = typename Usb1ChrgDetectSetFields::BGR_BIAS;
   };
 
   // USB PHY Charger Detect Control Register
-  struct USB1_CHRG_DETECT_CLR_fields_ {
+  struct Usb1ChrgDetectClrFields {
     // PULLUP_DP
     using PULLUP_DP = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // BGR_BIAS
     using BGR_BIAS = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct USB1_CHRG_DETECT_CLR_fields_
+  };  // struct Usb1ChrgDetectClrFields
 
   struct USB1_CHRG_DETECT_CLR : ftl::mmio::Register<
       kBase + 0xE8u,
@@ -2273,21 +2273,21 @@ struct Usbphy {
       0x80180000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename USB1_CHRG_DETECT_CLR_fields_::PULLUP_DP,
+      typename Usb1ChrgDetectClrFields::PULLUP_DP,
       ftl::mmio::Reserved<20, 3>,
-      typename USB1_CHRG_DETECT_CLR_fields_::BGR_BIAS,
+      typename Usb1ChrgDetectClrFields::BGR_BIAS,
       ftl::mmio::Reserved<8, 24>> {
-    using PULLUP_DP = typename USB1_CHRG_DETECT_CLR_fields_::PULLUP_DP;
-    using BGR_BIAS = typename USB1_CHRG_DETECT_CLR_fields_::BGR_BIAS;
+    using PULLUP_DP = typename Usb1ChrgDetectClrFields::PULLUP_DP;
+    using BGR_BIAS = typename Usb1ChrgDetectClrFields::BGR_BIAS;
   };
 
   // USB PHY Charger Detect Control Register
-  struct USB1_CHRG_DETECT_TOG_fields_ {
+  struct Usb1ChrgDetectTogFields {
     // PULLUP_DP
     using PULLUP_DP = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // BGR_BIAS
     using BGR_BIAS = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct USB1_CHRG_DETECT_TOG_fields_
+  };  // struct Usb1ChrgDetectTogFields
 
   struct USB1_CHRG_DETECT_TOG : ftl::mmio::Register<
       kBase + 0xECu,
@@ -2295,16 +2295,16 @@ struct Usbphy {
       0x80180000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename USB1_CHRG_DETECT_TOG_fields_::PULLUP_DP,
+      typename Usb1ChrgDetectTogFields::PULLUP_DP,
       ftl::mmio::Reserved<20, 3>,
-      typename USB1_CHRG_DETECT_TOG_fields_::BGR_BIAS,
+      typename Usb1ChrgDetectTogFields::BGR_BIAS,
       ftl::mmio::Reserved<8, 24>> {
-    using PULLUP_DP = typename USB1_CHRG_DETECT_TOG_fields_::PULLUP_DP;
-    using BGR_BIAS = typename USB1_CHRG_DETECT_TOG_fields_::BGR_BIAS;
+    using PULLUP_DP = typename Usb1ChrgDetectTogFields::PULLUP_DP;
+    using BGR_BIAS = typename Usb1ChrgDetectTogFields::BGR_BIAS;
   };
 
   // USB PHY Charger Detect Status Register
-  struct USB1_CHRG_DET_STAT_fields_ {
+  struct Usb1ChrgDetStatFields {
     enum class ePLUG_CONTACT : std::uint32_t {
       // No USB cable attachment has been detected
       eNO_ATTACH = 0,
@@ -2350,33 +2350,33 @@ struct Usbphy {
     using DP_STATE = ftl::mmio::Field<1, 3, eDP_STATE, ftl::mmio::RO, ftl::mmio::Normal>;
     // Battery Charging Secondary Detection phase output
     using SECDET_DCP = ftl::mmio::Field<1, 4, eSECDET_DCP, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct USB1_CHRG_DET_STAT_fields_
+  };  // struct Usb1ChrgDetStatFields
 
   struct USB1_CHRG_DET_STAT : ftl::mmio::Register<
       kBase + 0xF0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename USB1_CHRG_DET_STAT_fields_::PLUG_CONTACT,
-      typename USB1_CHRG_DET_STAT_fields_::CHRG_DETECTED,
-      typename USB1_CHRG_DET_STAT_fields_::DN_STATE,
-      typename USB1_CHRG_DET_STAT_fields_::DP_STATE,
-      typename USB1_CHRG_DET_STAT_fields_::SECDET_DCP,
+      typename Usb1ChrgDetStatFields::PLUG_CONTACT,
+      typename Usb1ChrgDetStatFields::CHRG_DETECTED,
+      typename Usb1ChrgDetStatFields::DN_STATE,
+      typename Usb1ChrgDetStatFields::DP_STATE,
+      typename Usb1ChrgDetStatFields::SECDET_DCP,
       ftl::mmio::Reserved<27, 5>> {
-    using ePLUG_CONTACT = typename USB1_CHRG_DET_STAT_fields_::ePLUG_CONTACT;
-    using eCHRG_DETECTED = typename USB1_CHRG_DET_STAT_fields_::eCHRG_DETECTED;
-    using eDN_STATE = typename USB1_CHRG_DET_STAT_fields_::eDN_STATE;
-    using eDP_STATE = typename USB1_CHRG_DET_STAT_fields_::eDP_STATE;
-    using eSECDET_DCP = typename USB1_CHRG_DET_STAT_fields_::eSECDET_DCP;
-    using PLUG_CONTACT = typename USB1_CHRG_DET_STAT_fields_::PLUG_CONTACT;
-    using CHRG_DETECTED = typename USB1_CHRG_DET_STAT_fields_::CHRG_DETECTED;
-    using DN_STATE = typename USB1_CHRG_DET_STAT_fields_::DN_STATE;
-    using DP_STATE = typename USB1_CHRG_DET_STAT_fields_::DP_STATE;
-    using SECDET_DCP = typename USB1_CHRG_DET_STAT_fields_::SECDET_DCP;
+    using ePLUG_CONTACT = typename Usb1ChrgDetStatFields::ePLUG_CONTACT;
+    using eCHRG_DETECTED = typename Usb1ChrgDetStatFields::eCHRG_DETECTED;
+    using eDN_STATE = typename Usb1ChrgDetStatFields::eDN_STATE;
+    using eDP_STATE = typename Usb1ChrgDetStatFields::eDP_STATE;
+    using eSECDET_DCP = typename Usb1ChrgDetStatFields::eSECDET_DCP;
+    using PLUG_CONTACT = typename Usb1ChrgDetStatFields::PLUG_CONTACT;
+    using CHRG_DETECTED = typename Usb1ChrgDetStatFields::CHRG_DETECTED;
+    using DN_STATE = typename Usb1ChrgDetStatFields::DN_STATE;
+    using DP_STATE = typename Usb1ChrgDetStatFields::DP_STATE;
+    using SECDET_DCP = typename Usb1ChrgDetStatFields::SECDET_DCP;
   };
 
   // USB PHY Analog Control Register
-  struct ANACTRL_fields_ {
+  struct AnactrlFields {
     enum class eDEV_PULLDOWN : std::uint32_t {
       // The 15kohm nominal pulldowns on the DP and DN pinsare disabled in device mode.
       eDISABLE = 0,
@@ -2386,7 +2386,7 @@ struct Usbphy {
 
     // DEV_PULLDOWN
     using DEV_PULLDOWN = ftl::mmio::Field<1, 10, eDEV_PULLDOWN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ANACTRL_fields_
+  };  // struct AnactrlFields
 
   struct ANACTRL : ftl::mmio::Register<
       kBase + 0x100u,
@@ -2394,17 +2394,17 @@ struct Usbphy {
       0x00000402u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename ANACTRL_fields_::DEV_PULLDOWN,
+      typename AnactrlFields::DEV_PULLDOWN,
       ftl::mmio::Reserved<21, 11>> {
-    using eDEV_PULLDOWN = typename ANACTRL_fields_::eDEV_PULLDOWN;
-    using DEV_PULLDOWN = typename ANACTRL_fields_::DEV_PULLDOWN;
+    using eDEV_PULLDOWN = typename AnactrlFields::eDEV_PULLDOWN;
+    using DEV_PULLDOWN = typename AnactrlFields::DEV_PULLDOWN;
   };
 
   // USB PHY Analog Control Register
-  struct ANACTRL_SET_fields_ {
+  struct AnactrlSetFields {
     // DEV_PULLDOWN
     using DEV_PULLDOWN = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct ANACTRL_SET_fields_
+  };  // struct AnactrlSetFields
 
   struct ANACTRL_SET : ftl::mmio::Register<
       kBase + 0x104u,
@@ -2412,16 +2412,16 @@ struct Usbphy {
       0x00000402u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename ANACTRL_SET_fields_::DEV_PULLDOWN,
+      typename AnactrlSetFields::DEV_PULLDOWN,
       ftl::mmio::Reserved<21, 11>> {
-    using DEV_PULLDOWN = typename ANACTRL_SET_fields_::DEV_PULLDOWN;
+    using DEV_PULLDOWN = typename AnactrlSetFields::DEV_PULLDOWN;
   };
 
   // USB PHY Analog Control Register
-  struct ANACTRL_CLR_fields_ {
+  struct AnactrlClrFields {
     // DEV_PULLDOWN
     using DEV_PULLDOWN = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct ANACTRL_CLR_fields_
+  };  // struct AnactrlClrFields
 
   struct ANACTRL_CLR : ftl::mmio::Register<
       kBase + 0x108u,
@@ -2429,16 +2429,16 @@ struct Usbphy {
       0x00000402u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename ANACTRL_CLR_fields_::DEV_PULLDOWN,
+      typename AnactrlClrFields::DEV_PULLDOWN,
       ftl::mmio::Reserved<21, 11>> {
-    using DEV_PULLDOWN = typename ANACTRL_CLR_fields_::DEV_PULLDOWN;
+    using DEV_PULLDOWN = typename AnactrlClrFields::DEV_PULLDOWN;
   };
 
   // USB PHY Analog Control Register
-  struct ANACTRL_TOG_fields_ {
+  struct AnactrlTogFields {
     // DEV_PULLDOWN
     using DEV_PULLDOWN = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct ANACTRL_TOG_fields_
+  };  // struct AnactrlTogFields
 
   struct ANACTRL_TOG : ftl::mmio::Register<
       kBase + 0x10Cu,
@@ -2446,13 +2446,13 @@ struct Usbphy {
       0x00000402u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<10, 0>,
-      typename ANACTRL_TOG_fields_::DEV_PULLDOWN,
+      typename AnactrlTogFields::DEV_PULLDOWN,
       ftl::mmio::Reserved<21, 11>> {
-    using DEV_PULLDOWN = typename ANACTRL_TOG_fields_::DEV_PULLDOWN;
+    using DEV_PULLDOWN = typename AnactrlTogFields::DEV_PULLDOWN;
   };
 
   // USB PHY Loopback Control/Status Register
-  struct USB1_LOOPBACK_fields_ {
+  struct Usb1LoopbackFields {
     // UTMI_TESTSTART
     using UTMI_TESTSTART = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // UTMI_DIG_TST0
@@ -2475,41 +2475,41 @@ struct Usbphy {
     using TSTI_HSFS_MODE_EN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TSTPKT
     using TSTPKT = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct USB1_LOOPBACK_fields_
+  };  // struct Usb1LoopbackFields
 
   struct USB1_LOOPBACK : ftl::mmio::Register<
       kBase + 0x110u,
       std::uint32_t,
       0x00550000u,
       ftl::mmio::RW,
-      typename USB1_LOOPBACK_fields_::UTMI_TESTSTART,
-      typename USB1_LOOPBACK_fields_::UTMI_DIG_TST0,
-      typename USB1_LOOPBACK_fields_::UTMI_DIG_TST1,
-      typename USB1_LOOPBACK_fields_::TSTI_TX_HS_MODE,
-      typename USB1_LOOPBACK_fields_::TSTI_TX_LS_MODE,
-      typename USB1_LOOPBACK_fields_::TSTI_TX_EN,
-      typename USB1_LOOPBACK_fields_::TSTI_TX_HIZ,
-      typename USB1_LOOPBACK_fields_::UTMO_DIG_TST0,
-      typename USB1_LOOPBACK_fields_::UTMO_DIG_TST1,
+      typename Usb1LoopbackFields::UTMI_TESTSTART,
+      typename Usb1LoopbackFields::UTMI_DIG_TST0,
+      typename Usb1LoopbackFields::UTMI_DIG_TST1,
+      typename Usb1LoopbackFields::TSTI_TX_HS_MODE,
+      typename Usb1LoopbackFields::TSTI_TX_LS_MODE,
+      typename Usb1LoopbackFields::TSTI_TX_EN,
+      typename Usb1LoopbackFields::TSTI_TX_HIZ,
+      typename Usb1LoopbackFields::UTMO_DIG_TST0,
+      typename Usb1LoopbackFields::UTMO_DIG_TST1,
       ftl::mmio::Reserved<6, 9>,
-      typename USB1_LOOPBACK_fields_::TSTI_HSFS_MODE_EN,
-      typename USB1_LOOPBACK_fields_::TSTPKT,
+      typename Usb1LoopbackFields::TSTI_HSFS_MODE_EN,
+      typename Usb1LoopbackFields::TSTPKT,
       ftl::mmio::Reserved<8, 24>> {
-    using UTMI_TESTSTART = typename USB1_LOOPBACK_fields_::UTMI_TESTSTART;
-    using UTMI_DIG_TST0 = typename USB1_LOOPBACK_fields_::UTMI_DIG_TST0;
-    using UTMI_DIG_TST1 = typename USB1_LOOPBACK_fields_::UTMI_DIG_TST1;
-    using TSTI_TX_HS_MODE = typename USB1_LOOPBACK_fields_::TSTI_TX_HS_MODE;
-    using TSTI_TX_LS_MODE = typename USB1_LOOPBACK_fields_::TSTI_TX_LS_MODE;
-    using TSTI_TX_EN = typename USB1_LOOPBACK_fields_::TSTI_TX_EN;
-    using TSTI_TX_HIZ = typename USB1_LOOPBACK_fields_::TSTI_TX_HIZ;
-    using UTMO_DIG_TST0 = typename USB1_LOOPBACK_fields_::UTMO_DIG_TST0;
-    using UTMO_DIG_TST1 = typename USB1_LOOPBACK_fields_::UTMO_DIG_TST1;
-    using TSTI_HSFS_MODE_EN = typename USB1_LOOPBACK_fields_::TSTI_HSFS_MODE_EN;
-    using TSTPKT = typename USB1_LOOPBACK_fields_::TSTPKT;
+    using UTMI_TESTSTART = typename Usb1LoopbackFields::UTMI_TESTSTART;
+    using UTMI_DIG_TST0 = typename Usb1LoopbackFields::UTMI_DIG_TST0;
+    using UTMI_DIG_TST1 = typename Usb1LoopbackFields::UTMI_DIG_TST1;
+    using TSTI_TX_HS_MODE = typename Usb1LoopbackFields::TSTI_TX_HS_MODE;
+    using TSTI_TX_LS_MODE = typename Usb1LoopbackFields::TSTI_TX_LS_MODE;
+    using TSTI_TX_EN = typename Usb1LoopbackFields::TSTI_TX_EN;
+    using TSTI_TX_HIZ = typename Usb1LoopbackFields::TSTI_TX_HIZ;
+    using UTMO_DIG_TST0 = typename Usb1LoopbackFields::UTMO_DIG_TST0;
+    using UTMO_DIG_TST1 = typename Usb1LoopbackFields::UTMO_DIG_TST1;
+    using TSTI_HSFS_MODE_EN = typename Usb1LoopbackFields::TSTI_HSFS_MODE_EN;
+    using TSTPKT = typename Usb1LoopbackFields::TSTPKT;
   };
 
   // USB PHY Loopback Control/Status Register
-  struct USB1_LOOPBACK_SET_fields_ {
+  struct Usb1LoopbackSetFields {
     // UTMI_TESTSTART
     using UTMI_TESTSTART = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // UTMI_DIG_TST0
@@ -2532,41 +2532,41 @@ struct Usbphy {
     using TSTI_HSFS_MODE_EN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // TSTPKT
     using TSTPKT = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct USB1_LOOPBACK_SET_fields_
+  };  // struct Usb1LoopbackSetFields
 
   struct USB1_LOOPBACK_SET : ftl::mmio::Register<
       kBase + 0x114u,
       std::uint32_t,
       0x00550000u,
       ftl::mmio::RW,
-      typename USB1_LOOPBACK_SET_fields_::UTMI_TESTSTART,
-      typename USB1_LOOPBACK_SET_fields_::UTMI_DIG_TST0,
-      typename USB1_LOOPBACK_SET_fields_::UTMI_DIG_TST1,
-      typename USB1_LOOPBACK_SET_fields_::TSTI_TX_HS_MODE,
-      typename USB1_LOOPBACK_SET_fields_::TSTI_TX_LS_MODE,
-      typename USB1_LOOPBACK_SET_fields_::TSTI_TX_EN,
-      typename USB1_LOOPBACK_SET_fields_::TSTI_TX_HIZ,
-      typename USB1_LOOPBACK_SET_fields_::UTMO_DIG_TST0,
-      typename USB1_LOOPBACK_SET_fields_::UTMO_DIG_TST1,
+      typename Usb1LoopbackSetFields::UTMI_TESTSTART,
+      typename Usb1LoopbackSetFields::UTMI_DIG_TST0,
+      typename Usb1LoopbackSetFields::UTMI_DIG_TST1,
+      typename Usb1LoopbackSetFields::TSTI_TX_HS_MODE,
+      typename Usb1LoopbackSetFields::TSTI_TX_LS_MODE,
+      typename Usb1LoopbackSetFields::TSTI_TX_EN,
+      typename Usb1LoopbackSetFields::TSTI_TX_HIZ,
+      typename Usb1LoopbackSetFields::UTMO_DIG_TST0,
+      typename Usb1LoopbackSetFields::UTMO_DIG_TST1,
       ftl::mmio::Reserved<6, 9>,
-      typename USB1_LOOPBACK_SET_fields_::TSTI_HSFS_MODE_EN,
-      typename USB1_LOOPBACK_SET_fields_::TSTPKT,
+      typename Usb1LoopbackSetFields::TSTI_HSFS_MODE_EN,
+      typename Usb1LoopbackSetFields::TSTPKT,
       ftl::mmio::Reserved<8, 24>> {
-    using UTMI_TESTSTART = typename USB1_LOOPBACK_SET_fields_::UTMI_TESTSTART;
-    using UTMI_DIG_TST0 = typename USB1_LOOPBACK_SET_fields_::UTMI_DIG_TST0;
-    using UTMI_DIG_TST1 = typename USB1_LOOPBACK_SET_fields_::UTMI_DIG_TST1;
-    using TSTI_TX_HS_MODE = typename USB1_LOOPBACK_SET_fields_::TSTI_TX_HS_MODE;
-    using TSTI_TX_LS_MODE = typename USB1_LOOPBACK_SET_fields_::TSTI_TX_LS_MODE;
-    using TSTI_TX_EN = typename USB1_LOOPBACK_SET_fields_::TSTI_TX_EN;
-    using TSTI_TX_HIZ = typename USB1_LOOPBACK_SET_fields_::TSTI_TX_HIZ;
-    using UTMO_DIG_TST0 = typename USB1_LOOPBACK_SET_fields_::UTMO_DIG_TST0;
-    using UTMO_DIG_TST1 = typename USB1_LOOPBACK_SET_fields_::UTMO_DIG_TST1;
-    using TSTI_HSFS_MODE_EN = typename USB1_LOOPBACK_SET_fields_::TSTI_HSFS_MODE_EN;
-    using TSTPKT = typename USB1_LOOPBACK_SET_fields_::TSTPKT;
+    using UTMI_TESTSTART = typename Usb1LoopbackSetFields::UTMI_TESTSTART;
+    using UTMI_DIG_TST0 = typename Usb1LoopbackSetFields::UTMI_DIG_TST0;
+    using UTMI_DIG_TST1 = typename Usb1LoopbackSetFields::UTMI_DIG_TST1;
+    using TSTI_TX_HS_MODE = typename Usb1LoopbackSetFields::TSTI_TX_HS_MODE;
+    using TSTI_TX_LS_MODE = typename Usb1LoopbackSetFields::TSTI_TX_LS_MODE;
+    using TSTI_TX_EN = typename Usb1LoopbackSetFields::TSTI_TX_EN;
+    using TSTI_TX_HIZ = typename Usb1LoopbackSetFields::TSTI_TX_HIZ;
+    using UTMO_DIG_TST0 = typename Usb1LoopbackSetFields::UTMO_DIG_TST0;
+    using UTMO_DIG_TST1 = typename Usb1LoopbackSetFields::UTMO_DIG_TST1;
+    using TSTI_HSFS_MODE_EN = typename Usb1LoopbackSetFields::TSTI_HSFS_MODE_EN;
+    using TSTPKT = typename Usb1LoopbackSetFields::TSTPKT;
   };
 
   // USB PHY Loopback Control/Status Register
-  struct USB1_LOOPBACK_CLR_fields_ {
+  struct Usb1LoopbackClrFields {
     // UTMI_TESTSTART
     using UTMI_TESTSTART = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // UTMI_DIG_TST0
@@ -2589,41 +2589,41 @@ struct Usbphy {
     using TSTI_HSFS_MODE_EN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // TSTPKT
     using TSTPKT = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct USB1_LOOPBACK_CLR_fields_
+  };  // struct Usb1LoopbackClrFields
 
   struct USB1_LOOPBACK_CLR : ftl::mmio::Register<
       kBase + 0x118u,
       std::uint32_t,
       0x00550000u,
       ftl::mmio::RW,
-      typename USB1_LOOPBACK_CLR_fields_::UTMI_TESTSTART,
-      typename USB1_LOOPBACK_CLR_fields_::UTMI_DIG_TST0,
-      typename USB1_LOOPBACK_CLR_fields_::UTMI_DIG_TST1,
-      typename USB1_LOOPBACK_CLR_fields_::TSTI_TX_HS_MODE,
-      typename USB1_LOOPBACK_CLR_fields_::TSTI_TX_LS_MODE,
-      typename USB1_LOOPBACK_CLR_fields_::TSTI_TX_EN,
-      typename USB1_LOOPBACK_CLR_fields_::TSTI_TX_HIZ,
-      typename USB1_LOOPBACK_CLR_fields_::UTMO_DIG_TST0,
-      typename USB1_LOOPBACK_CLR_fields_::UTMO_DIG_TST1,
+      typename Usb1LoopbackClrFields::UTMI_TESTSTART,
+      typename Usb1LoopbackClrFields::UTMI_DIG_TST0,
+      typename Usb1LoopbackClrFields::UTMI_DIG_TST1,
+      typename Usb1LoopbackClrFields::TSTI_TX_HS_MODE,
+      typename Usb1LoopbackClrFields::TSTI_TX_LS_MODE,
+      typename Usb1LoopbackClrFields::TSTI_TX_EN,
+      typename Usb1LoopbackClrFields::TSTI_TX_HIZ,
+      typename Usb1LoopbackClrFields::UTMO_DIG_TST0,
+      typename Usb1LoopbackClrFields::UTMO_DIG_TST1,
       ftl::mmio::Reserved<6, 9>,
-      typename USB1_LOOPBACK_CLR_fields_::TSTI_HSFS_MODE_EN,
-      typename USB1_LOOPBACK_CLR_fields_::TSTPKT,
+      typename Usb1LoopbackClrFields::TSTI_HSFS_MODE_EN,
+      typename Usb1LoopbackClrFields::TSTPKT,
       ftl::mmio::Reserved<8, 24>> {
-    using UTMI_TESTSTART = typename USB1_LOOPBACK_CLR_fields_::UTMI_TESTSTART;
-    using UTMI_DIG_TST0 = typename USB1_LOOPBACK_CLR_fields_::UTMI_DIG_TST0;
-    using UTMI_DIG_TST1 = typename USB1_LOOPBACK_CLR_fields_::UTMI_DIG_TST1;
-    using TSTI_TX_HS_MODE = typename USB1_LOOPBACK_CLR_fields_::TSTI_TX_HS_MODE;
-    using TSTI_TX_LS_MODE = typename USB1_LOOPBACK_CLR_fields_::TSTI_TX_LS_MODE;
-    using TSTI_TX_EN = typename USB1_LOOPBACK_CLR_fields_::TSTI_TX_EN;
-    using TSTI_TX_HIZ = typename USB1_LOOPBACK_CLR_fields_::TSTI_TX_HIZ;
-    using UTMO_DIG_TST0 = typename USB1_LOOPBACK_CLR_fields_::UTMO_DIG_TST0;
-    using UTMO_DIG_TST1 = typename USB1_LOOPBACK_CLR_fields_::UTMO_DIG_TST1;
-    using TSTI_HSFS_MODE_EN = typename USB1_LOOPBACK_CLR_fields_::TSTI_HSFS_MODE_EN;
-    using TSTPKT = typename USB1_LOOPBACK_CLR_fields_::TSTPKT;
+    using UTMI_TESTSTART = typename Usb1LoopbackClrFields::UTMI_TESTSTART;
+    using UTMI_DIG_TST0 = typename Usb1LoopbackClrFields::UTMI_DIG_TST0;
+    using UTMI_DIG_TST1 = typename Usb1LoopbackClrFields::UTMI_DIG_TST1;
+    using TSTI_TX_HS_MODE = typename Usb1LoopbackClrFields::TSTI_TX_HS_MODE;
+    using TSTI_TX_LS_MODE = typename Usb1LoopbackClrFields::TSTI_TX_LS_MODE;
+    using TSTI_TX_EN = typename Usb1LoopbackClrFields::TSTI_TX_EN;
+    using TSTI_TX_HIZ = typename Usb1LoopbackClrFields::TSTI_TX_HIZ;
+    using UTMO_DIG_TST0 = typename Usb1LoopbackClrFields::UTMO_DIG_TST0;
+    using UTMO_DIG_TST1 = typename Usb1LoopbackClrFields::UTMO_DIG_TST1;
+    using TSTI_HSFS_MODE_EN = typename Usb1LoopbackClrFields::TSTI_HSFS_MODE_EN;
+    using TSTPKT = typename Usb1LoopbackClrFields::TSTPKT;
   };
 
   // USB PHY Loopback Control/Status Register
-  struct USB1_LOOPBACK_TOG_fields_ {
+  struct Usb1LoopbackTogFields {
     // UTMI_TESTSTART
     using UTMI_TESTSTART = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // UTMI_DIG_TST0
@@ -2646,117 +2646,117 @@ struct Usbphy {
     using TSTI_HSFS_MODE_EN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // TSTPKT
     using TSTPKT = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct USB1_LOOPBACK_TOG_fields_
+  };  // struct Usb1LoopbackTogFields
 
   struct USB1_LOOPBACK_TOG : ftl::mmio::Register<
       kBase + 0x11Cu,
       std::uint32_t,
       0x00550000u,
       ftl::mmio::RW,
-      typename USB1_LOOPBACK_TOG_fields_::UTMI_TESTSTART,
-      typename USB1_LOOPBACK_TOG_fields_::UTMI_DIG_TST0,
-      typename USB1_LOOPBACK_TOG_fields_::UTMI_DIG_TST1,
-      typename USB1_LOOPBACK_TOG_fields_::TSTI_TX_HS_MODE,
-      typename USB1_LOOPBACK_TOG_fields_::TSTI_TX_LS_MODE,
-      typename USB1_LOOPBACK_TOG_fields_::TSTI_TX_EN,
-      typename USB1_LOOPBACK_TOG_fields_::TSTI_TX_HIZ,
-      typename USB1_LOOPBACK_TOG_fields_::UTMO_DIG_TST0,
-      typename USB1_LOOPBACK_TOG_fields_::UTMO_DIG_TST1,
+      typename Usb1LoopbackTogFields::UTMI_TESTSTART,
+      typename Usb1LoopbackTogFields::UTMI_DIG_TST0,
+      typename Usb1LoopbackTogFields::UTMI_DIG_TST1,
+      typename Usb1LoopbackTogFields::TSTI_TX_HS_MODE,
+      typename Usb1LoopbackTogFields::TSTI_TX_LS_MODE,
+      typename Usb1LoopbackTogFields::TSTI_TX_EN,
+      typename Usb1LoopbackTogFields::TSTI_TX_HIZ,
+      typename Usb1LoopbackTogFields::UTMO_DIG_TST0,
+      typename Usb1LoopbackTogFields::UTMO_DIG_TST1,
       ftl::mmio::Reserved<6, 9>,
-      typename USB1_LOOPBACK_TOG_fields_::TSTI_HSFS_MODE_EN,
-      typename USB1_LOOPBACK_TOG_fields_::TSTPKT,
+      typename Usb1LoopbackTogFields::TSTI_HSFS_MODE_EN,
+      typename Usb1LoopbackTogFields::TSTPKT,
       ftl::mmio::Reserved<8, 24>> {
-    using UTMI_TESTSTART = typename USB1_LOOPBACK_TOG_fields_::UTMI_TESTSTART;
-    using UTMI_DIG_TST0 = typename USB1_LOOPBACK_TOG_fields_::UTMI_DIG_TST0;
-    using UTMI_DIG_TST1 = typename USB1_LOOPBACK_TOG_fields_::UTMI_DIG_TST1;
-    using TSTI_TX_HS_MODE = typename USB1_LOOPBACK_TOG_fields_::TSTI_TX_HS_MODE;
-    using TSTI_TX_LS_MODE = typename USB1_LOOPBACK_TOG_fields_::TSTI_TX_LS_MODE;
-    using TSTI_TX_EN = typename USB1_LOOPBACK_TOG_fields_::TSTI_TX_EN;
-    using TSTI_TX_HIZ = typename USB1_LOOPBACK_TOG_fields_::TSTI_TX_HIZ;
-    using UTMO_DIG_TST0 = typename USB1_LOOPBACK_TOG_fields_::UTMO_DIG_TST0;
-    using UTMO_DIG_TST1 = typename USB1_LOOPBACK_TOG_fields_::UTMO_DIG_TST1;
-    using TSTI_HSFS_MODE_EN = typename USB1_LOOPBACK_TOG_fields_::TSTI_HSFS_MODE_EN;
-    using TSTPKT = typename USB1_LOOPBACK_TOG_fields_::TSTPKT;
+    using UTMI_TESTSTART = typename Usb1LoopbackTogFields::UTMI_TESTSTART;
+    using UTMI_DIG_TST0 = typename Usb1LoopbackTogFields::UTMI_DIG_TST0;
+    using UTMI_DIG_TST1 = typename Usb1LoopbackTogFields::UTMI_DIG_TST1;
+    using TSTI_TX_HS_MODE = typename Usb1LoopbackTogFields::TSTI_TX_HS_MODE;
+    using TSTI_TX_LS_MODE = typename Usb1LoopbackTogFields::TSTI_TX_LS_MODE;
+    using TSTI_TX_EN = typename Usb1LoopbackTogFields::TSTI_TX_EN;
+    using TSTI_TX_HIZ = typename Usb1LoopbackTogFields::TSTI_TX_HIZ;
+    using UTMO_DIG_TST0 = typename Usb1LoopbackTogFields::UTMO_DIG_TST0;
+    using UTMO_DIG_TST1 = typename Usb1LoopbackTogFields::UTMO_DIG_TST1;
+    using TSTI_HSFS_MODE_EN = typename Usb1LoopbackTogFields::TSTI_HSFS_MODE_EN;
+    using TSTPKT = typename Usb1LoopbackTogFields::TSTPKT;
   };
 
   // USB PHY Loopback Packet Number Select Register
-  struct USB1_LOOPBACK_HSFSCNT_fields_ {
+  struct Usb1LoopbackHsfscntFields {
     // TSTI_HS_NUMBER
     using TSTI_HS_NUMBER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // TSTI_FS_NUMBER
     using TSTI_FS_NUMBER = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct USB1_LOOPBACK_HSFSCNT_fields_
+  };  // struct Usb1LoopbackHsfscntFields
 
   struct USB1_LOOPBACK_HSFSCNT : ftl::mmio::Register<
       kBase + 0x120u,
       std::uint32_t,
       0x00040010u,
       ftl::mmio::RW,
-      typename USB1_LOOPBACK_HSFSCNT_fields_::TSTI_HS_NUMBER,
-      typename USB1_LOOPBACK_HSFSCNT_fields_::TSTI_FS_NUMBER> {
-    using TSTI_HS_NUMBER = typename USB1_LOOPBACK_HSFSCNT_fields_::TSTI_HS_NUMBER;
-    using TSTI_FS_NUMBER = typename USB1_LOOPBACK_HSFSCNT_fields_::TSTI_FS_NUMBER;
+      typename Usb1LoopbackHsfscntFields::TSTI_HS_NUMBER,
+      typename Usb1LoopbackHsfscntFields::TSTI_FS_NUMBER> {
+    using TSTI_HS_NUMBER = typename Usb1LoopbackHsfscntFields::TSTI_HS_NUMBER;
+    using TSTI_FS_NUMBER = typename Usb1LoopbackHsfscntFields::TSTI_FS_NUMBER;
   };
 
   // USB PHY Loopback Packet Number Select Register
-  struct USB1_LOOPBACK_HSFSCNT_SET_fields_ {
+  struct Usb1LoopbackHsfscntSetFields {
     // TSTI_HS_NUMBER
     using TSTI_HS_NUMBER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // TSTI_FS_NUMBER
     using TSTI_FS_NUMBER = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct USB1_LOOPBACK_HSFSCNT_SET_fields_
+  };  // struct Usb1LoopbackHsfscntSetFields
 
   struct USB1_LOOPBACK_HSFSCNT_SET : ftl::mmio::Register<
       kBase + 0x124u,
       std::uint32_t,
       0x00040010u,
       ftl::mmio::RW,
-      typename USB1_LOOPBACK_HSFSCNT_SET_fields_::TSTI_HS_NUMBER,
-      typename USB1_LOOPBACK_HSFSCNT_SET_fields_::TSTI_FS_NUMBER> {
-    using TSTI_HS_NUMBER = typename USB1_LOOPBACK_HSFSCNT_SET_fields_::TSTI_HS_NUMBER;
-    using TSTI_FS_NUMBER = typename USB1_LOOPBACK_HSFSCNT_SET_fields_::TSTI_FS_NUMBER;
+      typename Usb1LoopbackHsfscntSetFields::TSTI_HS_NUMBER,
+      typename Usb1LoopbackHsfscntSetFields::TSTI_FS_NUMBER> {
+    using TSTI_HS_NUMBER = typename Usb1LoopbackHsfscntSetFields::TSTI_HS_NUMBER;
+    using TSTI_FS_NUMBER = typename Usb1LoopbackHsfscntSetFields::TSTI_FS_NUMBER;
   };
 
   // USB PHY Loopback Packet Number Select Register
-  struct USB1_LOOPBACK_HSFSCNT_CLR_fields_ {
+  struct Usb1LoopbackHsfscntClrFields {
     // TSTI_HS_NUMBER
     using TSTI_HS_NUMBER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // TSTI_FS_NUMBER
     using TSTI_FS_NUMBER = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct USB1_LOOPBACK_HSFSCNT_CLR_fields_
+  };  // struct Usb1LoopbackHsfscntClrFields
 
   struct USB1_LOOPBACK_HSFSCNT_CLR : ftl::mmio::Register<
       kBase + 0x128u,
       std::uint32_t,
       0x00040010u,
       ftl::mmio::RW,
-      typename USB1_LOOPBACK_HSFSCNT_CLR_fields_::TSTI_HS_NUMBER,
-      typename USB1_LOOPBACK_HSFSCNT_CLR_fields_::TSTI_FS_NUMBER> {
-    using TSTI_HS_NUMBER = typename USB1_LOOPBACK_HSFSCNT_CLR_fields_::TSTI_HS_NUMBER;
-    using TSTI_FS_NUMBER = typename USB1_LOOPBACK_HSFSCNT_CLR_fields_::TSTI_FS_NUMBER;
+      typename Usb1LoopbackHsfscntClrFields::TSTI_HS_NUMBER,
+      typename Usb1LoopbackHsfscntClrFields::TSTI_FS_NUMBER> {
+    using TSTI_HS_NUMBER = typename Usb1LoopbackHsfscntClrFields::TSTI_HS_NUMBER;
+    using TSTI_FS_NUMBER = typename Usb1LoopbackHsfscntClrFields::TSTI_FS_NUMBER;
   };
 
   // USB PHY Loopback Packet Number Select Register
-  struct USB1_LOOPBACK_HSFSCNT_TOG_fields_ {
+  struct Usb1LoopbackHsfscntTogFields {
     // TSTI_HS_NUMBER
     using TSTI_HS_NUMBER = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // TSTI_FS_NUMBER
     using TSTI_FS_NUMBER = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct USB1_LOOPBACK_HSFSCNT_TOG_fields_
+  };  // struct Usb1LoopbackHsfscntTogFields
 
   struct USB1_LOOPBACK_HSFSCNT_TOG : ftl::mmio::Register<
       kBase + 0x12Cu,
       std::uint32_t,
       0x00040010u,
       ftl::mmio::RW,
-      typename USB1_LOOPBACK_HSFSCNT_TOG_fields_::TSTI_HS_NUMBER,
-      typename USB1_LOOPBACK_HSFSCNT_TOG_fields_::TSTI_FS_NUMBER> {
-    using TSTI_HS_NUMBER = typename USB1_LOOPBACK_HSFSCNT_TOG_fields_::TSTI_HS_NUMBER;
-    using TSTI_FS_NUMBER = typename USB1_LOOPBACK_HSFSCNT_TOG_fields_::TSTI_FS_NUMBER;
+      typename Usb1LoopbackHsfscntTogFields::TSTI_HS_NUMBER,
+      typename Usb1LoopbackHsfscntTogFields::TSTI_FS_NUMBER> {
+    using TSTI_HS_NUMBER = typename Usb1LoopbackHsfscntTogFields::TSTI_HS_NUMBER;
+    using TSTI_FS_NUMBER = typename Usb1LoopbackHsfscntTogFields::TSTI_FS_NUMBER;
   };
 
   // USB PHY Trim Override Enable Register
-  struct TRIM_OVERRIDE_EN_fields_ {
+  struct TrimOverrideEnFields {
     // TRIM_DIV_SEL_OVERRIDE
     using TRIM_DIV_SEL_OVERRIDE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TRIM_ENV_TAIL_ADJ_VD_OVERRIDE
@@ -2785,46 +2785,46 @@ struct Usbphy {
     using TRIM_USBPHY_TX_CAL45DP = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // TRIM_USBPHY_TX_CAL45DN
     using TRIM_USBPHY_TX_CAL45DN = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct TRIM_OVERRIDE_EN_fields_
+  };  // struct TrimOverrideEnFields
 
   struct TRIM_OVERRIDE_EN : ftl::mmio::Register<
       kBase + 0x130u,
       std::uint32_t,
       0x0000007Fu,
       ftl::mmio::RW,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_DIV_SEL_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_TX_D_CAL_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_TX_CAL45DP_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_TX_CAL45DN_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_REFBIAS_VBGADJ_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_REFBIAS_TST_OVERRIDE,
+      typename TrimOverrideEnFields::TRIM_DIV_SEL_OVERRIDE,
+      typename TrimOverrideEnFields::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE,
+      typename TrimOverrideEnFields::TRIM_TX_D_CAL_OVERRIDE,
+      typename TrimOverrideEnFields::TRIM_TX_CAL45DP_OVERRIDE,
+      typename TrimOverrideEnFields::TRIM_TX_CAL45DN_OVERRIDE,
+      typename TrimOverrideEnFields::TRIM_REFBIAS_VBGADJ_OVERRIDE,
+      typename TrimOverrideEnFields::TRIM_REFBIAS_TST_OVERRIDE,
       ftl::mmio::Reserved<3, 7>,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_USB2_REFBIAS_VBGADJ,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_USB2_REFBIAS_TST,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_PLL_CTRL0_DIV_SEL,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_USB_REG_ENV_TAIL_ADJ_VD,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_USBPHY_TX_D_CAL,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_USBPHY_TX_CAL45DP,
-      typename TRIM_OVERRIDE_EN_fields_::TRIM_USBPHY_TX_CAL45DN> {
-    using TRIM_DIV_SEL_OVERRIDE = typename TRIM_OVERRIDE_EN_fields_::TRIM_DIV_SEL_OVERRIDE;
-    using TRIM_ENV_TAIL_ADJ_VD_OVERRIDE = typename TRIM_OVERRIDE_EN_fields_::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE;
-    using TRIM_TX_D_CAL_OVERRIDE = typename TRIM_OVERRIDE_EN_fields_::TRIM_TX_D_CAL_OVERRIDE;
-    using TRIM_TX_CAL45DP_OVERRIDE = typename TRIM_OVERRIDE_EN_fields_::TRIM_TX_CAL45DP_OVERRIDE;
-    using TRIM_TX_CAL45DN_OVERRIDE = typename TRIM_OVERRIDE_EN_fields_::TRIM_TX_CAL45DN_OVERRIDE;
-    using TRIM_REFBIAS_VBGADJ_OVERRIDE = typename TRIM_OVERRIDE_EN_fields_::TRIM_REFBIAS_VBGADJ_OVERRIDE;
-    using TRIM_REFBIAS_TST_OVERRIDE = typename TRIM_OVERRIDE_EN_fields_::TRIM_REFBIAS_TST_OVERRIDE;
-    using TRIM_USB2_REFBIAS_VBGADJ = typename TRIM_OVERRIDE_EN_fields_::TRIM_USB2_REFBIAS_VBGADJ;
-    using TRIM_USB2_REFBIAS_TST = typename TRIM_OVERRIDE_EN_fields_::TRIM_USB2_REFBIAS_TST;
-    using TRIM_PLL_CTRL0_DIV_SEL = typename TRIM_OVERRIDE_EN_fields_::TRIM_PLL_CTRL0_DIV_SEL;
-    using TRIM_USB_REG_ENV_TAIL_ADJ_VD = typename TRIM_OVERRIDE_EN_fields_::TRIM_USB_REG_ENV_TAIL_ADJ_VD;
-    using TRIM_USBPHY_TX_D_CAL = typename TRIM_OVERRIDE_EN_fields_::TRIM_USBPHY_TX_D_CAL;
-    using TRIM_USBPHY_TX_CAL45DP = typename TRIM_OVERRIDE_EN_fields_::TRIM_USBPHY_TX_CAL45DP;
-    using TRIM_USBPHY_TX_CAL45DN = typename TRIM_OVERRIDE_EN_fields_::TRIM_USBPHY_TX_CAL45DN;
+      typename TrimOverrideEnFields::TRIM_USB2_REFBIAS_VBGADJ,
+      typename TrimOverrideEnFields::TRIM_USB2_REFBIAS_TST,
+      typename TrimOverrideEnFields::TRIM_PLL_CTRL0_DIV_SEL,
+      typename TrimOverrideEnFields::TRIM_USB_REG_ENV_TAIL_ADJ_VD,
+      typename TrimOverrideEnFields::TRIM_USBPHY_TX_D_CAL,
+      typename TrimOverrideEnFields::TRIM_USBPHY_TX_CAL45DP,
+      typename TrimOverrideEnFields::TRIM_USBPHY_TX_CAL45DN> {
+    using TRIM_DIV_SEL_OVERRIDE = typename TrimOverrideEnFields::TRIM_DIV_SEL_OVERRIDE;
+    using TRIM_ENV_TAIL_ADJ_VD_OVERRIDE = typename TrimOverrideEnFields::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE;
+    using TRIM_TX_D_CAL_OVERRIDE = typename TrimOverrideEnFields::TRIM_TX_D_CAL_OVERRIDE;
+    using TRIM_TX_CAL45DP_OVERRIDE = typename TrimOverrideEnFields::TRIM_TX_CAL45DP_OVERRIDE;
+    using TRIM_TX_CAL45DN_OVERRIDE = typename TrimOverrideEnFields::TRIM_TX_CAL45DN_OVERRIDE;
+    using TRIM_REFBIAS_VBGADJ_OVERRIDE = typename TrimOverrideEnFields::TRIM_REFBIAS_VBGADJ_OVERRIDE;
+    using TRIM_REFBIAS_TST_OVERRIDE = typename TrimOverrideEnFields::TRIM_REFBIAS_TST_OVERRIDE;
+    using TRIM_USB2_REFBIAS_VBGADJ = typename TrimOverrideEnFields::TRIM_USB2_REFBIAS_VBGADJ;
+    using TRIM_USB2_REFBIAS_TST = typename TrimOverrideEnFields::TRIM_USB2_REFBIAS_TST;
+    using TRIM_PLL_CTRL0_DIV_SEL = typename TrimOverrideEnFields::TRIM_PLL_CTRL0_DIV_SEL;
+    using TRIM_USB_REG_ENV_TAIL_ADJ_VD = typename TrimOverrideEnFields::TRIM_USB_REG_ENV_TAIL_ADJ_VD;
+    using TRIM_USBPHY_TX_D_CAL = typename TrimOverrideEnFields::TRIM_USBPHY_TX_D_CAL;
+    using TRIM_USBPHY_TX_CAL45DP = typename TrimOverrideEnFields::TRIM_USBPHY_TX_CAL45DP;
+    using TRIM_USBPHY_TX_CAL45DN = typename TrimOverrideEnFields::TRIM_USBPHY_TX_CAL45DN;
   };
 
   // USB PHY Trim Override Enable Register
-  struct TRIM_OVERRIDE_EN_SET_fields_ {
+  struct TrimOverrideEnSetFields {
     // TRIM_DIV_SEL_OVERRIDE
     using TRIM_DIV_SEL_OVERRIDE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // TRIM_ENV_TAIL_ADJ_VD_OVERRIDE
@@ -2853,46 +2853,46 @@ struct Usbphy {
     using TRIM_USBPHY_TX_CAL45DP = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToSet>;
     // TRIM_USBPHY_TX_CAL45DN
     using TRIM_USBPHY_TX_CAL45DN = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToSet>;
-  };  // struct TRIM_OVERRIDE_EN_SET_fields_
+  };  // struct TrimOverrideEnSetFields
 
   struct TRIM_OVERRIDE_EN_SET : ftl::mmio::Register<
       kBase + 0x134u,
       std::uint32_t,
       0x0000007Fu,
       ftl::mmio::RW,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_DIV_SEL_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_TX_D_CAL_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_TX_CAL45DP_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_TX_CAL45DN_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_REFBIAS_VBGADJ_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_REFBIAS_TST_OVERRIDE,
+      typename TrimOverrideEnSetFields::TRIM_DIV_SEL_OVERRIDE,
+      typename TrimOverrideEnSetFields::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE,
+      typename TrimOverrideEnSetFields::TRIM_TX_D_CAL_OVERRIDE,
+      typename TrimOverrideEnSetFields::TRIM_TX_CAL45DP_OVERRIDE,
+      typename TrimOverrideEnSetFields::TRIM_TX_CAL45DN_OVERRIDE,
+      typename TrimOverrideEnSetFields::TRIM_REFBIAS_VBGADJ_OVERRIDE,
+      typename TrimOverrideEnSetFields::TRIM_REFBIAS_TST_OVERRIDE,
       ftl::mmio::Reserved<3, 7>,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USB2_REFBIAS_VBGADJ,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USB2_REFBIAS_TST,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_PLL_CTRL0_DIV_SEL,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USB_REG_ENV_TAIL_ADJ_VD,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USBPHY_TX_D_CAL,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USBPHY_TX_CAL45DP,
-      typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USBPHY_TX_CAL45DN> {
-    using TRIM_DIV_SEL_OVERRIDE = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_DIV_SEL_OVERRIDE;
-    using TRIM_ENV_TAIL_ADJ_VD_OVERRIDE = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE;
-    using TRIM_TX_D_CAL_OVERRIDE = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_TX_D_CAL_OVERRIDE;
-    using TRIM_TX_CAL45DP_OVERRIDE = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_TX_CAL45DP_OVERRIDE;
-    using TRIM_TX_CAL45DN_OVERRIDE = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_TX_CAL45DN_OVERRIDE;
-    using TRIM_REFBIAS_VBGADJ_OVERRIDE = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_REFBIAS_VBGADJ_OVERRIDE;
-    using TRIM_REFBIAS_TST_OVERRIDE = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_REFBIAS_TST_OVERRIDE;
-    using TRIM_USB2_REFBIAS_VBGADJ = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USB2_REFBIAS_VBGADJ;
-    using TRIM_USB2_REFBIAS_TST = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USB2_REFBIAS_TST;
-    using TRIM_PLL_CTRL0_DIV_SEL = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_PLL_CTRL0_DIV_SEL;
-    using TRIM_USB_REG_ENV_TAIL_ADJ_VD = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USB_REG_ENV_TAIL_ADJ_VD;
-    using TRIM_USBPHY_TX_D_CAL = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USBPHY_TX_D_CAL;
-    using TRIM_USBPHY_TX_CAL45DP = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USBPHY_TX_CAL45DP;
-    using TRIM_USBPHY_TX_CAL45DN = typename TRIM_OVERRIDE_EN_SET_fields_::TRIM_USBPHY_TX_CAL45DN;
+      typename TrimOverrideEnSetFields::TRIM_USB2_REFBIAS_VBGADJ,
+      typename TrimOverrideEnSetFields::TRIM_USB2_REFBIAS_TST,
+      typename TrimOverrideEnSetFields::TRIM_PLL_CTRL0_DIV_SEL,
+      typename TrimOverrideEnSetFields::TRIM_USB_REG_ENV_TAIL_ADJ_VD,
+      typename TrimOverrideEnSetFields::TRIM_USBPHY_TX_D_CAL,
+      typename TrimOverrideEnSetFields::TRIM_USBPHY_TX_CAL45DP,
+      typename TrimOverrideEnSetFields::TRIM_USBPHY_TX_CAL45DN> {
+    using TRIM_DIV_SEL_OVERRIDE = typename TrimOverrideEnSetFields::TRIM_DIV_SEL_OVERRIDE;
+    using TRIM_ENV_TAIL_ADJ_VD_OVERRIDE = typename TrimOverrideEnSetFields::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE;
+    using TRIM_TX_D_CAL_OVERRIDE = typename TrimOverrideEnSetFields::TRIM_TX_D_CAL_OVERRIDE;
+    using TRIM_TX_CAL45DP_OVERRIDE = typename TrimOverrideEnSetFields::TRIM_TX_CAL45DP_OVERRIDE;
+    using TRIM_TX_CAL45DN_OVERRIDE = typename TrimOverrideEnSetFields::TRIM_TX_CAL45DN_OVERRIDE;
+    using TRIM_REFBIAS_VBGADJ_OVERRIDE = typename TrimOverrideEnSetFields::TRIM_REFBIAS_VBGADJ_OVERRIDE;
+    using TRIM_REFBIAS_TST_OVERRIDE = typename TrimOverrideEnSetFields::TRIM_REFBIAS_TST_OVERRIDE;
+    using TRIM_USB2_REFBIAS_VBGADJ = typename TrimOverrideEnSetFields::TRIM_USB2_REFBIAS_VBGADJ;
+    using TRIM_USB2_REFBIAS_TST = typename TrimOverrideEnSetFields::TRIM_USB2_REFBIAS_TST;
+    using TRIM_PLL_CTRL0_DIV_SEL = typename TrimOverrideEnSetFields::TRIM_PLL_CTRL0_DIV_SEL;
+    using TRIM_USB_REG_ENV_TAIL_ADJ_VD = typename TrimOverrideEnSetFields::TRIM_USB_REG_ENV_TAIL_ADJ_VD;
+    using TRIM_USBPHY_TX_D_CAL = typename TrimOverrideEnSetFields::TRIM_USBPHY_TX_D_CAL;
+    using TRIM_USBPHY_TX_CAL45DP = typename TrimOverrideEnSetFields::TRIM_USBPHY_TX_CAL45DP;
+    using TRIM_USBPHY_TX_CAL45DN = typename TrimOverrideEnSetFields::TRIM_USBPHY_TX_CAL45DN;
   };
 
   // USB PHY Trim Override Enable Register
-  struct TRIM_OVERRIDE_EN_CLR_fields_ {
+  struct TrimOverrideEnClrFields {
     // TRIM_DIV_SEL_OVERRIDE
     using TRIM_DIV_SEL_OVERRIDE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // TRIM_ENV_TAIL_ADJ_VD_OVERRIDE
@@ -2921,46 +2921,46 @@ struct Usbphy {
     using TRIM_USBPHY_TX_CAL45DP = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToClear>;
     // TRIM_USBPHY_TX_CAL45DN
     using TRIM_USBPHY_TX_CAL45DN = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToClear>;
-  };  // struct TRIM_OVERRIDE_EN_CLR_fields_
+  };  // struct TrimOverrideEnClrFields
 
   struct TRIM_OVERRIDE_EN_CLR : ftl::mmio::Register<
       kBase + 0x138u,
       std::uint32_t,
       0x0000007Fu,
       ftl::mmio::RW,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_DIV_SEL_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_TX_D_CAL_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_TX_CAL45DP_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_TX_CAL45DN_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_REFBIAS_VBGADJ_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_REFBIAS_TST_OVERRIDE,
+      typename TrimOverrideEnClrFields::TRIM_DIV_SEL_OVERRIDE,
+      typename TrimOverrideEnClrFields::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE,
+      typename TrimOverrideEnClrFields::TRIM_TX_D_CAL_OVERRIDE,
+      typename TrimOverrideEnClrFields::TRIM_TX_CAL45DP_OVERRIDE,
+      typename TrimOverrideEnClrFields::TRIM_TX_CAL45DN_OVERRIDE,
+      typename TrimOverrideEnClrFields::TRIM_REFBIAS_VBGADJ_OVERRIDE,
+      typename TrimOverrideEnClrFields::TRIM_REFBIAS_TST_OVERRIDE,
       ftl::mmio::Reserved<3, 7>,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USB2_REFBIAS_VBGADJ,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USB2_REFBIAS_TST,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_PLL_CTRL0_DIV_SEL,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USB_REG_ENV_TAIL_ADJ_VD,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USBPHY_TX_D_CAL,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USBPHY_TX_CAL45DP,
-      typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USBPHY_TX_CAL45DN> {
-    using TRIM_DIV_SEL_OVERRIDE = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_DIV_SEL_OVERRIDE;
-    using TRIM_ENV_TAIL_ADJ_VD_OVERRIDE = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE;
-    using TRIM_TX_D_CAL_OVERRIDE = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_TX_D_CAL_OVERRIDE;
-    using TRIM_TX_CAL45DP_OVERRIDE = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_TX_CAL45DP_OVERRIDE;
-    using TRIM_TX_CAL45DN_OVERRIDE = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_TX_CAL45DN_OVERRIDE;
-    using TRIM_REFBIAS_VBGADJ_OVERRIDE = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_REFBIAS_VBGADJ_OVERRIDE;
-    using TRIM_REFBIAS_TST_OVERRIDE = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_REFBIAS_TST_OVERRIDE;
-    using TRIM_USB2_REFBIAS_VBGADJ = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USB2_REFBIAS_VBGADJ;
-    using TRIM_USB2_REFBIAS_TST = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USB2_REFBIAS_TST;
-    using TRIM_PLL_CTRL0_DIV_SEL = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_PLL_CTRL0_DIV_SEL;
-    using TRIM_USB_REG_ENV_TAIL_ADJ_VD = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USB_REG_ENV_TAIL_ADJ_VD;
-    using TRIM_USBPHY_TX_D_CAL = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USBPHY_TX_D_CAL;
-    using TRIM_USBPHY_TX_CAL45DP = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USBPHY_TX_CAL45DP;
-    using TRIM_USBPHY_TX_CAL45DN = typename TRIM_OVERRIDE_EN_CLR_fields_::TRIM_USBPHY_TX_CAL45DN;
+      typename TrimOverrideEnClrFields::TRIM_USB2_REFBIAS_VBGADJ,
+      typename TrimOverrideEnClrFields::TRIM_USB2_REFBIAS_TST,
+      typename TrimOverrideEnClrFields::TRIM_PLL_CTRL0_DIV_SEL,
+      typename TrimOverrideEnClrFields::TRIM_USB_REG_ENV_TAIL_ADJ_VD,
+      typename TrimOverrideEnClrFields::TRIM_USBPHY_TX_D_CAL,
+      typename TrimOverrideEnClrFields::TRIM_USBPHY_TX_CAL45DP,
+      typename TrimOverrideEnClrFields::TRIM_USBPHY_TX_CAL45DN> {
+    using TRIM_DIV_SEL_OVERRIDE = typename TrimOverrideEnClrFields::TRIM_DIV_SEL_OVERRIDE;
+    using TRIM_ENV_TAIL_ADJ_VD_OVERRIDE = typename TrimOverrideEnClrFields::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE;
+    using TRIM_TX_D_CAL_OVERRIDE = typename TrimOverrideEnClrFields::TRIM_TX_D_CAL_OVERRIDE;
+    using TRIM_TX_CAL45DP_OVERRIDE = typename TrimOverrideEnClrFields::TRIM_TX_CAL45DP_OVERRIDE;
+    using TRIM_TX_CAL45DN_OVERRIDE = typename TrimOverrideEnClrFields::TRIM_TX_CAL45DN_OVERRIDE;
+    using TRIM_REFBIAS_VBGADJ_OVERRIDE = typename TrimOverrideEnClrFields::TRIM_REFBIAS_VBGADJ_OVERRIDE;
+    using TRIM_REFBIAS_TST_OVERRIDE = typename TrimOverrideEnClrFields::TRIM_REFBIAS_TST_OVERRIDE;
+    using TRIM_USB2_REFBIAS_VBGADJ = typename TrimOverrideEnClrFields::TRIM_USB2_REFBIAS_VBGADJ;
+    using TRIM_USB2_REFBIAS_TST = typename TrimOverrideEnClrFields::TRIM_USB2_REFBIAS_TST;
+    using TRIM_PLL_CTRL0_DIV_SEL = typename TrimOverrideEnClrFields::TRIM_PLL_CTRL0_DIV_SEL;
+    using TRIM_USB_REG_ENV_TAIL_ADJ_VD = typename TrimOverrideEnClrFields::TRIM_USB_REG_ENV_TAIL_ADJ_VD;
+    using TRIM_USBPHY_TX_D_CAL = typename TrimOverrideEnClrFields::TRIM_USBPHY_TX_D_CAL;
+    using TRIM_USBPHY_TX_CAL45DP = typename TrimOverrideEnClrFields::TRIM_USBPHY_TX_CAL45DP;
+    using TRIM_USBPHY_TX_CAL45DN = typename TrimOverrideEnClrFields::TRIM_USBPHY_TX_CAL45DN;
   };
 
   // USB PHY Trim Override Enable Register
-  struct TRIM_OVERRIDE_EN_TOG_fields_ {
+  struct TrimOverrideEnTogFields {
     // TRIM_DIV_SEL_OVERRIDE
     using TRIM_DIV_SEL_OVERRIDE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // TRIM_ENV_TAIL_ADJ_VD_OVERRIDE
@@ -2989,42 +2989,42 @@ struct Usbphy {
     using TRIM_USBPHY_TX_CAL45DP = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToToggle>;
     // TRIM_USBPHY_TX_CAL45DN
     using TRIM_USBPHY_TX_CAL45DN = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToToggle>;
-  };  // struct TRIM_OVERRIDE_EN_TOG_fields_
+  };  // struct TrimOverrideEnTogFields
 
   struct TRIM_OVERRIDE_EN_TOG : ftl::mmio::Register<
       kBase + 0x13Cu,
       std::uint32_t,
       0x0000007Fu,
       ftl::mmio::RW,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_DIV_SEL_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_TX_D_CAL_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_TX_CAL45DP_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_TX_CAL45DN_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_REFBIAS_VBGADJ_OVERRIDE,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_REFBIAS_TST_OVERRIDE,
+      typename TrimOverrideEnTogFields::TRIM_DIV_SEL_OVERRIDE,
+      typename TrimOverrideEnTogFields::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE,
+      typename TrimOverrideEnTogFields::TRIM_TX_D_CAL_OVERRIDE,
+      typename TrimOverrideEnTogFields::TRIM_TX_CAL45DP_OVERRIDE,
+      typename TrimOverrideEnTogFields::TRIM_TX_CAL45DN_OVERRIDE,
+      typename TrimOverrideEnTogFields::TRIM_REFBIAS_VBGADJ_OVERRIDE,
+      typename TrimOverrideEnTogFields::TRIM_REFBIAS_TST_OVERRIDE,
       ftl::mmio::Reserved<3, 7>,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USB2_REFBIAS_VBGADJ,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USB2_REFBIAS_TST,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_PLL_CTRL0_DIV_SEL,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USB_REG_ENV_TAIL_ADJ_VD,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USBPHY_TX_D_CAL,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USBPHY_TX_CAL45DP,
-      typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USBPHY_TX_CAL45DN> {
-    using TRIM_DIV_SEL_OVERRIDE = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_DIV_SEL_OVERRIDE;
-    using TRIM_ENV_TAIL_ADJ_VD_OVERRIDE = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE;
-    using TRIM_TX_D_CAL_OVERRIDE = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_TX_D_CAL_OVERRIDE;
-    using TRIM_TX_CAL45DP_OVERRIDE = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_TX_CAL45DP_OVERRIDE;
-    using TRIM_TX_CAL45DN_OVERRIDE = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_TX_CAL45DN_OVERRIDE;
-    using TRIM_REFBIAS_VBGADJ_OVERRIDE = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_REFBIAS_VBGADJ_OVERRIDE;
-    using TRIM_REFBIAS_TST_OVERRIDE = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_REFBIAS_TST_OVERRIDE;
-    using TRIM_USB2_REFBIAS_VBGADJ = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USB2_REFBIAS_VBGADJ;
-    using TRIM_USB2_REFBIAS_TST = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USB2_REFBIAS_TST;
-    using TRIM_PLL_CTRL0_DIV_SEL = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_PLL_CTRL0_DIV_SEL;
-    using TRIM_USB_REG_ENV_TAIL_ADJ_VD = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USB_REG_ENV_TAIL_ADJ_VD;
-    using TRIM_USBPHY_TX_D_CAL = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USBPHY_TX_D_CAL;
-    using TRIM_USBPHY_TX_CAL45DP = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USBPHY_TX_CAL45DP;
-    using TRIM_USBPHY_TX_CAL45DN = typename TRIM_OVERRIDE_EN_TOG_fields_::TRIM_USBPHY_TX_CAL45DN;
+      typename TrimOverrideEnTogFields::TRIM_USB2_REFBIAS_VBGADJ,
+      typename TrimOverrideEnTogFields::TRIM_USB2_REFBIAS_TST,
+      typename TrimOverrideEnTogFields::TRIM_PLL_CTRL0_DIV_SEL,
+      typename TrimOverrideEnTogFields::TRIM_USB_REG_ENV_TAIL_ADJ_VD,
+      typename TrimOverrideEnTogFields::TRIM_USBPHY_TX_D_CAL,
+      typename TrimOverrideEnTogFields::TRIM_USBPHY_TX_CAL45DP,
+      typename TrimOverrideEnTogFields::TRIM_USBPHY_TX_CAL45DN> {
+    using TRIM_DIV_SEL_OVERRIDE = typename TrimOverrideEnTogFields::TRIM_DIV_SEL_OVERRIDE;
+    using TRIM_ENV_TAIL_ADJ_VD_OVERRIDE = typename TrimOverrideEnTogFields::TRIM_ENV_TAIL_ADJ_VD_OVERRIDE;
+    using TRIM_TX_D_CAL_OVERRIDE = typename TrimOverrideEnTogFields::TRIM_TX_D_CAL_OVERRIDE;
+    using TRIM_TX_CAL45DP_OVERRIDE = typename TrimOverrideEnTogFields::TRIM_TX_CAL45DP_OVERRIDE;
+    using TRIM_TX_CAL45DN_OVERRIDE = typename TrimOverrideEnTogFields::TRIM_TX_CAL45DN_OVERRIDE;
+    using TRIM_REFBIAS_VBGADJ_OVERRIDE = typename TrimOverrideEnTogFields::TRIM_REFBIAS_VBGADJ_OVERRIDE;
+    using TRIM_REFBIAS_TST_OVERRIDE = typename TrimOverrideEnTogFields::TRIM_REFBIAS_TST_OVERRIDE;
+    using TRIM_USB2_REFBIAS_VBGADJ = typename TrimOverrideEnTogFields::TRIM_USB2_REFBIAS_VBGADJ;
+    using TRIM_USB2_REFBIAS_TST = typename TrimOverrideEnTogFields::TRIM_USB2_REFBIAS_TST;
+    using TRIM_PLL_CTRL0_DIV_SEL = typename TrimOverrideEnTogFields::TRIM_PLL_CTRL0_DIV_SEL;
+    using TRIM_USB_REG_ENV_TAIL_ADJ_VD = typename TrimOverrideEnTogFields::TRIM_USB_REG_ENV_TAIL_ADJ_VD;
+    using TRIM_USBPHY_TX_D_CAL = typename TrimOverrideEnTogFields::TRIM_USBPHY_TX_D_CAL;
+    using TRIM_USBPHY_TX_CAL45DP = typename TrimOverrideEnTogFields::TRIM_USBPHY_TX_CAL45DP;
+    using TRIM_USBPHY_TX_CAL45DN = typename TrimOverrideEnTogFields::TRIM_USBPHY_TX_CAL45DN;
   };
 
 };

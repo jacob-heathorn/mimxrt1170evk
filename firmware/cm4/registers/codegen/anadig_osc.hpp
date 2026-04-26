@@ -10,7 +10,7 @@ namespace regs {
 
 struct AnadigOsc {
   // 48MHz RCOSC Control Register
-  struct OSC_48M_CTRL_fields_ {
+  struct Osc48mCtrlFields {
     enum class eTEN : std::uint32_t {
       // Power down
       ePD = 0,
@@ -47,7 +47,7 @@ struct AnadigOsc {
     using RC_48M_DIV2_CONTROL_MODE = ftl::mmio::Field<1, 30, eRC_48M_DIV2_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // 48MHz RCOSC Control Mode
     using RC_48M_CONTROL_MODE = ftl::mmio::Field<1, 31, eRC_48M_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OSC_48M_CTRL_fields_
+  };  // struct Osc48mCtrlFields
 
   struct OSC_48M_CTRL : ftl::mmio::Register<
       0x40C84010u,
@@ -55,24 +55,24 @@ struct AnadigOsc {
       0x017901F2u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      OSC_48M_CTRL_fields_::TEN,
+      Osc48mCtrlFields::TEN,
       ftl::mmio::Reserved<22, 2>,
-      OSC_48M_CTRL_fields_::RC_48M_DIV2_EN,
+      Osc48mCtrlFields::RC_48M_DIV2_EN,
       ftl::mmio::Reserved<5, 25>,
-      OSC_48M_CTRL_fields_::RC_48M_DIV2_CONTROL_MODE,
-      OSC_48M_CTRL_fields_::RC_48M_CONTROL_MODE> {
-    using eTEN = OSC_48M_CTRL_fields_::eTEN;
-    using eRC_48M_DIV2_EN = OSC_48M_CTRL_fields_::eRC_48M_DIV2_EN;
-    using eRC_48M_DIV2_CONTROL_MODE = OSC_48M_CTRL_fields_::eRC_48M_DIV2_CONTROL_MODE;
-    using eRC_48M_CONTROL_MODE = OSC_48M_CTRL_fields_::eRC_48M_CONTROL_MODE;
-    using TEN = OSC_48M_CTRL_fields_::TEN;
-    using RC_48M_DIV2_EN = OSC_48M_CTRL_fields_::RC_48M_DIV2_EN;
-    using RC_48M_DIV2_CONTROL_MODE = OSC_48M_CTRL_fields_::RC_48M_DIV2_CONTROL_MODE;
-    using RC_48M_CONTROL_MODE = OSC_48M_CTRL_fields_::RC_48M_CONTROL_MODE;
+      Osc48mCtrlFields::RC_48M_DIV2_CONTROL_MODE,
+      Osc48mCtrlFields::RC_48M_CONTROL_MODE> {
+    using eTEN = Osc48mCtrlFields::eTEN;
+    using eRC_48M_DIV2_EN = Osc48mCtrlFields::eRC_48M_DIV2_EN;
+    using eRC_48M_DIV2_CONTROL_MODE = Osc48mCtrlFields::eRC_48M_DIV2_CONTROL_MODE;
+    using eRC_48M_CONTROL_MODE = Osc48mCtrlFields::eRC_48M_CONTROL_MODE;
+    using TEN = Osc48mCtrlFields::TEN;
+    using RC_48M_DIV2_EN = Osc48mCtrlFields::RC_48M_DIV2_EN;
+    using RC_48M_DIV2_CONTROL_MODE = Osc48mCtrlFields::RC_48M_DIV2_CONTROL_MODE;
+    using RC_48M_CONTROL_MODE = Osc48mCtrlFields::RC_48M_CONTROL_MODE;
   };
 
   // 24MHz OSC Control Register
-  struct OSC_24M_CTRL_fields_ {
+  struct Osc24mCtrlFields {
     enum class eBYPASS_EN : std::uint32_t {
       // Disable
       eDISABLE = 0,
@@ -138,45 +138,45 @@ struct AnadigOsc {
     using OSC_24M_STABLE = ftl::mmio::Field<1, 30, eOSC_24M_STABLE, ftl::mmio::RO, ftl::mmio::Normal>;
     // 24MHz OSC Control Mode
     using OSC_24M_CONTROL_MODE = ftl::mmio::Field<1, 31, eOSC_24M_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OSC_24M_CTRL_fields_
+  };  // struct Osc24mCtrlFields
 
   struct OSC_24M_CTRL : ftl::mmio::Register<
       0x40C84020u,
       std::uint32_t,
       0x00000080u,
       ftl::mmio::RW,
-      OSC_24M_CTRL_fields_::BYPASS_CLK,
-      OSC_24M_CTRL_fields_::BYPASS_EN,
-      OSC_24M_CTRL_fields_::LP_EN,
-      OSC_24M_CTRL_fields_::OSC_COMP_MODE,
-      OSC_24M_CTRL_fields_::OSC_EN,
+      Osc24mCtrlFields::BYPASS_CLK,
+      Osc24mCtrlFields::BYPASS_EN,
+      Osc24mCtrlFields::LP_EN,
+      Osc24mCtrlFields::OSC_COMP_MODE,
+      Osc24mCtrlFields::OSC_EN,
       ftl::mmio::Reserved<2, 5>,
-      OSC_24M_CTRL_fields_::OSC_24M_GATE,
+      Osc24mCtrlFields::OSC_24M_GATE,
       ftl::mmio::Reserved<22, 8>,
-      OSC_24M_CTRL_fields_::OSC_24M_STABLE,
-      OSC_24M_CTRL_fields_::OSC_24M_CONTROL_MODE> {
-    using eBYPASS_EN = OSC_24M_CTRL_fields_::eBYPASS_EN;
-    using eLP_EN = OSC_24M_CTRL_fields_::eLP_EN;
-    using eOSC_COMP_MODE = OSC_24M_CTRL_fields_::eOSC_COMP_MODE;
-    using eOSC_EN = OSC_24M_CTRL_fields_::eOSC_EN;
-    using eOSC_24M_GATE = OSC_24M_CTRL_fields_::eOSC_24M_GATE;
-    using eOSC_24M_STABLE = OSC_24M_CTRL_fields_::eOSC_24M_STABLE;
-    using eOSC_24M_CONTROL_MODE = OSC_24M_CTRL_fields_::eOSC_24M_CONTROL_MODE;
-    using BYPASS_CLK = OSC_24M_CTRL_fields_::BYPASS_CLK;
-    using BYPASS_EN = OSC_24M_CTRL_fields_::BYPASS_EN;
-    using LP_EN = OSC_24M_CTRL_fields_::LP_EN;
-    using OSC_COMP_MODE = OSC_24M_CTRL_fields_::OSC_COMP_MODE;
-    using OSC_EN = OSC_24M_CTRL_fields_::OSC_EN;
-    using OSC_24M_GATE = OSC_24M_CTRL_fields_::OSC_24M_GATE;
-    using OSC_24M_STABLE = OSC_24M_CTRL_fields_::OSC_24M_STABLE;
-    using OSC_24M_CONTROL_MODE = OSC_24M_CTRL_fields_::OSC_24M_CONTROL_MODE;
+      Osc24mCtrlFields::OSC_24M_STABLE,
+      Osc24mCtrlFields::OSC_24M_CONTROL_MODE> {
+    using eBYPASS_EN = Osc24mCtrlFields::eBYPASS_EN;
+    using eLP_EN = Osc24mCtrlFields::eLP_EN;
+    using eOSC_COMP_MODE = Osc24mCtrlFields::eOSC_COMP_MODE;
+    using eOSC_EN = Osc24mCtrlFields::eOSC_EN;
+    using eOSC_24M_GATE = Osc24mCtrlFields::eOSC_24M_GATE;
+    using eOSC_24M_STABLE = Osc24mCtrlFields::eOSC_24M_STABLE;
+    using eOSC_24M_CONTROL_MODE = Osc24mCtrlFields::eOSC_24M_CONTROL_MODE;
+    using BYPASS_CLK = Osc24mCtrlFields::BYPASS_CLK;
+    using BYPASS_EN = Osc24mCtrlFields::BYPASS_EN;
+    using LP_EN = Osc24mCtrlFields::LP_EN;
+    using OSC_COMP_MODE = Osc24mCtrlFields::OSC_COMP_MODE;
+    using OSC_EN = Osc24mCtrlFields::OSC_EN;
+    using OSC_24M_GATE = Osc24mCtrlFields::OSC_24M_GATE;
+    using OSC_24M_STABLE = Osc24mCtrlFields::OSC_24M_STABLE;
+    using OSC_24M_CONTROL_MODE = Osc24mCtrlFields::OSC_24M_CONTROL_MODE;
   };
 
   // 400MHz RCOSC Control0 Register
-  struct OSC_400M_CTRL0_fields_ {
+  struct Osc400mCtrl0Fields {
     // 400MHz OSC AI BUSY
     using OSC400M_AI_BUSY = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct OSC_400M_CTRL0_fields_
+  };  // struct Osc400mCtrl0Fields
 
   struct OSC_400M_CTRL0 : ftl::mmio::Register<
       0x40C84040u,
@@ -184,12 +184,12 @@ struct AnadigOsc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<31, 0>,
-      OSC_400M_CTRL0_fields_::OSC400M_AI_BUSY> {
-    using OSC400M_AI_BUSY = OSC_400M_CTRL0_fields_::OSC400M_AI_BUSY;
+      Osc400mCtrl0Fields::OSC400M_AI_BUSY> {
+    using OSC400M_AI_BUSY = Osc400mCtrl0Fields::OSC400M_AI_BUSY;
   };
 
   // 400MHz RCOSC Control1 Register
-  struct OSC_400M_CTRL1_fields_ {
+  struct Osc400mCtrl1Fields {
     enum class ePWD : std::uint32_t {
       // No Power down
       ePD = 0,
@@ -217,27 +217,27 @@ struct AnadigOsc {
     using CLKGATE_400MEG = ftl::mmio::Field<1, 1, eCLKGATE_400MEG, ftl::mmio::RW, ftl::mmio::Normal>;
     // 400MHz RCOSC Control mode
     using RC_400M_CONTROL_MODE = ftl::mmio::Field<1, 31, eRC_400M_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OSC_400M_CTRL1_fields_
+  };  // struct Osc400mCtrl1Fields
 
   struct OSC_400M_CTRL1 : ftl::mmio::Register<
       0x40C84050u,
       std::uint32_t,
       0x00000001u,
       ftl::mmio::RW,
-      OSC_400M_CTRL1_fields_::PWD,
-      OSC_400M_CTRL1_fields_::CLKGATE_400MEG,
+      Osc400mCtrl1Fields::PWD,
+      Osc400mCtrl1Fields::CLKGATE_400MEG,
       ftl::mmio::Reserved<29, 2>,
-      OSC_400M_CTRL1_fields_::RC_400M_CONTROL_MODE> {
-    using ePWD = OSC_400M_CTRL1_fields_::ePWD;
-    using eCLKGATE_400MEG = OSC_400M_CTRL1_fields_::eCLKGATE_400MEG;
-    using eRC_400M_CONTROL_MODE = OSC_400M_CTRL1_fields_::eRC_400M_CONTROL_MODE;
-    using PWD = OSC_400M_CTRL1_fields_::PWD;
-    using CLKGATE_400MEG = OSC_400M_CTRL1_fields_::CLKGATE_400MEG;
-    using RC_400M_CONTROL_MODE = OSC_400M_CTRL1_fields_::RC_400M_CONTROL_MODE;
+      Osc400mCtrl1Fields::RC_400M_CONTROL_MODE> {
+    using ePWD = Osc400mCtrl1Fields::ePWD;
+    using eCLKGATE_400MEG = Osc400mCtrl1Fields::eCLKGATE_400MEG;
+    using eRC_400M_CONTROL_MODE = Osc400mCtrl1Fields::eRC_400M_CONTROL_MODE;
+    using PWD = Osc400mCtrl1Fields::PWD;
+    using CLKGATE_400MEG = Osc400mCtrl1Fields::CLKGATE_400MEG;
+    using RC_400M_CONTROL_MODE = Osc400mCtrl1Fields::RC_400M_CONTROL_MODE;
   };
 
   // 400MHz RCOSC Control2 Register
-  struct OSC_400M_CTRL2_fields_ {
+  struct Osc400mCtrl2Fields {
     enum class eENABLE_CLK : std::uint32_t {
       // Clock is disabled before entering GPC mode
       eDISABLE = 0,
@@ -258,27 +258,27 @@ struct AnadigOsc {
     using TUNE_BYP = ftl::mmio::Field<1, 10, eTUNE_BYP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Oscillator Tune Value
     using OSC_TUNE_VAL = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OSC_400M_CTRL2_fields_
+  };  // struct Osc400mCtrl2Fields
 
   struct OSC_400M_CTRL2 : ftl::mmio::Register<
       0x40C84060u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OSC_400M_CTRL2_fields_::ENABLE_CLK,
+      Osc400mCtrl2Fields::ENABLE_CLK,
       ftl::mmio::Reserved<9, 1>,
-      OSC_400M_CTRL2_fields_::TUNE_BYP,
+      Osc400mCtrl2Fields::TUNE_BYP,
       ftl::mmio::Reserved<13, 11>,
-      OSC_400M_CTRL2_fields_::OSC_TUNE_VAL> {
-    using eENABLE_CLK = OSC_400M_CTRL2_fields_::eENABLE_CLK;
-    using eTUNE_BYP = OSC_400M_CTRL2_fields_::eTUNE_BYP;
-    using ENABLE_CLK = OSC_400M_CTRL2_fields_::ENABLE_CLK;
-    using TUNE_BYP = OSC_400M_CTRL2_fields_::TUNE_BYP;
-    using OSC_TUNE_VAL = OSC_400M_CTRL2_fields_::OSC_TUNE_VAL;
+      Osc400mCtrl2Fields::OSC_TUNE_VAL> {
+    using eENABLE_CLK = Osc400mCtrl2Fields::eENABLE_CLK;
+    using eTUNE_BYP = Osc400mCtrl2Fields::eTUNE_BYP;
+    using ENABLE_CLK = Osc400mCtrl2Fields::ENABLE_CLK;
+    using TUNE_BYP = Osc400mCtrl2Fields::TUNE_BYP;
+    using OSC_TUNE_VAL = Osc400mCtrl2Fields::OSC_TUNE_VAL;
   };
 
   // 16MHz RCOSC Control Register
-  struct OSC_16M_CTRL_fields_ {
+  struct Osc16mCtrlFields {
     enum class eEN_IRC4M16M : std::uint32_t {
       // Disable
       eDISABLE = 0,
@@ -315,7 +315,7 @@ struct AnadigOsc {
     using SOURCE_SEL_16M = ftl::mmio::Field<1, 8, eSOURCE_SEL_16M, ftl::mmio::RW, ftl::mmio::Normal>;
     // Control Mode for 16MHz Oscillator
     using RC_16M_CONTROL_MODE = ftl::mmio::Field<1, 31, eRC_16M_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OSC_16M_CTRL_fields_
+  };  // struct Osc16mCtrlFields
 
   struct OSC_16M_CTRL : ftl::mmio::Register<
       0x40C840C0u,
@@ -323,21 +323,21 @@ struct AnadigOsc {
       0x00000007u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      OSC_16M_CTRL_fields_::EN_IRC4M16M,
+      Osc16mCtrlFields::EN_IRC4M16M,
       ftl::mmio::Reserved<1, 2>,
-      OSC_16M_CTRL_fields_::EN_POWER_SAVE,
+      Osc16mCtrlFields::EN_POWER_SAVE,
       ftl::mmio::Reserved<4, 4>,
-      OSC_16M_CTRL_fields_::SOURCE_SEL_16M,
+      Osc16mCtrlFields::SOURCE_SEL_16M,
       ftl::mmio::Reserved<22, 9>,
-      OSC_16M_CTRL_fields_::RC_16M_CONTROL_MODE> {
-    using eEN_IRC4M16M = OSC_16M_CTRL_fields_::eEN_IRC4M16M;
-    using eEN_POWER_SAVE = OSC_16M_CTRL_fields_::eEN_POWER_SAVE;
-    using eSOURCE_SEL_16M = OSC_16M_CTRL_fields_::eSOURCE_SEL_16M;
-    using eRC_16M_CONTROL_MODE = OSC_16M_CTRL_fields_::eRC_16M_CONTROL_MODE;
-    using EN_IRC4M16M = OSC_16M_CTRL_fields_::EN_IRC4M16M;
-    using EN_POWER_SAVE = OSC_16M_CTRL_fields_::EN_POWER_SAVE;
-    using SOURCE_SEL_16M = OSC_16M_CTRL_fields_::SOURCE_SEL_16M;
-    using RC_16M_CONTROL_MODE = OSC_16M_CTRL_fields_::RC_16M_CONTROL_MODE;
+      Osc16mCtrlFields::RC_16M_CONTROL_MODE> {
+    using eEN_IRC4M16M = Osc16mCtrlFields::eEN_IRC4M16M;
+    using eEN_POWER_SAVE = Osc16mCtrlFields::eEN_POWER_SAVE;
+    using eSOURCE_SEL_16M = Osc16mCtrlFields::eSOURCE_SEL_16M;
+    using eRC_16M_CONTROL_MODE = Osc16mCtrlFields::eRC_16M_CONTROL_MODE;
+    using EN_IRC4M16M = Osc16mCtrlFields::EN_IRC4M16M;
+    using EN_POWER_SAVE = Osc16mCtrlFields::EN_POWER_SAVE;
+    using SOURCE_SEL_16M = Osc16mCtrlFields::SOURCE_SEL_16M;
+    using RC_16M_CONTROL_MODE = Osc16mCtrlFields::RC_16M_CONTROL_MODE;
   };
 
 };

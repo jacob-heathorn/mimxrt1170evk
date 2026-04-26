@@ -21,7 +21,7 @@ struct Sai {
       0u;
 
   // Version ID
-  struct VERID_fields_ {
+  struct VeridFields {
     enum class eFEATURE : std::uint32_t {
       // Standard feature set.
       eSTD = 0,
@@ -33,50 +33,50 @@ struct Sai {
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Major Version Number
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERID_fields_
+  };  // struct VeridFields
 
   struct VERID : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x03010000u,
       ftl::mmio::RO,
-      typename VERID_fields_::FEATURE,
-      typename VERID_fields_::MINOR,
-      typename VERID_fields_::MAJOR> {
-    using eFEATURE = typename VERID_fields_::eFEATURE;
-    using FEATURE = typename VERID_fields_::FEATURE;
-    using MINOR = typename VERID_fields_::MINOR;
-    using MAJOR = typename VERID_fields_::MAJOR;
+      typename VeridFields::FEATURE,
+      typename VeridFields::MINOR,
+      typename VeridFields::MAJOR> {
+    using eFEATURE = typename VeridFields::eFEATURE;
+    using FEATURE = typename VeridFields::FEATURE;
+    using MINOR = typename VeridFields::MINOR;
+    using MAJOR = typename VeridFields::MAJOR;
   };
 
   // Parameter
-  struct PARAM_fields_ {
+  struct ParamFields {
     // Number of Datalines
     using DATALINE = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // FIFO Size
     using FIFO = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Frame Size
     using FRAME = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PARAM_fields_
+  };  // struct ParamFields
 
   struct PARAM : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00050501u,
       ftl::mmio::RO,
-      typename PARAM_fields_::DATALINE,
+      typename ParamFields::DATALINE,
       ftl::mmio::Reserved<4, 4>,
-      typename PARAM_fields_::FIFO,
+      typename ParamFields::FIFO,
       ftl::mmio::Reserved<4, 12>,
-      typename PARAM_fields_::FRAME,
+      typename ParamFields::FRAME,
       ftl::mmio::Reserved<12, 20>> {
-    using DATALINE = typename PARAM_fields_::DATALINE;
-    using FIFO = typename PARAM_fields_::FIFO;
-    using FRAME = typename PARAM_fields_::FRAME;
+    using DATALINE = typename ParamFields::DATALINE;
+    using FIFO = typename ParamFields::FIFO;
+    using FRAME = typename ParamFields::FRAME;
   };
 
   // Transmit Control
-  struct TCSR_fields_ {
+  struct TcsrFields {
     enum class eFRDE : std::uint32_t {
       // Disables the DMA request.
       eDISABLE = 0,
@@ -239,91 +239,91 @@ struct Sai {
     using STOPE = ftl::mmio::Field<1, 30, eSTOPE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmitter Enable
     using TE = ftl::mmio::Field<1, 31, eTE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCSR_fields_
+  };  // struct TcsrFields
 
   struct TCSR : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TCSR_fields_::FRDE,
-      typename TCSR_fields_::FWDE,
+      typename TcsrFields::FRDE,
+      typename TcsrFields::FWDE,
       ftl::mmio::Reserved<6, 2>,
-      typename TCSR_fields_::FRIE,
-      typename TCSR_fields_::FWIE,
-      typename TCSR_fields_::FEIE,
-      typename TCSR_fields_::SEIE,
-      typename TCSR_fields_::WSIE,
+      typename TcsrFields::FRIE,
+      typename TcsrFields::FWIE,
+      typename TcsrFields::FEIE,
+      typename TcsrFields::SEIE,
+      typename TcsrFields::WSIE,
       ftl::mmio::Reserved<3, 13>,
-      typename TCSR_fields_::FRF,
-      typename TCSR_fields_::FWF,
-      typename TCSR_fields_::FEF,
-      typename TCSR_fields_::SEF,
-      typename TCSR_fields_::WSF,
+      typename TcsrFields::FRF,
+      typename TcsrFields::FWF,
+      typename TcsrFields::FEF,
+      typename TcsrFields::SEF,
+      typename TcsrFields::WSF,
       ftl::mmio::Reserved<3, 21>,
-      typename TCSR_fields_::SR,
-      typename TCSR_fields_::FR,
+      typename TcsrFields::SR,
+      typename TcsrFields::FR,
       ftl::mmio::Reserved<2, 26>,
-      typename TCSR_fields_::BCE,
-      typename TCSR_fields_::DBGE,
-      typename TCSR_fields_::STOPE,
-      typename TCSR_fields_::TE> {
-    using eFRDE = typename TCSR_fields_::eFRDE;
-    using eFWDE = typename TCSR_fields_::eFWDE;
-    using eFRIE = typename TCSR_fields_::eFRIE;
-    using eFWIE = typename TCSR_fields_::eFWIE;
-    using eFEIE = typename TCSR_fields_::eFEIE;
-    using eSEIE = typename TCSR_fields_::eSEIE;
-    using eWSIE = typename TCSR_fields_::eWSIE;
-    using eFRF = typename TCSR_fields_::eFRF;
-    using eFWF = typename TCSR_fields_::eFWF;
-    using eFEF = typename TCSR_fields_::eFEF;
-    using eSEF = typename TCSR_fields_::eSEF;
-    using eWSF = typename TCSR_fields_::eWSF;
-    using eSR = typename TCSR_fields_::eSR;
-    using eFR = typename TCSR_fields_::eFR;
-    using eBCE = typename TCSR_fields_::eBCE;
-    using eDBGE = typename TCSR_fields_::eDBGE;
-    using eSTOPE = typename TCSR_fields_::eSTOPE;
-    using eTE = typename TCSR_fields_::eTE;
-    using FRDE = typename TCSR_fields_::FRDE;
-    using FWDE = typename TCSR_fields_::FWDE;
-    using FRIE = typename TCSR_fields_::FRIE;
-    using FWIE = typename TCSR_fields_::FWIE;
-    using FEIE = typename TCSR_fields_::FEIE;
-    using SEIE = typename TCSR_fields_::SEIE;
-    using WSIE = typename TCSR_fields_::WSIE;
-    using FRF = typename TCSR_fields_::FRF;
-    using FWF = typename TCSR_fields_::FWF;
-    using FEF = typename TCSR_fields_::FEF;
-    using SEF = typename TCSR_fields_::SEF;
-    using WSF = typename TCSR_fields_::WSF;
-    using SR = typename TCSR_fields_::SR;
-    using FR = typename TCSR_fields_::FR;
-    using BCE = typename TCSR_fields_::BCE;
-    using DBGE = typename TCSR_fields_::DBGE;
-    using STOPE = typename TCSR_fields_::STOPE;
-    using TE = typename TCSR_fields_::TE;
+      typename TcsrFields::BCE,
+      typename TcsrFields::DBGE,
+      typename TcsrFields::STOPE,
+      typename TcsrFields::TE> {
+    using eFRDE = typename TcsrFields::eFRDE;
+    using eFWDE = typename TcsrFields::eFWDE;
+    using eFRIE = typename TcsrFields::eFRIE;
+    using eFWIE = typename TcsrFields::eFWIE;
+    using eFEIE = typename TcsrFields::eFEIE;
+    using eSEIE = typename TcsrFields::eSEIE;
+    using eWSIE = typename TcsrFields::eWSIE;
+    using eFRF = typename TcsrFields::eFRF;
+    using eFWF = typename TcsrFields::eFWF;
+    using eFEF = typename TcsrFields::eFEF;
+    using eSEF = typename TcsrFields::eSEF;
+    using eWSF = typename TcsrFields::eWSF;
+    using eSR = typename TcsrFields::eSR;
+    using eFR = typename TcsrFields::eFR;
+    using eBCE = typename TcsrFields::eBCE;
+    using eDBGE = typename TcsrFields::eDBGE;
+    using eSTOPE = typename TcsrFields::eSTOPE;
+    using eTE = typename TcsrFields::eTE;
+    using FRDE = typename TcsrFields::FRDE;
+    using FWDE = typename TcsrFields::FWDE;
+    using FRIE = typename TcsrFields::FRIE;
+    using FWIE = typename TcsrFields::FWIE;
+    using FEIE = typename TcsrFields::FEIE;
+    using SEIE = typename TcsrFields::SEIE;
+    using WSIE = typename TcsrFields::WSIE;
+    using FRF = typename TcsrFields::FRF;
+    using FWF = typename TcsrFields::FWF;
+    using FEF = typename TcsrFields::FEF;
+    using SEF = typename TcsrFields::SEF;
+    using WSF = typename TcsrFields::WSF;
+    using SR = typename TcsrFields::SR;
+    using FR = typename TcsrFields::FR;
+    using BCE = typename TcsrFields::BCE;
+    using DBGE = typename TcsrFields::DBGE;
+    using STOPE = typename TcsrFields::STOPE;
+    using TE = typename TcsrFields::TE;
   };
 
   // Transmit Configuration 1
-  struct TCR1_fields_ {
+  struct Tcr1Fields {
     // Transmit FIFO Watermark
     using TFW = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCR1_fields_
+  };  // struct Tcr1Fields
 
   struct TCR1 : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TCR1_fields_::TFW,
+      typename Tcr1Fields::TFW,
       ftl::mmio::Reserved<27, 5>> {
-    using TFW = typename TCR1_fields_::TFW;
+    using TFW = typename Tcr1Fields::TFW;
   };
 
   // Transmit Configuration 2
-  struct TCR2_fields_ {
+  struct Tcr2Fields {
     enum class eBYP : std::uint32_t {
       // Internal bit clock is generated from bit clock divider.
       eDISABLE = 0,
@@ -393,63 +393,63 @@ struct Sai {
     using BCS = ftl::mmio::Field<1, 29, eBCS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Synchronous Mode
     using SYNC = ftl::mmio::Field<1, 30, eSYNC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCR2_fields_
+  };  // struct Tcr2Fields
 
   struct TCR2 : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TCR2_fields_::DIV,
+      typename Tcr2Fields::DIV,
       ftl::mmio::Reserved<15, 8>,
-      typename TCR2_fields_::BYP,
-      typename TCR2_fields_::BCD,
-      typename TCR2_fields_::BCP,
-      typename TCR2_fields_::MSEL,
-      typename TCR2_fields_::BCI,
-      typename TCR2_fields_::BCS,
-      typename TCR2_fields_::SYNC,
+      typename Tcr2Fields::BYP,
+      typename Tcr2Fields::BCD,
+      typename Tcr2Fields::BCP,
+      typename Tcr2Fields::MSEL,
+      typename Tcr2Fields::BCI,
+      typename Tcr2Fields::BCS,
+      typename Tcr2Fields::SYNC,
       ftl::mmio::Reserved<1, 31>> {
-    using eBYP = typename TCR2_fields_::eBYP;
-    using eBCD = typename TCR2_fields_::eBCD;
-    using eBCP = typename TCR2_fields_::eBCP;
-    using eMSEL = typename TCR2_fields_::eMSEL;
-    using eBCI = typename TCR2_fields_::eBCI;
-    using eBCS = typename TCR2_fields_::eBCS;
-    using eSYNC = typename TCR2_fields_::eSYNC;
-    using DIV = typename TCR2_fields_::DIV;
-    using BYP = typename TCR2_fields_::BYP;
-    using BCD = typename TCR2_fields_::BCD;
-    using BCP = typename TCR2_fields_::BCP;
-    using MSEL = typename TCR2_fields_::MSEL;
-    using BCI = typename TCR2_fields_::BCI;
-    using BCS = typename TCR2_fields_::BCS;
-    using SYNC = typename TCR2_fields_::SYNC;
+    using eBYP = typename Tcr2Fields::eBYP;
+    using eBCD = typename Tcr2Fields::eBCD;
+    using eBCP = typename Tcr2Fields::eBCP;
+    using eMSEL = typename Tcr2Fields::eMSEL;
+    using eBCI = typename Tcr2Fields::eBCI;
+    using eBCS = typename Tcr2Fields::eBCS;
+    using eSYNC = typename Tcr2Fields::eSYNC;
+    using DIV = typename Tcr2Fields::DIV;
+    using BYP = typename Tcr2Fields::BYP;
+    using BCD = typename Tcr2Fields::BCD;
+    using BCP = typename Tcr2Fields::BCP;
+    using MSEL = typename Tcr2Fields::MSEL;
+    using BCI = typename Tcr2Fields::BCI;
+    using BCS = typename Tcr2Fields::BCS;
+    using SYNC = typename Tcr2Fields::SYNC;
   };
 
   // Transmit Configuration 3
-  struct TCR3_fields_ {
+  struct Tcr3Fields {
     // Word Flag Configuration
     using WDFL = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Transmit Channel Enable
     using TCE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCR3_fields_
+  };  // struct Tcr3Fields
 
   struct TCR3 : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TCR3_fields_::WDFL,
+      typename Tcr3Fields::WDFL,
       ftl::mmio::Reserved<11, 5>,
-      typename TCR3_fields_::TCE,
+      typename Tcr3Fields::TCE,
       ftl::mmio::Reserved<15, 17>> {
-    using WDFL = typename TCR3_fields_::WDFL;
-    using TCE = typename TCR3_fields_::TCE;
+    using WDFL = typename Tcr3Fields::WDFL;
+    using TCE = typename Tcr3Fields::TCE;
   };
 
   // Transmit Configuration 4
-  struct TCR4_fields_ {
+  struct Tcr4Fields {
     enum class eFSD : std::uint32_t {
       // Frame sync is generated externally in Slave mode.
       eEXT_IN_SLAVE_MODE = 0,
@@ -528,57 +528,57 @@ struct Sai {
     using FPACK = ftl::mmio::Field<2, 24, eFPACK, ftl::mmio::RW, ftl::mmio::Normal>;
     // FIFO Continue on Error
     using FCONT = ftl::mmio::Field<1, 28, eFCONT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCR4_fields_
+  };  // struct Tcr4Fields
 
   struct TCR4 : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TCR4_fields_::FSD,
-      typename TCR4_fields_::FSP,
-      typename TCR4_fields_::ONDEM,
-      typename TCR4_fields_::FSE,
-      typename TCR4_fields_::MF,
-      typename TCR4_fields_::CHMOD,
+      typename Tcr4Fields::FSD,
+      typename Tcr4Fields::FSP,
+      typename Tcr4Fields::ONDEM,
+      typename Tcr4Fields::FSE,
+      typename Tcr4Fields::MF,
+      typename Tcr4Fields::CHMOD,
       ftl::mmio::Reserved<2, 6>,
-      typename TCR4_fields_::SYWD,
+      typename Tcr4Fields::SYWD,
       ftl::mmio::Reserved<3, 13>,
-      typename TCR4_fields_::FRSZ,
+      typename Tcr4Fields::FRSZ,
       ftl::mmio::Reserved<3, 21>,
-      typename TCR4_fields_::FPACK,
+      typename Tcr4Fields::FPACK,
       ftl::mmio::Reserved<2, 26>,
-      typename TCR4_fields_::FCONT,
+      typename Tcr4Fields::FCONT,
       ftl::mmio::Reserved<3, 29>> {
-    using eFSD = typename TCR4_fields_::eFSD;
-    using eFSP = typename TCR4_fields_::eFSP;
-    using eONDEM = typename TCR4_fields_::eONDEM;
-    using eFSE = typename TCR4_fields_::eFSE;
-    using eMF = typename TCR4_fields_::eMF;
-    using eCHMOD = typename TCR4_fields_::eCHMOD;
-    using eFPACK = typename TCR4_fields_::eFPACK;
-    using eFCONT = typename TCR4_fields_::eFCONT;
-    using FSD = typename TCR4_fields_::FSD;
-    using FSP = typename TCR4_fields_::FSP;
-    using ONDEM = typename TCR4_fields_::ONDEM;
-    using FSE = typename TCR4_fields_::FSE;
-    using MF = typename TCR4_fields_::MF;
-    using CHMOD = typename TCR4_fields_::CHMOD;
-    using SYWD = typename TCR4_fields_::SYWD;
-    using FRSZ = typename TCR4_fields_::FRSZ;
-    using FPACK = typename TCR4_fields_::FPACK;
-    using FCONT = typename TCR4_fields_::FCONT;
+    using eFSD = typename Tcr4Fields::eFSD;
+    using eFSP = typename Tcr4Fields::eFSP;
+    using eONDEM = typename Tcr4Fields::eONDEM;
+    using eFSE = typename Tcr4Fields::eFSE;
+    using eMF = typename Tcr4Fields::eMF;
+    using eCHMOD = typename Tcr4Fields::eCHMOD;
+    using eFPACK = typename Tcr4Fields::eFPACK;
+    using eFCONT = typename Tcr4Fields::eFCONT;
+    using FSD = typename Tcr4Fields::FSD;
+    using FSP = typename Tcr4Fields::FSP;
+    using ONDEM = typename Tcr4Fields::ONDEM;
+    using FSE = typename Tcr4Fields::FSE;
+    using MF = typename Tcr4Fields::MF;
+    using CHMOD = typename Tcr4Fields::CHMOD;
+    using SYWD = typename Tcr4Fields::SYWD;
+    using FRSZ = typename Tcr4Fields::FRSZ;
+    using FPACK = typename Tcr4Fields::FPACK;
+    using FCONT = typename Tcr4Fields::FCONT;
   };
 
   // Transmit Configuration 5
-  struct TCR5_fields_ {
+  struct Tcr5Fields {
     // First Bit Shifted
     using FBT = ftl::mmio::Field<5, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Word 0 Width
     using W0W = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Word N Width
     using WNW = ftl::mmio::Field<5, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TCR5_fields_
+  };  // struct Tcr5Fields
 
   struct TCR5 : ftl::mmio::Register<
       kBase + 0x1Cu,
@@ -586,55 +586,55 @@ struct Sai {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<8, 0>,
-      typename TCR5_fields_::FBT,
+      typename Tcr5Fields::FBT,
       ftl::mmio::Reserved<3, 13>,
-      typename TCR5_fields_::W0W,
+      typename Tcr5Fields::W0W,
       ftl::mmio::Reserved<3, 21>,
-      typename TCR5_fields_::WNW,
+      typename Tcr5Fields::WNW,
       ftl::mmio::Reserved<3, 29>> {
-    using FBT = typename TCR5_fields_::FBT;
-    using W0W = typename TCR5_fields_::W0W;
-    using WNW = typename TCR5_fields_::WNW;
+    using FBT = typename Tcr5Fields::FBT;
+    using W0W = typename Tcr5Fields::W0W;
+    using WNW = typename Tcr5Fields::WNW;
   };
 
   // Transmit Data
-  struct TDR0_fields_ {
+  struct Tdr0Fields {
     // Transmit Data Register
     using TDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TDR0_fields_
+  };  // struct Tdr0Fields
 
   struct TDR0 : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TDR0_fields_::TDR> {
-    using TDR = typename TDR0_fields_::TDR;
+      typename Tdr0Fields::TDR> {
+    using TDR = typename Tdr0Fields::TDR;
   };
 
   // Transmit FIFO
-  struct TFR0_fields_ {
+  struct Tfr0Fields {
     // Read FIFO Pointer
     using RFP = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Write FIFO Pointer
     using WFP = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct TFR0_fields_
+  };  // struct Tfr0Fields
 
   struct TFR0 : ftl::mmio::Register<
       kBase + 0x40u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename TFR0_fields_::RFP,
+      typename Tfr0Fields::RFP,
       ftl::mmio::Reserved<10, 6>,
-      typename TFR0_fields_::WFP,
+      typename Tfr0Fields::WFP,
       ftl::mmio::Reserved<10, 22>> {
-    using RFP = typename TFR0_fields_::RFP;
-    using WFP = typename TFR0_fields_::WFP;
+    using RFP = typename Tfr0Fields::RFP;
+    using WFP = typename Tfr0Fields::WFP;
   };
 
   // Transmit Mask
-  struct TMR_fields_ {
+  struct TmrFields {
     enum class eTWM : std::uint32_t {
       // Word N is enabled.
       eWORD_N_ENABLED = 0,
@@ -644,20 +644,20 @@ struct Sai {
 
     // Transmit Word Mask
     using TWM = ftl::mmio::Field<32, 0, eTWM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TMR_fields_
+  };  // struct TmrFields
 
   struct TMR : ftl::mmio::Register<
       kBase + 0x60u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TMR_fields_::TWM> {
-    using eTWM = typename TMR_fields_::eTWM;
-    using TWM = typename TMR_fields_::TWM;
+      typename TmrFields::TWM> {
+    using eTWM = typename TmrFields::eTWM;
+    using TWM = typename TmrFields::TWM;
   };
 
   // Receive Control
-  struct RCSR_fields_ {
+  struct RcsrFields {
     enum class eFRDE : std::uint32_t {
       // Disables the DMA request.
       eDISABLE = 0,
@@ -820,91 +820,91 @@ struct Sai {
     using STOPE = ftl::mmio::Field<1, 30, eSTOPE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receiver Enable
     using RE = ftl::mmio::Field<1, 31, eRE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RCSR_fields_
+  };  // struct RcsrFields
 
   struct RCSR : ftl::mmio::Register<
       kBase + 0x88u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RCSR_fields_::FRDE,
-      typename RCSR_fields_::FWDE,
+      typename RcsrFields::FRDE,
+      typename RcsrFields::FWDE,
       ftl::mmio::Reserved<6, 2>,
-      typename RCSR_fields_::FRIE,
-      typename RCSR_fields_::FWIE,
-      typename RCSR_fields_::FEIE,
-      typename RCSR_fields_::SEIE,
-      typename RCSR_fields_::WSIE,
+      typename RcsrFields::FRIE,
+      typename RcsrFields::FWIE,
+      typename RcsrFields::FEIE,
+      typename RcsrFields::SEIE,
+      typename RcsrFields::WSIE,
       ftl::mmio::Reserved<3, 13>,
-      typename RCSR_fields_::FRF,
-      typename RCSR_fields_::FWF,
-      typename RCSR_fields_::FEF,
-      typename RCSR_fields_::SEF,
-      typename RCSR_fields_::WSF,
+      typename RcsrFields::FRF,
+      typename RcsrFields::FWF,
+      typename RcsrFields::FEF,
+      typename RcsrFields::SEF,
+      typename RcsrFields::WSF,
       ftl::mmio::Reserved<3, 21>,
-      typename RCSR_fields_::SR,
-      typename RCSR_fields_::FR,
+      typename RcsrFields::SR,
+      typename RcsrFields::FR,
       ftl::mmio::Reserved<2, 26>,
-      typename RCSR_fields_::BCE,
-      typename RCSR_fields_::DBGE,
-      typename RCSR_fields_::STOPE,
-      typename RCSR_fields_::RE> {
-    using eFRDE = typename RCSR_fields_::eFRDE;
-    using eFWDE = typename RCSR_fields_::eFWDE;
-    using eFRIE = typename RCSR_fields_::eFRIE;
-    using eFWIE = typename RCSR_fields_::eFWIE;
-    using eFEIE = typename RCSR_fields_::eFEIE;
-    using eSEIE = typename RCSR_fields_::eSEIE;
-    using eWSIE = typename RCSR_fields_::eWSIE;
-    using eFRF = typename RCSR_fields_::eFRF;
-    using eFWF = typename RCSR_fields_::eFWF;
-    using eFEF = typename RCSR_fields_::eFEF;
-    using eSEF = typename RCSR_fields_::eSEF;
-    using eWSF = typename RCSR_fields_::eWSF;
-    using eSR = typename RCSR_fields_::eSR;
-    using eFR = typename RCSR_fields_::eFR;
-    using eBCE = typename RCSR_fields_::eBCE;
-    using eDBGE = typename RCSR_fields_::eDBGE;
-    using eSTOPE = typename RCSR_fields_::eSTOPE;
-    using eRE = typename RCSR_fields_::eRE;
-    using FRDE = typename RCSR_fields_::FRDE;
-    using FWDE = typename RCSR_fields_::FWDE;
-    using FRIE = typename RCSR_fields_::FRIE;
-    using FWIE = typename RCSR_fields_::FWIE;
-    using FEIE = typename RCSR_fields_::FEIE;
-    using SEIE = typename RCSR_fields_::SEIE;
-    using WSIE = typename RCSR_fields_::WSIE;
-    using FRF = typename RCSR_fields_::FRF;
-    using FWF = typename RCSR_fields_::FWF;
-    using FEF = typename RCSR_fields_::FEF;
-    using SEF = typename RCSR_fields_::SEF;
-    using WSF = typename RCSR_fields_::WSF;
-    using SR = typename RCSR_fields_::SR;
-    using FR = typename RCSR_fields_::FR;
-    using BCE = typename RCSR_fields_::BCE;
-    using DBGE = typename RCSR_fields_::DBGE;
-    using STOPE = typename RCSR_fields_::STOPE;
-    using RE = typename RCSR_fields_::RE;
+      typename RcsrFields::BCE,
+      typename RcsrFields::DBGE,
+      typename RcsrFields::STOPE,
+      typename RcsrFields::RE> {
+    using eFRDE = typename RcsrFields::eFRDE;
+    using eFWDE = typename RcsrFields::eFWDE;
+    using eFRIE = typename RcsrFields::eFRIE;
+    using eFWIE = typename RcsrFields::eFWIE;
+    using eFEIE = typename RcsrFields::eFEIE;
+    using eSEIE = typename RcsrFields::eSEIE;
+    using eWSIE = typename RcsrFields::eWSIE;
+    using eFRF = typename RcsrFields::eFRF;
+    using eFWF = typename RcsrFields::eFWF;
+    using eFEF = typename RcsrFields::eFEF;
+    using eSEF = typename RcsrFields::eSEF;
+    using eWSF = typename RcsrFields::eWSF;
+    using eSR = typename RcsrFields::eSR;
+    using eFR = typename RcsrFields::eFR;
+    using eBCE = typename RcsrFields::eBCE;
+    using eDBGE = typename RcsrFields::eDBGE;
+    using eSTOPE = typename RcsrFields::eSTOPE;
+    using eRE = typename RcsrFields::eRE;
+    using FRDE = typename RcsrFields::FRDE;
+    using FWDE = typename RcsrFields::FWDE;
+    using FRIE = typename RcsrFields::FRIE;
+    using FWIE = typename RcsrFields::FWIE;
+    using FEIE = typename RcsrFields::FEIE;
+    using SEIE = typename RcsrFields::SEIE;
+    using WSIE = typename RcsrFields::WSIE;
+    using FRF = typename RcsrFields::FRF;
+    using FWF = typename RcsrFields::FWF;
+    using FEF = typename RcsrFields::FEF;
+    using SEF = typename RcsrFields::SEF;
+    using WSF = typename RcsrFields::WSF;
+    using SR = typename RcsrFields::SR;
+    using FR = typename RcsrFields::FR;
+    using BCE = typename RcsrFields::BCE;
+    using DBGE = typename RcsrFields::DBGE;
+    using STOPE = typename RcsrFields::STOPE;
+    using RE = typename RcsrFields::RE;
   };
 
   // Receive Configuration 1
-  struct RCR1_fields_ {
+  struct Rcr1Fields {
     // Receive FIFO Watermark
     using RFW = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RCR1_fields_
+  };  // struct Rcr1Fields
 
   struct RCR1 : ftl::mmio::Register<
       kBase + 0x8Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RCR1_fields_::RFW,
+      typename Rcr1Fields::RFW,
       ftl::mmio::Reserved<27, 5>> {
-    using RFW = typename RCR1_fields_::RFW;
+    using RFW = typename Rcr1Fields::RFW;
   };
 
   // Receive Configuration 2
-  struct RCR2_fields_ {
+  struct Rcr2Fields {
     enum class eBYP : std::uint32_t {
       // Internal bit clock is generated from bit clock divider.
       eDISABLE = 0,
@@ -974,63 +974,63 @@ struct Sai {
     using BCS = ftl::mmio::Field<1, 29, eBCS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Synchronous Mode
     using SYNC = ftl::mmio::Field<1, 30, eSYNC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RCR2_fields_
+  };  // struct Rcr2Fields
 
   struct RCR2 : ftl::mmio::Register<
       kBase + 0x90u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RCR2_fields_::DIV,
+      typename Rcr2Fields::DIV,
       ftl::mmio::Reserved<15, 8>,
-      typename RCR2_fields_::BYP,
-      typename RCR2_fields_::BCD,
-      typename RCR2_fields_::BCP,
-      typename RCR2_fields_::MSEL,
-      typename RCR2_fields_::BCI,
-      typename RCR2_fields_::BCS,
-      typename RCR2_fields_::SYNC,
+      typename Rcr2Fields::BYP,
+      typename Rcr2Fields::BCD,
+      typename Rcr2Fields::BCP,
+      typename Rcr2Fields::MSEL,
+      typename Rcr2Fields::BCI,
+      typename Rcr2Fields::BCS,
+      typename Rcr2Fields::SYNC,
       ftl::mmio::Reserved<1, 31>> {
-    using eBYP = typename RCR2_fields_::eBYP;
-    using eBCD = typename RCR2_fields_::eBCD;
-    using eBCP = typename RCR2_fields_::eBCP;
-    using eMSEL = typename RCR2_fields_::eMSEL;
-    using eBCI = typename RCR2_fields_::eBCI;
-    using eBCS = typename RCR2_fields_::eBCS;
-    using eSYNC = typename RCR2_fields_::eSYNC;
-    using DIV = typename RCR2_fields_::DIV;
-    using BYP = typename RCR2_fields_::BYP;
-    using BCD = typename RCR2_fields_::BCD;
-    using BCP = typename RCR2_fields_::BCP;
-    using MSEL = typename RCR2_fields_::MSEL;
-    using BCI = typename RCR2_fields_::BCI;
-    using BCS = typename RCR2_fields_::BCS;
-    using SYNC = typename RCR2_fields_::SYNC;
+    using eBYP = typename Rcr2Fields::eBYP;
+    using eBCD = typename Rcr2Fields::eBCD;
+    using eBCP = typename Rcr2Fields::eBCP;
+    using eMSEL = typename Rcr2Fields::eMSEL;
+    using eBCI = typename Rcr2Fields::eBCI;
+    using eBCS = typename Rcr2Fields::eBCS;
+    using eSYNC = typename Rcr2Fields::eSYNC;
+    using DIV = typename Rcr2Fields::DIV;
+    using BYP = typename Rcr2Fields::BYP;
+    using BCD = typename Rcr2Fields::BCD;
+    using BCP = typename Rcr2Fields::BCP;
+    using MSEL = typename Rcr2Fields::MSEL;
+    using BCI = typename Rcr2Fields::BCI;
+    using BCS = typename Rcr2Fields::BCS;
+    using SYNC = typename Rcr2Fields::SYNC;
   };
 
   // Receive Configuration 3
-  struct RCR3_fields_ {
+  struct Rcr3Fields {
     // Word Flag Configuration
     using WDFL = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Receive Channel Enable
     using RCE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RCR3_fields_
+  };  // struct Rcr3Fields
 
   struct RCR3 : ftl::mmio::Register<
       kBase + 0x94u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RCR3_fields_::WDFL,
+      typename Rcr3Fields::WDFL,
       ftl::mmio::Reserved<11, 5>,
-      typename RCR3_fields_::RCE,
+      typename Rcr3Fields::RCE,
       ftl::mmio::Reserved<15, 17>> {
-    using WDFL = typename RCR3_fields_::WDFL;
-    using RCE = typename RCR3_fields_::RCE;
+    using WDFL = typename Rcr3Fields::WDFL;
+    using RCE = typename Rcr3Fields::RCE;
   };
 
   // Receive Configuration 4
-  struct RCR4_fields_ {
+  struct Rcr4Fields {
     enum class eFSD : std::uint32_t {
       // Frame Sync is generated externally in Slave mode.
       eEXT_SLAVE_MODE = 0,
@@ -1100,54 +1100,54 @@ struct Sai {
     using FPACK = ftl::mmio::Field<2, 24, eFPACK, ftl::mmio::RW, ftl::mmio::Normal>;
     // FIFO Continue on Error
     using FCONT = ftl::mmio::Field<1, 28, eFCONT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RCR4_fields_
+  };  // struct Rcr4Fields
 
   struct RCR4 : ftl::mmio::Register<
       kBase + 0x98u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RCR4_fields_::FSD,
-      typename RCR4_fields_::FSP,
-      typename RCR4_fields_::ONDEM,
-      typename RCR4_fields_::FSE,
-      typename RCR4_fields_::MF,
+      typename Rcr4Fields::FSD,
+      typename Rcr4Fields::FSP,
+      typename Rcr4Fields::ONDEM,
+      typename Rcr4Fields::FSE,
+      typename Rcr4Fields::MF,
       ftl::mmio::Reserved<3, 5>,
-      typename RCR4_fields_::SYWD,
+      typename Rcr4Fields::SYWD,
       ftl::mmio::Reserved<3, 13>,
-      typename RCR4_fields_::FRSZ,
+      typename Rcr4Fields::FRSZ,
       ftl::mmio::Reserved<3, 21>,
-      typename RCR4_fields_::FPACK,
+      typename Rcr4Fields::FPACK,
       ftl::mmio::Reserved<2, 26>,
-      typename RCR4_fields_::FCONT,
+      typename Rcr4Fields::FCONT,
       ftl::mmio::Reserved<3, 29>> {
-    using eFSD = typename RCR4_fields_::eFSD;
-    using eFSP = typename RCR4_fields_::eFSP;
-    using eONDEM = typename RCR4_fields_::eONDEM;
-    using eFSE = typename RCR4_fields_::eFSE;
-    using eMF = typename RCR4_fields_::eMF;
-    using eFPACK = typename RCR4_fields_::eFPACK;
-    using eFCONT = typename RCR4_fields_::eFCONT;
-    using FSD = typename RCR4_fields_::FSD;
-    using FSP = typename RCR4_fields_::FSP;
-    using ONDEM = typename RCR4_fields_::ONDEM;
-    using FSE = typename RCR4_fields_::FSE;
-    using MF = typename RCR4_fields_::MF;
-    using SYWD = typename RCR4_fields_::SYWD;
-    using FRSZ = typename RCR4_fields_::FRSZ;
-    using FPACK = typename RCR4_fields_::FPACK;
-    using FCONT = typename RCR4_fields_::FCONT;
+    using eFSD = typename Rcr4Fields::eFSD;
+    using eFSP = typename Rcr4Fields::eFSP;
+    using eONDEM = typename Rcr4Fields::eONDEM;
+    using eFSE = typename Rcr4Fields::eFSE;
+    using eMF = typename Rcr4Fields::eMF;
+    using eFPACK = typename Rcr4Fields::eFPACK;
+    using eFCONT = typename Rcr4Fields::eFCONT;
+    using FSD = typename Rcr4Fields::FSD;
+    using FSP = typename Rcr4Fields::FSP;
+    using ONDEM = typename Rcr4Fields::ONDEM;
+    using FSE = typename Rcr4Fields::FSE;
+    using MF = typename Rcr4Fields::MF;
+    using SYWD = typename Rcr4Fields::SYWD;
+    using FRSZ = typename Rcr4Fields::FRSZ;
+    using FPACK = typename Rcr4Fields::FPACK;
+    using FCONT = typename Rcr4Fields::FCONT;
   };
 
   // Receive Configuration 5
-  struct RCR5_fields_ {
+  struct Rcr5Fields {
     // First Bit Shifted
     using FBT = ftl::mmio::Field<5, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Word 0 Width
     using W0W = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Word N Width
     using WNW = ftl::mmio::Field<5, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RCR5_fields_
+  };  // struct Rcr5Fields
 
   struct RCR5 : ftl::mmio::Register<
       kBase + 0x9Cu,
@@ -1155,55 +1155,55 @@ struct Sai {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<8, 0>,
-      typename RCR5_fields_::FBT,
+      typename Rcr5Fields::FBT,
       ftl::mmio::Reserved<3, 13>,
-      typename RCR5_fields_::W0W,
+      typename Rcr5Fields::W0W,
       ftl::mmio::Reserved<3, 21>,
-      typename RCR5_fields_::WNW,
+      typename Rcr5Fields::WNW,
       ftl::mmio::Reserved<3, 29>> {
-    using FBT = typename RCR5_fields_::FBT;
-    using W0W = typename RCR5_fields_::W0W;
-    using WNW = typename RCR5_fields_::WNW;
+    using FBT = typename Rcr5Fields::FBT;
+    using W0W = typename Rcr5Fields::W0W;
+    using WNW = typename Rcr5Fields::WNW;
   };
 
   // Receive Data
-  struct RDR0_fields_ {
+  struct Rdr0Fields {
     // Receive Data Register
     using RDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RDR0_fields_
+  };  // struct Rdr0Fields
 
   struct RDR0 : ftl::mmio::Register<
       kBase + 0xA0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename RDR0_fields_::RDR> {
-    using RDR = typename RDR0_fields_::RDR;
+      typename Rdr0Fields::RDR> {
+    using RDR = typename Rdr0Fields::RDR;
   };
 
   // Receive FIFO
-  struct RFR0_fields_ {
+  struct Rfr0Fields {
     // Read FIFO Pointer
     using RFP = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Write FIFO Pointer
     using WFP = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct RFR0_fields_
+  };  // struct Rfr0Fields
 
   struct RFR0 : ftl::mmio::Register<
       kBase + 0xC0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename RFR0_fields_::RFP,
+      typename Rfr0Fields::RFP,
       ftl::mmio::Reserved<10, 6>,
-      typename RFR0_fields_::WFP,
+      typename Rfr0Fields::WFP,
       ftl::mmio::Reserved<10, 22>> {
-    using RFP = typename RFR0_fields_::RFP;
-    using WFP = typename RFR0_fields_::WFP;
+    using RFP = typename Rfr0Fields::RFP;
+    using WFP = typename Rfr0Fields::WFP;
   };
 
   // Receive Mask
-  struct RMR_fields_ {
+  struct RmrFields {
     enum class eRWM : std::uint32_t {
       // Word N is enabled.
       eWORD_N_ENABLED = 0,
@@ -1213,16 +1213,16 @@ struct Sai {
 
     // Receive Word Mask
     using RWM = ftl::mmio::Field<32, 0, eRWM, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RMR_fields_
+  };  // struct RmrFields
 
   struct RMR : ftl::mmio::Register<
       kBase + 0xE0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename RMR_fields_::RWM> {
-    using eRWM = typename RMR_fields_::eRWM;
-    using RWM = typename RMR_fields_::RWM;
+      typename RmrFields::RWM> {
+    using eRWM = typename RmrFields::eRWM;
+    using RWM = typename RmrFields::RWM;
   };
 
 };

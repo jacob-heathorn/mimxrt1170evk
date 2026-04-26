@@ -26,7 +26,7 @@ struct PgmcBpc {
       0u;
 
   // BPC Authentication Control
-  struct BPC_AUTHEN_CTRL_fields_ {
+  struct BpcAuthenCtrlFields {
     enum class eUSER : std::uint32_t {
       // Allow only privilege mode to access basic power control registers
       eUSER_0 = 0,
@@ -53,35 +53,35 @@ struct PgmcBpc {
     using LOCK_LIST = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Configuration lock
     using LOCK_CFG = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BPC_AUTHEN_CTRL_fields_
+  };  // struct BpcAuthenCtrlFields
 
   struct BPC_AUTHEN_CTRL : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00000F00u,
       ftl::mmio::RW,
-      typename BPC_AUTHEN_CTRL_fields_::USER,
-      typename BPC_AUTHEN_CTRL_fields_::NONSECURE,
+      typename BpcAuthenCtrlFields::USER,
+      typename BpcAuthenCtrlFields::NONSECURE,
       ftl::mmio::Reserved<2, 2>,
-      typename BPC_AUTHEN_CTRL_fields_::LOCK_SETTING,
+      typename BpcAuthenCtrlFields::LOCK_SETTING,
       ftl::mmio::Reserved<3, 5>,
-      typename BPC_AUTHEN_CTRL_fields_::WHITE_LIST,
-      typename BPC_AUTHEN_CTRL_fields_::LOCK_LIST,
+      typename BpcAuthenCtrlFields::WHITE_LIST,
+      typename BpcAuthenCtrlFields::LOCK_LIST,
       ftl::mmio::Reserved<7, 13>,
-      typename BPC_AUTHEN_CTRL_fields_::LOCK_CFG,
+      typename BpcAuthenCtrlFields::LOCK_CFG,
       ftl::mmio::Reserved<11, 21>> {
-    using eUSER = typename BPC_AUTHEN_CTRL_fields_::eUSER;
-    using eNONSECURE = typename BPC_AUTHEN_CTRL_fields_::eNONSECURE;
-    using USER = typename BPC_AUTHEN_CTRL_fields_::USER;
-    using NONSECURE = typename BPC_AUTHEN_CTRL_fields_::NONSECURE;
-    using LOCK_SETTING = typename BPC_AUTHEN_CTRL_fields_::LOCK_SETTING;
-    using WHITE_LIST = typename BPC_AUTHEN_CTRL_fields_::WHITE_LIST;
-    using LOCK_LIST = typename BPC_AUTHEN_CTRL_fields_::LOCK_LIST;
-    using LOCK_CFG = typename BPC_AUTHEN_CTRL_fields_::LOCK_CFG;
+    using eUSER = typename BpcAuthenCtrlFields::eUSER;
+    using eNONSECURE = typename BpcAuthenCtrlFields::eNONSECURE;
+    using USER = typename BpcAuthenCtrlFields::USER;
+    using NONSECURE = typename BpcAuthenCtrlFields::NONSECURE;
+    using LOCK_SETTING = typename BpcAuthenCtrlFields::LOCK_SETTING;
+    using WHITE_LIST = typename BpcAuthenCtrlFields::WHITE_LIST;
+    using LOCK_LIST = typename BpcAuthenCtrlFields::LOCK_LIST;
+    using LOCK_CFG = typename BpcAuthenCtrlFields::LOCK_CFG;
   };
 
   // BPC Mode
-  struct BPC_MODE_fields_ {
+  struct BpcModeFields {
     enum class eCTRL_MODE : std::uint32_t {
       // Not affected by any low power mode
       eCTRL_MODE_0 = 0,
@@ -106,25 +106,25 @@ struct PgmcBpc {
     using CTRL_MODE = ftl::mmio::Field<2, 0, eCTRL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Domain assignment of the BPC
     using DOMAIN_ASSIGN = ftl::mmio::Field<2, 4, eDOMAIN_ASSIGN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BPC_MODE_fields_
+  };  // struct BpcModeFields
 
   struct BPC_MODE : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename BPC_MODE_fields_::CTRL_MODE,
+      typename BpcModeFields::CTRL_MODE,
       ftl::mmio::Reserved<2, 2>,
-      typename BPC_MODE_fields_::DOMAIN_ASSIGN,
+      typename BpcModeFields::DOMAIN_ASSIGN,
       ftl::mmio::Reserved<26, 6>> {
-    using eCTRL_MODE = typename BPC_MODE_fields_::eCTRL_MODE;
-    using eDOMAIN_ASSIGN = typename BPC_MODE_fields_::eDOMAIN_ASSIGN;
-    using CTRL_MODE = typename BPC_MODE_fields_::CTRL_MODE;
-    using DOMAIN_ASSIGN = typename BPC_MODE_fields_::DOMAIN_ASSIGN;
+    using eCTRL_MODE = typename BpcModeFields::eCTRL_MODE;
+    using eDOMAIN_ASSIGN = typename BpcModeFields::eDOMAIN_ASSIGN;
+    using CTRL_MODE = typename BpcModeFields::CTRL_MODE;
+    using DOMAIN_ASSIGN = typename BpcModeFields::DOMAIN_ASSIGN;
   };
 
   // BPC power control
-  struct BPC_POWER_CTRL_fields_ {
+  struct BpcPowerCtrlFields {
     // 0x1: Power off when domain enters WAIT mode
     using PWR_OFF_AT_WAIT = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // 0x1: Power off when domain enters STOP mode
@@ -141,7 +141,7 @@ struct PgmcBpc {
     using ISO_OFF_SOFT = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Power off when system enters Setpoint number
     using PWR_OFF_AT_SP = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BPC_POWER_CTRL_fields_
+  };  // struct BpcPowerCtrlFields
 
   struct BPC_POWER_CTRL : ftl::mmio::Register<
       kBase + 0x14u,
@@ -149,44 +149,44 @@ struct PgmcBpc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      typename BPC_POWER_CTRL_fields_::PWR_OFF_AT_WAIT,
-      typename BPC_POWER_CTRL_fields_::PWR_OFF_AT_STOP,
-      typename BPC_POWER_CTRL_fields_::PWR_OFF_AT_SUSPEND,
+      typename BpcPowerCtrlFields::PWR_OFF_AT_WAIT,
+      typename BpcPowerCtrlFields::PWR_OFF_AT_STOP,
+      typename BpcPowerCtrlFields::PWR_OFF_AT_SUSPEND,
       ftl::mmio::Reserved<4, 4>,
-      typename BPC_POWER_CTRL_fields_::ISO_ON_SOFT,
-      typename BPC_POWER_CTRL_fields_::PSW_OFF_SOFT,
-      typename BPC_POWER_CTRL_fields_::PSW_ON_SOFT,
-      typename BPC_POWER_CTRL_fields_::ISO_OFF_SOFT,
+      typename BpcPowerCtrlFields::ISO_ON_SOFT,
+      typename BpcPowerCtrlFields::PSW_OFF_SOFT,
+      typename BpcPowerCtrlFields::PSW_ON_SOFT,
+      typename BpcPowerCtrlFields::ISO_OFF_SOFT,
       ftl::mmio::Reserved<4, 12>,
-      typename BPC_POWER_CTRL_fields_::PWR_OFF_AT_SP> {
-    using PWR_OFF_AT_WAIT = typename BPC_POWER_CTRL_fields_::PWR_OFF_AT_WAIT;
-    using PWR_OFF_AT_STOP = typename BPC_POWER_CTRL_fields_::PWR_OFF_AT_STOP;
-    using PWR_OFF_AT_SUSPEND = typename BPC_POWER_CTRL_fields_::PWR_OFF_AT_SUSPEND;
-    using ISO_ON_SOFT = typename BPC_POWER_CTRL_fields_::ISO_ON_SOFT;
-    using PSW_OFF_SOFT = typename BPC_POWER_CTRL_fields_::PSW_OFF_SOFT;
-    using PSW_ON_SOFT = typename BPC_POWER_CTRL_fields_::PSW_ON_SOFT;
-    using ISO_OFF_SOFT = typename BPC_POWER_CTRL_fields_::ISO_OFF_SOFT;
-    using PWR_OFF_AT_SP = typename BPC_POWER_CTRL_fields_::PWR_OFF_AT_SP;
+      typename BpcPowerCtrlFields::PWR_OFF_AT_SP> {
+    using PWR_OFF_AT_WAIT = typename BpcPowerCtrlFields::PWR_OFF_AT_WAIT;
+    using PWR_OFF_AT_STOP = typename BpcPowerCtrlFields::PWR_OFF_AT_STOP;
+    using PWR_OFF_AT_SUSPEND = typename BpcPowerCtrlFields::PWR_OFF_AT_SUSPEND;
+    using ISO_ON_SOFT = typename BpcPowerCtrlFields::ISO_ON_SOFT;
+    using PSW_OFF_SOFT = typename BpcPowerCtrlFields::PSW_OFF_SOFT;
+    using PSW_ON_SOFT = typename BpcPowerCtrlFields::PSW_ON_SOFT;
+    using ISO_OFF_SOFT = typename BpcPowerCtrlFields::ISO_OFF_SOFT;
+    using PWR_OFF_AT_SP = typename BpcPowerCtrlFields::PWR_OFF_AT_SP;
   };
 
   // BPC flag
-  struct BPC_FLAG_fields_ {
+  struct BpcFlagFields {
     // set to 1 after power switch off, cleared by writing 1
     using PDN_FLAG = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct BPC_FLAG_fields_
+  };  // struct BpcFlagFields
 
   struct BPC_FLAG : ftl::mmio::Register<
       kBase + 0x2Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename BPC_FLAG_fields_::PDN_FLAG,
+      typename BpcFlagFields::PDN_FLAG,
       ftl::mmio::Reserved<31, 1>> {
-    using PDN_FLAG = typename BPC_FLAG_fields_::PDN_FLAG;
+    using PDN_FLAG = typename BpcFlagFields::PDN_FLAG;
   };
 
   // BPC SSAR save control
-  struct BPC_SSAR_SAVE_CTRL_fields_ {
+  struct BpcSsarSaveCtrlFields {
     // Save data at RUN mode, software writting 0x1 to trigger SSARC to execute save process
     using SAVE_AT_RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Save data when domain enters WAIT mode
@@ -197,44 +197,44 @@ struct PgmcBpc {
     using SAVE_AT_SUSPEND = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Save data when system enters a Setpoint.
     using SAVE_AT_SP = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BPC_SSAR_SAVE_CTRL_fields_
+  };  // struct BpcSsarSaveCtrlFields
 
   struct BPC_SSAR_SAVE_CTRL : ftl::mmio::Register<
       kBase + 0x40u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_RUN,
-      typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_WAIT,
-      typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_STOP,
-      typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_SUSPEND,
+      typename BpcSsarSaveCtrlFields::SAVE_AT_RUN,
+      typename BpcSsarSaveCtrlFields::SAVE_AT_WAIT,
+      typename BpcSsarSaveCtrlFields::SAVE_AT_STOP,
+      typename BpcSsarSaveCtrlFields::SAVE_AT_SUSPEND,
       ftl::mmio::Reserved<12, 4>,
-      typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_SP> {
-    using SAVE_AT_RUN = typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_RUN;
-    using SAVE_AT_WAIT = typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_WAIT;
-    using SAVE_AT_STOP = typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_STOP;
-    using SAVE_AT_SUSPEND = typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_SUSPEND;
-    using SAVE_AT_SP = typename BPC_SSAR_SAVE_CTRL_fields_::SAVE_AT_SP;
+      typename BpcSsarSaveCtrlFields::SAVE_AT_SP> {
+    using SAVE_AT_RUN = typename BpcSsarSaveCtrlFields::SAVE_AT_RUN;
+    using SAVE_AT_WAIT = typename BpcSsarSaveCtrlFields::SAVE_AT_WAIT;
+    using SAVE_AT_STOP = typename BpcSsarSaveCtrlFields::SAVE_AT_STOP;
+    using SAVE_AT_SUSPEND = typename BpcSsarSaveCtrlFields::SAVE_AT_SUSPEND;
+    using SAVE_AT_SP = typename BpcSsarSaveCtrlFields::SAVE_AT_SP;
   };
 
   // BPC SSAR restore control
-  struct BPC_SSAR_RESTORE_CTRL_fields_ {
+  struct BpcSsarRestoreCtrlFields {
     // Restore data at RUN mode
     using RESTORE_AT_RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Restore data when system enters a Setpoint.
     using RESTORE_AT_SP = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BPC_SSAR_RESTORE_CTRL_fields_
+  };  // struct BpcSsarRestoreCtrlFields
 
   struct BPC_SSAR_RESTORE_CTRL : ftl::mmio::Register<
       kBase + 0x44u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename BPC_SSAR_RESTORE_CTRL_fields_::RESTORE_AT_RUN,
+      typename BpcSsarRestoreCtrlFields::RESTORE_AT_RUN,
       ftl::mmio::Reserved<15, 1>,
-      typename BPC_SSAR_RESTORE_CTRL_fields_::RESTORE_AT_SP> {
-    using RESTORE_AT_RUN = typename BPC_SSAR_RESTORE_CTRL_fields_::RESTORE_AT_RUN;
-    using RESTORE_AT_SP = typename BPC_SSAR_RESTORE_CTRL_fields_::RESTORE_AT_SP;
+      typename BpcSsarRestoreCtrlFields::RESTORE_AT_SP> {
+    using RESTORE_AT_RUN = typename BpcSsarRestoreCtrlFields::RESTORE_AT_RUN;
+    using RESTORE_AT_SP = typename BpcSsarRestoreCtrlFields::RESTORE_AT_SP;
   };
 
 };

@@ -20,7 +20,7 @@ struct RdcSemaphore {
       0u;
 
   // Gate Register
-  struct GATE_fields_ {
+  struct GateFields {
     enum class eGTFSM : std::uint32_t {
       // The gate is unlocked (free).
       eGTFSM_0 = 0,
@@ -67,7 +67,7 @@ struct RdcSemaphore {
     using GTFSM = ftl::mmio::Field<4, 0, eGTFSM, ftl::mmio::RW, ftl::mmio::Normal>;
     // Read-only bits. They indicate which domain had currently locked the gate.
     using LDOM = ftl::mmio::Field<2, 4, eLDOM, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct GATE_fields_
+  };  // struct GateFields
 
   template<std::uint32_t Index>
   struct GATE : ftl::mmio::Register<
@@ -75,18 +75,18 @@ struct RdcSemaphore {
       std::uint8_t,
       0x00u,
       ftl::mmio::RW,
-      typename GATE_fields_::GTFSM,
-      typename GATE_fields_::LDOM,
+      typename GateFields::GTFSM,
+      typename GateFields::LDOM,
       ftl::mmio::Reserved<2, 6>> {
     static_assert(Index < 64u, "GATE: Index out of range");
-    using eGTFSM = typename GATE_fields_::eGTFSM;
-    using eLDOM = typename GATE_fields_::eLDOM;
-    using GTFSM = typename GATE_fields_::GTFSM;
-    using LDOM = typename GATE_fields_::LDOM;
+    using eGTFSM = typename GateFields::eGTFSM;
+    using eLDOM = typename GateFields::eLDOM;
+    using GTFSM = typename GateFields::GTFSM;
+    using LDOM = typename GateFields::LDOM;
   };
 
   // Reset Gate Read
-  struct RDC_SEMAPHORE1_RSTGT_R_fields_ {
+  struct RdcSemaphore1RstgtRFields {
     enum class eRSTGSM : std::uint32_t {
       // Idle, waiting for the first data pattern write.
       eRSTGSM_0 = 0,
@@ -104,40 +104,40 @@ struct RdcSemaphore {
     using RSTGSM = ftl::mmio::Field<2, 4, eRSTGSM, ftl::mmio::RO, ftl::mmio::Normal>;
     // Reset Gate Number
     using RSTGTN = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RDC_SEMAPHORE1_RSTGT_R_fields_
+  };  // struct RdcSemaphore1RstgtRFields
 
   struct RDC_SEMAPHORE1_RSTGT_R : ftl::mmio::Register<
       kBase + 0x42u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename RDC_SEMAPHORE1_RSTGT_R_fields_::RSTGMS,
-      typename RDC_SEMAPHORE1_RSTGT_R_fields_::RSTGSM,
+      typename RdcSemaphore1RstgtRFields::RSTGMS,
+      typename RdcSemaphore1RstgtRFields::RSTGSM,
       ftl::mmio::Reserved<2, 6>,
-      typename RDC_SEMAPHORE1_RSTGT_R_fields_::RSTGTN> {
-    using eRSTGSM = typename RDC_SEMAPHORE1_RSTGT_R_fields_::eRSTGSM;
-    using RSTGMS = typename RDC_SEMAPHORE1_RSTGT_R_fields_::RSTGMS;
-    using RSTGSM = typename RDC_SEMAPHORE1_RSTGT_R_fields_::RSTGSM;
-    using RSTGTN = typename RDC_SEMAPHORE1_RSTGT_R_fields_::RSTGTN;
+      typename RdcSemaphore1RstgtRFields::RSTGTN> {
+    using eRSTGSM = typename RdcSemaphore1RstgtRFields::eRSTGSM;
+    using RSTGMS = typename RdcSemaphore1RstgtRFields::RSTGMS;
+    using RSTGSM = typename RdcSemaphore1RstgtRFields::RSTGSM;
+    using RSTGTN = typename RdcSemaphore1RstgtRFields::RSTGTN;
   };
 
   // Reset Gate Write
-  struct RDC_SEMAPHORE1_RSTGT_W_fields_ {
+  struct RdcSemaphore1RstgtWFields {
     // Reset Gate Data Pattern
     using RSTGDP = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Reset Gate Number
     using RSTGTN = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct RDC_SEMAPHORE1_RSTGT_W_fields_
+  };  // struct RdcSemaphore1RstgtWFields
 
   struct RDC_SEMAPHORE1_RSTGT_W : ftl::mmio::Register<
       kBase + 0x42u,
       std::uint16_t,
       0x0000u,
       ftl::mmio::RW,
-      typename RDC_SEMAPHORE1_RSTGT_W_fields_::RSTGDP,
-      typename RDC_SEMAPHORE1_RSTGT_W_fields_::RSTGTN> {
-    using RSTGDP = typename RDC_SEMAPHORE1_RSTGT_W_fields_::RSTGDP;
-    using RSTGTN = typename RDC_SEMAPHORE1_RSTGT_W_fields_::RSTGTN;
+      typename RdcSemaphore1RstgtWFields::RSTGDP,
+      typename RdcSemaphore1RstgtWFields::RSTGTN> {
+    using RSTGDP = typename RdcSemaphore1RstgtWFields::RSTGDP;
+    using RSTGTN = typename RdcSemaphore1RstgtWFields::RSTGTN;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct CcmObs {
   // Observe control
-  struct OBSERVE_CONTROL_fields_ {
+  struct ObserveControlFields {
     enum class eRAW : std::uint32_t {
       // Select divided signal.
       eRAW_0 = 0,
@@ -51,7 +51,7 @@ struct CcmObs {
     using DIVIDE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Turn off
     using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OBSERVE_CONTROL_fields_
+  };  // struct ObserveControlFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_CONTROL : ftl::mmio::Register<
@@ -59,30 +59,30 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OBSERVE_CONTROL_fields_::SELECT,
+      ObserveControlFields::SELECT,
       ftl::mmio::Reserved<3, 9>,
-      OBSERVE_CONTROL_fields_::RAW,
-      OBSERVE_CONTROL_fields_::INV,
+      ObserveControlFields::RAW,
+      ObserveControlFields::INV,
       ftl::mmio::Reserved<1, 14>,
-      OBSERVE_CONTROL_fields_::RESET,
-      OBSERVE_CONTROL_fields_::DIVIDE,
-      OBSERVE_CONTROL_fields_::OFF,
+      ObserveControlFields::RESET,
+      ObserveControlFields::DIVIDE,
+      ObserveControlFields::OFF,
       ftl::mmio::Reserved<7, 25>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_CONTROL: ClusterIndex out of range");
-    using eRAW = OBSERVE_CONTROL_fields_::eRAW;
-    using eINV = OBSERVE_CONTROL_fields_::eINV;
-    using eRESET = OBSERVE_CONTROL_fields_::eRESET;
-    using eOFF = OBSERVE_CONTROL_fields_::eOFF;
-    using SELECT = OBSERVE_CONTROL_fields_::SELECT;
-    using RAW = OBSERVE_CONTROL_fields_::RAW;
-    using INV = OBSERVE_CONTROL_fields_::INV;
-    using RESET = OBSERVE_CONTROL_fields_::RESET;
-    using DIVIDE = OBSERVE_CONTROL_fields_::DIVIDE;
-    using OFF = OBSERVE_CONTROL_fields_::OFF;
+    using eRAW = ObserveControlFields::eRAW;
+    using eINV = ObserveControlFields::eINV;
+    using eRESET = ObserveControlFields::eRESET;
+    using eOFF = ObserveControlFields::eOFF;
+    using SELECT = ObserveControlFields::SELECT;
+    using RAW = ObserveControlFields::RAW;
+    using INV = ObserveControlFields::INV;
+    using RESET = ObserveControlFields::RESET;
+    using DIVIDE = ObserveControlFields::DIVIDE;
+    using OFF = ObserveControlFields::OFF;
   };
 
   // Observe control
-  struct OBSERVE_CONTROL_SET_fields_ {
+  struct ObserveControlSetFields {
     // Observe signal selector
     using SELECT = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Observe raw signal
@@ -95,7 +95,7 @@ struct CcmObs {
     using DIVIDE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Turn off
     using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct OBSERVE_CONTROL_SET_fields_
+  };  // struct ObserveControlSetFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_CONTROL_SET : ftl::mmio::Register<
@@ -103,26 +103,26 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OBSERVE_CONTROL_SET_fields_::SELECT,
+      ObserveControlSetFields::SELECT,
       ftl::mmio::Reserved<3, 9>,
-      OBSERVE_CONTROL_SET_fields_::RAW,
-      OBSERVE_CONTROL_SET_fields_::INV,
+      ObserveControlSetFields::RAW,
+      ObserveControlSetFields::INV,
       ftl::mmio::Reserved<1, 14>,
-      OBSERVE_CONTROL_SET_fields_::RESET,
-      OBSERVE_CONTROL_SET_fields_::DIVIDE,
-      OBSERVE_CONTROL_SET_fields_::OFF,
+      ObserveControlSetFields::RESET,
+      ObserveControlSetFields::DIVIDE,
+      ObserveControlSetFields::OFF,
       ftl::mmio::Reserved<7, 25>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_CONTROL_SET: ClusterIndex out of range");
-    using SELECT = OBSERVE_CONTROL_SET_fields_::SELECT;
-    using RAW = OBSERVE_CONTROL_SET_fields_::RAW;
-    using INV = OBSERVE_CONTROL_SET_fields_::INV;
-    using RESET = OBSERVE_CONTROL_SET_fields_::RESET;
-    using DIVIDE = OBSERVE_CONTROL_SET_fields_::DIVIDE;
-    using OFF = OBSERVE_CONTROL_SET_fields_::OFF;
+    using SELECT = ObserveControlSetFields::SELECT;
+    using RAW = ObserveControlSetFields::RAW;
+    using INV = ObserveControlSetFields::INV;
+    using RESET = ObserveControlSetFields::RESET;
+    using DIVIDE = ObserveControlSetFields::DIVIDE;
+    using OFF = ObserveControlSetFields::OFF;
   };
 
   // Observe control
-  struct OBSERVE_CONTROL_CLR_fields_ {
+  struct ObserveControlClrFields {
     // Observe signal selector
     using SELECT = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Observe raw signal
@@ -135,7 +135,7 @@ struct CcmObs {
     using DIVIDE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Turn off
     using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct OBSERVE_CONTROL_CLR_fields_
+  };  // struct ObserveControlClrFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_CONTROL_CLR : ftl::mmio::Register<
@@ -143,26 +143,26 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OBSERVE_CONTROL_CLR_fields_::SELECT,
+      ObserveControlClrFields::SELECT,
       ftl::mmio::Reserved<3, 9>,
-      OBSERVE_CONTROL_CLR_fields_::RAW,
-      OBSERVE_CONTROL_CLR_fields_::INV,
+      ObserveControlClrFields::RAW,
+      ObserveControlClrFields::INV,
       ftl::mmio::Reserved<1, 14>,
-      OBSERVE_CONTROL_CLR_fields_::RESET,
-      OBSERVE_CONTROL_CLR_fields_::DIVIDE,
-      OBSERVE_CONTROL_CLR_fields_::OFF,
+      ObserveControlClrFields::RESET,
+      ObserveControlClrFields::DIVIDE,
+      ObserveControlClrFields::OFF,
       ftl::mmio::Reserved<7, 25>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_CONTROL_CLR: ClusterIndex out of range");
-    using SELECT = OBSERVE_CONTROL_CLR_fields_::SELECT;
-    using RAW = OBSERVE_CONTROL_CLR_fields_::RAW;
-    using INV = OBSERVE_CONTROL_CLR_fields_::INV;
-    using RESET = OBSERVE_CONTROL_CLR_fields_::RESET;
-    using DIVIDE = OBSERVE_CONTROL_CLR_fields_::DIVIDE;
-    using OFF = OBSERVE_CONTROL_CLR_fields_::OFF;
+    using SELECT = ObserveControlClrFields::SELECT;
+    using RAW = ObserveControlClrFields::RAW;
+    using INV = ObserveControlClrFields::INV;
+    using RESET = ObserveControlClrFields::RESET;
+    using DIVIDE = ObserveControlClrFields::DIVIDE;
+    using OFF = ObserveControlClrFields::OFF;
   };
 
   // Observe control
-  struct OBSERVE_CONTROL_TOG_fields_ {
+  struct ObserveControlTogFields {
     // Observe signal selector
     using SELECT = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Observe raw signal
@@ -175,7 +175,7 @@ struct CcmObs {
     using DIVIDE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Turn off
     using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct OBSERVE_CONTROL_TOG_fields_
+  };  // struct ObserveControlTogFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_CONTROL_TOG : ftl::mmio::Register<
@@ -183,26 +183,26 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OBSERVE_CONTROL_TOG_fields_::SELECT,
+      ObserveControlTogFields::SELECT,
       ftl::mmio::Reserved<3, 9>,
-      OBSERVE_CONTROL_TOG_fields_::RAW,
-      OBSERVE_CONTROL_TOG_fields_::INV,
+      ObserveControlTogFields::RAW,
+      ObserveControlTogFields::INV,
       ftl::mmio::Reserved<1, 14>,
-      OBSERVE_CONTROL_TOG_fields_::RESET,
-      OBSERVE_CONTROL_TOG_fields_::DIVIDE,
-      OBSERVE_CONTROL_TOG_fields_::OFF,
+      ObserveControlTogFields::RESET,
+      ObserveControlTogFields::DIVIDE,
+      ObserveControlTogFields::OFF,
       ftl::mmio::Reserved<7, 25>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_CONTROL_TOG: ClusterIndex out of range");
-    using SELECT = OBSERVE_CONTROL_TOG_fields_::SELECT;
-    using RAW = OBSERVE_CONTROL_TOG_fields_::RAW;
-    using INV = OBSERVE_CONTROL_TOG_fields_::INV;
-    using RESET = OBSERVE_CONTROL_TOG_fields_::RESET;
-    using DIVIDE = OBSERVE_CONTROL_TOG_fields_::DIVIDE;
-    using OFF = OBSERVE_CONTROL_TOG_fields_::OFF;
+    using SELECT = ObserveControlTogFields::SELECT;
+    using RAW = ObserveControlTogFields::RAW;
+    using INV = ObserveControlTogFields::INV;
+    using RESET = ObserveControlTogFields::RESET;
+    using DIVIDE = ObserveControlTogFields::DIVIDE;
+    using OFF = ObserveControlTogFields::OFF;
   };
 
   // Observe status
-  struct OBSERVE_STATUS0_fields_ {
+  struct ObserveStatus0Fields {
     enum class eRAW : std::uint32_t {
       // Divided signal is selected
       eRAW_0 = 0,
@@ -243,7 +243,7 @@ struct CcmObs {
     using DIVIDE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Turn off slice
     using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct OBSERVE_STATUS0_fields_
+  };  // struct ObserveStatus0Fields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_STATUS0 : ftl::mmio::Register<
@@ -251,30 +251,30 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      OBSERVE_STATUS0_fields_::SELECT,
+      ObserveStatus0Fields::SELECT,
       ftl::mmio::Reserved<3, 9>,
-      OBSERVE_STATUS0_fields_::RAW,
-      OBSERVE_STATUS0_fields_::INV,
+      ObserveStatus0Fields::RAW,
+      ObserveStatus0Fields::INV,
       ftl::mmio::Reserved<1, 14>,
-      OBSERVE_STATUS0_fields_::RESET,
-      OBSERVE_STATUS0_fields_::DIVIDE,
-      OBSERVE_STATUS0_fields_::OFF,
+      ObserveStatus0Fields::RESET,
+      ObserveStatus0Fields::DIVIDE,
+      ObserveStatus0Fields::OFF,
       ftl::mmio::Reserved<7, 25>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_STATUS0: ClusterIndex out of range");
-    using eRAW = OBSERVE_STATUS0_fields_::eRAW;
-    using eINV = OBSERVE_STATUS0_fields_::eINV;
-    using eRESET = OBSERVE_STATUS0_fields_::eRESET;
-    using eOFF = OBSERVE_STATUS0_fields_::eOFF;
-    using SELECT = OBSERVE_STATUS0_fields_::SELECT;
-    using RAW = OBSERVE_STATUS0_fields_::RAW;
-    using INV = OBSERVE_STATUS0_fields_::INV;
-    using RESET = OBSERVE_STATUS0_fields_::RESET;
-    using DIVIDE = OBSERVE_STATUS0_fields_::DIVIDE;
-    using OFF = OBSERVE_STATUS0_fields_::OFF;
+    using eRAW = ObserveStatus0Fields::eRAW;
+    using eINV = ObserveStatus0Fields::eINV;
+    using eRESET = ObserveStatus0Fields::eRESET;
+    using eOFF = ObserveStatus0Fields::eOFF;
+    using SELECT = ObserveStatus0Fields::SELECT;
+    using RAW = ObserveStatus0Fields::RAW;
+    using INV = ObserveStatus0Fields::INV;
+    using RESET = ObserveStatus0Fields::RESET;
+    using DIVIDE = ObserveStatus0Fields::DIVIDE;
+    using OFF = ObserveStatus0Fields::OFF;
   };
 
   // Observe access control
-  struct OBSERVE_AUTHEN_fields_ {
+  struct ObserveAuthenFields {
     enum class eTZ_USER : std::uint32_t {
       // Clock cannot be changed in user mode.
       eTZ_USER_0 = 0,
@@ -346,7 +346,7 @@ struct CcmObs {
     using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock low power and access mode
     using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OBSERVE_AUTHEN_fields_
+  };  // struct ObserveAuthenFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_AUTHEN : ftl::mmio::Register<
@@ -354,37 +354,37 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OBSERVE_AUTHEN_fields_::TZ_USER,
-      OBSERVE_AUTHEN_fields_::TZ_NS,
+      ObserveAuthenFields::TZ_USER,
+      ObserveAuthenFields::TZ_NS,
       ftl::mmio::Reserved<2, 2>,
-      OBSERVE_AUTHEN_fields_::LOCK_TZ,
+      ObserveAuthenFields::LOCK_TZ,
       ftl::mmio::Reserved<3, 5>,
-      OBSERVE_AUTHEN_fields_::WHITE_LIST,
-      OBSERVE_AUTHEN_fields_::LOCK_LIST,
+      ObserveAuthenFields::WHITE_LIST,
+      ObserveAuthenFields::LOCK_LIST,
       ftl::mmio::Reserved<3, 13>,
-      OBSERVE_AUTHEN_fields_::DOMAIN_MODE,
+      ObserveAuthenFields::DOMAIN_MODE,
       ftl::mmio::Reserved<3, 17>,
-      OBSERVE_AUTHEN_fields_::LOCK_MODE,
+      ObserveAuthenFields::LOCK_MODE,
       ftl::mmio::Reserved<11, 21>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_AUTHEN: ClusterIndex out of range");
-    using eTZ_USER = OBSERVE_AUTHEN_fields_::eTZ_USER;
-    using eTZ_NS = OBSERVE_AUTHEN_fields_::eTZ_NS;
-    using eLOCK_TZ = OBSERVE_AUTHEN_fields_::eLOCK_TZ;
-    using eWHITE_LIST = OBSERVE_AUTHEN_fields_::eWHITE_LIST;
-    using eLOCK_LIST = OBSERVE_AUTHEN_fields_::eLOCK_LIST;
-    using eDOMAIN_MODE = OBSERVE_AUTHEN_fields_::eDOMAIN_MODE;
-    using eLOCK_MODE = OBSERVE_AUTHEN_fields_::eLOCK_MODE;
-    using TZ_USER = OBSERVE_AUTHEN_fields_::TZ_USER;
-    using TZ_NS = OBSERVE_AUTHEN_fields_::TZ_NS;
-    using LOCK_TZ = OBSERVE_AUTHEN_fields_::LOCK_TZ;
-    using WHITE_LIST = OBSERVE_AUTHEN_fields_::WHITE_LIST;
-    using LOCK_LIST = OBSERVE_AUTHEN_fields_::LOCK_LIST;
-    using DOMAIN_MODE = OBSERVE_AUTHEN_fields_::DOMAIN_MODE;
-    using LOCK_MODE = OBSERVE_AUTHEN_fields_::LOCK_MODE;
+    using eTZ_USER = ObserveAuthenFields::eTZ_USER;
+    using eTZ_NS = ObserveAuthenFields::eTZ_NS;
+    using eLOCK_TZ = ObserveAuthenFields::eLOCK_TZ;
+    using eWHITE_LIST = ObserveAuthenFields::eWHITE_LIST;
+    using eLOCK_LIST = ObserveAuthenFields::eLOCK_LIST;
+    using eDOMAIN_MODE = ObserveAuthenFields::eDOMAIN_MODE;
+    using eLOCK_MODE = ObserveAuthenFields::eLOCK_MODE;
+    using TZ_USER = ObserveAuthenFields::TZ_USER;
+    using TZ_NS = ObserveAuthenFields::TZ_NS;
+    using LOCK_TZ = ObserveAuthenFields::LOCK_TZ;
+    using WHITE_LIST = ObserveAuthenFields::WHITE_LIST;
+    using LOCK_LIST = ObserveAuthenFields::LOCK_LIST;
+    using DOMAIN_MODE = ObserveAuthenFields::DOMAIN_MODE;
+    using LOCK_MODE = ObserveAuthenFields::LOCK_MODE;
   };
 
   // Observe access control
-  struct OBSERVE_AUTHEN_SET_fields_ {
+  struct ObserveAuthenSetFields {
     // User access
     using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Non-secure access
@@ -399,7 +399,7 @@ struct CcmObs {
     using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Lock low power and access mode
     using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct OBSERVE_AUTHEN_SET_fields_
+  };  // struct ObserveAuthenSetFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_AUTHEN_SET : ftl::mmio::Register<
@@ -407,30 +407,30 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OBSERVE_AUTHEN_SET_fields_::TZ_USER,
-      OBSERVE_AUTHEN_SET_fields_::TZ_NS,
+      ObserveAuthenSetFields::TZ_USER,
+      ObserveAuthenSetFields::TZ_NS,
       ftl::mmio::Reserved<2, 2>,
-      OBSERVE_AUTHEN_SET_fields_::LOCK_TZ,
+      ObserveAuthenSetFields::LOCK_TZ,
       ftl::mmio::Reserved<3, 5>,
-      OBSERVE_AUTHEN_SET_fields_::WHITE_LIST,
-      OBSERVE_AUTHEN_SET_fields_::LOCK_LIST,
+      ObserveAuthenSetFields::WHITE_LIST,
+      ObserveAuthenSetFields::LOCK_LIST,
       ftl::mmio::Reserved<3, 13>,
-      OBSERVE_AUTHEN_SET_fields_::DOMAIN_MODE,
+      ObserveAuthenSetFields::DOMAIN_MODE,
       ftl::mmio::Reserved<3, 17>,
-      OBSERVE_AUTHEN_SET_fields_::LOCK_MODE,
+      ObserveAuthenSetFields::LOCK_MODE,
       ftl::mmio::Reserved<11, 21>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_AUTHEN_SET: ClusterIndex out of range");
-    using TZ_USER = OBSERVE_AUTHEN_SET_fields_::TZ_USER;
-    using TZ_NS = OBSERVE_AUTHEN_SET_fields_::TZ_NS;
-    using LOCK_TZ = OBSERVE_AUTHEN_SET_fields_::LOCK_TZ;
-    using WHITE_LIST = OBSERVE_AUTHEN_SET_fields_::WHITE_LIST;
-    using LOCK_LIST = OBSERVE_AUTHEN_SET_fields_::LOCK_LIST;
-    using DOMAIN_MODE = OBSERVE_AUTHEN_SET_fields_::DOMAIN_MODE;
-    using LOCK_MODE = OBSERVE_AUTHEN_SET_fields_::LOCK_MODE;
+    using TZ_USER = ObserveAuthenSetFields::TZ_USER;
+    using TZ_NS = ObserveAuthenSetFields::TZ_NS;
+    using LOCK_TZ = ObserveAuthenSetFields::LOCK_TZ;
+    using WHITE_LIST = ObserveAuthenSetFields::WHITE_LIST;
+    using LOCK_LIST = ObserveAuthenSetFields::LOCK_LIST;
+    using DOMAIN_MODE = ObserveAuthenSetFields::DOMAIN_MODE;
+    using LOCK_MODE = ObserveAuthenSetFields::LOCK_MODE;
   };
 
   // Observe access control
-  struct OBSERVE_AUTHEN_CLR_fields_ {
+  struct ObserveAuthenClrFields {
     // User access
     using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Non-secure access
@@ -445,7 +445,7 @@ struct CcmObs {
     using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Lock low power and access mode
     using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct OBSERVE_AUTHEN_CLR_fields_
+  };  // struct ObserveAuthenClrFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_AUTHEN_CLR : ftl::mmio::Register<
@@ -453,30 +453,30 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OBSERVE_AUTHEN_CLR_fields_::TZ_USER,
-      OBSERVE_AUTHEN_CLR_fields_::TZ_NS,
+      ObserveAuthenClrFields::TZ_USER,
+      ObserveAuthenClrFields::TZ_NS,
       ftl::mmio::Reserved<2, 2>,
-      OBSERVE_AUTHEN_CLR_fields_::LOCK_TZ,
+      ObserveAuthenClrFields::LOCK_TZ,
       ftl::mmio::Reserved<3, 5>,
-      OBSERVE_AUTHEN_CLR_fields_::WHITE_LIST,
-      OBSERVE_AUTHEN_CLR_fields_::LOCK_LIST,
+      ObserveAuthenClrFields::WHITE_LIST,
+      ObserveAuthenClrFields::LOCK_LIST,
       ftl::mmio::Reserved<3, 13>,
-      OBSERVE_AUTHEN_CLR_fields_::DOMAIN_MODE,
+      ObserveAuthenClrFields::DOMAIN_MODE,
       ftl::mmio::Reserved<3, 17>,
-      OBSERVE_AUTHEN_CLR_fields_::LOCK_MODE,
+      ObserveAuthenClrFields::LOCK_MODE,
       ftl::mmio::Reserved<11, 21>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_AUTHEN_CLR: ClusterIndex out of range");
-    using TZ_USER = OBSERVE_AUTHEN_CLR_fields_::TZ_USER;
-    using TZ_NS = OBSERVE_AUTHEN_CLR_fields_::TZ_NS;
-    using LOCK_TZ = OBSERVE_AUTHEN_CLR_fields_::LOCK_TZ;
-    using WHITE_LIST = OBSERVE_AUTHEN_CLR_fields_::WHITE_LIST;
-    using LOCK_LIST = OBSERVE_AUTHEN_CLR_fields_::LOCK_LIST;
-    using DOMAIN_MODE = OBSERVE_AUTHEN_CLR_fields_::DOMAIN_MODE;
-    using LOCK_MODE = OBSERVE_AUTHEN_CLR_fields_::LOCK_MODE;
+    using TZ_USER = ObserveAuthenClrFields::TZ_USER;
+    using TZ_NS = ObserveAuthenClrFields::TZ_NS;
+    using LOCK_TZ = ObserveAuthenClrFields::LOCK_TZ;
+    using WHITE_LIST = ObserveAuthenClrFields::WHITE_LIST;
+    using LOCK_LIST = ObserveAuthenClrFields::LOCK_LIST;
+    using DOMAIN_MODE = ObserveAuthenClrFields::DOMAIN_MODE;
+    using LOCK_MODE = ObserveAuthenClrFields::LOCK_MODE;
   };
 
   // Observe access control
-  struct OBSERVE_AUTHEN_TOG_fields_ {
+  struct ObserveAuthenTogFields {
     // User access
     using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Non-secure access
@@ -491,7 +491,7 @@ struct CcmObs {
     using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Lock low power and access mode
     using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct OBSERVE_AUTHEN_TOG_fields_
+  };  // struct ObserveAuthenTogFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_AUTHEN_TOG : ftl::mmio::Register<
@@ -499,33 +499,33 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      OBSERVE_AUTHEN_TOG_fields_::TZ_USER,
-      OBSERVE_AUTHEN_TOG_fields_::TZ_NS,
+      ObserveAuthenTogFields::TZ_USER,
+      ObserveAuthenTogFields::TZ_NS,
       ftl::mmio::Reserved<2, 2>,
-      OBSERVE_AUTHEN_TOG_fields_::LOCK_TZ,
+      ObserveAuthenTogFields::LOCK_TZ,
       ftl::mmio::Reserved<3, 5>,
-      OBSERVE_AUTHEN_TOG_fields_::WHITE_LIST,
-      OBSERVE_AUTHEN_TOG_fields_::LOCK_LIST,
+      ObserveAuthenTogFields::WHITE_LIST,
+      ObserveAuthenTogFields::LOCK_LIST,
       ftl::mmio::Reserved<3, 13>,
-      OBSERVE_AUTHEN_TOG_fields_::DOMAIN_MODE,
+      ObserveAuthenTogFields::DOMAIN_MODE,
       ftl::mmio::Reserved<3, 17>,
-      OBSERVE_AUTHEN_TOG_fields_::LOCK_MODE,
+      ObserveAuthenTogFields::LOCK_MODE,
       ftl::mmio::Reserved<11, 21>> {
     static_assert(ClusterIndex < 6u, "OBSERVE_AUTHEN_TOG: ClusterIndex out of range");
-    using TZ_USER = OBSERVE_AUTHEN_TOG_fields_::TZ_USER;
-    using TZ_NS = OBSERVE_AUTHEN_TOG_fields_::TZ_NS;
-    using LOCK_TZ = OBSERVE_AUTHEN_TOG_fields_::LOCK_TZ;
-    using WHITE_LIST = OBSERVE_AUTHEN_TOG_fields_::WHITE_LIST;
-    using LOCK_LIST = OBSERVE_AUTHEN_TOG_fields_::LOCK_LIST;
-    using DOMAIN_MODE = OBSERVE_AUTHEN_TOG_fields_::DOMAIN_MODE;
-    using LOCK_MODE = OBSERVE_AUTHEN_TOG_fields_::LOCK_MODE;
+    using TZ_USER = ObserveAuthenTogFields::TZ_USER;
+    using TZ_NS = ObserveAuthenTogFields::TZ_NS;
+    using LOCK_TZ = ObserveAuthenTogFields::LOCK_TZ;
+    using WHITE_LIST = ObserveAuthenTogFields::WHITE_LIST;
+    using LOCK_LIST = ObserveAuthenTogFields::LOCK_LIST;
+    using DOMAIN_MODE = ObserveAuthenTogFields::DOMAIN_MODE;
+    using LOCK_MODE = ObserveAuthenTogFields::LOCK_MODE;
   };
 
   // Current frequency detected
-  struct OBSERVE_FREQUENCY_CURRENT_fields_ {
+  struct ObserveFrequencyCurrentFields {
     // Frequency
     using FREQUENCY = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct OBSERVE_FREQUENCY_CURRENT_fields_
+  };  // struct ObserveFrequencyCurrentFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_FREQUENCY_CURRENT : ftl::mmio::Register<
@@ -533,16 +533,16 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      OBSERVE_FREQUENCY_CURRENT_fields_::FREQUENCY> {
+      ObserveFrequencyCurrentFields::FREQUENCY> {
     static_assert(ClusterIndex < 6u, "OBSERVE_FREQUENCY_CURRENT: ClusterIndex out of range");
-    using FREQUENCY = OBSERVE_FREQUENCY_CURRENT_fields_::FREQUENCY;
+    using FREQUENCY = ObserveFrequencyCurrentFields::FREQUENCY;
   };
 
   // Minimum frequency detected
-  struct OBSERVE_FREQUENCY_MIN_fields_ {
+  struct ObserveFrequencyMinFields {
     // Frequency
     using FREQUENCY = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct OBSERVE_FREQUENCY_MIN_fields_
+  };  // struct ObserveFrequencyMinFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_FREQUENCY_MIN : ftl::mmio::Register<
@@ -550,16 +550,16 @@ struct CcmObs {
       std::uint32_t,
       0xFFFFFFC0u,
       ftl::mmio::RO,
-      OBSERVE_FREQUENCY_MIN_fields_::FREQUENCY> {
+      ObserveFrequencyMinFields::FREQUENCY> {
     static_assert(ClusterIndex < 6u, "OBSERVE_FREQUENCY_MIN: ClusterIndex out of range");
-    using FREQUENCY = OBSERVE_FREQUENCY_MIN_fields_::FREQUENCY;
+    using FREQUENCY = ObserveFrequencyMinFields::FREQUENCY;
   };
 
   // Maximum frequency detected
-  struct OBSERVE_FREQUENCY_MAX_fields_ {
+  struct ObserveFrequencyMaxFields {
     // Frequency
     using FREQUENCY = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct OBSERVE_FREQUENCY_MAX_fields_
+  };  // struct ObserveFrequencyMaxFields
 
   template<std::uint32_t ClusterIndex>
   struct OBSERVE_FREQUENCY_MAX : ftl::mmio::Register<
@@ -567,9 +567,9 @@ struct CcmObs {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      OBSERVE_FREQUENCY_MAX_fields_::FREQUENCY> {
+      ObserveFrequencyMaxFields::FREQUENCY> {
     static_assert(ClusterIndex < 6u, "OBSERVE_FREQUENCY_MAX: ClusterIndex out of range");
-    using FREQUENCY = OBSERVE_FREQUENCY_MAX_fields_::FREQUENCY;
+    using FREQUENCY = ObserveFrequencyMaxFields::FREQUENCY;
   };
 
 };

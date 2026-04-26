@@ -10,7 +10,7 @@ namespace regs {
 
 struct Csi {
   // CSI Control Register 1
-  struct CSI_CR1_fields_ {
+  struct CsiCr1Fields {
     enum class ePIXEL_BIT : std::uint32_t {
       // 8-bit data for each pixel
       ePIXEL_BIT_0 = 0,
@@ -231,97 +231,97 @@ struct Csi {
     using EXT_VSYNC = ftl::mmio::Field<1, 30, eEXT_VSYNC, ftl::mmio::RW, ftl::mmio::Normal>;
     // SWAP 16-Bit Enable
     using SWAP16_EN = ftl::mmio::Field<1, 31, eSWAP16_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_CR1_fields_
+  };  // struct CsiCr1Fields
 
   struct CSI_CR1 : ftl::mmio::Register<
       0x40800000u,
       std::uint32_t,
       0x40000800u,
       ftl::mmio::RW,
-      CSI_CR1_fields_::PIXEL_BIT,
-      CSI_CR1_fields_::REDGE,
-      CSI_CR1_fields_::INV_PCLK,
-      CSI_CR1_fields_::INV_DATA,
-      CSI_CR1_fields_::GCLK_MODE,
-      CSI_CR1_fields_::CLR_RXFIFO,
-      CSI_CR1_fields_::CLR_STATFIFO,
-      CSI_CR1_fields_::PACK_DIR,
-      CSI_CR1_fields_::FCC,
+      CsiCr1Fields::PIXEL_BIT,
+      CsiCr1Fields::REDGE,
+      CsiCr1Fields::INV_PCLK,
+      CsiCr1Fields::INV_DATA,
+      CsiCr1Fields::GCLK_MODE,
+      CsiCr1Fields::CLR_RXFIFO,
+      CsiCr1Fields::CLR_STATFIFO,
+      CsiCr1Fields::PACK_DIR,
+      CsiCr1Fields::FCC,
       ftl::mmio::Reserved<1, 9>,
-      CSI_CR1_fields_::CCIR_EN,
-      CSI_CR1_fields_::HSYNC_POL,
-      CSI_CR1_fields_::HISTOGRAM_CALC_DONE_IE,
+      CsiCr1Fields::CCIR_EN,
+      CsiCr1Fields::HSYNC_POL,
+      CsiCr1Fields::HISTOGRAM_CALC_DONE_IE,
       ftl::mmio::Reserved<3, 13>,
-      CSI_CR1_fields_::SOF_INTEN,
-      CSI_CR1_fields_::SOF_POL,
-      CSI_CR1_fields_::RXFF_INTEN,
-      CSI_CR1_fields_::FB1_DMA_DONE_INTEN,
-      CSI_CR1_fields_::FB2_DMA_DONE_INTEN,
-      CSI_CR1_fields_::STATFF_INTEN,
-      CSI_CR1_fields_::SFF_DMA_DONE_INTEN,
+      CsiCr1Fields::SOF_INTEN,
+      CsiCr1Fields::SOF_POL,
+      CsiCr1Fields::RXFF_INTEN,
+      CsiCr1Fields::FB1_DMA_DONE_INTEN,
+      CsiCr1Fields::FB2_DMA_DONE_INTEN,
+      CsiCr1Fields::STATFF_INTEN,
+      CsiCr1Fields::SFF_DMA_DONE_INTEN,
       ftl::mmio::Reserved<1, 23>,
-      CSI_CR1_fields_::RF_OR_INTEN,
-      CSI_CR1_fields_::SF_OR_INTEN,
-      CSI_CR1_fields_::COF_INT_EN,
-      CSI_CR1_fields_::VIDEO_MODE,
+      CsiCr1Fields::RF_OR_INTEN,
+      CsiCr1Fields::SF_OR_INTEN,
+      CsiCr1Fields::COF_INT_EN,
+      CsiCr1Fields::VIDEO_MODE,
       ftl::mmio::Reserved<1, 28>,
-      CSI_CR1_fields_::EOF_INT_EN,
-      CSI_CR1_fields_::EXT_VSYNC,
-      CSI_CR1_fields_::SWAP16_EN> {
-    using ePIXEL_BIT = CSI_CR1_fields_::ePIXEL_BIT;
-    using eREDGE = CSI_CR1_fields_::eREDGE;
-    using eINV_PCLK = CSI_CR1_fields_::eINV_PCLK;
-    using eINV_DATA = CSI_CR1_fields_::eINV_DATA;
-    using eGCLK_MODE = CSI_CR1_fields_::eGCLK_MODE;
-    using ePACK_DIR = CSI_CR1_fields_::ePACK_DIR;
-    using eFCC = CSI_CR1_fields_::eFCC;
-    using eCCIR_EN = CSI_CR1_fields_::eCCIR_EN;
-    using eHSYNC_POL = CSI_CR1_fields_::eHSYNC_POL;
-    using eHISTOGRAM_CALC_DONE_IE = CSI_CR1_fields_::eHISTOGRAM_CALC_DONE_IE;
-    using eSOF_INTEN = CSI_CR1_fields_::eSOF_INTEN;
-    using eSOF_POL = CSI_CR1_fields_::eSOF_POL;
-    using eRXFF_INTEN = CSI_CR1_fields_::eRXFF_INTEN;
-    using eFB1_DMA_DONE_INTEN = CSI_CR1_fields_::eFB1_DMA_DONE_INTEN;
-    using eFB2_DMA_DONE_INTEN = CSI_CR1_fields_::eFB2_DMA_DONE_INTEN;
-    using eSTATFF_INTEN = CSI_CR1_fields_::eSTATFF_INTEN;
-    using eSFF_DMA_DONE_INTEN = CSI_CR1_fields_::eSFF_DMA_DONE_INTEN;
-    using eRF_OR_INTEN = CSI_CR1_fields_::eRF_OR_INTEN;
-    using eSF_OR_INTEN = CSI_CR1_fields_::eSF_OR_INTEN;
-    using eCOF_INT_EN = CSI_CR1_fields_::eCOF_INT_EN;
-    using eVIDEO_MODE = CSI_CR1_fields_::eVIDEO_MODE;
-    using eEOF_INT_EN = CSI_CR1_fields_::eEOF_INT_EN;
-    using eEXT_VSYNC = CSI_CR1_fields_::eEXT_VSYNC;
-    using eSWAP16_EN = CSI_CR1_fields_::eSWAP16_EN;
-    using PIXEL_BIT = CSI_CR1_fields_::PIXEL_BIT;
-    using REDGE = CSI_CR1_fields_::REDGE;
-    using INV_PCLK = CSI_CR1_fields_::INV_PCLK;
-    using INV_DATA = CSI_CR1_fields_::INV_DATA;
-    using GCLK_MODE = CSI_CR1_fields_::GCLK_MODE;
-    using CLR_RXFIFO = CSI_CR1_fields_::CLR_RXFIFO;
-    using CLR_STATFIFO = CSI_CR1_fields_::CLR_STATFIFO;
-    using PACK_DIR = CSI_CR1_fields_::PACK_DIR;
-    using FCC = CSI_CR1_fields_::FCC;
-    using CCIR_EN = CSI_CR1_fields_::CCIR_EN;
-    using HSYNC_POL = CSI_CR1_fields_::HSYNC_POL;
-    using HISTOGRAM_CALC_DONE_IE = CSI_CR1_fields_::HISTOGRAM_CALC_DONE_IE;
-    using SOF_INTEN = CSI_CR1_fields_::SOF_INTEN;
-    using SOF_POL = CSI_CR1_fields_::SOF_POL;
-    using RXFF_INTEN = CSI_CR1_fields_::RXFF_INTEN;
-    using FB1_DMA_DONE_INTEN = CSI_CR1_fields_::FB1_DMA_DONE_INTEN;
-    using FB2_DMA_DONE_INTEN = CSI_CR1_fields_::FB2_DMA_DONE_INTEN;
-    using STATFF_INTEN = CSI_CR1_fields_::STATFF_INTEN;
-    using SFF_DMA_DONE_INTEN = CSI_CR1_fields_::SFF_DMA_DONE_INTEN;
-    using RF_OR_INTEN = CSI_CR1_fields_::RF_OR_INTEN;
-    using SF_OR_INTEN = CSI_CR1_fields_::SF_OR_INTEN;
-    using COF_INT_EN = CSI_CR1_fields_::COF_INT_EN;
-    using VIDEO_MODE = CSI_CR1_fields_::VIDEO_MODE;
-    using EOF_INT_EN = CSI_CR1_fields_::EOF_INT_EN;
-    using EXT_VSYNC = CSI_CR1_fields_::EXT_VSYNC;
-    using SWAP16_EN = CSI_CR1_fields_::SWAP16_EN;
+      CsiCr1Fields::EOF_INT_EN,
+      CsiCr1Fields::EXT_VSYNC,
+      CsiCr1Fields::SWAP16_EN> {
+    using ePIXEL_BIT = CsiCr1Fields::ePIXEL_BIT;
+    using eREDGE = CsiCr1Fields::eREDGE;
+    using eINV_PCLK = CsiCr1Fields::eINV_PCLK;
+    using eINV_DATA = CsiCr1Fields::eINV_DATA;
+    using eGCLK_MODE = CsiCr1Fields::eGCLK_MODE;
+    using ePACK_DIR = CsiCr1Fields::ePACK_DIR;
+    using eFCC = CsiCr1Fields::eFCC;
+    using eCCIR_EN = CsiCr1Fields::eCCIR_EN;
+    using eHSYNC_POL = CsiCr1Fields::eHSYNC_POL;
+    using eHISTOGRAM_CALC_DONE_IE = CsiCr1Fields::eHISTOGRAM_CALC_DONE_IE;
+    using eSOF_INTEN = CsiCr1Fields::eSOF_INTEN;
+    using eSOF_POL = CsiCr1Fields::eSOF_POL;
+    using eRXFF_INTEN = CsiCr1Fields::eRXFF_INTEN;
+    using eFB1_DMA_DONE_INTEN = CsiCr1Fields::eFB1_DMA_DONE_INTEN;
+    using eFB2_DMA_DONE_INTEN = CsiCr1Fields::eFB2_DMA_DONE_INTEN;
+    using eSTATFF_INTEN = CsiCr1Fields::eSTATFF_INTEN;
+    using eSFF_DMA_DONE_INTEN = CsiCr1Fields::eSFF_DMA_DONE_INTEN;
+    using eRF_OR_INTEN = CsiCr1Fields::eRF_OR_INTEN;
+    using eSF_OR_INTEN = CsiCr1Fields::eSF_OR_INTEN;
+    using eCOF_INT_EN = CsiCr1Fields::eCOF_INT_EN;
+    using eVIDEO_MODE = CsiCr1Fields::eVIDEO_MODE;
+    using eEOF_INT_EN = CsiCr1Fields::eEOF_INT_EN;
+    using eEXT_VSYNC = CsiCr1Fields::eEXT_VSYNC;
+    using eSWAP16_EN = CsiCr1Fields::eSWAP16_EN;
+    using PIXEL_BIT = CsiCr1Fields::PIXEL_BIT;
+    using REDGE = CsiCr1Fields::REDGE;
+    using INV_PCLK = CsiCr1Fields::INV_PCLK;
+    using INV_DATA = CsiCr1Fields::INV_DATA;
+    using GCLK_MODE = CsiCr1Fields::GCLK_MODE;
+    using CLR_RXFIFO = CsiCr1Fields::CLR_RXFIFO;
+    using CLR_STATFIFO = CsiCr1Fields::CLR_STATFIFO;
+    using PACK_DIR = CsiCr1Fields::PACK_DIR;
+    using FCC = CsiCr1Fields::FCC;
+    using CCIR_EN = CsiCr1Fields::CCIR_EN;
+    using HSYNC_POL = CsiCr1Fields::HSYNC_POL;
+    using HISTOGRAM_CALC_DONE_IE = CsiCr1Fields::HISTOGRAM_CALC_DONE_IE;
+    using SOF_INTEN = CsiCr1Fields::SOF_INTEN;
+    using SOF_POL = CsiCr1Fields::SOF_POL;
+    using RXFF_INTEN = CsiCr1Fields::RXFF_INTEN;
+    using FB1_DMA_DONE_INTEN = CsiCr1Fields::FB1_DMA_DONE_INTEN;
+    using FB2_DMA_DONE_INTEN = CsiCr1Fields::FB2_DMA_DONE_INTEN;
+    using STATFF_INTEN = CsiCr1Fields::STATFF_INTEN;
+    using SFF_DMA_DONE_INTEN = CsiCr1Fields::SFF_DMA_DONE_INTEN;
+    using RF_OR_INTEN = CsiCr1Fields::RF_OR_INTEN;
+    using SF_OR_INTEN = CsiCr1Fields::SF_OR_INTEN;
+    using COF_INT_EN = CsiCr1Fields::COF_INT_EN;
+    using VIDEO_MODE = CsiCr1Fields::VIDEO_MODE;
+    using EOF_INT_EN = CsiCr1Fields::EOF_INT_EN;
+    using EXT_VSYNC = CsiCr1Fields::EXT_VSYNC;
+    using SWAP16_EN = CsiCr1Fields::SWAP16_EN;
   };
 
   // CSI Control Register 2
-  struct CSI_CR2_fields_ {
+  struct CsiCr2Fields {
     enum class eHSC : std::uint32_t {
       // Number of pixels to skip minus 1
       eHSC_0 = 0,
@@ -455,46 +455,46 @@ struct Csi {
     using DMA_BURST_TYPE_SFF = ftl::mmio::Field<2, 28, eDMA_BURST_TYPE_SFF, ftl::mmio::RW, ftl::mmio::Normal>;
     // Burst Type of DMA Transfer from RxFIFO. Selects the burst type of DMA transfer from RxFIFO.
     using DMA_BURST_TYPE_RFF = ftl::mmio::Field<2, 30, eDMA_BURST_TYPE_RFF, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_CR2_fields_
+  };  // struct CsiCr2Fields
 
   struct CSI_CR2 : ftl::mmio::Register<
       0x40800004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CSI_CR2_fields_::HSC,
-      CSI_CR2_fields_::VSC,
-      CSI_CR2_fields_::LVRM,
-      CSI_CR2_fields_::BTS,
+      CsiCr2Fields::HSC,
+      CsiCr2Fields::VSC,
+      CsiCr2Fields::LVRM,
+      CsiCr2Fields::BTS,
       ftl::mmio::Reserved<2, 21>,
-      CSI_CR2_fields_::SCE,
-      CSI_CR2_fields_::AFS,
-      CSI_CR2_fields_::DRM,
+      CsiCr2Fields::SCE,
+      CsiCr2Fields::AFS,
+      CsiCr2Fields::DRM,
       ftl::mmio::Reserved<1, 27>,
-      CSI_CR2_fields_::DMA_BURST_TYPE_SFF,
-      CSI_CR2_fields_::DMA_BURST_TYPE_RFF> {
-    using eHSC = CSI_CR2_fields_::eHSC;
-    using eVSC = CSI_CR2_fields_::eVSC;
-    using eLVRM = CSI_CR2_fields_::eLVRM;
-    using eBTS = CSI_CR2_fields_::eBTS;
-    using eSCE = CSI_CR2_fields_::eSCE;
-    using eAFS = CSI_CR2_fields_::eAFS;
-    using eDRM = CSI_CR2_fields_::eDRM;
-    using eDMA_BURST_TYPE_SFF = CSI_CR2_fields_::eDMA_BURST_TYPE_SFF;
-    using eDMA_BURST_TYPE_RFF = CSI_CR2_fields_::eDMA_BURST_TYPE_RFF;
-    using HSC = CSI_CR2_fields_::HSC;
-    using VSC = CSI_CR2_fields_::VSC;
-    using LVRM = CSI_CR2_fields_::LVRM;
-    using BTS = CSI_CR2_fields_::BTS;
-    using SCE = CSI_CR2_fields_::SCE;
-    using AFS = CSI_CR2_fields_::AFS;
-    using DRM = CSI_CR2_fields_::DRM;
-    using DMA_BURST_TYPE_SFF = CSI_CR2_fields_::DMA_BURST_TYPE_SFF;
-    using DMA_BURST_TYPE_RFF = CSI_CR2_fields_::DMA_BURST_TYPE_RFF;
+      CsiCr2Fields::DMA_BURST_TYPE_SFF,
+      CsiCr2Fields::DMA_BURST_TYPE_RFF> {
+    using eHSC = CsiCr2Fields::eHSC;
+    using eVSC = CsiCr2Fields::eVSC;
+    using eLVRM = CsiCr2Fields::eLVRM;
+    using eBTS = CsiCr2Fields::eBTS;
+    using eSCE = CsiCr2Fields::eSCE;
+    using eAFS = CsiCr2Fields::eAFS;
+    using eDRM = CsiCr2Fields::eDRM;
+    using eDMA_BURST_TYPE_SFF = CsiCr2Fields::eDMA_BURST_TYPE_SFF;
+    using eDMA_BURST_TYPE_RFF = CsiCr2Fields::eDMA_BURST_TYPE_RFF;
+    using HSC = CsiCr2Fields::HSC;
+    using VSC = CsiCr2Fields::VSC;
+    using LVRM = CsiCr2Fields::LVRM;
+    using BTS = CsiCr2Fields::BTS;
+    using SCE = CsiCr2Fields::SCE;
+    using AFS = CsiCr2Fields::AFS;
+    using DRM = CsiCr2Fields::DRM;
+    using DMA_BURST_TYPE_SFF = CsiCr2Fields::DMA_BURST_TYPE_SFF;
+    using DMA_BURST_TYPE_RFF = CsiCr2Fields::DMA_BURST_TYPE_RFF;
   };
 
   // CSI Control Register 3
-  struct CSI_CR3_fields_ {
+  struct CsiCr3Fields {
     enum class eECC_AUTO_EN : std::uint32_t {
       // Auto Error correction is disabled.
       eECC_AUTO_EN_0 = 0,
@@ -629,101 +629,101 @@ struct Csi {
     using FRMCNT_RST = ftl::mmio::Field<1, 15, eFRMCNT_RST, ftl::mmio::RW, ftl::mmio::Normal>;
     // Frame Counter
     using FRMCNT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_CR3_fields_
+  };  // struct CsiCr3Fields
 
   struct CSI_CR3 : ftl::mmio::Register<
       0x40800008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CSI_CR3_fields_::ECC_AUTO_EN,
-      CSI_CR3_fields_::ECC_INT_EN,
-      CSI_CR3_fields_::ZERO_PACK_EN,
-      CSI_CR3_fields_::SENSOR_16BITS,
-      CSI_CR3_fields_::RxFF_LEVEL,
-      CSI_CR3_fields_::HRESP_ERR_EN,
-      CSI_CR3_fields_::STATFF_LEVEL,
-      CSI_CR3_fields_::DMA_REQ_EN_SFF,
-      CSI_CR3_fields_::DMA_REQ_EN_RFF,
-      CSI_CR3_fields_::DMA_REFLASH_SFF,
-      CSI_CR3_fields_::DMA_REFLASH_RFF,
-      CSI_CR3_fields_::FRMCNT_RST,
-      CSI_CR3_fields_::FRMCNT> {
-    using eECC_AUTO_EN = CSI_CR3_fields_::eECC_AUTO_EN;
-    using eECC_INT_EN = CSI_CR3_fields_::eECC_INT_EN;
-    using eZERO_PACK_EN = CSI_CR3_fields_::eZERO_PACK_EN;
-    using eSENSOR_16BITS = CSI_CR3_fields_::eSENSOR_16BITS;
-    using eRxFF_LEVEL = CSI_CR3_fields_::eRxFF_LEVEL;
-    using eHRESP_ERR_EN = CSI_CR3_fields_::eHRESP_ERR_EN;
-    using eSTATFF_LEVEL = CSI_CR3_fields_::eSTATFF_LEVEL;
-    using eDMA_REQ_EN_SFF = CSI_CR3_fields_::eDMA_REQ_EN_SFF;
-    using eDMA_REQ_EN_RFF = CSI_CR3_fields_::eDMA_REQ_EN_RFF;
-    using eDMA_REFLASH_SFF = CSI_CR3_fields_::eDMA_REFLASH_SFF;
-    using eDMA_REFLASH_RFF = CSI_CR3_fields_::eDMA_REFLASH_RFF;
-    using eFRMCNT_RST = CSI_CR3_fields_::eFRMCNT_RST;
-    using ECC_AUTO_EN = CSI_CR3_fields_::ECC_AUTO_EN;
-    using ECC_INT_EN = CSI_CR3_fields_::ECC_INT_EN;
-    using ZERO_PACK_EN = CSI_CR3_fields_::ZERO_PACK_EN;
-    using SENSOR_16BITS = CSI_CR3_fields_::SENSOR_16BITS;
-    using RxFF_LEVEL = CSI_CR3_fields_::RxFF_LEVEL;
-    using HRESP_ERR_EN = CSI_CR3_fields_::HRESP_ERR_EN;
-    using STATFF_LEVEL = CSI_CR3_fields_::STATFF_LEVEL;
-    using DMA_REQ_EN_SFF = CSI_CR3_fields_::DMA_REQ_EN_SFF;
-    using DMA_REQ_EN_RFF = CSI_CR3_fields_::DMA_REQ_EN_RFF;
-    using DMA_REFLASH_SFF = CSI_CR3_fields_::DMA_REFLASH_SFF;
-    using DMA_REFLASH_RFF = CSI_CR3_fields_::DMA_REFLASH_RFF;
-    using FRMCNT_RST = CSI_CR3_fields_::FRMCNT_RST;
-    using FRMCNT = CSI_CR3_fields_::FRMCNT;
+      CsiCr3Fields::ECC_AUTO_EN,
+      CsiCr3Fields::ECC_INT_EN,
+      CsiCr3Fields::ZERO_PACK_EN,
+      CsiCr3Fields::SENSOR_16BITS,
+      CsiCr3Fields::RxFF_LEVEL,
+      CsiCr3Fields::HRESP_ERR_EN,
+      CsiCr3Fields::STATFF_LEVEL,
+      CsiCr3Fields::DMA_REQ_EN_SFF,
+      CsiCr3Fields::DMA_REQ_EN_RFF,
+      CsiCr3Fields::DMA_REFLASH_SFF,
+      CsiCr3Fields::DMA_REFLASH_RFF,
+      CsiCr3Fields::FRMCNT_RST,
+      CsiCr3Fields::FRMCNT> {
+    using eECC_AUTO_EN = CsiCr3Fields::eECC_AUTO_EN;
+    using eECC_INT_EN = CsiCr3Fields::eECC_INT_EN;
+    using eZERO_PACK_EN = CsiCr3Fields::eZERO_PACK_EN;
+    using eSENSOR_16BITS = CsiCr3Fields::eSENSOR_16BITS;
+    using eRxFF_LEVEL = CsiCr3Fields::eRxFF_LEVEL;
+    using eHRESP_ERR_EN = CsiCr3Fields::eHRESP_ERR_EN;
+    using eSTATFF_LEVEL = CsiCr3Fields::eSTATFF_LEVEL;
+    using eDMA_REQ_EN_SFF = CsiCr3Fields::eDMA_REQ_EN_SFF;
+    using eDMA_REQ_EN_RFF = CsiCr3Fields::eDMA_REQ_EN_RFF;
+    using eDMA_REFLASH_SFF = CsiCr3Fields::eDMA_REFLASH_SFF;
+    using eDMA_REFLASH_RFF = CsiCr3Fields::eDMA_REFLASH_RFF;
+    using eFRMCNT_RST = CsiCr3Fields::eFRMCNT_RST;
+    using ECC_AUTO_EN = CsiCr3Fields::ECC_AUTO_EN;
+    using ECC_INT_EN = CsiCr3Fields::ECC_INT_EN;
+    using ZERO_PACK_EN = CsiCr3Fields::ZERO_PACK_EN;
+    using SENSOR_16BITS = CsiCr3Fields::SENSOR_16BITS;
+    using RxFF_LEVEL = CsiCr3Fields::RxFF_LEVEL;
+    using HRESP_ERR_EN = CsiCr3Fields::HRESP_ERR_EN;
+    using STATFF_LEVEL = CsiCr3Fields::STATFF_LEVEL;
+    using DMA_REQ_EN_SFF = CsiCr3Fields::DMA_REQ_EN_SFF;
+    using DMA_REQ_EN_RFF = CsiCr3Fields::DMA_REQ_EN_RFF;
+    using DMA_REFLASH_SFF = CsiCr3Fields::DMA_REFLASH_SFF;
+    using DMA_REFLASH_RFF = CsiCr3Fields::DMA_REFLASH_RFF;
+    using FRMCNT_RST = CsiCr3Fields::FRMCNT_RST;
+    using FRMCNT = CsiCr3Fields::FRMCNT;
   };
 
   // CSI Statistic FIFO Register
-  struct CSI_STATFIFO_fields_ {
+  struct CsiStatfifoFields {
     // Static data from sensor
     using STAT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CSI_STATFIFO_fields_
+  };  // struct CsiStatfifoFields
 
   struct CSI_STATFIFO : ftl::mmio::Register<
       0x4080000Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      CSI_STATFIFO_fields_::STAT> {
-    using STAT = CSI_STATFIFO_fields_::STAT;
+      CsiStatfifoFields::STAT> {
+    using STAT = CsiStatfifoFields::STAT;
   };
 
   // CSI RX FIFO Register
-  struct CSI_RFIFO_fields_ {
+  struct CsiRfifoFields {
     // Received image data
     using IMAGE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CSI_RFIFO_fields_
+  };  // struct CsiRfifoFields
 
   struct CSI_RFIFO : ftl::mmio::Register<
       0x40800010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      CSI_RFIFO_fields_::IMAGE> {
-    using IMAGE = CSI_RFIFO_fields_::IMAGE;
+      CsiRfifoFields::IMAGE> {
+    using IMAGE = CsiRfifoFields::IMAGE;
   };
 
   // CSI RX Count Register
-  struct CSI_RXCNT_fields_ {
+  struct CsiRxcntFields {
     // RxFIFO Count
     using RXCNT = ftl::mmio::Field<22, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_RXCNT_fields_
+  };  // struct CsiRxcntFields
 
   struct CSI_RXCNT : ftl::mmio::Register<
       0x40800014u,
       std::uint32_t,
       0x00009600u,
       ftl::mmio::RW,
-      CSI_RXCNT_fields_::RXCNT,
+      CsiRxcntFields::RXCNT,
       ftl::mmio::Reserved<10, 22>> {
-    using RXCNT = CSI_RXCNT_fields_::RXCNT;
+    using RXCNT = CsiRxcntFields::RXCNT;
   };
 
   // CSI Status Register
-  struct CSI_SR_fields_ {
+  struct CsiSrFields {
     enum class eDRDY : std::uint32_t {
       // No data (word) is ready
       eDRDY_0 = 0,
@@ -874,78 +874,78 @@ struct Csi {
     using DMA_FIELD0_DONE = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // When using base address switching enable, this bit will be 1 when switching occur before DMA complete
     using BASEADDR_CHHANGE_ERROR = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_SR_fields_
+  };  // struct CsiSrFields
 
   struct CSI_SR : ftl::mmio::Register<
       0x40800018u,
       std::uint32_t,
       0x80004000u,
       ftl::mmio::RW,
-      CSI_SR_fields_::DRDY,
-      CSI_SR_fields_::ECC_INT,
-      CSI_SR_fields_::HISTOGRAM_CALC_DONE_INT,
+      CsiSrFields::DRDY,
+      CsiSrFields::ECC_INT,
+      CsiSrFields::HISTOGRAM_CALC_DONE_INT,
       ftl::mmio::Reserved<4, 3>,
-      CSI_SR_fields_::HRESP_ERR_INT,
+      CsiSrFields::HRESP_ERR_INT,
       ftl::mmio::Reserved<5, 8>,
-      CSI_SR_fields_::COF_INT,
-      CSI_SR_fields_::F1_INT,
-      CSI_SR_fields_::F2_INT,
-      CSI_SR_fields_::SOF_INT,
-      CSI_SR_fields_::EOF_INT,
-      CSI_SR_fields_::RxFF_INT,
-      CSI_SR_fields_::DMA_TSF_DONE_FB1,
-      CSI_SR_fields_::DMA_TSF_DONE_FB2,
-      CSI_SR_fields_::STATFF_INT,
-      CSI_SR_fields_::DMA_TSF_DONE_SFF,
+      CsiSrFields::COF_INT,
+      CsiSrFields::F1_INT,
+      CsiSrFields::F2_INT,
+      CsiSrFields::SOF_INT,
+      CsiSrFields::EOF_INT,
+      CsiSrFields::RxFF_INT,
+      CsiSrFields::DMA_TSF_DONE_FB1,
+      CsiSrFields::DMA_TSF_DONE_FB2,
+      CsiSrFields::STATFF_INT,
+      CsiSrFields::DMA_TSF_DONE_SFF,
       ftl::mmio::Reserved<1, 23>,
-      CSI_SR_fields_::RF_OR_INT,
-      CSI_SR_fields_::SF_OR_INT,
-      CSI_SR_fields_::DMA_FIELD1_DONE,
-      CSI_SR_fields_::DMA_FIELD0_DONE,
-      CSI_SR_fields_::BASEADDR_CHHANGE_ERROR,
+      CsiSrFields::RF_OR_INT,
+      CsiSrFields::SF_OR_INT,
+      CsiSrFields::DMA_FIELD1_DONE,
+      CsiSrFields::DMA_FIELD0_DONE,
+      CsiSrFields::BASEADDR_CHHANGE_ERROR,
       ftl::mmio::Reserved<3, 29>> {
-    using eDRDY = CSI_SR_fields_::eDRDY;
-    using eECC_INT = CSI_SR_fields_::eECC_INT;
-    using eHISTOGRAM_CALC_DONE_INT = CSI_SR_fields_::eHISTOGRAM_CALC_DONE_INT;
-    using eHRESP_ERR_INT = CSI_SR_fields_::eHRESP_ERR_INT;
-    using eCOF_INT = CSI_SR_fields_::eCOF_INT;
-    using eF1_INT = CSI_SR_fields_::eF1_INT;
-    using eF2_INT = CSI_SR_fields_::eF2_INT;
-    using eSOF_INT = CSI_SR_fields_::eSOF_INT;
-    using eEOF_INT = CSI_SR_fields_::eEOF_INT;
-    using eRxFF_INT = CSI_SR_fields_::eRxFF_INT;
-    using eDMA_TSF_DONE_FB1 = CSI_SR_fields_::eDMA_TSF_DONE_FB1;
-    using eDMA_TSF_DONE_FB2 = CSI_SR_fields_::eDMA_TSF_DONE_FB2;
-    using eSTATFF_INT = CSI_SR_fields_::eSTATFF_INT;
-    using eDMA_TSF_DONE_SFF = CSI_SR_fields_::eDMA_TSF_DONE_SFF;
-    using eRF_OR_INT = CSI_SR_fields_::eRF_OR_INT;
-    using eSF_OR_INT = CSI_SR_fields_::eSF_OR_INT;
-    using DRDY = CSI_SR_fields_::DRDY;
-    using ECC_INT = CSI_SR_fields_::ECC_INT;
-    using HISTOGRAM_CALC_DONE_INT = CSI_SR_fields_::HISTOGRAM_CALC_DONE_INT;
-    using HRESP_ERR_INT = CSI_SR_fields_::HRESP_ERR_INT;
-    using COF_INT = CSI_SR_fields_::COF_INT;
-    using F1_INT = CSI_SR_fields_::F1_INT;
-    using F2_INT = CSI_SR_fields_::F2_INT;
-    using SOF_INT = CSI_SR_fields_::SOF_INT;
-    using EOF_INT = CSI_SR_fields_::EOF_INT;
-    using RxFF_INT = CSI_SR_fields_::RxFF_INT;
-    using DMA_TSF_DONE_FB1 = CSI_SR_fields_::DMA_TSF_DONE_FB1;
-    using DMA_TSF_DONE_FB2 = CSI_SR_fields_::DMA_TSF_DONE_FB2;
-    using STATFF_INT = CSI_SR_fields_::STATFF_INT;
-    using DMA_TSF_DONE_SFF = CSI_SR_fields_::DMA_TSF_DONE_SFF;
-    using RF_OR_INT = CSI_SR_fields_::RF_OR_INT;
-    using SF_OR_INT = CSI_SR_fields_::SF_OR_INT;
-    using DMA_FIELD1_DONE = CSI_SR_fields_::DMA_FIELD1_DONE;
-    using DMA_FIELD0_DONE = CSI_SR_fields_::DMA_FIELD0_DONE;
-    using BASEADDR_CHHANGE_ERROR = CSI_SR_fields_::BASEADDR_CHHANGE_ERROR;
+    using eDRDY = CsiSrFields::eDRDY;
+    using eECC_INT = CsiSrFields::eECC_INT;
+    using eHISTOGRAM_CALC_DONE_INT = CsiSrFields::eHISTOGRAM_CALC_DONE_INT;
+    using eHRESP_ERR_INT = CsiSrFields::eHRESP_ERR_INT;
+    using eCOF_INT = CsiSrFields::eCOF_INT;
+    using eF1_INT = CsiSrFields::eF1_INT;
+    using eF2_INT = CsiSrFields::eF2_INT;
+    using eSOF_INT = CsiSrFields::eSOF_INT;
+    using eEOF_INT = CsiSrFields::eEOF_INT;
+    using eRxFF_INT = CsiSrFields::eRxFF_INT;
+    using eDMA_TSF_DONE_FB1 = CsiSrFields::eDMA_TSF_DONE_FB1;
+    using eDMA_TSF_DONE_FB2 = CsiSrFields::eDMA_TSF_DONE_FB2;
+    using eSTATFF_INT = CsiSrFields::eSTATFF_INT;
+    using eDMA_TSF_DONE_SFF = CsiSrFields::eDMA_TSF_DONE_SFF;
+    using eRF_OR_INT = CsiSrFields::eRF_OR_INT;
+    using eSF_OR_INT = CsiSrFields::eSF_OR_INT;
+    using DRDY = CsiSrFields::DRDY;
+    using ECC_INT = CsiSrFields::ECC_INT;
+    using HISTOGRAM_CALC_DONE_INT = CsiSrFields::HISTOGRAM_CALC_DONE_INT;
+    using HRESP_ERR_INT = CsiSrFields::HRESP_ERR_INT;
+    using COF_INT = CsiSrFields::COF_INT;
+    using F1_INT = CsiSrFields::F1_INT;
+    using F2_INT = CsiSrFields::F2_INT;
+    using SOF_INT = CsiSrFields::SOF_INT;
+    using EOF_INT = CsiSrFields::EOF_INT;
+    using RxFF_INT = CsiSrFields::RxFF_INT;
+    using DMA_TSF_DONE_FB1 = CsiSrFields::DMA_TSF_DONE_FB1;
+    using DMA_TSF_DONE_FB2 = CsiSrFields::DMA_TSF_DONE_FB2;
+    using STATFF_INT = CsiSrFields::STATFF_INT;
+    using DMA_TSF_DONE_SFF = CsiSrFields::DMA_TSF_DONE_SFF;
+    using RF_OR_INT = CsiSrFields::RF_OR_INT;
+    using SF_OR_INT = CsiSrFields::SF_OR_INT;
+    using DMA_FIELD1_DONE = CsiSrFields::DMA_FIELD1_DONE;
+    using DMA_FIELD0_DONE = CsiSrFields::DMA_FIELD0_DONE;
+    using BASEADDR_CHHANGE_ERROR = CsiSrFields::BASEADDR_CHHANGE_ERROR;
   };
 
   // CSI DMA Start Address Register - for STATFIFO
-  struct CSI_DMASA_STATFIFO_fields_ {
+  struct CsiDmasaStatfifoFields {
     // DMA Start Address for STATFIFO
     using DMA_START_ADDR_SFF = ftl::mmio::Field<30, 2, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_DMASA_STATFIFO_fields_
+  };  // struct CsiDmasaStatfifoFields
 
   struct CSI_DMASA_STATFIFO : ftl::mmio::Register<
       0x40800020u,
@@ -953,30 +953,30 @@ struct Csi {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      CSI_DMASA_STATFIFO_fields_::DMA_START_ADDR_SFF> {
-    using DMA_START_ADDR_SFF = CSI_DMASA_STATFIFO_fields_::DMA_START_ADDR_SFF;
+      CsiDmasaStatfifoFields::DMA_START_ADDR_SFF> {
+    using DMA_START_ADDR_SFF = CsiDmasaStatfifoFields::DMA_START_ADDR_SFF;
   };
 
   // CSI DMA Transfer Size Register - for STATFIFO
-  struct CSI_DMATS_STATFIFO_fields_ {
+  struct CsiDmatsStatfifoFields {
     // DMA Transfer Size for STATFIFO
     using DMA_TSF_SIZE_SFF = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_DMATS_STATFIFO_fields_
+  };  // struct CsiDmatsStatfifoFields
 
   struct CSI_DMATS_STATFIFO : ftl::mmio::Register<
       0x40800024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CSI_DMATS_STATFIFO_fields_::DMA_TSF_SIZE_SFF> {
-    using DMA_TSF_SIZE_SFF = CSI_DMATS_STATFIFO_fields_::DMA_TSF_SIZE_SFF;
+      CsiDmatsStatfifoFields::DMA_TSF_SIZE_SFF> {
+    using DMA_TSF_SIZE_SFF = CsiDmatsStatfifoFields::DMA_TSF_SIZE_SFF;
   };
 
   // CSI DMA Start Address Register - for Frame Buffer1
-  struct CSI_DMASA_FB1_fields_ {
+  struct CsiDmasaFb1Fields {
     // DMA Start Address in Frame Buffer1
     using DMA_START_ADDR_FB1 = ftl::mmio::Field<30, 2, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_DMASA_FB1_fields_
+  };  // struct CsiDmasaFb1Fields
 
   struct CSI_DMASA_FB1 : ftl::mmio::Register<
       0x40800028u,
@@ -984,15 +984,15 @@ struct Csi {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      CSI_DMASA_FB1_fields_::DMA_START_ADDR_FB1> {
-    using DMA_START_ADDR_FB1 = CSI_DMASA_FB1_fields_::DMA_START_ADDR_FB1;
+      CsiDmasaFb1Fields::DMA_START_ADDR_FB1> {
+    using DMA_START_ADDR_FB1 = CsiDmasaFb1Fields::DMA_START_ADDR_FB1;
   };
 
   // CSI DMA Transfer Size Register - for Frame Buffer2
-  struct CSI_DMASA_FB2_fields_ {
+  struct CsiDmasaFb2Fields {
     // DMA Start Address in Frame Buffer2
     using DMA_START_ADDR_FB2 = ftl::mmio::Field<30, 2, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_DMASA_FB2_fields_
+  };  // struct CsiDmasaFb2Fields
 
   struct CSI_DMASA_FB2 : ftl::mmio::Register<
       0x4080002Cu,
@@ -1000,50 +1000,50 @@ struct Csi {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      CSI_DMASA_FB2_fields_::DMA_START_ADDR_FB2> {
-    using DMA_START_ADDR_FB2 = CSI_DMASA_FB2_fields_::DMA_START_ADDR_FB2;
+      CsiDmasaFb2Fields::DMA_START_ADDR_FB2> {
+    using DMA_START_ADDR_FB2 = CsiDmasaFb2Fields::DMA_START_ADDR_FB2;
   };
 
   // CSI Frame Buffer Parameter Register
-  struct CSI_FBUF_PARA_fields_ {
+  struct CsiFbufParaFields {
     // Frame Buffer Parameter
     using FBUF_STRIDE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DEINTERLACE_STRIDE is only used in the deinterlace mode
     using DEINTERLACE_STRIDE = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_FBUF_PARA_fields_
+  };  // struct CsiFbufParaFields
 
   struct CSI_FBUF_PARA : ftl::mmio::Register<
       0x40800030u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CSI_FBUF_PARA_fields_::FBUF_STRIDE,
-      CSI_FBUF_PARA_fields_::DEINTERLACE_STRIDE> {
-    using FBUF_STRIDE = CSI_FBUF_PARA_fields_::FBUF_STRIDE;
-    using DEINTERLACE_STRIDE = CSI_FBUF_PARA_fields_::DEINTERLACE_STRIDE;
+      CsiFbufParaFields::FBUF_STRIDE,
+      CsiFbufParaFields::DEINTERLACE_STRIDE> {
+    using FBUF_STRIDE = CsiFbufParaFields::FBUF_STRIDE;
+    using DEINTERLACE_STRIDE = CsiFbufParaFields::DEINTERLACE_STRIDE;
   };
 
   // CSI Image Parameter Register
-  struct CSI_IMAG_PARA_fields_ {
+  struct CsiImagParaFields {
     // Image Height. Indicates how many pixels in a column of the image from the sensor.
     using IMAGE_HEIGHT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // This field indicates the number of active pixel cycles per line
     using IMAGE_WIDTH = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_IMAG_PARA_fields_
+  };  // struct CsiImagParaFields
 
   struct CSI_IMAG_PARA : ftl::mmio::Register<
       0x40800034u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CSI_IMAG_PARA_fields_::IMAGE_HEIGHT,
-      CSI_IMAG_PARA_fields_::IMAGE_WIDTH> {
-    using IMAGE_HEIGHT = CSI_IMAG_PARA_fields_::IMAGE_HEIGHT;
-    using IMAGE_WIDTH = CSI_IMAG_PARA_fields_::IMAGE_WIDTH;
+      CsiImagParaFields::IMAGE_HEIGHT,
+      CsiImagParaFields::IMAGE_WIDTH> {
+    using IMAGE_HEIGHT = CsiImagParaFields::IMAGE_HEIGHT;
+    using IMAGE_WIDTH = CsiImagParaFields::IMAGE_WIDTH;
   };
 
   // CSI Control Register 18
-  struct CSI_CR18_fields_ {
+  struct CsiCr18Fields {
     enum class eNTSC_EN : std::uint32_t {
       // PAL
       eNTSC_EN_0 = 0,
@@ -1170,86 +1170,86 @@ struct Csi {
     using MIPI_DATA_FORMAT = ftl::mmio::Field<6, 25, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // CSI global enable signal
     using CSI_ENABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_CR18_fields_
+  };  // struct CsiCr18Fields
 
   struct CSI_CR18 : ftl::mmio::Register<
       0x40800048u,
       std::uint32_t,
       0x0002D000u,
       ftl::mmio::RW,
-      CSI_CR18_fields_::NTSC_EN,
-      CSI_CR18_fields_::TVDECODER_IN_EN,
-      CSI_CR18_fields_::DEINTERLACE_EN,
-      CSI_CR18_fields_::PARALLEL24_EN,
-      CSI_CR18_fields_::BASEADDR_SWITCH_EN,
-      CSI_CR18_fields_::BASEADDR_SWITCH_SEL,
-      CSI_CR18_fields_::FIELD0_DONE_IE,
-      CSI_CR18_fields_::DMA_FIELD1_DONE_IE,
-      CSI_CR18_fields_::LAST_DMA_REQ_SEL,
-      CSI_CR18_fields_::BASEADDR_CHANGE_ERROR_IE,
-      CSI_CR18_fields_::RGB888A_FORMAT_SEL,
+      CsiCr18Fields::NTSC_EN,
+      CsiCr18Fields::TVDECODER_IN_EN,
+      CsiCr18Fields::DEINTERLACE_EN,
+      CsiCr18Fields::PARALLEL24_EN,
+      CsiCr18Fields::BASEADDR_SWITCH_EN,
+      CsiCr18Fields::BASEADDR_SWITCH_SEL,
+      CsiCr18Fields::FIELD0_DONE_IE,
+      CsiCr18Fields::DMA_FIELD1_DONE_IE,
+      CsiCr18Fields::LAST_DMA_REQ_SEL,
+      CsiCr18Fields::BASEADDR_CHANGE_ERROR_IE,
+      CsiCr18Fields::RGB888A_FORMAT_SEL,
       ftl::mmio::Reserved<1, 11>,
-      CSI_CR18_fields_::AHB_HPROT,
+      CsiCr18Fields::AHB_HPROT,
       ftl::mmio::Reserved<2, 16>,
-      CSI_CR18_fields_::MASK_OPTION,
-      CSI_CR18_fields_::MIPI_DOUBLE_CMPNT,
-      CSI_CR18_fields_::MIPI_YU_SWAP,
-      CSI_CR18_fields_::DATA_FROM_MIPI,
+      CsiCr18Fields::MASK_OPTION,
+      CsiCr18Fields::MIPI_DOUBLE_CMPNT,
+      CsiCr18Fields::MIPI_YU_SWAP,
+      CsiCr18Fields::DATA_FROM_MIPI,
       ftl::mmio::Reserved<1, 23>,
-      CSI_CR18_fields_::LINE_STRIDE_EN,
-      CSI_CR18_fields_::MIPI_DATA_FORMAT,
-      CSI_CR18_fields_::CSI_ENABLE> {
-    using eNTSC_EN = CSI_CR18_fields_::eNTSC_EN;
-    using eDEINTERLACE_EN = CSI_CR18_fields_::eDEINTERLACE_EN;
-    using ePARALLEL24_EN = CSI_CR18_fields_::ePARALLEL24_EN;
-    using eBASEADDR_SWITCH_SEL = CSI_CR18_fields_::eBASEADDR_SWITCH_SEL;
-    using eFIELD0_DONE_IE = CSI_CR18_fields_::eFIELD0_DONE_IE;
-    using eDMA_FIELD1_DONE_IE = CSI_CR18_fields_::eDMA_FIELD1_DONE_IE;
-    using eLAST_DMA_REQ_SEL = CSI_CR18_fields_::eLAST_DMA_REQ_SEL;
-    using eBASEADDR_CHANGE_ERROR_IE = CSI_CR18_fields_::eBASEADDR_CHANGE_ERROR_IE;
-    using eRGB888A_FORMAT_SEL = CSI_CR18_fields_::eRGB888A_FORMAT_SEL;
-    using eMASK_OPTION = CSI_CR18_fields_::eMASK_OPTION;
-    using eMIPI_DOUBLE_CMPNT = CSI_CR18_fields_::eMIPI_DOUBLE_CMPNT;
-    using eDATA_FROM_MIPI = CSI_CR18_fields_::eDATA_FROM_MIPI;
-    using NTSC_EN = CSI_CR18_fields_::NTSC_EN;
-    using TVDECODER_IN_EN = CSI_CR18_fields_::TVDECODER_IN_EN;
-    using DEINTERLACE_EN = CSI_CR18_fields_::DEINTERLACE_EN;
-    using PARALLEL24_EN = CSI_CR18_fields_::PARALLEL24_EN;
-    using BASEADDR_SWITCH_EN = CSI_CR18_fields_::BASEADDR_SWITCH_EN;
-    using BASEADDR_SWITCH_SEL = CSI_CR18_fields_::BASEADDR_SWITCH_SEL;
-    using FIELD0_DONE_IE = CSI_CR18_fields_::FIELD0_DONE_IE;
-    using DMA_FIELD1_DONE_IE = CSI_CR18_fields_::DMA_FIELD1_DONE_IE;
-    using LAST_DMA_REQ_SEL = CSI_CR18_fields_::LAST_DMA_REQ_SEL;
-    using BASEADDR_CHANGE_ERROR_IE = CSI_CR18_fields_::BASEADDR_CHANGE_ERROR_IE;
-    using RGB888A_FORMAT_SEL = CSI_CR18_fields_::RGB888A_FORMAT_SEL;
-    using AHB_HPROT = CSI_CR18_fields_::AHB_HPROT;
-    using MASK_OPTION = CSI_CR18_fields_::MASK_OPTION;
-    using MIPI_DOUBLE_CMPNT = CSI_CR18_fields_::MIPI_DOUBLE_CMPNT;
-    using MIPI_YU_SWAP = CSI_CR18_fields_::MIPI_YU_SWAP;
-    using DATA_FROM_MIPI = CSI_CR18_fields_::DATA_FROM_MIPI;
-    using LINE_STRIDE_EN = CSI_CR18_fields_::LINE_STRIDE_EN;
-    using MIPI_DATA_FORMAT = CSI_CR18_fields_::MIPI_DATA_FORMAT;
-    using CSI_ENABLE = CSI_CR18_fields_::CSI_ENABLE;
+      CsiCr18Fields::LINE_STRIDE_EN,
+      CsiCr18Fields::MIPI_DATA_FORMAT,
+      CsiCr18Fields::CSI_ENABLE> {
+    using eNTSC_EN = CsiCr18Fields::eNTSC_EN;
+    using eDEINTERLACE_EN = CsiCr18Fields::eDEINTERLACE_EN;
+    using ePARALLEL24_EN = CsiCr18Fields::ePARALLEL24_EN;
+    using eBASEADDR_SWITCH_SEL = CsiCr18Fields::eBASEADDR_SWITCH_SEL;
+    using eFIELD0_DONE_IE = CsiCr18Fields::eFIELD0_DONE_IE;
+    using eDMA_FIELD1_DONE_IE = CsiCr18Fields::eDMA_FIELD1_DONE_IE;
+    using eLAST_DMA_REQ_SEL = CsiCr18Fields::eLAST_DMA_REQ_SEL;
+    using eBASEADDR_CHANGE_ERROR_IE = CsiCr18Fields::eBASEADDR_CHANGE_ERROR_IE;
+    using eRGB888A_FORMAT_SEL = CsiCr18Fields::eRGB888A_FORMAT_SEL;
+    using eMASK_OPTION = CsiCr18Fields::eMASK_OPTION;
+    using eMIPI_DOUBLE_CMPNT = CsiCr18Fields::eMIPI_DOUBLE_CMPNT;
+    using eDATA_FROM_MIPI = CsiCr18Fields::eDATA_FROM_MIPI;
+    using NTSC_EN = CsiCr18Fields::NTSC_EN;
+    using TVDECODER_IN_EN = CsiCr18Fields::TVDECODER_IN_EN;
+    using DEINTERLACE_EN = CsiCr18Fields::DEINTERLACE_EN;
+    using PARALLEL24_EN = CsiCr18Fields::PARALLEL24_EN;
+    using BASEADDR_SWITCH_EN = CsiCr18Fields::BASEADDR_SWITCH_EN;
+    using BASEADDR_SWITCH_SEL = CsiCr18Fields::BASEADDR_SWITCH_SEL;
+    using FIELD0_DONE_IE = CsiCr18Fields::FIELD0_DONE_IE;
+    using DMA_FIELD1_DONE_IE = CsiCr18Fields::DMA_FIELD1_DONE_IE;
+    using LAST_DMA_REQ_SEL = CsiCr18Fields::LAST_DMA_REQ_SEL;
+    using BASEADDR_CHANGE_ERROR_IE = CsiCr18Fields::BASEADDR_CHANGE_ERROR_IE;
+    using RGB888A_FORMAT_SEL = CsiCr18Fields::RGB888A_FORMAT_SEL;
+    using AHB_HPROT = CsiCr18Fields::AHB_HPROT;
+    using MASK_OPTION = CsiCr18Fields::MASK_OPTION;
+    using MIPI_DOUBLE_CMPNT = CsiCr18Fields::MIPI_DOUBLE_CMPNT;
+    using MIPI_YU_SWAP = CsiCr18Fields::MIPI_YU_SWAP;
+    using DATA_FROM_MIPI = CsiCr18Fields::DATA_FROM_MIPI;
+    using LINE_STRIDE_EN = CsiCr18Fields::LINE_STRIDE_EN;
+    using MIPI_DATA_FORMAT = CsiCr18Fields::MIPI_DATA_FORMAT;
+    using CSI_ENABLE = CsiCr18Fields::CSI_ENABLE;
   };
 
   // CSI Control Register 19
-  struct CSI_CR19_fields_ {
+  struct CsiCr19Fields {
     // This byte stores the highest FIFO level achieved by CSI FIFO timely and will be clear by writing 8'ff to it
     using DMA_RFIFO_HIGHEST_FIFO_LEVEL = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_CR19_fields_
+  };  // struct CsiCr19Fields
 
   struct CSI_CR19 : ftl::mmio::Register<
       0x4080004Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CSI_CR19_fields_::DMA_RFIFO_HIGHEST_FIFO_LEVEL,
+      CsiCr19Fields::DMA_RFIFO_HIGHEST_FIFO_LEVEL,
       ftl::mmio::Reserved<24, 8>> {
-    using DMA_RFIFO_HIGHEST_FIFO_LEVEL = CSI_CR19_fields_::DMA_RFIFO_HIGHEST_FIFO_LEVEL;
+    using DMA_RFIFO_HIGHEST_FIFO_LEVEL = CsiCr19Fields::DMA_RFIFO_HIGHEST_FIFO_LEVEL;
   };
 
   // CSI Control Register 20
-  struct CSI_CR20_fields_ {
+  struct CsiCr20Fields {
     enum class eBINARY_EN : std::uint32_t {
       // Output is Y8 format(8 bits each pixel)
       eBINARY_EN_0 = 0,
@@ -1314,41 +1314,41 @@ struct Csi {
     using HISTOGRAM_EN = ftl::mmio::Field<1, 30, eHISTOGRAM_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Gray scale mode enable
     using QRCODE_EN = ftl::mmio::Field<1, 31, eQRCODE_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSI_CR20_fields_
+  };  // struct CsiCr20Fields
 
   struct CSI_CR20 : ftl::mmio::Register<
       0x40800050u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CSI_CR20_fields_::THRESHOLD,
-      CSI_CR20_fields_::BINARY_EN,
-      CSI_CR20_fields_::QR_DATA_FORMAT,
-      CSI_CR20_fields_::BIG_END,
+      CsiCr20Fields::THRESHOLD,
+      CsiCr20Fields::BINARY_EN,
+      CsiCr20Fields::QR_DATA_FORMAT,
+      CsiCr20Fields::BIG_END,
       ftl::mmio::Reserved<16, 13>,
-      CSI_CR20_fields_::_10BIT_NEW_EN,
-      CSI_CR20_fields_::HISTOGRAM_EN,
-      CSI_CR20_fields_::QRCODE_EN> {
-    using eBINARY_EN = CSI_CR20_fields_::eBINARY_EN;
-    using eQR_DATA_FORMAT = CSI_CR20_fields_::eQR_DATA_FORMAT;
-    using eBIG_END = CSI_CR20_fields_::eBIG_END;
-    using e_10BIT_NEW_EN = CSI_CR20_fields_::e_10BIT_NEW_EN;
-    using eHISTOGRAM_EN = CSI_CR20_fields_::eHISTOGRAM_EN;
-    using eQRCODE_EN = CSI_CR20_fields_::eQRCODE_EN;
-    using THRESHOLD = CSI_CR20_fields_::THRESHOLD;
-    using BINARY_EN = CSI_CR20_fields_::BINARY_EN;
-    using QR_DATA_FORMAT = CSI_CR20_fields_::QR_DATA_FORMAT;
-    using BIG_END = CSI_CR20_fields_::BIG_END;
-    using _10BIT_NEW_EN = CSI_CR20_fields_::_10BIT_NEW_EN;
-    using HISTOGRAM_EN = CSI_CR20_fields_::HISTOGRAM_EN;
-    using QRCODE_EN = CSI_CR20_fields_::QRCODE_EN;
+      CsiCr20Fields::_10BIT_NEW_EN,
+      CsiCr20Fields::HISTOGRAM_EN,
+      CsiCr20Fields::QRCODE_EN> {
+    using eBINARY_EN = CsiCr20Fields::eBINARY_EN;
+    using eQR_DATA_FORMAT = CsiCr20Fields::eQR_DATA_FORMAT;
+    using eBIG_END = CsiCr20Fields::eBIG_END;
+    using e_10BIT_NEW_EN = CsiCr20Fields::e_10BIT_NEW_EN;
+    using eHISTOGRAM_EN = CsiCr20Fields::eHISTOGRAM_EN;
+    using eQRCODE_EN = CsiCr20Fields::eQRCODE_EN;
+    using THRESHOLD = CsiCr20Fields::THRESHOLD;
+    using BINARY_EN = CsiCr20Fields::BINARY_EN;
+    using QR_DATA_FORMAT = CsiCr20Fields::QR_DATA_FORMAT;
+    using BIG_END = CsiCr20Fields::BIG_END;
+    using _10BIT_NEW_EN = CsiCr20Fields::_10BIT_NEW_EN;
+    using HISTOGRAM_EN = CsiCr20Fields::HISTOGRAM_EN;
+    using QRCODE_EN = CsiCr20Fields::QRCODE_EN;
   };
 
   // CSI Control Register
-  struct CR_fields_ {
+  struct CrFields {
     // Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     using PIXEL_COUNTERS = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CR_fields_
+  };  // struct CrFields
 
   template<std::uint32_t Index>
   struct CR : ftl::mmio::Register<
@@ -1356,10 +1356,10 @@ struct Csi {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CR_fields_::PIXEL_COUNTERS,
+      CrFields::PIXEL_COUNTERS,
       ftl::mmio::Reserved<8, 24>> {
     static_assert(Index < 256u, "CR: Index out of range");
-    using PIXEL_COUNTERS = CR_fields_::PIXEL_COUNTERS;
+    using PIXEL_COUNTERS = CrFields::PIXEL_COUNTERS;
   };
 
 };

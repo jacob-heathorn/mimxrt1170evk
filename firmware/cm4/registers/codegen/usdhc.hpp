@@ -20,22 +20,22 @@ struct Usdhc {
       0u;
 
   // DMA System Address
-  struct DS_ADDR_fields_ {
+  struct DsAddrFields {
     // System address
     using DS_ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DS_ADDR_fields_
+  };  // struct DsAddrFields
 
   struct DS_ADDR : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename DS_ADDR_fields_::DS_ADDR> {
-    using VALUE = typename DS_ADDR_fields_::DS_ADDR;
+      typename DsAddrFields::DS_ADDR> {
+    using VALUE = typename DsAddrFields::DS_ADDR;
   };
 
   // Block Attributes
-  struct BLK_ATT_fields_ {
+  struct BlkAttFields {
     enum class eBLKSIZE : std::uint32_t {
       // No data transfer
       eBLKSIZE_0 = 0,
@@ -72,39 +72,39 @@ struct Usdhc {
     using BLKSIZE = ftl::mmio::Field<13, 0, eBLKSIZE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Blocks count for current transfer
     using BLKCNT = ftl::mmio::Field<16, 16, eBLKCNT, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BLK_ATT_fields_
+  };  // struct BlkAttFields
 
   struct BLK_ATT : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00010000u,
       ftl::mmio::RW,
-      typename BLK_ATT_fields_::BLKSIZE,
+      typename BlkAttFields::BLKSIZE,
       ftl::mmio::Reserved<3, 13>,
-      typename BLK_ATT_fields_::BLKCNT> {
-    using eBLKSIZE = typename BLK_ATT_fields_::eBLKSIZE;
-    using eBLKCNT = typename BLK_ATT_fields_::eBLKCNT;
-    using BLKSIZE = typename BLK_ATT_fields_::BLKSIZE;
-    using BLKCNT = typename BLK_ATT_fields_::BLKCNT;
+      typename BlkAttFields::BLKCNT> {
+    using eBLKSIZE = typename BlkAttFields::eBLKSIZE;
+    using eBLKCNT = typename BlkAttFields::eBLKCNT;
+    using BLKSIZE = typename BlkAttFields::BLKSIZE;
+    using BLKCNT = typename BlkAttFields::BLKCNT;
   };
 
   // Command Argument
-  struct CMD_ARG_fields_ {
+  struct CmdArgFields {
     // Command argument
     using CMDARG = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMD_ARG_fields_
+  };  // struct CmdArgFields
 
   struct CMD_ARG : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CMD_ARG_fields_::CMDARG> {
-    using CMDARG = typename CMD_ARG_fields_::CMDARG;
+      typename CmdArgFields::CMDARG> {
+    using CMDARG = typename CmdArgFields::CMDARG;
   };
 
   // Command Transfer Type
-  struct CMD_XFR_TYP_fields_ {
+  struct CmdXfrTypFields {
     enum class eRSPTYP : std::uint32_t {
       // No response
       eRSPTYP_0 = 0,
@@ -160,7 +160,7 @@ struct Usdhc {
     using CMDTYP = ftl::mmio::Field<2, 22, eCMDTYP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Command index
     using CMDINX = ftl::mmio::Field<6, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CMD_XFR_TYP_fields_
+  };  // struct CmdXfrTypFields
 
   struct CMD_XFR_TYP : ftl::mmio::Register<
       kBase + 0xCu,
@@ -168,104 +168,104 @@ struct Usdhc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<16, 0>,
-      typename CMD_XFR_TYP_fields_::RSPTYP,
+      typename CmdXfrTypFields::RSPTYP,
       ftl::mmio::Reserved<1, 18>,
-      typename CMD_XFR_TYP_fields_::CCCEN,
-      typename CMD_XFR_TYP_fields_::CICEN,
-      typename CMD_XFR_TYP_fields_::DPSEL,
-      typename CMD_XFR_TYP_fields_::CMDTYP,
-      typename CMD_XFR_TYP_fields_::CMDINX,
+      typename CmdXfrTypFields::CCCEN,
+      typename CmdXfrTypFields::CICEN,
+      typename CmdXfrTypFields::DPSEL,
+      typename CmdXfrTypFields::CMDTYP,
+      typename CmdXfrTypFields::CMDINX,
       ftl::mmio::Reserved<2, 30>> {
-    using eRSPTYP = typename CMD_XFR_TYP_fields_::eRSPTYP;
-    using eCCCEN = typename CMD_XFR_TYP_fields_::eCCCEN;
-    using eCICEN = typename CMD_XFR_TYP_fields_::eCICEN;
-    using eDPSEL = typename CMD_XFR_TYP_fields_::eDPSEL;
-    using eCMDTYP = typename CMD_XFR_TYP_fields_::eCMDTYP;
-    using RSPTYP = typename CMD_XFR_TYP_fields_::RSPTYP;
-    using CCCEN = typename CMD_XFR_TYP_fields_::CCCEN;
-    using CICEN = typename CMD_XFR_TYP_fields_::CICEN;
-    using DPSEL = typename CMD_XFR_TYP_fields_::DPSEL;
-    using CMDTYP = typename CMD_XFR_TYP_fields_::CMDTYP;
-    using CMDINX = typename CMD_XFR_TYP_fields_::CMDINX;
+    using eRSPTYP = typename CmdXfrTypFields::eRSPTYP;
+    using eCCCEN = typename CmdXfrTypFields::eCCCEN;
+    using eCICEN = typename CmdXfrTypFields::eCICEN;
+    using eDPSEL = typename CmdXfrTypFields::eDPSEL;
+    using eCMDTYP = typename CmdXfrTypFields::eCMDTYP;
+    using RSPTYP = typename CmdXfrTypFields::RSPTYP;
+    using CCCEN = typename CmdXfrTypFields::CCCEN;
+    using CICEN = typename CmdXfrTypFields::CICEN;
+    using DPSEL = typename CmdXfrTypFields::DPSEL;
+    using CMDTYP = typename CmdXfrTypFields::CMDTYP;
+    using CMDINX = typename CmdXfrTypFields::CMDINX;
   };
 
   // Command Response0
-  struct CMD_RSP0_fields_ {
+  struct CmdRsp0Fields {
     // Command response 0
     using CMDRSP0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CMD_RSP0_fields_
+  };  // struct CmdRsp0Fields
 
   struct CMD_RSP0 : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CMD_RSP0_fields_::CMDRSP0> {
-    using CMDRSP0 = typename CMD_RSP0_fields_::CMDRSP0;
+      typename CmdRsp0Fields::CMDRSP0> {
+    using CMDRSP0 = typename CmdRsp0Fields::CMDRSP0;
   };
 
   // Command Response1
-  struct CMD_RSP1_fields_ {
+  struct CmdRsp1Fields {
     // Command response 1
     using CMDRSP1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CMD_RSP1_fields_
+  };  // struct CmdRsp1Fields
 
   struct CMD_RSP1 : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CMD_RSP1_fields_::CMDRSP1> {
-    using CMDRSP1 = typename CMD_RSP1_fields_::CMDRSP1;
+      typename CmdRsp1Fields::CMDRSP1> {
+    using CMDRSP1 = typename CmdRsp1Fields::CMDRSP1;
   };
 
   // Command Response2
-  struct CMD_RSP2_fields_ {
+  struct CmdRsp2Fields {
     // Command response 2
     using CMDRSP2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CMD_RSP2_fields_
+  };  // struct CmdRsp2Fields
 
   struct CMD_RSP2 : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CMD_RSP2_fields_::CMDRSP2> {
-    using CMDRSP2 = typename CMD_RSP2_fields_::CMDRSP2;
+      typename CmdRsp2Fields::CMDRSP2> {
+    using CMDRSP2 = typename CmdRsp2Fields::CMDRSP2;
   };
 
   // Command Response3
-  struct CMD_RSP3_fields_ {
+  struct CmdRsp3Fields {
     // Command response 3
     using CMDRSP3 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CMD_RSP3_fields_
+  };  // struct CmdRsp3Fields
 
   struct CMD_RSP3 : ftl::mmio::Register<
       kBase + 0x1Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CMD_RSP3_fields_::CMDRSP3> {
-    using CMDRSP3 = typename CMD_RSP3_fields_::CMDRSP3;
+      typename CmdRsp3Fields::CMDRSP3> {
+    using CMDRSP3 = typename CmdRsp3Fields::CMDRSP3;
   };
 
   // Data Buffer Access Port
-  struct DATA_BUFF_ACC_PORT_fields_ {
+  struct DataBuffAccPortFields {
     // Data content
     using DATCONT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DATA_BUFF_ACC_PORT_fields_
+  };  // struct DataBuffAccPortFields
 
   struct DATA_BUFF_ACC_PORT : ftl::mmio::Register<
       kBase + 0x20u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename DATA_BUFF_ACC_PORT_fields_::DATCONT> {
-    using DATCONT = typename DATA_BUFF_ACC_PORT_fields_::DATCONT;
+      typename DataBuffAccPortFields::DATCONT> {
+    using DATCONT = typename DataBuffAccPortFields::DATCONT;
   };
 
   // Present State
-  struct PRES_STATE_fields_ {
+  struct PresStateFields {
     enum class eCIHB : std::uint32_t {
       // Can issue command using only CMD line
       eCIHB_0 = 0,
@@ -442,76 +442,76 @@ struct Usdhc {
     using CLSL = ftl::mmio::Field<1, 23, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // DATA[7:0] line signal level
     using DLSL = ftl::mmio::Field<8, 24, eDLSL, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PRES_STATE_fields_
+  };  // struct PresStateFields
 
   struct PRES_STATE : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint32_t,
       0x00008080u,
       ftl::mmio::RO,
-      typename PRES_STATE_fields_::CIHB,
-      typename PRES_STATE_fields_::CDIHB,
-      typename PRES_STATE_fields_::DLA,
-      typename PRES_STATE_fields_::SDSTB,
-      typename PRES_STATE_fields_::IPGOFF,
-      typename PRES_STATE_fields_::HCKOFF,
-      typename PRES_STATE_fields_::PEROFF,
-      typename PRES_STATE_fields_::SDOFF,
-      typename PRES_STATE_fields_::WTA,
-      typename PRES_STATE_fields_::RTA,
-      typename PRES_STATE_fields_::BWEN,
-      typename PRES_STATE_fields_::BREN,
-      typename PRES_STATE_fields_::RTR,
+      typename PresStateFields::CIHB,
+      typename PresStateFields::CDIHB,
+      typename PresStateFields::DLA,
+      typename PresStateFields::SDSTB,
+      typename PresStateFields::IPGOFF,
+      typename PresStateFields::HCKOFF,
+      typename PresStateFields::PEROFF,
+      typename PresStateFields::SDOFF,
+      typename PresStateFields::WTA,
+      typename PresStateFields::RTA,
+      typename PresStateFields::BWEN,
+      typename PresStateFields::BREN,
+      typename PresStateFields::RTR,
       ftl::mmio::Reserved<2, 13>,
-      typename PRES_STATE_fields_::TSCD,
-      typename PRES_STATE_fields_::CINST,
+      typename PresStateFields::TSCD,
+      typename PresStateFields::CINST,
       ftl::mmio::Reserved<1, 17>,
-      typename PRES_STATE_fields_::CDPL,
-      typename PRES_STATE_fields_::WPSPL,
+      typename PresStateFields::CDPL,
+      typename PresStateFields::WPSPL,
       ftl::mmio::Reserved<3, 20>,
-      typename PRES_STATE_fields_::CLSL,
-      typename PRES_STATE_fields_::DLSL> {
-    using eCIHB = typename PRES_STATE_fields_::eCIHB;
-    using eCDIHB = typename PRES_STATE_fields_::eCDIHB;
-    using eDLA = typename PRES_STATE_fields_::eDLA;
-    using eSDSTB = typename PRES_STATE_fields_::eSDSTB;
-    using eIPGOFF = typename PRES_STATE_fields_::eIPGOFF;
-    using eHCKOFF = typename PRES_STATE_fields_::eHCKOFF;
-    using ePEROFF = typename PRES_STATE_fields_::ePEROFF;
-    using eSDOFF = typename PRES_STATE_fields_::eSDOFF;
-    using eWTA = typename PRES_STATE_fields_::eWTA;
-    using eRTA = typename PRES_STATE_fields_::eRTA;
-    using eBWEN = typename PRES_STATE_fields_::eBWEN;
-    using eBREN = typename PRES_STATE_fields_::eBREN;
-    using eRTR = typename PRES_STATE_fields_::eRTR;
-    using eTSCD = typename PRES_STATE_fields_::eTSCD;
-    using eCINST = typename PRES_STATE_fields_::eCINST;
-    using eCDPL = typename PRES_STATE_fields_::eCDPL;
-    using eWPSPL = typename PRES_STATE_fields_::eWPSPL;
-    using eDLSL = typename PRES_STATE_fields_::eDLSL;
-    using CIHB = typename PRES_STATE_fields_::CIHB;
-    using CDIHB = typename PRES_STATE_fields_::CDIHB;
-    using DLA = typename PRES_STATE_fields_::DLA;
-    using SDSTB = typename PRES_STATE_fields_::SDSTB;
-    using IPGOFF = typename PRES_STATE_fields_::IPGOFF;
-    using HCKOFF = typename PRES_STATE_fields_::HCKOFF;
-    using PEROFF = typename PRES_STATE_fields_::PEROFF;
-    using SDOFF = typename PRES_STATE_fields_::SDOFF;
-    using WTA = typename PRES_STATE_fields_::WTA;
-    using RTA = typename PRES_STATE_fields_::RTA;
-    using BWEN = typename PRES_STATE_fields_::BWEN;
-    using BREN = typename PRES_STATE_fields_::BREN;
-    using RTR = typename PRES_STATE_fields_::RTR;
-    using TSCD = typename PRES_STATE_fields_::TSCD;
-    using CINST = typename PRES_STATE_fields_::CINST;
-    using CDPL = typename PRES_STATE_fields_::CDPL;
-    using WPSPL = typename PRES_STATE_fields_::WPSPL;
-    using CLSL = typename PRES_STATE_fields_::CLSL;
-    using DLSL = typename PRES_STATE_fields_::DLSL;
+      typename PresStateFields::CLSL,
+      typename PresStateFields::DLSL> {
+    using eCIHB = typename PresStateFields::eCIHB;
+    using eCDIHB = typename PresStateFields::eCDIHB;
+    using eDLA = typename PresStateFields::eDLA;
+    using eSDSTB = typename PresStateFields::eSDSTB;
+    using eIPGOFF = typename PresStateFields::eIPGOFF;
+    using eHCKOFF = typename PresStateFields::eHCKOFF;
+    using ePEROFF = typename PresStateFields::ePEROFF;
+    using eSDOFF = typename PresStateFields::eSDOFF;
+    using eWTA = typename PresStateFields::eWTA;
+    using eRTA = typename PresStateFields::eRTA;
+    using eBWEN = typename PresStateFields::eBWEN;
+    using eBREN = typename PresStateFields::eBREN;
+    using eRTR = typename PresStateFields::eRTR;
+    using eTSCD = typename PresStateFields::eTSCD;
+    using eCINST = typename PresStateFields::eCINST;
+    using eCDPL = typename PresStateFields::eCDPL;
+    using eWPSPL = typename PresStateFields::eWPSPL;
+    using eDLSL = typename PresStateFields::eDLSL;
+    using CIHB = typename PresStateFields::CIHB;
+    using CDIHB = typename PresStateFields::CDIHB;
+    using DLA = typename PresStateFields::DLA;
+    using SDSTB = typename PresStateFields::SDSTB;
+    using IPGOFF = typename PresStateFields::IPGOFF;
+    using HCKOFF = typename PresStateFields::HCKOFF;
+    using PEROFF = typename PresStateFields::PEROFF;
+    using SDOFF = typename PresStateFields::SDOFF;
+    using WTA = typename PresStateFields::WTA;
+    using RTA = typename PresStateFields::RTA;
+    using BWEN = typename PresStateFields::BWEN;
+    using BREN = typename PresStateFields::BREN;
+    using RTR = typename PresStateFields::RTR;
+    using TSCD = typename PresStateFields::TSCD;
+    using CINST = typename PresStateFields::CINST;
+    using CDPL = typename PresStateFields::CDPL;
+    using WPSPL = typename PresStateFields::WPSPL;
+    using CLSL = typename PresStateFields::CLSL;
+    using DLSL = typename PresStateFields::DLSL;
   };
 
   // Protocol Control
-  struct PROT_CTRL_fields_ {
+  struct ProtCtrlFields {
     enum class eDTW : std::uint32_t {
       // 1-bit mode
       eDTW_0 = 0,
@@ -646,7 +646,7 @@ struct Usdhc {
     using WECRM = ftl::mmio::Field<1, 26, eWECRM, ftl::mmio::RW, ftl::mmio::Normal>;
     // Non-exact block read
     using NON_EXACT_BLK_RD = ftl::mmio::Field<1, 30, eNON_EXACT_BLK_RD, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PROT_CTRL_fields_
+  };  // struct ProtCtrlFields
 
   struct PROT_CTRL : ftl::mmio::Register<
       kBase + 0x28u,
@@ -654,58 +654,58 @@ struct Usdhc {
       0x08800020u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      typename PROT_CTRL_fields_::DTW,
-      typename PROT_CTRL_fields_::D3CD,
-      typename PROT_CTRL_fields_::EMODE,
-      typename PROT_CTRL_fields_::CDTL,
-      typename PROT_CTRL_fields_::CDSS,
-      typename PROT_CTRL_fields_::DMASEL,
+      typename ProtCtrlFields::DTW,
+      typename ProtCtrlFields::D3CD,
+      typename ProtCtrlFields::EMODE,
+      typename ProtCtrlFields::CDTL,
+      typename ProtCtrlFields::CDSS,
+      typename ProtCtrlFields::DMASEL,
       ftl::mmio::Reserved<6, 10>,
-      typename PROT_CTRL_fields_::SABGREQ,
-      typename PROT_CTRL_fields_::CREQ,
-      typename PROT_CTRL_fields_::RWCTL,
-      typename PROT_CTRL_fields_::IABG,
-      typename PROT_CTRL_fields_::RD_DONE_NO_8CLK,
+      typename ProtCtrlFields::SABGREQ,
+      typename ProtCtrlFields::CREQ,
+      typename ProtCtrlFields::RWCTL,
+      typename ProtCtrlFields::IABG,
+      typename ProtCtrlFields::RD_DONE_NO_8CLK,
       ftl::mmio::Reserved<3, 21>,
-      typename PROT_CTRL_fields_::WECINT,
-      typename PROT_CTRL_fields_::WECINS,
-      typename PROT_CTRL_fields_::WECRM,
+      typename ProtCtrlFields::WECINT,
+      typename ProtCtrlFields::WECINS,
+      typename ProtCtrlFields::WECRM,
       ftl::mmio::Reserved<3, 27>,
-      typename PROT_CTRL_fields_::NON_EXACT_BLK_RD,
+      typename ProtCtrlFields::NON_EXACT_BLK_RD,
       ftl::mmio::Reserved<1, 31>> {
-    using eDTW = typename PROT_CTRL_fields_::eDTW;
-    using eD3CD = typename PROT_CTRL_fields_::eD3CD;
-    using eEMODE = typename PROT_CTRL_fields_::eEMODE;
-    using eCDTL = typename PROT_CTRL_fields_::eCDTL;
-    using eCDSS = typename PROT_CTRL_fields_::eCDSS;
-    using eDMASEL = typename PROT_CTRL_fields_::eDMASEL;
-    using eSABGREQ = typename PROT_CTRL_fields_::eSABGREQ;
-    using eCREQ = typename PROT_CTRL_fields_::eCREQ;
-    using eRWCTL = typename PROT_CTRL_fields_::eRWCTL;
-    using eIABG = typename PROT_CTRL_fields_::eIABG;
-    using eWECINT = typename PROT_CTRL_fields_::eWECINT;
-    using eWECINS = typename PROT_CTRL_fields_::eWECINS;
-    using eWECRM = typename PROT_CTRL_fields_::eWECRM;
-    using eNON_EXACT_BLK_RD = typename PROT_CTRL_fields_::eNON_EXACT_BLK_RD;
-    using DTW = typename PROT_CTRL_fields_::DTW;
-    using D3CD = typename PROT_CTRL_fields_::D3CD;
-    using EMODE = typename PROT_CTRL_fields_::EMODE;
-    using CDTL = typename PROT_CTRL_fields_::CDTL;
-    using CDSS = typename PROT_CTRL_fields_::CDSS;
-    using DMASEL = typename PROT_CTRL_fields_::DMASEL;
-    using SABGREQ = typename PROT_CTRL_fields_::SABGREQ;
-    using CREQ = typename PROT_CTRL_fields_::CREQ;
-    using RWCTL = typename PROT_CTRL_fields_::RWCTL;
-    using IABG = typename PROT_CTRL_fields_::IABG;
-    using RD_DONE_NO_8CLK = typename PROT_CTRL_fields_::RD_DONE_NO_8CLK;
-    using WECINT = typename PROT_CTRL_fields_::WECINT;
-    using WECINS = typename PROT_CTRL_fields_::WECINS;
-    using WECRM = typename PROT_CTRL_fields_::WECRM;
-    using NON_EXACT_BLK_RD = typename PROT_CTRL_fields_::NON_EXACT_BLK_RD;
+    using eDTW = typename ProtCtrlFields::eDTW;
+    using eD3CD = typename ProtCtrlFields::eD3CD;
+    using eEMODE = typename ProtCtrlFields::eEMODE;
+    using eCDTL = typename ProtCtrlFields::eCDTL;
+    using eCDSS = typename ProtCtrlFields::eCDSS;
+    using eDMASEL = typename ProtCtrlFields::eDMASEL;
+    using eSABGREQ = typename ProtCtrlFields::eSABGREQ;
+    using eCREQ = typename ProtCtrlFields::eCREQ;
+    using eRWCTL = typename ProtCtrlFields::eRWCTL;
+    using eIABG = typename ProtCtrlFields::eIABG;
+    using eWECINT = typename ProtCtrlFields::eWECINT;
+    using eWECINS = typename ProtCtrlFields::eWECINS;
+    using eWECRM = typename ProtCtrlFields::eWECRM;
+    using eNON_EXACT_BLK_RD = typename ProtCtrlFields::eNON_EXACT_BLK_RD;
+    using DTW = typename ProtCtrlFields::DTW;
+    using D3CD = typename ProtCtrlFields::D3CD;
+    using EMODE = typename ProtCtrlFields::EMODE;
+    using CDTL = typename ProtCtrlFields::CDTL;
+    using CDSS = typename ProtCtrlFields::CDSS;
+    using DMASEL = typename ProtCtrlFields::DMASEL;
+    using SABGREQ = typename ProtCtrlFields::SABGREQ;
+    using CREQ = typename ProtCtrlFields::CREQ;
+    using RWCTL = typename ProtCtrlFields::RWCTL;
+    using IABG = typename ProtCtrlFields::IABG;
+    using RD_DONE_NO_8CLK = typename ProtCtrlFields::RD_DONE_NO_8CLK;
+    using WECINT = typename ProtCtrlFields::WECINT;
+    using WECINS = typename ProtCtrlFields::WECINS;
+    using WECRM = typename ProtCtrlFields::WECRM;
+    using NON_EXACT_BLK_RD = typename ProtCtrlFields::NON_EXACT_BLK_RD;
   };
 
   // System Control
-  struct SYS_CTRL_fields_ {
+  struct SysCtrlFields {
     enum class eDVS : std::uint32_t {
       // Divide-by-1
       eDVS_0 = 0,
@@ -791,7 +791,7 @@ struct Usdhc {
     using INITA = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Reset tuning
     using RSTT = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SYS_CTRL_fields_
+  };  // struct SysCtrlFields
 
   struct SYS_CTRL : ftl::mmio::Register<
       kBase + 0x2Cu,
@@ -799,35 +799,35 @@ struct Usdhc {
       0x0080800Fu,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      typename SYS_CTRL_fields_::DVS,
-      typename SYS_CTRL_fields_::SDCLKFS,
-      typename SYS_CTRL_fields_::DTOCV,
+      typename SysCtrlFields::DVS,
+      typename SysCtrlFields::SDCLKFS,
+      typename SysCtrlFields::DTOCV,
       ftl::mmio::Reserved<3, 20>,
-      typename SYS_CTRL_fields_::IPP_RST_N,
-      typename SYS_CTRL_fields_::RSTA,
-      typename SYS_CTRL_fields_::RSTC,
-      typename SYS_CTRL_fields_::RSTD,
-      typename SYS_CTRL_fields_::INITA,
-      typename SYS_CTRL_fields_::RSTT,
+      typename SysCtrlFields::IPP_RST_N,
+      typename SysCtrlFields::RSTA,
+      typename SysCtrlFields::RSTC,
+      typename SysCtrlFields::RSTD,
+      typename SysCtrlFields::INITA,
+      typename SysCtrlFields::RSTT,
       ftl::mmio::Reserved<3, 29>> {
-    using eDVS = typename SYS_CTRL_fields_::eDVS;
-    using eDTOCV = typename SYS_CTRL_fields_::eDTOCV;
-    using eRSTA = typename SYS_CTRL_fields_::eRSTA;
-    using eRSTC = typename SYS_CTRL_fields_::eRSTC;
-    using eRSTD = typename SYS_CTRL_fields_::eRSTD;
-    using DVS = typename SYS_CTRL_fields_::DVS;
-    using SDCLKFS = typename SYS_CTRL_fields_::SDCLKFS;
-    using DTOCV = typename SYS_CTRL_fields_::DTOCV;
-    using IPP_RST_N = typename SYS_CTRL_fields_::IPP_RST_N;
-    using RSTA = typename SYS_CTRL_fields_::RSTA;
-    using RSTC = typename SYS_CTRL_fields_::RSTC;
-    using RSTD = typename SYS_CTRL_fields_::RSTD;
-    using INITA = typename SYS_CTRL_fields_::INITA;
-    using RSTT = typename SYS_CTRL_fields_::RSTT;
+    using eDVS = typename SysCtrlFields::eDVS;
+    using eDTOCV = typename SysCtrlFields::eDTOCV;
+    using eRSTA = typename SysCtrlFields::eRSTA;
+    using eRSTC = typename SysCtrlFields::eRSTC;
+    using eRSTD = typename SysCtrlFields::eRSTD;
+    using DVS = typename SysCtrlFields::DVS;
+    using SDCLKFS = typename SysCtrlFields::SDCLKFS;
+    using DTOCV = typename SysCtrlFields::DTOCV;
+    using IPP_RST_N = typename SysCtrlFields::IPP_RST_N;
+    using RSTA = typename SysCtrlFields::RSTA;
+    using RSTC = typename SysCtrlFields::RSTC;
+    using RSTD = typename SysCtrlFields::RSTD;
+    using INITA = typename SysCtrlFields::INITA;
+    using RSTT = typename SysCtrlFields::RSTT;
   };
 
   // Interrupt Status
-  struct INT_STATUS_fields_ {
+  struct IntStatusFields {
     enum class eCC : std::uint32_t {
       // Command not complete
       eCC_0 = 0,
@@ -1003,85 +1003,85 @@ struct Usdhc {
     using TNE = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // DMA error
     using DMAE = ftl::mmio::Field<1, 28, eDMAE, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct INT_STATUS_fields_
+  };  // struct IntStatusFields
 
   struct INT_STATUS : ftl::mmio::Register<
       kBase + 0x30u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename INT_STATUS_fields_::CC,
-      typename INT_STATUS_fields_::TC,
-      typename INT_STATUS_fields_::BGE,
-      typename INT_STATUS_fields_::DINT,
-      typename INT_STATUS_fields_::BWR,
-      typename INT_STATUS_fields_::BRR,
-      typename INT_STATUS_fields_::CINS,
-      typename INT_STATUS_fields_::CRM,
-      typename INT_STATUS_fields_::CINT,
+      typename IntStatusFields::CC,
+      typename IntStatusFields::TC,
+      typename IntStatusFields::BGE,
+      typename IntStatusFields::DINT,
+      typename IntStatusFields::BWR,
+      typename IntStatusFields::BRR,
+      typename IntStatusFields::CINS,
+      typename IntStatusFields::CRM,
+      typename IntStatusFields::CINT,
       ftl::mmio::Reserved<3, 9>,
-      typename INT_STATUS_fields_::RTE,
+      typename IntStatusFields::RTE,
       ftl::mmio::Reserved<1, 13>,
-      typename INT_STATUS_fields_::TP,
+      typename IntStatusFields::TP,
       ftl::mmio::Reserved<1, 15>,
-      typename INT_STATUS_fields_::CTOE,
-      typename INT_STATUS_fields_::CCE,
-      typename INT_STATUS_fields_::CEBE,
-      typename INT_STATUS_fields_::CIE,
-      typename INT_STATUS_fields_::DTOE,
-      typename INT_STATUS_fields_::DCE,
-      typename INT_STATUS_fields_::DEBE,
+      typename IntStatusFields::CTOE,
+      typename IntStatusFields::CCE,
+      typename IntStatusFields::CEBE,
+      typename IntStatusFields::CIE,
+      typename IntStatusFields::DTOE,
+      typename IntStatusFields::DCE,
+      typename IntStatusFields::DEBE,
       ftl::mmio::Reserved<1, 23>,
-      typename INT_STATUS_fields_::AC12E,
+      typename IntStatusFields::AC12E,
       ftl::mmio::Reserved<1, 25>,
-      typename INT_STATUS_fields_::TNE,
+      typename IntStatusFields::TNE,
       ftl::mmio::Reserved<1, 27>,
-      typename INT_STATUS_fields_::DMAE,
+      typename IntStatusFields::DMAE,
       ftl::mmio::Reserved<3, 29>> {
-    using eCC = typename INT_STATUS_fields_::eCC;
-    using eTC = typename INT_STATUS_fields_::eTC;
-    using eBGE = typename INT_STATUS_fields_::eBGE;
-    using eDINT = typename INT_STATUS_fields_::eDINT;
-    using eBWR = typename INT_STATUS_fields_::eBWR;
-    using eBRR = typename INT_STATUS_fields_::eBRR;
-    using eCINS = typename INT_STATUS_fields_::eCINS;
-    using eCRM = typename INT_STATUS_fields_::eCRM;
-    using eCINT = typename INT_STATUS_fields_::eCINT;
-    using eRTE = typename INT_STATUS_fields_::eRTE;
-    using eCTOE = typename INT_STATUS_fields_::eCTOE;
-    using eCCE = typename INT_STATUS_fields_::eCCE;
-    using eCEBE = typename INT_STATUS_fields_::eCEBE;
-    using eCIE = typename INT_STATUS_fields_::eCIE;
-    using eDTOE = typename INT_STATUS_fields_::eDTOE;
-    using eDCE = typename INT_STATUS_fields_::eDCE;
-    using eDEBE = typename INT_STATUS_fields_::eDEBE;
-    using eAC12E = typename INT_STATUS_fields_::eAC12E;
-    using eDMAE = typename INT_STATUS_fields_::eDMAE;
-    using CC = typename INT_STATUS_fields_::CC;
-    using TC = typename INT_STATUS_fields_::TC;
-    using BGE = typename INT_STATUS_fields_::BGE;
-    using DINT = typename INT_STATUS_fields_::DINT;
-    using BWR = typename INT_STATUS_fields_::BWR;
-    using BRR = typename INT_STATUS_fields_::BRR;
-    using CINS = typename INT_STATUS_fields_::CINS;
-    using CRM = typename INT_STATUS_fields_::CRM;
-    using CINT = typename INT_STATUS_fields_::CINT;
-    using RTE = typename INT_STATUS_fields_::RTE;
-    using TP = typename INT_STATUS_fields_::TP;
-    using CTOE = typename INT_STATUS_fields_::CTOE;
-    using CCE = typename INT_STATUS_fields_::CCE;
-    using CEBE = typename INT_STATUS_fields_::CEBE;
-    using CIE = typename INT_STATUS_fields_::CIE;
-    using DTOE = typename INT_STATUS_fields_::DTOE;
-    using DCE = typename INT_STATUS_fields_::DCE;
-    using DEBE = typename INT_STATUS_fields_::DEBE;
-    using AC12E = typename INT_STATUS_fields_::AC12E;
-    using TNE = typename INT_STATUS_fields_::TNE;
-    using DMAE = typename INT_STATUS_fields_::DMAE;
+    using eCC = typename IntStatusFields::eCC;
+    using eTC = typename IntStatusFields::eTC;
+    using eBGE = typename IntStatusFields::eBGE;
+    using eDINT = typename IntStatusFields::eDINT;
+    using eBWR = typename IntStatusFields::eBWR;
+    using eBRR = typename IntStatusFields::eBRR;
+    using eCINS = typename IntStatusFields::eCINS;
+    using eCRM = typename IntStatusFields::eCRM;
+    using eCINT = typename IntStatusFields::eCINT;
+    using eRTE = typename IntStatusFields::eRTE;
+    using eCTOE = typename IntStatusFields::eCTOE;
+    using eCCE = typename IntStatusFields::eCCE;
+    using eCEBE = typename IntStatusFields::eCEBE;
+    using eCIE = typename IntStatusFields::eCIE;
+    using eDTOE = typename IntStatusFields::eDTOE;
+    using eDCE = typename IntStatusFields::eDCE;
+    using eDEBE = typename IntStatusFields::eDEBE;
+    using eAC12E = typename IntStatusFields::eAC12E;
+    using eDMAE = typename IntStatusFields::eDMAE;
+    using CC = typename IntStatusFields::CC;
+    using TC = typename IntStatusFields::TC;
+    using BGE = typename IntStatusFields::BGE;
+    using DINT = typename IntStatusFields::DINT;
+    using BWR = typename IntStatusFields::BWR;
+    using BRR = typename IntStatusFields::BRR;
+    using CINS = typename IntStatusFields::CINS;
+    using CRM = typename IntStatusFields::CRM;
+    using CINT = typename IntStatusFields::CINT;
+    using RTE = typename IntStatusFields::RTE;
+    using TP = typename IntStatusFields::TP;
+    using CTOE = typename IntStatusFields::CTOE;
+    using CCE = typename IntStatusFields::CCE;
+    using CEBE = typename IntStatusFields::CEBE;
+    using CIE = typename IntStatusFields::CIE;
+    using DTOE = typename IntStatusFields::DTOE;
+    using DCE = typename IntStatusFields::DCE;
+    using DEBE = typename IntStatusFields::DEBE;
+    using AC12E = typename IntStatusFields::AC12E;
+    using TNE = typename IntStatusFields::TNE;
+    using DMAE = typename IntStatusFields::DMAE;
   };
 
   // Interrupt Status Enable
-  struct INT_STATUS_EN_fields_ {
+  struct IntStatusEnFields {
     enum class eCCSEN : std::uint32_t {
       // Masked
       eCCSEN_0 = 0,
@@ -1271,87 +1271,87 @@ struct Usdhc {
     using TNESEN = ftl::mmio::Field<1, 26, eTNESEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA error status enable
     using DMAESEN = ftl::mmio::Field<1, 28, eDMAESEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct INT_STATUS_EN_fields_
+  };  // struct IntStatusEnFields
 
   struct INT_STATUS_EN : ftl::mmio::Register<
       kBase + 0x34u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename INT_STATUS_EN_fields_::CCSEN,
-      typename INT_STATUS_EN_fields_::TCSEN,
-      typename INT_STATUS_EN_fields_::BGESEN,
-      typename INT_STATUS_EN_fields_::DINTSEN,
-      typename INT_STATUS_EN_fields_::BWRSEN,
-      typename INT_STATUS_EN_fields_::BRRSEN,
-      typename INT_STATUS_EN_fields_::CINSSEN,
-      typename INT_STATUS_EN_fields_::CRMSEN,
-      typename INT_STATUS_EN_fields_::CINTSEN,
+      typename IntStatusEnFields::CCSEN,
+      typename IntStatusEnFields::TCSEN,
+      typename IntStatusEnFields::BGESEN,
+      typename IntStatusEnFields::DINTSEN,
+      typename IntStatusEnFields::BWRSEN,
+      typename IntStatusEnFields::BRRSEN,
+      typename IntStatusEnFields::CINSSEN,
+      typename IntStatusEnFields::CRMSEN,
+      typename IntStatusEnFields::CINTSEN,
       ftl::mmio::Reserved<3, 9>,
-      typename INT_STATUS_EN_fields_::RTESEN,
+      typename IntStatusEnFields::RTESEN,
       ftl::mmio::Reserved<1, 13>,
-      typename INT_STATUS_EN_fields_::TPSEN,
+      typename IntStatusEnFields::TPSEN,
       ftl::mmio::Reserved<1, 15>,
-      typename INT_STATUS_EN_fields_::CTOESEN,
-      typename INT_STATUS_EN_fields_::CCESEN,
-      typename INT_STATUS_EN_fields_::CEBESEN,
-      typename INT_STATUS_EN_fields_::CIESEN,
-      typename INT_STATUS_EN_fields_::DTOESEN,
-      typename INT_STATUS_EN_fields_::DCESEN,
-      typename INT_STATUS_EN_fields_::DEBESEN,
+      typename IntStatusEnFields::CTOESEN,
+      typename IntStatusEnFields::CCESEN,
+      typename IntStatusEnFields::CEBESEN,
+      typename IntStatusEnFields::CIESEN,
+      typename IntStatusEnFields::DTOESEN,
+      typename IntStatusEnFields::DCESEN,
+      typename IntStatusEnFields::DEBESEN,
       ftl::mmio::Reserved<1, 23>,
-      typename INT_STATUS_EN_fields_::AC12ESEN,
+      typename IntStatusEnFields::AC12ESEN,
       ftl::mmio::Reserved<1, 25>,
-      typename INT_STATUS_EN_fields_::TNESEN,
+      typename IntStatusEnFields::TNESEN,
       ftl::mmio::Reserved<1, 27>,
-      typename INT_STATUS_EN_fields_::DMAESEN,
+      typename IntStatusEnFields::DMAESEN,
       ftl::mmio::Reserved<3, 29>> {
-    using eCCSEN = typename INT_STATUS_EN_fields_::eCCSEN;
-    using eTCSEN = typename INT_STATUS_EN_fields_::eTCSEN;
-    using eBGESEN = typename INT_STATUS_EN_fields_::eBGESEN;
-    using eDINTSEN = typename INT_STATUS_EN_fields_::eDINTSEN;
-    using eBWRSEN = typename INT_STATUS_EN_fields_::eBWRSEN;
-    using eBRRSEN = typename INT_STATUS_EN_fields_::eBRRSEN;
-    using eCINSSEN = typename INT_STATUS_EN_fields_::eCINSSEN;
-    using eCRMSEN = typename INT_STATUS_EN_fields_::eCRMSEN;
-    using eCINTSEN = typename INT_STATUS_EN_fields_::eCINTSEN;
-    using eRTESEN = typename INT_STATUS_EN_fields_::eRTESEN;
-    using eTPSEN = typename INT_STATUS_EN_fields_::eTPSEN;
-    using eCTOESEN = typename INT_STATUS_EN_fields_::eCTOESEN;
-    using eCCESEN = typename INT_STATUS_EN_fields_::eCCESEN;
-    using eCEBESEN = typename INT_STATUS_EN_fields_::eCEBESEN;
-    using eCIESEN = typename INT_STATUS_EN_fields_::eCIESEN;
-    using eDTOESEN = typename INT_STATUS_EN_fields_::eDTOESEN;
-    using eDCESEN = typename INT_STATUS_EN_fields_::eDCESEN;
-    using eDEBESEN = typename INT_STATUS_EN_fields_::eDEBESEN;
-    using eAC12ESEN = typename INT_STATUS_EN_fields_::eAC12ESEN;
-    using eTNESEN = typename INT_STATUS_EN_fields_::eTNESEN;
-    using eDMAESEN = typename INT_STATUS_EN_fields_::eDMAESEN;
-    using CCSEN = typename INT_STATUS_EN_fields_::CCSEN;
-    using TCSEN = typename INT_STATUS_EN_fields_::TCSEN;
-    using BGESEN = typename INT_STATUS_EN_fields_::BGESEN;
-    using DINTSEN = typename INT_STATUS_EN_fields_::DINTSEN;
-    using BWRSEN = typename INT_STATUS_EN_fields_::BWRSEN;
-    using BRRSEN = typename INT_STATUS_EN_fields_::BRRSEN;
-    using CINSSEN = typename INT_STATUS_EN_fields_::CINSSEN;
-    using CRMSEN = typename INT_STATUS_EN_fields_::CRMSEN;
-    using CINTSEN = typename INT_STATUS_EN_fields_::CINTSEN;
-    using RTESEN = typename INT_STATUS_EN_fields_::RTESEN;
-    using TPSEN = typename INT_STATUS_EN_fields_::TPSEN;
-    using CTOESEN = typename INT_STATUS_EN_fields_::CTOESEN;
-    using CCESEN = typename INT_STATUS_EN_fields_::CCESEN;
-    using CEBESEN = typename INT_STATUS_EN_fields_::CEBESEN;
-    using CIESEN = typename INT_STATUS_EN_fields_::CIESEN;
-    using DTOESEN = typename INT_STATUS_EN_fields_::DTOESEN;
-    using DCESEN = typename INT_STATUS_EN_fields_::DCESEN;
-    using DEBESEN = typename INT_STATUS_EN_fields_::DEBESEN;
-    using AC12ESEN = typename INT_STATUS_EN_fields_::AC12ESEN;
-    using TNESEN = typename INT_STATUS_EN_fields_::TNESEN;
-    using DMAESEN = typename INT_STATUS_EN_fields_::DMAESEN;
+    using eCCSEN = typename IntStatusEnFields::eCCSEN;
+    using eTCSEN = typename IntStatusEnFields::eTCSEN;
+    using eBGESEN = typename IntStatusEnFields::eBGESEN;
+    using eDINTSEN = typename IntStatusEnFields::eDINTSEN;
+    using eBWRSEN = typename IntStatusEnFields::eBWRSEN;
+    using eBRRSEN = typename IntStatusEnFields::eBRRSEN;
+    using eCINSSEN = typename IntStatusEnFields::eCINSSEN;
+    using eCRMSEN = typename IntStatusEnFields::eCRMSEN;
+    using eCINTSEN = typename IntStatusEnFields::eCINTSEN;
+    using eRTESEN = typename IntStatusEnFields::eRTESEN;
+    using eTPSEN = typename IntStatusEnFields::eTPSEN;
+    using eCTOESEN = typename IntStatusEnFields::eCTOESEN;
+    using eCCESEN = typename IntStatusEnFields::eCCESEN;
+    using eCEBESEN = typename IntStatusEnFields::eCEBESEN;
+    using eCIESEN = typename IntStatusEnFields::eCIESEN;
+    using eDTOESEN = typename IntStatusEnFields::eDTOESEN;
+    using eDCESEN = typename IntStatusEnFields::eDCESEN;
+    using eDEBESEN = typename IntStatusEnFields::eDEBESEN;
+    using eAC12ESEN = typename IntStatusEnFields::eAC12ESEN;
+    using eTNESEN = typename IntStatusEnFields::eTNESEN;
+    using eDMAESEN = typename IntStatusEnFields::eDMAESEN;
+    using CCSEN = typename IntStatusEnFields::CCSEN;
+    using TCSEN = typename IntStatusEnFields::TCSEN;
+    using BGESEN = typename IntStatusEnFields::BGESEN;
+    using DINTSEN = typename IntStatusEnFields::DINTSEN;
+    using BWRSEN = typename IntStatusEnFields::BWRSEN;
+    using BRRSEN = typename IntStatusEnFields::BRRSEN;
+    using CINSSEN = typename IntStatusEnFields::CINSSEN;
+    using CRMSEN = typename IntStatusEnFields::CRMSEN;
+    using CINTSEN = typename IntStatusEnFields::CINTSEN;
+    using RTESEN = typename IntStatusEnFields::RTESEN;
+    using TPSEN = typename IntStatusEnFields::TPSEN;
+    using CTOESEN = typename IntStatusEnFields::CTOESEN;
+    using CCESEN = typename IntStatusEnFields::CCESEN;
+    using CEBESEN = typename IntStatusEnFields::CEBESEN;
+    using CIESEN = typename IntStatusEnFields::CIESEN;
+    using DTOESEN = typename IntStatusEnFields::DTOESEN;
+    using DCESEN = typename IntStatusEnFields::DCESEN;
+    using DEBESEN = typename IntStatusEnFields::DEBESEN;
+    using AC12ESEN = typename IntStatusEnFields::AC12ESEN;
+    using TNESEN = typename IntStatusEnFields::TNESEN;
+    using DMAESEN = typename IntStatusEnFields::DMAESEN;
   };
 
   // Interrupt Signal Enable
-  struct INT_SIGNAL_EN_fields_ {
+  struct IntSignalEnFields {
     enum class eCCIEN : std::uint32_t {
       // Masked
       eCCIEN_0 = 0,
@@ -1541,87 +1541,87 @@ struct Usdhc {
     using TNEIEN = ftl::mmio::Field<1, 26, eTNEIEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // DMA error interrupt enable
     using DMAEIEN = ftl::mmio::Field<1, 28, eDMAEIEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct INT_SIGNAL_EN_fields_
+  };  // struct IntSignalEnFields
 
   struct INT_SIGNAL_EN : ftl::mmio::Register<
       kBase + 0x38u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename INT_SIGNAL_EN_fields_::CCIEN,
-      typename INT_SIGNAL_EN_fields_::TCIEN,
-      typename INT_SIGNAL_EN_fields_::BGEIEN,
-      typename INT_SIGNAL_EN_fields_::DINTIEN,
-      typename INT_SIGNAL_EN_fields_::BWRIEN,
-      typename INT_SIGNAL_EN_fields_::BRRIEN,
-      typename INT_SIGNAL_EN_fields_::CINSIEN,
-      typename INT_SIGNAL_EN_fields_::CRMIEN,
-      typename INT_SIGNAL_EN_fields_::CINTIEN,
+      typename IntSignalEnFields::CCIEN,
+      typename IntSignalEnFields::TCIEN,
+      typename IntSignalEnFields::BGEIEN,
+      typename IntSignalEnFields::DINTIEN,
+      typename IntSignalEnFields::BWRIEN,
+      typename IntSignalEnFields::BRRIEN,
+      typename IntSignalEnFields::CINSIEN,
+      typename IntSignalEnFields::CRMIEN,
+      typename IntSignalEnFields::CINTIEN,
       ftl::mmio::Reserved<3, 9>,
-      typename INT_SIGNAL_EN_fields_::RTEIEN,
+      typename IntSignalEnFields::RTEIEN,
       ftl::mmio::Reserved<1, 13>,
-      typename INT_SIGNAL_EN_fields_::TPIEN,
+      typename IntSignalEnFields::TPIEN,
       ftl::mmio::Reserved<1, 15>,
-      typename INT_SIGNAL_EN_fields_::CTOEIEN,
-      typename INT_SIGNAL_EN_fields_::CCEIEN,
-      typename INT_SIGNAL_EN_fields_::CEBEIEN,
-      typename INT_SIGNAL_EN_fields_::CIEIEN,
-      typename INT_SIGNAL_EN_fields_::DTOEIEN,
-      typename INT_SIGNAL_EN_fields_::DCEIEN,
-      typename INT_SIGNAL_EN_fields_::DEBEIEN,
+      typename IntSignalEnFields::CTOEIEN,
+      typename IntSignalEnFields::CCEIEN,
+      typename IntSignalEnFields::CEBEIEN,
+      typename IntSignalEnFields::CIEIEN,
+      typename IntSignalEnFields::DTOEIEN,
+      typename IntSignalEnFields::DCEIEN,
+      typename IntSignalEnFields::DEBEIEN,
       ftl::mmio::Reserved<1, 23>,
-      typename INT_SIGNAL_EN_fields_::AC12EIEN,
+      typename IntSignalEnFields::AC12EIEN,
       ftl::mmio::Reserved<1, 25>,
-      typename INT_SIGNAL_EN_fields_::TNEIEN,
+      typename IntSignalEnFields::TNEIEN,
       ftl::mmio::Reserved<1, 27>,
-      typename INT_SIGNAL_EN_fields_::DMAEIEN,
+      typename IntSignalEnFields::DMAEIEN,
       ftl::mmio::Reserved<3, 29>> {
-    using eCCIEN = typename INT_SIGNAL_EN_fields_::eCCIEN;
-    using eTCIEN = typename INT_SIGNAL_EN_fields_::eTCIEN;
-    using eBGEIEN = typename INT_SIGNAL_EN_fields_::eBGEIEN;
-    using eDINTIEN = typename INT_SIGNAL_EN_fields_::eDINTIEN;
-    using eBWRIEN = typename INT_SIGNAL_EN_fields_::eBWRIEN;
-    using eBRRIEN = typename INT_SIGNAL_EN_fields_::eBRRIEN;
-    using eCINSIEN = typename INT_SIGNAL_EN_fields_::eCINSIEN;
-    using eCRMIEN = typename INT_SIGNAL_EN_fields_::eCRMIEN;
-    using eCINTIEN = typename INT_SIGNAL_EN_fields_::eCINTIEN;
-    using eRTEIEN = typename INT_SIGNAL_EN_fields_::eRTEIEN;
-    using eTPIEN = typename INT_SIGNAL_EN_fields_::eTPIEN;
-    using eCTOEIEN = typename INT_SIGNAL_EN_fields_::eCTOEIEN;
-    using eCCEIEN = typename INT_SIGNAL_EN_fields_::eCCEIEN;
-    using eCEBEIEN = typename INT_SIGNAL_EN_fields_::eCEBEIEN;
-    using eCIEIEN = typename INT_SIGNAL_EN_fields_::eCIEIEN;
-    using eDTOEIEN = typename INT_SIGNAL_EN_fields_::eDTOEIEN;
-    using eDCEIEN = typename INT_SIGNAL_EN_fields_::eDCEIEN;
-    using eDEBEIEN = typename INT_SIGNAL_EN_fields_::eDEBEIEN;
-    using eAC12EIEN = typename INT_SIGNAL_EN_fields_::eAC12EIEN;
-    using eTNEIEN = typename INT_SIGNAL_EN_fields_::eTNEIEN;
-    using eDMAEIEN = typename INT_SIGNAL_EN_fields_::eDMAEIEN;
-    using CCIEN = typename INT_SIGNAL_EN_fields_::CCIEN;
-    using TCIEN = typename INT_SIGNAL_EN_fields_::TCIEN;
-    using BGEIEN = typename INT_SIGNAL_EN_fields_::BGEIEN;
-    using DINTIEN = typename INT_SIGNAL_EN_fields_::DINTIEN;
-    using BWRIEN = typename INT_SIGNAL_EN_fields_::BWRIEN;
-    using BRRIEN = typename INT_SIGNAL_EN_fields_::BRRIEN;
-    using CINSIEN = typename INT_SIGNAL_EN_fields_::CINSIEN;
-    using CRMIEN = typename INT_SIGNAL_EN_fields_::CRMIEN;
-    using CINTIEN = typename INT_SIGNAL_EN_fields_::CINTIEN;
-    using RTEIEN = typename INT_SIGNAL_EN_fields_::RTEIEN;
-    using TPIEN = typename INT_SIGNAL_EN_fields_::TPIEN;
-    using CTOEIEN = typename INT_SIGNAL_EN_fields_::CTOEIEN;
-    using CCEIEN = typename INT_SIGNAL_EN_fields_::CCEIEN;
-    using CEBEIEN = typename INT_SIGNAL_EN_fields_::CEBEIEN;
-    using CIEIEN = typename INT_SIGNAL_EN_fields_::CIEIEN;
-    using DTOEIEN = typename INT_SIGNAL_EN_fields_::DTOEIEN;
-    using DCEIEN = typename INT_SIGNAL_EN_fields_::DCEIEN;
-    using DEBEIEN = typename INT_SIGNAL_EN_fields_::DEBEIEN;
-    using AC12EIEN = typename INT_SIGNAL_EN_fields_::AC12EIEN;
-    using TNEIEN = typename INT_SIGNAL_EN_fields_::TNEIEN;
-    using DMAEIEN = typename INT_SIGNAL_EN_fields_::DMAEIEN;
+    using eCCIEN = typename IntSignalEnFields::eCCIEN;
+    using eTCIEN = typename IntSignalEnFields::eTCIEN;
+    using eBGEIEN = typename IntSignalEnFields::eBGEIEN;
+    using eDINTIEN = typename IntSignalEnFields::eDINTIEN;
+    using eBWRIEN = typename IntSignalEnFields::eBWRIEN;
+    using eBRRIEN = typename IntSignalEnFields::eBRRIEN;
+    using eCINSIEN = typename IntSignalEnFields::eCINSIEN;
+    using eCRMIEN = typename IntSignalEnFields::eCRMIEN;
+    using eCINTIEN = typename IntSignalEnFields::eCINTIEN;
+    using eRTEIEN = typename IntSignalEnFields::eRTEIEN;
+    using eTPIEN = typename IntSignalEnFields::eTPIEN;
+    using eCTOEIEN = typename IntSignalEnFields::eCTOEIEN;
+    using eCCEIEN = typename IntSignalEnFields::eCCEIEN;
+    using eCEBEIEN = typename IntSignalEnFields::eCEBEIEN;
+    using eCIEIEN = typename IntSignalEnFields::eCIEIEN;
+    using eDTOEIEN = typename IntSignalEnFields::eDTOEIEN;
+    using eDCEIEN = typename IntSignalEnFields::eDCEIEN;
+    using eDEBEIEN = typename IntSignalEnFields::eDEBEIEN;
+    using eAC12EIEN = typename IntSignalEnFields::eAC12EIEN;
+    using eTNEIEN = typename IntSignalEnFields::eTNEIEN;
+    using eDMAEIEN = typename IntSignalEnFields::eDMAEIEN;
+    using CCIEN = typename IntSignalEnFields::CCIEN;
+    using TCIEN = typename IntSignalEnFields::TCIEN;
+    using BGEIEN = typename IntSignalEnFields::BGEIEN;
+    using DINTIEN = typename IntSignalEnFields::DINTIEN;
+    using BWRIEN = typename IntSignalEnFields::BWRIEN;
+    using BRRIEN = typename IntSignalEnFields::BRRIEN;
+    using CINSIEN = typename IntSignalEnFields::CINSIEN;
+    using CRMIEN = typename IntSignalEnFields::CRMIEN;
+    using CINTIEN = typename IntSignalEnFields::CINTIEN;
+    using RTEIEN = typename IntSignalEnFields::RTEIEN;
+    using TPIEN = typename IntSignalEnFields::TPIEN;
+    using CTOEIEN = typename IntSignalEnFields::CTOEIEN;
+    using CCEIEN = typename IntSignalEnFields::CCEIEN;
+    using CEBEIEN = typename IntSignalEnFields::CEBEIEN;
+    using CIEIEN = typename IntSignalEnFields::CIEIEN;
+    using DTOEIEN = typename IntSignalEnFields::DTOEIEN;
+    using DCEIEN = typename IntSignalEnFields::DCEIEN;
+    using DEBEIEN = typename IntSignalEnFields::DEBEIEN;
+    using AC12EIEN = typename IntSignalEnFields::AC12EIEN;
+    using TNEIEN = typename IntSignalEnFields::TNEIEN;
+    using DMAEIEN = typename IntSignalEnFields::DMAEIEN;
   };
 
   // Auto CMD12 Error Status
-  struct AUTOCMD12_ERR_STATUS_fields_ {
+  struct Autocmd12ErrStatusFields {
     enum class eAC12NE : std::uint32_t {
       // Executed
       eAC12NE_0 = 0,
@@ -1694,44 +1694,44 @@ struct Usdhc {
     using EXECUTE_TUNING = ftl::mmio::Field<1, 22, eEXECUTE_TUNING, ftl::mmio::RW, ftl::mmio::Normal>;
     // Sample clock select
     using SMP_CLK_SEL = ftl::mmio::Field<1, 23, eSMP_CLK_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct AUTOCMD12_ERR_STATUS_fields_
+  };  // struct Autocmd12ErrStatusFields
 
   struct AUTOCMD12_ERR_STATUS : ftl::mmio::Register<
       kBase + 0x3Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename AUTOCMD12_ERR_STATUS_fields_::AC12NE,
-      typename AUTOCMD12_ERR_STATUS_fields_::AC12TOE,
-      typename AUTOCMD12_ERR_STATUS_fields_::AC12EBE,
-      typename AUTOCMD12_ERR_STATUS_fields_::AC12CE,
-      typename AUTOCMD12_ERR_STATUS_fields_::AC12IE,
+      typename Autocmd12ErrStatusFields::AC12NE,
+      typename Autocmd12ErrStatusFields::AC12TOE,
+      typename Autocmd12ErrStatusFields::AC12EBE,
+      typename Autocmd12ErrStatusFields::AC12CE,
+      typename Autocmd12ErrStatusFields::AC12IE,
       ftl::mmio::Reserved<2, 5>,
-      typename AUTOCMD12_ERR_STATUS_fields_::CNIBAC12E,
+      typename Autocmd12ErrStatusFields::CNIBAC12E,
       ftl::mmio::Reserved<14, 8>,
-      typename AUTOCMD12_ERR_STATUS_fields_::EXECUTE_TUNING,
-      typename AUTOCMD12_ERR_STATUS_fields_::SMP_CLK_SEL,
+      typename Autocmd12ErrStatusFields::EXECUTE_TUNING,
+      typename Autocmd12ErrStatusFields::SMP_CLK_SEL,
       ftl::mmio::Reserved<8, 24>> {
-    using eAC12NE = typename AUTOCMD12_ERR_STATUS_fields_::eAC12NE;
-    using eAC12TOE = typename AUTOCMD12_ERR_STATUS_fields_::eAC12TOE;
-    using eAC12EBE = typename AUTOCMD12_ERR_STATUS_fields_::eAC12EBE;
-    using eAC12CE = typename AUTOCMD12_ERR_STATUS_fields_::eAC12CE;
-    using eAC12IE = typename AUTOCMD12_ERR_STATUS_fields_::eAC12IE;
-    using eCNIBAC12E = typename AUTOCMD12_ERR_STATUS_fields_::eCNIBAC12E;
-    using eEXECUTE_TUNING = typename AUTOCMD12_ERR_STATUS_fields_::eEXECUTE_TUNING;
-    using eSMP_CLK_SEL = typename AUTOCMD12_ERR_STATUS_fields_::eSMP_CLK_SEL;
-    using AC12NE = typename AUTOCMD12_ERR_STATUS_fields_::AC12NE;
-    using AC12TOE = typename AUTOCMD12_ERR_STATUS_fields_::AC12TOE;
-    using AC12EBE = typename AUTOCMD12_ERR_STATUS_fields_::AC12EBE;
-    using AC12CE = typename AUTOCMD12_ERR_STATUS_fields_::AC12CE;
-    using AC12IE = typename AUTOCMD12_ERR_STATUS_fields_::AC12IE;
-    using CNIBAC12E = typename AUTOCMD12_ERR_STATUS_fields_::CNIBAC12E;
-    using EXECUTE_TUNING = typename AUTOCMD12_ERR_STATUS_fields_::EXECUTE_TUNING;
-    using SMP_CLK_SEL = typename AUTOCMD12_ERR_STATUS_fields_::SMP_CLK_SEL;
+    using eAC12NE = typename Autocmd12ErrStatusFields::eAC12NE;
+    using eAC12TOE = typename Autocmd12ErrStatusFields::eAC12TOE;
+    using eAC12EBE = typename Autocmd12ErrStatusFields::eAC12EBE;
+    using eAC12CE = typename Autocmd12ErrStatusFields::eAC12CE;
+    using eAC12IE = typename Autocmd12ErrStatusFields::eAC12IE;
+    using eCNIBAC12E = typename Autocmd12ErrStatusFields::eCNIBAC12E;
+    using eEXECUTE_TUNING = typename Autocmd12ErrStatusFields::eEXECUTE_TUNING;
+    using eSMP_CLK_SEL = typename Autocmd12ErrStatusFields::eSMP_CLK_SEL;
+    using AC12NE = typename Autocmd12ErrStatusFields::AC12NE;
+    using AC12TOE = typename Autocmd12ErrStatusFields::AC12TOE;
+    using AC12EBE = typename Autocmd12ErrStatusFields::AC12EBE;
+    using AC12CE = typename Autocmd12ErrStatusFields::AC12CE;
+    using AC12IE = typename Autocmd12ErrStatusFields::AC12IE;
+    using CNIBAC12E = typename Autocmd12ErrStatusFields::CNIBAC12E;
+    using EXECUTE_TUNING = typename Autocmd12ErrStatusFields::EXECUTE_TUNING;
+    using SMP_CLK_SEL = typename Autocmd12ErrStatusFields::SMP_CLK_SEL;
   };
 
   // Host Controller Capabilities
-  struct HOST_CTRL_CAP_fields_ {
+  struct HostCtrlCapFields {
     enum class eUSE_TUNING_SDR50 : std::uint32_t {
       // SDR50 does not support tuning
       eUSE_TUNING_SDR50_0 = 0,
@@ -1823,75 +1823,75 @@ struct Usdhc {
     using VS30 = ftl::mmio::Field<1, 25, eVS30, ftl::mmio::RO, ftl::mmio::Normal>;
     // Voltage support 1.8 V
     using VS18 = ftl::mmio::Field<1, 26, eVS18, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HOST_CTRL_CAP_fields_
+  };  // struct HostCtrlCapFields
 
   struct HOST_CTRL_CAP : ftl::mmio::Register<
       kBase + 0x40u,
       std::uint32_t,
       0x07F3B407u,
       ftl::mmio::RW,
-      typename HOST_CTRL_CAP_fields_::SDR50_SUPPORT,
-      typename HOST_CTRL_CAP_fields_::SDR104_SUPPORT,
-      typename HOST_CTRL_CAP_fields_::DDR50_SUPPORT,
+      typename HostCtrlCapFields::SDR50_SUPPORT,
+      typename HostCtrlCapFields::SDR104_SUPPORT,
+      typename HostCtrlCapFields::DDR50_SUPPORT,
       ftl::mmio::Reserved<10, 3>,
-      typename HOST_CTRL_CAP_fields_::USE_TUNING_SDR50,
+      typename HostCtrlCapFields::USE_TUNING_SDR50,
       ftl::mmio::Reserved<2, 14>,
-      typename HOST_CTRL_CAP_fields_::MBL,
+      typename HostCtrlCapFields::MBL,
       ftl::mmio::Reserved<1, 19>,
-      typename HOST_CTRL_CAP_fields_::ADMAS,
-      typename HOST_CTRL_CAP_fields_::HSS,
-      typename HOST_CTRL_CAP_fields_::DMAS,
-      typename HOST_CTRL_CAP_fields_::SRS,
-      typename HOST_CTRL_CAP_fields_::VS33,
-      typename HOST_CTRL_CAP_fields_::VS30,
-      typename HOST_CTRL_CAP_fields_::VS18,
+      typename HostCtrlCapFields::ADMAS,
+      typename HostCtrlCapFields::HSS,
+      typename HostCtrlCapFields::DMAS,
+      typename HostCtrlCapFields::SRS,
+      typename HostCtrlCapFields::VS33,
+      typename HostCtrlCapFields::VS30,
+      typename HostCtrlCapFields::VS18,
       ftl::mmio::Reserved<5, 27>> {
-    using eUSE_TUNING_SDR50 = typename HOST_CTRL_CAP_fields_::eUSE_TUNING_SDR50;
-    using eMBL = typename HOST_CTRL_CAP_fields_::eMBL;
-    using eADMAS = typename HOST_CTRL_CAP_fields_::eADMAS;
-    using eHSS = typename HOST_CTRL_CAP_fields_::eHSS;
-    using eDMAS = typename HOST_CTRL_CAP_fields_::eDMAS;
-    using eSRS = typename HOST_CTRL_CAP_fields_::eSRS;
-    using eVS33 = typename HOST_CTRL_CAP_fields_::eVS33;
-    using eVS30 = typename HOST_CTRL_CAP_fields_::eVS30;
-    using eVS18 = typename HOST_CTRL_CAP_fields_::eVS18;
-    using SDR50_SUPPORT = typename HOST_CTRL_CAP_fields_::SDR50_SUPPORT;
-    using SDR104_SUPPORT = typename HOST_CTRL_CAP_fields_::SDR104_SUPPORT;
-    using DDR50_SUPPORT = typename HOST_CTRL_CAP_fields_::DDR50_SUPPORT;
-    using USE_TUNING_SDR50 = typename HOST_CTRL_CAP_fields_::USE_TUNING_SDR50;
-    using MBL = typename HOST_CTRL_CAP_fields_::MBL;
-    using ADMAS = typename HOST_CTRL_CAP_fields_::ADMAS;
-    using HSS = typename HOST_CTRL_CAP_fields_::HSS;
-    using DMAS = typename HOST_CTRL_CAP_fields_::DMAS;
-    using SRS = typename HOST_CTRL_CAP_fields_::SRS;
-    using VS33 = typename HOST_CTRL_CAP_fields_::VS33;
-    using VS30 = typename HOST_CTRL_CAP_fields_::VS30;
-    using VS18 = typename HOST_CTRL_CAP_fields_::VS18;
+    using eUSE_TUNING_SDR50 = typename HostCtrlCapFields::eUSE_TUNING_SDR50;
+    using eMBL = typename HostCtrlCapFields::eMBL;
+    using eADMAS = typename HostCtrlCapFields::eADMAS;
+    using eHSS = typename HostCtrlCapFields::eHSS;
+    using eDMAS = typename HostCtrlCapFields::eDMAS;
+    using eSRS = typename HostCtrlCapFields::eSRS;
+    using eVS33 = typename HostCtrlCapFields::eVS33;
+    using eVS30 = typename HostCtrlCapFields::eVS30;
+    using eVS18 = typename HostCtrlCapFields::eVS18;
+    using SDR50_SUPPORT = typename HostCtrlCapFields::SDR50_SUPPORT;
+    using SDR104_SUPPORT = typename HostCtrlCapFields::SDR104_SUPPORT;
+    using DDR50_SUPPORT = typename HostCtrlCapFields::DDR50_SUPPORT;
+    using USE_TUNING_SDR50 = typename HostCtrlCapFields::USE_TUNING_SDR50;
+    using MBL = typename HostCtrlCapFields::MBL;
+    using ADMAS = typename HostCtrlCapFields::ADMAS;
+    using HSS = typename HostCtrlCapFields::HSS;
+    using DMAS = typename HostCtrlCapFields::DMAS;
+    using SRS = typename HostCtrlCapFields::SRS;
+    using VS33 = typename HostCtrlCapFields::VS33;
+    using VS30 = typename HostCtrlCapFields::VS30;
+    using VS18 = typename HostCtrlCapFields::VS18;
   };
 
   // Watermark Level
-  struct WTMK_LVL_fields_ {
+  struct WtmkLvlFields {
     // Read watermark level
     using RD_WML = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Write watermark level
     using WR_WML = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct WTMK_LVL_fields_
+  };  // struct WtmkLvlFields
 
   struct WTMK_LVL : ftl::mmio::Register<
       kBase + 0x44u,
       std::uint32_t,
       0x08100810u,
       ftl::mmio::RW,
-      typename WTMK_LVL_fields_::RD_WML,
+      typename WtmkLvlFields::RD_WML,
       ftl::mmio::Reserved<8, 8>,
-      typename WTMK_LVL_fields_::WR_WML,
+      typename WtmkLvlFields::WR_WML,
       ftl::mmio::Reserved<8, 24>> {
-    using RD_WML = typename WTMK_LVL_fields_::RD_WML;
-    using WR_WML = typename WTMK_LVL_fields_::WR_WML;
+    using RD_WML = typename WtmkLvlFields::RD_WML;
+    using WR_WML = typename WtmkLvlFields::WR_WML;
   };
 
   // Mixer Control
-  struct MIX_CTRL_fields_ {
+  struct MixCtrlFields {
     enum class eDMAEN : std::uint32_t {
       // Disable
       eDMAEN_0 = 0,
@@ -1981,54 +1981,54 @@ struct Usdhc {
     using FBCLK_SEL = ftl::mmio::Field<1, 25, eFBCLK_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable HS400 mode
     using HS400_MODE = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MIX_CTRL_fields_
+  };  // struct MixCtrlFields
 
   struct MIX_CTRL : ftl::mmio::Register<
       kBase + 0x48u,
       std::uint32_t,
       0x80000000u,
       ftl::mmio::RW,
-      typename MIX_CTRL_fields_::DMAEN,
-      typename MIX_CTRL_fields_::BCEN,
-      typename MIX_CTRL_fields_::AC12EN,
-      typename MIX_CTRL_fields_::DDR_EN,
-      typename MIX_CTRL_fields_::DTDSEL,
-      typename MIX_CTRL_fields_::MSBSEL,
-      typename MIX_CTRL_fields_::NIBBLE_POS,
-      typename MIX_CTRL_fields_::AC23EN,
+      typename MixCtrlFields::DMAEN,
+      typename MixCtrlFields::BCEN,
+      typename MixCtrlFields::AC12EN,
+      typename MixCtrlFields::DDR_EN,
+      typename MixCtrlFields::DTDSEL,
+      typename MixCtrlFields::MSBSEL,
+      typename MixCtrlFields::NIBBLE_POS,
+      typename MixCtrlFields::AC23EN,
       ftl::mmio::Reserved<14, 8>,
-      typename MIX_CTRL_fields_::EXE_TUNE,
-      typename MIX_CTRL_fields_::SMP_CLK_SEL,
-      typename MIX_CTRL_fields_::AUTO_TUNE_EN,
-      typename MIX_CTRL_fields_::FBCLK_SEL,
-      typename MIX_CTRL_fields_::HS400_MODE,
+      typename MixCtrlFields::EXE_TUNE,
+      typename MixCtrlFields::SMP_CLK_SEL,
+      typename MixCtrlFields::AUTO_TUNE_EN,
+      typename MixCtrlFields::FBCLK_SEL,
+      typename MixCtrlFields::HS400_MODE,
       ftl::mmio::Reserved<5, 27>> {
-    using eDMAEN = typename MIX_CTRL_fields_::eDMAEN;
-    using eBCEN = typename MIX_CTRL_fields_::eBCEN;
-    using eAC12EN = typename MIX_CTRL_fields_::eAC12EN;
-    using eDTDSEL = typename MIX_CTRL_fields_::eDTDSEL;
-    using eMSBSEL = typename MIX_CTRL_fields_::eMSBSEL;
-    using eEXE_TUNE = typename MIX_CTRL_fields_::eEXE_TUNE;
-    using eSMP_CLK_SEL = typename MIX_CTRL_fields_::eSMP_CLK_SEL;
-    using eAUTO_TUNE_EN = typename MIX_CTRL_fields_::eAUTO_TUNE_EN;
-    using eFBCLK_SEL = typename MIX_CTRL_fields_::eFBCLK_SEL;
-    using DMAEN = typename MIX_CTRL_fields_::DMAEN;
-    using BCEN = typename MIX_CTRL_fields_::BCEN;
-    using AC12EN = typename MIX_CTRL_fields_::AC12EN;
-    using DDR_EN = typename MIX_CTRL_fields_::DDR_EN;
-    using DTDSEL = typename MIX_CTRL_fields_::DTDSEL;
-    using MSBSEL = typename MIX_CTRL_fields_::MSBSEL;
-    using NIBBLE_POS = typename MIX_CTRL_fields_::NIBBLE_POS;
-    using AC23EN = typename MIX_CTRL_fields_::AC23EN;
-    using EXE_TUNE = typename MIX_CTRL_fields_::EXE_TUNE;
-    using SMP_CLK_SEL = typename MIX_CTRL_fields_::SMP_CLK_SEL;
-    using AUTO_TUNE_EN = typename MIX_CTRL_fields_::AUTO_TUNE_EN;
-    using FBCLK_SEL = typename MIX_CTRL_fields_::FBCLK_SEL;
-    using HS400_MODE = typename MIX_CTRL_fields_::HS400_MODE;
+    using eDMAEN = typename MixCtrlFields::eDMAEN;
+    using eBCEN = typename MixCtrlFields::eBCEN;
+    using eAC12EN = typename MixCtrlFields::eAC12EN;
+    using eDTDSEL = typename MixCtrlFields::eDTDSEL;
+    using eMSBSEL = typename MixCtrlFields::eMSBSEL;
+    using eEXE_TUNE = typename MixCtrlFields::eEXE_TUNE;
+    using eSMP_CLK_SEL = typename MixCtrlFields::eSMP_CLK_SEL;
+    using eAUTO_TUNE_EN = typename MixCtrlFields::eAUTO_TUNE_EN;
+    using eFBCLK_SEL = typename MixCtrlFields::eFBCLK_SEL;
+    using DMAEN = typename MixCtrlFields::DMAEN;
+    using BCEN = typename MixCtrlFields::BCEN;
+    using AC12EN = typename MixCtrlFields::AC12EN;
+    using DDR_EN = typename MixCtrlFields::DDR_EN;
+    using DTDSEL = typename MixCtrlFields::DTDSEL;
+    using MSBSEL = typename MixCtrlFields::MSBSEL;
+    using NIBBLE_POS = typename MixCtrlFields::NIBBLE_POS;
+    using AC23EN = typename MixCtrlFields::AC23EN;
+    using EXE_TUNE = typename MixCtrlFields::EXE_TUNE;
+    using SMP_CLK_SEL = typename MixCtrlFields::SMP_CLK_SEL;
+    using AUTO_TUNE_EN = typename MixCtrlFields::AUTO_TUNE_EN;
+    using FBCLK_SEL = typename MixCtrlFields::FBCLK_SEL;
+    using HS400_MODE = typename MixCtrlFields::HS400_MODE;
   };
 
   // Force Event
-  struct FORCE_EVENT_fields_ {
+  struct ForceEventFields {
     // Force event auto command 12 not executed
     using FEVTAC12NE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Force event auto command 12 time out error
@@ -2063,57 +2063,57 @@ struct Usdhc {
     using FEVTDMAE = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Force event card interrupt
     using FEVTCINT = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FORCE_EVENT_fields_
+  };  // struct ForceEventFields
 
   struct FORCE_EVENT : ftl::mmio::Register<
       kBase + 0x50u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename FORCE_EVENT_fields_::FEVTAC12NE,
-      typename FORCE_EVENT_fields_::FEVTAC12TOE,
-      typename FORCE_EVENT_fields_::FEVTAC12CE,
-      typename FORCE_EVENT_fields_::FEVTAC12EBE,
-      typename FORCE_EVENT_fields_::FEVTAC12IE,
+      typename ForceEventFields::FEVTAC12NE,
+      typename ForceEventFields::FEVTAC12TOE,
+      typename ForceEventFields::FEVTAC12CE,
+      typename ForceEventFields::FEVTAC12EBE,
+      typename ForceEventFields::FEVTAC12IE,
       ftl::mmio::Reserved<2, 5>,
-      typename FORCE_EVENT_fields_::FEVTCNIBAC12E,
+      typename ForceEventFields::FEVTCNIBAC12E,
       ftl::mmio::Reserved<8, 8>,
-      typename FORCE_EVENT_fields_::FEVTCTOE,
-      typename FORCE_EVENT_fields_::FEVTCCE,
-      typename FORCE_EVENT_fields_::FEVTCEBE,
-      typename FORCE_EVENT_fields_::FEVTCIE,
-      typename FORCE_EVENT_fields_::FEVTDTOE,
-      typename FORCE_EVENT_fields_::FEVTDCE,
-      typename FORCE_EVENT_fields_::FEVTDEBE,
+      typename ForceEventFields::FEVTCTOE,
+      typename ForceEventFields::FEVTCCE,
+      typename ForceEventFields::FEVTCEBE,
+      typename ForceEventFields::FEVTCIE,
+      typename ForceEventFields::FEVTDTOE,
+      typename ForceEventFields::FEVTDCE,
+      typename ForceEventFields::FEVTDEBE,
       ftl::mmio::Reserved<1, 23>,
-      typename FORCE_EVENT_fields_::FEVTAC12E,
+      typename ForceEventFields::FEVTAC12E,
       ftl::mmio::Reserved<1, 25>,
-      typename FORCE_EVENT_fields_::FEVTTNE,
+      typename ForceEventFields::FEVTTNE,
       ftl::mmio::Reserved<1, 27>,
-      typename FORCE_EVENT_fields_::FEVTDMAE,
+      typename ForceEventFields::FEVTDMAE,
       ftl::mmio::Reserved<2, 29>,
-      typename FORCE_EVENT_fields_::FEVTCINT> {
-    using FEVTAC12NE = typename FORCE_EVENT_fields_::FEVTAC12NE;
-    using FEVTAC12TOE = typename FORCE_EVENT_fields_::FEVTAC12TOE;
-    using FEVTAC12CE = typename FORCE_EVENT_fields_::FEVTAC12CE;
-    using FEVTAC12EBE = typename FORCE_EVENT_fields_::FEVTAC12EBE;
-    using FEVTAC12IE = typename FORCE_EVENT_fields_::FEVTAC12IE;
-    using FEVTCNIBAC12E = typename FORCE_EVENT_fields_::FEVTCNIBAC12E;
-    using FEVTCTOE = typename FORCE_EVENT_fields_::FEVTCTOE;
-    using FEVTCCE = typename FORCE_EVENT_fields_::FEVTCCE;
-    using FEVTCEBE = typename FORCE_EVENT_fields_::FEVTCEBE;
-    using FEVTCIE = typename FORCE_EVENT_fields_::FEVTCIE;
-    using FEVTDTOE = typename FORCE_EVENT_fields_::FEVTDTOE;
-    using FEVTDCE = typename FORCE_EVENT_fields_::FEVTDCE;
-    using FEVTDEBE = typename FORCE_EVENT_fields_::FEVTDEBE;
-    using FEVTAC12E = typename FORCE_EVENT_fields_::FEVTAC12E;
-    using FEVTTNE = typename FORCE_EVENT_fields_::FEVTTNE;
-    using FEVTDMAE = typename FORCE_EVENT_fields_::FEVTDMAE;
-    using FEVTCINT = typename FORCE_EVENT_fields_::FEVTCINT;
+      typename ForceEventFields::FEVTCINT> {
+    using FEVTAC12NE = typename ForceEventFields::FEVTAC12NE;
+    using FEVTAC12TOE = typename ForceEventFields::FEVTAC12TOE;
+    using FEVTAC12CE = typename ForceEventFields::FEVTAC12CE;
+    using FEVTAC12EBE = typename ForceEventFields::FEVTAC12EBE;
+    using FEVTAC12IE = typename ForceEventFields::FEVTAC12IE;
+    using FEVTCNIBAC12E = typename ForceEventFields::FEVTCNIBAC12E;
+    using FEVTCTOE = typename ForceEventFields::FEVTCTOE;
+    using FEVTCCE = typename ForceEventFields::FEVTCCE;
+    using FEVTCEBE = typename ForceEventFields::FEVTCEBE;
+    using FEVTCIE = typename ForceEventFields::FEVTCIE;
+    using FEVTDTOE = typename ForceEventFields::FEVTDTOE;
+    using FEVTDCE = typename ForceEventFields::FEVTDCE;
+    using FEVTDEBE = typename ForceEventFields::FEVTDEBE;
+    using FEVTAC12E = typename ForceEventFields::FEVTAC12E;
+    using FEVTTNE = typename ForceEventFields::FEVTTNE;
+    using FEVTDMAE = typename ForceEventFields::FEVTDMAE;
+    using FEVTCINT = typename ForceEventFields::FEVTCINT;
   };
 
   // ADMA Error Status
-  struct ADMA_ERR_STATUS_fields_ {
+  struct AdmaErrStatusFields {
     enum class eADMALME : std::uint32_t {
       // No error
       eADMALME_0 = 0,
@@ -2134,29 +2134,29 @@ struct Usdhc {
     using ADMALME = ftl::mmio::Field<1, 2, eADMALME, ftl::mmio::RO, ftl::mmio::Normal>;
     // ADMA descriptor error
     using ADMADCE = ftl::mmio::Field<1, 3, eADMADCE, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ADMA_ERR_STATUS_fields_
+  };  // struct AdmaErrStatusFields
 
   struct ADMA_ERR_STATUS : ftl::mmio::Register<
       kBase + 0x54u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename ADMA_ERR_STATUS_fields_::ADMAES,
-      typename ADMA_ERR_STATUS_fields_::ADMALME,
-      typename ADMA_ERR_STATUS_fields_::ADMADCE,
+      typename AdmaErrStatusFields::ADMAES,
+      typename AdmaErrStatusFields::ADMALME,
+      typename AdmaErrStatusFields::ADMADCE,
       ftl::mmio::Reserved<28, 4>> {
-    using eADMALME = typename ADMA_ERR_STATUS_fields_::eADMALME;
-    using eADMADCE = typename ADMA_ERR_STATUS_fields_::eADMADCE;
-    using ADMAES = typename ADMA_ERR_STATUS_fields_::ADMAES;
-    using ADMALME = typename ADMA_ERR_STATUS_fields_::ADMALME;
-    using ADMADCE = typename ADMA_ERR_STATUS_fields_::ADMADCE;
+    using eADMALME = typename AdmaErrStatusFields::eADMALME;
+    using eADMADCE = typename AdmaErrStatusFields::eADMADCE;
+    using ADMAES = typename AdmaErrStatusFields::ADMAES;
+    using ADMALME = typename AdmaErrStatusFields::ADMALME;
+    using ADMADCE = typename AdmaErrStatusFields::ADMADCE;
   };
 
   // ADMA System Address
-  struct ADMA_SYS_ADDR_fields_ {
+  struct AdmaSysAddrFields {
     // ADMA system address
     using ADS_ADDR = ftl::mmio::Field<30, 2, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ADMA_SYS_ADDR_fields_
+  };  // struct AdmaSysAddrFields
 
   struct ADMA_SYS_ADDR : ftl::mmio::Register<
       kBase + 0x58u,
@@ -2164,12 +2164,12 @@ struct Usdhc {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<2, 0>,
-      typename ADMA_SYS_ADDR_fields_::ADS_ADDR> {
-    using ADS_ADDR = typename ADMA_SYS_ADDR_fields_::ADS_ADDR;
+      typename AdmaSysAddrFields::ADS_ADDR> {
+    using ADS_ADDR = typename AdmaSysAddrFields::ADS_ADDR;
   };
 
   // DLL (Delay Line) Control
-  struct DLL_CTRL_fields_ {
+  struct DllCtrlFields {
     // DLL and delay chain
     using DLL_CTRL_ENABLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // DLL reset
@@ -2190,38 +2190,38 @@ struct Usdhc {
     using DLL_CTRL_SLV_UPDATE_INT = ftl::mmio::Field<8, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // DLL control loop update interval
     using DLL_CTRL_REF_UPDATE_INT = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DLL_CTRL_fields_
+  };  // struct DllCtrlFields
 
   struct DLL_CTRL : ftl::mmio::Register<
       kBase + 0x60u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename DLL_CTRL_fields_::DLL_CTRL_ENABLE,
-      typename DLL_CTRL_fields_::DLL_CTRL_RESET,
-      typename DLL_CTRL_fields_::DLL_CTRL_SLV_FORCE_UPD,
-      typename DLL_CTRL_fields_::DLL_CTRL_SLV_DLY_TARGET0,
-      typename DLL_CTRL_fields_::DLL_CTRL_GATE_UPDATE,
-      typename DLL_CTRL_fields_::DLL_CTRL_SLV_OVERRIDE,
-      typename DLL_CTRL_fields_::DLL_CTRL_SLV_OVERRIDE_VAL,
-      typename DLL_CTRL_fields_::DLL_CTRL_SLV_DLY_TARGET1,
+      typename DllCtrlFields::DLL_CTRL_ENABLE,
+      typename DllCtrlFields::DLL_CTRL_RESET,
+      typename DllCtrlFields::DLL_CTRL_SLV_FORCE_UPD,
+      typename DllCtrlFields::DLL_CTRL_SLV_DLY_TARGET0,
+      typename DllCtrlFields::DLL_CTRL_GATE_UPDATE,
+      typename DllCtrlFields::DLL_CTRL_SLV_OVERRIDE,
+      typename DllCtrlFields::DLL_CTRL_SLV_OVERRIDE_VAL,
+      typename DllCtrlFields::DLL_CTRL_SLV_DLY_TARGET1,
       ftl::mmio::Reserved<1, 19>,
-      typename DLL_CTRL_fields_::DLL_CTRL_SLV_UPDATE_INT,
-      typename DLL_CTRL_fields_::DLL_CTRL_REF_UPDATE_INT> {
-    using DLL_CTRL_ENABLE = typename DLL_CTRL_fields_::DLL_CTRL_ENABLE;
-    using DLL_CTRL_RESET = typename DLL_CTRL_fields_::DLL_CTRL_RESET;
-    using DLL_CTRL_SLV_FORCE_UPD = typename DLL_CTRL_fields_::DLL_CTRL_SLV_FORCE_UPD;
-    using DLL_CTRL_SLV_DLY_TARGET0 = typename DLL_CTRL_fields_::DLL_CTRL_SLV_DLY_TARGET0;
-    using DLL_CTRL_GATE_UPDATE = typename DLL_CTRL_fields_::DLL_CTRL_GATE_UPDATE;
-    using DLL_CTRL_SLV_OVERRIDE = typename DLL_CTRL_fields_::DLL_CTRL_SLV_OVERRIDE;
-    using DLL_CTRL_SLV_OVERRIDE_VAL = typename DLL_CTRL_fields_::DLL_CTRL_SLV_OVERRIDE_VAL;
-    using DLL_CTRL_SLV_DLY_TARGET1 = typename DLL_CTRL_fields_::DLL_CTRL_SLV_DLY_TARGET1;
-    using DLL_CTRL_SLV_UPDATE_INT = typename DLL_CTRL_fields_::DLL_CTRL_SLV_UPDATE_INT;
-    using DLL_CTRL_REF_UPDATE_INT = typename DLL_CTRL_fields_::DLL_CTRL_REF_UPDATE_INT;
+      typename DllCtrlFields::DLL_CTRL_SLV_UPDATE_INT,
+      typename DllCtrlFields::DLL_CTRL_REF_UPDATE_INT> {
+    using DLL_CTRL_ENABLE = typename DllCtrlFields::DLL_CTRL_ENABLE;
+    using DLL_CTRL_RESET = typename DllCtrlFields::DLL_CTRL_RESET;
+    using DLL_CTRL_SLV_FORCE_UPD = typename DllCtrlFields::DLL_CTRL_SLV_FORCE_UPD;
+    using DLL_CTRL_SLV_DLY_TARGET0 = typename DllCtrlFields::DLL_CTRL_SLV_DLY_TARGET0;
+    using DLL_CTRL_GATE_UPDATE = typename DllCtrlFields::DLL_CTRL_GATE_UPDATE;
+    using DLL_CTRL_SLV_OVERRIDE = typename DllCtrlFields::DLL_CTRL_SLV_OVERRIDE;
+    using DLL_CTRL_SLV_OVERRIDE_VAL = typename DllCtrlFields::DLL_CTRL_SLV_OVERRIDE_VAL;
+    using DLL_CTRL_SLV_DLY_TARGET1 = typename DllCtrlFields::DLL_CTRL_SLV_DLY_TARGET1;
+    using DLL_CTRL_SLV_UPDATE_INT = typename DllCtrlFields::DLL_CTRL_SLV_UPDATE_INT;
+    using DLL_CTRL_REF_UPDATE_INT = typename DllCtrlFields::DLL_CTRL_REF_UPDATE_INT;
   };
 
   // DLL Status
-  struct DLL_STATUS_fields_ {
+  struct DllStatusFields {
     // Slave delay-line lock status
     using DLL_STS_SLV_LOCK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Reference DLL lock status
@@ -2230,26 +2230,26 @@ struct Usdhc {
     using DLL_STS_SLV_SEL = ftl::mmio::Field<7, 2, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Reference delay line select taps
     using DLL_STS_REF_SEL = ftl::mmio::Field<7, 9, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DLL_STATUS_fields_
+  };  // struct DllStatusFields
 
   struct DLL_STATUS : ftl::mmio::Register<
       kBase + 0x64u,
       std::uint32_t,
       0x00000200u,
       ftl::mmio::RO,
-      typename DLL_STATUS_fields_::DLL_STS_SLV_LOCK,
-      typename DLL_STATUS_fields_::DLL_STS_REF_LOCK,
-      typename DLL_STATUS_fields_::DLL_STS_SLV_SEL,
-      typename DLL_STATUS_fields_::DLL_STS_REF_SEL,
+      typename DllStatusFields::DLL_STS_SLV_LOCK,
+      typename DllStatusFields::DLL_STS_REF_LOCK,
+      typename DllStatusFields::DLL_STS_SLV_SEL,
+      typename DllStatusFields::DLL_STS_REF_SEL,
       ftl::mmio::Reserved<16, 16>> {
-    using DLL_STS_SLV_LOCK = typename DLL_STATUS_fields_::DLL_STS_SLV_LOCK;
-    using DLL_STS_REF_LOCK = typename DLL_STATUS_fields_::DLL_STS_REF_LOCK;
-    using DLL_STS_SLV_SEL = typename DLL_STATUS_fields_::DLL_STS_SLV_SEL;
-    using DLL_STS_REF_SEL = typename DLL_STATUS_fields_::DLL_STS_REF_SEL;
+    using DLL_STS_SLV_LOCK = typename DllStatusFields::DLL_STS_SLV_LOCK;
+    using DLL_STS_REF_LOCK = typename DllStatusFields::DLL_STS_REF_LOCK;
+    using DLL_STS_SLV_SEL = typename DllStatusFields::DLL_STS_SLV_SEL;
+    using DLL_STS_REF_SEL = typename DllStatusFields::DLL_STS_REF_SEL;
   };
 
   // CLK Tuning Control and Status
-  struct CLK_TUNE_CTRL_STATUS_fields_ {
+  struct ClkTuneCtrlStatusFields {
     // Delay cells on the feedback clock between CLK_OUT and CLK_POST
     using DLY_CELL_SET_POST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Delay cells on the feedback clock between CLK_PRE and CLK_OUT
@@ -2266,33 +2266,33 @@ struct Usdhc {
     using TAP_SEL_PRE = ftl::mmio::Field<7, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // PRE error
     using PRE_ERR = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CLK_TUNE_CTRL_STATUS_fields_
+  };  // struct ClkTuneCtrlStatusFields
 
   struct CLK_TUNE_CTRL_STATUS : ftl::mmio::Register<
       kBase + 0x68u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CLK_TUNE_CTRL_STATUS_fields_::DLY_CELL_SET_POST,
-      typename CLK_TUNE_CTRL_STATUS_fields_::DLY_CELL_SET_OUT,
-      typename CLK_TUNE_CTRL_STATUS_fields_::DLY_CELL_SET_PRE,
-      typename CLK_TUNE_CTRL_STATUS_fields_::NXT_ERR,
-      typename CLK_TUNE_CTRL_STATUS_fields_::TAP_SEL_POST,
-      typename CLK_TUNE_CTRL_STATUS_fields_::TAP_SEL_OUT,
-      typename CLK_TUNE_CTRL_STATUS_fields_::TAP_SEL_PRE,
-      typename CLK_TUNE_CTRL_STATUS_fields_::PRE_ERR> {
-    using DLY_CELL_SET_POST = typename CLK_TUNE_CTRL_STATUS_fields_::DLY_CELL_SET_POST;
-    using DLY_CELL_SET_OUT = typename CLK_TUNE_CTRL_STATUS_fields_::DLY_CELL_SET_OUT;
-    using DLY_CELL_SET_PRE = typename CLK_TUNE_CTRL_STATUS_fields_::DLY_CELL_SET_PRE;
-    using NXT_ERR = typename CLK_TUNE_CTRL_STATUS_fields_::NXT_ERR;
-    using TAP_SEL_POST = typename CLK_TUNE_CTRL_STATUS_fields_::TAP_SEL_POST;
-    using TAP_SEL_OUT = typename CLK_TUNE_CTRL_STATUS_fields_::TAP_SEL_OUT;
-    using TAP_SEL_PRE = typename CLK_TUNE_CTRL_STATUS_fields_::TAP_SEL_PRE;
-    using PRE_ERR = typename CLK_TUNE_CTRL_STATUS_fields_::PRE_ERR;
+      typename ClkTuneCtrlStatusFields::DLY_CELL_SET_POST,
+      typename ClkTuneCtrlStatusFields::DLY_CELL_SET_OUT,
+      typename ClkTuneCtrlStatusFields::DLY_CELL_SET_PRE,
+      typename ClkTuneCtrlStatusFields::NXT_ERR,
+      typename ClkTuneCtrlStatusFields::TAP_SEL_POST,
+      typename ClkTuneCtrlStatusFields::TAP_SEL_OUT,
+      typename ClkTuneCtrlStatusFields::TAP_SEL_PRE,
+      typename ClkTuneCtrlStatusFields::PRE_ERR> {
+    using DLY_CELL_SET_POST = typename ClkTuneCtrlStatusFields::DLY_CELL_SET_POST;
+    using DLY_CELL_SET_OUT = typename ClkTuneCtrlStatusFields::DLY_CELL_SET_OUT;
+    using DLY_CELL_SET_PRE = typename ClkTuneCtrlStatusFields::DLY_CELL_SET_PRE;
+    using NXT_ERR = typename ClkTuneCtrlStatusFields::NXT_ERR;
+    using TAP_SEL_POST = typename ClkTuneCtrlStatusFields::TAP_SEL_POST;
+    using TAP_SEL_OUT = typename ClkTuneCtrlStatusFields::TAP_SEL_OUT;
+    using TAP_SEL_PRE = typename ClkTuneCtrlStatusFields::TAP_SEL_PRE;
+    using PRE_ERR = typename ClkTuneCtrlStatusFields::PRE_ERR;
   };
 
   // Strobe DLL control
-  struct STROBE_DLL_CTRL_fields_ {
+  struct StrobeDllCtrlFields {
     // Strobe DLL control enable
     using STROBE_DLL_CTRL_ENABLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Strobe DLL control reset
@@ -2311,36 +2311,36 @@ struct Usdhc {
     using STROBE_DLL_CTRL_SLV_UPDATE_INT = ftl::mmio::Field<8, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Strobe DLL control reference update interval
     using STROBE_DLL_CTRL_REF_UPDATE_INT = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct STROBE_DLL_CTRL_fields_
+  };  // struct StrobeDllCtrlFields
 
   struct STROBE_DLL_CTRL : ftl::mmio::Register<
       kBase + 0x70u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_ENABLE,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_RESET,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_FORCE_UPD,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_DLY_TARGET,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_GATE_UPDATE,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_OVERRIDE,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_OVERRIDE_VAL,
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_ENABLE,
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_RESET,
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_FORCE_UPD,
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_DLY_TARGET,
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_GATE_UPDATE,
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_OVERRIDE,
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_OVERRIDE_VAL,
       ftl::mmio::Reserved<4, 16>,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_UPDATE_INT,
-      typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_REF_UPDATE_INT> {
-    using STROBE_DLL_CTRL_ENABLE = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_ENABLE;
-    using STROBE_DLL_CTRL_RESET = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_RESET;
-    using STROBE_DLL_CTRL_SLV_FORCE_UPD = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_FORCE_UPD;
-    using STROBE_DLL_CTRL_SLV_DLY_TARGET = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_DLY_TARGET;
-    using STROBE_DLL_CTRL_GATE_UPDATE = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_GATE_UPDATE;
-    using STROBE_DLL_CTRL_SLV_OVERRIDE = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_OVERRIDE;
-    using STROBE_DLL_CTRL_SLV_OVERRIDE_VAL = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_OVERRIDE_VAL;
-    using STROBE_DLL_CTRL_SLV_UPDATE_INT = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_SLV_UPDATE_INT;
-    using STROBE_DLL_CTRL_REF_UPDATE_INT = typename STROBE_DLL_CTRL_fields_::STROBE_DLL_CTRL_REF_UPDATE_INT;
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_UPDATE_INT,
+      typename StrobeDllCtrlFields::STROBE_DLL_CTRL_REF_UPDATE_INT> {
+    using STROBE_DLL_CTRL_ENABLE = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_ENABLE;
+    using STROBE_DLL_CTRL_RESET = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_RESET;
+    using STROBE_DLL_CTRL_SLV_FORCE_UPD = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_FORCE_UPD;
+    using STROBE_DLL_CTRL_SLV_DLY_TARGET = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_DLY_TARGET;
+    using STROBE_DLL_CTRL_GATE_UPDATE = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_GATE_UPDATE;
+    using STROBE_DLL_CTRL_SLV_OVERRIDE = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_OVERRIDE;
+    using STROBE_DLL_CTRL_SLV_OVERRIDE_VAL = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_OVERRIDE_VAL;
+    using STROBE_DLL_CTRL_SLV_UPDATE_INT = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_SLV_UPDATE_INT;
+    using STROBE_DLL_CTRL_REF_UPDATE_INT = typename StrobeDllCtrlFields::STROBE_DLL_CTRL_REF_UPDATE_INT;
   };
 
   // Strobe DLL status
-  struct STROBE_DLL_STATUS_fields_ {
+  struct StrobeDllStatusFields {
     // Strobe DLL status slave lock
     using STROBE_DLL_STS_SLV_LOCK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // Strobe DLL status reference lock
@@ -2349,26 +2349,26 @@ struct Usdhc {
     using STROBE_DLL_STS_SLV_SEL = ftl::mmio::Field<7, 2, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Strobe DLL status reference select
     using STROBE_DLL_STS_REF_SEL = ftl::mmio::Field<7, 9, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct STROBE_DLL_STATUS_fields_
+  };  // struct StrobeDllStatusFields
 
   struct STROBE_DLL_STATUS : ftl::mmio::Register<
       kBase + 0x74u,
       std::uint32_t,
       0x00000200u,
       ftl::mmio::RO,
-      typename STROBE_DLL_STATUS_fields_::STROBE_DLL_STS_SLV_LOCK,
-      typename STROBE_DLL_STATUS_fields_::STROBE_DLL_STS_REF_LOCK,
-      typename STROBE_DLL_STATUS_fields_::STROBE_DLL_STS_SLV_SEL,
-      typename STROBE_DLL_STATUS_fields_::STROBE_DLL_STS_REF_SEL,
+      typename StrobeDllStatusFields::STROBE_DLL_STS_SLV_LOCK,
+      typename StrobeDllStatusFields::STROBE_DLL_STS_REF_LOCK,
+      typename StrobeDllStatusFields::STROBE_DLL_STS_SLV_SEL,
+      typename StrobeDllStatusFields::STROBE_DLL_STS_REF_SEL,
       ftl::mmio::Reserved<16, 16>> {
-    using STROBE_DLL_STS_SLV_LOCK = typename STROBE_DLL_STATUS_fields_::STROBE_DLL_STS_SLV_LOCK;
-    using STROBE_DLL_STS_REF_LOCK = typename STROBE_DLL_STATUS_fields_::STROBE_DLL_STS_REF_LOCK;
-    using STROBE_DLL_STS_SLV_SEL = typename STROBE_DLL_STATUS_fields_::STROBE_DLL_STS_SLV_SEL;
-    using STROBE_DLL_STS_REF_SEL = typename STROBE_DLL_STATUS_fields_::STROBE_DLL_STS_REF_SEL;
+    using STROBE_DLL_STS_SLV_LOCK = typename StrobeDllStatusFields::STROBE_DLL_STS_SLV_LOCK;
+    using STROBE_DLL_STS_REF_LOCK = typename StrobeDllStatusFields::STROBE_DLL_STS_REF_LOCK;
+    using STROBE_DLL_STS_SLV_SEL = typename StrobeDllStatusFields::STROBE_DLL_STS_SLV_SEL;
+    using STROBE_DLL_STS_REF_SEL = typename StrobeDllStatusFields::STROBE_DLL_STS_REF_SEL;
   };
 
   // Vendor Specific Register
-  struct VEND_SPEC_fields_ {
+  struct VendSpecFields {
     enum class eVSELECT : std::uint32_t {
       // Change the voltage to high voltage range, around 3.0 V
       eVSELECT_0 = 0,
@@ -2423,7 +2423,7 @@ struct Usdhc {
     using CRC_CHK_DIS = ftl::mmio::Field<1, 15, eCRC_CHK_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
     // Byte access
     using CMD_BYTE_EN = ftl::mmio::Field<1, 31, eCMD_BYTE_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct VEND_SPEC_fields_
+  };  // struct VendSpecFields
 
   struct VEND_SPEC : ftl::mmio::Register<
       kBase + 0xC0u,
@@ -2431,31 +2431,31 @@ struct Usdhc {
       0x30007809u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<1, 0>,
-      typename VEND_SPEC_fields_::VSELECT,
-      typename VEND_SPEC_fields_::CONFLICT_CHK_EN,
-      typename VEND_SPEC_fields_::AC12_WR_CHKBUSY_EN,
+      typename VendSpecFields::VSELECT,
+      typename VendSpecFields::CONFLICT_CHK_EN,
+      typename VendSpecFields::AC12_WR_CHKBUSY_EN,
       ftl::mmio::Reserved<4, 4>,
-      typename VEND_SPEC_fields_::FRC_SDCLK_ON,
+      typename VendSpecFields::FRC_SDCLK_ON,
       ftl::mmio::Reserved<6, 9>,
-      typename VEND_SPEC_fields_::CRC_CHK_DIS,
+      typename VendSpecFields::CRC_CHK_DIS,
       ftl::mmio::Reserved<15, 16>,
-      typename VEND_SPEC_fields_::CMD_BYTE_EN> {
-    using eVSELECT = typename VEND_SPEC_fields_::eVSELECT;
-    using eCONFLICT_CHK_EN = typename VEND_SPEC_fields_::eCONFLICT_CHK_EN;
-    using eAC12_WR_CHKBUSY_EN = typename VEND_SPEC_fields_::eAC12_WR_CHKBUSY_EN;
-    using eFRC_SDCLK_ON = typename VEND_SPEC_fields_::eFRC_SDCLK_ON;
-    using eCRC_CHK_DIS = typename VEND_SPEC_fields_::eCRC_CHK_DIS;
-    using eCMD_BYTE_EN = typename VEND_SPEC_fields_::eCMD_BYTE_EN;
-    using VSELECT = typename VEND_SPEC_fields_::VSELECT;
-    using CONFLICT_CHK_EN = typename VEND_SPEC_fields_::CONFLICT_CHK_EN;
-    using AC12_WR_CHKBUSY_EN = typename VEND_SPEC_fields_::AC12_WR_CHKBUSY_EN;
-    using FRC_SDCLK_ON = typename VEND_SPEC_fields_::FRC_SDCLK_ON;
-    using CRC_CHK_DIS = typename VEND_SPEC_fields_::CRC_CHK_DIS;
-    using CMD_BYTE_EN = typename VEND_SPEC_fields_::CMD_BYTE_EN;
+      typename VendSpecFields::CMD_BYTE_EN> {
+    using eVSELECT = typename VendSpecFields::eVSELECT;
+    using eCONFLICT_CHK_EN = typename VendSpecFields::eCONFLICT_CHK_EN;
+    using eAC12_WR_CHKBUSY_EN = typename VendSpecFields::eAC12_WR_CHKBUSY_EN;
+    using eFRC_SDCLK_ON = typename VendSpecFields::eFRC_SDCLK_ON;
+    using eCRC_CHK_DIS = typename VendSpecFields::eCRC_CHK_DIS;
+    using eCMD_BYTE_EN = typename VendSpecFields::eCMD_BYTE_EN;
+    using VSELECT = typename VendSpecFields::VSELECT;
+    using CONFLICT_CHK_EN = typename VendSpecFields::CONFLICT_CHK_EN;
+    using AC12_WR_CHKBUSY_EN = typename VendSpecFields::AC12_WR_CHKBUSY_EN;
+    using FRC_SDCLK_ON = typename VendSpecFields::FRC_SDCLK_ON;
+    using CRC_CHK_DIS = typename VendSpecFields::CRC_CHK_DIS;
+    using CMD_BYTE_EN = typename VendSpecFields::CMD_BYTE_EN;
   };
 
   // MMC Boot
-  struct MMC_BOOT_fields_ {
+  struct MmcBootFields {
     enum class eDTOCV_ACK : std::uint32_t {
       // SDCLK x 2^14
       eDTOCV_ACK_0 = 0,
@@ -2521,37 +2521,37 @@ struct Usdhc {
     using DISABLE_TIME_OUT = ftl::mmio::Field<1, 8, eDISABLE_TIME_OUT, ftl::mmio::RW, ftl::mmio::Normal>;
     // Stop At Block Gap value of automatic mode
     using BOOT_BLK_CNT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct MMC_BOOT_fields_
+  };  // struct MmcBootFields
 
   struct MMC_BOOT : ftl::mmio::Register<
       kBase + 0xC4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename MMC_BOOT_fields_::DTOCV_ACK,
-      typename MMC_BOOT_fields_::BOOT_ACK,
-      typename MMC_BOOT_fields_::BOOT_MODE,
-      typename MMC_BOOT_fields_::BOOT_EN,
-      typename MMC_BOOT_fields_::AUTO_SABG_EN,
-      typename MMC_BOOT_fields_::DISABLE_TIME_OUT,
+      typename MmcBootFields::DTOCV_ACK,
+      typename MmcBootFields::BOOT_ACK,
+      typename MmcBootFields::BOOT_MODE,
+      typename MmcBootFields::BOOT_EN,
+      typename MmcBootFields::AUTO_SABG_EN,
+      typename MmcBootFields::DISABLE_TIME_OUT,
       ftl::mmio::Reserved<7, 9>,
-      typename MMC_BOOT_fields_::BOOT_BLK_CNT> {
-    using eDTOCV_ACK = typename MMC_BOOT_fields_::eDTOCV_ACK;
-    using eBOOT_ACK = typename MMC_BOOT_fields_::eBOOT_ACK;
-    using eBOOT_MODE = typename MMC_BOOT_fields_::eBOOT_MODE;
-    using eBOOT_EN = typename MMC_BOOT_fields_::eBOOT_EN;
-    using eDISABLE_TIME_OUT = typename MMC_BOOT_fields_::eDISABLE_TIME_OUT;
-    using DTOCV_ACK = typename MMC_BOOT_fields_::DTOCV_ACK;
-    using BOOT_ACK = typename MMC_BOOT_fields_::BOOT_ACK;
-    using BOOT_MODE = typename MMC_BOOT_fields_::BOOT_MODE;
-    using BOOT_EN = typename MMC_BOOT_fields_::BOOT_EN;
-    using AUTO_SABG_EN = typename MMC_BOOT_fields_::AUTO_SABG_EN;
-    using DISABLE_TIME_OUT = typename MMC_BOOT_fields_::DISABLE_TIME_OUT;
-    using BOOT_BLK_CNT = typename MMC_BOOT_fields_::BOOT_BLK_CNT;
+      typename MmcBootFields::BOOT_BLK_CNT> {
+    using eDTOCV_ACK = typename MmcBootFields::eDTOCV_ACK;
+    using eBOOT_ACK = typename MmcBootFields::eBOOT_ACK;
+    using eBOOT_MODE = typename MmcBootFields::eBOOT_MODE;
+    using eBOOT_EN = typename MmcBootFields::eBOOT_EN;
+    using eDISABLE_TIME_OUT = typename MmcBootFields::eDISABLE_TIME_OUT;
+    using DTOCV_ACK = typename MmcBootFields::DTOCV_ACK;
+    using BOOT_ACK = typename MmcBootFields::BOOT_ACK;
+    using BOOT_MODE = typename MmcBootFields::BOOT_MODE;
+    using BOOT_EN = typename MmcBootFields::BOOT_EN;
+    using AUTO_SABG_EN = typename MmcBootFields::AUTO_SABG_EN;
+    using DISABLE_TIME_OUT = typename MmcBootFields::DISABLE_TIME_OUT;
+    using BOOT_BLK_CNT = typename MmcBootFields::BOOT_BLK_CNT;
   };
 
   // Vendor Specific 2 Register
-  struct VEND_SPEC2_fields_ {
+  struct VendSpec2Fields {
     enum class eCARD_INT_D3_TEST : std::uint32_t {
       // Check the card interrupt only when DATA3 is high.
       eCARD_INT_D3_TEST_0 = 0,
@@ -2587,7 +2587,7 @@ struct Usdhc {
     using HS400_RD_CLK_STOP_EN = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Argument2 register enable for ACMD23
     using ACMD23_ARGU2_EN = ftl::mmio::Field<1, 12, eACMD23_ARGU2_EN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct VEND_SPEC2_fields_
+  };  // struct VendSpec2Fields
 
   struct VEND_SPEC2 : ftl::mmio::Register<
       kBase + 0xC8u,
@@ -2595,29 +2595,29 @@ struct Usdhc {
       0x00019006u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<3, 0>,
-      typename VEND_SPEC2_fields_::CARD_INT_D3_TEST,
-      typename VEND_SPEC2_fields_::TUNING_8bit_EN,
-      typename VEND_SPEC2_fields_::TUNING_1bit_EN,
-      typename VEND_SPEC2_fields_::TUNING_CMD_EN,
+      typename VendSpec2Fields::CARD_INT_D3_TEST,
+      typename VendSpec2Fields::TUNING_8bit_EN,
+      typename VendSpec2Fields::TUNING_1bit_EN,
+      typename VendSpec2Fields::TUNING_CMD_EN,
       ftl::mmio::Reserved<3, 7>,
-      typename VEND_SPEC2_fields_::HS400_WR_CLK_STOP_EN,
-      typename VEND_SPEC2_fields_::HS400_RD_CLK_STOP_EN,
-      typename VEND_SPEC2_fields_::ACMD23_ARGU2_EN,
+      typename VendSpec2Fields::HS400_WR_CLK_STOP_EN,
+      typename VendSpec2Fields::HS400_RD_CLK_STOP_EN,
+      typename VendSpec2Fields::ACMD23_ARGU2_EN,
       ftl::mmio::Reserved<19, 13>> {
-    using eCARD_INT_D3_TEST = typename VEND_SPEC2_fields_::eCARD_INT_D3_TEST;
-    using eTUNING_CMD_EN = typename VEND_SPEC2_fields_::eTUNING_CMD_EN;
-    using eACMD23_ARGU2_EN = typename VEND_SPEC2_fields_::eACMD23_ARGU2_EN;
-    using CARD_INT_D3_TEST = typename VEND_SPEC2_fields_::CARD_INT_D3_TEST;
-    using TUNING_8bit_EN = typename VEND_SPEC2_fields_::TUNING_8bit_EN;
-    using TUNING_1bit_EN = typename VEND_SPEC2_fields_::TUNING_1bit_EN;
-    using TUNING_CMD_EN = typename VEND_SPEC2_fields_::TUNING_CMD_EN;
-    using HS400_WR_CLK_STOP_EN = typename VEND_SPEC2_fields_::HS400_WR_CLK_STOP_EN;
-    using HS400_RD_CLK_STOP_EN = typename VEND_SPEC2_fields_::HS400_RD_CLK_STOP_EN;
-    using ACMD23_ARGU2_EN = typename VEND_SPEC2_fields_::ACMD23_ARGU2_EN;
+    using eCARD_INT_D3_TEST = typename VendSpec2Fields::eCARD_INT_D3_TEST;
+    using eTUNING_CMD_EN = typename VendSpec2Fields::eTUNING_CMD_EN;
+    using eACMD23_ARGU2_EN = typename VendSpec2Fields::eACMD23_ARGU2_EN;
+    using CARD_INT_D3_TEST = typename VendSpec2Fields::CARD_INT_D3_TEST;
+    using TUNING_8bit_EN = typename VendSpec2Fields::TUNING_8bit_EN;
+    using TUNING_1bit_EN = typename VendSpec2Fields::TUNING_1bit_EN;
+    using TUNING_CMD_EN = typename VendSpec2Fields::TUNING_CMD_EN;
+    using HS400_WR_CLK_STOP_EN = typename VendSpec2Fields::HS400_WR_CLK_STOP_EN;
+    using HS400_RD_CLK_STOP_EN = typename VendSpec2Fields::HS400_RD_CLK_STOP_EN;
+    using ACMD23_ARGU2_EN = typename VendSpec2Fields::ACMD23_ARGU2_EN;
   };
 
   // Tuning Control
-  struct TUNING_CTRL_fields_ {
+  struct TuningCtrlFields {
     // Tuning start
     using TUNING_START_TAP = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Disable command check for standard tuning
@@ -2630,28 +2630,28 @@ struct Usdhc {
     using TUNING_WINDOW = ftl::mmio::Field<3, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Standard tuning circuit and procedure enable
     using STD_TUNING_EN = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TUNING_CTRL_fields_
+  };  // struct TuningCtrlFields
 
   struct TUNING_CTRL : ftl::mmio::Register<
       kBase + 0xCCu,
       std::uint32_t,
       0x00212800u,
       ftl::mmio::RW,
-      typename TUNING_CTRL_fields_::TUNING_START_TAP,
-      typename TUNING_CTRL_fields_::DIS_CMD_CHK_FOR_STD_TUNING,
-      typename TUNING_CTRL_fields_::TUNING_COUNTER,
-      typename TUNING_CTRL_fields_::TUNING_STEP,
+      typename TuningCtrlFields::TUNING_START_TAP,
+      typename TuningCtrlFields::DIS_CMD_CHK_FOR_STD_TUNING,
+      typename TuningCtrlFields::TUNING_COUNTER,
+      typename TuningCtrlFields::TUNING_STEP,
       ftl::mmio::Reserved<1, 19>,
-      typename TUNING_CTRL_fields_::TUNING_WINDOW,
+      typename TuningCtrlFields::TUNING_WINDOW,
       ftl::mmio::Reserved<1, 23>,
-      typename TUNING_CTRL_fields_::STD_TUNING_EN,
+      typename TuningCtrlFields::STD_TUNING_EN,
       ftl::mmio::Reserved<7, 25>> {
-    using TUNING_START_TAP = typename TUNING_CTRL_fields_::TUNING_START_TAP;
-    using DIS_CMD_CHK_FOR_STD_TUNING = typename TUNING_CTRL_fields_::DIS_CMD_CHK_FOR_STD_TUNING;
-    using TUNING_COUNTER = typename TUNING_CTRL_fields_::TUNING_COUNTER;
-    using TUNING_STEP = typename TUNING_CTRL_fields_::TUNING_STEP;
-    using TUNING_WINDOW = typename TUNING_CTRL_fields_::TUNING_WINDOW;
-    using STD_TUNING_EN = typename TUNING_CTRL_fields_::STD_TUNING_EN;
+    using TUNING_START_TAP = typename TuningCtrlFields::TUNING_START_TAP;
+    using DIS_CMD_CHK_FOR_STD_TUNING = typename TuningCtrlFields::DIS_CMD_CHK_FOR_STD_TUNING;
+    using TUNING_COUNTER = typename TuningCtrlFields::TUNING_COUNTER;
+    using TUNING_STEP = typename TuningCtrlFields::TUNING_STEP;
+    using TUNING_WINDOW = typename TuningCtrlFields::TUNING_WINDOW;
+    using STD_TUNING_EN = typename TuningCtrlFields::STD_TUNING_EN;
   };
 
 };

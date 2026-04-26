@@ -10,7 +10,7 @@ namespace regs {
 
 struct Ocotp {
   // OTP Controller Control and Status Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eADDR : std::uint32_t {
       // Address of one of the 16 supplementary fuse words in OTP memory.
       esupp_word_0 = 0,
@@ -593,36 +593,36 @@ struct Ocotp {
     using WORDLOCK = ftl::mmio::Field<1, 15, eWORDLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
     // Write unlock
     using WR_UNLOCK = ftl::mmio::Field<16, 16, eWR_UNLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       0x40CAC000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL_fields_::ADDR,
-      CTRL_fields_::BUSY,
-      CTRL_fields_::ERROR,
-      CTRL_fields_::RELOAD_SHADOWS,
+      CtrlFields::ADDR,
+      CtrlFields::BUSY,
+      CtrlFields::ERROR,
+      CtrlFields::RELOAD_SHADOWS,
       ftl::mmio::Reserved<2, 13>,
-      CTRL_fields_::WORDLOCK,
-      CTRL_fields_::WR_UNLOCK> {
-    using eADDR = CTRL_fields_::eADDR;
-    using eBUSY = CTRL_fields_::eBUSY;
-    using eERROR = CTRL_fields_::eERROR;
-    using eRELOAD_SHADOWS = CTRL_fields_::eRELOAD_SHADOWS;
-    using eWORDLOCK = CTRL_fields_::eWORDLOCK;
-    using eWR_UNLOCK = CTRL_fields_::eWR_UNLOCK;
-    using ADDR = CTRL_fields_::ADDR;
-    using BUSY = CTRL_fields_::BUSY;
-    using ERROR = CTRL_fields_::ERROR;
-    using RELOAD_SHADOWS = CTRL_fields_::RELOAD_SHADOWS;
-    using WORDLOCK = CTRL_fields_::WORDLOCK;
-    using WR_UNLOCK = CTRL_fields_::WR_UNLOCK;
+      CtrlFields::WORDLOCK,
+      CtrlFields::WR_UNLOCK> {
+    using eADDR = CtrlFields::eADDR;
+    using eBUSY = CtrlFields::eBUSY;
+    using eERROR = CtrlFields::eERROR;
+    using eRELOAD_SHADOWS = CtrlFields::eRELOAD_SHADOWS;
+    using eWORDLOCK = CtrlFields::eWORDLOCK;
+    using eWR_UNLOCK = CtrlFields::eWR_UNLOCK;
+    using ADDR = CtrlFields::ADDR;
+    using BUSY = CtrlFields::BUSY;
+    using ERROR = CtrlFields::ERROR;
+    using RELOAD_SHADOWS = CtrlFields::RELOAD_SHADOWS;
+    using WORDLOCK = CtrlFields::WORDLOCK;
+    using WR_UNLOCK = CtrlFields::WR_UNLOCK;
   };
 
   // OTP Controller Control and Status Register
-  struct CTRL_SET_fields_ {
+  struct CtrlSetFields {
     // OTP write and read access address register
     using ADDR = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // OTP controller status bit
@@ -635,30 +635,30 @@ struct Ocotp {
     using WORDLOCK = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Write unlock
     using WR_UNLOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct CTRL_SET_fields_
+  };  // struct CtrlSetFields
 
   struct CTRL_SET : ftl::mmio::Register<
       0x40CAC004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL_SET_fields_::ADDR,
-      CTRL_SET_fields_::BUSY,
-      CTRL_SET_fields_::ERROR,
-      CTRL_SET_fields_::RELOAD_SHADOWS,
+      CtrlSetFields::ADDR,
+      CtrlSetFields::BUSY,
+      CtrlSetFields::ERROR,
+      CtrlSetFields::RELOAD_SHADOWS,
       ftl::mmio::Reserved<2, 13>,
-      CTRL_SET_fields_::WORDLOCK,
-      CTRL_SET_fields_::WR_UNLOCK> {
-    using ADDR = CTRL_SET_fields_::ADDR;
-    using BUSY = CTRL_SET_fields_::BUSY;
-    using ERROR = CTRL_SET_fields_::ERROR;
-    using RELOAD_SHADOWS = CTRL_SET_fields_::RELOAD_SHADOWS;
-    using WORDLOCK = CTRL_SET_fields_::WORDLOCK;
-    using WR_UNLOCK = CTRL_SET_fields_::WR_UNLOCK;
+      CtrlSetFields::WORDLOCK,
+      CtrlSetFields::WR_UNLOCK> {
+    using ADDR = CtrlSetFields::ADDR;
+    using BUSY = CtrlSetFields::BUSY;
+    using ERROR = CtrlSetFields::ERROR;
+    using RELOAD_SHADOWS = CtrlSetFields::RELOAD_SHADOWS;
+    using WORDLOCK = CtrlSetFields::WORDLOCK;
+    using WR_UNLOCK = CtrlSetFields::WR_UNLOCK;
   };
 
   // OTP Controller Control and Status Register
-  struct CTRL_CLR_fields_ {
+  struct CtrlClrFields {
     // OTP write and read access address register
     using ADDR = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // OTP controller status bit
@@ -671,30 +671,30 @@ struct Ocotp {
     using WORDLOCK = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Write unlock
     using WR_UNLOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct CTRL_CLR_fields_
+  };  // struct CtrlClrFields
 
   struct CTRL_CLR : ftl::mmio::Register<
       0x40CAC008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL_CLR_fields_::ADDR,
-      CTRL_CLR_fields_::BUSY,
-      CTRL_CLR_fields_::ERROR,
-      CTRL_CLR_fields_::RELOAD_SHADOWS,
+      CtrlClrFields::ADDR,
+      CtrlClrFields::BUSY,
+      CtrlClrFields::ERROR,
+      CtrlClrFields::RELOAD_SHADOWS,
       ftl::mmio::Reserved<2, 13>,
-      CTRL_CLR_fields_::WORDLOCK,
-      CTRL_CLR_fields_::WR_UNLOCK> {
-    using ADDR = CTRL_CLR_fields_::ADDR;
-    using BUSY = CTRL_CLR_fields_::BUSY;
-    using ERROR = CTRL_CLR_fields_::ERROR;
-    using RELOAD_SHADOWS = CTRL_CLR_fields_::RELOAD_SHADOWS;
-    using WORDLOCK = CTRL_CLR_fields_::WORDLOCK;
-    using WR_UNLOCK = CTRL_CLR_fields_::WR_UNLOCK;
+      CtrlClrFields::WORDLOCK,
+      CtrlClrFields::WR_UNLOCK> {
+    using ADDR = CtrlClrFields::ADDR;
+    using BUSY = CtrlClrFields::BUSY;
+    using ERROR = CtrlClrFields::ERROR;
+    using RELOAD_SHADOWS = CtrlClrFields::RELOAD_SHADOWS;
+    using WORDLOCK = CtrlClrFields::WORDLOCK;
+    using WR_UNLOCK = CtrlClrFields::WR_UNLOCK;
   };
 
   // OTP Controller Control and Status Register
-  struct CTRL_TOG_fields_ {
+  struct CtrlTogFields {
     // OTP write and read access address register
     using ADDR = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // OTP controller status bit
@@ -707,30 +707,30 @@ struct Ocotp {
     using WORDLOCK = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Write unlock
     using WR_UNLOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct CTRL_TOG_fields_
+  };  // struct CtrlTogFields
 
   struct CTRL_TOG : ftl::mmio::Register<
       0x40CAC00Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL_TOG_fields_::ADDR,
-      CTRL_TOG_fields_::BUSY,
-      CTRL_TOG_fields_::ERROR,
-      CTRL_TOG_fields_::RELOAD_SHADOWS,
+      CtrlTogFields::ADDR,
+      CtrlTogFields::BUSY,
+      CtrlTogFields::ERROR,
+      CtrlTogFields::RELOAD_SHADOWS,
       ftl::mmio::Reserved<2, 13>,
-      CTRL_TOG_fields_::WORDLOCK,
-      CTRL_TOG_fields_::WR_UNLOCK> {
-    using ADDR = CTRL_TOG_fields_::ADDR;
-    using BUSY = CTRL_TOG_fields_::BUSY;
-    using ERROR = CTRL_TOG_fields_::ERROR;
-    using RELOAD_SHADOWS = CTRL_TOG_fields_::RELOAD_SHADOWS;
-    using WORDLOCK = CTRL_TOG_fields_::WORDLOCK;
-    using WR_UNLOCK = CTRL_TOG_fields_::WR_UNLOCK;
+      CtrlTogFields::WORDLOCK,
+      CtrlTogFields::WR_UNLOCK> {
+    using ADDR = CtrlTogFields::ADDR;
+    using BUSY = CtrlTogFields::BUSY;
+    using ERROR = CtrlTogFields::ERROR;
+    using RELOAD_SHADOWS = CtrlTogFields::RELOAD_SHADOWS;
+    using WORDLOCK = CtrlTogFields::WORDLOCK;
+    using WR_UNLOCK = CtrlTogFields::WR_UNLOCK;
   };
 
   // OTP Controller PDN Register
-  struct PDN_fields_ {
+  struct PdnFields {
     enum class ePDN : std::uint32_t {
       // OTP memory is not powered
       epower_off = 0,
@@ -740,36 +740,36 @@ struct Ocotp {
 
     // PDN value
     using PDN = ftl::mmio::Field<1, 0, ePDN, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct PDN_fields_
+  };  // struct PdnFields
 
   struct PDN : ftl::mmio::Register<
       0x40CAC010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PDN_fields_::PDN,
+      PdnFields::PDN,
       ftl::mmio::Reserved<31, 1>> {
-    using ePDN = PDN_fields_::ePDN;
-    using VALUE = PDN_fields_::PDN;
+    using ePDN = PdnFields::ePDN;
+    using VALUE = PdnFields::PDN;
   };
 
   // OTP Controller Write Data Register
-  struct DATA_fields_ {
+  struct DataFields {
     // Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DATA_fields_
+  };  // struct DataFields
 
   struct DATA : ftl::mmio::Register<
       0x40CAC020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DATA_fields_::DATA> {
-    using VALUE = DATA_fields_::DATA;
+      DataFields::DATA> {
+    using VALUE = DataFields::DATA;
   };
 
   // OTP Controller Read Control Register
-  struct READ_CTRL_fields_ {
+  struct ReadCtrlFields {
     enum class eREAD_FUSE : std::uint32_t {
       // Do not initiate a read from OTP
       eDO_NOT_START_RD_OP = 0,
@@ -810,30 +810,30 @@ struct Ocotp {
     using READ_FUSE_DONE_INTR_ENA = ftl::mmio::Field<1, 3, eREAD_FUSE_DONE_INTR_ENA, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable read-error interrupt
     using READ_FUSE_ERROR_INTR_ENA = ftl::mmio::Field<1, 4, eREAD_FUSE_ERROR_INTR_ENA, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct READ_CTRL_fields_
+  };  // struct ReadCtrlFields
 
   struct READ_CTRL : ftl::mmio::Register<
       0x40CAC030u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      READ_CTRL_fields_::READ_FUSE,
-      READ_CTRL_fields_::READ_FUSE_CNTR,
-      READ_CTRL_fields_::READ_FUSE_DONE_INTR_ENA,
-      READ_CTRL_fields_::READ_FUSE_ERROR_INTR_ENA,
+      ReadCtrlFields::READ_FUSE,
+      ReadCtrlFields::READ_FUSE_CNTR,
+      ReadCtrlFields::READ_FUSE_DONE_INTR_ENA,
+      ReadCtrlFields::READ_FUSE_ERROR_INTR_ENA,
       ftl::mmio::Reserved<27, 5>> {
-    using eREAD_FUSE = READ_CTRL_fields_::eREAD_FUSE;
-    using eREAD_FUSE_CNTR = READ_CTRL_fields_::eREAD_FUSE_CNTR;
-    using eREAD_FUSE_DONE_INTR_ENA = READ_CTRL_fields_::eREAD_FUSE_DONE_INTR_ENA;
-    using eREAD_FUSE_ERROR_INTR_ENA = READ_CTRL_fields_::eREAD_FUSE_ERROR_INTR_ENA;
-    using READ_FUSE = READ_CTRL_fields_::READ_FUSE;
-    using READ_FUSE_CNTR = READ_CTRL_fields_::READ_FUSE_CNTR;
-    using READ_FUSE_DONE_INTR_ENA = READ_CTRL_fields_::READ_FUSE_DONE_INTR_ENA;
-    using READ_FUSE_ERROR_INTR_ENA = READ_CTRL_fields_::READ_FUSE_ERROR_INTR_ENA;
+    using eREAD_FUSE = ReadCtrlFields::eREAD_FUSE;
+    using eREAD_FUSE_CNTR = ReadCtrlFields::eREAD_FUSE_CNTR;
+    using eREAD_FUSE_DONE_INTR_ENA = ReadCtrlFields::eREAD_FUSE_DONE_INTR_ENA;
+    using eREAD_FUSE_ERROR_INTR_ENA = ReadCtrlFields::eREAD_FUSE_ERROR_INTR_ENA;
+    using READ_FUSE = ReadCtrlFields::READ_FUSE;
+    using READ_FUSE_CNTR = ReadCtrlFields::READ_FUSE_CNTR;
+    using READ_FUSE_DONE_INTR_ENA = ReadCtrlFields::READ_FUSE_DONE_INTR_ENA;
+    using READ_FUSE_ERROR_INTR_ENA = ReadCtrlFields::READ_FUSE_ERROR_INTR_ENA;
   };
 
   // 8K OTP Memory STATUS Register
-  struct OUT_STATUS_fields_ {
+  struct OutStatusFields {
     enum class eREAD_ERROR_INTR : std::uint32_t {
       // Read operation finished with out any error
       eno_error = 0,
@@ -873,7 +873,7 @@ struct Ocotp {
     using DED2 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Double error detect
     using DED3 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OUT_STATUS_fields_
+  };  // struct OutStatusFields
 
   struct OUT_STATUS : ftl::mmio::Register<
       0x40CAC090u,
@@ -881,44 +881,44 @@ struct Ocotp {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<9, 0>,
-      OUT_STATUS_fields_::SEC,
-      OUT_STATUS_fields_::DED,
-      OUT_STATUS_fields_::LOCKED,
-      OUT_STATUS_fields_::PROGFAIL,
-      OUT_STATUS_fields_::ACK,
-      OUT_STATUS_fields_::PWOK,
-      OUT_STATUS_fields_::FLAGSTATE,
-      OUT_STATUS_fields_::SEC_RELOAD,
-      OUT_STATUS_fields_::DED_RELOAD,
-      OUT_STATUS_fields_::CALIBRATED,
-      OUT_STATUS_fields_::READ_DONE_INTR,
-      OUT_STATUS_fields_::READ_ERROR_INTR,
-      OUT_STATUS_fields_::DED0,
-      OUT_STATUS_fields_::DED1,
-      OUT_STATUS_fields_::DED2,
-      OUT_STATUS_fields_::DED3,
+      OutStatusFields::SEC,
+      OutStatusFields::DED,
+      OutStatusFields::LOCKED,
+      OutStatusFields::PROGFAIL,
+      OutStatusFields::ACK,
+      OutStatusFields::PWOK,
+      OutStatusFields::FLAGSTATE,
+      OutStatusFields::SEC_RELOAD,
+      OutStatusFields::DED_RELOAD,
+      OutStatusFields::CALIBRATED,
+      OutStatusFields::READ_DONE_INTR,
+      OutStatusFields::READ_ERROR_INTR,
+      OutStatusFields::DED0,
+      OutStatusFields::DED1,
+      OutStatusFields::DED2,
+      OutStatusFields::DED3,
       ftl::mmio::Reserved<4, 28>> {
-    using eREAD_ERROR_INTR = OUT_STATUS_fields_::eREAD_ERROR_INTR;
-    using SEC = OUT_STATUS_fields_::SEC;
-    using DED = OUT_STATUS_fields_::DED;
-    using LOCKED = OUT_STATUS_fields_::LOCKED;
-    using PROGFAIL = OUT_STATUS_fields_::PROGFAIL;
-    using ACK = OUT_STATUS_fields_::ACK;
-    using PWOK = OUT_STATUS_fields_::PWOK;
-    using FLAGSTATE = OUT_STATUS_fields_::FLAGSTATE;
-    using SEC_RELOAD = OUT_STATUS_fields_::SEC_RELOAD;
-    using DED_RELOAD = OUT_STATUS_fields_::DED_RELOAD;
-    using CALIBRATED = OUT_STATUS_fields_::CALIBRATED;
-    using READ_DONE_INTR = OUT_STATUS_fields_::READ_DONE_INTR;
-    using READ_ERROR_INTR = OUT_STATUS_fields_::READ_ERROR_INTR;
-    using DED0 = OUT_STATUS_fields_::DED0;
-    using DED1 = OUT_STATUS_fields_::DED1;
-    using DED2 = OUT_STATUS_fields_::DED2;
-    using DED3 = OUT_STATUS_fields_::DED3;
+    using eREAD_ERROR_INTR = OutStatusFields::eREAD_ERROR_INTR;
+    using SEC = OutStatusFields::SEC;
+    using DED = OutStatusFields::DED;
+    using LOCKED = OutStatusFields::LOCKED;
+    using PROGFAIL = OutStatusFields::PROGFAIL;
+    using ACK = OutStatusFields::ACK;
+    using PWOK = OutStatusFields::PWOK;
+    using FLAGSTATE = OutStatusFields::FLAGSTATE;
+    using SEC_RELOAD = OutStatusFields::SEC_RELOAD;
+    using DED_RELOAD = OutStatusFields::DED_RELOAD;
+    using CALIBRATED = OutStatusFields::CALIBRATED;
+    using READ_DONE_INTR = OutStatusFields::READ_DONE_INTR;
+    using READ_ERROR_INTR = OutStatusFields::READ_ERROR_INTR;
+    using DED0 = OutStatusFields::DED0;
+    using DED1 = OutStatusFields::DED1;
+    using DED2 = OutStatusFields::DED2;
+    using DED3 = OutStatusFields::DED3;
   };
 
   // 8K OTP Memory STATUS Register
-  struct OUT_STATUS_SET_fields_ {
+  struct OutStatusSetFields {
     // Single Error Correct
     using SEC = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Double error detect
@@ -951,7 +951,7 @@ struct Ocotp {
     using DED2 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Double error detect
     using DED3 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct OUT_STATUS_SET_fields_
+  };  // struct OutStatusSetFields
 
   struct OUT_STATUS_SET : ftl::mmio::Register<
       0x40CAC094u,
@@ -959,43 +959,43 @@ struct Ocotp {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<9, 0>,
-      OUT_STATUS_SET_fields_::SEC,
-      OUT_STATUS_SET_fields_::DED,
-      OUT_STATUS_SET_fields_::LOCKED,
-      OUT_STATUS_SET_fields_::PROGFAIL,
-      OUT_STATUS_SET_fields_::ACK,
-      OUT_STATUS_SET_fields_::PWOK,
-      OUT_STATUS_SET_fields_::FLAGSTATE,
-      OUT_STATUS_SET_fields_::SEC_RELOAD,
-      OUT_STATUS_SET_fields_::DED_RELOAD,
-      OUT_STATUS_SET_fields_::CALIBRATED,
-      OUT_STATUS_SET_fields_::READ_DONE_INTR,
-      OUT_STATUS_SET_fields_::READ_ERROR_INTR,
-      OUT_STATUS_SET_fields_::DED0,
-      OUT_STATUS_SET_fields_::DED1,
-      OUT_STATUS_SET_fields_::DED2,
-      OUT_STATUS_SET_fields_::DED3,
+      OutStatusSetFields::SEC,
+      OutStatusSetFields::DED,
+      OutStatusSetFields::LOCKED,
+      OutStatusSetFields::PROGFAIL,
+      OutStatusSetFields::ACK,
+      OutStatusSetFields::PWOK,
+      OutStatusSetFields::FLAGSTATE,
+      OutStatusSetFields::SEC_RELOAD,
+      OutStatusSetFields::DED_RELOAD,
+      OutStatusSetFields::CALIBRATED,
+      OutStatusSetFields::READ_DONE_INTR,
+      OutStatusSetFields::READ_ERROR_INTR,
+      OutStatusSetFields::DED0,
+      OutStatusSetFields::DED1,
+      OutStatusSetFields::DED2,
+      OutStatusSetFields::DED3,
       ftl::mmio::Reserved<4, 28>> {
-    using SEC = OUT_STATUS_SET_fields_::SEC;
-    using DED = OUT_STATUS_SET_fields_::DED;
-    using LOCKED = OUT_STATUS_SET_fields_::LOCKED;
-    using PROGFAIL = OUT_STATUS_SET_fields_::PROGFAIL;
-    using ACK = OUT_STATUS_SET_fields_::ACK;
-    using PWOK = OUT_STATUS_SET_fields_::PWOK;
-    using FLAGSTATE = OUT_STATUS_SET_fields_::FLAGSTATE;
-    using SEC_RELOAD = OUT_STATUS_SET_fields_::SEC_RELOAD;
-    using DED_RELOAD = OUT_STATUS_SET_fields_::DED_RELOAD;
-    using CALIBRATED = OUT_STATUS_SET_fields_::CALIBRATED;
-    using READ_DONE_INTR = OUT_STATUS_SET_fields_::READ_DONE_INTR;
-    using READ_ERROR_INTR = OUT_STATUS_SET_fields_::READ_ERROR_INTR;
-    using DED0 = OUT_STATUS_SET_fields_::DED0;
-    using DED1 = OUT_STATUS_SET_fields_::DED1;
-    using DED2 = OUT_STATUS_SET_fields_::DED2;
-    using DED3 = OUT_STATUS_SET_fields_::DED3;
+    using SEC = OutStatusSetFields::SEC;
+    using DED = OutStatusSetFields::DED;
+    using LOCKED = OutStatusSetFields::LOCKED;
+    using PROGFAIL = OutStatusSetFields::PROGFAIL;
+    using ACK = OutStatusSetFields::ACK;
+    using PWOK = OutStatusSetFields::PWOK;
+    using FLAGSTATE = OutStatusSetFields::FLAGSTATE;
+    using SEC_RELOAD = OutStatusSetFields::SEC_RELOAD;
+    using DED_RELOAD = OutStatusSetFields::DED_RELOAD;
+    using CALIBRATED = OutStatusSetFields::CALIBRATED;
+    using READ_DONE_INTR = OutStatusSetFields::READ_DONE_INTR;
+    using READ_ERROR_INTR = OutStatusSetFields::READ_ERROR_INTR;
+    using DED0 = OutStatusSetFields::DED0;
+    using DED1 = OutStatusSetFields::DED1;
+    using DED2 = OutStatusSetFields::DED2;
+    using DED3 = OutStatusSetFields::DED3;
   };
 
   // 8K OTP Memory STATUS Register
-  struct OUT_STATUS_CLR_fields_ {
+  struct OutStatusClrFields {
     // Single Error Correct
     using SEC = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Double error detect
@@ -1028,7 +1028,7 @@ struct Ocotp {
     using DED2 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Double error detect
     using DED3 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct OUT_STATUS_CLR_fields_
+  };  // struct OutStatusClrFields
 
   struct OUT_STATUS_CLR : ftl::mmio::Register<
       0x40CAC098u,
@@ -1036,43 +1036,43 @@ struct Ocotp {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<9, 0>,
-      OUT_STATUS_CLR_fields_::SEC,
-      OUT_STATUS_CLR_fields_::DED,
-      OUT_STATUS_CLR_fields_::LOCKED,
-      OUT_STATUS_CLR_fields_::PROGFAIL,
-      OUT_STATUS_CLR_fields_::ACK,
-      OUT_STATUS_CLR_fields_::PWOK,
-      OUT_STATUS_CLR_fields_::FLAGSTATE,
-      OUT_STATUS_CLR_fields_::SEC_RELOAD,
-      OUT_STATUS_CLR_fields_::DED_RELOAD,
-      OUT_STATUS_CLR_fields_::CALIBRATED,
-      OUT_STATUS_CLR_fields_::READ_DONE_INTR,
-      OUT_STATUS_CLR_fields_::READ_ERROR_INTR,
-      OUT_STATUS_CLR_fields_::DED0,
-      OUT_STATUS_CLR_fields_::DED1,
-      OUT_STATUS_CLR_fields_::DED2,
-      OUT_STATUS_CLR_fields_::DED3,
+      OutStatusClrFields::SEC,
+      OutStatusClrFields::DED,
+      OutStatusClrFields::LOCKED,
+      OutStatusClrFields::PROGFAIL,
+      OutStatusClrFields::ACK,
+      OutStatusClrFields::PWOK,
+      OutStatusClrFields::FLAGSTATE,
+      OutStatusClrFields::SEC_RELOAD,
+      OutStatusClrFields::DED_RELOAD,
+      OutStatusClrFields::CALIBRATED,
+      OutStatusClrFields::READ_DONE_INTR,
+      OutStatusClrFields::READ_ERROR_INTR,
+      OutStatusClrFields::DED0,
+      OutStatusClrFields::DED1,
+      OutStatusClrFields::DED2,
+      OutStatusClrFields::DED3,
       ftl::mmio::Reserved<4, 28>> {
-    using SEC = OUT_STATUS_CLR_fields_::SEC;
-    using DED = OUT_STATUS_CLR_fields_::DED;
-    using LOCKED = OUT_STATUS_CLR_fields_::LOCKED;
-    using PROGFAIL = OUT_STATUS_CLR_fields_::PROGFAIL;
-    using ACK = OUT_STATUS_CLR_fields_::ACK;
-    using PWOK = OUT_STATUS_CLR_fields_::PWOK;
-    using FLAGSTATE = OUT_STATUS_CLR_fields_::FLAGSTATE;
-    using SEC_RELOAD = OUT_STATUS_CLR_fields_::SEC_RELOAD;
-    using DED_RELOAD = OUT_STATUS_CLR_fields_::DED_RELOAD;
-    using CALIBRATED = OUT_STATUS_CLR_fields_::CALIBRATED;
-    using READ_DONE_INTR = OUT_STATUS_CLR_fields_::READ_DONE_INTR;
-    using READ_ERROR_INTR = OUT_STATUS_CLR_fields_::READ_ERROR_INTR;
-    using DED0 = OUT_STATUS_CLR_fields_::DED0;
-    using DED1 = OUT_STATUS_CLR_fields_::DED1;
-    using DED2 = OUT_STATUS_CLR_fields_::DED2;
-    using DED3 = OUT_STATUS_CLR_fields_::DED3;
+    using SEC = OutStatusClrFields::SEC;
+    using DED = OutStatusClrFields::DED;
+    using LOCKED = OutStatusClrFields::LOCKED;
+    using PROGFAIL = OutStatusClrFields::PROGFAIL;
+    using ACK = OutStatusClrFields::ACK;
+    using PWOK = OutStatusClrFields::PWOK;
+    using FLAGSTATE = OutStatusClrFields::FLAGSTATE;
+    using SEC_RELOAD = OutStatusClrFields::SEC_RELOAD;
+    using DED_RELOAD = OutStatusClrFields::DED_RELOAD;
+    using CALIBRATED = OutStatusClrFields::CALIBRATED;
+    using READ_DONE_INTR = OutStatusClrFields::READ_DONE_INTR;
+    using READ_ERROR_INTR = OutStatusClrFields::READ_ERROR_INTR;
+    using DED0 = OutStatusClrFields::DED0;
+    using DED1 = OutStatusClrFields::DED1;
+    using DED2 = OutStatusClrFields::DED2;
+    using DED3 = OutStatusClrFields::DED3;
   };
 
   // 8K OTP Memory STATUS Register
-  struct OUT_STATUS_TOG_fields_ {
+  struct OutStatusTogFields {
     // Single Error Correct
     using SEC = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Double error detect
@@ -1105,7 +1105,7 @@ struct Ocotp {
     using DED2 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Double error detect
     using DED3 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct OUT_STATUS_TOG_fields_
+  };  // struct OutStatusTogFields
 
   struct OUT_STATUS_TOG : ftl::mmio::Register<
       0x40CAC09Cu,
@@ -1113,190 +1113,190 @@ struct Ocotp {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<9, 0>,
-      OUT_STATUS_TOG_fields_::SEC,
-      OUT_STATUS_TOG_fields_::DED,
-      OUT_STATUS_TOG_fields_::LOCKED,
-      OUT_STATUS_TOG_fields_::PROGFAIL,
-      OUT_STATUS_TOG_fields_::ACK,
-      OUT_STATUS_TOG_fields_::PWOK,
-      OUT_STATUS_TOG_fields_::FLAGSTATE,
-      OUT_STATUS_TOG_fields_::SEC_RELOAD,
-      OUT_STATUS_TOG_fields_::DED_RELOAD,
-      OUT_STATUS_TOG_fields_::CALIBRATED,
-      OUT_STATUS_TOG_fields_::READ_DONE_INTR,
-      OUT_STATUS_TOG_fields_::READ_ERROR_INTR,
-      OUT_STATUS_TOG_fields_::DED0,
-      OUT_STATUS_TOG_fields_::DED1,
-      OUT_STATUS_TOG_fields_::DED2,
-      OUT_STATUS_TOG_fields_::DED3,
+      OutStatusTogFields::SEC,
+      OutStatusTogFields::DED,
+      OutStatusTogFields::LOCKED,
+      OutStatusTogFields::PROGFAIL,
+      OutStatusTogFields::ACK,
+      OutStatusTogFields::PWOK,
+      OutStatusTogFields::FLAGSTATE,
+      OutStatusTogFields::SEC_RELOAD,
+      OutStatusTogFields::DED_RELOAD,
+      OutStatusTogFields::CALIBRATED,
+      OutStatusTogFields::READ_DONE_INTR,
+      OutStatusTogFields::READ_ERROR_INTR,
+      OutStatusTogFields::DED0,
+      OutStatusTogFields::DED1,
+      OutStatusTogFields::DED2,
+      OutStatusTogFields::DED3,
       ftl::mmio::Reserved<4, 28>> {
-    using SEC = OUT_STATUS_TOG_fields_::SEC;
-    using DED = OUT_STATUS_TOG_fields_::DED;
-    using LOCKED = OUT_STATUS_TOG_fields_::LOCKED;
-    using PROGFAIL = OUT_STATUS_TOG_fields_::PROGFAIL;
-    using ACK = OUT_STATUS_TOG_fields_::ACK;
-    using PWOK = OUT_STATUS_TOG_fields_::PWOK;
-    using FLAGSTATE = OUT_STATUS_TOG_fields_::FLAGSTATE;
-    using SEC_RELOAD = OUT_STATUS_TOG_fields_::SEC_RELOAD;
-    using DED_RELOAD = OUT_STATUS_TOG_fields_::DED_RELOAD;
-    using CALIBRATED = OUT_STATUS_TOG_fields_::CALIBRATED;
-    using READ_DONE_INTR = OUT_STATUS_TOG_fields_::READ_DONE_INTR;
-    using READ_ERROR_INTR = OUT_STATUS_TOG_fields_::READ_ERROR_INTR;
-    using DED0 = OUT_STATUS_TOG_fields_::DED0;
-    using DED1 = OUT_STATUS_TOG_fields_::DED1;
-    using DED2 = OUT_STATUS_TOG_fields_::DED2;
-    using DED3 = OUT_STATUS_TOG_fields_::DED3;
+    using SEC = OutStatusTogFields::SEC;
+    using DED = OutStatusTogFields::DED;
+    using LOCKED = OutStatusTogFields::LOCKED;
+    using PROGFAIL = OutStatusTogFields::PROGFAIL;
+    using ACK = OutStatusTogFields::ACK;
+    using PWOK = OutStatusTogFields::PWOK;
+    using FLAGSTATE = OutStatusTogFields::FLAGSTATE;
+    using SEC_RELOAD = OutStatusTogFields::SEC_RELOAD;
+    using DED_RELOAD = OutStatusTogFields::DED_RELOAD;
+    using CALIBRATED = OutStatusTogFields::CALIBRATED;
+    using READ_DONE_INTR = OutStatusTogFields::READ_DONE_INTR;
+    using READ_ERROR_INTR = OutStatusTogFields::READ_ERROR_INTR;
+    using DED0 = OutStatusTogFields::DED0;
+    using DED1 = OutStatusTogFields::DED1;
+    using DED2 = OutStatusTogFields::DED2;
+    using DED3 = OutStatusTogFields::DED3;
   };
 
   // OTP Controller Version Register
-  struct VERSION_fields_ {
+  struct VersionFields {
     // RTL Version Stepping
     using STEP = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Minor RTL Version
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Major RTL Version
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERSION_fields_
+  };  // struct VersionFields
 
   struct VERSION : ftl::mmio::Register<
       0x40CAC0B0u,
       std::uint32_t,
       0x0A000000u,
       ftl::mmio::RO,
-      VERSION_fields_::STEP,
-      VERSION_fields_::MINOR,
-      VERSION_fields_::MAJOR> {
-    using STEP = VERSION_fields_::STEP;
-    using MINOR = VERSION_fields_::MINOR;
-    using MAJOR = VERSION_fields_::MAJOR;
+      VersionFields::STEP,
+      VersionFields::MINOR,
+      VersionFields::MAJOR> {
+    using STEP = VersionFields::STEP;
+    using MINOR = VersionFields::MINOR;
+    using MAJOR = VersionFields::MAJOR;
   };
 
   // OTP Controller Read Data 0 Register
-  struct READ_FUSE_DATA0_fields_ {
+  struct ReadFuseData0Fields {
     // Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct READ_FUSE_DATA0_fields_
+  };  // struct ReadFuseData0Fields
 
   struct READ_FUSE_DATA0 : ftl::mmio::Register<
       0x40CAC100u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      READ_FUSE_DATA0_fields_::DATA> {
-    using DATA = READ_FUSE_DATA0_fields_::DATA;
+      ReadFuseData0Fields::DATA> {
+    using DATA = ReadFuseData0Fields::DATA;
   };
 
   // OTP Controller Read Data 1 Register
-  struct READ_FUSE_DATA1_fields_ {
+  struct ReadFuseData1Fields {
     // Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct READ_FUSE_DATA1_fields_
+  };  // struct ReadFuseData1Fields
 
   struct READ_FUSE_DATA1 : ftl::mmio::Register<
       0x40CAC110u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      READ_FUSE_DATA1_fields_::DATA> {
-    using DATA = READ_FUSE_DATA1_fields_::DATA;
+      ReadFuseData1Fields::DATA> {
+    using DATA = ReadFuseData1Fields::DATA;
   };
 
   // OTP Controller Read Data 2 Register
-  struct READ_FUSE_DATA2_fields_ {
+  struct ReadFuseData2Fields {
     // Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct READ_FUSE_DATA2_fields_
+  };  // struct ReadFuseData2Fields
 
   struct READ_FUSE_DATA2 : ftl::mmio::Register<
       0x40CAC120u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      READ_FUSE_DATA2_fields_::DATA> {
-    using DATA = READ_FUSE_DATA2_fields_::DATA;
+      ReadFuseData2Fields::DATA> {
+    using DATA = ReadFuseData2Fields::DATA;
   };
 
   // OTP Controller Read Data 3 Register
-  struct READ_FUSE_DATA3_fields_ {
+  struct ReadFuseData3Fields {
     // Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct READ_FUSE_DATA3_fields_
+  };  // struct ReadFuseData3Fields
 
   struct READ_FUSE_DATA3 : ftl::mmio::Register<
       0x40CAC130u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      READ_FUSE_DATA3_fields_::DATA> {
-    using DATA = READ_FUSE_DATA3_fields_::DATA;
+      ReadFuseData3Fields::DATA> {
+    using DATA = ReadFuseData3Fields::DATA;
   };
 
   // SW_LOCK Register
-  struct SW_LOCK_fields_ {
+  struct SwLockFields {
     // This register contains lock information, which has the same function as the RLOCK fuse words (supplementary fuse words 8 (0x880) and 9 (0x890)) in fuse memory
     using SW_LOCK = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SW_LOCK_fields_
+  };  // struct SwLockFields
 
   struct SW_LOCK : ftl::mmio::Register<
       0x40CAC140u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      SW_LOCK_fields_::SW_LOCK> {
-    using VALUE = SW_LOCK_fields_::SW_LOCK;
+      SwLockFields::SW_LOCK> {
+    using VALUE = SwLockFields::SW_LOCK;
   };
 
   // BIT_LOCK Register
-  struct BIT_LOCK_fields_ {
+  struct BitLockFields {
     // Each bit controls the corresponding bit in supplementary fuse word 13 and its shadow register
     using BIT_LOCK = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BIT_LOCK_fields_
+  };  // struct BitLockFields
 
   struct BIT_LOCK : ftl::mmio::Register<
       0x40CAC150u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      BIT_LOCK_fields_::BIT_LOCK> {
-    using VALUE = BIT_LOCK_fields_::BIT_LOCK;
+      BitLockFields::BIT_LOCK> {
+    using VALUE = BitLockFields::BIT_LOCK;
   };
 
   // OTP Controller Program Locked Status 0 Register
-  struct LOCKED0_fields_ {
+  struct Locked0Fields {
     // Stores program locked status for fuse words 0-15.
     using LOCKED = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LOCKED0_fields_
+  };  // struct Locked0Fields
 
   struct LOCKED0 : ftl::mmio::Register<
       0x40CAC600u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      LOCKED0_fields_::LOCKED,
+      Locked0Fields::LOCKED,
       ftl::mmio::Reserved<16, 16>> {
-    using LOCKED = LOCKED0_fields_::LOCKED;
+    using LOCKED = Locked0Fields::LOCKED;
   };
 
   // OTP Controller Program Locked Status 1 Register
-  struct LOCKED1_fields_ {
+  struct Locked1Fields {
     // Stores program locked status for fuse words 16-47
     using LOCKED = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct LOCKED1_fields_
+  };  // struct Locked1Fields
 
   struct LOCKED1 : ftl::mmio::Register<
       0x40CAC610u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      LOCKED1_fields_::LOCKED> {
-    using LOCKED = LOCKED1_fields_::LOCKED;
+      Locked1Fields::LOCKED> {
+    using LOCKED = Locked1Fields::LOCKED;
   };
 
   // Value of fuse word index
-  struct FUSE_fields_ {
+  struct FuseFields {
     // Reflects value of the fuse word
     using BITS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct FUSE_fields_
+  };  // struct FuseFields
 
   template<std::uint32_t ClusterIndex>
   struct FUSE : ftl::mmio::Register<
@@ -1304,9 +1304,9 @@ struct Ocotp {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      FUSE_fields_::BITS> {
+      FuseFields::BITS> {
     static_assert(ClusterIndex < 144u, "FUSE: ClusterIndex out of range");
-    using BITS = FUSE_fields_::BITS;
+    using BITS = FuseFields::BITS;
   };
 
 };

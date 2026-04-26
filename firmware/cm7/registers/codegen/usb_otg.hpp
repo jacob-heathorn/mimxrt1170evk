@@ -20,33 +20,33 @@ struct UsbOtg {
       0u;
 
   // Identification register
-  struct ID_fields_ {
+  struct IdFields {
     // ID
     using ID = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // NID
     using NID = ftl::mmio::Field<6, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // REVISION
     using REVISION = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ID_fields_
+  };  // struct IdFields
 
   struct ID : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0xE4A1FA05u,
       ftl::mmio::RO,
-      typename ID_fields_::ID,
+      typename IdFields::ID,
       ftl::mmio::Reserved<2, 6>,
-      typename ID_fields_::NID,
+      typename IdFields::NID,
       ftl::mmio::Reserved<2, 14>,
-      typename ID_fields_::REVISION,
+      typename IdFields::REVISION,
       ftl::mmio::Reserved<8, 24>> {
-    using VALUE = typename ID_fields_::ID;
-    using NID = typename ID_fields_::NID;
-    using REVISION = typename ID_fields_::REVISION;
+    using VALUE = typename IdFields::ID;
+    using NID = typename IdFields::NID;
+    using REVISION = typename IdFields::REVISION;
   };
 
   // Hardware General
-  struct HWGENERAL_fields_ {
+  struct HwgeneralFields {
     enum class ePHYW : std::uint32_t {
       // 8 bit wide data bus (Software non-programmable)
       eDATA_BUS_8 = 0,
@@ -94,7 +94,7 @@ struct UsbOtg {
     using PHYM = ftl::mmio::Field<3, 6, ePHYM, ftl::mmio::RO, ftl::mmio::Normal>;
     // SM
     using SM = ftl::mmio::Field<2, 9, eSM, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HWGENERAL_fields_
+  };  // struct HwgeneralFields
 
   struct HWGENERAL : ftl::mmio::Register<
       kBase + 0x4u,
@@ -102,20 +102,20 @@ struct UsbOtg {
       0x00000015u,
       ftl::mmio::RO,
       ftl::mmio::Reserved<4, 0>,
-      typename HWGENERAL_fields_::PHYW,
-      typename HWGENERAL_fields_::PHYM,
-      typename HWGENERAL_fields_::SM,
+      typename HwgeneralFields::PHYW,
+      typename HwgeneralFields::PHYM,
+      typename HwgeneralFields::SM,
       ftl::mmio::Reserved<21, 11>> {
-    using ePHYW = typename HWGENERAL_fields_::ePHYW;
-    using ePHYM = typename HWGENERAL_fields_::ePHYM;
-    using eSM = typename HWGENERAL_fields_::eSM;
-    using PHYW = typename HWGENERAL_fields_::PHYW;
-    using PHYM = typename HWGENERAL_fields_::PHYM;
-    using SM = typename HWGENERAL_fields_::SM;
+    using ePHYW = typename HwgeneralFields::ePHYW;
+    using ePHYM = typename HwgeneralFields::ePHYM;
+    using eSM = typename HwgeneralFields::eSM;
+    using PHYW = typename HwgeneralFields::PHYW;
+    using PHYM = typename HwgeneralFields::PHYM;
+    using SM = typename HwgeneralFields::SM;
   };
 
   // Host Hardware Parameters
-  struct HWHOST_fields_ {
+  struct HwhostFields {
     enum class eHC : std::uint32_t {
       // Not supported
       eHOST_OP_DIS = 0,
@@ -127,23 +127,23 @@ struct UsbOtg {
     using HC = ftl::mmio::Field<1, 0, eHC, ftl::mmio::RO, ftl::mmio::Normal>;
     // NPORT
     using NPORT = ftl::mmio::Field<3, 1, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HWHOST_fields_
+  };  // struct HwhostFields
 
   struct HWHOST : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x10020001u,
       ftl::mmio::RO,
-      typename HWHOST_fields_::HC,
-      typename HWHOST_fields_::NPORT,
+      typename HwhostFields::HC,
+      typename HwhostFields::NPORT,
       ftl::mmio::Reserved<28, 4>> {
-    using eHC = typename HWHOST_fields_::eHC;
-    using HC = typename HWHOST_fields_::HC;
-    using NPORT = typename HWHOST_fields_::NPORT;
+    using eHC = typename HwhostFields::eHC;
+    using HC = typename HwhostFields::HC;
+    using NPORT = typename HwhostFields::NPORT;
   };
 
   // Device Hardware Parameters
-  struct HWDEVICE_fields_ {
+  struct HwdeviceFields {
     enum class eDC : std::uint32_t {
       // Not supported
       eDEVICE_OP_DIS = 0,
@@ -155,80 +155,80 @@ struct UsbOtg {
     using DC = ftl::mmio::Field<1, 0, eDC, ftl::mmio::RO, ftl::mmio::Normal>;
     // DEVEP
     using DEVEP = ftl::mmio::Field<5, 1, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HWDEVICE_fields_
+  };  // struct HwdeviceFields
 
   struct HWDEVICE : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000011u,
       ftl::mmio::RO,
-      typename HWDEVICE_fields_::DC,
-      typename HWDEVICE_fields_::DEVEP,
+      typename HwdeviceFields::DC,
+      typename HwdeviceFields::DEVEP,
       ftl::mmio::Reserved<26, 6>> {
-    using eDC = typename HWDEVICE_fields_::eDC;
-    using DC = typename HWDEVICE_fields_::DC;
-    using DEVEP = typename HWDEVICE_fields_::DEVEP;
+    using eDC = typename HwdeviceFields::eDC;
+    using DC = typename HwdeviceFields::DC;
+    using DEVEP = typename HwdeviceFields::DEVEP;
   };
 
   // TX Buffer Hardware Parameters
-  struct HWTXBUF_fields_ {
+  struct HwtxbufFields {
     // TXBURST
     using TXBURST = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // TXCHANADD
     using TXCHANADD = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HWTXBUF_fields_
+  };  // struct HwtxbufFields
 
   struct HWTXBUF : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x80080B08u,
       ftl::mmio::RO,
-      typename HWTXBUF_fields_::TXBURST,
+      typename HwtxbufFields::TXBURST,
       ftl::mmio::Reserved<8, 8>,
-      typename HWTXBUF_fields_::TXCHANADD,
+      typename HwtxbufFields::TXCHANADD,
       ftl::mmio::Reserved<8, 24>> {
-    using TXBURST = typename HWTXBUF_fields_::TXBURST;
-    using TXCHANADD = typename HWTXBUF_fields_::TXCHANADD;
+    using TXBURST = typename HwtxbufFields::TXBURST;
+    using TXCHANADD = typename HwtxbufFields::TXCHANADD;
   };
 
   // RX Buffer Hardware Parameters
-  struct HWRXBUF_fields_ {
+  struct HwrxbufFields {
     // RXBURST
     using RXBURST = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // RXADD
     using RXADD = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HWRXBUF_fields_
+  };  // struct HwrxbufFields
 
   struct HWRXBUF : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x00000808u,
       ftl::mmio::RO,
-      typename HWRXBUF_fields_::RXBURST,
-      typename HWRXBUF_fields_::RXADD,
+      typename HwrxbufFields::RXBURST,
+      typename HwrxbufFields::RXADD,
       ftl::mmio::Reserved<16, 16>> {
-    using RXBURST = typename HWRXBUF_fields_::RXBURST;
-    using RXADD = typename HWRXBUF_fields_::RXADD;
+    using RXBURST = typename HwrxbufFields::RXBURST;
+    using RXADD = typename HwrxbufFields::RXADD;
   };
 
   // General Purpose Timer #0 Load
-  struct GPTIMER0LD_fields_ {
+  struct Gptimer0ldFields {
     // GPTLD
     using GPTLD = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPTIMER0LD_fields_
+  };  // struct Gptimer0ldFields
 
   struct GPTIMER0LD : ftl::mmio::Register<
       kBase + 0x80u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename GPTIMER0LD_fields_::GPTLD,
+      typename Gptimer0ldFields::GPTLD,
       ftl::mmio::Reserved<8, 24>> {
-    using GPTLD = typename GPTIMER0LD_fields_::GPTLD;
+    using GPTLD = typename Gptimer0ldFields::GPTLD;
   };
 
   // General Purpose Timer #0 Controller
-  struct GPTIMER0CTRL_fields_ {
+  struct Gptimer0ctrlFields {
     enum class eGPTMODE : std::uint32_t {
       // One Shot Mode
       eONE_SHOT = 0,
@@ -258,45 +258,45 @@ struct UsbOtg {
     using GPTRST = ftl::mmio::Field<1, 30, eGPTRST, ftl::mmio::RW, ftl::mmio::Normal>;
     // GPTRUN
     using GPTRUN = ftl::mmio::Field<1, 31, eGPTRUN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPTIMER0CTRL_fields_
+  };  // struct Gptimer0ctrlFields
 
   struct GPTIMER0CTRL : ftl::mmio::Register<
       kBase + 0x84u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename GPTIMER0CTRL_fields_::GPTCNT,
-      typename GPTIMER0CTRL_fields_::GPTMODE,
+      typename Gptimer0ctrlFields::GPTCNT,
+      typename Gptimer0ctrlFields::GPTMODE,
       ftl::mmio::Reserved<5, 25>,
-      typename GPTIMER0CTRL_fields_::GPTRST,
-      typename GPTIMER0CTRL_fields_::GPTRUN> {
-    using eGPTMODE = typename GPTIMER0CTRL_fields_::eGPTMODE;
-    using eGPTRST = typename GPTIMER0CTRL_fields_::eGPTRST;
-    using eGPTRUN = typename GPTIMER0CTRL_fields_::eGPTRUN;
-    using GPTCNT = typename GPTIMER0CTRL_fields_::GPTCNT;
-    using GPTMODE = typename GPTIMER0CTRL_fields_::GPTMODE;
-    using GPTRST = typename GPTIMER0CTRL_fields_::GPTRST;
-    using GPTRUN = typename GPTIMER0CTRL_fields_::GPTRUN;
+      typename Gptimer0ctrlFields::GPTRST,
+      typename Gptimer0ctrlFields::GPTRUN> {
+    using eGPTMODE = typename Gptimer0ctrlFields::eGPTMODE;
+    using eGPTRST = typename Gptimer0ctrlFields::eGPTRST;
+    using eGPTRUN = typename Gptimer0ctrlFields::eGPTRUN;
+    using GPTCNT = typename Gptimer0ctrlFields::GPTCNT;
+    using GPTMODE = typename Gptimer0ctrlFields::GPTMODE;
+    using GPTRST = typename Gptimer0ctrlFields::GPTRST;
+    using GPTRUN = typename Gptimer0ctrlFields::GPTRUN;
   };
 
   // General Purpose Timer #1 Load
-  struct GPTIMER1LD_fields_ {
+  struct Gptimer1ldFields {
     // GPTLD
     using GPTLD = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPTIMER1LD_fields_
+  };  // struct Gptimer1ldFields
 
   struct GPTIMER1LD : ftl::mmio::Register<
       kBase + 0x88u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename GPTIMER1LD_fields_::GPTLD,
+      typename Gptimer1ldFields::GPTLD,
       ftl::mmio::Reserved<8, 24>> {
-    using GPTLD = typename GPTIMER1LD_fields_::GPTLD;
+    using GPTLD = typename Gptimer1ldFields::GPTLD;
   };
 
   // General Purpose Timer #1 Controller
-  struct GPTIMER1CTRL_fields_ {
+  struct Gptimer1ctrlFields {
     enum class eGPTMODE : std::uint32_t {
       // One Shot Mode
       eONE_SHOT = 0,
@@ -326,29 +326,29 @@ struct UsbOtg {
     using GPTRST = ftl::mmio::Field<1, 30, eGPTRST, ftl::mmio::RW, ftl::mmio::Normal>;
     // GPTRUN
     using GPTRUN = ftl::mmio::Field<1, 31, eGPTRUN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GPTIMER1CTRL_fields_
+  };  // struct Gptimer1ctrlFields
 
   struct GPTIMER1CTRL : ftl::mmio::Register<
       kBase + 0x8Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename GPTIMER1CTRL_fields_::GPTCNT,
-      typename GPTIMER1CTRL_fields_::GPTMODE,
+      typename Gptimer1ctrlFields::GPTCNT,
+      typename Gptimer1ctrlFields::GPTMODE,
       ftl::mmio::Reserved<5, 25>,
-      typename GPTIMER1CTRL_fields_::GPTRST,
-      typename GPTIMER1CTRL_fields_::GPTRUN> {
-    using eGPTMODE = typename GPTIMER1CTRL_fields_::eGPTMODE;
-    using eGPTRST = typename GPTIMER1CTRL_fields_::eGPTRST;
-    using eGPTRUN = typename GPTIMER1CTRL_fields_::eGPTRUN;
-    using GPTCNT = typename GPTIMER1CTRL_fields_::GPTCNT;
-    using GPTMODE = typename GPTIMER1CTRL_fields_::GPTMODE;
-    using GPTRST = typename GPTIMER1CTRL_fields_::GPTRST;
-    using GPTRUN = typename GPTIMER1CTRL_fields_::GPTRUN;
+      typename Gptimer1ctrlFields::GPTRST,
+      typename Gptimer1ctrlFields::GPTRUN> {
+    using eGPTMODE = typename Gptimer1ctrlFields::eGPTMODE;
+    using eGPTRST = typename Gptimer1ctrlFields::eGPTRST;
+    using eGPTRUN = typename Gptimer1ctrlFields::eGPTRUN;
+    using GPTCNT = typename Gptimer1ctrlFields::GPTCNT;
+    using GPTMODE = typename Gptimer1ctrlFields::GPTMODE;
+    using GPTRST = typename Gptimer1ctrlFields::GPTRST;
+    using GPTRUN = typename Gptimer1ctrlFields::GPTRUN;
   };
 
   // System Bus Config
-  struct SBUSCFG_fields_ {
+  struct SbuscfgFields {
     enum class eAHBBRST : std::uint32_t {
       // Incremental burst of unspecified length only
       eINCR_BURST = 0,
@@ -368,51 +368,51 @@ struct UsbOtg {
 
     // AHBBRST
     using AHBBRST = ftl::mmio::Field<3, 0, eAHBBRST, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct SBUSCFG_fields_
+  };  // struct SbuscfgFields
 
   struct SBUSCFG : ftl::mmio::Register<
       kBase + 0x90u,
       std::uint32_t,
       0x00000002u,
       ftl::mmio::RW,
-      typename SBUSCFG_fields_::AHBBRST,
+      typename SbuscfgFields::AHBBRST,
       ftl::mmio::Reserved<29, 3>> {
-    using eAHBBRST = typename SBUSCFG_fields_::eAHBBRST;
-    using AHBBRST = typename SBUSCFG_fields_::AHBBRST;
+    using eAHBBRST = typename SbuscfgFields::eAHBBRST;
+    using AHBBRST = typename SbuscfgFields::AHBBRST;
   };
 
   // Capability Registers Length
-  struct CAPLENGTH_fields_ {
+  struct CaplengthFields {
     // CAPLENGTH
     using CAPLENGTH = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CAPLENGTH_fields_
+  };  // struct CaplengthFields
 
   struct CAPLENGTH : ftl::mmio::Register<
       kBase + 0x100u,
       std::uint8_t,
       0x40u,
       ftl::mmio::RO,
-      typename CAPLENGTH_fields_::CAPLENGTH> {
-    using VALUE = typename CAPLENGTH_fields_::CAPLENGTH;
+      typename CaplengthFields::CAPLENGTH> {
+    using VALUE = typename CaplengthFields::CAPLENGTH;
   };
 
   // Host Controller Interface Version
-  struct HCIVERSION_fields_ {
+  struct HciversionFields {
     // HCIVERSION
     using HCIVERSION = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HCIVERSION_fields_
+  };  // struct HciversionFields
 
   struct HCIVERSION : ftl::mmio::Register<
       kBase + 0x102u,
       std::uint16_t,
       0x0100u,
       ftl::mmio::RO,
-      typename HCIVERSION_fields_::HCIVERSION> {
-    using VALUE = typename HCIVERSION_fields_::HCIVERSION;
+      typename HciversionFields::HCIVERSION> {
+    using VALUE = typename HciversionFields::HCIVERSION;
   };
 
   // Host Controller Structural Parameters
-  struct HCSPARAMS_fields_ {
+  struct HcsparamsFields {
     enum class eN_CC : std::uint32_t {
       // There is no internal Companion Controller and port-ownership hand-off is not supported.
       eNO_COMP_CONTROLLER = 0,
@@ -434,35 +434,35 @@ struct UsbOtg {
     using N_PTT = ftl::mmio::Field<4, 20, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // N_TT
     using N_TT = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HCSPARAMS_fields_
+  };  // struct HcsparamsFields
 
   struct HCSPARAMS : ftl::mmio::Register<
       kBase + 0x104u,
       std::uint32_t,
       0x00010011u,
       ftl::mmio::RO,
-      typename HCSPARAMS_fields_::N_PORTS,
-      typename HCSPARAMS_fields_::PPC,
+      typename HcsparamsFields::N_PORTS,
+      typename HcsparamsFields::PPC,
       ftl::mmio::Reserved<3, 5>,
-      typename HCSPARAMS_fields_::N_PCC,
-      typename HCSPARAMS_fields_::N_CC,
-      typename HCSPARAMS_fields_::PI,
+      typename HcsparamsFields::N_PCC,
+      typename HcsparamsFields::N_CC,
+      typename HcsparamsFields::PI,
       ftl::mmio::Reserved<3, 17>,
-      typename HCSPARAMS_fields_::N_PTT,
-      typename HCSPARAMS_fields_::N_TT,
+      typename HcsparamsFields::N_PTT,
+      typename HcsparamsFields::N_TT,
       ftl::mmio::Reserved<4, 28>> {
-    using eN_CC = typename HCSPARAMS_fields_::eN_CC;
-    using N_PORTS = typename HCSPARAMS_fields_::N_PORTS;
-    using PPC = typename HCSPARAMS_fields_::PPC;
-    using N_PCC = typename HCSPARAMS_fields_::N_PCC;
-    using N_CC = typename HCSPARAMS_fields_::N_CC;
-    using PI = typename HCSPARAMS_fields_::PI;
-    using N_PTT = typename HCSPARAMS_fields_::N_PTT;
-    using N_TT = typename HCSPARAMS_fields_::N_TT;
+    using eN_CC = typename HcsparamsFields::eN_CC;
+    using N_PORTS = typename HcsparamsFields::N_PORTS;
+    using PPC = typename HcsparamsFields::PPC;
+    using N_PCC = typename HcsparamsFields::N_PCC;
+    using N_CC = typename HcsparamsFields::N_CC;
+    using PI = typename HcsparamsFields::PI;
+    using N_PTT = typename HcsparamsFields::N_PTT;
+    using N_TT = typename HcsparamsFields::N_TT;
   };
 
   // Host Controller Capability Parameters
-  struct HCCPARAMS_fields_ {
+  struct HccparamsFields {
     // ADC
     using ADC = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // PFL
@@ -473,69 +473,69 @@ struct UsbOtg {
     using IST = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // EECP
     using EECP = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct HCCPARAMS_fields_
+  };  // struct HccparamsFields
 
   struct HCCPARAMS : ftl::mmio::Register<
       kBase + 0x108u,
       std::uint32_t,
       0x00000006u,
       ftl::mmio::RO,
-      typename HCCPARAMS_fields_::ADC,
-      typename HCCPARAMS_fields_::PFL,
-      typename HCCPARAMS_fields_::ASP,
+      typename HccparamsFields::ADC,
+      typename HccparamsFields::PFL,
+      typename HccparamsFields::ASP,
       ftl::mmio::Reserved<1, 3>,
-      typename HCCPARAMS_fields_::IST,
-      typename HCCPARAMS_fields_::EECP,
+      typename HccparamsFields::IST,
+      typename HccparamsFields::EECP,
       ftl::mmio::Reserved<16, 16>> {
-    using ADC = typename HCCPARAMS_fields_::ADC;
-    using PFL = typename HCCPARAMS_fields_::PFL;
-    using ASP = typename HCCPARAMS_fields_::ASP;
-    using IST = typename HCCPARAMS_fields_::IST;
-    using EECP = typename HCCPARAMS_fields_::EECP;
+    using ADC = typename HccparamsFields::ADC;
+    using PFL = typename HccparamsFields::PFL;
+    using ASP = typename HccparamsFields::ASP;
+    using IST = typename HccparamsFields::IST;
+    using EECP = typename HccparamsFields::EECP;
   };
 
   // Device Controller Interface Version
-  struct DCIVERSION_fields_ {
+  struct DciversionFields {
     // DCIVERSION
     using DCIVERSION = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DCIVERSION_fields_
+  };  // struct DciversionFields
 
   struct DCIVERSION : ftl::mmio::Register<
       kBase + 0x120u,
       std::uint16_t,
       0x0001u,
       ftl::mmio::RO,
-      typename DCIVERSION_fields_::DCIVERSION> {
-    using VALUE = typename DCIVERSION_fields_::DCIVERSION;
+      typename DciversionFields::DCIVERSION> {
+    using VALUE = typename DciversionFields::DCIVERSION;
   };
 
   // Device Controller Capability Parameters
-  struct DCCPARAMS_fields_ {
+  struct DccparamsFields {
     // DEN
     using DEN = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // DC
     using DC = ftl::mmio::Field<1, 7, bool, ftl::mmio::RO, ftl::mmio::Normal>;
     // HC
     using HC = ftl::mmio::Field<1, 8, bool, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct DCCPARAMS_fields_
+  };  // struct DccparamsFields
 
   struct DCCPARAMS : ftl::mmio::Register<
       kBase + 0x124u,
       std::uint32_t,
       0x00000188u,
       ftl::mmio::RO,
-      typename DCCPARAMS_fields_::DEN,
+      typename DccparamsFields::DEN,
       ftl::mmio::Reserved<2, 5>,
-      typename DCCPARAMS_fields_::DC,
-      typename DCCPARAMS_fields_::HC,
+      typename DccparamsFields::DC,
+      typename DccparamsFields::HC,
       ftl::mmio::Reserved<23, 9>> {
-    using DEN = typename DCCPARAMS_fields_::DEN;
-    using DC = typename DCCPARAMS_fields_::DC;
-    using HC = typename DCCPARAMS_fields_::HC;
+    using DEN = typename DccparamsFields::DEN;
+    using DC = typename DccparamsFields::DC;
+    using HC = typename DccparamsFields::HC;
   };
 
   // USB Command Register
-  struct USBCMD_fields_ {
+  struct UsbcmdFields {
     enum class ePSE : std::uint32_t {
       // Do not process the Periodic Schedule
       eDONT_PROCESS_PT = 0,
@@ -593,48 +593,48 @@ struct UsbOtg {
     using FS_2 = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // ITC
     using ITC = ftl::mmio::Field<8, 16, eITC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct USBCMD_fields_
+  };  // struct UsbcmdFields
 
   struct USBCMD : ftl::mmio::Register<
       kBase + 0x140u,
       std::uint32_t,
       0x00080000u,
       ftl::mmio::RW,
-      typename USBCMD_fields_::RS,
-      typename USBCMD_fields_::RST,
-      typename USBCMD_fields_::FS_1,
-      typename USBCMD_fields_::PSE,
-      typename USBCMD_fields_::ASE,
-      typename USBCMD_fields_::IAA,
+      typename UsbcmdFields::RS,
+      typename UsbcmdFields::RST,
+      typename UsbcmdFields::FS_1,
+      typename UsbcmdFields::PSE,
+      typename UsbcmdFields::ASE,
+      typename UsbcmdFields::IAA,
       ftl::mmio::Reserved<1, 7>,
-      typename USBCMD_fields_::ASP,
+      typename UsbcmdFields::ASP,
       ftl::mmio::Reserved<1, 10>,
-      typename USBCMD_fields_::ASPE,
+      typename UsbcmdFields::ASPE,
       ftl::mmio::Reserved<1, 12>,
-      typename USBCMD_fields_::SUTW,
-      typename USBCMD_fields_::ATDTW,
-      typename USBCMD_fields_::FS_2,
-      typename USBCMD_fields_::ITC,
+      typename UsbcmdFields::SUTW,
+      typename UsbcmdFields::ATDTW,
+      typename UsbcmdFields::FS_2,
+      typename UsbcmdFields::ITC,
       ftl::mmio::Reserved<8, 24>> {
-    using ePSE = typename USBCMD_fields_::ePSE;
-    using eASE = typename USBCMD_fields_::eASE;
-    using eITC = typename USBCMD_fields_::eITC;
-    using RS = typename USBCMD_fields_::RS;
-    using RST = typename USBCMD_fields_::RST;
-    using FS_1 = typename USBCMD_fields_::FS_1;
-    using PSE = typename USBCMD_fields_::PSE;
-    using ASE = typename USBCMD_fields_::ASE;
-    using IAA = typename USBCMD_fields_::IAA;
-    using ASP = typename USBCMD_fields_::ASP;
-    using ASPE = typename USBCMD_fields_::ASPE;
-    using SUTW = typename USBCMD_fields_::SUTW;
-    using ATDTW = typename USBCMD_fields_::ATDTW;
-    using FS_2 = typename USBCMD_fields_::FS_2;
-    using ITC = typename USBCMD_fields_::ITC;
+    using ePSE = typename UsbcmdFields::ePSE;
+    using eASE = typename UsbcmdFields::eASE;
+    using eITC = typename UsbcmdFields::eITC;
+    using RS = typename UsbcmdFields::RS;
+    using RST = typename UsbcmdFields::RST;
+    using FS_1 = typename UsbcmdFields::FS_1;
+    using PSE = typename UsbcmdFields::PSE;
+    using ASE = typename UsbcmdFields::ASE;
+    using IAA = typename UsbcmdFields::IAA;
+    using ASP = typename UsbcmdFields::ASP;
+    using ASPE = typename UsbcmdFields::ASPE;
+    using SUTW = typename UsbcmdFields::SUTW;
+    using ATDTW = typename UsbcmdFields::ATDTW;
+    using FS_2 = typename UsbcmdFields::FS_2;
+    using ITC = typename UsbcmdFields::ITC;
   };
 
   // USB Status Register
-  struct USBSTS_fields_ {
+  struct UsbstsFields {
     // UI
     using UI = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // UEI
@@ -669,55 +669,55 @@ struct UsbOtg {
     using TI0 = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TI1
     using TI1 = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct USBSTS_fields_
+  };  // struct UsbstsFields
 
   struct USBSTS : ftl::mmio::Register<
       kBase + 0x144u,
       std::uint32_t,
       0x00000080u,
       ftl::mmio::RW,
-      typename USBSTS_fields_::UI,
-      typename USBSTS_fields_::UEI,
-      typename USBSTS_fields_::PCI,
-      typename USBSTS_fields_::FRI,
-      typename USBSTS_fields_::SEI,
-      typename USBSTS_fields_::AAI,
-      typename USBSTS_fields_::URI,
-      typename USBSTS_fields_::SRI,
-      typename USBSTS_fields_::SLI,
+      typename UsbstsFields::UI,
+      typename UsbstsFields::UEI,
+      typename UsbstsFields::PCI,
+      typename UsbstsFields::FRI,
+      typename UsbstsFields::SEI,
+      typename UsbstsFields::AAI,
+      typename UsbstsFields::URI,
+      typename UsbstsFields::SRI,
+      typename UsbstsFields::SLI,
       ftl::mmio::Reserved<1, 9>,
-      typename USBSTS_fields_::ULPII,
+      typename UsbstsFields::ULPII,
       ftl::mmio::Reserved<1, 11>,
-      typename USBSTS_fields_::HCH,
-      typename USBSTS_fields_::RCL,
-      typename USBSTS_fields_::PS,
-      typename USBSTS_fields_::AS,
-      typename USBSTS_fields_::NAKI,
+      typename UsbstsFields::HCH,
+      typename UsbstsFields::RCL,
+      typename UsbstsFields::PS,
+      typename UsbstsFields::AS,
+      typename UsbstsFields::NAKI,
       ftl::mmio::Reserved<7, 17>,
-      typename USBSTS_fields_::TI0,
-      typename USBSTS_fields_::TI1,
+      typename UsbstsFields::TI0,
+      typename UsbstsFields::TI1,
       ftl::mmio::Reserved<6, 26>> {
-    using UI = typename USBSTS_fields_::UI;
-    using UEI = typename USBSTS_fields_::UEI;
-    using PCI = typename USBSTS_fields_::PCI;
-    using FRI = typename USBSTS_fields_::FRI;
-    using SEI = typename USBSTS_fields_::SEI;
-    using AAI = typename USBSTS_fields_::AAI;
-    using URI = typename USBSTS_fields_::URI;
-    using SRI = typename USBSTS_fields_::SRI;
-    using SLI = typename USBSTS_fields_::SLI;
-    using ULPII = typename USBSTS_fields_::ULPII;
-    using HCH = typename USBSTS_fields_::HCH;
-    using RCL = typename USBSTS_fields_::RCL;
-    using PS = typename USBSTS_fields_::PS;
-    using AS = typename USBSTS_fields_::AS;
-    using NAKI = typename USBSTS_fields_::NAKI;
-    using TI0 = typename USBSTS_fields_::TI0;
-    using TI1 = typename USBSTS_fields_::TI1;
+    using UI = typename UsbstsFields::UI;
+    using UEI = typename UsbstsFields::UEI;
+    using PCI = typename UsbstsFields::PCI;
+    using FRI = typename UsbstsFields::FRI;
+    using SEI = typename UsbstsFields::SEI;
+    using AAI = typename UsbstsFields::AAI;
+    using URI = typename UsbstsFields::URI;
+    using SRI = typename UsbstsFields::SRI;
+    using SLI = typename UsbstsFields::SLI;
+    using ULPII = typename UsbstsFields::ULPII;
+    using HCH = typename UsbstsFields::HCH;
+    using RCL = typename UsbstsFields::RCL;
+    using PS = typename UsbstsFields::PS;
+    using AS = typename UsbstsFields::AS;
+    using NAKI = typename UsbstsFields::NAKI;
+    using TI0 = typename UsbstsFields::TI0;
+    using TI1 = typename UsbstsFields::TI1;
   };
 
   // Interrupt Enable Register
-  struct USBINTR_fields_ {
+  struct UsbintrFields {
     // UE
     using UE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // UEE
@@ -748,52 +748,52 @@ struct UsbOtg {
     using TIE0 = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TIE1
     using TIE1 = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct USBINTR_fields_
+  };  // struct UsbintrFields
 
   struct USBINTR : ftl::mmio::Register<
       kBase + 0x148u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename USBINTR_fields_::UE,
-      typename USBINTR_fields_::UEE,
-      typename USBINTR_fields_::PCE,
-      typename USBINTR_fields_::FRE,
-      typename USBINTR_fields_::SEE,
-      typename USBINTR_fields_::AAE,
-      typename USBINTR_fields_::URE,
-      typename USBINTR_fields_::SRE,
-      typename USBINTR_fields_::SLE,
+      typename UsbintrFields::UE,
+      typename UsbintrFields::UEE,
+      typename UsbintrFields::PCE,
+      typename UsbintrFields::FRE,
+      typename UsbintrFields::SEE,
+      typename UsbintrFields::AAE,
+      typename UsbintrFields::URE,
+      typename UsbintrFields::SRE,
+      typename UsbintrFields::SLE,
       ftl::mmio::Reserved<1, 9>,
-      typename USBINTR_fields_::ULPIE,
+      typename UsbintrFields::ULPIE,
       ftl::mmio::Reserved<5, 11>,
-      typename USBINTR_fields_::NAKE,
+      typename UsbintrFields::NAKE,
       ftl::mmio::Reserved<1, 17>,
-      typename USBINTR_fields_::UAIE,
-      typename USBINTR_fields_::UPIE,
+      typename UsbintrFields::UAIE,
+      typename UsbintrFields::UPIE,
       ftl::mmio::Reserved<4, 20>,
-      typename USBINTR_fields_::TIE0,
-      typename USBINTR_fields_::TIE1,
+      typename UsbintrFields::TIE0,
+      typename UsbintrFields::TIE1,
       ftl::mmio::Reserved<6, 26>> {
-    using UE = typename USBINTR_fields_::UE;
-    using UEE = typename USBINTR_fields_::UEE;
-    using PCE = typename USBINTR_fields_::PCE;
-    using FRE = typename USBINTR_fields_::FRE;
-    using SEE = typename USBINTR_fields_::SEE;
-    using AAE = typename USBINTR_fields_::AAE;
-    using URE = typename USBINTR_fields_::URE;
-    using SRE = typename USBINTR_fields_::SRE;
-    using SLE = typename USBINTR_fields_::SLE;
-    using ULPIE = typename USBINTR_fields_::ULPIE;
-    using NAKE = typename USBINTR_fields_::NAKE;
-    using UAIE = typename USBINTR_fields_::UAIE;
-    using UPIE = typename USBINTR_fields_::UPIE;
-    using TIE0 = typename USBINTR_fields_::TIE0;
-    using TIE1 = typename USBINTR_fields_::TIE1;
+    using UE = typename UsbintrFields::UE;
+    using UEE = typename UsbintrFields::UEE;
+    using PCE = typename UsbintrFields::PCE;
+    using FRE = typename UsbintrFields::FRE;
+    using SEE = typename UsbintrFields::SEE;
+    using AAE = typename UsbintrFields::AAE;
+    using URE = typename UsbintrFields::URE;
+    using SRE = typename UsbintrFields::SRE;
+    using SLE = typename UsbintrFields::SLE;
+    using ULPIE = typename UsbintrFields::ULPIE;
+    using NAKE = typename UsbintrFields::NAKE;
+    using UAIE = typename UsbintrFields::UAIE;
+    using UPIE = typename UsbintrFields::UPIE;
+    using TIE0 = typename UsbintrFields::TIE0;
+    using TIE1 = typename UsbintrFields::TIE1;
   };
 
   // USB Frame Index
-  struct FRINDEX_fields_ {
+  struct FrindexFields {
     enum class eFRINDEX : std::uint32_t {
       // (1024) 12
       eFRINDEX_1024 = 0,
@@ -815,26 +815,26 @@ struct UsbOtg {
 
     // FRINDEX
     using FRINDEX = ftl::mmio::Field<14, 0, eFRINDEX, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct FRINDEX_fields_
+  };  // struct FrindexFields
 
   struct FRINDEX : ftl::mmio::Register<
       kBase + 0x14Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename FRINDEX_fields_::FRINDEX,
+      typename FrindexFields::FRINDEX,
       ftl::mmio::Reserved<18, 14>> {
-    using eFRINDEX = typename FRINDEX_fields_::eFRINDEX;
-    using VALUE = typename FRINDEX_fields_::FRINDEX;
+    using eFRINDEX = typename FrindexFields::eFRINDEX;
+    using VALUE = typename FrindexFields::FRINDEX;
   };
 
   // Device Address
-  struct DEVICEADDR_fields_ {
+  struct DeviceaddrFields {
     // USBADRA
     using USBADRA = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // USBADR
     using USBADR = ftl::mmio::Field<7, 25, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DEVICEADDR_fields_
+  };  // struct DeviceaddrFields
 
   struct DEVICEADDR : ftl::mmio::Register<
       kBase + 0x154u,
@@ -842,17 +842,17 @@ struct UsbOtg {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<24, 0>,
-      typename DEVICEADDR_fields_::USBADRA,
-      typename DEVICEADDR_fields_::USBADR> {
-    using USBADRA = typename DEVICEADDR_fields_::USBADRA;
-    using USBADR = typename DEVICEADDR_fields_::USBADR;
+      typename DeviceaddrFields::USBADRA,
+      typename DeviceaddrFields::USBADR> {
+    using USBADRA = typename DeviceaddrFields::USBADRA;
+    using USBADR = typename DeviceaddrFields::USBADR;
   };
 
   // Frame List Base Address
-  struct PERIODICLISTBASE_fields_ {
+  struct PeriodiclistbaseFields {
     // BASEADR
     using BASEADR = ftl::mmio::Field<20, 12, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PERIODICLISTBASE_fields_
+  };  // struct PeriodiclistbaseFields
 
   struct PERIODICLISTBASE : ftl::mmio::Register<
       kBase + 0x154u,
@@ -860,15 +860,15 @@ struct UsbOtg {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<12, 0>,
-      typename PERIODICLISTBASE_fields_::BASEADR> {
-    using BASEADR = typename PERIODICLISTBASE_fields_::BASEADR;
+      typename PeriodiclistbaseFields::BASEADR> {
+    using BASEADR = typename PeriodiclistbaseFields::BASEADR;
   };
 
   // Next Asynch. Address
-  struct ASYNCLISTADDR_fields_ {
+  struct AsynclistaddrFields {
     // ASYBASE
     using ASYBASE = ftl::mmio::Field<27, 5, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ASYNCLISTADDR_fields_
+  };  // struct AsynclistaddrFields
 
   struct ASYNCLISTADDR : ftl::mmio::Register<
       kBase + 0x158u,
@@ -876,15 +876,15 @@ struct UsbOtg {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<5, 0>,
-      typename ASYNCLISTADDR_fields_::ASYBASE> {
-    using ASYBASE = typename ASYNCLISTADDR_fields_::ASYBASE;
+      typename AsynclistaddrFields::ASYBASE> {
+    using ASYBASE = typename AsynclistaddrFields::ASYBASE;
   };
 
   // Endpoint List Address
-  struct ENDPTLISTADDR_fields_ {
+  struct EndptlistaddrFields {
     // EPBASE
     using EPBASE = ftl::mmio::Field<21, 11, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTLISTADDR_fields_
+  };  // struct EndptlistaddrFields
 
   struct ENDPTLISTADDR : ftl::mmio::Register<
       kBase + 0x158u,
@@ -892,99 +892,99 @@ struct UsbOtg {
       0x00000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<11, 0>,
-      typename ENDPTLISTADDR_fields_::EPBASE> {
-    using EPBASE = typename ENDPTLISTADDR_fields_::EPBASE;
+      typename EndptlistaddrFields::EPBASE> {
+    using EPBASE = typename EndptlistaddrFields::EPBASE;
   };
 
   // Programmable Burst Size
-  struct BURSTSIZE_fields_ {
+  struct BurstsizeFields {
     // RXPBURST
     using RXPBURST = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXPBURST
     using TXPBURST = ftl::mmio::Field<9, 8, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct BURSTSIZE_fields_
+  };  // struct BurstsizeFields
 
   struct BURSTSIZE : ftl::mmio::Register<
       kBase + 0x160u,
       std::uint32_t,
       0x00000808u,
       ftl::mmio::RW,
-      typename BURSTSIZE_fields_::RXPBURST,
-      typename BURSTSIZE_fields_::TXPBURST,
+      typename BurstsizeFields::RXPBURST,
+      typename BurstsizeFields::TXPBURST,
       ftl::mmio::Reserved<15, 17>> {
-    using RXPBURST = typename BURSTSIZE_fields_::RXPBURST;
-    using TXPBURST = typename BURSTSIZE_fields_::TXPBURST;
+    using RXPBURST = typename BurstsizeFields::RXPBURST;
+    using TXPBURST = typename BurstsizeFields::TXPBURST;
   };
 
   // TX FIFO Fill Tuning
-  struct TXFILLTUNING_fields_ {
+  struct TxfilltuningFields {
     // TXSCHOH
     using TXSCHOH = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXSCHHEALTH
     using TXSCHHEALTH = ftl::mmio::Field<5, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXFIFOTHRES
     using TXFIFOTHRES = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct TXFILLTUNING_fields_
+  };  // struct TxfilltuningFields
 
   struct TXFILLTUNING : ftl::mmio::Register<
       kBase + 0x164u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename TXFILLTUNING_fields_::TXSCHOH,
-      typename TXFILLTUNING_fields_::TXSCHHEALTH,
+      typename TxfilltuningFields::TXSCHOH,
+      typename TxfilltuningFields::TXSCHHEALTH,
       ftl::mmio::Reserved<3, 13>,
-      typename TXFILLTUNING_fields_::TXFIFOTHRES,
+      typename TxfilltuningFields::TXFIFOTHRES,
       ftl::mmio::Reserved<10, 22>> {
-    using TXSCHOH = typename TXFILLTUNING_fields_::TXSCHOH;
-    using TXSCHHEALTH = typename TXFILLTUNING_fields_::TXSCHHEALTH;
-    using TXFIFOTHRES = typename TXFILLTUNING_fields_::TXFIFOTHRES;
+    using TXSCHOH = typename TxfilltuningFields::TXSCHOH;
+    using TXSCHHEALTH = typename TxfilltuningFields::TXSCHHEALTH;
+    using TXFIFOTHRES = typename TxfilltuningFields::TXFIFOTHRES;
   };
 
   // Endpoint NAK
-  struct ENDPTNAK_fields_ {
+  struct EndptnakFields {
     // EPRN
     using EPRN = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // EPTN
     using EPTN = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTNAK_fields_
+  };  // struct EndptnakFields
 
   struct ENDPTNAK : ftl::mmio::Register<
       kBase + 0x178u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTNAK_fields_::EPRN,
+      typename EndptnakFields::EPRN,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTNAK_fields_::EPTN,
+      typename EndptnakFields::EPTN,
       ftl::mmio::Reserved<8, 24>> {
-    using EPRN = typename ENDPTNAK_fields_::EPRN;
-    using EPTN = typename ENDPTNAK_fields_::EPTN;
+    using EPRN = typename EndptnakFields::EPRN;
+    using EPTN = typename EndptnakFields::EPTN;
   };
 
   // Endpoint NAK Enable
-  struct ENDPTNAKEN_fields_ {
+  struct EndptnakenFields {
     // EPRNE
     using EPRNE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // EPTNE
     using EPTNE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTNAKEN_fields_
+  };  // struct EndptnakenFields
 
   struct ENDPTNAKEN : ftl::mmio::Register<
       kBase + 0x17Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTNAKEN_fields_::EPRNE,
+      typename EndptnakenFields::EPRNE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTNAKEN_fields_::EPTNE,
+      typename EndptnakenFields::EPTNE,
       ftl::mmio::Reserved<8, 24>> {
-    using EPRNE = typename ENDPTNAKEN_fields_::EPRNE;
-    using EPTNE = typename ENDPTNAKEN_fields_::EPTNE;
+    using EPRNE = typename EndptnakenFields::EPRNE;
+    using EPTNE = typename EndptnakenFields::EPTNE;
   };
 
   // Configure Flag Register
-  struct CONFIGFLAG_fields_ {
+  struct ConfigflagFields {
     enum class eCF : std::uint32_t {
       // Port routing control logic default-routes each port to an implementation dependent classic host controller.
       ePORT_ROUTING_CLASSIC_HOST = 0,
@@ -994,21 +994,21 @@ struct UsbOtg {
 
     // CF
     using CF = ftl::mmio::Field<1, 0, eCF, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CONFIGFLAG_fields_
+  };  // struct ConfigflagFields
 
   struct CONFIGFLAG : ftl::mmio::Register<
       kBase + 0x180u,
       std::uint32_t,
       0x00000001u,
       ftl::mmio::RO,
-      typename CONFIGFLAG_fields_::CF,
+      typename ConfigflagFields::CF,
       ftl::mmio::Reserved<31, 1>> {
-    using eCF = typename CONFIGFLAG_fields_::eCF;
-    using CF = typename CONFIGFLAG_fields_::CF;
+    using eCF = typename ConfigflagFields::eCF;
+    using CF = typename ConfigflagFields::CF;
   };
 
   // Port Status & Control
-  struct PORTSC1_fields_ {
+  struct Portsc1Fields {
     enum class eOCA : std::uint32_t {
       // This port does not have an over-current condition.
       eNO_OVERCURRENT = 0,
@@ -1139,75 +1139,75 @@ struct UsbOtg {
     using STS = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // PTS_1
     using PTS_1 = ftl::mmio::Field<2, 30, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PORTSC1_fields_
+  };  // struct Portsc1Fields
 
   struct PORTSC1 : ftl::mmio::Register<
       kBase + 0x184u,
       std::uint32_t,
       0x1C000004u,
       ftl::mmio::RW,
-      typename PORTSC1_fields_::CCS,
-      typename PORTSC1_fields_::CSC,
-      typename PORTSC1_fields_::PE,
-      typename PORTSC1_fields_::PEC,
-      typename PORTSC1_fields_::OCA,
-      typename PORTSC1_fields_::OCC,
-      typename PORTSC1_fields_::FPR,
-      typename PORTSC1_fields_::SUSP,
-      typename PORTSC1_fields_::PR,
-      typename PORTSC1_fields_::HSP,
-      typename PORTSC1_fields_::LS,
-      typename PORTSC1_fields_::PP,
-      typename PORTSC1_fields_::PO,
-      typename PORTSC1_fields_::PIC,
-      typename PORTSC1_fields_::PTC,
-      typename PORTSC1_fields_::WKCN,
-      typename PORTSC1_fields_::WKDC,
-      typename PORTSC1_fields_::WKOC,
-      typename PORTSC1_fields_::PHCD,
-      typename PORTSC1_fields_::PFSC,
-      typename PORTSC1_fields_::PTS_2,
-      typename PORTSC1_fields_::PSPD,
-      typename PORTSC1_fields_::PTW,
-      typename PORTSC1_fields_::STS,
-      typename PORTSC1_fields_::PTS_1> {
-    using eOCA = typename PORTSC1_fields_::eOCA;
-    using eLS = typename PORTSC1_fields_::eLS;
-    using ePIC = typename PORTSC1_fields_::ePIC;
-    using ePTC = typename PORTSC1_fields_::ePTC;
-    using ePHCD = typename PORTSC1_fields_::ePHCD;
-    using ePFSC = typename PORTSC1_fields_::ePFSC;
-    using ePSPD = typename PORTSC1_fields_::ePSPD;
-    using ePTW = typename PORTSC1_fields_::ePTW;
-    using CCS = typename PORTSC1_fields_::CCS;
-    using CSC = typename PORTSC1_fields_::CSC;
-    using PE = typename PORTSC1_fields_::PE;
-    using PEC = typename PORTSC1_fields_::PEC;
-    using OCA = typename PORTSC1_fields_::OCA;
-    using OCC = typename PORTSC1_fields_::OCC;
-    using FPR = typename PORTSC1_fields_::FPR;
-    using SUSP = typename PORTSC1_fields_::SUSP;
-    using PR = typename PORTSC1_fields_::PR;
-    using HSP = typename PORTSC1_fields_::HSP;
-    using LS = typename PORTSC1_fields_::LS;
-    using PP = typename PORTSC1_fields_::PP;
-    using PO = typename PORTSC1_fields_::PO;
-    using PIC = typename PORTSC1_fields_::PIC;
-    using PTC = typename PORTSC1_fields_::PTC;
-    using WKCN = typename PORTSC1_fields_::WKCN;
-    using WKDC = typename PORTSC1_fields_::WKDC;
-    using WKOC = typename PORTSC1_fields_::WKOC;
-    using PHCD = typename PORTSC1_fields_::PHCD;
-    using PFSC = typename PORTSC1_fields_::PFSC;
-    using PTS_2 = typename PORTSC1_fields_::PTS_2;
-    using PSPD = typename PORTSC1_fields_::PSPD;
-    using PTW = typename PORTSC1_fields_::PTW;
-    using STS = typename PORTSC1_fields_::STS;
-    using PTS_1 = typename PORTSC1_fields_::PTS_1;
+      typename Portsc1Fields::CCS,
+      typename Portsc1Fields::CSC,
+      typename Portsc1Fields::PE,
+      typename Portsc1Fields::PEC,
+      typename Portsc1Fields::OCA,
+      typename Portsc1Fields::OCC,
+      typename Portsc1Fields::FPR,
+      typename Portsc1Fields::SUSP,
+      typename Portsc1Fields::PR,
+      typename Portsc1Fields::HSP,
+      typename Portsc1Fields::LS,
+      typename Portsc1Fields::PP,
+      typename Portsc1Fields::PO,
+      typename Portsc1Fields::PIC,
+      typename Portsc1Fields::PTC,
+      typename Portsc1Fields::WKCN,
+      typename Portsc1Fields::WKDC,
+      typename Portsc1Fields::WKOC,
+      typename Portsc1Fields::PHCD,
+      typename Portsc1Fields::PFSC,
+      typename Portsc1Fields::PTS_2,
+      typename Portsc1Fields::PSPD,
+      typename Portsc1Fields::PTW,
+      typename Portsc1Fields::STS,
+      typename Portsc1Fields::PTS_1> {
+    using eOCA = typename Portsc1Fields::eOCA;
+    using eLS = typename Portsc1Fields::eLS;
+    using ePIC = typename Portsc1Fields::ePIC;
+    using ePTC = typename Portsc1Fields::ePTC;
+    using ePHCD = typename Portsc1Fields::ePHCD;
+    using ePFSC = typename Portsc1Fields::ePFSC;
+    using ePSPD = typename Portsc1Fields::ePSPD;
+    using ePTW = typename Portsc1Fields::ePTW;
+    using CCS = typename Portsc1Fields::CCS;
+    using CSC = typename Portsc1Fields::CSC;
+    using PE = typename Portsc1Fields::PE;
+    using PEC = typename Portsc1Fields::PEC;
+    using OCA = typename Portsc1Fields::OCA;
+    using OCC = typename Portsc1Fields::OCC;
+    using FPR = typename Portsc1Fields::FPR;
+    using SUSP = typename Portsc1Fields::SUSP;
+    using PR = typename Portsc1Fields::PR;
+    using HSP = typename Portsc1Fields::HSP;
+    using LS = typename Portsc1Fields::LS;
+    using PP = typename Portsc1Fields::PP;
+    using PO = typename Portsc1Fields::PO;
+    using PIC = typename Portsc1Fields::PIC;
+    using PTC = typename Portsc1Fields::PTC;
+    using WKCN = typename Portsc1Fields::WKCN;
+    using WKDC = typename Portsc1Fields::WKDC;
+    using WKOC = typename Portsc1Fields::WKOC;
+    using PHCD = typename Portsc1Fields::PHCD;
+    using PFSC = typename Portsc1Fields::PFSC;
+    using PTS_2 = typename Portsc1Fields::PTS_2;
+    using PSPD = typename Portsc1Fields::PSPD;
+    using PTW = typename Portsc1Fields::PTW;
+    using STS = typename Portsc1Fields::STS;
+    using PTS_1 = typename Portsc1Fields::PTS_1;
   };
 
   // On-The-Go Status & control
-  struct OTGSC_fields_ {
+  struct OtgscFields {
     // VD
     using VD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // VC
@@ -1260,74 +1260,74 @@ struct UsbOtg {
     using EN_1MS = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // DPIE
     using DPIE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OTGSC_fields_
+  };  // struct OtgscFields
 
   struct OTGSC : ftl::mmio::Register<
       kBase + 0x1A4u,
       std::uint32_t,
       0x00202F20u,
       ftl::mmio::RW,
-      typename OTGSC_fields_::VD,
-      typename OTGSC_fields_::VC,
+      typename OtgscFields::VD,
+      typename OtgscFields::VC,
       ftl::mmio::Reserved<1, 2>,
-      typename OTGSC_fields_::OT,
-      typename OTGSC_fields_::DP,
-      typename OTGSC_fields_::IDPU,
+      typename OtgscFields::OT,
+      typename OtgscFields::DP,
+      typename OtgscFields::IDPU,
       ftl::mmio::Reserved<2, 6>,
-      typename OTGSC_fields_::ID,
-      typename OTGSC_fields_::AVV,
-      typename OTGSC_fields_::ASV,
-      typename OTGSC_fields_::BSV,
-      typename OTGSC_fields_::BSE,
-      typename OTGSC_fields_::TOG_1MS,
-      typename OTGSC_fields_::DPS,
+      typename OtgscFields::ID,
+      typename OtgscFields::AVV,
+      typename OtgscFields::ASV,
+      typename OtgscFields::BSV,
+      typename OtgscFields::BSE,
+      typename OtgscFields::TOG_1MS,
+      typename OtgscFields::DPS,
       ftl::mmio::Reserved<1, 15>,
-      typename OTGSC_fields_::IDIS,
-      typename OTGSC_fields_::AVVIS,
-      typename OTGSC_fields_::ASVIS,
-      typename OTGSC_fields_::BSVIS,
-      typename OTGSC_fields_::BSEIS,
-      typename OTGSC_fields_::STATUS_1MS,
-      typename OTGSC_fields_::DPIS,
+      typename OtgscFields::IDIS,
+      typename OtgscFields::AVVIS,
+      typename OtgscFields::ASVIS,
+      typename OtgscFields::BSVIS,
+      typename OtgscFields::BSEIS,
+      typename OtgscFields::STATUS_1MS,
+      typename OtgscFields::DPIS,
       ftl::mmio::Reserved<1, 23>,
-      typename OTGSC_fields_::IDIE,
-      typename OTGSC_fields_::AVVIE,
-      typename OTGSC_fields_::ASVIE,
-      typename OTGSC_fields_::BSVIE,
-      typename OTGSC_fields_::BSEIE,
-      typename OTGSC_fields_::EN_1MS,
-      typename OTGSC_fields_::DPIE,
+      typename OtgscFields::IDIE,
+      typename OtgscFields::AVVIE,
+      typename OtgscFields::ASVIE,
+      typename OtgscFields::BSVIE,
+      typename OtgscFields::BSEIE,
+      typename OtgscFields::EN_1MS,
+      typename OtgscFields::DPIE,
       ftl::mmio::Reserved<1, 31>> {
-    using VD = typename OTGSC_fields_::VD;
-    using VC = typename OTGSC_fields_::VC;
-    using OT = typename OTGSC_fields_::OT;
-    using DP = typename OTGSC_fields_::DP;
-    using IDPU = typename OTGSC_fields_::IDPU;
-    using ID = typename OTGSC_fields_::ID;
-    using AVV = typename OTGSC_fields_::AVV;
-    using ASV = typename OTGSC_fields_::ASV;
-    using BSV = typename OTGSC_fields_::BSV;
-    using BSE = typename OTGSC_fields_::BSE;
-    using TOG_1MS = typename OTGSC_fields_::TOG_1MS;
-    using DPS = typename OTGSC_fields_::DPS;
-    using IDIS = typename OTGSC_fields_::IDIS;
-    using AVVIS = typename OTGSC_fields_::AVVIS;
-    using ASVIS = typename OTGSC_fields_::ASVIS;
-    using BSVIS = typename OTGSC_fields_::BSVIS;
-    using BSEIS = typename OTGSC_fields_::BSEIS;
-    using STATUS_1MS = typename OTGSC_fields_::STATUS_1MS;
-    using DPIS = typename OTGSC_fields_::DPIS;
-    using IDIE = typename OTGSC_fields_::IDIE;
-    using AVVIE = typename OTGSC_fields_::AVVIE;
-    using ASVIE = typename OTGSC_fields_::ASVIE;
-    using BSVIE = typename OTGSC_fields_::BSVIE;
-    using BSEIE = typename OTGSC_fields_::BSEIE;
-    using EN_1MS = typename OTGSC_fields_::EN_1MS;
-    using DPIE = typename OTGSC_fields_::DPIE;
+    using VD = typename OtgscFields::VD;
+    using VC = typename OtgscFields::VC;
+    using OT = typename OtgscFields::OT;
+    using DP = typename OtgscFields::DP;
+    using IDPU = typename OtgscFields::IDPU;
+    using ID = typename OtgscFields::ID;
+    using AVV = typename OtgscFields::AVV;
+    using ASV = typename OtgscFields::ASV;
+    using BSV = typename OtgscFields::BSV;
+    using BSE = typename OtgscFields::BSE;
+    using TOG_1MS = typename OtgscFields::TOG_1MS;
+    using DPS = typename OtgscFields::DPS;
+    using IDIS = typename OtgscFields::IDIS;
+    using AVVIS = typename OtgscFields::AVVIS;
+    using ASVIS = typename OtgscFields::ASVIS;
+    using BSVIS = typename OtgscFields::BSVIS;
+    using BSEIS = typename OtgscFields::BSEIS;
+    using STATUS_1MS = typename OtgscFields::STATUS_1MS;
+    using DPIS = typename OtgscFields::DPIS;
+    using IDIE = typename OtgscFields::IDIE;
+    using AVVIE = typename OtgscFields::AVVIE;
+    using ASVIE = typename OtgscFields::ASVIE;
+    using BSVIE = typename OtgscFields::BSVIE;
+    using BSEIE = typename OtgscFields::BSEIE;
+    using EN_1MS = typename OtgscFields::EN_1MS;
+    using DPIE = typename OtgscFields::DPIE;
   };
 
   // USB Device Mode
-  struct USBMODE_fields_ {
+  struct UsbmodeFields {
     enum class eCM : std::uint32_t {
       // Idle [Default for combination host/device]
       eIDL = 0,
@@ -1359,129 +1359,129 @@ struct UsbOtg {
     using SLOM = ftl::mmio::Field<1, 3, eSLOM, ftl::mmio::RW, ftl::mmio::Normal>;
     // SDIS
     using SDIS = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct USBMODE_fields_
+  };  // struct UsbmodeFields
 
   struct USBMODE : ftl::mmio::Register<
       kBase + 0x1A8u,
       std::uint32_t,
       0x00005000u,
       ftl::mmio::RW,
-      typename USBMODE_fields_::CM,
-      typename USBMODE_fields_::ES,
-      typename USBMODE_fields_::SLOM,
-      typename USBMODE_fields_::SDIS,
+      typename UsbmodeFields::CM,
+      typename UsbmodeFields::ES,
+      typename UsbmodeFields::SLOM,
+      typename UsbmodeFields::SDIS,
       ftl::mmio::Reserved<27, 5>> {
-    using eCM = typename USBMODE_fields_::eCM;
-    using eES = typename USBMODE_fields_::eES;
-    using eSLOM = typename USBMODE_fields_::eSLOM;
-    using CM = typename USBMODE_fields_::CM;
-    using ES = typename USBMODE_fields_::ES;
-    using SLOM = typename USBMODE_fields_::SLOM;
-    using SDIS = typename USBMODE_fields_::SDIS;
+    using eCM = typename UsbmodeFields::eCM;
+    using eES = typename UsbmodeFields::eES;
+    using eSLOM = typename UsbmodeFields::eSLOM;
+    using CM = typename UsbmodeFields::CM;
+    using ES = typename UsbmodeFields::ES;
+    using SLOM = typename UsbmodeFields::SLOM;
+    using SDIS = typename UsbmodeFields::SDIS;
   };
 
   // Endpoint Setup Status
-  struct ENDPTSETUPSTAT_fields_ {
+  struct EndptsetupstatFields {
     // ENDPTSETUPSTAT
     using ENDPTSETUPSTAT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTSETUPSTAT_fields_
+  };  // struct EndptsetupstatFields
 
   struct ENDPTSETUPSTAT : ftl::mmio::Register<
       kBase + 0x1ACu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTSETUPSTAT_fields_::ENDPTSETUPSTAT,
+      typename EndptsetupstatFields::ENDPTSETUPSTAT,
       ftl::mmio::Reserved<16, 16>> {
-    using VALUE = typename ENDPTSETUPSTAT_fields_::ENDPTSETUPSTAT;
+    using VALUE = typename EndptsetupstatFields::ENDPTSETUPSTAT;
   };
 
   // Endpoint Prime
-  struct ENDPTPRIME_fields_ {
+  struct EndptprimeFields {
     // PERB
     using PERB = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // PETB
     using PETB = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTPRIME_fields_
+  };  // struct EndptprimeFields
 
   struct ENDPTPRIME : ftl::mmio::Register<
       kBase + 0x1B0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTPRIME_fields_::PERB,
+      typename EndptprimeFields::PERB,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTPRIME_fields_::PETB,
+      typename EndptprimeFields::PETB,
       ftl::mmio::Reserved<8, 24>> {
-    using PERB = typename ENDPTPRIME_fields_::PERB;
-    using PETB = typename ENDPTPRIME_fields_::PETB;
+    using PERB = typename EndptprimeFields::PERB;
+    using PETB = typename EndptprimeFields::PETB;
   };
 
   // Endpoint Flush
-  struct ENDPTFLUSH_fields_ {
+  struct EndptflushFields {
     // FERB
     using FERB = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // FETB
     using FETB = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTFLUSH_fields_
+  };  // struct EndptflushFields
 
   struct ENDPTFLUSH : ftl::mmio::Register<
       kBase + 0x1B4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTFLUSH_fields_::FERB,
+      typename EndptflushFields::FERB,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTFLUSH_fields_::FETB,
+      typename EndptflushFields::FETB,
       ftl::mmio::Reserved<8, 24>> {
-    using FERB = typename ENDPTFLUSH_fields_::FERB;
-    using FETB = typename ENDPTFLUSH_fields_::FETB;
+    using FERB = typename EndptflushFields::FERB;
+    using FETB = typename EndptflushFields::FETB;
   };
 
   // Endpoint Status
-  struct ENDPTSTAT_fields_ {
+  struct EndptstatFields {
     // ERBR
     using ERBR = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // ETBR
     using ETBR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ENDPTSTAT_fields_
+  };  // struct EndptstatFields
 
   struct ENDPTSTAT : ftl::mmio::Register<
       kBase + 0x1B8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename ENDPTSTAT_fields_::ERBR,
+      typename EndptstatFields::ERBR,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTSTAT_fields_::ETBR,
+      typename EndptstatFields::ETBR,
       ftl::mmio::Reserved<8, 24>> {
-    using ERBR = typename ENDPTSTAT_fields_::ERBR;
-    using ETBR = typename ENDPTSTAT_fields_::ETBR;
+    using ERBR = typename EndptstatFields::ERBR;
+    using ETBR = typename EndptstatFields::ETBR;
   };
 
   // Endpoint Complete
-  struct ENDPTCOMPLETE_fields_ {
+  struct EndptcompleteFields {
     // ERCE
     using ERCE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // ETCE
     using ETCE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCOMPLETE_fields_
+  };  // struct EndptcompleteFields
 
   struct ENDPTCOMPLETE : ftl::mmio::Register<
       kBase + 0x1BCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTCOMPLETE_fields_::ERCE,
+      typename EndptcompleteFields::ERCE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCOMPLETE_fields_::ETCE,
+      typename EndptcompleteFields::ETCE,
       ftl::mmio::Reserved<8, 24>> {
-    using ERCE = typename ENDPTCOMPLETE_fields_::ERCE;
-    using ETCE = typename ENDPTCOMPLETE_fields_::ETCE;
+    using ERCE = typename EndptcompleteFields::ERCE;
+    using ETCE = typename EndptcompleteFields::ETCE;
   };
 
   // Endpoint Control0
-  struct ENDPTCTRL0_fields_ {
+  struct Endptctrl0Fields {
     // RXS
     using RXS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXT
@@ -1494,35 +1494,35 @@ struct UsbOtg {
     using TXT = ftl::mmio::Field<2, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXE
     using TXE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCTRL0_fields_
+  };  // struct Endptctrl0Fields
 
   struct ENDPTCTRL0 : ftl::mmio::Register<
       kBase + 0x1C0u,
       std::uint32_t,
       0x00800080u,
       ftl::mmio::RW,
-      typename ENDPTCTRL0_fields_::RXS,
+      typename Endptctrl0Fields::RXS,
       ftl::mmio::Reserved<1, 1>,
-      typename ENDPTCTRL0_fields_::RXT,
+      typename Endptctrl0Fields::RXT,
       ftl::mmio::Reserved<3, 4>,
-      typename ENDPTCTRL0_fields_::RXE,
+      typename Endptctrl0Fields::RXE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCTRL0_fields_::TXS,
+      typename Endptctrl0Fields::TXS,
       ftl::mmio::Reserved<1, 17>,
-      typename ENDPTCTRL0_fields_::TXT,
+      typename Endptctrl0Fields::TXT,
       ftl::mmio::Reserved<3, 20>,
-      typename ENDPTCTRL0_fields_::TXE,
+      typename Endptctrl0Fields::TXE,
       ftl::mmio::Reserved<8, 24>> {
-    using RXS = typename ENDPTCTRL0_fields_::RXS;
-    using RXT = typename ENDPTCTRL0_fields_::RXT;
-    using RXE = typename ENDPTCTRL0_fields_::RXE;
-    using TXS = typename ENDPTCTRL0_fields_::TXS;
-    using TXT = typename ENDPTCTRL0_fields_::TXT;
-    using TXE = typename ENDPTCTRL0_fields_::TXE;
+    using RXS = typename Endptctrl0Fields::RXS;
+    using RXT = typename Endptctrl0Fields::RXT;
+    using RXE = typename Endptctrl0Fields::RXE;
+    using TXS = typename Endptctrl0Fields::TXS;
+    using TXT = typename Endptctrl0Fields::TXT;
+    using TXE = typename Endptctrl0Fields::TXE;
   };
 
   // Endpoint Control 1
-  struct ENDPTCTRL1_fields_ {
+  struct Endptctrl1Fields {
     // RXS
     using RXS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXD
@@ -1547,45 +1547,45 @@ struct UsbOtg {
     using TXR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXE
     using TXE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCTRL1_fields_
+  };  // struct Endptctrl1Fields
 
   struct ENDPTCTRL1 : ftl::mmio::Register<
       kBase + 0x1C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTCTRL1_fields_::RXS,
-      typename ENDPTCTRL1_fields_::RXD,
-      typename ENDPTCTRL1_fields_::RXT,
+      typename Endptctrl1Fields::RXS,
+      typename Endptctrl1Fields::RXD,
+      typename Endptctrl1Fields::RXT,
       ftl::mmio::Reserved<1, 4>,
-      typename ENDPTCTRL1_fields_::RXI,
-      typename ENDPTCTRL1_fields_::RXR,
-      typename ENDPTCTRL1_fields_::RXE,
+      typename Endptctrl1Fields::RXI,
+      typename Endptctrl1Fields::RXR,
+      typename Endptctrl1Fields::RXE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCTRL1_fields_::TXS,
-      typename ENDPTCTRL1_fields_::TXD,
-      typename ENDPTCTRL1_fields_::TXT,
+      typename Endptctrl1Fields::TXS,
+      typename Endptctrl1Fields::TXD,
+      typename Endptctrl1Fields::TXT,
       ftl::mmio::Reserved<1, 20>,
-      typename ENDPTCTRL1_fields_::TXI,
-      typename ENDPTCTRL1_fields_::TXR,
-      typename ENDPTCTRL1_fields_::TXE,
+      typename Endptctrl1Fields::TXI,
+      typename Endptctrl1Fields::TXR,
+      typename Endptctrl1Fields::TXE,
       ftl::mmio::Reserved<8, 24>> {
-    using RXS = typename ENDPTCTRL1_fields_::RXS;
-    using RXD = typename ENDPTCTRL1_fields_::RXD;
-    using RXT = typename ENDPTCTRL1_fields_::RXT;
-    using RXI = typename ENDPTCTRL1_fields_::RXI;
-    using RXR = typename ENDPTCTRL1_fields_::RXR;
-    using RXE = typename ENDPTCTRL1_fields_::RXE;
-    using TXS = typename ENDPTCTRL1_fields_::TXS;
-    using TXD = typename ENDPTCTRL1_fields_::TXD;
-    using TXT = typename ENDPTCTRL1_fields_::TXT;
-    using TXI = typename ENDPTCTRL1_fields_::TXI;
-    using TXR = typename ENDPTCTRL1_fields_::TXR;
-    using TXE = typename ENDPTCTRL1_fields_::TXE;
+    using RXS = typename Endptctrl1Fields::RXS;
+    using RXD = typename Endptctrl1Fields::RXD;
+    using RXT = typename Endptctrl1Fields::RXT;
+    using RXI = typename Endptctrl1Fields::RXI;
+    using RXR = typename Endptctrl1Fields::RXR;
+    using RXE = typename Endptctrl1Fields::RXE;
+    using TXS = typename Endptctrl1Fields::TXS;
+    using TXD = typename Endptctrl1Fields::TXD;
+    using TXT = typename Endptctrl1Fields::TXT;
+    using TXI = typename Endptctrl1Fields::TXI;
+    using TXR = typename Endptctrl1Fields::TXR;
+    using TXE = typename Endptctrl1Fields::TXE;
   };
 
   // Endpoint Control 2
-  struct ENDPTCTRL2_fields_ {
+  struct Endptctrl2Fields {
     // RXS
     using RXS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXD
@@ -1610,45 +1610,45 @@ struct UsbOtg {
     using TXR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXE
     using TXE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCTRL2_fields_
+  };  // struct Endptctrl2Fields
 
   struct ENDPTCTRL2 : ftl::mmio::Register<
       kBase + 0x1C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTCTRL2_fields_::RXS,
-      typename ENDPTCTRL2_fields_::RXD,
-      typename ENDPTCTRL2_fields_::RXT,
+      typename Endptctrl2Fields::RXS,
+      typename Endptctrl2Fields::RXD,
+      typename Endptctrl2Fields::RXT,
       ftl::mmio::Reserved<1, 4>,
-      typename ENDPTCTRL2_fields_::RXI,
-      typename ENDPTCTRL2_fields_::RXR,
-      typename ENDPTCTRL2_fields_::RXE,
+      typename Endptctrl2Fields::RXI,
+      typename Endptctrl2Fields::RXR,
+      typename Endptctrl2Fields::RXE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCTRL2_fields_::TXS,
-      typename ENDPTCTRL2_fields_::TXD,
-      typename ENDPTCTRL2_fields_::TXT,
+      typename Endptctrl2Fields::TXS,
+      typename Endptctrl2Fields::TXD,
+      typename Endptctrl2Fields::TXT,
       ftl::mmio::Reserved<1, 20>,
-      typename ENDPTCTRL2_fields_::TXI,
-      typename ENDPTCTRL2_fields_::TXR,
-      typename ENDPTCTRL2_fields_::TXE,
+      typename Endptctrl2Fields::TXI,
+      typename Endptctrl2Fields::TXR,
+      typename Endptctrl2Fields::TXE,
       ftl::mmio::Reserved<8, 24>> {
-    using RXS = typename ENDPTCTRL2_fields_::RXS;
-    using RXD = typename ENDPTCTRL2_fields_::RXD;
-    using RXT = typename ENDPTCTRL2_fields_::RXT;
-    using RXI = typename ENDPTCTRL2_fields_::RXI;
-    using RXR = typename ENDPTCTRL2_fields_::RXR;
-    using RXE = typename ENDPTCTRL2_fields_::RXE;
-    using TXS = typename ENDPTCTRL2_fields_::TXS;
-    using TXD = typename ENDPTCTRL2_fields_::TXD;
-    using TXT = typename ENDPTCTRL2_fields_::TXT;
-    using TXI = typename ENDPTCTRL2_fields_::TXI;
-    using TXR = typename ENDPTCTRL2_fields_::TXR;
-    using TXE = typename ENDPTCTRL2_fields_::TXE;
+    using RXS = typename Endptctrl2Fields::RXS;
+    using RXD = typename Endptctrl2Fields::RXD;
+    using RXT = typename Endptctrl2Fields::RXT;
+    using RXI = typename Endptctrl2Fields::RXI;
+    using RXR = typename Endptctrl2Fields::RXR;
+    using RXE = typename Endptctrl2Fields::RXE;
+    using TXS = typename Endptctrl2Fields::TXS;
+    using TXD = typename Endptctrl2Fields::TXD;
+    using TXT = typename Endptctrl2Fields::TXT;
+    using TXI = typename Endptctrl2Fields::TXI;
+    using TXR = typename Endptctrl2Fields::TXR;
+    using TXE = typename Endptctrl2Fields::TXE;
   };
 
   // Endpoint Control 3
-  struct ENDPTCTRL3_fields_ {
+  struct Endptctrl3Fields {
     // RXS
     using RXS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXD
@@ -1673,45 +1673,45 @@ struct UsbOtg {
     using TXR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXE
     using TXE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCTRL3_fields_
+  };  // struct Endptctrl3Fields
 
   struct ENDPTCTRL3 : ftl::mmio::Register<
       kBase + 0x1CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTCTRL3_fields_::RXS,
-      typename ENDPTCTRL3_fields_::RXD,
-      typename ENDPTCTRL3_fields_::RXT,
+      typename Endptctrl3Fields::RXS,
+      typename Endptctrl3Fields::RXD,
+      typename Endptctrl3Fields::RXT,
       ftl::mmio::Reserved<1, 4>,
-      typename ENDPTCTRL3_fields_::RXI,
-      typename ENDPTCTRL3_fields_::RXR,
-      typename ENDPTCTRL3_fields_::RXE,
+      typename Endptctrl3Fields::RXI,
+      typename Endptctrl3Fields::RXR,
+      typename Endptctrl3Fields::RXE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCTRL3_fields_::TXS,
-      typename ENDPTCTRL3_fields_::TXD,
-      typename ENDPTCTRL3_fields_::TXT,
+      typename Endptctrl3Fields::TXS,
+      typename Endptctrl3Fields::TXD,
+      typename Endptctrl3Fields::TXT,
       ftl::mmio::Reserved<1, 20>,
-      typename ENDPTCTRL3_fields_::TXI,
-      typename ENDPTCTRL3_fields_::TXR,
-      typename ENDPTCTRL3_fields_::TXE,
+      typename Endptctrl3Fields::TXI,
+      typename Endptctrl3Fields::TXR,
+      typename Endptctrl3Fields::TXE,
       ftl::mmio::Reserved<8, 24>> {
-    using RXS = typename ENDPTCTRL3_fields_::RXS;
-    using RXD = typename ENDPTCTRL3_fields_::RXD;
-    using RXT = typename ENDPTCTRL3_fields_::RXT;
-    using RXI = typename ENDPTCTRL3_fields_::RXI;
-    using RXR = typename ENDPTCTRL3_fields_::RXR;
-    using RXE = typename ENDPTCTRL3_fields_::RXE;
-    using TXS = typename ENDPTCTRL3_fields_::TXS;
-    using TXD = typename ENDPTCTRL3_fields_::TXD;
-    using TXT = typename ENDPTCTRL3_fields_::TXT;
-    using TXI = typename ENDPTCTRL3_fields_::TXI;
-    using TXR = typename ENDPTCTRL3_fields_::TXR;
-    using TXE = typename ENDPTCTRL3_fields_::TXE;
+    using RXS = typename Endptctrl3Fields::RXS;
+    using RXD = typename Endptctrl3Fields::RXD;
+    using RXT = typename Endptctrl3Fields::RXT;
+    using RXI = typename Endptctrl3Fields::RXI;
+    using RXR = typename Endptctrl3Fields::RXR;
+    using RXE = typename Endptctrl3Fields::RXE;
+    using TXS = typename Endptctrl3Fields::TXS;
+    using TXD = typename Endptctrl3Fields::TXD;
+    using TXT = typename Endptctrl3Fields::TXT;
+    using TXI = typename Endptctrl3Fields::TXI;
+    using TXR = typename Endptctrl3Fields::TXR;
+    using TXE = typename Endptctrl3Fields::TXE;
   };
 
   // Endpoint Control 4
-  struct ENDPTCTRL4_fields_ {
+  struct Endptctrl4Fields {
     // RXS
     using RXS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXD
@@ -1736,45 +1736,45 @@ struct UsbOtg {
     using TXR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXE
     using TXE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCTRL4_fields_
+  };  // struct Endptctrl4Fields
 
   struct ENDPTCTRL4 : ftl::mmio::Register<
       kBase + 0x1D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTCTRL4_fields_::RXS,
-      typename ENDPTCTRL4_fields_::RXD,
-      typename ENDPTCTRL4_fields_::RXT,
+      typename Endptctrl4Fields::RXS,
+      typename Endptctrl4Fields::RXD,
+      typename Endptctrl4Fields::RXT,
       ftl::mmio::Reserved<1, 4>,
-      typename ENDPTCTRL4_fields_::RXI,
-      typename ENDPTCTRL4_fields_::RXR,
-      typename ENDPTCTRL4_fields_::RXE,
+      typename Endptctrl4Fields::RXI,
+      typename Endptctrl4Fields::RXR,
+      typename Endptctrl4Fields::RXE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCTRL4_fields_::TXS,
-      typename ENDPTCTRL4_fields_::TXD,
-      typename ENDPTCTRL4_fields_::TXT,
+      typename Endptctrl4Fields::TXS,
+      typename Endptctrl4Fields::TXD,
+      typename Endptctrl4Fields::TXT,
       ftl::mmio::Reserved<1, 20>,
-      typename ENDPTCTRL4_fields_::TXI,
-      typename ENDPTCTRL4_fields_::TXR,
-      typename ENDPTCTRL4_fields_::TXE,
+      typename Endptctrl4Fields::TXI,
+      typename Endptctrl4Fields::TXR,
+      typename Endptctrl4Fields::TXE,
       ftl::mmio::Reserved<8, 24>> {
-    using RXS = typename ENDPTCTRL4_fields_::RXS;
-    using RXD = typename ENDPTCTRL4_fields_::RXD;
-    using RXT = typename ENDPTCTRL4_fields_::RXT;
-    using RXI = typename ENDPTCTRL4_fields_::RXI;
-    using RXR = typename ENDPTCTRL4_fields_::RXR;
-    using RXE = typename ENDPTCTRL4_fields_::RXE;
-    using TXS = typename ENDPTCTRL4_fields_::TXS;
-    using TXD = typename ENDPTCTRL4_fields_::TXD;
-    using TXT = typename ENDPTCTRL4_fields_::TXT;
-    using TXI = typename ENDPTCTRL4_fields_::TXI;
-    using TXR = typename ENDPTCTRL4_fields_::TXR;
-    using TXE = typename ENDPTCTRL4_fields_::TXE;
+    using RXS = typename Endptctrl4Fields::RXS;
+    using RXD = typename Endptctrl4Fields::RXD;
+    using RXT = typename Endptctrl4Fields::RXT;
+    using RXI = typename Endptctrl4Fields::RXI;
+    using RXR = typename Endptctrl4Fields::RXR;
+    using RXE = typename Endptctrl4Fields::RXE;
+    using TXS = typename Endptctrl4Fields::TXS;
+    using TXD = typename Endptctrl4Fields::TXD;
+    using TXT = typename Endptctrl4Fields::TXT;
+    using TXI = typename Endptctrl4Fields::TXI;
+    using TXR = typename Endptctrl4Fields::TXR;
+    using TXE = typename Endptctrl4Fields::TXE;
   };
 
   // Endpoint Control 5
-  struct ENDPTCTRL5_fields_ {
+  struct Endptctrl5Fields {
     // RXS
     using RXS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXD
@@ -1799,45 +1799,45 @@ struct UsbOtg {
     using TXR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXE
     using TXE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCTRL5_fields_
+  };  // struct Endptctrl5Fields
 
   struct ENDPTCTRL5 : ftl::mmio::Register<
       kBase + 0x1D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTCTRL5_fields_::RXS,
-      typename ENDPTCTRL5_fields_::RXD,
-      typename ENDPTCTRL5_fields_::RXT,
+      typename Endptctrl5Fields::RXS,
+      typename Endptctrl5Fields::RXD,
+      typename Endptctrl5Fields::RXT,
       ftl::mmio::Reserved<1, 4>,
-      typename ENDPTCTRL5_fields_::RXI,
-      typename ENDPTCTRL5_fields_::RXR,
-      typename ENDPTCTRL5_fields_::RXE,
+      typename Endptctrl5Fields::RXI,
+      typename Endptctrl5Fields::RXR,
+      typename Endptctrl5Fields::RXE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCTRL5_fields_::TXS,
-      typename ENDPTCTRL5_fields_::TXD,
-      typename ENDPTCTRL5_fields_::TXT,
+      typename Endptctrl5Fields::TXS,
+      typename Endptctrl5Fields::TXD,
+      typename Endptctrl5Fields::TXT,
       ftl::mmio::Reserved<1, 20>,
-      typename ENDPTCTRL5_fields_::TXI,
-      typename ENDPTCTRL5_fields_::TXR,
-      typename ENDPTCTRL5_fields_::TXE,
+      typename Endptctrl5Fields::TXI,
+      typename Endptctrl5Fields::TXR,
+      typename Endptctrl5Fields::TXE,
       ftl::mmio::Reserved<8, 24>> {
-    using RXS = typename ENDPTCTRL5_fields_::RXS;
-    using RXD = typename ENDPTCTRL5_fields_::RXD;
-    using RXT = typename ENDPTCTRL5_fields_::RXT;
-    using RXI = typename ENDPTCTRL5_fields_::RXI;
-    using RXR = typename ENDPTCTRL5_fields_::RXR;
-    using RXE = typename ENDPTCTRL5_fields_::RXE;
-    using TXS = typename ENDPTCTRL5_fields_::TXS;
-    using TXD = typename ENDPTCTRL5_fields_::TXD;
-    using TXT = typename ENDPTCTRL5_fields_::TXT;
-    using TXI = typename ENDPTCTRL5_fields_::TXI;
-    using TXR = typename ENDPTCTRL5_fields_::TXR;
-    using TXE = typename ENDPTCTRL5_fields_::TXE;
+    using RXS = typename Endptctrl5Fields::RXS;
+    using RXD = typename Endptctrl5Fields::RXD;
+    using RXT = typename Endptctrl5Fields::RXT;
+    using RXI = typename Endptctrl5Fields::RXI;
+    using RXR = typename Endptctrl5Fields::RXR;
+    using RXE = typename Endptctrl5Fields::RXE;
+    using TXS = typename Endptctrl5Fields::TXS;
+    using TXD = typename Endptctrl5Fields::TXD;
+    using TXT = typename Endptctrl5Fields::TXT;
+    using TXI = typename Endptctrl5Fields::TXI;
+    using TXR = typename Endptctrl5Fields::TXR;
+    using TXE = typename Endptctrl5Fields::TXE;
   };
 
   // Endpoint Control 6
-  struct ENDPTCTRL6_fields_ {
+  struct Endptctrl6Fields {
     // RXS
     using RXS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXD
@@ -1862,45 +1862,45 @@ struct UsbOtg {
     using TXR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXE
     using TXE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCTRL6_fields_
+  };  // struct Endptctrl6Fields
 
   struct ENDPTCTRL6 : ftl::mmio::Register<
       kBase + 0x1D8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTCTRL6_fields_::RXS,
-      typename ENDPTCTRL6_fields_::RXD,
-      typename ENDPTCTRL6_fields_::RXT,
+      typename Endptctrl6Fields::RXS,
+      typename Endptctrl6Fields::RXD,
+      typename Endptctrl6Fields::RXT,
       ftl::mmio::Reserved<1, 4>,
-      typename ENDPTCTRL6_fields_::RXI,
-      typename ENDPTCTRL6_fields_::RXR,
-      typename ENDPTCTRL6_fields_::RXE,
+      typename Endptctrl6Fields::RXI,
+      typename Endptctrl6Fields::RXR,
+      typename Endptctrl6Fields::RXE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCTRL6_fields_::TXS,
-      typename ENDPTCTRL6_fields_::TXD,
-      typename ENDPTCTRL6_fields_::TXT,
+      typename Endptctrl6Fields::TXS,
+      typename Endptctrl6Fields::TXD,
+      typename Endptctrl6Fields::TXT,
       ftl::mmio::Reserved<1, 20>,
-      typename ENDPTCTRL6_fields_::TXI,
-      typename ENDPTCTRL6_fields_::TXR,
-      typename ENDPTCTRL6_fields_::TXE,
+      typename Endptctrl6Fields::TXI,
+      typename Endptctrl6Fields::TXR,
+      typename Endptctrl6Fields::TXE,
       ftl::mmio::Reserved<8, 24>> {
-    using RXS = typename ENDPTCTRL6_fields_::RXS;
-    using RXD = typename ENDPTCTRL6_fields_::RXD;
-    using RXT = typename ENDPTCTRL6_fields_::RXT;
-    using RXI = typename ENDPTCTRL6_fields_::RXI;
-    using RXR = typename ENDPTCTRL6_fields_::RXR;
-    using RXE = typename ENDPTCTRL6_fields_::RXE;
-    using TXS = typename ENDPTCTRL6_fields_::TXS;
-    using TXD = typename ENDPTCTRL6_fields_::TXD;
-    using TXT = typename ENDPTCTRL6_fields_::TXT;
-    using TXI = typename ENDPTCTRL6_fields_::TXI;
-    using TXR = typename ENDPTCTRL6_fields_::TXR;
-    using TXE = typename ENDPTCTRL6_fields_::TXE;
+    using RXS = typename Endptctrl6Fields::RXS;
+    using RXD = typename Endptctrl6Fields::RXD;
+    using RXT = typename Endptctrl6Fields::RXT;
+    using RXI = typename Endptctrl6Fields::RXI;
+    using RXR = typename Endptctrl6Fields::RXR;
+    using RXE = typename Endptctrl6Fields::RXE;
+    using TXS = typename Endptctrl6Fields::TXS;
+    using TXD = typename Endptctrl6Fields::TXD;
+    using TXT = typename Endptctrl6Fields::TXT;
+    using TXI = typename Endptctrl6Fields::TXI;
+    using TXR = typename Endptctrl6Fields::TXR;
+    using TXE = typename Endptctrl6Fields::TXE;
   };
 
   // Endpoint Control 7
-  struct ENDPTCTRL7_fields_ {
+  struct Endptctrl7Fields {
     // RXS
     using RXS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // RXD
@@ -1925,41 +1925,41 @@ struct UsbOtg {
     using TXR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // TXE
     using TXE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ENDPTCTRL7_fields_
+  };  // struct Endptctrl7Fields
 
   struct ENDPTCTRL7 : ftl::mmio::Register<
       kBase + 0x1DCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ENDPTCTRL7_fields_::RXS,
-      typename ENDPTCTRL7_fields_::RXD,
-      typename ENDPTCTRL7_fields_::RXT,
+      typename Endptctrl7Fields::RXS,
+      typename Endptctrl7Fields::RXD,
+      typename Endptctrl7Fields::RXT,
       ftl::mmio::Reserved<1, 4>,
-      typename ENDPTCTRL7_fields_::RXI,
-      typename ENDPTCTRL7_fields_::RXR,
-      typename ENDPTCTRL7_fields_::RXE,
+      typename Endptctrl7Fields::RXI,
+      typename Endptctrl7Fields::RXR,
+      typename Endptctrl7Fields::RXE,
       ftl::mmio::Reserved<8, 8>,
-      typename ENDPTCTRL7_fields_::TXS,
-      typename ENDPTCTRL7_fields_::TXD,
-      typename ENDPTCTRL7_fields_::TXT,
+      typename Endptctrl7Fields::TXS,
+      typename Endptctrl7Fields::TXD,
+      typename Endptctrl7Fields::TXT,
       ftl::mmio::Reserved<1, 20>,
-      typename ENDPTCTRL7_fields_::TXI,
-      typename ENDPTCTRL7_fields_::TXR,
-      typename ENDPTCTRL7_fields_::TXE,
+      typename Endptctrl7Fields::TXI,
+      typename Endptctrl7Fields::TXR,
+      typename Endptctrl7Fields::TXE,
       ftl::mmio::Reserved<8, 24>> {
-    using RXS = typename ENDPTCTRL7_fields_::RXS;
-    using RXD = typename ENDPTCTRL7_fields_::RXD;
-    using RXT = typename ENDPTCTRL7_fields_::RXT;
-    using RXI = typename ENDPTCTRL7_fields_::RXI;
-    using RXR = typename ENDPTCTRL7_fields_::RXR;
-    using RXE = typename ENDPTCTRL7_fields_::RXE;
-    using TXS = typename ENDPTCTRL7_fields_::TXS;
-    using TXD = typename ENDPTCTRL7_fields_::TXD;
-    using TXT = typename ENDPTCTRL7_fields_::TXT;
-    using TXI = typename ENDPTCTRL7_fields_::TXI;
-    using TXR = typename ENDPTCTRL7_fields_::TXR;
-    using TXE = typename ENDPTCTRL7_fields_::TXE;
+    using RXS = typename Endptctrl7Fields::RXS;
+    using RXD = typename Endptctrl7Fields::RXD;
+    using RXT = typename Endptctrl7Fields::RXT;
+    using RXI = typename Endptctrl7Fields::RXI;
+    using RXR = typename Endptctrl7Fields::RXR;
+    using RXE = typename Endptctrl7Fields::RXE;
+    using TXS = typename Endptctrl7Fields::TXS;
+    using TXD = typename Endptctrl7Fields::TXD;
+    using TXT = typename Endptctrl7Fields::TXT;
+    using TXI = typename Endptctrl7Fields::TXI;
+    using TXR = typename Endptctrl7Fields::TXR;
+    using TXE = typename Endptctrl7Fields::TXE;
   };
 
 };

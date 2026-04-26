@@ -24,7 +24,7 @@ struct Gpt {
       0u;
 
   // GPT Control Register
-  struct CR_fields_ {
+  struct CrFields {
     enum class eEN : std::uint32_t {
       // Disable
       eDISABLE = 0,
@@ -221,72 +221,72 @@ struct Gpt {
     using FO2 = ftl::mmio::Field<1, 30, eFO2, ftl::mmio::RW, ftl::mmio::Normal>;
     // Force Output Compare for Channel 3
     using FO3 = ftl::mmio::Field<1, 31, eFO3, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CR_fields_
+  };  // struct CrFields
 
   struct CR : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename CR_fields_::EN,
-      typename CR_fields_::ENMOD,
-      typename CR_fields_::DBGEN,
-      typename CR_fields_::WAITEN,
-      typename CR_fields_::DOZEEN,
-      typename CR_fields_::STOPEN,
-      typename CR_fields_::CLKSRC,
-      typename CR_fields_::FRR,
-      typename CR_fields_::EN_24M,
+      typename CrFields::EN,
+      typename CrFields::ENMOD,
+      typename CrFields::DBGEN,
+      typename CrFields::WAITEN,
+      typename CrFields::DOZEEN,
+      typename CrFields::STOPEN,
+      typename CrFields::CLKSRC,
+      typename CrFields::FRR,
+      typename CrFields::EN_24M,
       ftl::mmio::Reserved<4, 11>,
-      typename CR_fields_::SWR,
-      typename CR_fields_::IM1,
-      typename CR_fields_::IM2,
-      typename CR_fields_::OM1,
-      typename CR_fields_::OM2,
-      typename CR_fields_::OM3,
-      typename CR_fields_::FO1,
-      typename CR_fields_::FO2,
-      typename CR_fields_::FO3> {
-    using eEN = typename CR_fields_::eEN;
-    using eENMOD = typename CR_fields_::eENMOD;
-    using eDBGEN = typename CR_fields_::eDBGEN;
-    using eWAITEN = typename CR_fields_::eWAITEN;
-    using eDOZEEN = typename CR_fields_::eDOZEEN;
-    using eSTOPEN = typename CR_fields_::eSTOPEN;
-    using eCLKSRC = typename CR_fields_::eCLKSRC;
-    using eFRR = typename CR_fields_::eFRR;
-    using eEN_24M = typename CR_fields_::eEN_24M;
-    using eSWR = typename CR_fields_::eSWR;
-    using eIM1 = typename CR_fields_::eIM1;
-    using eIM2 = typename CR_fields_::eIM2;
-    using eOM1 = typename CR_fields_::eOM1;
-    using eOM2 = typename CR_fields_::eOM2;
-    using eOM3 = typename CR_fields_::eOM3;
-    using eFO1 = typename CR_fields_::eFO1;
-    using eFO2 = typename CR_fields_::eFO2;
-    using eFO3 = typename CR_fields_::eFO3;
-    using EN = typename CR_fields_::EN;
-    using ENMOD = typename CR_fields_::ENMOD;
-    using DBGEN = typename CR_fields_::DBGEN;
-    using WAITEN = typename CR_fields_::WAITEN;
-    using DOZEEN = typename CR_fields_::DOZEEN;
-    using STOPEN = typename CR_fields_::STOPEN;
-    using CLKSRC = typename CR_fields_::CLKSRC;
-    using FRR = typename CR_fields_::FRR;
-    using EN_24M = typename CR_fields_::EN_24M;
-    using SWR = typename CR_fields_::SWR;
-    using IM1 = typename CR_fields_::IM1;
-    using IM2 = typename CR_fields_::IM2;
-    using OM1 = typename CR_fields_::OM1;
-    using OM2 = typename CR_fields_::OM2;
-    using OM3 = typename CR_fields_::OM3;
-    using FO1 = typename CR_fields_::FO1;
-    using FO2 = typename CR_fields_::FO2;
-    using FO3 = typename CR_fields_::FO3;
+      typename CrFields::SWR,
+      typename CrFields::IM1,
+      typename CrFields::IM2,
+      typename CrFields::OM1,
+      typename CrFields::OM2,
+      typename CrFields::OM3,
+      typename CrFields::FO1,
+      typename CrFields::FO2,
+      typename CrFields::FO3> {
+    using eEN = typename CrFields::eEN;
+    using eENMOD = typename CrFields::eENMOD;
+    using eDBGEN = typename CrFields::eDBGEN;
+    using eWAITEN = typename CrFields::eWAITEN;
+    using eDOZEEN = typename CrFields::eDOZEEN;
+    using eSTOPEN = typename CrFields::eSTOPEN;
+    using eCLKSRC = typename CrFields::eCLKSRC;
+    using eFRR = typename CrFields::eFRR;
+    using eEN_24M = typename CrFields::eEN_24M;
+    using eSWR = typename CrFields::eSWR;
+    using eIM1 = typename CrFields::eIM1;
+    using eIM2 = typename CrFields::eIM2;
+    using eOM1 = typename CrFields::eOM1;
+    using eOM2 = typename CrFields::eOM2;
+    using eOM3 = typename CrFields::eOM3;
+    using eFO1 = typename CrFields::eFO1;
+    using eFO2 = typename CrFields::eFO2;
+    using eFO3 = typename CrFields::eFO3;
+    using EN = typename CrFields::EN;
+    using ENMOD = typename CrFields::ENMOD;
+    using DBGEN = typename CrFields::DBGEN;
+    using WAITEN = typename CrFields::WAITEN;
+    using DOZEEN = typename CrFields::DOZEEN;
+    using STOPEN = typename CrFields::STOPEN;
+    using CLKSRC = typename CrFields::CLKSRC;
+    using FRR = typename CrFields::FRR;
+    using EN_24M = typename CrFields::EN_24M;
+    using SWR = typename CrFields::SWR;
+    using IM1 = typename CrFields::IM1;
+    using IM2 = typename CrFields::IM2;
+    using OM1 = typename CrFields::OM1;
+    using OM2 = typename CrFields::OM2;
+    using OM3 = typename CrFields::OM3;
+    using FO1 = typename CrFields::FO1;
+    using FO2 = typename CrFields::FO2;
+    using FO3 = typename CrFields::FO3;
   };
 
   // GPT Prescaler Register
-  struct PR_fields_ {
+  struct PrFields {
     enum class ePRESCALER : std::uint32_t {
       // Divide by 1
       eDIV_BY_1 = 0,
@@ -309,24 +309,24 @@ struct Gpt {
     using PRESCALER = ftl::mmio::Field<12, 0, ePRESCALER, ftl::mmio::RW, ftl::mmio::Normal>;
     // Prescaler divide value for the oscillator clock
     using PRESCALER24M = ftl::mmio::Field<4, 12, ePRESCALER24M, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PR_fields_
+  };  // struct PrFields
 
   struct PR : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename PR_fields_::PRESCALER,
-      typename PR_fields_::PRESCALER24M,
+      typename PrFields::PRESCALER,
+      typename PrFields::PRESCALER24M,
       ftl::mmio::Reserved<16, 16>> {
-    using ePRESCALER = typename PR_fields_::ePRESCALER;
-    using ePRESCALER24M = typename PR_fields_::ePRESCALER24M;
-    using PRESCALER = typename PR_fields_::PRESCALER;
-    using PRESCALER24M = typename PR_fields_::PRESCALER24M;
+    using ePRESCALER = typename PrFields::ePRESCALER;
+    using ePRESCALER24M = typename PrFields::ePRESCALER24M;
+    using PRESCALER = typename PrFields::PRESCALER;
+    using PRESCALER24M = typename PrFields::PRESCALER24M;
   };
 
   // GPT Status Register
-  struct SR_fields_ {
+  struct SrFields {
     enum class eOF1 : std::uint32_t {
       // Compare event has not occurred.
       eNO_EVENT = 0,
@@ -381,36 +381,36 @@ struct Gpt {
     using IF2 = ftl::mmio::Field<1, 4, eIF2, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Rollover Flag
     using ROV = ftl::mmio::Field<1, 5, eROV, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct SR_fields_
+  };  // struct SrFields
 
   struct SR : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename SR_fields_::OF1,
-      typename SR_fields_::OF2,
-      typename SR_fields_::OF3,
-      typename SR_fields_::IF1,
-      typename SR_fields_::IF2,
-      typename SR_fields_::ROV,
+      typename SrFields::OF1,
+      typename SrFields::OF2,
+      typename SrFields::OF3,
+      typename SrFields::IF1,
+      typename SrFields::IF2,
+      typename SrFields::ROV,
       ftl::mmio::Reserved<26, 6>> {
-    using eOF1 = typename SR_fields_::eOF1;
-    using eOF2 = typename SR_fields_::eOF2;
-    using eOF3 = typename SR_fields_::eOF3;
-    using eIF1 = typename SR_fields_::eIF1;
-    using eIF2 = typename SR_fields_::eIF2;
-    using eROV = typename SR_fields_::eROV;
-    using OF1 = typename SR_fields_::OF1;
-    using OF2 = typename SR_fields_::OF2;
-    using OF3 = typename SR_fields_::OF3;
-    using IF1 = typename SR_fields_::IF1;
-    using IF2 = typename SR_fields_::IF2;
-    using ROV = typename SR_fields_::ROV;
+    using eOF1 = typename SrFields::eOF1;
+    using eOF2 = typename SrFields::eOF2;
+    using eOF3 = typename SrFields::eOF3;
+    using eIF1 = typename SrFields::eIF1;
+    using eIF2 = typename SrFields::eIF2;
+    using eROV = typename SrFields::eROV;
+    using OF1 = typename SrFields::OF1;
+    using OF2 = typename SrFields::OF2;
+    using OF3 = typename SrFields::OF3;
+    using IF1 = typename SrFields::IF1;
+    using IF2 = typename SrFields::IF2;
+    using ROV = typename SrFields::ROV;
   };
 
   // GPT Interrupt Register
-  struct IR_fields_ {
+  struct IrFields {
     enum class eOF1IE : std::uint32_t {
       // Disable
       eDISABLE = 0,
@@ -465,39 +465,39 @@ struct Gpt {
     using IF2IE = ftl::mmio::Field<1, 4, eIF2IE, ftl::mmio::RW, ftl::mmio::Normal>;
     // Rollover Interrupt Enable
     using ROVIE = ftl::mmio::Field<1, 5, eROVIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct IR_fields_
+  };  // struct IrFields
 
   struct IR : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename IR_fields_::OF1IE,
-      typename IR_fields_::OF2IE,
-      typename IR_fields_::OF3IE,
-      typename IR_fields_::IF1IE,
-      typename IR_fields_::IF2IE,
-      typename IR_fields_::ROVIE,
+      typename IrFields::OF1IE,
+      typename IrFields::OF2IE,
+      typename IrFields::OF3IE,
+      typename IrFields::IF1IE,
+      typename IrFields::IF2IE,
+      typename IrFields::ROVIE,
       ftl::mmio::Reserved<26, 6>> {
-    using eOF1IE = typename IR_fields_::eOF1IE;
-    using eOF2IE = typename IR_fields_::eOF2IE;
-    using eOF3IE = typename IR_fields_::eOF3IE;
-    using eIF1IE = typename IR_fields_::eIF1IE;
-    using eIF2IE = typename IR_fields_::eIF2IE;
-    using eROVIE = typename IR_fields_::eROVIE;
-    using OF1IE = typename IR_fields_::OF1IE;
-    using OF2IE = typename IR_fields_::OF2IE;
-    using OF3IE = typename IR_fields_::OF3IE;
-    using IF1IE = typename IR_fields_::IF1IE;
-    using IF2IE = typename IR_fields_::IF2IE;
-    using ROVIE = typename IR_fields_::ROVIE;
+    using eOF1IE = typename IrFields::eOF1IE;
+    using eOF2IE = typename IrFields::eOF2IE;
+    using eOF3IE = typename IrFields::eOF3IE;
+    using eIF1IE = typename IrFields::eIF1IE;
+    using eIF2IE = typename IrFields::eIF2IE;
+    using eROVIE = typename IrFields::eROVIE;
+    using OF1IE = typename IrFields::OF1IE;
+    using OF2IE = typename IrFields::OF2IE;
+    using OF3IE = typename IrFields::OF3IE;
+    using IF1IE = typename IrFields::IF1IE;
+    using IF2IE = typename IrFields::IF2IE;
+    using ROVIE = typename IrFields::ROVIE;
   };
 
   // GPT Output Compare Register
-  struct OCR_fields_ {
+  struct OcrFields {
     // Compare Value
     using COMP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct OCR_fields_
+  };  // struct OcrFields
 
   template<std::uint32_t Index>
   struct OCR : ftl::mmio::Register<
@@ -505,16 +505,16 @@ struct Gpt {
       std::uint32_t,
       0xFFFFFFFFu,
       ftl::mmio::RW,
-      typename OCR_fields_::COMP> {
+      typename OcrFields::COMP> {
     static_assert(Index < 3u, "OCR: Index out of range");
-    using COMP = typename OCR_fields_::COMP;
+    using COMP = typename OcrFields::COMP;
   };
 
   // GPT Input Capture Register
-  struct ICR_fields_ {
+  struct IcrFields {
     // Capture Value
     using CAPT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct ICR_fields_
+  };  // struct IcrFields
 
   template<std::uint32_t Index>
   struct ICR : ftl::mmio::Register<
@@ -522,24 +522,24 @@ struct Gpt {
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename ICR_fields_::CAPT> {
+      typename IcrFields::CAPT> {
     static_assert(Index < 2u, "ICR: Index out of range");
-    using CAPT = typename ICR_fields_::CAPT;
+    using CAPT = typename IcrFields::CAPT;
   };
 
   // GPT Counter Register
-  struct CNT_fields_ {
+  struct CntFields {
     // Counter Value
     using COUNT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct CNT_fields_
+  };  // struct CntFields
 
   struct CNT : ftl::mmio::Register<
       kBase + 0x24u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename CNT_fields_::COUNT> {
-    using COUNT = typename CNT_fields_::COUNT;
+      typename CntFields::COUNT> {
+    using COUNT = typename CntFields::COUNT;
   };
 
 };

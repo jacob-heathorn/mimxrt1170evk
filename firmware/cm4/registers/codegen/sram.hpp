@@ -10,7 +10,7 @@ namespace regs {
 
 struct Sram {
   // Control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eRAM_RD_EN : std::uint32_t {
       // Disable read access
       eDISABLE = 0,
@@ -51,31 +51,31 @@ struct Sram {
     using TAMPER_PWR_OFF_EN = ftl::mmio::Field<1, 7, eTAMPER_PWR_OFF_EN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Lock bits
     using LOCK_BIT = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       0x40C9F000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRL_fields_::RAM_RD_EN,
-      CTRL_fields_::RAM_WR_EN,
-      CTRL_fields_::PWR_EN,
-      CTRL_fields_::TAMPER_BLOCK_EN,
-      CTRL_fields_::TAMPER_PWR_OFF_EN,
+      CtrlFields::RAM_RD_EN,
+      CtrlFields::RAM_WR_EN,
+      CtrlFields::PWR_EN,
+      CtrlFields::TAMPER_BLOCK_EN,
+      CtrlFields::TAMPER_PWR_OFF_EN,
       ftl::mmio::Reserved<8, 8>,
-      CTRL_fields_::LOCK_BIT,
+      CtrlFields::LOCK_BIT,
       ftl::mmio::Reserved<8, 24>> {
-    using eRAM_RD_EN = CTRL_fields_::eRAM_RD_EN;
-    using eRAM_WR_EN = CTRL_fields_::eRAM_WR_EN;
-    using eTAMPER_BLOCK_EN = CTRL_fields_::eTAMPER_BLOCK_EN;
-    using eTAMPER_PWR_OFF_EN = CTRL_fields_::eTAMPER_PWR_OFF_EN;
-    using RAM_RD_EN = CTRL_fields_::RAM_RD_EN;
-    using RAM_WR_EN = CTRL_fields_::RAM_WR_EN;
-    using PWR_EN = CTRL_fields_::PWR_EN;
-    using TAMPER_BLOCK_EN = CTRL_fields_::TAMPER_BLOCK_EN;
-    using TAMPER_PWR_OFF_EN = CTRL_fields_::TAMPER_PWR_OFF_EN;
-    using LOCK_BIT = CTRL_fields_::LOCK_BIT;
+    using eRAM_RD_EN = CtrlFields::eRAM_RD_EN;
+    using eRAM_WR_EN = CtrlFields::eRAM_WR_EN;
+    using eTAMPER_BLOCK_EN = CtrlFields::eTAMPER_BLOCK_EN;
+    using eTAMPER_PWR_OFF_EN = CtrlFields::eTAMPER_PWR_OFF_EN;
+    using RAM_RD_EN = CtrlFields::RAM_RD_EN;
+    using RAM_WR_EN = CtrlFields::RAM_WR_EN;
+    using PWR_EN = CtrlFields::PWR_EN;
+    using TAMPER_BLOCK_EN = CtrlFields::TAMPER_BLOCK_EN;
+    using TAMPER_PWR_OFF_EN = CtrlFields::TAMPER_PWR_OFF_EN;
+    using LOCK_BIT = CtrlFields::LOCK_BIT;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct Lcdifv2 {
   // LCDIFv2 display control Register
-  struct CTRL_fields_ {
+  struct CtrlFields {
     enum class eINV_HS : std::uint32_t {
       // HSYNC signal not inverted (active HIGH)
       ebf_val0 = 0,
@@ -65,36 +65,36 @@ struct Lcdifv2 {
     using NEG = ftl::mmio::Field<1, 4, eNEG, ftl::mmio::RW, ftl::mmio::Normal>;
     // Software Reset
     using SW_RESET = ftl::mmio::Field<1, 31, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRL_fields_
+  };  // struct CtrlFields
 
   struct CTRL : ftl::mmio::Register<
       0x40808000u,
       std::uint32_t,
       0x80000000u,
       ftl::mmio::RW,
-      CTRL_fields_::INV_HS,
-      CTRL_fields_::INV_VS,
-      CTRL_fields_::INV_DE,
-      CTRL_fields_::INV_PXCK,
-      CTRL_fields_::NEG,
+      CtrlFields::INV_HS,
+      CtrlFields::INV_VS,
+      CtrlFields::INV_DE,
+      CtrlFields::INV_PXCK,
+      CtrlFields::NEG,
       ftl::mmio::Reserved<26, 5>,
-      CTRL_fields_::SW_RESET> {
-    using eINV_HS = CTRL_fields_::eINV_HS;
-    using eINV_VS = CTRL_fields_::eINV_VS;
-    using eINV_DE = CTRL_fields_::eINV_DE;
-    using eINV_PXCK = CTRL_fields_::eINV_PXCK;
-    using eNEG = CTRL_fields_::eNEG;
-    using eSW_RESET = CTRL_fields_::eSW_RESET;
-    using INV_HS = CTRL_fields_::INV_HS;
-    using INV_VS = CTRL_fields_::INV_VS;
-    using INV_DE = CTRL_fields_::INV_DE;
-    using INV_PXCK = CTRL_fields_::INV_PXCK;
-    using NEG = CTRL_fields_::NEG;
-    using SW_RESET = CTRL_fields_::SW_RESET;
+      CtrlFields::SW_RESET> {
+    using eINV_HS = CtrlFields::eINV_HS;
+    using eINV_VS = CtrlFields::eINV_VS;
+    using eINV_DE = CtrlFields::eINV_DE;
+    using eINV_PXCK = CtrlFields::eINV_PXCK;
+    using eNEG = CtrlFields::eNEG;
+    using eSW_RESET = CtrlFields::eSW_RESET;
+    using INV_HS = CtrlFields::INV_HS;
+    using INV_VS = CtrlFields::INV_VS;
+    using INV_DE = CtrlFields::INV_DE;
+    using INV_PXCK = CtrlFields::INV_PXCK;
+    using NEG = CtrlFields::NEG;
+    using SW_RESET = CtrlFields::SW_RESET;
   };
 
   // LCDIFv2 display control Register
-  struct CTRL_SET_fields_ {
+  struct CtrlSetFields {
     // Invert Horizontal synchronization signal
     using INV_HS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Invert Vertical synchronization signal
@@ -107,30 +107,30 @@ struct Lcdifv2 {
     using NEG = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
     // Software Reset
     using SW_RESET = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-  };  // struct CTRL_SET_fields_
+  };  // struct CtrlSetFields
 
   struct CTRL_SET : ftl::mmio::Register<
       0x40808004u,
       std::uint32_t,
       0x80000000u,
       ftl::mmio::RW,
-      CTRL_SET_fields_::INV_HS,
-      CTRL_SET_fields_::INV_VS,
-      CTRL_SET_fields_::INV_DE,
-      CTRL_SET_fields_::INV_PXCK,
-      CTRL_SET_fields_::NEG,
+      CtrlSetFields::INV_HS,
+      CtrlSetFields::INV_VS,
+      CtrlSetFields::INV_DE,
+      CtrlSetFields::INV_PXCK,
+      CtrlSetFields::NEG,
       ftl::mmio::Reserved<26, 5>,
-      CTRL_SET_fields_::SW_RESET> {
-    using INV_HS = CTRL_SET_fields_::INV_HS;
-    using INV_VS = CTRL_SET_fields_::INV_VS;
-    using INV_DE = CTRL_SET_fields_::INV_DE;
-    using INV_PXCK = CTRL_SET_fields_::INV_PXCK;
-    using NEG = CTRL_SET_fields_::NEG;
-    using SW_RESET = CTRL_SET_fields_::SW_RESET;
+      CtrlSetFields::SW_RESET> {
+    using INV_HS = CtrlSetFields::INV_HS;
+    using INV_VS = CtrlSetFields::INV_VS;
+    using INV_DE = CtrlSetFields::INV_DE;
+    using INV_PXCK = CtrlSetFields::INV_PXCK;
+    using NEG = CtrlSetFields::NEG;
+    using SW_RESET = CtrlSetFields::SW_RESET;
   };
 
   // LCDIFv2 display control Register
-  struct CTRL_CLR_fields_ {
+  struct CtrlClrFields {
     // Invert Horizontal synchronization signal
     using INV_HS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Invert Vertical synchronization signal
@@ -143,30 +143,30 @@ struct Lcdifv2 {
     using NEG = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Software Reset
     using SW_RESET = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct CTRL_CLR_fields_
+  };  // struct CtrlClrFields
 
   struct CTRL_CLR : ftl::mmio::Register<
       0x40808008u,
       std::uint32_t,
       0x80000000u,
       ftl::mmio::RW,
-      CTRL_CLR_fields_::INV_HS,
-      CTRL_CLR_fields_::INV_VS,
-      CTRL_CLR_fields_::INV_DE,
-      CTRL_CLR_fields_::INV_PXCK,
-      CTRL_CLR_fields_::NEG,
+      CtrlClrFields::INV_HS,
+      CtrlClrFields::INV_VS,
+      CtrlClrFields::INV_DE,
+      CtrlClrFields::INV_PXCK,
+      CtrlClrFields::NEG,
       ftl::mmio::Reserved<26, 5>,
-      CTRL_CLR_fields_::SW_RESET> {
-    using INV_HS = CTRL_CLR_fields_::INV_HS;
-    using INV_VS = CTRL_CLR_fields_::INV_VS;
-    using INV_DE = CTRL_CLR_fields_::INV_DE;
-    using INV_PXCK = CTRL_CLR_fields_::INV_PXCK;
-    using NEG = CTRL_CLR_fields_::NEG;
-    using SW_RESET = CTRL_CLR_fields_::SW_RESET;
+      CtrlClrFields::SW_RESET> {
+    using INV_HS = CtrlClrFields::INV_HS;
+    using INV_VS = CtrlClrFields::INV_VS;
+    using INV_DE = CtrlClrFields::INV_DE;
+    using INV_PXCK = CtrlClrFields::INV_PXCK;
+    using NEG = CtrlClrFields::NEG;
+    using SW_RESET = CtrlClrFields::SW_RESET;
   };
 
   // LCDIFv2 display control Register
-  struct CTRL_TOG_fields_ {
+  struct CtrlTogFields {
     // Invert Horizontal synchronization signal
     using INV_HS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Invert Vertical synchronization signal
@@ -179,30 +179,30 @@ struct Lcdifv2 {
     using NEG = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
     // Software Reset
     using SW_RESET = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-  };  // struct CTRL_TOG_fields_
+  };  // struct CtrlTogFields
 
   struct CTRL_TOG : ftl::mmio::Register<
       0x4080800Cu,
       std::uint32_t,
       0x80000000u,
       ftl::mmio::RW,
-      CTRL_TOG_fields_::INV_HS,
-      CTRL_TOG_fields_::INV_VS,
-      CTRL_TOG_fields_::INV_DE,
-      CTRL_TOG_fields_::INV_PXCK,
-      CTRL_TOG_fields_::NEG,
+      CtrlTogFields::INV_HS,
+      CtrlTogFields::INV_VS,
+      CtrlTogFields::INV_DE,
+      CtrlTogFields::INV_PXCK,
+      CtrlTogFields::NEG,
       ftl::mmio::Reserved<26, 5>,
-      CTRL_TOG_fields_::SW_RESET> {
-    using INV_HS = CTRL_TOG_fields_::INV_HS;
-    using INV_VS = CTRL_TOG_fields_::INV_VS;
-    using INV_DE = CTRL_TOG_fields_::INV_DE;
-    using INV_PXCK = CTRL_TOG_fields_::INV_PXCK;
-    using NEG = CTRL_TOG_fields_::NEG;
-    using SW_RESET = CTRL_TOG_fields_::SW_RESET;
+      CtrlTogFields::SW_RESET> {
+    using INV_HS = CtrlTogFields::INV_HS;
+    using INV_VS = CtrlTogFields::INV_VS;
+    using INV_DE = CtrlTogFields::INV_DE;
+    using INV_PXCK = CtrlTogFields::INV_PXCK;
+    using NEG = CtrlTogFields::NEG;
+    using SW_RESET = CtrlTogFields::SW_RESET;
   };
 
   // Display Parameter Register
-  struct DISP_PARA_fields_ {
+  struct DispParaFields {
     enum class eDISP_MODE : std::uint32_t {
       // Normal mode. Panel content controlled by layer configuration
       ebf_val0 = 0,
@@ -248,106 +248,106 @@ struct Lcdifv2 {
     using LINE_PATTERN = ftl::mmio::Field<3, 26, eLINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Display panel On/Off mode
     using DISP_ON = ftl::mmio::Field<1, 31, eDISP_ON, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DISP_PARA_fields_
+  };  // struct DispParaFields
 
   struct DISP_PARA : ftl::mmio::Register<
       0x40808010u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DISP_PARA_fields_::BGND_B,
-      DISP_PARA_fields_::BGND_G,
-      DISP_PARA_fields_::BGND_R,
-      DISP_PARA_fields_::DISP_MODE,
-      DISP_PARA_fields_::LINE_PATTERN,
+      DispParaFields::BGND_B,
+      DispParaFields::BGND_G,
+      DispParaFields::BGND_R,
+      DispParaFields::DISP_MODE,
+      DispParaFields::LINE_PATTERN,
       ftl::mmio::Reserved<2, 29>,
-      DISP_PARA_fields_::DISP_ON> {
-    using eDISP_MODE = DISP_PARA_fields_::eDISP_MODE;
-    using eLINE_PATTERN = DISP_PARA_fields_::eLINE_PATTERN;
-    using eDISP_ON = DISP_PARA_fields_::eDISP_ON;
-    using BGND_B = DISP_PARA_fields_::BGND_B;
-    using BGND_G = DISP_PARA_fields_::BGND_G;
-    using BGND_R = DISP_PARA_fields_::BGND_R;
-    using DISP_MODE = DISP_PARA_fields_::DISP_MODE;
-    using LINE_PATTERN = DISP_PARA_fields_::LINE_PATTERN;
-    using DISP_ON = DISP_PARA_fields_::DISP_ON;
+      DispParaFields::DISP_ON> {
+    using eDISP_MODE = DispParaFields::eDISP_MODE;
+    using eLINE_PATTERN = DispParaFields::eLINE_PATTERN;
+    using eDISP_ON = DispParaFields::eDISP_ON;
+    using BGND_B = DispParaFields::BGND_B;
+    using BGND_G = DispParaFields::BGND_G;
+    using BGND_R = DispParaFields::BGND_R;
+    using DISP_MODE = DispParaFields::DISP_MODE;
+    using LINE_PATTERN = DispParaFields::LINE_PATTERN;
+    using DISP_ON = DispParaFields::DISP_ON;
   };
 
   // Display Size Register
-  struct DISP_SIZE_fields_ {
+  struct DispSizeFields {
     // Sets the display size horizontal resolution in pixels
     using DELTA_X = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Sets the display size vertical resolution in pixels
     using DELTA_Y = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DISP_SIZE_fields_
+  };  // struct DispSizeFields
 
   struct DISP_SIZE : ftl::mmio::Register<
       0x40808014u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      DISP_SIZE_fields_::DELTA_X,
+      DispSizeFields::DELTA_X,
       ftl::mmio::Reserved<4, 12>,
-      DISP_SIZE_fields_::DELTA_Y,
+      DispSizeFields::DELTA_Y,
       ftl::mmio::Reserved<4, 28>> {
-    using DELTA_X = DISP_SIZE_fields_::DELTA_X;
-    using DELTA_Y = DISP_SIZE_fields_::DELTA_Y;
+    using DELTA_X = DispSizeFields::DELTA_X;
+    using DELTA_Y = DispSizeFields::DELTA_Y;
   };
 
   // Horizontal Sync Parameter Register
-  struct HSYN_PARA_fields_ {
+  struct HsynParaFields {
     // HSYNC front-porch pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
     using FP_H = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // HSYNC active pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
     using PW_H = ftl::mmio::Field<9, 11, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // HSYNC back-porch pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
     using BP_H = ftl::mmio::Field<9, 22, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct HSYN_PARA_fields_
+  };  // struct HsynParaFields
 
   struct HSYN_PARA : ftl::mmio::Register<
       0x40808018u,
       std::uint32_t,
       0x00C01803u,
       ftl::mmio::RW,
-      HSYN_PARA_fields_::FP_H,
+      HsynParaFields::FP_H,
       ftl::mmio::Reserved<2, 9>,
-      HSYN_PARA_fields_::PW_H,
+      HsynParaFields::PW_H,
       ftl::mmio::Reserved<2, 20>,
-      HSYN_PARA_fields_::BP_H,
+      HsynParaFields::BP_H,
       ftl::mmio::Reserved<1, 31>> {
-    using FP_H = HSYN_PARA_fields_::FP_H;
-    using PW_H = HSYN_PARA_fields_::PW_H;
-    using BP_H = HSYN_PARA_fields_::BP_H;
+    using FP_H = HsynParaFields::FP_H;
+    using PW_H = HsynParaFields::PW_H;
+    using BP_H = HsynParaFields::BP_H;
   };
 
   // Vertical Sync Parameter Register
-  struct VSYN_PARA_fields_ {
+  struct VsynParaFields {
     // VSYNC front-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
     using FP_V = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // VSYNC active pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
     using PW_V = ftl::mmio::Field<9, 11, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // VSYNC back-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
     using BP_V = ftl::mmio::Field<9, 22, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct VSYN_PARA_fields_
+  };  // struct VsynParaFields
 
   struct VSYN_PARA : ftl::mmio::Register<
       0x4080801Cu,
       std::uint32_t,
       0x00C01803u,
       ftl::mmio::RW,
-      VSYN_PARA_fields_::FP_V,
+      VsynParaFields::FP_V,
       ftl::mmio::Reserved<2, 9>,
-      VSYN_PARA_fields_::PW_V,
+      VsynParaFields::PW_V,
       ftl::mmio::Reserved<2, 20>,
-      VSYN_PARA_fields_::BP_V,
+      VsynParaFields::BP_V,
       ftl::mmio::Reserved<1, 31>> {
-    using FP_V = VSYN_PARA_fields_::FP_V;
-    using PW_V = VSYN_PARA_fields_::PW_V;
-    using BP_V = VSYN_PARA_fields_::BP_V;
+    using FP_V = VsynParaFields::FP_V;
+    using PW_V = VsynParaFields::PW_V;
+    using BP_V = VsynParaFields::BP_V;
   };
 
   // Interrupt Status Register for domain 0
-  struct INT_STATUS_D0_fields_ {
+  struct IntStatusD0Fields {
     enum class eVSYNC : std::uint32_t {
       // VSYNC has not started
       ebf_val0 = 0,
@@ -381,33 +381,33 @@ struct Lcdifv2 {
     using DMA_DONE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Interrupt flag to indicate that which FIFO in the pixel blending underflowed
     using FIFO_EMPTY = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct INT_STATUS_D0_fields_
+  };  // struct IntStatusD0Fields
 
   struct INT_STATUS_D0 : ftl::mmio::Register<
       0x40808020u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      INT_STATUS_D0_fields_::VSYNC,
-      INT_STATUS_D0_fields_::UNDERRUN,
-      INT_STATUS_D0_fields_::VS_BLANK,
+      IntStatusD0Fields::VSYNC,
+      IntStatusD0Fields::UNDERRUN,
+      IntStatusD0Fields::VS_BLANK,
       ftl::mmio::Reserved<5, 3>,
-      INT_STATUS_D0_fields_::DMA_ERR,
-      INT_STATUS_D0_fields_::DMA_DONE,
-      INT_STATUS_D0_fields_::FIFO_EMPTY> {
-    using eVSYNC = INT_STATUS_D0_fields_::eVSYNC;
-    using eUNDERRUN = INT_STATUS_D0_fields_::eUNDERRUN;
-    using eVS_BLANK = INT_STATUS_D0_fields_::eVS_BLANK;
-    using VSYNC = INT_STATUS_D0_fields_::VSYNC;
-    using UNDERRUN = INT_STATUS_D0_fields_::UNDERRUN;
-    using VS_BLANK = INT_STATUS_D0_fields_::VS_BLANK;
-    using DMA_ERR = INT_STATUS_D0_fields_::DMA_ERR;
-    using DMA_DONE = INT_STATUS_D0_fields_::DMA_DONE;
-    using FIFO_EMPTY = INT_STATUS_D0_fields_::FIFO_EMPTY;
+      IntStatusD0Fields::DMA_ERR,
+      IntStatusD0Fields::DMA_DONE,
+      IntStatusD0Fields::FIFO_EMPTY> {
+    using eVSYNC = IntStatusD0Fields::eVSYNC;
+    using eUNDERRUN = IntStatusD0Fields::eUNDERRUN;
+    using eVS_BLANK = IntStatusD0Fields::eVS_BLANK;
+    using VSYNC = IntStatusD0Fields::VSYNC;
+    using UNDERRUN = IntStatusD0Fields::UNDERRUN;
+    using VS_BLANK = IntStatusD0Fields::VS_BLANK;
+    using DMA_ERR = IntStatusD0Fields::DMA_ERR;
+    using DMA_DONE = IntStatusD0Fields::DMA_DONE;
+    using FIFO_EMPTY = IntStatusD0Fields::FIFO_EMPTY;
   };
 
   // Interrupt Enable Register for domain 0
-  struct INT_ENABLE_D0_fields_ {
+  struct IntEnableD0Fields {
     enum class eVSYNC_EN : std::uint32_t {
       // VSYNC interrupt disable
       ebf_val0 = 0,
@@ -441,33 +441,33 @@ struct Lcdifv2 {
     using DMA_DONE_EN = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Interrupt flag to indicate that which FIFO in the pixel blending underflowed
     using FIFO_EMPTY_EN = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct INT_ENABLE_D0_fields_
+  };  // struct IntEnableD0Fields
 
   struct INT_ENABLE_D0 : ftl::mmio::Register<
       0x40808024u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      INT_ENABLE_D0_fields_::VSYNC_EN,
-      INT_ENABLE_D0_fields_::UNDERRUN_EN,
-      INT_ENABLE_D0_fields_::VS_BLANK_EN,
+      IntEnableD0Fields::VSYNC_EN,
+      IntEnableD0Fields::UNDERRUN_EN,
+      IntEnableD0Fields::VS_BLANK_EN,
       ftl::mmio::Reserved<5, 3>,
-      INT_ENABLE_D0_fields_::DMA_ERR_EN,
-      INT_ENABLE_D0_fields_::DMA_DONE_EN,
-      INT_ENABLE_D0_fields_::FIFO_EMPTY_EN> {
-    using eVSYNC_EN = INT_ENABLE_D0_fields_::eVSYNC_EN;
-    using eUNDERRUN_EN = INT_ENABLE_D0_fields_::eUNDERRUN_EN;
-    using eVS_BLANK_EN = INT_ENABLE_D0_fields_::eVS_BLANK_EN;
-    using VSYNC_EN = INT_ENABLE_D0_fields_::VSYNC_EN;
-    using UNDERRUN_EN = INT_ENABLE_D0_fields_::UNDERRUN_EN;
-    using VS_BLANK_EN = INT_ENABLE_D0_fields_::VS_BLANK_EN;
-    using DMA_ERR_EN = INT_ENABLE_D0_fields_::DMA_ERR_EN;
-    using DMA_DONE_EN = INT_ENABLE_D0_fields_::DMA_DONE_EN;
-    using FIFO_EMPTY_EN = INT_ENABLE_D0_fields_::FIFO_EMPTY_EN;
+      IntEnableD0Fields::DMA_ERR_EN,
+      IntEnableD0Fields::DMA_DONE_EN,
+      IntEnableD0Fields::FIFO_EMPTY_EN> {
+    using eVSYNC_EN = IntEnableD0Fields::eVSYNC_EN;
+    using eUNDERRUN_EN = IntEnableD0Fields::eUNDERRUN_EN;
+    using eVS_BLANK_EN = IntEnableD0Fields::eVS_BLANK_EN;
+    using VSYNC_EN = IntEnableD0Fields::VSYNC_EN;
+    using UNDERRUN_EN = IntEnableD0Fields::UNDERRUN_EN;
+    using VS_BLANK_EN = IntEnableD0Fields::VS_BLANK_EN;
+    using DMA_ERR_EN = IntEnableD0Fields::DMA_ERR_EN;
+    using DMA_DONE_EN = IntEnableD0Fields::DMA_DONE_EN;
+    using FIFO_EMPTY_EN = IntEnableD0Fields::FIFO_EMPTY_EN;
   };
 
   // Interrupt Status Register for domain 1
-  struct INT_STATUS_D1_fields_ {
+  struct IntStatusD1Fields {
     // Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
     using VSYNC = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Interrupt flag to indicate the output buffer underrun condition
@@ -480,30 +480,30 @@ struct Lcdifv2 {
     using DMA_DONE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
     // Interrupt flag to indicate that which FIFO in the pixel blending underflowed
     using FIFO_EMPTY = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct INT_STATUS_D1_fields_
+  };  // struct IntStatusD1Fields
 
   struct INT_STATUS_D1 : ftl::mmio::Register<
       0x40808030u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      INT_STATUS_D1_fields_::VSYNC,
-      INT_STATUS_D1_fields_::UNDERRUN,
-      INT_STATUS_D1_fields_::VS_BLANK,
+      IntStatusD1Fields::VSYNC,
+      IntStatusD1Fields::UNDERRUN,
+      IntStatusD1Fields::VS_BLANK,
       ftl::mmio::Reserved<5, 3>,
-      INT_STATUS_D1_fields_::DMA_ERR,
-      INT_STATUS_D1_fields_::DMA_DONE,
-      INT_STATUS_D1_fields_::FIFO_EMPTY> {
-    using VSYNC = INT_STATUS_D1_fields_::VSYNC;
-    using UNDERRUN = INT_STATUS_D1_fields_::UNDERRUN;
-    using VS_BLANK = INT_STATUS_D1_fields_::VS_BLANK;
-    using DMA_ERR = INT_STATUS_D1_fields_::DMA_ERR;
-    using DMA_DONE = INT_STATUS_D1_fields_::DMA_DONE;
-    using FIFO_EMPTY = INT_STATUS_D1_fields_::FIFO_EMPTY;
+      IntStatusD1Fields::DMA_ERR,
+      IntStatusD1Fields::DMA_DONE,
+      IntStatusD1Fields::FIFO_EMPTY> {
+    using VSYNC = IntStatusD1Fields::VSYNC;
+    using UNDERRUN = IntStatusD1Fields::UNDERRUN;
+    using VS_BLANK = IntStatusD1Fields::VS_BLANK;
+    using DMA_ERR = IntStatusD1Fields::DMA_ERR;
+    using DMA_DONE = IntStatusD1Fields::DMA_DONE;
+    using FIFO_EMPTY = IntStatusD1Fields::FIFO_EMPTY;
   };
 
   // Interrupt Enable Register for domain 1
-  struct INT_ENABLE_D1_fields_ {
+  struct IntEnableD1Fields {
     // Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
     using VSYNC_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Interrupt flag to indicate the output buffer underrun condition
@@ -516,31 +516,31 @@ struct Lcdifv2 {
     using DMA_DONE_EN = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable Interrupt flag to indicate that which FIFO in the pixel blending underflowed
     using FIFO_EMPTY_EN = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct INT_ENABLE_D1_fields_
+  };  // struct IntEnableD1Fields
 
   struct INT_ENABLE_D1 : ftl::mmio::Register<
       0x40808034u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      INT_ENABLE_D1_fields_::VSYNC_EN,
-      INT_ENABLE_D1_fields_::UNDERRUN_EN,
-      INT_ENABLE_D1_fields_::VS_BLANK_EN,
+      IntEnableD1Fields::VSYNC_EN,
+      IntEnableD1Fields::UNDERRUN_EN,
+      IntEnableD1Fields::VS_BLANK_EN,
       ftl::mmio::Reserved<5, 3>,
-      INT_ENABLE_D1_fields_::DMA_ERR_EN,
-      INT_ENABLE_D1_fields_::DMA_DONE_EN,
-      INT_ENABLE_D1_fields_::FIFO_EMPTY_EN> {
-    using VSYNC_EN = INT_ENABLE_D1_fields_::VSYNC_EN;
-    using UNDERRUN_EN = INT_ENABLE_D1_fields_::UNDERRUN_EN;
-    using VS_BLANK_EN = INT_ENABLE_D1_fields_::VS_BLANK_EN;
-    using DMA_ERR_EN = INT_ENABLE_D1_fields_::DMA_ERR_EN;
-    using DMA_DONE_EN = INT_ENABLE_D1_fields_::DMA_DONE_EN;
-    using FIFO_EMPTY_EN = INT_ENABLE_D1_fields_::FIFO_EMPTY_EN;
+      IntEnableD1Fields::DMA_ERR_EN,
+      IntEnableD1Fields::DMA_DONE_EN,
+      IntEnableD1Fields::FIFO_EMPTY_EN> {
+    using VSYNC_EN = IntEnableD1Fields::VSYNC_EN;
+    using UNDERRUN_EN = IntEnableD1Fields::UNDERRUN_EN;
+    using VS_BLANK_EN = IntEnableD1Fields::VS_BLANK_EN;
+    using DMA_ERR_EN = IntEnableD1Fields::DMA_ERR_EN;
+    using DMA_DONE_EN = IntEnableD1Fields::DMA_DONE_EN;
+    using FIFO_EMPTY_EN = IntEnableD1Fields::FIFO_EMPTY_EN;
   };
 
   // Reserved
-  struct PDI_PARA_fields_ {
-  };  // struct PDI_PARA_fields_
+  struct PdiParaFields {
+  };  // struct PdiParaFields
 
   struct PDI_PARA : ftl::mmio::Register<
       0x40808040u,
@@ -551,80 +551,80 @@ struct Lcdifv2 {
   };
 
   // Control Descriptor Layer 1 Register
-  struct CTRLDESCL0_1_fields_ {
+  struct Ctrldescl01Fields {
     // Width of the layer in pixels
     using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Height of the layer in pixels
     using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL0_1_fields_
+  };  // struct Ctrldescl01Fields
 
   struct CTRLDESCL0_1 : ftl::mmio::Register<
       0x40808200u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL0_1_fields_::WIDTH,
+      Ctrldescl01Fields::WIDTH,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL0_1_fields_::HEIGHT,
+      Ctrldescl01Fields::HEIGHT,
       ftl::mmio::Reserved<4, 28>> {
-    using WIDTH = CTRLDESCL0_1_fields_::WIDTH;
-    using HEIGHT = CTRLDESCL0_1_fields_::HEIGHT;
+    using WIDTH = Ctrldescl01Fields::WIDTH;
+    using HEIGHT = Ctrldescl01Fields::HEIGHT;
   };
 
   // Control Descriptor Layer 2 Register
-  struct CTRLDESCL0_2_fields_ {
+  struct Ctrldescl02Fields {
     // POS X
     using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL0_2_fields_
+  };  // struct Ctrldescl02Fields
 
   struct CTRLDESCL0_2 : ftl::mmio::Register<
       0x40808204u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL0_2_fields_::POSX,
+      Ctrldescl02Fields::POSX,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL0_2_fields_::POSY,
+      Ctrldescl02Fields::POSY,
       ftl::mmio::Reserved<4, 28>> {
-    using POSX = CTRLDESCL0_2_fields_::POSX;
-    using POSY = CTRLDESCL0_2_fields_::POSY;
+    using POSX = Ctrldescl02Fields::POSX;
+    using POSY = Ctrldescl02Fields::POSY;
   };
 
   // Control Descriptor Layer 3 Register
-  struct CTRLDESCL0_3_fields_ {
+  struct Ctrldescl03Fields {
     // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL0_3_fields_
+  };  // struct Ctrldescl03Fields
 
   struct CTRLDESCL0_3 : ftl::mmio::Register<
       0x40808208u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL0_3_fields_::PITCH,
+      Ctrldescl03Fields::PITCH,
       ftl::mmio::Reserved<16, 16>> {
-    using PITCH = CTRLDESCL0_3_fields_::PITCH;
+    using PITCH = Ctrldescl03Fields::PITCH;
   };
 
   // Control Descriptor Layer 4 Register
-  struct CTRLDESCL0_4_fields_ {
+  struct Ctrldescl04Fields {
     // Address of layer data in the memory. The address programmed should be 64-bit aligned
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL0_4_fields_
+  };  // struct Ctrldescl04Fields
 
   struct CTRLDESCL0_4 : ftl::mmio::Register<
       0x4080820Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL0_4_fields_::ADDR> {
-    using ADDR = CTRLDESCL0_4_fields_::ADDR;
+      Ctrldescl04Fields::ADDR> {
+    using ADDR = Ctrldescl04Fields::ADDR;
   };
 
   // Control Descriptor Layer 5 Register
-  struct CTRLDESCL0_5_fields_ {
+  struct Ctrldescl05Fields {
     enum class eAB_MODE : std::uint32_t {
       // No alpha Blending (The SAFETY_EN bit need set to 1)
       ebf_val0 = 0,
@@ -744,75 +744,75 @@ struct Lcdifv2 {
     using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable the layer for DMA
     using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL0_5_fields_
+  };  // struct Ctrldescl05Fields
 
   struct CTRLDESCL0_5 : ftl::mmio::Register<
       0x40808210u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL0_5_fields_::AB_MODE,
+      Ctrldescl05Fields::AB_MODE,
       ftl::mmio::Reserved<2, 2>,
-      CTRLDESCL0_5_fields_::PD_FACTOR_MODE,
-      CTRLDESCL0_5_fields_::PD_GLOBAL_ALPHA_MODE,
-      CTRLDESCL0_5_fields_::PD_ALPHA_MODE,
-      CTRLDESCL0_5_fields_::PD_COLOR_MODE,
+      Ctrldescl05Fields::PD_FACTOR_MODE,
+      Ctrldescl05Fields::PD_GLOBAL_ALPHA_MODE,
+      Ctrldescl05Fields::PD_ALPHA_MODE,
+      Ctrldescl05Fields::PD_COLOR_MODE,
       ftl::mmio::Reserved<4, 10>,
-      CTRLDESCL0_5_fields_::YUV_FORMAT,
-      CTRLDESCL0_5_fields_::GLOBAL_ALPHA,
-      CTRLDESCL0_5_fields_::BPP,
-      CTRLDESCL0_5_fields_::SAFETY_EN,
+      Ctrldescl05Fields::YUV_FORMAT,
+      Ctrldescl05Fields::GLOBAL_ALPHA,
+      Ctrldescl05Fields::BPP,
+      Ctrldescl05Fields::SAFETY_EN,
       ftl::mmio::Reserved<1, 29>,
-      CTRLDESCL0_5_fields_::SHADOW_LOAD_EN,
-      CTRLDESCL0_5_fields_::EN> {
-    using eAB_MODE = CTRLDESCL0_5_fields_::eAB_MODE;
-    using ePD_FACTOR_MODE = CTRLDESCL0_5_fields_::ePD_FACTOR_MODE;
-    using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL0_5_fields_::ePD_GLOBAL_ALPHA_MODE;
-    using ePD_ALPHA_MODE = CTRLDESCL0_5_fields_::ePD_ALPHA_MODE;
-    using ePD_COLOR_MODE = CTRLDESCL0_5_fields_::ePD_COLOR_MODE;
-    using eYUV_FORMAT = CTRLDESCL0_5_fields_::eYUV_FORMAT;
-    using eBPP = CTRLDESCL0_5_fields_::eBPP;
-    using eSAFETY_EN = CTRLDESCL0_5_fields_::eSAFETY_EN;
-    using eEN = CTRLDESCL0_5_fields_::eEN;
-    using AB_MODE = CTRLDESCL0_5_fields_::AB_MODE;
-    using PD_FACTOR_MODE = CTRLDESCL0_5_fields_::PD_FACTOR_MODE;
-    using PD_GLOBAL_ALPHA_MODE = CTRLDESCL0_5_fields_::PD_GLOBAL_ALPHA_MODE;
-    using PD_ALPHA_MODE = CTRLDESCL0_5_fields_::PD_ALPHA_MODE;
-    using PD_COLOR_MODE = CTRLDESCL0_5_fields_::PD_COLOR_MODE;
-    using YUV_FORMAT = CTRLDESCL0_5_fields_::YUV_FORMAT;
-    using GLOBAL_ALPHA = CTRLDESCL0_5_fields_::GLOBAL_ALPHA;
-    using BPP = CTRLDESCL0_5_fields_::BPP;
-    using SAFETY_EN = CTRLDESCL0_5_fields_::SAFETY_EN;
-    using SHADOW_LOAD_EN = CTRLDESCL0_5_fields_::SHADOW_LOAD_EN;
-    using EN = CTRLDESCL0_5_fields_::EN;
+      Ctrldescl05Fields::SHADOW_LOAD_EN,
+      Ctrldescl05Fields::EN> {
+    using eAB_MODE = Ctrldescl05Fields::eAB_MODE;
+    using ePD_FACTOR_MODE = Ctrldescl05Fields::ePD_FACTOR_MODE;
+    using ePD_GLOBAL_ALPHA_MODE = Ctrldescl05Fields::ePD_GLOBAL_ALPHA_MODE;
+    using ePD_ALPHA_MODE = Ctrldescl05Fields::ePD_ALPHA_MODE;
+    using ePD_COLOR_MODE = Ctrldescl05Fields::ePD_COLOR_MODE;
+    using eYUV_FORMAT = Ctrldescl05Fields::eYUV_FORMAT;
+    using eBPP = Ctrldescl05Fields::eBPP;
+    using eSAFETY_EN = Ctrldescl05Fields::eSAFETY_EN;
+    using eEN = Ctrldescl05Fields::eEN;
+    using AB_MODE = Ctrldescl05Fields::AB_MODE;
+    using PD_FACTOR_MODE = Ctrldescl05Fields::PD_FACTOR_MODE;
+    using PD_GLOBAL_ALPHA_MODE = Ctrldescl05Fields::PD_GLOBAL_ALPHA_MODE;
+    using PD_ALPHA_MODE = Ctrldescl05Fields::PD_ALPHA_MODE;
+    using PD_COLOR_MODE = Ctrldescl05Fields::PD_COLOR_MODE;
+    using YUV_FORMAT = Ctrldescl05Fields::YUV_FORMAT;
+    using GLOBAL_ALPHA = Ctrldescl05Fields::GLOBAL_ALPHA;
+    using BPP = Ctrldescl05Fields::BPP;
+    using SAFETY_EN = Ctrldescl05Fields::SAFETY_EN;
+    using SHADOW_LOAD_EN = Ctrldescl05Fields::SHADOW_LOAD_EN;
+    using EN = Ctrldescl05Fields::EN;
   };
 
   // Control Descriptor Layer 6 Register
-  struct CTRLDESCL0_6_fields_ {
+  struct Ctrldescl06Fields {
     // Background B component value
     using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background G component value
     using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background R component value
     using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL0_6_fields_
+  };  // struct Ctrldescl06Fields
 
   struct CTRLDESCL0_6 : ftl::mmio::Register<
       0x40808214u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL0_6_fields_::BCLR_B,
-      CTRLDESCL0_6_fields_::BCLR_G,
-      CTRLDESCL0_6_fields_::BCLR_R,
+      Ctrldescl06Fields::BCLR_B,
+      Ctrldescl06Fields::BCLR_G,
+      Ctrldescl06Fields::BCLR_R,
       ftl::mmio::Reserved<8, 24>> {
-    using BCLR_B = CTRLDESCL0_6_fields_::BCLR_B;
-    using BCLR_G = CTRLDESCL0_6_fields_::BCLR_G;
-    using BCLR_R = CTRLDESCL0_6_fields_::BCLR_R;
+    using BCLR_B = Ctrldescl06Fields::BCLR_B;
+    using BCLR_G = Ctrldescl06Fields::BCLR_G;
+    using BCLR_R = Ctrldescl06Fields::BCLR_R;
   };
 
   // Color Space Conversion Coefficient Register 0
-  struct CSC0_COEF0_fields_ {
+  struct Csc0Coef0Fields {
     enum class eENABLE : std::uint32_t {
       // The CSC is bypassed and the input pixels are RGB data already
       ebf_val0 = 0,
@@ -837,145 +837,145 @@ struct Lcdifv2 {
     using ENABLE = ftl::mmio::Field<1, 30, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // This bit changes the behavior when performing U/V converting
     using YCBCR_MODE = ftl::mmio::Field<1, 31, eYCBCR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSC0_COEF0_fields_
+  };  // struct Csc0Coef0Fields
 
   struct CSC0_COEF0 : ftl::mmio::Register<
       0x40808218u,
       std::uint32_t,
       0x04000000u,
       ftl::mmio::RW,
-      CSC0_COEF0_fields_::Y_OFFSET,
-      CSC0_COEF0_fields_::UV_OFFSET,
-      CSC0_COEF0_fields_::C0,
+      Csc0Coef0Fields::Y_OFFSET,
+      Csc0Coef0Fields::UV_OFFSET,
+      Csc0Coef0Fields::C0,
       ftl::mmio::Reserved<1, 29>,
-      CSC0_COEF0_fields_::ENABLE,
-      CSC0_COEF0_fields_::YCBCR_MODE> {
-    using eENABLE = CSC0_COEF0_fields_::eENABLE;
-    using eYCBCR_MODE = CSC0_COEF0_fields_::eYCBCR_MODE;
-    using Y_OFFSET = CSC0_COEF0_fields_::Y_OFFSET;
-    using UV_OFFSET = CSC0_COEF0_fields_::UV_OFFSET;
-    using C0 = CSC0_COEF0_fields_::C0;
-    using ENABLE = CSC0_COEF0_fields_::ENABLE;
-    using YCBCR_MODE = CSC0_COEF0_fields_::YCBCR_MODE;
+      Csc0Coef0Fields::ENABLE,
+      Csc0Coef0Fields::YCBCR_MODE> {
+    using eENABLE = Csc0Coef0Fields::eENABLE;
+    using eYCBCR_MODE = Csc0Coef0Fields::eYCBCR_MODE;
+    using Y_OFFSET = Csc0Coef0Fields::Y_OFFSET;
+    using UV_OFFSET = Csc0Coef0Fields::UV_OFFSET;
+    using C0 = Csc0Coef0Fields::C0;
+    using ENABLE = Csc0Coef0Fields::ENABLE;
+    using YCBCR_MODE = Csc0Coef0Fields::YCBCR_MODE;
   };
 
   // Color Space Conversion Coefficient Register 1
-  struct CSC0_COEF1_fields_ {
+  struct Csc0Coef1Fields {
     // Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
     using C4 = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
     using C1 = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSC0_COEF1_fields_
+  };  // struct Csc0Coef1Fields
 
   struct CSC0_COEF1 : ftl::mmio::Register<
       0x4080821Cu,
       std::uint32_t,
       0x01230208u,
       ftl::mmio::RW,
-      CSC0_COEF1_fields_::C4,
+      Csc0Coef1Fields::C4,
       ftl::mmio::Reserved<5, 11>,
-      CSC0_COEF1_fields_::C1,
+      Csc0Coef1Fields::C1,
       ftl::mmio::Reserved<5, 27>> {
-    using C4 = CSC0_COEF1_fields_::C4;
-    using C1 = CSC0_COEF1_fields_::C1;
+    using C4 = Csc0Coef1Fields::C4;
+    using C1 = Csc0Coef1Fields::C1;
   };
 
   // Color Space Conversion Coefficient Register 2
-  struct CSC0_COEF2_fields_ {
+  struct Csc0Coef2Fields {
     // Two's compliment Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
     using C3 = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Two's compliment Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
     using C2 = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSC0_COEF2_fields_
+  };  // struct Csc0Coef2Fields
 
   struct CSC0_COEF2 : ftl::mmio::Register<
       0x40808220u,
       std::uint32_t,
       0x076B079Cu,
       ftl::mmio::RW,
-      CSC0_COEF2_fields_::C3,
+      Csc0Coef2Fields::C3,
       ftl::mmio::Reserved<5, 11>,
-      CSC0_COEF2_fields_::C2,
+      Csc0Coef2Fields::C2,
       ftl::mmio::Reserved<5, 27>> {
-    using C3 = CSC0_COEF2_fields_::C3;
-    using C2 = CSC0_COEF2_fields_::C2;
+    using C3 = Csc0Coef2Fields::C3;
+    using C2 = Csc0Coef2Fields::C2;
   };
 
   // Control Descriptor Layer 1 Register
-  struct CTRLDESCL1_1_fields_ {
+  struct Ctrldescl11Fields {
     // Width of the layer in pixels
     using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Height of the layer in pixels
     using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL1_1_fields_
+  };  // struct Ctrldescl11Fields
 
   struct CTRLDESCL1_1 : ftl::mmio::Register<
       0x40808240u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL1_1_fields_::WIDTH,
+      Ctrldescl11Fields::WIDTH,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL1_1_fields_::HEIGHT,
+      Ctrldescl11Fields::HEIGHT,
       ftl::mmio::Reserved<4, 28>> {
-    using WIDTH = CTRLDESCL1_1_fields_::WIDTH;
-    using HEIGHT = CTRLDESCL1_1_fields_::HEIGHT;
+    using WIDTH = Ctrldescl11Fields::WIDTH;
+    using HEIGHT = Ctrldescl11Fields::HEIGHT;
   };
 
   // Control Descriptor Layer 2 Register
-  struct CTRLDESCL1_2_fields_ {
+  struct Ctrldescl12Fields {
     // POS X
     using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL1_2_fields_
+  };  // struct Ctrldescl12Fields
 
   struct CTRLDESCL1_2 : ftl::mmio::Register<
       0x40808244u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL1_2_fields_::POSX,
+      Ctrldescl12Fields::POSX,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL1_2_fields_::POSY,
+      Ctrldescl12Fields::POSY,
       ftl::mmio::Reserved<4, 28>> {
-    using POSX = CTRLDESCL1_2_fields_::POSX;
-    using POSY = CTRLDESCL1_2_fields_::POSY;
+    using POSX = Ctrldescl12Fields::POSX;
+    using POSY = Ctrldescl12Fields::POSY;
   };
 
   // Control Descriptor Layer 3 Register
-  struct CTRLDESCL1_3_fields_ {
+  struct Ctrldescl13Fields {
     // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL1_3_fields_
+  };  // struct Ctrldescl13Fields
 
   struct CTRLDESCL1_3 : ftl::mmio::Register<
       0x40808248u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL1_3_fields_::PITCH,
+      Ctrldescl13Fields::PITCH,
       ftl::mmio::Reserved<16, 16>> {
-    using PITCH = CTRLDESCL1_3_fields_::PITCH;
+    using PITCH = Ctrldescl13Fields::PITCH;
   };
 
   // Control Descriptor Layer 4 Register
-  struct CTRLDESCL1_4_fields_ {
+  struct Ctrldescl14Fields {
     // Address of layer data in the memory. The address programmed should be 64-bit aligned
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL1_4_fields_
+  };  // struct Ctrldescl14Fields
 
   struct CTRLDESCL1_4 : ftl::mmio::Register<
       0x4080824Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL1_4_fields_::ADDR> {
-    using ADDR = CTRLDESCL1_4_fields_::ADDR;
+      Ctrldescl14Fields::ADDR> {
+    using ADDR = Ctrldescl14Fields::ADDR;
   };
 
   // Control Descriptor Layer 5 Register
-  struct CTRLDESCL1_5_fields_ {
+  struct Ctrldescl15Fields {
     enum class eAB_MODE : std::uint32_t {
       // No alpha Blending (The SAFETY_EN bit need set to 1)
       ebf_val0 = 0,
@@ -1095,75 +1095,75 @@ struct Lcdifv2 {
     using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable the layer for DMA
     using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL1_5_fields_
+  };  // struct Ctrldescl15Fields
 
   struct CTRLDESCL1_5 : ftl::mmio::Register<
       0x40808250u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL1_5_fields_::AB_MODE,
+      Ctrldescl15Fields::AB_MODE,
       ftl::mmio::Reserved<2, 2>,
-      CTRLDESCL1_5_fields_::PD_FACTOR_MODE,
-      CTRLDESCL1_5_fields_::PD_GLOBAL_ALPHA_MODE,
-      CTRLDESCL1_5_fields_::PD_ALPHA_MODE,
-      CTRLDESCL1_5_fields_::PD_COLOR_MODE,
+      Ctrldescl15Fields::PD_FACTOR_MODE,
+      Ctrldescl15Fields::PD_GLOBAL_ALPHA_MODE,
+      Ctrldescl15Fields::PD_ALPHA_MODE,
+      Ctrldescl15Fields::PD_COLOR_MODE,
       ftl::mmio::Reserved<4, 10>,
-      CTRLDESCL1_5_fields_::YUV_FORMAT,
-      CTRLDESCL1_5_fields_::GLOBAL_ALPHA,
-      CTRLDESCL1_5_fields_::BPP,
-      CTRLDESCL1_5_fields_::SAFETY_EN,
+      Ctrldescl15Fields::YUV_FORMAT,
+      Ctrldescl15Fields::GLOBAL_ALPHA,
+      Ctrldescl15Fields::BPP,
+      Ctrldescl15Fields::SAFETY_EN,
       ftl::mmio::Reserved<1, 29>,
-      CTRLDESCL1_5_fields_::SHADOW_LOAD_EN,
-      CTRLDESCL1_5_fields_::EN> {
-    using eAB_MODE = CTRLDESCL1_5_fields_::eAB_MODE;
-    using ePD_FACTOR_MODE = CTRLDESCL1_5_fields_::ePD_FACTOR_MODE;
-    using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL1_5_fields_::ePD_GLOBAL_ALPHA_MODE;
-    using ePD_ALPHA_MODE = CTRLDESCL1_5_fields_::ePD_ALPHA_MODE;
-    using ePD_COLOR_MODE = CTRLDESCL1_5_fields_::ePD_COLOR_MODE;
-    using eYUV_FORMAT = CTRLDESCL1_5_fields_::eYUV_FORMAT;
-    using eBPP = CTRLDESCL1_5_fields_::eBPP;
-    using eSAFETY_EN = CTRLDESCL1_5_fields_::eSAFETY_EN;
-    using eEN = CTRLDESCL1_5_fields_::eEN;
-    using AB_MODE = CTRLDESCL1_5_fields_::AB_MODE;
-    using PD_FACTOR_MODE = CTRLDESCL1_5_fields_::PD_FACTOR_MODE;
-    using PD_GLOBAL_ALPHA_MODE = CTRLDESCL1_5_fields_::PD_GLOBAL_ALPHA_MODE;
-    using PD_ALPHA_MODE = CTRLDESCL1_5_fields_::PD_ALPHA_MODE;
-    using PD_COLOR_MODE = CTRLDESCL1_5_fields_::PD_COLOR_MODE;
-    using YUV_FORMAT = CTRLDESCL1_5_fields_::YUV_FORMAT;
-    using GLOBAL_ALPHA = CTRLDESCL1_5_fields_::GLOBAL_ALPHA;
-    using BPP = CTRLDESCL1_5_fields_::BPP;
-    using SAFETY_EN = CTRLDESCL1_5_fields_::SAFETY_EN;
-    using SHADOW_LOAD_EN = CTRLDESCL1_5_fields_::SHADOW_LOAD_EN;
-    using EN = CTRLDESCL1_5_fields_::EN;
+      Ctrldescl15Fields::SHADOW_LOAD_EN,
+      Ctrldescl15Fields::EN> {
+    using eAB_MODE = Ctrldescl15Fields::eAB_MODE;
+    using ePD_FACTOR_MODE = Ctrldescl15Fields::ePD_FACTOR_MODE;
+    using ePD_GLOBAL_ALPHA_MODE = Ctrldescl15Fields::ePD_GLOBAL_ALPHA_MODE;
+    using ePD_ALPHA_MODE = Ctrldescl15Fields::ePD_ALPHA_MODE;
+    using ePD_COLOR_MODE = Ctrldescl15Fields::ePD_COLOR_MODE;
+    using eYUV_FORMAT = Ctrldescl15Fields::eYUV_FORMAT;
+    using eBPP = Ctrldescl15Fields::eBPP;
+    using eSAFETY_EN = Ctrldescl15Fields::eSAFETY_EN;
+    using eEN = Ctrldescl15Fields::eEN;
+    using AB_MODE = Ctrldescl15Fields::AB_MODE;
+    using PD_FACTOR_MODE = Ctrldescl15Fields::PD_FACTOR_MODE;
+    using PD_GLOBAL_ALPHA_MODE = Ctrldescl15Fields::PD_GLOBAL_ALPHA_MODE;
+    using PD_ALPHA_MODE = Ctrldescl15Fields::PD_ALPHA_MODE;
+    using PD_COLOR_MODE = Ctrldescl15Fields::PD_COLOR_MODE;
+    using YUV_FORMAT = Ctrldescl15Fields::YUV_FORMAT;
+    using GLOBAL_ALPHA = Ctrldescl15Fields::GLOBAL_ALPHA;
+    using BPP = Ctrldescl15Fields::BPP;
+    using SAFETY_EN = Ctrldescl15Fields::SAFETY_EN;
+    using SHADOW_LOAD_EN = Ctrldescl15Fields::SHADOW_LOAD_EN;
+    using EN = Ctrldescl15Fields::EN;
   };
 
   // Control Descriptor Layer 6 Register
-  struct CTRLDESCL1_6_fields_ {
+  struct Ctrldescl16Fields {
     // Background B component value
     using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background G component value
     using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background R component value
     using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL1_6_fields_
+  };  // struct Ctrldescl16Fields
 
   struct CTRLDESCL1_6 : ftl::mmio::Register<
       0x40808254u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL1_6_fields_::BCLR_B,
-      CTRLDESCL1_6_fields_::BCLR_G,
-      CTRLDESCL1_6_fields_::BCLR_R,
+      Ctrldescl16Fields::BCLR_B,
+      Ctrldescl16Fields::BCLR_G,
+      Ctrldescl16Fields::BCLR_R,
       ftl::mmio::Reserved<8, 24>> {
-    using BCLR_B = CTRLDESCL1_6_fields_::BCLR_B;
-    using BCLR_G = CTRLDESCL1_6_fields_::BCLR_G;
-    using BCLR_R = CTRLDESCL1_6_fields_::BCLR_R;
+    using BCLR_B = Ctrldescl16Fields::BCLR_B;
+    using BCLR_G = Ctrldescl16Fields::BCLR_G;
+    using BCLR_R = Ctrldescl16Fields::BCLR_R;
   };
 
   // Color Space Conversion Coefficient Register 0
-  struct CSC1_COEF0_fields_ {
+  struct Csc1Coef0Fields {
     enum class eENABLE : std::uint32_t {
       // The CSC is bypassed and the input pixels are RGB data already
       ebf_val0 = 0,
@@ -1188,145 +1188,145 @@ struct Lcdifv2 {
     using ENABLE = ftl::mmio::Field<1, 30, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
     // This bit changes the behavior when performing U/V converting
     using YCBCR_MODE = ftl::mmio::Field<1, 31, eYCBCR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSC1_COEF0_fields_
+  };  // struct Csc1Coef0Fields
 
   struct CSC1_COEF0 : ftl::mmio::Register<
       0x40808258u,
       std::uint32_t,
       0x04000000u,
       ftl::mmio::RW,
-      CSC1_COEF0_fields_::Y_OFFSET,
-      CSC1_COEF0_fields_::UV_OFFSET,
-      CSC1_COEF0_fields_::C0,
+      Csc1Coef0Fields::Y_OFFSET,
+      Csc1Coef0Fields::UV_OFFSET,
+      Csc1Coef0Fields::C0,
       ftl::mmio::Reserved<1, 29>,
-      CSC1_COEF0_fields_::ENABLE,
-      CSC1_COEF0_fields_::YCBCR_MODE> {
-    using eENABLE = CSC1_COEF0_fields_::eENABLE;
-    using eYCBCR_MODE = CSC1_COEF0_fields_::eYCBCR_MODE;
-    using Y_OFFSET = CSC1_COEF0_fields_::Y_OFFSET;
-    using UV_OFFSET = CSC1_COEF0_fields_::UV_OFFSET;
-    using C0 = CSC1_COEF0_fields_::C0;
-    using ENABLE = CSC1_COEF0_fields_::ENABLE;
-    using YCBCR_MODE = CSC1_COEF0_fields_::YCBCR_MODE;
+      Csc1Coef0Fields::ENABLE,
+      Csc1Coef0Fields::YCBCR_MODE> {
+    using eENABLE = Csc1Coef0Fields::eENABLE;
+    using eYCBCR_MODE = Csc1Coef0Fields::eYCBCR_MODE;
+    using Y_OFFSET = Csc1Coef0Fields::Y_OFFSET;
+    using UV_OFFSET = Csc1Coef0Fields::UV_OFFSET;
+    using C0 = Csc1Coef0Fields::C0;
+    using ENABLE = Csc1Coef0Fields::ENABLE;
+    using YCBCR_MODE = Csc1Coef0Fields::YCBCR_MODE;
   };
 
   // Color Space Conversion Coefficient Register 1
-  struct CSC1_COEF1_fields_ {
+  struct Csc1Coef1Fields {
     // Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
     using C4 = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
     using C1 = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSC1_COEF1_fields_
+  };  // struct Csc1Coef1Fields
 
   struct CSC1_COEF1 : ftl::mmio::Register<
       0x4080825Cu,
       std::uint32_t,
       0x01230208u,
       ftl::mmio::RW,
-      CSC1_COEF1_fields_::C4,
+      Csc1Coef1Fields::C4,
       ftl::mmio::Reserved<5, 11>,
-      CSC1_COEF1_fields_::C1,
+      Csc1Coef1Fields::C1,
       ftl::mmio::Reserved<5, 27>> {
-    using C4 = CSC1_COEF1_fields_::C4;
-    using C1 = CSC1_COEF1_fields_::C1;
+    using C4 = Csc1Coef1Fields::C4;
+    using C1 = Csc1Coef1Fields::C1;
   };
 
   // Color Space Conversion Coefficient Register 2
-  struct CSC1_COEF2_fields_ {
+  struct Csc1Coef2Fields {
     // Two's compliment Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
     using C3 = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Two's compliment Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
     using C2 = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CSC1_COEF2_fields_
+  };  // struct Csc1Coef2Fields
 
   struct CSC1_COEF2 : ftl::mmio::Register<
       0x40808260u,
       std::uint32_t,
       0x076B079Cu,
       ftl::mmio::RW,
-      CSC1_COEF2_fields_::C3,
+      Csc1Coef2Fields::C3,
       ftl::mmio::Reserved<5, 11>,
-      CSC1_COEF2_fields_::C2,
+      Csc1Coef2Fields::C2,
       ftl::mmio::Reserved<5, 27>> {
-    using C3 = CSC1_COEF2_fields_::C3;
-    using C2 = CSC1_COEF2_fields_::C2;
+    using C3 = Csc1Coef2Fields::C3;
+    using C2 = Csc1Coef2Fields::C2;
   };
 
   // Control Descriptor Layer 1 Register
-  struct CTRLDESCL2_1_fields_ {
+  struct Ctrldescl21Fields {
     // Width of the layer in pixels
     using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Height of the layer in pixels
     using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL2_1_fields_
+  };  // struct Ctrldescl21Fields
 
   struct CTRLDESCL2_1 : ftl::mmio::Register<
       0x40808280u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL2_1_fields_::WIDTH,
+      Ctrldescl21Fields::WIDTH,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL2_1_fields_::HEIGHT,
+      Ctrldescl21Fields::HEIGHT,
       ftl::mmio::Reserved<4, 28>> {
-    using WIDTH = CTRLDESCL2_1_fields_::WIDTH;
-    using HEIGHT = CTRLDESCL2_1_fields_::HEIGHT;
+    using WIDTH = Ctrldescl21Fields::WIDTH;
+    using HEIGHT = Ctrldescl21Fields::HEIGHT;
   };
 
   // Control Descriptor Layer 2 Register
-  struct CTRLDESCL2_2_fields_ {
+  struct Ctrldescl22Fields {
     // POS X
     using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL2_2_fields_
+  };  // struct Ctrldescl22Fields
 
   struct CTRLDESCL2_2 : ftl::mmio::Register<
       0x40808284u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL2_2_fields_::POSX,
+      Ctrldescl22Fields::POSX,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL2_2_fields_::POSY,
+      Ctrldescl22Fields::POSY,
       ftl::mmio::Reserved<4, 28>> {
-    using POSX = CTRLDESCL2_2_fields_::POSX;
-    using POSY = CTRLDESCL2_2_fields_::POSY;
+    using POSX = Ctrldescl22Fields::POSX;
+    using POSY = Ctrldescl22Fields::POSY;
   };
 
   // Control Descriptor Layer 3 Register
-  struct CTRLDESCL2_3_fields_ {
+  struct Ctrldescl23Fields {
     // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL2_3_fields_
+  };  // struct Ctrldescl23Fields
 
   struct CTRLDESCL2_3 : ftl::mmio::Register<
       0x40808288u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL2_3_fields_::PITCH,
+      Ctrldescl23Fields::PITCH,
       ftl::mmio::Reserved<16, 16>> {
-    using PITCH = CTRLDESCL2_3_fields_::PITCH;
+    using PITCH = Ctrldescl23Fields::PITCH;
   };
 
   // Control Descriptor Layer 4 Register
-  struct CTRLDESCL2_4_fields_ {
+  struct Ctrldescl24Fields {
     // Address of layer data in the memory. The address programmed should be 64-bit aligned
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL2_4_fields_
+  };  // struct Ctrldescl24Fields
 
   struct CTRLDESCL2_4 : ftl::mmio::Register<
       0x4080828Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL2_4_fields_::ADDR> {
-    using ADDR = CTRLDESCL2_4_fields_::ADDR;
+      Ctrldescl24Fields::ADDR> {
+    using ADDR = Ctrldescl24Fields::ADDR;
   };
 
   // Control Descriptor Layer 5 Register
-  struct CTRLDESCL2_5_fields_ {
+  struct Ctrldescl25Fields {
     enum class eAB_MODE : std::uint32_t {
       // No alpha Blending (The SAFETY_EN bit need set to 1)
       ebf_val0 = 0,
@@ -1446,148 +1446,148 @@ struct Lcdifv2 {
     using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable the layer for DMA
     using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL2_5_fields_
+  };  // struct Ctrldescl25Fields
 
   struct CTRLDESCL2_5 : ftl::mmio::Register<
       0x40808290u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL2_5_fields_::AB_MODE,
+      Ctrldescl25Fields::AB_MODE,
       ftl::mmio::Reserved<2, 2>,
-      CTRLDESCL2_5_fields_::PD_FACTOR_MODE,
-      CTRLDESCL2_5_fields_::PD_GLOBAL_ALPHA_MODE,
-      CTRLDESCL2_5_fields_::PD_ALPHA_MODE,
-      CTRLDESCL2_5_fields_::PD_COLOR_MODE,
+      Ctrldescl25Fields::PD_FACTOR_MODE,
+      Ctrldescl25Fields::PD_GLOBAL_ALPHA_MODE,
+      Ctrldescl25Fields::PD_ALPHA_MODE,
+      Ctrldescl25Fields::PD_COLOR_MODE,
       ftl::mmio::Reserved<4, 10>,
-      CTRLDESCL2_5_fields_::YUV_FORMAT,
-      CTRLDESCL2_5_fields_::GLOBAL_ALPHA,
-      CTRLDESCL2_5_fields_::BPP,
-      CTRLDESCL2_5_fields_::SAFETY_EN,
+      Ctrldescl25Fields::YUV_FORMAT,
+      Ctrldescl25Fields::GLOBAL_ALPHA,
+      Ctrldescl25Fields::BPP,
+      Ctrldescl25Fields::SAFETY_EN,
       ftl::mmio::Reserved<1, 29>,
-      CTRLDESCL2_5_fields_::SHADOW_LOAD_EN,
-      CTRLDESCL2_5_fields_::EN> {
-    using eAB_MODE = CTRLDESCL2_5_fields_::eAB_MODE;
-    using ePD_FACTOR_MODE = CTRLDESCL2_5_fields_::ePD_FACTOR_MODE;
-    using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL2_5_fields_::ePD_GLOBAL_ALPHA_MODE;
-    using ePD_ALPHA_MODE = CTRLDESCL2_5_fields_::ePD_ALPHA_MODE;
-    using ePD_COLOR_MODE = CTRLDESCL2_5_fields_::ePD_COLOR_MODE;
-    using eYUV_FORMAT = CTRLDESCL2_5_fields_::eYUV_FORMAT;
-    using eBPP = CTRLDESCL2_5_fields_::eBPP;
-    using eSAFETY_EN = CTRLDESCL2_5_fields_::eSAFETY_EN;
-    using eEN = CTRLDESCL2_5_fields_::eEN;
-    using AB_MODE = CTRLDESCL2_5_fields_::AB_MODE;
-    using PD_FACTOR_MODE = CTRLDESCL2_5_fields_::PD_FACTOR_MODE;
-    using PD_GLOBAL_ALPHA_MODE = CTRLDESCL2_5_fields_::PD_GLOBAL_ALPHA_MODE;
-    using PD_ALPHA_MODE = CTRLDESCL2_5_fields_::PD_ALPHA_MODE;
-    using PD_COLOR_MODE = CTRLDESCL2_5_fields_::PD_COLOR_MODE;
-    using YUV_FORMAT = CTRLDESCL2_5_fields_::YUV_FORMAT;
-    using GLOBAL_ALPHA = CTRLDESCL2_5_fields_::GLOBAL_ALPHA;
-    using BPP = CTRLDESCL2_5_fields_::BPP;
-    using SAFETY_EN = CTRLDESCL2_5_fields_::SAFETY_EN;
-    using SHADOW_LOAD_EN = CTRLDESCL2_5_fields_::SHADOW_LOAD_EN;
-    using EN = CTRLDESCL2_5_fields_::EN;
+      Ctrldescl25Fields::SHADOW_LOAD_EN,
+      Ctrldescl25Fields::EN> {
+    using eAB_MODE = Ctrldescl25Fields::eAB_MODE;
+    using ePD_FACTOR_MODE = Ctrldescl25Fields::ePD_FACTOR_MODE;
+    using ePD_GLOBAL_ALPHA_MODE = Ctrldescl25Fields::ePD_GLOBAL_ALPHA_MODE;
+    using ePD_ALPHA_MODE = Ctrldescl25Fields::ePD_ALPHA_MODE;
+    using ePD_COLOR_MODE = Ctrldescl25Fields::ePD_COLOR_MODE;
+    using eYUV_FORMAT = Ctrldescl25Fields::eYUV_FORMAT;
+    using eBPP = Ctrldescl25Fields::eBPP;
+    using eSAFETY_EN = Ctrldescl25Fields::eSAFETY_EN;
+    using eEN = Ctrldescl25Fields::eEN;
+    using AB_MODE = Ctrldescl25Fields::AB_MODE;
+    using PD_FACTOR_MODE = Ctrldescl25Fields::PD_FACTOR_MODE;
+    using PD_GLOBAL_ALPHA_MODE = Ctrldescl25Fields::PD_GLOBAL_ALPHA_MODE;
+    using PD_ALPHA_MODE = Ctrldescl25Fields::PD_ALPHA_MODE;
+    using PD_COLOR_MODE = Ctrldescl25Fields::PD_COLOR_MODE;
+    using YUV_FORMAT = Ctrldescl25Fields::YUV_FORMAT;
+    using GLOBAL_ALPHA = Ctrldescl25Fields::GLOBAL_ALPHA;
+    using BPP = Ctrldescl25Fields::BPP;
+    using SAFETY_EN = Ctrldescl25Fields::SAFETY_EN;
+    using SHADOW_LOAD_EN = Ctrldescl25Fields::SHADOW_LOAD_EN;
+    using EN = Ctrldescl25Fields::EN;
   };
 
   // Control Descriptor Layer 6 Register
-  struct CTRLDESCL2_6_fields_ {
+  struct Ctrldescl26Fields {
     // Background B component value
     using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background G component value
     using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background R component value
     using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL2_6_fields_
+  };  // struct Ctrldescl26Fields
 
   struct CTRLDESCL2_6 : ftl::mmio::Register<
       0x40808294u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL2_6_fields_::BCLR_B,
-      CTRLDESCL2_6_fields_::BCLR_G,
-      CTRLDESCL2_6_fields_::BCLR_R,
+      Ctrldescl26Fields::BCLR_B,
+      Ctrldescl26Fields::BCLR_G,
+      Ctrldescl26Fields::BCLR_R,
       ftl::mmio::Reserved<8, 24>> {
-    using BCLR_B = CTRLDESCL2_6_fields_::BCLR_B;
-    using BCLR_G = CTRLDESCL2_6_fields_::BCLR_G;
-    using BCLR_R = CTRLDESCL2_6_fields_::BCLR_R;
+    using BCLR_B = Ctrldescl26Fields::BCLR_B;
+    using BCLR_G = Ctrldescl26Fields::BCLR_G;
+    using BCLR_R = Ctrldescl26Fields::BCLR_R;
   };
 
   // Control Descriptor Layer 1 Register
-  struct CTRLDESCL3_1_fields_ {
+  struct Ctrldescl31Fields {
     // Width of the layer in pixels
     using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Height of the layer in pixels
     using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL3_1_fields_
+  };  // struct Ctrldescl31Fields
 
   struct CTRLDESCL3_1 : ftl::mmio::Register<
       0x408082C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL3_1_fields_::WIDTH,
+      Ctrldescl31Fields::WIDTH,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL3_1_fields_::HEIGHT,
+      Ctrldescl31Fields::HEIGHT,
       ftl::mmio::Reserved<4, 28>> {
-    using WIDTH = CTRLDESCL3_1_fields_::WIDTH;
-    using HEIGHT = CTRLDESCL3_1_fields_::HEIGHT;
+    using WIDTH = Ctrldescl31Fields::WIDTH;
+    using HEIGHT = Ctrldescl31Fields::HEIGHT;
   };
 
   // Control Descriptor Layer 2 Register
-  struct CTRLDESCL3_2_fields_ {
+  struct Ctrldescl32Fields {
     // POS X
     using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL3_2_fields_
+  };  // struct Ctrldescl32Fields
 
   struct CTRLDESCL3_2 : ftl::mmio::Register<
       0x408082C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL3_2_fields_::POSX,
+      Ctrldescl32Fields::POSX,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL3_2_fields_::POSY,
+      Ctrldescl32Fields::POSY,
       ftl::mmio::Reserved<4, 28>> {
-    using POSX = CTRLDESCL3_2_fields_::POSX;
-    using POSY = CTRLDESCL3_2_fields_::POSY;
+    using POSX = Ctrldescl32Fields::POSX;
+    using POSY = Ctrldescl32Fields::POSY;
   };
 
   // Control Descriptor Layer 3 Register
-  struct CTRLDESCL3_3_fields_ {
+  struct Ctrldescl33Fields {
     // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL3_3_fields_
+  };  // struct Ctrldescl33Fields
 
   struct CTRLDESCL3_3 : ftl::mmio::Register<
       0x408082C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL3_3_fields_::PITCH,
+      Ctrldescl33Fields::PITCH,
       ftl::mmio::Reserved<16, 16>> {
-    using PITCH = CTRLDESCL3_3_fields_::PITCH;
+    using PITCH = Ctrldescl33Fields::PITCH;
   };
 
   // Control Descriptor Layer 4 Register
-  struct CTRLDESCL3_4_fields_ {
+  struct Ctrldescl34Fields {
     // Address of layer data in the memory. The address programmed should be 64-bit aligned
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL3_4_fields_
+  };  // struct Ctrldescl34Fields
 
   struct CTRLDESCL3_4 : ftl::mmio::Register<
       0x408082CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL3_4_fields_::ADDR> {
-    using ADDR = CTRLDESCL3_4_fields_::ADDR;
+      Ctrldescl34Fields::ADDR> {
+    using ADDR = Ctrldescl34Fields::ADDR;
   };
 
   // Control Descriptor Layer 5 Register
-  struct CTRLDESCL3_5_fields_ {
+  struct Ctrldescl35Fields {
     enum class eAB_MODE : std::uint32_t {
       // No alpha Blending (The SAFETY_EN bit need set to 1)
       ebf_val0 = 0,
@@ -1707,148 +1707,148 @@ struct Lcdifv2 {
     using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable the layer for DMA
     using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL3_5_fields_
+  };  // struct Ctrldescl35Fields
 
   struct CTRLDESCL3_5 : ftl::mmio::Register<
       0x408082D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL3_5_fields_::AB_MODE,
+      Ctrldescl35Fields::AB_MODE,
       ftl::mmio::Reserved<2, 2>,
-      CTRLDESCL3_5_fields_::PD_FACTOR_MODE,
-      CTRLDESCL3_5_fields_::PD_GLOBAL_ALPHA_MODE,
-      CTRLDESCL3_5_fields_::PD_ALPHA_MODE,
-      CTRLDESCL3_5_fields_::PD_COLOR_MODE,
+      Ctrldescl35Fields::PD_FACTOR_MODE,
+      Ctrldescl35Fields::PD_GLOBAL_ALPHA_MODE,
+      Ctrldescl35Fields::PD_ALPHA_MODE,
+      Ctrldescl35Fields::PD_COLOR_MODE,
       ftl::mmio::Reserved<4, 10>,
-      CTRLDESCL3_5_fields_::YUV_FORMAT,
-      CTRLDESCL3_5_fields_::GLOBAL_ALPHA,
-      CTRLDESCL3_5_fields_::BPP,
-      CTRLDESCL3_5_fields_::SAFETY_EN,
+      Ctrldescl35Fields::YUV_FORMAT,
+      Ctrldescl35Fields::GLOBAL_ALPHA,
+      Ctrldescl35Fields::BPP,
+      Ctrldescl35Fields::SAFETY_EN,
       ftl::mmio::Reserved<1, 29>,
-      CTRLDESCL3_5_fields_::SHADOW_LOAD_EN,
-      CTRLDESCL3_5_fields_::EN> {
-    using eAB_MODE = CTRLDESCL3_5_fields_::eAB_MODE;
-    using ePD_FACTOR_MODE = CTRLDESCL3_5_fields_::ePD_FACTOR_MODE;
-    using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL3_5_fields_::ePD_GLOBAL_ALPHA_MODE;
-    using ePD_ALPHA_MODE = CTRLDESCL3_5_fields_::ePD_ALPHA_MODE;
-    using ePD_COLOR_MODE = CTRLDESCL3_5_fields_::ePD_COLOR_MODE;
-    using eYUV_FORMAT = CTRLDESCL3_5_fields_::eYUV_FORMAT;
-    using eBPP = CTRLDESCL3_5_fields_::eBPP;
-    using eSAFETY_EN = CTRLDESCL3_5_fields_::eSAFETY_EN;
-    using eEN = CTRLDESCL3_5_fields_::eEN;
-    using AB_MODE = CTRLDESCL3_5_fields_::AB_MODE;
-    using PD_FACTOR_MODE = CTRLDESCL3_5_fields_::PD_FACTOR_MODE;
-    using PD_GLOBAL_ALPHA_MODE = CTRLDESCL3_5_fields_::PD_GLOBAL_ALPHA_MODE;
-    using PD_ALPHA_MODE = CTRLDESCL3_5_fields_::PD_ALPHA_MODE;
-    using PD_COLOR_MODE = CTRLDESCL3_5_fields_::PD_COLOR_MODE;
-    using YUV_FORMAT = CTRLDESCL3_5_fields_::YUV_FORMAT;
-    using GLOBAL_ALPHA = CTRLDESCL3_5_fields_::GLOBAL_ALPHA;
-    using BPP = CTRLDESCL3_5_fields_::BPP;
-    using SAFETY_EN = CTRLDESCL3_5_fields_::SAFETY_EN;
-    using SHADOW_LOAD_EN = CTRLDESCL3_5_fields_::SHADOW_LOAD_EN;
-    using EN = CTRLDESCL3_5_fields_::EN;
+      Ctrldescl35Fields::SHADOW_LOAD_EN,
+      Ctrldescl35Fields::EN> {
+    using eAB_MODE = Ctrldescl35Fields::eAB_MODE;
+    using ePD_FACTOR_MODE = Ctrldescl35Fields::ePD_FACTOR_MODE;
+    using ePD_GLOBAL_ALPHA_MODE = Ctrldescl35Fields::ePD_GLOBAL_ALPHA_MODE;
+    using ePD_ALPHA_MODE = Ctrldescl35Fields::ePD_ALPHA_MODE;
+    using ePD_COLOR_MODE = Ctrldescl35Fields::ePD_COLOR_MODE;
+    using eYUV_FORMAT = Ctrldescl35Fields::eYUV_FORMAT;
+    using eBPP = Ctrldescl35Fields::eBPP;
+    using eSAFETY_EN = Ctrldescl35Fields::eSAFETY_EN;
+    using eEN = Ctrldescl35Fields::eEN;
+    using AB_MODE = Ctrldescl35Fields::AB_MODE;
+    using PD_FACTOR_MODE = Ctrldescl35Fields::PD_FACTOR_MODE;
+    using PD_GLOBAL_ALPHA_MODE = Ctrldescl35Fields::PD_GLOBAL_ALPHA_MODE;
+    using PD_ALPHA_MODE = Ctrldescl35Fields::PD_ALPHA_MODE;
+    using PD_COLOR_MODE = Ctrldescl35Fields::PD_COLOR_MODE;
+    using YUV_FORMAT = Ctrldescl35Fields::YUV_FORMAT;
+    using GLOBAL_ALPHA = Ctrldescl35Fields::GLOBAL_ALPHA;
+    using BPP = Ctrldescl35Fields::BPP;
+    using SAFETY_EN = Ctrldescl35Fields::SAFETY_EN;
+    using SHADOW_LOAD_EN = Ctrldescl35Fields::SHADOW_LOAD_EN;
+    using EN = Ctrldescl35Fields::EN;
   };
 
   // Control Descriptor Layer 6 Register
-  struct CTRLDESCL3_6_fields_ {
+  struct Ctrldescl36Fields {
     // Background B component value
     using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background G component value
     using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background R component value
     using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL3_6_fields_
+  };  // struct Ctrldescl36Fields
 
   struct CTRLDESCL3_6 : ftl::mmio::Register<
       0x408082D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL3_6_fields_::BCLR_B,
-      CTRLDESCL3_6_fields_::BCLR_G,
-      CTRLDESCL3_6_fields_::BCLR_R,
+      Ctrldescl36Fields::BCLR_B,
+      Ctrldescl36Fields::BCLR_G,
+      Ctrldescl36Fields::BCLR_R,
       ftl::mmio::Reserved<8, 24>> {
-    using BCLR_B = CTRLDESCL3_6_fields_::BCLR_B;
-    using BCLR_G = CTRLDESCL3_6_fields_::BCLR_G;
-    using BCLR_R = CTRLDESCL3_6_fields_::BCLR_R;
+    using BCLR_B = Ctrldescl36Fields::BCLR_B;
+    using BCLR_G = Ctrldescl36Fields::BCLR_G;
+    using BCLR_R = Ctrldescl36Fields::BCLR_R;
   };
 
   // Control Descriptor Layer 1 Register
-  struct CTRLDESCL4_1_fields_ {
+  struct Ctrldescl41Fields {
     // Width of the layer in pixels
     using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Height of the layer in pixels
     using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL4_1_fields_
+  };  // struct Ctrldescl41Fields
 
   struct CTRLDESCL4_1 : ftl::mmio::Register<
       0x40808300u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL4_1_fields_::WIDTH,
+      Ctrldescl41Fields::WIDTH,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL4_1_fields_::HEIGHT,
+      Ctrldescl41Fields::HEIGHT,
       ftl::mmio::Reserved<4, 28>> {
-    using WIDTH = CTRLDESCL4_1_fields_::WIDTH;
-    using HEIGHT = CTRLDESCL4_1_fields_::HEIGHT;
+    using WIDTH = Ctrldescl41Fields::WIDTH;
+    using HEIGHT = Ctrldescl41Fields::HEIGHT;
   };
 
   // Control Descriptor Layer 2 Register
-  struct CTRLDESCL4_2_fields_ {
+  struct Ctrldescl42Fields {
     // POS X
     using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL4_2_fields_
+  };  // struct Ctrldescl42Fields
 
   struct CTRLDESCL4_2 : ftl::mmio::Register<
       0x40808304u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL4_2_fields_::POSX,
+      Ctrldescl42Fields::POSX,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL4_2_fields_::POSY,
+      Ctrldescl42Fields::POSY,
       ftl::mmio::Reserved<4, 28>> {
-    using POSX = CTRLDESCL4_2_fields_::POSX;
-    using POSY = CTRLDESCL4_2_fields_::POSY;
+    using POSX = Ctrldescl42Fields::POSX;
+    using POSY = Ctrldescl42Fields::POSY;
   };
 
   // Control Descriptor Layer 3 Register
-  struct CTRLDESCL4_3_fields_ {
+  struct Ctrldescl43Fields {
     // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL4_3_fields_
+  };  // struct Ctrldescl43Fields
 
   struct CTRLDESCL4_3 : ftl::mmio::Register<
       0x40808308u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL4_3_fields_::PITCH,
+      Ctrldescl43Fields::PITCH,
       ftl::mmio::Reserved<16, 16>> {
-    using PITCH = CTRLDESCL4_3_fields_::PITCH;
+    using PITCH = Ctrldescl43Fields::PITCH;
   };
 
   // Control Descriptor Layer 4 Register
-  struct CTRLDESCL4_4_fields_ {
+  struct Ctrldescl44Fields {
     // Address of layer data in the memory. The address programmed should be 64-bit aligned
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL4_4_fields_
+  };  // struct Ctrldescl44Fields
 
   struct CTRLDESCL4_4 : ftl::mmio::Register<
       0x4080830Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL4_4_fields_::ADDR> {
-    using ADDR = CTRLDESCL4_4_fields_::ADDR;
+      Ctrldescl44Fields::ADDR> {
+    using ADDR = Ctrldescl44Fields::ADDR;
   };
 
   // Control Descriptor Layer 5 Register
-  struct CTRLDESCL4_5_fields_ {
+  struct Ctrldescl45Fields {
     enum class eAB_MODE : std::uint32_t {
       // No alpha Blending (The SAFETY_EN bit need set to 1)
       ebf_val0 = 0,
@@ -1968,148 +1968,148 @@ struct Lcdifv2 {
     using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable the layer for DMA
     using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL4_5_fields_
+  };  // struct Ctrldescl45Fields
 
   struct CTRLDESCL4_5 : ftl::mmio::Register<
       0x40808310u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL4_5_fields_::AB_MODE,
+      Ctrldescl45Fields::AB_MODE,
       ftl::mmio::Reserved<2, 2>,
-      CTRLDESCL4_5_fields_::PD_FACTOR_MODE,
-      CTRLDESCL4_5_fields_::PD_GLOBAL_ALPHA_MODE,
-      CTRLDESCL4_5_fields_::PD_ALPHA_MODE,
-      CTRLDESCL4_5_fields_::PD_COLOR_MODE,
+      Ctrldescl45Fields::PD_FACTOR_MODE,
+      Ctrldescl45Fields::PD_GLOBAL_ALPHA_MODE,
+      Ctrldescl45Fields::PD_ALPHA_MODE,
+      Ctrldescl45Fields::PD_COLOR_MODE,
       ftl::mmio::Reserved<4, 10>,
-      CTRLDESCL4_5_fields_::YUV_FORMAT,
-      CTRLDESCL4_5_fields_::GLOBAL_ALPHA,
-      CTRLDESCL4_5_fields_::BPP,
-      CTRLDESCL4_5_fields_::SAFETY_EN,
+      Ctrldescl45Fields::YUV_FORMAT,
+      Ctrldescl45Fields::GLOBAL_ALPHA,
+      Ctrldescl45Fields::BPP,
+      Ctrldescl45Fields::SAFETY_EN,
       ftl::mmio::Reserved<1, 29>,
-      CTRLDESCL4_5_fields_::SHADOW_LOAD_EN,
-      CTRLDESCL4_5_fields_::EN> {
-    using eAB_MODE = CTRLDESCL4_5_fields_::eAB_MODE;
-    using ePD_FACTOR_MODE = CTRLDESCL4_5_fields_::ePD_FACTOR_MODE;
-    using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL4_5_fields_::ePD_GLOBAL_ALPHA_MODE;
-    using ePD_ALPHA_MODE = CTRLDESCL4_5_fields_::ePD_ALPHA_MODE;
-    using ePD_COLOR_MODE = CTRLDESCL4_5_fields_::ePD_COLOR_MODE;
-    using eYUV_FORMAT = CTRLDESCL4_5_fields_::eYUV_FORMAT;
-    using eBPP = CTRLDESCL4_5_fields_::eBPP;
-    using eSAFETY_EN = CTRLDESCL4_5_fields_::eSAFETY_EN;
-    using eEN = CTRLDESCL4_5_fields_::eEN;
-    using AB_MODE = CTRLDESCL4_5_fields_::AB_MODE;
-    using PD_FACTOR_MODE = CTRLDESCL4_5_fields_::PD_FACTOR_MODE;
-    using PD_GLOBAL_ALPHA_MODE = CTRLDESCL4_5_fields_::PD_GLOBAL_ALPHA_MODE;
-    using PD_ALPHA_MODE = CTRLDESCL4_5_fields_::PD_ALPHA_MODE;
-    using PD_COLOR_MODE = CTRLDESCL4_5_fields_::PD_COLOR_MODE;
-    using YUV_FORMAT = CTRLDESCL4_5_fields_::YUV_FORMAT;
-    using GLOBAL_ALPHA = CTRLDESCL4_5_fields_::GLOBAL_ALPHA;
-    using BPP = CTRLDESCL4_5_fields_::BPP;
-    using SAFETY_EN = CTRLDESCL4_5_fields_::SAFETY_EN;
-    using SHADOW_LOAD_EN = CTRLDESCL4_5_fields_::SHADOW_LOAD_EN;
-    using EN = CTRLDESCL4_5_fields_::EN;
+      Ctrldescl45Fields::SHADOW_LOAD_EN,
+      Ctrldescl45Fields::EN> {
+    using eAB_MODE = Ctrldescl45Fields::eAB_MODE;
+    using ePD_FACTOR_MODE = Ctrldescl45Fields::ePD_FACTOR_MODE;
+    using ePD_GLOBAL_ALPHA_MODE = Ctrldescl45Fields::ePD_GLOBAL_ALPHA_MODE;
+    using ePD_ALPHA_MODE = Ctrldescl45Fields::ePD_ALPHA_MODE;
+    using ePD_COLOR_MODE = Ctrldescl45Fields::ePD_COLOR_MODE;
+    using eYUV_FORMAT = Ctrldescl45Fields::eYUV_FORMAT;
+    using eBPP = Ctrldescl45Fields::eBPP;
+    using eSAFETY_EN = Ctrldescl45Fields::eSAFETY_EN;
+    using eEN = Ctrldescl45Fields::eEN;
+    using AB_MODE = Ctrldescl45Fields::AB_MODE;
+    using PD_FACTOR_MODE = Ctrldescl45Fields::PD_FACTOR_MODE;
+    using PD_GLOBAL_ALPHA_MODE = Ctrldescl45Fields::PD_GLOBAL_ALPHA_MODE;
+    using PD_ALPHA_MODE = Ctrldescl45Fields::PD_ALPHA_MODE;
+    using PD_COLOR_MODE = Ctrldescl45Fields::PD_COLOR_MODE;
+    using YUV_FORMAT = Ctrldescl45Fields::YUV_FORMAT;
+    using GLOBAL_ALPHA = Ctrldescl45Fields::GLOBAL_ALPHA;
+    using BPP = Ctrldescl45Fields::BPP;
+    using SAFETY_EN = Ctrldescl45Fields::SAFETY_EN;
+    using SHADOW_LOAD_EN = Ctrldescl45Fields::SHADOW_LOAD_EN;
+    using EN = Ctrldescl45Fields::EN;
   };
 
   // Control Descriptor Layer 6 Register
-  struct CTRLDESCL4_6_fields_ {
+  struct Ctrldescl46Fields {
     // Background B component value
     using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background G component value
     using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background R component value
     using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL4_6_fields_
+  };  // struct Ctrldescl46Fields
 
   struct CTRLDESCL4_6 : ftl::mmio::Register<
       0x40808314u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL4_6_fields_::BCLR_B,
-      CTRLDESCL4_6_fields_::BCLR_G,
-      CTRLDESCL4_6_fields_::BCLR_R,
+      Ctrldescl46Fields::BCLR_B,
+      Ctrldescl46Fields::BCLR_G,
+      Ctrldescl46Fields::BCLR_R,
       ftl::mmio::Reserved<8, 24>> {
-    using BCLR_B = CTRLDESCL4_6_fields_::BCLR_B;
-    using BCLR_G = CTRLDESCL4_6_fields_::BCLR_G;
-    using BCLR_R = CTRLDESCL4_6_fields_::BCLR_R;
+    using BCLR_B = Ctrldescl46Fields::BCLR_B;
+    using BCLR_G = Ctrldescl46Fields::BCLR_G;
+    using BCLR_R = Ctrldescl46Fields::BCLR_R;
   };
 
   // Control Descriptor Layer 1 Register
-  struct CTRLDESCL5_1_fields_ {
+  struct Ctrldescl51Fields {
     // Width of the layer in pixels
     using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Height of the layer in pixels
     using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL5_1_fields_
+  };  // struct Ctrldescl51Fields
 
   struct CTRLDESCL5_1 : ftl::mmio::Register<
       0x40808340u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL5_1_fields_::WIDTH,
+      Ctrldescl51Fields::WIDTH,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL5_1_fields_::HEIGHT,
+      Ctrldescl51Fields::HEIGHT,
       ftl::mmio::Reserved<4, 28>> {
-    using WIDTH = CTRLDESCL5_1_fields_::WIDTH;
-    using HEIGHT = CTRLDESCL5_1_fields_::HEIGHT;
+    using WIDTH = Ctrldescl51Fields::WIDTH;
+    using HEIGHT = Ctrldescl51Fields::HEIGHT;
   };
 
   // Control Descriptor Layer 2 Register
-  struct CTRLDESCL5_2_fields_ {
+  struct Ctrldescl52Fields {
     // POS X
     using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL5_2_fields_
+  };  // struct Ctrldescl52Fields
 
   struct CTRLDESCL5_2 : ftl::mmio::Register<
       0x40808344u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL5_2_fields_::POSX,
+      Ctrldescl52Fields::POSX,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL5_2_fields_::POSY,
+      Ctrldescl52Fields::POSY,
       ftl::mmio::Reserved<4, 28>> {
-    using POSX = CTRLDESCL5_2_fields_::POSX;
-    using POSY = CTRLDESCL5_2_fields_::POSY;
+    using POSX = Ctrldescl52Fields::POSX;
+    using POSY = Ctrldescl52Fields::POSY;
   };
 
   // Control Descriptor Layer 3 Register
-  struct CTRLDESCL5_3_fields_ {
+  struct Ctrldescl53Fields {
     // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL5_3_fields_
+  };  // struct Ctrldescl53Fields
 
   struct CTRLDESCL5_3 : ftl::mmio::Register<
       0x40808348u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL5_3_fields_::PITCH,
+      Ctrldescl53Fields::PITCH,
       ftl::mmio::Reserved<16, 16>> {
-    using PITCH = CTRLDESCL5_3_fields_::PITCH;
+    using PITCH = Ctrldescl53Fields::PITCH;
   };
 
   // Control Descriptor Layer 4 Register
-  struct CTRLDESCL5_4_fields_ {
+  struct Ctrldescl54Fields {
     // Address of layer data in the memory. The address programmed should be 64-bit aligned
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL5_4_fields_
+  };  // struct Ctrldescl54Fields
 
   struct CTRLDESCL5_4 : ftl::mmio::Register<
       0x4080834Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL5_4_fields_::ADDR> {
-    using ADDR = CTRLDESCL5_4_fields_::ADDR;
+      Ctrldescl54Fields::ADDR> {
+    using ADDR = Ctrldescl54Fields::ADDR;
   };
 
   // Control Descriptor Layer 5 Register
-  struct CTRLDESCL5_5_fields_ {
+  struct Ctrldescl55Fields {
     enum class eAB_MODE : std::uint32_t {
       // No alpha Blending (The SAFETY_EN bit need set to 1)
       ebf_val0 = 0,
@@ -2229,148 +2229,148 @@ struct Lcdifv2 {
     using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable the layer for DMA
     using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL5_5_fields_
+  };  // struct Ctrldescl55Fields
 
   struct CTRLDESCL5_5 : ftl::mmio::Register<
       0x40808350u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL5_5_fields_::AB_MODE,
+      Ctrldescl55Fields::AB_MODE,
       ftl::mmio::Reserved<2, 2>,
-      CTRLDESCL5_5_fields_::PD_FACTOR_MODE,
-      CTRLDESCL5_5_fields_::PD_GLOBAL_ALPHA_MODE,
-      CTRLDESCL5_5_fields_::PD_ALPHA_MODE,
-      CTRLDESCL5_5_fields_::PD_COLOR_MODE,
+      Ctrldescl55Fields::PD_FACTOR_MODE,
+      Ctrldescl55Fields::PD_GLOBAL_ALPHA_MODE,
+      Ctrldescl55Fields::PD_ALPHA_MODE,
+      Ctrldescl55Fields::PD_COLOR_MODE,
       ftl::mmio::Reserved<4, 10>,
-      CTRLDESCL5_5_fields_::YUV_FORMAT,
-      CTRLDESCL5_5_fields_::GLOBAL_ALPHA,
-      CTRLDESCL5_5_fields_::BPP,
-      CTRLDESCL5_5_fields_::SAFETY_EN,
+      Ctrldescl55Fields::YUV_FORMAT,
+      Ctrldescl55Fields::GLOBAL_ALPHA,
+      Ctrldescl55Fields::BPP,
+      Ctrldescl55Fields::SAFETY_EN,
       ftl::mmio::Reserved<1, 29>,
-      CTRLDESCL5_5_fields_::SHADOW_LOAD_EN,
-      CTRLDESCL5_5_fields_::EN> {
-    using eAB_MODE = CTRLDESCL5_5_fields_::eAB_MODE;
-    using ePD_FACTOR_MODE = CTRLDESCL5_5_fields_::ePD_FACTOR_MODE;
-    using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL5_5_fields_::ePD_GLOBAL_ALPHA_MODE;
-    using ePD_ALPHA_MODE = CTRLDESCL5_5_fields_::ePD_ALPHA_MODE;
-    using ePD_COLOR_MODE = CTRLDESCL5_5_fields_::ePD_COLOR_MODE;
-    using eYUV_FORMAT = CTRLDESCL5_5_fields_::eYUV_FORMAT;
-    using eBPP = CTRLDESCL5_5_fields_::eBPP;
-    using eSAFETY_EN = CTRLDESCL5_5_fields_::eSAFETY_EN;
-    using eEN = CTRLDESCL5_5_fields_::eEN;
-    using AB_MODE = CTRLDESCL5_5_fields_::AB_MODE;
-    using PD_FACTOR_MODE = CTRLDESCL5_5_fields_::PD_FACTOR_MODE;
-    using PD_GLOBAL_ALPHA_MODE = CTRLDESCL5_5_fields_::PD_GLOBAL_ALPHA_MODE;
-    using PD_ALPHA_MODE = CTRLDESCL5_5_fields_::PD_ALPHA_MODE;
-    using PD_COLOR_MODE = CTRLDESCL5_5_fields_::PD_COLOR_MODE;
-    using YUV_FORMAT = CTRLDESCL5_5_fields_::YUV_FORMAT;
-    using GLOBAL_ALPHA = CTRLDESCL5_5_fields_::GLOBAL_ALPHA;
-    using BPP = CTRLDESCL5_5_fields_::BPP;
-    using SAFETY_EN = CTRLDESCL5_5_fields_::SAFETY_EN;
-    using SHADOW_LOAD_EN = CTRLDESCL5_5_fields_::SHADOW_LOAD_EN;
-    using EN = CTRLDESCL5_5_fields_::EN;
+      Ctrldescl55Fields::SHADOW_LOAD_EN,
+      Ctrldescl55Fields::EN> {
+    using eAB_MODE = Ctrldescl55Fields::eAB_MODE;
+    using ePD_FACTOR_MODE = Ctrldescl55Fields::ePD_FACTOR_MODE;
+    using ePD_GLOBAL_ALPHA_MODE = Ctrldescl55Fields::ePD_GLOBAL_ALPHA_MODE;
+    using ePD_ALPHA_MODE = Ctrldescl55Fields::ePD_ALPHA_MODE;
+    using ePD_COLOR_MODE = Ctrldescl55Fields::ePD_COLOR_MODE;
+    using eYUV_FORMAT = Ctrldescl55Fields::eYUV_FORMAT;
+    using eBPP = Ctrldescl55Fields::eBPP;
+    using eSAFETY_EN = Ctrldescl55Fields::eSAFETY_EN;
+    using eEN = Ctrldescl55Fields::eEN;
+    using AB_MODE = Ctrldescl55Fields::AB_MODE;
+    using PD_FACTOR_MODE = Ctrldescl55Fields::PD_FACTOR_MODE;
+    using PD_GLOBAL_ALPHA_MODE = Ctrldescl55Fields::PD_GLOBAL_ALPHA_MODE;
+    using PD_ALPHA_MODE = Ctrldescl55Fields::PD_ALPHA_MODE;
+    using PD_COLOR_MODE = Ctrldescl55Fields::PD_COLOR_MODE;
+    using YUV_FORMAT = Ctrldescl55Fields::YUV_FORMAT;
+    using GLOBAL_ALPHA = Ctrldescl55Fields::GLOBAL_ALPHA;
+    using BPP = Ctrldescl55Fields::BPP;
+    using SAFETY_EN = Ctrldescl55Fields::SAFETY_EN;
+    using SHADOW_LOAD_EN = Ctrldescl55Fields::SHADOW_LOAD_EN;
+    using EN = Ctrldescl55Fields::EN;
   };
 
   // Control Descriptor Layer 6 Register
-  struct CTRLDESCL5_6_fields_ {
+  struct Ctrldescl56Fields {
     // Background B component value
     using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background G component value
     using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background R component value
     using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL5_6_fields_
+  };  // struct Ctrldescl56Fields
 
   struct CTRLDESCL5_6 : ftl::mmio::Register<
       0x40808354u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL5_6_fields_::BCLR_B,
-      CTRLDESCL5_6_fields_::BCLR_G,
-      CTRLDESCL5_6_fields_::BCLR_R,
+      Ctrldescl56Fields::BCLR_B,
+      Ctrldescl56Fields::BCLR_G,
+      Ctrldescl56Fields::BCLR_R,
       ftl::mmio::Reserved<8, 24>> {
-    using BCLR_B = CTRLDESCL5_6_fields_::BCLR_B;
-    using BCLR_G = CTRLDESCL5_6_fields_::BCLR_G;
-    using BCLR_R = CTRLDESCL5_6_fields_::BCLR_R;
+    using BCLR_B = Ctrldescl56Fields::BCLR_B;
+    using BCLR_G = Ctrldescl56Fields::BCLR_G;
+    using BCLR_R = Ctrldescl56Fields::BCLR_R;
   };
 
   // Control Descriptor Layer 1 Register
-  struct CTRLDESCL6_1_fields_ {
+  struct Ctrldescl61Fields {
     // Width of the layer in pixels
     using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Height of the layer in pixels
     using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL6_1_fields_
+  };  // struct Ctrldescl61Fields
 
   struct CTRLDESCL6_1 : ftl::mmio::Register<
       0x40808380u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL6_1_fields_::WIDTH,
+      Ctrldescl61Fields::WIDTH,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL6_1_fields_::HEIGHT,
+      Ctrldescl61Fields::HEIGHT,
       ftl::mmio::Reserved<4, 28>> {
-    using WIDTH = CTRLDESCL6_1_fields_::WIDTH;
-    using HEIGHT = CTRLDESCL6_1_fields_::HEIGHT;
+    using WIDTH = Ctrldescl61Fields::WIDTH;
+    using HEIGHT = Ctrldescl61Fields::HEIGHT;
   };
 
   // Control Descriptor Layer 2 Register
-  struct CTRLDESCL6_2_fields_ {
+  struct Ctrldescl62Fields {
     // POS X
     using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL6_2_fields_
+  };  // struct Ctrldescl62Fields
 
   struct CTRLDESCL6_2 : ftl::mmio::Register<
       0x40808384u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL6_2_fields_::POSX,
+      Ctrldescl62Fields::POSX,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL6_2_fields_::POSY,
+      Ctrldescl62Fields::POSY,
       ftl::mmio::Reserved<4, 28>> {
-    using POSX = CTRLDESCL6_2_fields_::POSX;
-    using POSY = CTRLDESCL6_2_fields_::POSY;
+    using POSX = Ctrldescl62Fields::POSX;
+    using POSY = Ctrldescl62Fields::POSY;
   };
 
   // Control Descriptor Layer 3 Register
-  struct CTRLDESCL6_3_fields_ {
+  struct Ctrldescl63Fields {
     // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL6_3_fields_
+  };  // struct Ctrldescl63Fields
 
   struct CTRLDESCL6_3 : ftl::mmio::Register<
       0x40808388u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL6_3_fields_::PITCH,
+      Ctrldescl63Fields::PITCH,
       ftl::mmio::Reserved<16, 16>> {
-    using PITCH = CTRLDESCL6_3_fields_::PITCH;
+    using PITCH = Ctrldescl63Fields::PITCH;
   };
 
   // Control Descriptor Layer 4 Register
-  struct CTRLDESCL6_4_fields_ {
+  struct Ctrldescl64Fields {
     // Address of layer data in the memory. The address programmed should be 64-bit aligned
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL6_4_fields_
+  };  // struct Ctrldescl64Fields
 
   struct CTRLDESCL6_4 : ftl::mmio::Register<
       0x4080838Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL6_4_fields_::ADDR> {
-    using ADDR = CTRLDESCL6_4_fields_::ADDR;
+      Ctrldescl64Fields::ADDR> {
+    using ADDR = Ctrldescl64Fields::ADDR;
   };
 
   // Control Descriptor Layer 5 Register
-  struct CTRLDESCL6_5_fields_ {
+  struct Ctrldescl65Fields {
     enum class eAB_MODE : std::uint32_t {
       // No alpha Blending (The SAFETY_EN bit need set to 1)
       ebf_val0 = 0,
@@ -2490,148 +2490,148 @@ struct Lcdifv2 {
     using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable the layer for DMA
     using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL6_5_fields_
+  };  // struct Ctrldescl65Fields
 
   struct CTRLDESCL6_5 : ftl::mmio::Register<
       0x40808390u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL6_5_fields_::AB_MODE,
+      Ctrldescl65Fields::AB_MODE,
       ftl::mmio::Reserved<2, 2>,
-      CTRLDESCL6_5_fields_::PD_FACTOR_MODE,
-      CTRLDESCL6_5_fields_::PD_GLOBAL_ALPHA_MODE,
-      CTRLDESCL6_5_fields_::PD_ALPHA_MODE,
-      CTRLDESCL6_5_fields_::PD_COLOR_MODE,
+      Ctrldescl65Fields::PD_FACTOR_MODE,
+      Ctrldescl65Fields::PD_GLOBAL_ALPHA_MODE,
+      Ctrldescl65Fields::PD_ALPHA_MODE,
+      Ctrldescl65Fields::PD_COLOR_MODE,
       ftl::mmio::Reserved<4, 10>,
-      CTRLDESCL6_5_fields_::YUV_FORMAT,
-      CTRLDESCL6_5_fields_::GLOBAL_ALPHA,
-      CTRLDESCL6_5_fields_::BPP,
-      CTRLDESCL6_5_fields_::SAFETY_EN,
+      Ctrldescl65Fields::YUV_FORMAT,
+      Ctrldescl65Fields::GLOBAL_ALPHA,
+      Ctrldescl65Fields::BPP,
+      Ctrldescl65Fields::SAFETY_EN,
       ftl::mmio::Reserved<1, 29>,
-      CTRLDESCL6_5_fields_::SHADOW_LOAD_EN,
-      CTRLDESCL6_5_fields_::EN> {
-    using eAB_MODE = CTRLDESCL6_5_fields_::eAB_MODE;
-    using ePD_FACTOR_MODE = CTRLDESCL6_5_fields_::ePD_FACTOR_MODE;
-    using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL6_5_fields_::ePD_GLOBAL_ALPHA_MODE;
-    using ePD_ALPHA_MODE = CTRLDESCL6_5_fields_::ePD_ALPHA_MODE;
-    using ePD_COLOR_MODE = CTRLDESCL6_5_fields_::ePD_COLOR_MODE;
-    using eYUV_FORMAT = CTRLDESCL6_5_fields_::eYUV_FORMAT;
-    using eBPP = CTRLDESCL6_5_fields_::eBPP;
-    using eSAFETY_EN = CTRLDESCL6_5_fields_::eSAFETY_EN;
-    using eEN = CTRLDESCL6_5_fields_::eEN;
-    using AB_MODE = CTRLDESCL6_5_fields_::AB_MODE;
-    using PD_FACTOR_MODE = CTRLDESCL6_5_fields_::PD_FACTOR_MODE;
-    using PD_GLOBAL_ALPHA_MODE = CTRLDESCL6_5_fields_::PD_GLOBAL_ALPHA_MODE;
-    using PD_ALPHA_MODE = CTRLDESCL6_5_fields_::PD_ALPHA_MODE;
-    using PD_COLOR_MODE = CTRLDESCL6_5_fields_::PD_COLOR_MODE;
-    using YUV_FORMAT = CTRLDESCL6_5_fields_::YUV_FORMAT;
-    using GLOBAL_ALPHA = CTRLDESCL6_5_fields_::GLOBAL_ALPHA;
-    using BPP = CTRLDESCL6_5_fields_::BPP;
-    using SAFETY_EN = CTRLDESCL6_5_fields_::SAFETY_EN;
-    using SHADOW_LOAD_EN = CTRLDESCL6_5_fields_::SHADOW_LOAD_EN;
-    using EN = CTRLDESCL6_5_fields_::EN;
+      Ctrldescl65Fields::SHADOW_LOAD_EN,
+      Ctrldescl65Fields::EN> {
+    using eAB_MODE = Ctrldescl65Fields::eAB_MODE;
+    using ePD_FACTOR_MODE = Ctrldescl65Fields::ePD_FACTOR_MODE;
+    using ePD_GLOBAL_ALPHA_MODE = Ctrldescl65Fields::ePD_GLOBAL_ALPHA_MODE;
+    using ePD_ALPHA_MODE = Ctrldescl65Fields::ePD_ALPHA_MODE;
+    using ePD_COLOR_MODE = Ctrldescl65Fields::ePD_COLOR_MODE;
+    using eYUV_FORMAT = Ctrldescl65Fields::eYUV_FORMAT;
+    using eBPP = Ctrldescl65Fields::eBPP;
+    using eSAFETY_EN = Ctrldescl65Fields::eSAFETY_EN;
+    using eEN = Ctrldescl65Fields::eEN;
+    using AB_MODE = Ctrldescl65Fields::AB_MODE;
+    using PD_FACTOR_MODE = Ctrldescl65Fields::PD_FACTOR_MODE;
+    using PD_GLOBAL_ALPHA_MODE = Ctrldescl65Fields::PD_GLOBAL_ALPHA_MODE;
+    using PD_ALPHA_MODE = Ctrldescl65Fields::PD_ALPHA_MODE;
+    using PD_COLOR_MODE = Ctrldescl65Fields::PD_COLOR_MODE;
+    using YUV_FORMAT = Ctrldescl65Fields::YUV_FORMAT;
+    using GLOBAL_ALPHA = Ctrldescl65Fields::GLOBAL_ALPHA;
+    using BPP = Ctrldescl65Fields::BPP;
+    using SAFETY_EN = Ctrldescl65Fields::SAFETY_EN;
+    using SHADOW_LOAD_EN = Ctrldescl65Fields::SHADOW_LOAD_EN;
+    using EN = Ctrldescl65Fields::EN;
   };
 
   // Control Descriptor Layer 6 Register
-  struct CTRLDESCL6_6_fields_ {
+  struct Ctrldescl66Fields {
     // Background B component value
     using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background G component value
     using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background R component value
     using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL6_6_fields_
+  };  // struct Ctrldescl66Fields
 
   struct CTRLDESCL6_6 : ftl::mmio::Register<
       0x40808394u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL6_6_fields_::BCLR_B,
-      CTRLDESCL6_6_fields_::BCLR_G,
-      CTRLDESCL6_6_fields_::BCLR_R,
+      Ctrldescl66Fields::BCLR_B,
+      Ctrldescl66Fields::BCLR_G,
+      Ctrldescl66Fields::BCLR_R,
       ftl::mmio::Reserved<8, 24>> {
-    using BCLR_B = CTRLDESCL6_6_fields_::BCLR_B;
-    using BCLR_G = CTRLDESCL6_6_fields_::BCLR_G;
-    using BCLR_R = CTRLDESCL6_6_fields_::BCLR_R;
+    using BCLR_B = Ctrldescl66Fields::BCLR_B;
+    using BCLR_G = Ctrldescl66Fields::BCLR_G;
+    using BCLR_R = Ctrldescl66Fields::BCLR_R;
   };
 
   // Control Descriptor Layer 1 Register
-  struct CTRLDESCL7_1_fields_ {
+  struct Ctrldescl71Fields {
     // Width of the layer in pixels
     using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Height of the layer in pixels
     using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL7_1_fields_
+  };  // struct Ctrldescl71Fields
 
   struct CTRLDESCL7_1 : ftl::mmio::Register<
       0x408083C0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL7_1_fields_::WIDTH,
+      Ctrldescl71Fields::WIDTH,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL7_1_fields_::HEIGHT,
+      Ctrldescl71Fields::HEIGHT,
       ftl::mmio::Reserved<4, 28>> {
-    using WIDTH = CTRLDESCL7_1_fields_::WIDTH;
-    using HEIGHT = CTRLDESCL7_1_fields_::HEIGHT;
+    using WIDTH = Ctrldescl71Fields::WIDTH;
+    using HEIGHT = Ctrldescl71Fields::HEIGHT;
   };
 
   // Control Descriptor Layer 2 Register
-  struct CTRLDESCL7_2_fields_ {
+  struct Ctrldescl72Fields {
     // POS X
     using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL7_2_fields_
+  };  // struct Ctrldescl72Fields
 
   struct CTRLDESCL7_2 : ftl::mmio::Register<
       0x408083C4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL7_2_fields_::POSX,
+      Ctrldescl72Fields::POSX,
       ftl::mmio::Reserved<4, 12>,
-      CTRLDESCL7_2_fields_::POSY,
+      Ctrldescl72Fields::POSY,
       ftl::mmio::Reserved<4, 28>> {
-    using POSX = CTRLDESCL7_2_fields_::POSX;
-    using POSY = CTRLDESCL7_2_fields_::POSY;
+    using POSX = Ctrldescl72Fields::POSX;
+    using POSY = Ctrldescl72Fields::POSY;
   };
 
   // Control Descriptor Layer 3 Register
-  struct CTRLDESCL7_3_fields_ {
+  struct Ctrldescl73Fields {
     // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL7_3_fields_
+  };  // struct Ctrldescl73Fields
 
   struct CTRLDESCL7_3 : ftl::mmio::Register<
       0x408083C8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL7_3_fields_::PITCH,
+      Ctrldescl73Fields::PITCH,
       ftl::mmio::Reserved<16, 16>> {
-    using PITCH = CTRLDESCL7_3_fields_::PITCH;
+    using PITCH = Ctrldescl73Fields::PITCH;
   };
 
   // Control Descriptor Layer 4 Register
-  struct CTRLDESCL7_4_fields_ {
+  struct Ctrldescl74Fields {
     // Address of layer data in the memory. The address programmed should be 64-bit aligned
     using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL7_4_fields_
+  };  // struct Ctrldescl74Fields
 
   struct CTRLDESCL7_4 : ftl::mmio::Register<
       0x408083CCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL7_4_fields_::ADDR> {
-    using ADDR = CTRLDESCL7_4_fields_::ADDR;
+      Ctrldescl74Fields::ADDR> {
+    using ADDR = Ctrldescl74Fields::ADDR;
   };
 
   // Control Descriptor Layer 5 Register
-  struct CTRLDESCL7_5_fields_ {
+  struct Ctrldescl75Fields {
     enum class eAB_MODE : std::uint32_t {
       // No alpha Blending (The SAFETY_EN bit need set to 1)
       ebf_val0 = 0,
@@ -2751,92 +2751,92 @@ struct Lcdifv2 {
     using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Enable the layer for DMA
     using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL7_5_fields_
+  };  // struct Ctrldescl75Fields
 
   struct CTRLDESCL7_5 : ftl::mmio::Register<
       0x408083D0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL7_5_fields_::AB_MODE,
+      Ctrldescl75Fields::AB_MODE,
       ftl::mmio::Reserved<2, 2>,
-      CTRLDESCL7_5_fields_::PD_FACTOR_MODE,
-      CTRLDESCL7_5_fields_::PD_GLOBAL_ALPHA_MODE,
-      CTRLDESCL7_5_fields_::PD_ALPHA_MODE,
-      CTRLDESCL7_5_fields_::PD_COLOR_MODE,
+      Ctrldescl75Fields::PD_FACTOR_MODE,
+      Ctrldescl75Fields::PD_GLOBAL_ALPHA_MODE,
+      Ctrldescl75Fields::PD_ALPHA_MODE,
+      Ctrldescl75Fields::PD_COLOR_MODE,
       ftl::mmio::Reserved<4, 10>,
-      CTRLDESCL7_5_fields_::YUV_FORMAT,
-      CTRLDESCL7_5_fields_::GLOBAL_ALPHA,
-      CTRLDESCL7_5_fields_::BPP,
-      CTRLDESCL7_5_fields_::SAFETY_EN,
+      Ctrldescl75Fields::YUV_FORMAT,
+      Ctrldescl75Fields::GLOBAL_ALPHA,
+      Ctrldescl75Fields::BPP,
+      Ctrldescl75Fields::SAFETY_EN,
       ftl::mmio::Reserved<1, 29>,
-      CTRLDESCL7_5_fields_::SHADOW_LOAD_EN,
-      CTRLDESCL7_5_fields_::EN> {
-    using eAB_MODE = CTRLDESCL7_5_fields_::eAB_MODE;
-    using ePD_FACTOR_MODE = CTRLDESCL7_5_fields_::ePD_FACTOR_MODE;
-    using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL7_5_fields_::ePD_GLOBAL_ALPHA_MODE;
-    using ePD_ALPHA_MODE = CTRLDESCL7_5_fields_::ePD_ALPHA_MODE;
-    using ePD_COLOR_MODE = CTRLDESCL7_5_fields_::ePD_COLOR_MODE;
-    using eYUV_FORMAT = CTRLDESCL7_5_fields_::eYUV_FORMAT;
-    using eBPP = CTRLDESCL7_5_fields_::eBPP;
-    using eSAFETY_EN = CTRLDESCL7_5_fields_::eSAFETY_EN;
-    using eEN = CTRLDESCL7_5_fields_::eEN;
-    using AB_MODE = CTRLDESCL7_5_fields_::AB_MODE;
-    using PD_FACTOR_MODE = CTRLDESCL7_5_fields_::PD_FACTOR_MODE;
-    using PD_GLOBAL_ALPHA_MODE = CTRLDESCL7_5_fields_::PD_GLOBAL_ALPHA_MODE;
-    using PD_ALPHA_MODE = CTRLDESCL7_5_fields_::PD_ALPHA_MODE;
-    using PD_COLOR_MODE = CTRLDESCL7_5_fields_::PD_COLOR_MODE;
-    using YUV_FORMAT = CTRLDESCL7_5_fields_::YUV_FORMAT;
-    using GLOBAL_ALPHA = CTRLDESCL7_5_fields_::GLOBAL_ALPHA;
-    using BPP = CTRLDESCL7_5_fields_::BPP;
-    using SAFETY_EN = CTRLDESCL7_5_fields_::SAFETY_EN;
-    using SHADOW_LOAD_EN = CTRLDESCL7_5_fields_::SHADOW_LOAD_EN;
-    using EN = CTRLDESCL7_5_fields_::EN;
+      Ctrldescl75Fields::SHADOW_LOAD_EN,
+      Ctrldescl75Fields::EN> {
+    using eAB_MODE = Ctrldescl75Fields::eAB_MODE;
+    using ePD_FACTOR_MODE = Ctrldescl75Fields::ePD_FACTOR_MODE;
+    using ePD_GLOBAL_ALPHA_MODE = Ctrldescl75Fields::ePD_GLOBAL_ALPHA_MODE;
+    using ePD_ALPHA_MODE = Ctrldescl75Fields::ePD_ALPHA_MODE;
+    using ePD_COLOR_MODE = Ctrldescl75Fields::ePD_COLOR_MODE;
+    using eYUV_FORMAT = Ctrldescl75Fields::eYUV_FORMAT;
+    using eBPP = Ctrldescl75Fields::eBPP;
+    using eSAFETY_EN = Ctrldescl75Fields::eSAFETY_EN;
+    using eEN = Ctrldescl75Fields::eEN;
+    using AB_MODE = Ctrldescl75Fields::AB_MODE;
+    using PD_FACTOR_MODE = Ctrldescl75Fields::PD_FACTOR_MODE;
+    using PD_GLOBAL_ALPHA_MODE = Ctrldescl75Fields::PD_GLOBAL_ALPHA_MODE;
+    using PD_ALPHA_MODE = Ctrldescl75Fields::PD_ALPHA_MODE;
+    using PD_COLOR_MODE = Ctrldescl75Fields::PD_COLOR_MODE;
+    using YUV_FORMAT = Ctrldescl75Fields::YUV_FORMAT;
+    using GLOBAL_ALPHA = Ctrldescl75Fields::GLOBAL_ALPHA;
+    using BPP = Ctrldescl75Fields::BPP;
+    using SAFETY_EN = Ctrldescl75Fields::SAFETY_EN;
+    using SHADOW_LOAD_EN = Ctrldescl75Fields::SHADOW_LOAD_EN;
+    using EN = Ctrldescl75Fields::EN;
   };
 
   // Control Descriptor Layer 6 Register
-  struct CTRLDESCL7_6_fields_ {
+  struct Ctrldescl76Fields {
     // Background B component value
     using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background G component value
     using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
     // Background R component value
     using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CTRLDESCL7_6_fields_
+  };  // struct Ctrldescl76Fields
 
   struct CTRLDESCL7_6 : ftl::mmio::Register<
       0x408083D4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CTRLDESCL7_6_fields_::BCLR_B,
-      CTRLDESCL7_6_fields_::BCLR_G,
-      CTRLDESCL7_6_fields_::BCLR_R,
+      Ctrldescl76Fields::BCLR_B,
+      Ctrldescl76Fields::BCLR_G,
+      Ctrldescl76Fields::BCLR_R,
       ftl::mmio::Reserved<8, 24>> {
-    using BCLR_B = CTRLDESCL7_6_fields_::BCLR_B;
-    using BCLR_G = CTRLDESCL7_6_fields_::BCLR_G;
-    using BCLR_R = CTRLDESCL7_6_fields_::BCLR_R;
+    using BCLR_B = Ctrldescl76Fields::BCLR_B;
+    using BCLR_G = Ctrldescl76Fields::BCLR_G;
+    using BCLR_R = Ctrldescl76Fields::BCLR_R;
   };
 
   // LCDIFv2 CLUT load Register
-  struct CLUT_LOAD_fields_ {
+  struct ClutLoadFields {
     // CLUT Update Enable
     using CLUT_UPDATE_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
     // Selected CLUT Number
     using SEL_CLUT_NUM = ftl::mmio::Field<3, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct CLUT_LOAD_fields_
+  };  // struct ClutLoadFields
 
   struct CLUT_LOAD : ftl::mmio::Register<
       0x40808400u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      CLUT_LOAD_fields_::CLUT_UPDATE_EN,
+      ClutLoadFields::CLUT_UPDATE_EN,
       ftl::mmio::Reserved<3, 1>,
-      CLUT_LOAD_fields_::SEL_CLUT_NUM,
+      ClutLoadFields::SEL_CLUT_NUM,
       ftl::mmio::Reserved<25, 7>> {
-    using CLUT_UPDATE_EN = CLUT_LOAD_fields_::CLUT_UPDATE_EN;
-    using SEL_CLUT_NUM = CLUT_LOAD_fields_::SEL_CLUT_NUM;
+    using CLUT_UPDATE_EN = ClutLoadFields::CLUT_UPDATE_EN;
+    using SEL_CLUT_NUM = ClutLoadFields::SEL_CLUT_NUM;
   };
 
 };

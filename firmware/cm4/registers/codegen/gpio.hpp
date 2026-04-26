@@ -31,52 +31,52 @@ struct Gpio {
       0u;
 
   // GPIO data register
-  struct DR_fields_ {
+  struct DrFields {
     // DR data bits
     using DR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct DR_fields_
+  };  // struct DrFields
 
   struct DR : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename DR_fields_::DR> {
-    using VALUE = typename DR_fields_::DR;
+      typename DrFields::DR> {
+    using VALUE = typename DrFields::DR;
   };
 
   // GPIO direction register
-  struct GDIR_fields_ {
+  struct GdirFields {
     // GPIO direction bits
     using GDIR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct GDIR_fields_
+  };  // struct GdirFields
 
   struct GDIR : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename GDIR_fields_::GDIR> {
-    using VALUE = typename GDIR_fields_::GDIR;
+      typename GdirFields::GDIR> {
+    using VALUE = typename GdirFields::GDIR;
   };
 
   // GPIO pad status register
-  struct PSR_fields_ {
+  struct PsrFields {
     // GPIO pad status bits
     using PSR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PSR_fields_
+  };  // struct PsrFields
 
   struct PSR : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename PSR_fields_::PSR> {
-    using VALUE = typename PSR_fields_::PSR;
+      typename PsrFields::PSR> {
+    using VALUE = typename PsrFields::PSR;
   };
 
   // GPIO interrupt configuration register1
-  struct ICR1_fields_ {
+  struct Icr1Fields {
     enum class eICR0 : std::uint32_t {
       // Interrupt 0 is low-level sensitive.
       eLOW_LEVEL = 0,
@@ -285,65 +285,65 @@ struct Gpio {
     using ICR14 = ftl::mmio::Field<2, 28, eICR14, ftl::mmio::RW, ftl::mmio::Normal>;
     // Interrupt configuration field for GPIO interrupt 15
     using ICR15 = ftl::mmio::Field<2, 30, eICR15, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ICR1_fields_
+  };  // struct Icr1Fields
 
   struct ICR1 : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ICR1_fields_::ICR0,
-      typename ICR1_fields_::ICR1,
-      typename ICR1_fields_::ICR2,
-      typename ICR1_fields_::ICR3,
-      typename ICR1_fields_::ICR4,
-      typename ICR1_fields_::ICR5,
-      typename ICR1_fields_::ICR6,
-      typename ICR1_fields_::ICR7,
-      typename ICR1_fields_::ICR8,
-      typename ICR1_fields_::ICR9,
-      typename ICR1_fields_::ICR10,
-      typename ICR1_fields_::ICR11,
-      typename ICR1_fields_::ICR12,
-      typename ICR1_fields_::ICR13,
-      typename ICR1_fields_::ICR14,
-      typename ICR1_fields_::ICR15> {
-    using eICR0 = typename ICR1_fields_::eICR0;
-    using eICR1 = typename ICR1_fields_::eICR1;
-    using eICR2 = typename ICR1_fields_::eICR2;
-    using eICR3 = typename ICR1_fields_::eICR3;
-    using eICR4 = typename ICR1_fields_::eICR4;
-    using eICR5 = typename ICR1_fields_::eICR5;
-    using eICR6 = typename ICR1_fields_::eICR6;
-    using eICR7 = typename ICR1_fields_::eICR7;
-    using eICR8 = typename ICR1_fields_::eICR8;
-    using eICR9 = typename ICR1_fields_::eICR9;
-    using eICR10 = typename ICR1_fields_::eICR10;
-    using eICR11 = typename ICR1_fields_::eICR11;
-    using eICR12 = typename ICR1_fields_::eICR12;
-    using eICR13 = typename ICR1_fields_::eICR13;
-    using eICR14 = typename ICR1_fields_::eICR14;
-    using eICR15 = typename ICR1_fields_::eICR15;
-    using ICR0 = typename ICR1_fields_::ICR0;
-    using VALUE = typename ICR1_fields_::ICR1;
-    using ICR2 = typename ICR1_fields_::ICR2;
-    using ICR3 = typename ICR1_fields_::ICR3;
-    using ICR4 = typename ICR1_fields_::ICR4;
-    using ICR5 = typename ICR1_fields_::ICR5;
-    using ICR6 = typename ICR1_fields_::ICR6;
-    using ICR7 = typename ICR1_fields_::ICR7;
-    using ICR8 = typename ICR1_fields_::ICR8;
-    using ICR9 = typename ICR1_fields_::ICR9;
-    using ICR10 = typename ICR1_fields_::ICR10;
-    using ICR11 = typename ICR1_fields_::ICR11;
-    using ICR12 = typename ICR1_fields_::ICR12;
-    using ICR13 = typename ICR1_fields_::ICR13;
-    using ICR14 = typename ICR1_fields_::ICR14;
-    using ICR15 = typename ICR1_fields_::ICR15;
+      typename Icr1Fields::ICR0,
+      typename Icr1Fields::ICR1,
+      typename Icr1Fields::ICR2,
+      typename Icr1Fields::ICR3,
+      typename Icr1Fields::ICR4,
+      typename Icr1Fields::ICR5,
+      typename Icr1Fields::ICR6,
+      typename Icr1Fields::ICR7,
+      typename Icr1Fields::ICR8,
+      typename Icr1Fields::ICR9,
+      typename Icr1Fields::ICR10,
+      typename Icr1Fields::ICR11,
+      typename Icr1Fields::ICR12,
+      typename Icr1Fields::ICR13,
+      typename Icr1Fields::ICR14,
+      typename Icr1Fields::ICR15> {
+    using eICR0 = typename Icr1Fields::eICR0;
+    using eICR1 = typename Icr1Fields::eICR1;
+    using eICR2 = typename Icr1Fields::eICR2;
+    using eICR3 = typename Icr1Fields::eICR3;
+    using eICR4 = typename Icr1Fields::eICR4;
+    using eICR5 = typename Icr1Fields::eICR5;
+    using eICR6 = typename Icr1Fields::eICR6;
+    using eICR7 = typename Icr1Fields::eICR7;
+    using eICR8 = typename Icr1Fields::eICR8;
+    using eICR9 = typename Icr1Fields::eICR9;
+    using eICR10 = typename Icr1Fields::eICR10;
+    using eICR11 = typename Icr1Fields::eICR11;
+    using eICR12 = typename Icr1Fields::eICR12;
+    using eICR13 = typename Icr1Fields::eICR13;
+    using eICR14 = typename Icr1Fields::eICR14;
+    using eICR15 = typename Icr1Fields::eICR15;
+    using ICR0 = typename Icr1Fields::ICR0;
+    using VALUE = typename Icr1Fields::ICR1;
+    using ICR2 = typename Icr1Fields::ICR2;
+    using ICR3 = typename Icr1Fields::ICR3;
+    using ICR4 = typename Icr1Fields::ICR4;
+    using ICR5 = typename Icr1Fields::ICR5;
+    using ICR6 = typename Icr1Fields::ICR6;
+    using ICR7 = typename Icr1Fields::ICR7;
+    using ICR8 = typename Icr1Fields::ICR8;
+    using ICR9 = typename Icr1Fields::ICR9;
+    using ICR10 = typename Icr1Fields::ICR10;
+    using ICR11 = typename Icr1Fields::ICR11;
+    using ICR12 = typename Icr1Fields::ICR12;
+    using ICR13 = typename Icr1Fields::ICR13;
+    using ICR14 = typename Icr1Fields::ICR14;
+    using ICR15 = typename Icr1Fields::ICR15;
   };
 
   // GPIO interrupt configuration register2
-  struct ICR2_fields_ {
+  struct Icr2Fields {
     enum class eICR16 : std::uint32_t {
       // Interrupt 16 is low-level sensitive.
       eLOW_LEVEL = 0,
@@ -552,151 +552,151 @@ struct Gpio {
     using ICR30 = ftl::mmio::Field<2, 28, eICR30, ftl::mmio::RW, ftl::mmio::Normal>;
     // Interrupt configuration field for GPIO interrupt 31
     using ICR31 = ftl::mmio::Field<2, 30, eICR31, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct ICR2_fields_
+  };  // struct Icr2Fields
 
   struct ICR2 : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ICR2_fields_::ICR16,
-      typename ICR2_fields_::ICR17,
-      typename ICR2_fields_::ICR18,
-      typename ICR2_fields_::ICR19,
-      typename ICR2_fields_::ICR20,
-      typename ICR2_fields_::ICR21,
-      typename ICR2_fields_::ICR22,
-      typename ICR2_fields_::ICR23,
-      typename ICR2_fields_::ICR24,
-      typename ICR2_fields_::ICR25,
-      typename ICR2_fields_::ICR26,
-      typename ICR2_fields_::ICR27,
-      typename ICR2_fields_::ICR28,
-      typename ICR2_fields_::ICR29,
-      typename ICR2_fields_::ICR30,
-      typename ICR2_fields_::ICR31> {
-    using eICR16 = typename ICR2_fields_::eICR16;
-    using eICR17 = typename ICR2_fields_::eICR17;
-    using eICR18 = typename ICR2_fields_::eICR18;
-    using eICR19 = typename ICR2_fields_::eICR19;
-    using eICR20 = typename ICR2_fields_::eICR20;
-    using eICR21 = typename ICR2_fields_::eICR21;
-    using eICR22 = typename ICR2_fields_::eICR22;
-    using eICR23 = typename ICR2_fields_::eICR23;
-    using eICR24 = typename ICR2_fields_::eICR24;
-    using eICR25 = typename ICR2_fields_::eICR25;
-    using eICR26 = typename ICR2_fields_::eICR26;
-    using eICR27 = typename ICR2_fields_::eICR27;
-    using eICR28 = typename ICR2_fields_::eICR28;
-    using eICR29 = typename ICR2_fields_::eICR29;
-    using eICR30 = typename ICR2_fields_::eICR30;
-    using eICR31 = typename ICR2_fields_::eICR31;
-    using ICR16 = typename ICR2_fields_::ICR16;
-    using ICR17 = typename ICR2_fields_::ICR17;
-    using ICR18 = typename ICR2_fields_::ICR18;
-    using ICR19 = typename ICR2_fields_::ICR19;
-    using ICR20 = typename ICR2_fields_::ICR20;
-    using ICR21 = typename ICR2_fields_::ICR21;
-    using ICR22 = typename ICR2_fields_::ICR22;
-    using ICR23 = typename ICR2_fields_::ICR23;
-    using ICR24 = typename ICR2_fields_::ICR24;
-    using ICR25 = typename ICR2_fields_::ICR25;
-    using ICR26 = typename ICR2_fields_::ICR26;
-    using ICR27 = typename ICR2_fields_::ICR27;
-    using ICR28 = typename ICR2_fields_::ICR28;
-    using ICR29 = typename ICR2_fields_::ICR29;
-    using ICR30 = typename ICR2_fields_::ICR30;
-    using ICR31 = typename ICR2_fields_::ICR31;
+      typename Icr2Fields::ICR16,
+      typename Icr2Fields::ICR17,
+      typename Icr2Fields::ICR18,
+      typename Icr2Fields::ICR19,
+      typename Icr2Fields::ICR20,
+      typename Icr2Fields::ICR21,
+      typename Icr2Fields::ICR22,
+      typename Icr2Fields::ICR23,
+      typename Icr2Fields::ICR24,
+      typename Icr2Fields::ICR25,
+      typename Icr2Fields::ICR26,
+      typename Icr2Fields::ICR27,
+      typename Icr2Fields::ICR28,
+      typename Icr2Fields::ICR29,
+      typename Icr2Fields::ICR30,
+      typename Icr2Fields::ICR31> {
+    using eICR16 = typename Icr2Fields::eICR16;
+    using eICR17 = typename Icr2Fields::eICR17;
+    using eICR18 = typename Icr2Fields::eICR18;
+    using eICR19 = typename Icr2Fields::eICR19;
+    using eICR20 = typename Icr2Fields::eICR20;
+    using eICR21 = typename Icr2Fields::eICR21;
+    using eICR22 = typename Icr2Fields::eICR22;
+    using eICR23 = typename Icr2Fields::eICR23;
+    using eICR24 = typename Icr2Fields::eICR24;
+    using eICR25 = typename Icr2Fields::eICR25;
+    using eICR26 = typename Icr2Fields::eICR26;
+    using eICR27 = typename Icr2Fields::eICR27;
+    using eICR28 = typename Icr2Fields::eICR28;
+    using eICR29 = typename Icr2Fields::eICR29;
+    using eICR30 = typename Icr2Fields::eICR30;
+    using eICR31 = typename Icr2Fields::eICR31;
+    using ICR16 = typename Icr2Fields::ICR16;
+    using ICR17 = typename Icr2Fields::ICR17;
+    using ICR18 = typename Icr2Fields::ICR18;
+    using ICR19 = typename Icr2Fields::ICR19;
+    using ICR20 = typename Icr2Fields::ICR20;
+    using ICR21 = typename Icr2Fields::ICR21;
+    using ICR22 = typename Icr2Fields::ICR22;
+    using ICR23 = typename Icr2Fields::ICR23;
+    using ICR24 = typename Icr2Fields::ICR24;
+    using ICR25 = typename Icr2Fields::ICR25;
+    using ICR26 = typename Icr2Fields::ICR26;
+    using ICR27 = typename Icr2Fields::ICR27;
+    using ICR28 = typename Icr2Fields::ICR28;
+    using ICR29 = typename Icr2Fields::ICR29;
+    using ICR30 = typename Icr2Fields::ICR30;
+    using ICR31 = typename Icr2Fields::ICR31;
   };
 
   // GPIO interrupt mask register
-  struct IMR_fields_ {
+  struct ImrFields {
     // Interrupt Mask bits
     using IMR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct IMR_fields_
+  };  // struct ImrFields
 
   struct IMR : ftl::mmio::Register<
       kBase + 0x14u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename IMR_fields_::IMR> {
-    using VALUE = typename IMR_fields_::IMR;
+      typename ImrFields::IMR> {
+    using VALUE = typename ImrFields::IMR;
   };
 
   // GPIO interrupt status register
-  struct ISR_fields_ {
+  struct IsrFields {
     // Interrupt status bits
     using ISR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-  };  // struct ISR_fields_
+  };  // struct IsrFields
 
   struct ISR : ftl::mmio::Register<
       kBase + 0x18u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename ISR_fields_::ISR> {
-    using VALUE = typename ISR_fields_::ISR;
+      typename IsrFields::ISR> {
+    using VALUE = typename IsrFields::ISR;
   };
 
   // GPIO edge select register
-  struct EDGE_SEL_fields_ {
+  struct EdgeSelFields {
     // Edge select
     using GPIO_EDGE_SEL = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct EDGE_SEL_fields_
+  };  // struct EdgeSelFields
 
   struct EDGE_SEL : ftl::mmio::Register<
       kBase + 0x1Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename EDGE_SEL_fields_::GPIO_EDGE_SEL> {
-    using GPIO_EDGE_SEL = typename EDGE_SEL_fields_::GPIO_EDGE_SEL;
+      typename EdgeSelFields::GPIO_EDGE_SEL> {
+    using GPIO_EDGE_SEL = typename EdgeSelFields::GPIO_EDGE_SEL;
   };
 
   // GPIO data register SET
-  struct DR_SET_fields_ {
+  struct DrSetFields {
     // Set
     using DR_SET = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct DR_SET_fields_
+  };  // struct DrSetFields
 
   struct DR_SET : ftl::mmio::Register<
       kBase + 0x84u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      typename DR_SET_fields_::DR_SET> {
-    using VALUE = typename DR_SET_fields_::DR_SET;
+      typename DrSetFields::DR_SET> {
+    using VALUE = typename DrSetFields::DR_SET;
   };
 
   // GPIO data register CLEAR
-  struct DR_CLEAR_fields_ {
+  struct DrClearFields {
     // Clear
     using DR_CLEAR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct DR_CLEAR_fields_
+  };  // struct DrClearFields
 
   struct DR_CLEAR : ftl::mmio::Register<
       kBase + 0x88u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      typename DR_CLEAR_fields_::DR_CLEAR> {
-    using VALUE = typename DR_CLEAR_fields_::DR_CLEAR;
+      typename DrClearFields::DR_CLEAR> {
+    using VALUE = typename DrClearFields::DR_CLEAR;
   };
 
   // GPIO data register TOGGLE
-  struct DR_TOGGLE_fields_ {
+  struct DrToggleFields {
     // Toggle
     using DR_TOGGLE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
-  };  // struct DR_TOGGLE_fields_
+  };  // struct DrToggleFields
 
   struct DR_TOGGLE : ftl::mmio::Register<
       kBase + 0x8Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::WO,
-      typename DR_TOGGLE_fields_::DR_TOGGLE> {
-    using VALUE = typename DR_TOGGLE_fields_::DR_TOGGLE;
+      typename DrToggleFields::DR_TOGGLE> {
+    using VALUE = typename DrToggleFields::DR_TOGGLE;
   };
 
 };

@@ -10,7 +10,7 @@ namespace regs {
 
 struct Lmem {
   // PC bus Cache control register
-  struct PCCCR_fields_ {
+  struct PcccrFields {
     enum class eENCACHE : std::uint32_t {
       // Cache disabled
       edisabled = 0,
@@ -92,46 +92,46 @@ struct Lmem {
     using PUSHW1 = ftl::mmio::Field<1, 27, ePUSHW1, ftl::mmio::RW, ftl::mmio::Normal>;
     // Initiate Cache Command
     using GO = ftl::mmio::Field<1, 31, eGO, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PCCCR_fields_
+  };  // struct PcccrFields
 
   struct PCCCR : ftl::mmio::Register<
       0xE0082000u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PCCCR_fields_::ENCACHE,
-      PCCCR_fields_::ENWRBUF,
-      PCCCR_fields_::PCCR2,
-      PCCCR_fields_::PCCR3,
+      PcccrFields::ENCACHE,
+      PcccrFields::ENWRBUF,
+      PcccrFields::PCCR2,
+      PcccrFields::PCCR3,
       ftl::mmio::Reserved<20, 4>,
-      PCCCR_fields_::INVW0,
-      PCCCR_fields_::PUSHW0,
-      PCCCR_fields_::INVW1,
-      PCCCR_fields_::PUSHW1,
+      PcccrFields::INVW0,
+      PcccrFields::PUSHW0,
+      PcccrFields::INVW1,
+      PcccrFields::PUSHW1,
       ftl::mmio::Reserved<3, 28>,
-      PCCCR_fields_::GO> {
-    using eENCACHE = PCCCR_fields_::eENCACHE;
-    using eENWRBUF = PCCCR_fields_::eENWRBUF;
-    using ePCCR2 = PCCCR_fields_::ePCCR2;
-    using ePCCR3 = PCCCR_fields_::ePCCR3;
-    using eINVW0 = PCCCR_fields_::eINVW0;
-    using ePUSHW0 = PCCCR_fields_::ePUSHW0;
-    using eINVW1 = PCCCR_fields_::eINVW1;
-    using ePUSHW1 = PCCCR_fields_::ePUSHW1;
-    using eGO = PCCCR_fields_::eGO;
-    using ENCACHE = PCCCR_fields_::ENCACHE;
-    using ENWRBUF = PCCCR_fields_::ENWRBUF;
-    using PCCR2 = PCCCR_fields_::PCCR2;
-    using PCCR3 = PCCCR_fields_::PCCR3;
-    using INVW0 = PCCCR_fields_::INVW0;
-    using PUSHW0 = PCCCR_fields_::PUSHW0;
-    using INVW1 = PCCCR_fields_::INVW1;
-    using PUSHW1 = PCCCR_fields_::PUSHW1;
-    using GO = PCCCR_fields_::GO;
+      PcccrFields::GO> {
+    using eENCACHE = PcccrFields::eENCACHE;
+    using eENWRBUF = PcccrFields::eENWRBUF;
+    using ePCCR2 = PcccrFields::ePCCR2;
+    using ePCCR3 = PcccrFields::ePCCR3;
+    using eINVW0 = PcccrFields::eINVW0;
+    using ePUSHW0 = PcccrFields::ePUSHW0;
+    using eINVW1 = PcccrFields::eINVW1;
+    using ePUSHW1 = PcccrFields::ePUSHW1;
+    using eGO = PcccrFields::eGO;
+    using ENCACHE = PcccrFields::ENCACHE;
+    using ENWRBUF = PcccrFields::ENWRBUF;
+    using PCCR2 = PcccrFields::PCCR2;
+    using PCCR3 = PcccrFields::PCCR3;
+    using INVW0 = PcccrFields::INVW0;
+    using PUSHW0 = PcccrFields::PUSHW0;
+    using INVW1 = PcccrFields::INVW1;
+    using PUSHW1 = PcccrFields::PUSHW1;
+    using GO = PcccrFields::GO;
   };
 
   // PC bus Cache line control register
-  struct PCCLCR_fields_ {
+  struct PcclcrFields {
     enum class eLGO : std::uint32_t {
       // Write: no effect. Read: no line command active.
       eno_effect = 0,
@@ -198,48 +198,48 @@ struct Lmem {
     using LADSEL = ftl::mmio::Field<1, 26, eLADSEL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Line access type
     using LACC = ftl::mmio::Field<1, 27, eLACC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PCCLCR_fields_
+  };  // struct PcclcrFields
 
   struct PCCLCR : ftl::mmio::Register<
       0xE0082004u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PCCLCR_fields_::LGO,
+      PcclcrFields::LGO,
       ftl::mmio::Reserved<1, 1>,
-      PCCLCR_fields_::CACHEADDR,
-      PCCLCR_fields_::WSEL,
+      PcclcrFields::CACHEADDR,
+      PcclcrFields::WSEL,
       ftl::mmio::Reserved<1, 15>,
-      PCCLCR_fields_::TDSEL,
+      PcclcrFields::TDSEL,
       ftl::mmio::Reserved<3, 17>,
-      PCCLCR_fields_::LCIVB,
-      PCCLCR_fields_::LCIMB,
-      PCCLCR_fields_::LCWAY,
+      PcclcrFields::LCIVB,
+      PcclcrFields::LCIMB,
+      PcclcrFields::LCWAY,
       ftl::mmio::Reserved<1, 23>,
-      PCCLCR_fields_::LCMD,
-      PCCLCR_fields_::LADSEL,
-      PCCLCR_fields_::LACC,
+      PcclcrFields::LCMD,
+      PcclcrFields::LADSEL,
+      PcclcrFields::LACC,
       ftl::mmio::Reserved<4, 28>> {
-    using eLGO = PCCLCR_fields_::eLGO;
-    using eWSEL = PCCLCR_fields_::eWSEL;
-    using eTDSEL = PCCLCR_fields_::eTDSEL;
-    using eLCMD = PCCLCR_fields_::eLCMD;
-    using eLADSEL = PCCLCR_fields_::eLADSEL;
-    using eLACC = PCCLCR_fields_::eLACC;
-    using LGO = PCCLCR_fields_::LGO;
-    using CACHEADDR = PCCLCR_fields_::CACHEADDR;
-    using WSEL = PCCLCR_fields_::WSEL;
-    using TDSEL = PCCLCR_fields_::TDSEL;
-    using LCIVB = PCCLCR_fields_::LCIVB;
-    using LCIMB = PCCLCR_fields_::LCIMB;
-    using LCWAY = PCCLCR_fields_::LCWAY;
-    using LCMD = PCCLCR_fields_::LCMD;
-    using LADSEL = PCCLCR_fields_::LADSEL;
-    using LACC = PCCLCR_fields_::LACC;
+    using eLGO = PcclcrFields::eLGO;
+    using eWSEL = PcclcrFields::eWSEL;
+    using eTDSEL = PcclcrFields::eTDSEL;
+    using eLCMD = PcclcrFields::eLCMD;
+    using eLADSEL = PcclcrFields::eLADSEL;
+    using eLACC = PcclcrFields::eLACC;
+    using LGO = PcclcrFields::LGO;
+    using CACHEADDR = PcclcrFields::CACHEADDR;
+    using WSEL = PcclcrFields::WSEL;
+    using TDSEL = PcclcrFields::TDSEL;
+    using LCIVB = PcclcrFields::LCIVB;
+    using LCIMB = PcclcrFields::LCIMB;
+    using LCWAY = PcclcrFields::LCWAY;
+    using LCMD = PcclcrFields::LCMD;
+    using LADSEL = PcclcrFields::LADSEL;
+    using LACC = PcclcrFields::LACC;
   };
 
   // PC bus Cache search address register
-  struct PCCSAR_fields_ {
+  struct PccsarFields {
     enum class eLGO : std::uint32_t {
       // Write: no effect. Read: no line command active.
       eno_effect = 0,
@@ -251,37 +251,37 @@ struct Lmem {
     using LGO = ftl::mmio::Field<1, 0, eLGO, ftl::mmio::RW, ftl::mmio::Normal>;
     // Physical Address
     using PHYADDR = ftl::mmio::Field<31, 1, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PCCSAR_fields_
+  };  // struct PccsarFields
 
   struct PCCSAR : ftl::mmio::Register<
       0xE0082008u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PCCSAR_fields_::LGO,
-      PCCSAR_fields_::PHYADDR> {
-    using eLGO = PCCSAR_fields_::eLGO;
-    using LGO = PCCSAR_fields_::LGO;
-    using PHYADDR = PCCSAR_fields_::PHYADDR;
+      PccsarFields::LGO,
+      PccsarFields::PHYADDR> {
+    using eLGO = PccsarFields::eLGO;
+    using LGO = PccsarFields::LGO;
+    using PHYADDR = PccsarFields::PHYADDR;
   };
 
   // PC bus Cache read/write value register
-  struct PCCCVR_fields_ {
+  struct PcccvrFields {
     // Cache read/write Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PCCCVR_fields_
+  };  // struct PcccvrFields
 
   struct PCCCVR : ftl::mmio::Register<
       0xE008200Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PCCCVR_fields_::DATA> {
-    using DATA = PCCCVR_fields_::DATA;
+      PcccvrFields::DATA> {
+    using DATA = PcccvrFields::DATA;
   };
 
   // PS bus Cache control register
-  struct PSCCR_fields_ {
+  struct PsccrFields {
     enum class eENCACHE : std::uint32_t {
       // Cache disabled
       edisabled = 0,
@@ -363,46 +363,46 @@ struct Lmem {
     using PUSHW1 = ftl::mmio::Field<1, 27, ePUSHW1, ftl::mmio::RW, ftl::mmio::Normal>;
     // Initiate Cache Command
     using GO = ftl::mmio::Field<1, 31, eGO, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PSCCR_fields_
+  };  // struct PsccrFields
 
   struct PSCCR : ftl::mmio::Register<
       0xE0082800u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PSCCR_fields_::ENCACHE,
-      PSCCR_fields_::ENWRBUF,
-      PSCCR_fields_::PSCR2,
-      PSCCR_fields_::PSCR3,
+      PsccrFields::ENCACHE,
+      PsccrFields::ENWRBUF,
+      PsccrFields::PSCR2,
+      PsccrFields::PSCR3,
       ftl::mmio::Reserved<20, 4>,
-      PSCCR_fields_::INVW0,
-      PSCCR_fields_::PUSHW0,
-      PSCCR_fields_::INVW1,
-      PSCCR_fields_::PUSHW1,
+      PsccrFields::INVW0,
+      PsccrFields::PUSHW0,
+      PsccrFields::INVW1,
+      PsccrFields::PUSHW1,
       ftl::mmio::Reserved<3, 28>,
-      PSCCR_fields_::GO> {
-    using eENCACHE = PSCCR_fields_::eENCACHE;
-    using eENWRBUF = PSCCR_fields_::eENWRBUF;
-    using ePSCR2 = PSCCR_fields_::ePSCR2;
-    using ePSCR3 = PSCCR_fields_::ePSCR3;
-    using eINVW0 = PSCCR_fields_::eINVW0;
-    using ePUSHW0 = PSCCR_fields_::ePUSHW0;
-    using eINVW1 = PSCCR_fields_::eINVW1;
-    using ePUSHW1 = PSCCR_fields_::ePUSHW1;
-    using eGO = PSCCR_fields_::eGO;
-    using ENCACHE = PSCCR_fields_::ENCACHE;
-    using ENWRBUF = PSCCR_fields_::ENWRBUF;
-    using PSCR2 = PSCCR_fields_::PSCR2;
-    using PSCR3 = PSCCR_fields_::PSCR3;
-    using INVW0 = PSCCR_fields_::INVW0;
-    using PUSHW0 = PSCCR_fields_::PUSHW0;
-    using INVW1 = PSCCR_fields_::INVW1;
-    using PUSHW1 = PSCCR_fields_::PUSHW1;
-    using GO = PSCCR_fields_::GO;
+      PsccrFields::GO> {
+    using eENCACHE = PsccrFields::eENCACHE;
+    using eENWRBUF = PsccrFields::eENWRBUF;
+    using ePSCR2 = PsccrFields::ePSCR2;
+    using ePSCR3 = PsccrFields::ePSCR3;
+    using eINVW0 = PsccrFields::eINVW0;
+    using ePUSHW0 = PsccrFields::ePUSHW0;
+    using eINVW1 = PsccrFields::eINVW1;
+    using ePUSHW1 = PsccrFields::ePUSHW1;
+    using eGO = PsccrFields::eGO;
+    using ENCACHE = PsccrFields::ENCACHE;
+    using ENWRBUF = PsccrFields::ENWRBUF;
+    using PSCR2 = PsccrFields::PSCR2;
+    using PSCR3 = PsccrFields::PSCR3;
+    using INVW0 = PsccrFields::INVW0;
+    using PUSHW0 = PsccrFields::PUSHW0;
+    using INVW1 = PsccrFields::INVW1;
+    using PUSHW1 = PsccrFields::PUSHW1;
+    using GO = PsccrFields::GO;
   };
 
   // PS bus Cache line control register
-  struct PSCLCR_fields_ {
+  struct PsclcrFields {
     enum class eLGO : std::uint32_t {
       // Write: no effect. Read: no line command active.
       eno_effect = 0,
@@ -469,48 +469,48 @@ struct Lmem {
     using LADSEL = ftl::mmio::Field<1, 26, eLADSEL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Line access type
     using LACC = ftl::mmio::Field<1, 27, eLACC, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PSCLCR_fields_
+  };  // struct PsclcrFields
 
   struct PSCLCR : ftl::mmio::Register<
       0xE0082804u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PSCLCR_fields_::LGO,
+      PsclcrFields::LGO,
       ftl::mmio::Reserved<1, 1>,
-      PSCLCR_fields_::CACHEADDR,
-      PSCLCR_fields_::WSEL,
+      PsclcrFields::CACHEADDR,
+      PsclcrFields::WSEL,
       ftl::mmio::Reserved<1, 15>,
-      PSCLCR_fields_::TDSEL,
+      PsclcrFields::TDSEL,
       ftl::mmio::Reserved<3, 17>,
-      PSCLCR_fields_::LCIVB,
-      PSCLCR_fields_::LCIMB,
-      PSCLCR_fields_::LCWAY,
+      PsclcrFields::LCIVB,
+      PsclcrFields::LCIMB,
+      PsclcrFields::LCWAY,
       ftl::mmio::Reserved<1, 23>,
-      PSCLCR_fields_::LCMD,
-      PSCLCR_fields_::LADSEL,
-      PSCLCR_fields_::LACC,
+      PsclcrFields::LCMD,
+      PsclcrFields::LADSEL,
+      PsclcrFields::LACC,
       ftl::mmio::Reserved<4, 28>> {
-    using eLGO = PSCLCR_fields_::eLGO;
-    using eWSEL = PSCLCR_fields_::eWSEL;
-    using eTDSEL = PSCLCR_fields_::eTDSEL;
-    using eLCMD = PSCLCR_fields_::eLCMD;
-    using eLADSEL = PSCLCR_fields_::eLADSEL;
-    using eLACC = PSCLCR_fields_::eLACC;
-    using LGO = PSCLCR_fields_::LGO;
-    using CACHEADDR = PSCLCR_fields_::CACHEADDR;
-    using WSEL = PSCLCR_fields_::WSEL;
-    using TDSEL = PSCLCR_fields_::TDSEL;
-    using LCIVB = PSCLCR_fields_::LCIVB;
-    using LCIMB = PSCLCR_fields_::LCIMB;
-    using LCWAY = PSCLCR_fields_::LCWAY;
-    using LCMD = PSCLCR_fields_::LCMD;
-    using LADSEL = PSCLCR_fields_::LADSEL;
-    using LACC = PSCLCR_fields_::LACC;
+    using eLGO = PsclcrFields::eLGO;
+    using eWSEL = PsclcrFields::eWSEL;
+    using eTDSEL = PsclcrFields::eTDSEL;
+    using eLCMD = PsclcrFields::eLCMD;
+    using eLADSEL = PsclcrFields::eLADSEL;
+    using eLACC = PsclcrFields::eLACC;
+    using LGO = PsclcrFields::LGO;
+    using CACHEADDR = PsclcrFields::CACHEADDR;
+    using WSEL = PsclcrFields::WSEL;
+    using TDSEL = PsclcrFields::TDSEL;
+    using LCIVB = PsclcrFields::LCIVB;
+    using LCIMB = PsclcrFields::LCIMB;
+    using LCWAY = PsclcrFields::LCWAY;
+    using LCMD = PsclcrFields::LCMD;
+    using LADSEL = PsclcrFields::LADSEL;
+    using LACC = PsclcrFields::LACC;
   };
 
   // PS bus Cache search address register
-  struct PSCSAR_fields_ {
+  struct PscsarFields {
     enum class eLGO : std::uint32_t {
       // Write: no effect. Read: no line command active.
       eno_effect = 0,
@@ -522,33 +522,33 @@ struct Lmem {
     using LGO = ftl::mmio::Field<1, 0, eLGO, ftl::mmio::RW, ftl::mmio::Normal>;
     // Physical Address
     using PHYADDR = ftl::mmio::Field<31, 1, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PSCSAR_fields_
+  };  // struct PscsarFields
 
   struct PSCSAR : ftl::mmio::Register<
       0xE0082808u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PSCSAR_fields_::LGO,
-      PSCSAR_fields_::PHYADDR> {
-    using eLGO = PSCSAR_fields_::eLGO;
-    using LGO = PSCSAR_fields_::LGO;
-    using PHYADDR = PSCSAR_fields_::PHYADDR;
+      PscsarFields::LGO,
+      PscsarFields::PHYADDR> {
+    using eLGO = PscsarFields::eLGO;
+    using LGO = PscsarFields::LGO;
+    using PHYADDR = PscsarFields::PHYADDR;
   };
 
   // PS bus Cache read/write value register
-  struct PSCCVR_fields_ {
+  struct PsccvrFields {
     // Cache read/write Data
     using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct PSCCVR_fields_
+  };  // struct PsccvrFields
 
   struct PSCCVR : ftl::mmio::Register<
       0xE008280Cu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      PSCCVR_fields_::DATA> {
-    using DATA = PSCCVR_fields_::DATA;
+      PsccvrFields::DATA> {
+    using DATA = PsccvrFields::DATA;
   };
 
 };

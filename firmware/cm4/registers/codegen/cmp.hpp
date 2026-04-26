@@ -22,45 +22,45 @@ struct Cmp {
       0u;
 
   // Version ID Register
-  struct VERID_fields_ {
+  struct VeridFields {
     // Feature Specification Number. This read only filed returns the feature set number.
     using FEATURE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Minor Version Number. This read only field returns the minor version number for the module specification.
     using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
     // Major Version Number. This read only field returns the major version number for the module specification.
     using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct VERID_fields_
+  };  // struct VeridFields
 
   struct VERID : ftl::mmio::Register<
       kBase + 0x0u,
       std::uint32_t,
       0x01000000u,
       ftl::mmio::RO,
-      typename VERID_fields_::FEATURE,
-      typename VERID_fields_::MINOR,
-      typename VERID_fields_::MAJOR> {
-    using FEATURE = typename VERID_fields_::FEATURE;
-    using MINOR = typename VERID_fields_::MINOR;
-    using MAJOR = typename VERID_fields_::MAJOR;
+      typename VeridFields::FEATURE,
+      typename VeridFields::MINOR,
+      typename VeridFields::MAJOR> {
+    using FEATURE = typename VeridFields::FEATURE;
+    using MINOR = typename VeridFields::MINOR;
+    using MAJOR = typename VeridFields::MAJOR;
   };
 
   // Parameter Register
-  struct PARAM_fields_ {
+  struct ParamFields {
     // Parameter Registers. This read only filed returns the feature parameters implemented along with the Version ID register.
     using PARAM = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
-  };  // struct PARAM_fields_
+  };  // struct ParamFields
 
   struct PARAM : ftl::mmio::Register<
       kBase + 0x4u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RO,
-      typename PARAM_fields_::PARAM> {
-    using VALUE = typename PARAM_fields_::PARAM;
+      typename ParamFields::PARAM> {
+    using VALUE = typename ParamFields::PARAM;
   };
 
   // CMP Control Register 0
-  struct C0_fields_ {
+  struct C0Fields {
     enum class eHYSTCTR : std::uint32_t {
       // The hard block output has level 0 hysteresis internally.
       eHYSTCTR_0 = 0,
@@ -216,70 +216,70 @@ struct Cmp {
     using DMAEN = ftl::mmio::Field<1, 30, eDMAEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // CMP to DAC link enable.
     using LINKEN = ftl::mmio::Field<1, 31, eLINKEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct C0_fields_
+  };  // struct C0Fields
 
   struct C0 : ftl::mmio::Register<
       kBase + 0x8u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename C0_fields_::HYSTCTR,
+      typename C0Fields::HYSTCTR,
       ftl::mmio::Reserved<2, 2>,
-      typename C0_fields_::FILTER_CNT,
+      typename C0Fields::FILTER_CNT,
       ftl::mmio::Reserved<1, 7>,
-      typename C0_fields_::EN,
-      typename C0_fields_::OPE,
-      typename C0_fields_::COS,
-      typename C0_fields_::INVT,
-      typename C0_fields_::PMODE,
+      typename C0Fields::EN,
+      typename C0Fields::OPE,
+      typename C0Fields::COS,
+      typename C0Fields::INVT,
+      typename C0Fields::PMODE,
       ftl::mmio::Reserved<1, 13>,
-      typename C0_fields_::WE,
-      typename C0_fields_::SE,
-      typename C0_fields_::FPR,
-      typename C0_fields_::COUT,
-      typename C0_fields_::CFF,
-      typename C0_fields_::CFR,
-      typename C0_fields_::IEF,
-      typename C0_fields_::IER,
+      typename C0Fields::WE,
+      typename C0Fields::SE,
+      typename C0Fields::FPR,
+      typename C0Fields::COUT,
+      typename C0Fields::CFF,
+      typename C0Fields::CFR,
+      typename C0Fields::IEF,
+      typename C0Fields::IER,
       ftl::mmio::Reserved<1, 29>,
-      typename C0_fields_::DMAEN,
-      typename C0_fields_::LINKEN> {
-    using eHYSTCTR = typename C0_fields_::eHYSTCTR;
-    using eFILTER_CNT = typename C0_fields_::eFILTER_CNT;
-    using eEN = typename C0_fields_::eEN;
-    using eOPE = typename C0_fields_::eOPE;
-    using eCOS = typename C0_fields_::eCOS;
-    using eINVT = typename C0_fields_::eINVT;
-    using ePMODE = typename C0_fields_::ePMODE;
-    using eWE = typename C0_fields_::eWE;
-    using eSE = typename C0_fields_::eSE;
-    using eCFF = typename C0_fields_::eCFF;
-    using eCFR = typename C0_fields_::eCFR;
-    using eIEF = typename C0_fields_::eIEF;
-    using eIER = typename C0_fields_::eIER;
-    using eDMAEN = typename C0_fields_::eDMAEN;
-    using eLINKEN = typename C0_fields_::eLINKEN;
-    using HYSTCTR = typename C0_fields_::HYSTCTR;
-    using FILTER_CNT = typename C0_fields_::FILTER_CNT;
-    using EN = typename C0_fields_::EN;
-    using OPE = typename C0_fields_::OPE;
-    using COS = typename C0_fields_::COS;
-    using INVT = typename C0_fields_::INVT;
-    using PMODE = typename C0_fields_::PMODE;
-    using WE = typename C0_fields_::WE;
-    using SE = typename C0_fields_::SE;
-    using FPR = typename C0_fields_::FPR;
-    using COUT = typename C0_fields_::COUT;
-    using CFF = typename C0_fields_::CFF;
-    using CFR = typename C0_fields_::CFR;
-    using IEF = typename C0_fields_::IEF;
-    using IER = typename C0_fields_::IER;
-    using DMAEN = typename C0_fields_::DMAEN;
-    using LINKEN = typename C0_fields_::LINKEN;
+      typename C0Fields::DMAEN,
+      typename C0Fields::LINKEN> {
+    using eHYSTCTR = typename C0Fields::eHYSTCTR;
+    using eFILTER_CNT = typename C0Fields::eFILTER_CNT;
+    using eEN = typename C0Fields::eEN;
+    using eOPE = typename C0Fields::eOPE;
+    using eCOS = typename C0Fields::eCOS;
+    using eINVT = typename C0Fields::eINVT;
+    using ePMODE = typename C0Fields::ePMODE;
+    using eWE = typename C0Fields::eWE;
+    using eSE = typename C0Fields::eSE;
+    using eCFF = typename C0Fields::eCFF;
+    using eCFR = typename C0Fields::eCFR;
+    using eIEF = typename C0Fields::eIEF;
+    using eIER = typename C0Fields::eIER;
+    using eDMAEN = typename C0Fields::eDMAEN;
+    using eLINKEN = typename C0Fields::eLINKEN;
+    using HYSTCTR = typename C0Fields::HYSTCTR;
+    using FILTER_CNT = typename C0Fields::FILTER_CNT;
+    using EN = typename C0Fields::EN;
+    using OPE = typename C0Fields::OPE;
+    using COS = typename C0Fields::COS;
+    using INVT = typename C0Fields::INVT;
+    using PMODE = typename C0Fields::PMODE;
+    using WE = typename C0Fields::WE;
+    using SE = typename C0Fields::SE;
+    using FPR = typename C0Fields::FPR;
+    using COUT = typename C0Fields::COUT;
+    using CFF = typename C0Fields::CFF;
+    using CFR = typename C0Fields::CFR;
+    using IEF = typename C0Fields::IEF;
+    using IER = typename C0Fields::IER;
+    using DMAEN = typename C0Fields::DMAEN;
+    using LINKEN = typename C0Fields::LINKEN;
   };
 
   // CMP Control Register 1
-  struct C1_fields_ {
+  struct C1Fields {
     enum class eDMODE : std::uint32_t {
       // DAC is selected to work in low speed and low power mode.
       eDMODE_0 = 0,
@@ -363,50 +363,50 @@ struct Cmp {
     using MSEL = ftl::mmio::Field<3, 24, eMSEL, ftl::mmio::RW, ftl::mmio::Normal>;
     // Plus Input MUX Control
     using PSEL = ftl::mmio::Field<3, 28, ePSEL, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct C1_fields_
+  };  // struct C1Fields
 
   struct C1 : ftl::mmio::Register<
       kBase + 0xCu,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename C1_fields_::VOSEL,
-      typename C1_fields_::DMODE,
-      typename C1_fields_::VRSEL,
-      typename C1_fields_::DACEN,
+      typename C1Fields::VOSEL,
+      typename C1Fields::DMODE,
+      typename C1Fields::VRSEL,
+      typename C1Fields::DACEN,
       ftl::mmio::Reserved<5, 11>,
-      typename C1_fields_::CHN0,
-      typename C1_fields_::CHN1,
-      typename C1_fields_::CHN2,
-      typename C1_fields_::CHN3,
-      typename C1_fields_::CHN4,
-      typename C1_fields_::CHN5,
+      typename C1Fields::CHN0,
+      typename C1Fields::CHN1,
+      typename C1Fields::CHN2,
+      typename C1Fields::CHN3,
+      typename C1Fields::CHN4,
+      typename C1Fields::CHN5,
       ftl::mmio::Reserved<2, 22>,
-      typename C1_fields_::MSEL,
+      typename C1Fields::MSEL,
       ftl::mmio::Reserved<1, 27>,
-      typename C1_fields_::PSEL,
+      typename C1Fields::PSEL,
       ftl::mmio::Reserved<1, 31>> {
-    using eDMODE = typename C1_fields_::eDMODE;
-    using eVRSEL = typename C1_fields_::eVRSEL;
-    using eDACEN = typename C1_fields_::eDACEN;
-    using eMSEL = typename C1_fields_::eMSEL;
-    using ePSEL = typename C1_fields_::ePSEL;
-    using VOSEL = typename C1_fields_::VOSEL;
-    using DMODE = typename C1_fields_::DMODE;
-    using VRSEL = typename C1_fields_::VRSEL;
-    using DACEN = typename C1_fields_::DACEN;
-    using CHN0 = typename C1_fields_::CHN0;
-    using CHN1 = typename C1_fields_::CHN1;
-    using CHN2 = typename C1_fields_::CHN2;
-    using CHN3 = typename C1_fields_::CHN3;
-    using CHN4 = typename C1_fields_::CHN4;
-    using CHN5 = typename C1_fields_::CHN5;
-    using MSEL = typename C1_fields_::MSEL;
-    using PSEL = typename C1_fields_::PSEL;
+    using eDMODE = typename C1Fields::eDMODE;
+    using eVRSEL = typename C1Fields::eVRSEL;
+    using eDACEN = typename C1Fields::eDACEN;
+    using eMSEL = typename C1Fields::eMSEL;
+    using ePSEL = typename C1Fields::ePSEL;
+    using VOSEL = typename C1Fields::VOSEL;
+    using DMODE = typename C1Fields::DMODE;
+    using VRSEL = typename C1Fields::VRSEL;
+    using DACEN = typename C1Fields::DACEN;
+    using CHN0 = typename C1Fields::CHN0;
+    using CHN1 = typename C1Fields::CHN1;
+    using CHN2 = typename C1Fields::CHN2;
+    using CHN3 = typename C1Fields::CHN3;
+    using CHN4 = typename C1Fields::CHN4;
+    using CHN5 = typename C1Fields::CHN5;
+    using MSEL = typename C1Fields::MSEL;
+    using PSEL = typename C1Fields::PSEL;
   };
 
   // CMP Control Register 2
-  struct C2_fields_ {
+  struct C2Fields {
     enum class eNSAM : std::uint32_t {
       // The comparison result is sampled as soon as the active channel is scanned in one round-robin clock.
       eNSAM_0 = 0,
@@ -473,49 +473,49 @@ struct Cmp {
     using FXMP = ftl::mmio::Field<1, 29, eFXMP, ftl::mmio::RW, ftl::mmio::Normal>;
     // Round-Robin interrupt enable
     using RRIE = ftl::mmio::Field<1, 30, eRRIE, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct C2_fields_
+  };  // struct C2Fields
 
   struct C2 : ftl::mmio::Register<
       kBase + 0x10u,
       std::uint32_t,
       0x00000000u,
       ftl::mmio::RW,
-      typename C2_fields_::ACOn,
+      typename C2Fields::ACOn,
       ftl::mmio::Reserved<2, 6>,
-      typename C2_fields_::INITMOD,
-      typename C2_fields_::NSAM,
-      typename C2_fields_::CH0F,
-      typename C2_fields_::CH1F,
-      typename C2_fields_::CH2F,
-      typename C2_fields_::CH3F,
-      typename C2_fields_::CH4F,
-      typename C2_fields_::CH5F,
+      typename C2Fields::INITMOD,
+      typename C2Fields::NSAM,
+      typename C2Fields::CH0F,
+      typename C2Fields::CH1F,
+      typename C2Fields::CH2F,
+      typename C2Fields::CH3F,
+      typename C2Fields::CH4F,
+      typename C2Fields::CH5F,
       ftl::mmio::Reserved<3, 22>,
-      typename C2_fields_::FXMXCH,
+      typename C2Fields::FXMXCH,
       ftl::mmio::Reserved<1, 28>,
-      typename C2_fields_::FXMP,
-      typename C2_fields_::RRIE,
+      typename C2Fields::FXMP,
+      typename C2Fields::RRIE,
       ftl::mmio::Reserved<1, 31>> {
-    using eNSAM = typename C2_fields_::eNSAM;
-    using eFXMXCH = typename C2_fields_::eFXMXCH;
-    using eFXMP = typename C2_fields_::eFXMP;
-    using eRRIE = typename C2_fields_::eRRIE;
-    using ACOn = typename C2_fields_::ACOn;
-    using INITMOD = typename C2_fields_::INITMOD;
-    using NSAM = typename C2_fields_::NSAM;
-    using CH0F = typename C2_fields_::CH0F;
-    using CH1F = typename C2_fields_::CH1F;
-    using CH2F = typename C2_fields_::CH2F;
-    using CH3F = typename C2_fields_::CH3F;
-    using CH4F = typename C2_fields_::CH4F;
-    using CH5F = typename C2_fields_::CH5F;
-    using FXMXCH = typename C2_fields_::FXMXCH;
-    using FXMP = typename C2_fields_::FXMP;
-    using RRIE = typename C2_fields_::RRIE;
+    using eNSAM = typename C2Fields::eNSAM;
+    using eFXMXCH = typename C2Fields::eFXMXCH;
+    using eFXMP = typename C2Fields::eFXMP;
+    using eRRIE = typename C2Fields::eRRIE;
+    using ACOn = typename C2Fields::ACOn;
+    using INITMOD = typename C2Fields::INITMOD;
+    using NSAM = typename C2Fields::NSAM;
+    using CH0F = typename C2Fields::CH0F;
+    using CH1F = typename C2Fields::CH1F;
+    using CH2F = typename C2Fields::CH2F;
+    using CH3F = typename C2Fields::CH3F;
+    using CH4F = typename C2Fields::CH4F;
+    using CH5F = typename C2Fields::CH5F;
+    using FXMXCH = typename C2Fields::FXMXCH;
+    using FXMP = typename C2Fields::FXMP;
+    using RRIE = typename C2Fields::RRIE;
   };
 
   // CMP Control Register 3
-  struct C3_fields_ {
+  struct C3Fields {
     enum class eACPH2TC : std::uint32_t {
       // Phase2 active time in one sampling period equals to T
       eACPH2TC_0 = 0,
@@ -615,7 +615,7 @@ struct Cmp {
     using NCHCTEN = ftl::mmio::Field<1, 24, eNCHCTEN, ftl::mmio::RW, ftl::mmio::Normal>;
     // Positive Channel Continuous Mode Enable.
     using PCHCTEN = ftl::mmio::Field<1, 28, ePCHCTEN, ftl::mmio::RW, ftl::mmio::Normal>;
-  };  // struct C3_fields_
+  };  // struct C3Fields
 
   struct C3 : ftl::mmio::Register<
       kBase + 0x14u,
@@ -623,34 +623,34 @@ struct Cmp {
       0x11000000u,
       ftl::mmio::RW,
       ftl::mmio::Reserved<4, 0>,
-      typename C3_fields_::ACPH2TC,
+      typename C3Fields::ACPH2TC,
       ftl::mmio::Reserved<1, 7>,
-      typename C3_fields_::ACPH1TC,
+      typename C3Fields::ACPH1TC,
       ftl::mmio::Reserved<1, 11>,
-      typename C3_fields_::ACSAT,
+      typename C3Fields::ACSAT,
       ftl::mmio::Reserved<1, 15>,
-      typename C3_fields_::DMCS,
+      typename C3Fields::DMCS,
       ftl::mmio::Reserved<3, 17>,
-      typename C3_fields_::RDIVE,
+      typename C3Fields::RDIVE,
       ftl::mmio::Reserved<3, 21>,
-      typename C3_fields_::NCHCTEN,
+      typename C3Fields::NCHCTEN,
       ftl::mmio::Reserved<3, 25>,
-      typename C3_fields_::PCHCTEN,
+      typename C3Fields::PCHCTEN,
       ftl::mmio::Reserved<3, 29>> {
-    using eACPH2TC = typename C3_fields_::eACPH2TC;
-    using eACPH1TC = typename C3_fields_::eACPH1TC;
-    using eACSAT = typename C3_fields_::eACSAT;
-    using eDMCS = typename C3_fields_::eDMCS;
-    using eRDIVE = typename C3_fields_::eRDIVE;
-    using eNCHCTEN = typename C3_fields_::eNCHCTEN;
-    using ePCHCTEN = typename C3_fields_::ePCHCTEN;
-    using ACPH2TC = typename C3_fields_::ACPH2TC;
-    using ACPH1TC = typename C3_fields_::ACPH1TC;
-    using ACSAT = typename C3_fields_::ACSAT;
-    using DMCS = typename C3_fields_::DMCS;
-    using RDIVE = typename C3_fields_::RDIVE;
-    using NCHCTEN = typename C3_fields_::NCHCTEN;
-    using PCHCTEN = typename C3_fields_::PCHCTEN;
+    using eACPH2TC = typename C3Fields::eACPH2TC;
+    using eACPH1TC = typename C3Fields::eACPH1TC;
+    using eACSAT = typename C3Fields::eACSAT;
+    using eDMCS = typename C3Fields::eDMCS;
+    using eRDIVE = typename C3Fields::eRDIVE;
+    using eNCHCTEN = typename C3Fields::eNCHCTEN;
+    using ePCHCTEN = typename C3Fields::ePCHCTEN;
+    using ACPH2TC = typename C3Fields::ACPH2TC;
+    using ACPH1TC = typename C3Fields::ACPH1TC;
+    using ACSAT = typename C3Fields::ACSAT;
+    using DMCS = typename C3Fields::DMCS;
+    using RDIVE = typename C3Fields::RDIVE;
+    using NCHCTEN = typename C3Fields::NCHCTEN;
+    using PCHCTEN = typename C3Fields::PCHCTEN;
   };
 
 };
