@@ -48,7 +48,7 @@ void SystemInitHook(void)
 void __pre_main_init()
 {
   // Set the printf buffer size and behavior to flush on newline.
-  static char linebuf[Lpuart1::kTxBufferSize];
+  static char linebuf[ConsoleUart::kTxBufferSize];
   setvbuf(stdout, linebuf, _IOLBF, sizeof(linebuf));
 
   // Initialize MCMGR, install generic event handlers.
@@ -63,7 +63,7 @@ void __pre_main_init()
   DtcmAllocator::create();
   Ocram1Allocator::create();
   Ocram2Allocator::create();
-  Lpuart1::create();
+  ConsoleUart::create();
 }
 
 void __post_main()

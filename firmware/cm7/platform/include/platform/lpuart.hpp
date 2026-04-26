@@ -17,19 +17,18 @@
 #include "board.h"
 #include "cachel1_armv7.h"
 
-namespace ccm     = regs::ccm;
-namespace dma0    = regs::dma0;
-namespace dmamux0 = regs::dmamux0;
-using lpuart1     = regs::Lpuart<1>;
-
-class Lpuart1 : public ftl::Singleton<Lpuart1>
+class ConsoleUart : public ftl::Singleton<ConsoleUart>
 {
-    friend class ftl::Singleton<Lpuart1>;
+    friend class ftl::Singleton<ConsoleUart>;
 public:
     static constexpr uint32_t kTxBufferSize = 128;
 private:
-    Lpuart1()
+    using lpuart1 = regs::Lpuart<1>;
+
+    ConsoleUart()
     {
+        namespace ccm = regs::ccm;
+
         // Allocate tx buffer from non-cacheable OCRAM.
         Ocram2Allocator& ocram2 = Ocram2Allocator::instance();
         this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(kTxBufferSize, 4));
@@ -120,12 +119,15 @@ private:
             lpuart1::CTRL::TE     {lpuart1::CTRL::eTE::eDISABLED});  // disable TX until DMA ready
 
         // Set DONE flag in case we inherit a different state.
-        dma0::TCD_CSR<0>::modify(dma0::TCD_CSR<0>::DONE{true});
+        regs::dma0::TCD_CSR<0>::modify(regs::dma0::TCD_CSR<0>::DONE{true});
     }
 
 public:
     void write(const uint8_t *buffer, uint16_t size)
     {
+        namespace dma0    = regs::dma0;
+        namespace dmamux0 = regs::dmamux0;
+
         // Per-channel TCD aliases — channel 0 is wired to LPUART1 TX.
         using csr    = dma0::TCD_CSR<0>;
         using citer  = dma0::TCD_CITER_ELINKNO<0>;
