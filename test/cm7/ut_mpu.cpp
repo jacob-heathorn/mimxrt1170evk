@@ -11,8 +11,8 @@
 #include "registers/codegen/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
 
-namespace dma0 = regs::dma0;
-namespace dmamux0 = regs::dmamux0;
+using Dma0 = regs::Dma0;
+using Dmamux0 = regs::Dmamux0;
 
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
@@ -26,53 +26,53 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
     // ES is read-only; the old es.Reset() write was ignored by silicon.
 
     // Step 1: Enable DMAMUX for memory-to-memory transfer (channel 1)
-    using chcfg = dmamux0::CHCFG<DMA_CHANNEL>;
-    chcfg::modify(chcfg::ENBL{chcfg::eENBL::eENBL_1});
+    using Chcfg = Dmamux0::CHCFG<DMA_CHANNEL>;
+    Chcfg::modify(Chcfg::ENBL{Chcfg::eENBL::eENBL_1});
 
     // Per-channel TCD aliases.
-    using tcd_saddr = dma0::TCD_SADDR<DMA_CHANNEL>;
-    using tcd_daddr = dma0::TCD_DADDR<DMA_CHANNEL>;
-    using nbytes    = dma0::TCD_NBYTES_MLOFFNO<DMA_CHANNEL>;
-    using tcd_attr  = dma0::TCD_ATTR<DMA_CHANNEL>;
-    using tcd_citer = dma0::TCD_CITER_ELINKNO<DMA_CHANNEL>;
-    using tcd_biter = dma0::TCD_BITER_ELINKNO<DMA_CHANNEL>;
-    using tcd_csr   = dma0::TCD_CSR<DMA_CHANNEL>;
-    using doff      = dma0::TCD_DOFF<DMA_CHANNEL>;
-    using soff      = dma0::TCD_SOFF<DMA_CHANNEL>;
+    using TcdSaddr = Dma0::TCD_SADDR<DMA_CHANNEL>;
+    using TcdDaddr = Dma0::TCD_DADDR<DMA_CHANNEL>;
+    using Nbytes    = Dma0::TCD_NBYTES_MLOFFNO<DMA_CHANNEL>;
+    using TcdAttr  = Dma0::TCD_ATTR<DMA_CHANNEL>;
+    using TcdCiter = Dma0::TCD_CITER_ELINKNO<DMA_CHANNEL>;
+    using TcdBiter = Dma0::TCD_BITER_ELINKNO<DMA_CHANNEL>;
+    using TcdCsr   = Dma0::TCD_CSR<DMA_CHANNEL>;
+    using Doff      = Dma0::TCD_DOFF<DMA_CHANNEL>;
+    using Soff      = Dma0::TCD_SOFF<DMA_CHANNEL>;
 
     // Source & destination addresses.
-    tcd_saddr::write(tcd_saddr::SADDR{reinterpret_cast<std::uint32_t>(src)});
-    tcd_daddr::write(tcd_daddr::DADDR{reinterpret_cast<std::uint32_t>(dest)});
+    TcdSaddr::write(TcdSaddr::SADDR{reinterpret_cast<std::uint32_t>(src)});
+    TcdDaddr::write(TcdDaddr::DADDR{reinterpret_cast<std::uint32_t>(dest)});
 
     // Source and destination offsets — increment 4 bytes per minor loop.
-    soff::write(soff::SOFF{static_cast<std::uint16_t>(4)});
-    doff::write(doff::DOFF{static_cast<std::uint16_t>(4)});
+    Soff::write(Soff::SOFF{static_cast<std::uint16_t>(4)});
+    Doff::write(Doff::DOFF{static_cast<std::uint16_t>(4)});
 
     // Transfer size: 4 bytes, no minor-loop offset.
-    nbytes::write(nbytes::NBYTES{4u},
-                  nbytes::DMLOE{nbytes::eDMLOE::eDISABLED},
-                  nbytes::SMLOE{nbytes::eSMLOE::eDISABLED});
+    Nbytes::write(Nbytes::NBYTES{4u},
+                  Nbytes::DMLOE{Nbytes::eDMLOE::eDISABLED},
+                  Nbytes::SMLOE{Nbytes::eSMLOE::eDISABLED});
 
     // 32-bit transfer attributes (SSIZE=2 → 32-bit, DSIZE=2 → 32-bit).
-    tcd_attr::write(tcd_attr::SSIZE{tcd_attr::eSSIZE::eTHIRTYTWO_BIT},
-                    tcd_attr::DSIZE{static_cast<std::uint8_t>(2)});
+    TcdAttr::write(TcdAttr::SSIZE{TcdAttr::eSSIZE::eTHIRTYTWO_BIT},
+                    TcdAttr::DSIZE{static_cast<std::uint8_t>(2)});
 
     // Loop counters: single transfer.
-    tcd_biter::write(tcd_biter::BITER{1u},
-                     tcd_biter::ELINK{tcd_biter::eELINK::eDISABLED});
-    tcd_citer::write(tcd_citer::CITER{1u},
-                     tcd_citer::ELINK{tcd_citer::eELINK::eDISABLED});
+    TcdBiter::write(TcdBiter::BITER{1u},
+                     TcdBiter::ELINK{TcdBiter::eELINK::eDISABLED});
+    TcdCiter::write(TcdCiter::CITER{1u},
+                     TcdCiter::ELINK{TcdCiter::eELINK::eDISABLED});
 
     // Enable DMA request and start transfer.
-    dma0::ERQ::modify(dma0::ERQ::ERQ1{dma0::ERQ::eERQ1::eENABLE});
-    dma0::SERQ::modify(dma0::SERQ::VALUE{DMA_CHANNEL});
-    dma0::SSRT::modify(dma0::SSRT::VALUE{1});  // Trigger DMA
+    Dma0::ERQ::modify(Dma0::ERQ::ERQ1{Dma0::ERQ::eERQ1::eENABLE});
+    Dma0::SERQ::modify(Dma0::SERQ::VALUE{DMA_CHANNEL});
+    Dma0::SSRT::modify(Dma0::SSRT::VALUE{1});  // Trigger DMA
 
-    while (!tcd_csr::read().get<tcd_csr::DONE>()) {}
+    while (!TcdCsr::read().get<TcdCsr::DONE>()) {}
 
-    tcd_csr::modify(tcd_csr::DONE{true});
+    TcdCsr::modify(TcdCsr::DONE{true});
 
-    dma0::ERQ::modify(dma0::ERQ::ERQ1{dma0::ERQ::eERQ1::eDISABLE});
+    Dma0::ERQ::modify(Dma0::ERQ::ERQ1{Dma0::ERQ::eERQ1::eDISABLE});
 }
 
 TEST(mpu, verify_cache_clean)

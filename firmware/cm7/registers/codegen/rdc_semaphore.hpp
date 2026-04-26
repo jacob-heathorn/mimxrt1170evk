@@ -9,10 +9,10 @@
 namespace regs {
 
 template<std::uint32_t Instance>
-struct Rdc_semaphore {
+struct RdcSemaphore {
   static_assert(
         Instance == 1u || Instance == 2u,
-        "Rdc_semaphore: Instance must be one of 1, 2");
+        "RdcSemaphore: Instance must be one of 1, 2");
 
   static constexpr std::uintptr_t kBase =
       Instance == 1u ? 0x40C44000u :

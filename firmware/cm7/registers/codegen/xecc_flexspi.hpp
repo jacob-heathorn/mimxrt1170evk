@@ -9,10 +9,10 @@
 namespace regs {
 
 template<std::uint32_t Instance>
-struct Xecc_flexspi {
+struct XeccFlexspi {
   static_assert(
         Instance == 1u || Instance == 2u,
-        "Xecc_flexspi: Instance must be one of 1, 2");
+        "XeccFlexspi: Instance must be one of 1, 2");
 
   static constexpr std::uintptr_t kBase =
       Instance == 1u ? 0x4001C000u :

@@ -7,7 +7,7 @@
 #include "cachel1_armv7.h"
 #include <cstdio>
 #include <array>
-#include "platform/lpuart.hpp"
+#include "platform/console_uart.hpp"
 #include "platform/assert_led.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
@@ -17,19 +17,19 @@ extern "C" {
 
 void BoardInitPins()
 {
-    namespace ccm    = regs::ccm;
-    namespace iomuxc = regs::iomuxc;
-    using lpcg49_direct = ccm::LPCG49_DIRECT;
-    using lpcg49_status = ccm::LPCG49_STATUS0;
+    using Ccm    = regs::Ccm;
+    using Iomuxc = regs::Iomuxc;
+    using Lpcg49Direct = Ccm::LPCG49_DIRECT;
+    using Lpcg49Status = Ccm::LPCG49_STATUS0;
     // Enable the IOMUXC clock and wait for it.
-    lpcg49_direct::modify(lpcg49_direct::ON{lpcg49_direct::eON::eON_1});
-    while (lpcg49_status::read().get<lpcg49_status::ON>() != lpcg49_status::eON::eON_1) {}
+    Lpcg49Direct::modify(Lpcg49Direct::ON{Lpcg49Direct::eON::eON_1});
+    while (Lpcg49Status::read().get<Lpcg49Status::ON>() != Lpcg49Status::eON::eON_1) {}
 
     // Enable lpuart1 RX and TX.
-    using tx_pad = iomuxc::SW_MUX_CTL_PAD_GPIO_AD_24;
-    using rx_pad = iomuxc::SW_MUX_CTL_PAD_GPIO_AD_25;
-    tx_pad::modify(tx_pad::MUX_MODE{tx_pad::eMUX_MODE::eALT0_lpuart1_TX});
-    rx_pad::modify(rx_pad::MUX_MODE{rx_pad::eMUX_MODE::eALT0_lpuart1_RX});
+    using TxPad = Iomuxc::SW_MUX_CTL_PAD_GPIO_AD_24;
+    using RxPad = Iomuxc::SW_MUX_CTL_PAD_GPIO_AD_25;
+    TxPad::modify(TxPad::MUX_MODE{TxPad::eMUX_MODE::eALT0_lpuart1_TX});
+    RxPad::modify(RxPad::MUX_MODE{RxPad::eMUX_MODE::eALT0_lpuart1_RX});
 }
 
 

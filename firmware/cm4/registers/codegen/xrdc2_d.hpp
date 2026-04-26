@@ -9,10 +9,10 @@
 namespace regs {
 
 template<std::uint32_t Instance>
-struct Xrdc2_d {
+struct Xrdc2D {
   static_assert(
         Instance == 0u || Instance == 1u,
-        "Xrdc2_d: Instance must be one of 0, 1");
+        "Xrdc2D: Instance must be one of 0, 1");
 
   static constexpr std::uintptr_t kBase =
       Instance == 0u ? 0x40CE0000u :

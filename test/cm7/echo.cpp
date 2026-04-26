@@ -1,4 +1,4 @@
-#include "platform/lpuart.hpp"
+#include "platform/console_uart.hpp"
 
 
 int main(void) {

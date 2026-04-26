@@ -9,10 +9,10 @@
 namespace regs {
 
 template<std::uint32_t Instance>
-struct Gpc_cpu_mode_ctrl_ {
+struct GpcCpuModeCtrl {
   static_assert(
         Instance == 0u || Instance == 1u,
-        "Gpc_cpu_mode_ctrl_: Instance must be one of 0, 1");
+        "GpcCpuModeCtrl: Instance must be one of 0, 1");
 
   static constexpr std::uintptr_t kBase =
       Instance == 0u ? 0x40C00000u :

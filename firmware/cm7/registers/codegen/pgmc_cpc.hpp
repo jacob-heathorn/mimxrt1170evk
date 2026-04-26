@@ -9,10 +9,10 @@
 namespace regs {
 
 template<std::uint32_t Instance>
-struct Pgmc_cpc {
+struct PgmcCpc {
   static_assert(
         Instance == 0u || Instance == 1u,
-        "Pgmc_cpc: Instance must be one of 0, 1");
+        "PgmcCpc: Instance must be one of 0, 1");
 
   static constexpr std::uintptr_t kBase =
       Instance == 0u ? 0x40C89000u :

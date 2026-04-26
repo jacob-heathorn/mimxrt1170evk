@@ -9,10 +9,10 @@
 namespace regs {
 
 template<std::uint32_t Instance>
-struct Usbnc_otg {
+struct UsbncOtg {
   static_assert(
         Instance == 1u || Instance == 2u,
-        "Usbnc_otg: Instance must be one of 1, 2");
+        "UsbncOtg: Instance must be one of 1, 2");
 
   static constexpr std::uintptr_t kBase =
       Instance == 1u ? 0x40430200u :

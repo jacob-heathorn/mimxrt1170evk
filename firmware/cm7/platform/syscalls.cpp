@@ -1,6 +1,6 @@
 #include <sys/stat.h>
 #include <errno.h>
-#include "platform/lpuart.hpp"
+#include "platform/console_uart.hpp"
 
 extern "C" {
     int _write(int fd, const char* ptr, int len) {
