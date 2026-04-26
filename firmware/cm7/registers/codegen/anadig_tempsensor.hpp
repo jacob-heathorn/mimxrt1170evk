@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::anadig_tempsensor {
 
-
 // Tempsensor Register
 struct TEMPSENSOR_fields_ {
   // AI toggle
@@ -29,7 +28,6 @@ struct TEMPSENSOR : ftl::mmio::Register<
   using TEMPSNS_AI_TOGGLE = TEMPSENSOR_fields_::TEMPSNS_AI_TOGGLE;
   using TEMPSNS_AI_BUSY = TEMPSENSOR_fields_::TEMPSNS_AI_BUSY;
 };
-
 
 // TEMPSNS_OTP_TRIM_VALUE_REGISTER
 struct TEMPSNS_OTP_TRIM_VALUE_fields_ {

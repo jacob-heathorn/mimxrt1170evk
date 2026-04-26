@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::src {
 
-
 // SRC Control Register
 struct SCR_fields_ {
-
   enum class eBT_RELEASE_M4 : std::uint32_t {
     // cm4 core reset is asserted
     eBT_RELEASE_M4_0 = 0,
@@ -25,6 +23,7 @@ struct SCR_fields_ {
     // cm7 core reset is released
     eBT_RELEASE_M7_1 = 1,
   };
+
   // cm4 core reset will be held until boot core write this bit to 1 to release it.
   using BT_RELEASE_M4 = ftl::mmio::Field<1, 0, eBT_RELEASE_M4, ftl::mmio::RW, ftl::mmio::Normal>;
   // cm7 core reset will be held until boot core write this bit to 1 to release it.
@@ -45,10 +44,8 @@ struct SCR : ftl::mmio::Register<
   using BT_RELEASE_M7 = SCR_fields_::BT_RELEASE_M7;
 };
 
-
 // SRC Reset Mode Register
 struct SRMR_fields_ {
-
   enum class eWDOG_RESET_MODE : std::uint32_t {
     // reset system
     eWDOG_RESET_MODE_0 = 0,
@@ -125,6 +122,7 @@ struct SRMR_fields_ {
     // do not reset anything
     eOVERVOLT_RESET_MODE_3 = 3,
   };
+
   // Wdog reset mode configuration
   using WDOG_RESET_MODE = ftl::mmio::Field<2, 0, eWDOG_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Wdog3 reset mode configuration
@@ -190,7 +188,6 @@ struct SRMR : ftl::mmio::Register<
   using OVERVOLT_RESET_MODE = SRMR_fields_::OVERVOLT_RESET_MODE;
 };
 
-
 // SRC Boot Mode Register 1
 struct SBMR1_fields_ {
   // Please see fusemap.
@@ -218,7 +215,6 @@ struct SBMR1 : ftl::mmio::Register<
   using BOOT_CFG4 = SBMR1_fields_::BOOT_CFG4;
 };
 
-
 // SRC Boot Mode Register 2
 struct SBMR2_fields_ {
   // SECONFIG[1] shows the state of the SECONFIG[1] fuse
@@ -245,10 +241,8 @@ struct SBMR2 : ftl::mmio::Register<
   using BMOD = SBMR2_fields_::BMOD;
 };
 
-
 // SRC Reset Status Register
 struct SRSR_fields_ {
-
   enum class eIPP_RESET_B_M7 : std::uint32_t {
     // Reset is not a result of ipp_reset_b pin.
     eIPP_RESET_B_M7_0 = 0,
@@ -458,6 +452,7 @@ struct SRSR_fields_ {
     // Reset is a result of the mentioned case.
     eCDOG_RST_M4_1 = 1,
   };
+
   // Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
   using IPP_RESET_B_M7 = ftl::mmio::Field<1, 0, eIPP_RESET_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Indicates whether reset was the result of m7 reset request
@@ -619,7 +614,6 @@ struct SRSR : ftl::mmio::Register<
   using CDOG_RST_M4 = SRSR_fields_::CDOG_RST_M4;
 };
 
-
 // SRC General Purpose Register
 struct GPR_fields_ {
   // General Purpose Register.
@@ -637,10 +631,8 @@ struct GPR : ftl::mmio::Register<
   using value_ = GPR_fields_::GPR;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_MEGA_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -654,6 +646,7 @@ struct AUTHEN_MEGA_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -709,16 +702,15 @@ struct AUTHEN_MEGA : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_MEGA_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_MEGA_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_MEGA_fields_
@@ -734,10 +726,8 @@ struct CTRL_MEGA : ftl::mmio::Register<
   using SW_RESET = CTRL_MEGA_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_MEGA_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -849,6 +839,7 @@ struct SETPOINT_MEGA_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -939,10 +930,8 @@ struct SETPOINT_MEGA : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_MEGA_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_MEGA_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -998,6 +987,7 @@ struct DOMAIN_MEGA_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -1048,10 +1038,8 @@ struct DOMAIN_MEGA : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_MEGA_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_MEGA_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -1072,6 +1060,7 @@ struct STAT_MEGA_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.
@@ -1098,10 +1087,8 @@ struct STAT_MEGA : ftl::mmio::Register<
   using RST_BY_SW = STAT_MEGA_fields_::RST_BY_SW;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_DISPLAY_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -1115,6 +1102,7 @@ struct AUTHEN_DISPLAY_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -1170,16 +1158,15 @@ struct AUTHEN_DISPLAY : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_DISPLAY_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_DISPLAY_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_DISPLAY_fields_
@@ -1195,10 +1182,8 @@ struct CTRL_DISPLAY : ftl::mmio::Register<
   using SW_RESET = CTRL_DISPLAY_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_DISPLAY_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -1310,6 +1295,7 @@ struct SETPOINT_DISPLAY_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -1400,10 +1386,8 @@ struct SETPOINT_DISPLAY : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_DISPLAY_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_DISPLAY_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -1459,6 +1443,7 @@ struct DOMAIN_DISPLAY_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -1509,10 +1494,8 @@ struct DOMAIN_DISPLAY : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_DISPLAY_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_DISPLAY_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -1533,6 +1516,7 @@ struct STAT_DISPLAY_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.
@@ -1559,10 +1543,8 @@ struct STAT_DISPLAY : ftl::mmio::Register<
   using RST_BY_SW = STAT_DISPLAY_fields_::RST_BY_SW;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_WAKEUP_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -1576,6 +1558,7 @@ struct AUTHEN_WAKEUP_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -1631,16 +1614,15 @@ struct AUTHEN_WAKEUP : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_WAKEUP_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_WAKEUP_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_WAKEUP_fields_
@@ -1656,10 +1638,8 @@ struct CTRL_WAKEUP : ftl::mmio::Register<
   using SW_RESET = CTRL_WAKEUP_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_WAKEUP_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -1771,6 +1751,7 @@ struct SETPOINT_WAKEUP_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -1861,10 +1842,8 @@ struct SETPOINT_WAKEUP : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_WAKEUP_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_WAKEUP_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -1920,6 +1899,7 @@ struct DOMAIN_WAKEUP_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -1970,10 +1950,8 @@ struct DOMAIN_WAKEUP : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_WAKEUP_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_WAKEUP_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -1994,6 +1972,7 @@ struct STAT_WAKEUP_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.
@@ -2020,10 +1999,8 @@ struct STAT_WAKEUP : ftl::mmio::Register<
   using RST_BY_SW = STAT_WAKEUP_fields_::RST_BY_SW;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_M4CORE_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -2037,6 +2014,7 @@ struct AUTHEN_M4CORE_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -2092,16 +2070,15 @@ struct AUTHEN_M4CORE : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_M4CORE_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_M4CORE_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_M4CORE_fields_
@@ -2117,10 +2094,8 @@ struct CTRL_M4CORE : ftl::mmio::Register<
   using SW_RESET = CTRL_M4CORE_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_M4CORE_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -2232,6 +2207,7 @@ struct SETPOINT_M4CORE_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -2322,10 +2298,8 @@ struct SETPOINT_M4CORE : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_M4CORE_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_M4CORE_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -2381,6 +2355,7 @@ struct DOMAIN_M4CORE_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -2431,10 +2406,8 @@ struct DOMAIN_M4CORE : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_M4CORE_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_M4CORE_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -2455,6 +2428,7 @@ struct STAT_M4CORE_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.
@@ -2481,10 +2455,8 @@ struct STAT_M4CORE : ftl::mmio::Register<
   using RST_BY_SW = STAT_M4CORE_fields_::RST_BY_SW;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_M7CORE_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -2498,6 +2470,7 @@ struct AUTHEN_M7CORE_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -2553,16 +2526,15 @@ struct AUTHEN_M7CORE : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_M7CORE_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_M7CORE_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_M7CORE_fields_
@@ -2578,10 +2550,8 @@ struct CTRL_M7CORE : ftl::mmio::Register<
   using SW_RESET = CTRL_M7CORE_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_M7CORE_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -2693,6 +2663,7 @@ struct SETPOINT_M7CORE_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -2783,10 +2754,8 @@ struct SETPOINT_M7CORE : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_M7CORE_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_M7CORE_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -2842,6 +2811,7 @@ struct DOMAIN_M7CORE_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -2892,10 +2862,8 @@ struct DOMAIN_M7CORE : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_M7CORE_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_M7CORE_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -2916,6 +2884,7 @@ struct STAT_M7CORE_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.
@@ -2942,10 +2911,8 @@ struct STAT_M7CORE : ftl::mmio::Register<
   using RST_BY_SW = STAT_M7CORE_fields_::RST_BY_SW;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_M4DEBUG_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -2959,6 +2926,7 @@ struct AUTHEN_M4DEBUG_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -3014,16 +2982,15 @@ struct AUTHEN_M4DEBUG : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_M4DEBUG_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_M4DEBUG_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_M4DEBUG_fields_
@@ -3039,10 +3006,8 @@ struct CTRL_M4DEBUG : ftl::mmio::Register<
   using SW_RESET = CTRL_M4DEBUG_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_M4DEBUG_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -3154,6 +3119,7 @@ struct SETPOINT_M4DEBUG_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -3244,10 +3210,8 @@ struct SETPOINT_M4DEBUG : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_M4DEBUG_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_M4DEBUG_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -3303,6 +3267,7 @@ struct DOMAIN_M4DEBUG_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -3353,10 +3318,8 @@ struct DOMAIN_M4DEBUG : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_M4DEBUG_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_M4DEBUG_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -3377,6 +3340,7 @@ struct STAT_M4DEBUG_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.
@@ -3403,10 +3367,8 @@ struct STAT_M4DEBUG : ftl::mmio::Register<
   using RST_BY_SW = STAT_M4DEBUG_fields_::RST_BY_SW;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_M7DEBUG_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -3420,6 +3382,7 @@ struct AUTHEN_M7DEBUG_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -3475,16 +3438,15 @@ struct AUTHEN_M7DEBUG : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_M7DEBUG_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_M7DEBUG_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_M7DEBUG_fields_
@@ -3500,10 +3462,8 @@ struct CTRL_M7DEBUG : ftl::mmio::Register<
   using SW_RESET = CTRL_M7DEBUG_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_M7DEBUG_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -3615,6 +3575,7 @@ struct SETPOINT_M7DEBUG_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -3705,10 +3666,8 @@ struct SETPOINT_M7DEBUG : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_M7DEBUG_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_M7DEBUG_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -3764,6 +3723,7 @@ struct DOMAIN_M7DEBUG_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -3814,10 +3774,8 @@ struct DOMAIN_M7DEBUG : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_M7DEBUG_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_M7DEBUG_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -3838,6 +3796,7 @@ struct STAT_M7DEBUG_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.
@@ -3864,10 +3823,8 @@ struct STAT_M7DEBUG : ftl::mmio::Register<
   using RST_BY_SW = STAT_M7DEBUG_fields_::RST_BY_SW;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_USBPHY1_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -3881,6 +3838,7 @@ struct AUTHEN_USBPHY1_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -3936,16 +3894,15 @@ struct AUTHEN_USBPHY1 : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_USBPHY1_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_USBPHY1_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_USBPHY1_fields_
@@ -3961,10 +3918,8 @@ struct CTRL_USBPHY1 : ftl::mmio::Register<
   using SW_RESET = CTRL_USBPHY1_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_USBPHY1_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -4076,6 +4031,7 @@ struct SETPOINT_USBPHY1_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -4166,10 +4122,8 @@ struct SETPOINT_USBPHY1 : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_USBPHY1_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_USBPHY1_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -4225,6 +4179,7 @@ struct DOMAIN_USBPHY1_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -4275,10 +4230,8 @@ struct DOMAIN_USBPHY1 : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_USBPHY1_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_USBPHY1_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -4299,6 +4252,7 @@ struct STAT_USBPHY1_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.
@@ -4325,10 +4279,8 @@ struct STAT_USBPHY1 : ftl::mmio::Register<
   using RST_BY_SW = STAT_USBPHY1_fields_::RST_BY_SW;
 };
 
-
 // Slice Authentication Register
 struct AUTHEN_USBPHY2_fields_ {
-
   enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
@@ -4342,6 +4294,7 @@ struct AUTHEN_USBPHY2_fields_ {
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
+
   // Control whether reset slice is in domain mode
   using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Control whether reset slice is in Setpoint mode
@@ -4397,16 +4350,15 @@ struct AUTHEN_USBPHY2 : ftl::mmio::Register<
   using LOCK_SETTING = AUTHEN_USBPHY2_fields_::LOCK_SETTING;
 };
 
-
 // Slice Control Register
 struct CTRL_USBPHY2_fields_ {
-
   enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
+
   // This is a self clearing bit
   using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CTRL_USBPHY2_fields_
@@ -4422,10 +4374,8 @@ struct CTRL_USBPHY2 : ftl::mmio::Register<
   using SW_RESET = CTRL_USBPHY2_fields_::SW_RESET;
 };
 
-
 // Slice Setpoint Config Register
 struct SETPOINT_USBPHY2_fields_ {
-
   enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
@@ -4537,6 +4487,7 @@ struct SETPOINT_USBPHY2_fields_ {
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
+
   // SETPOINT0
   using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
   // SETPOINT1
@@ -4627,10 +4578,8 @@ struct SETPOINT_USBPHY2 : ftl::mmio::Register<
   using SETPOINT15 = SETPOINT_USBPHY2_fields_::SETPOINT15;
 };
 
-
 // Slice Domain Config Register
 struct DOMAIN_USBPHY2_fields_ {
-
   enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
@@ -4686,6 +4635,7 @@ struct DOMAIN_USBPHY2_fields_ {
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
+
   // CPU mode setting for RUN
   using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
   // CPU mode setting for WAIT
@@ -4736,10 +4686,8 @@ struct DOMAIN_USBPHY2 : ftl::mmio::Register<
   using CPU1_SUSP = DOMAIN_USBPHY2_fields_::CPU1_SUSP;
 };
 
-
 // Slice Status Register
 struct STAT_USBPHY2_fields_ {
-
   enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
@@ -4760,6 +4708,7 @@ struct STAT_USBPHY2_fields_ {
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
+
   // This is a Read Only bit. It indicate if the reset is in process.
   using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
   // This bit indicate if the reset is caused by the power mode transfer.

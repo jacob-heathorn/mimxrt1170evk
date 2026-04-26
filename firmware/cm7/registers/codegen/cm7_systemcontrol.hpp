@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::cm7_systemcontrol {
 
-
 // Auxiliary Control Register,
 struct SCB_ACTLR_fields_ {
-
   enum class eDISFOLD : std::uint32_t {
     // Normal operation.
     eDISFOLD_0 = 0,
@@ -89,6 +87,7 @@ struct SCB_ACTLR_fields_ {
     // Normal operation.
     eDISFPUISSOPT_0 = 0,
   };
+
   // Disables folding of IT instructions.
   using DISFOLD = ftl::mmio::Field<1, 2, eDISFOLD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Disables FPU exception outputs.
@@ -161,7 +160,6 @@ struct SCB_ACTLR : ftl::mmio::Register<
   using DISFPUISSOPT = SCB_ACTLR_fields_::DISFPUISSOPT;
 };
 
-
 // CPUID Base Register
 struct SCB_CPUID_fields_ {
   // Indicates patch release: 0x0 = Patch 0
@@ -193,10 +191,8 @@ struct SCB_CPUID : ftl::mmio::Register<
   using IMPLEMENTER = SCB_CPUID_fields_::IMPLEMENTER;
 };
 
-
 // Interrupt Control and State Register
 struct SCB_ICSR_fields_ {
-
   enum class eRETTOBASE : std::uint32_t {
     // there are preempted active exceptions to execute
     eRETTOBASE_0 = 0,
@@ -245,6 +241,7 @@ struct SCB_ICSR_fields_ {
     // write: changes NMI exception state to pending; read: NMI exception is pending
     eNMIPENDSET_1 = 1,
   };
+
   // Active exception number
   using VECTACTIVE = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicates whether there are preempted active exceptions
@@ -301,7 +298,6 @@ struct SCB_ICSR : ftl::mmio::Register<
   using NMIPENDSET = SCB_ICSR_fields_::NMIPENDSET;
 };
 
-
 // Vector Table Offset Register
 struct SCB_VTOR_fields_ {
   // Vector table base offset
@@ -318,10 +314,8 @@ struct SCB_VTOR : ftl::mmio::Register<
   using TBLOFF = SCB_VTOR_fields_::TBLOFF;
 };
 
-
 // Application Interrupt and Reset Control Register
 struct SCB_AIRCR_fields_ {
-
   enum class eVECTRESET : std::uint32_t {
     // No change
     eVECTRESET_0 = 0,
@@ -349,6 +343,7 @@ struct SCB_AIRCR_fields_ {
     // Big-endian
     eENDIANNESS_1 = 1,
   };
+
   // Writing 1 to this bit causes a local system reset
   using VECTRESET = ftl::mmio::Field<1, 0, eVECTRESET, ftl::mmio::WO, ftl::mmio::Normal>;
   // Writing 1 to this bit clears all active state information for fixed and configurable exceptions.
@@ -388,10 +383,8 @@ struct SCB_AIRCR : ftl::mmio::Register<
   using VECTKEY = SCB_AIRCR_fields_::VECTKEY;
 };
 
-
 // System Control Register
 struct SCB_SCR_fields_ {
-
   enum class eSLEEPONEXIT : std::uint32_t {
     // o not sleep when returning to Thread mode
     eSLEEPONEXIT_0 = 0,
@@ -412,6 +405,7 @@ struct SCB_SCR_fields_ {
     // enabled events and all interrupts, including disabled interrupts, can wakeup the processor
     eSEVONPEND_1 = 1,
   };
+
   // Indicates sleep-on-exit when returning from Handler mode to Thread mode
   using SLEEPONEXIT = ftl::mmio::Field<1, 1, eSLEEPONEXIT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Controls whether the processor uses sleep or deep sleep as its low power mode
@@ -439,10 +433,8 @@ struct SCB_SCR : ftl::mmio::Register<
   using SEVONPEND = SCB_SCR_fields_::SEVONPEND;
 };
 
-
 // Configuration and Control Register
 struct SCB_CCR_fields_ {
-
   enum class eNONBASETHRDENA : std::uint32_t {
     // processor can enter Thread mode only when no exception is active
     eNONBASETHRDENA_0 = 0,
@@ -498,6 +490,7 @@ struct SCB_CCR_fields_ {
     // L1 instruction cache enabled
     eIC_1 = 1,
   };
+
   // Indicates how the processor enters Thread mode
   using NONBASETHRDENA = ftl::mmio::Field<1, 0, eNONBASETHRDENA, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enables unprivileged software access to the STIR
@@ -555,7 +548,6 @@ struct SCB_CCR : ftl::mmio::Register<
   using BP = SCB_CCR_fields_::BP;
 };
 
-
 // System Handler Priority Register 1
 struct SCB_SHPR1_fields_ {
   // Priority of system handler 4, MemManage
@@ -580,7 +572,6 @@ struct SCB_SHPR1 : ftl::mmio::Register<
   using PRI_6 = SCB_SHPR1_fields_::PRI_6;
 };
 
-
 // System Handler Priority Register 2
 struct SCB_SHPR2_fields_ {
   // Priority of system handler 11, SVCall
@@ -596,7 +587,6 @@ struct SCB_SHPR2 : ftl::mmio::Register<
     SCB_SHPR2_fields_::PRI_11> {
   using PRI_11 = SCB_SHPR2_fields_::PRI_11;
 };
-
 
 // System Handler Priority Register 3
 struct SCB_SHPR3_fields_ {
@@ -618,10 +608,8 @@ struct SCB_SHPR3 : ftl::mmio::Register<
   using PRI_15 = SCB_SHPR3_fields_::PRI_15;
 };
 
-
 // System Handler Control and State Register
 struct SCB_SHCSR_fields_ {
-
   enum class eMEMFAULTACT : std::uint32_t {
     // exception is not active
     eMEMFAULTACT_0 = 0,
@@ -719,6 +707,7 @@ struct SCB_SHCSR_fields_ {
     // enable the exception
     eUSGFAULTENA_1 = 1,
   };
+
   // MemManage exception active bit
   using MEMFAULTACT = ftl::mmio::Field<1, 0, eMEMFAULTACT, ftl::mmio::RW, ftl::mmio::Normal>;
   // BusFault exception active bit
@@ -802,10 +791,8 @@ struct SCB_SHCSR : ftl::mmio::Register<
   using USGFAULTENA = SCB_SHCSR_fields_::USGFAULTENA;
 };
 
-
 // Configurable Fault Status Register
 struct SCB_CFSR_fields_ {
-
   enum class eIACCVIOL : std::uint32_t {
     // no instruction access violation fault
     eIACCVIOL_0 = 0,
@@ -938,6 +925,7 @@ struct SCB_CFSR_fields_ {
     // the processor has executed an SDIV or UDIV instruction with a divisor of 0
     eDIVBYZERO_1 = 1,
   };
+
   // Instruction access violation flag
   using IACCVIOL = ftl::mmio::Field<1, 0, eIACCVIOL, ftl::mmio::RW, ftl::mmio::Normal>;
   // Data access violation flag
@@ -1047,10 +1035,8 @@ struct SCB_CFSR : ftl::mmio::Register<
   using DIVBYZERO = SCB_CFSR_fields_::DIVBYZERO;
 };
 
-
 // HardFault Status register
 struct SCB_HFSR_fields_ {
-
   enum class eVECTTBL : std::uint32_t {
     // no BusFault on vector table read
     eVECTTBL_0 = 0,
@@ -1071,6 +1057,7 @@ struct SCB_HFSR_fields_ {
     // Debug event has occurred. The Debug Fault Status Register has been updated.
     eDEBUGEVT_1 = 1,
   };
+
   // Indicates a BusFault on a vector table read during exception processing.
   using VECTTBL = ftl::mmio::Field<1, 1, eVECTTBL, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates a forced hard fault, generated by escalation of a fault with configurable priority that cannot be handles, either because of priority or because it is disabled.
@@ -1097,10 +1084,8 @@ struct SCB_HFSR : ftl::mmio::Register<
   using DEBUGEVT = SCB_HFSR_fields_::DEBUGEVT;
 };
 
-
 // Debug Fault Status Register
 struct SCB_DFSR_fields_ {
-
   enum class eHALTED : std::uint32_t {
     // No active halt request debug event
     eHALTED_0 = 0,
@@ -1135,6 +1120,7 @@ struct SCB_DFSR_fields_ {
     // External debug request debug event
     eEXTERNAL_1 = 1,
   };
+
   // Indicates a debug event generated by either a C_HALT or C_STEP request, triggered by a write to the DHCSR or a step request triggered by setting DEMCR.MON_STEP to 1.
   using HALTED = ftl::mmio::Field<1, 0, eHALTED, ftl::mmio::RW, ftl::mmio::Normal>;
   // Debug event generated by BKPT instruction execution or a breakpoint match in FPB
@@ -1170,7 +1156,6 @@ struct SCB_DFSR : ftl::mmio::Register<
   using EXTERNAL = SCB_DFSR_fields_::EXTERNAL;
 };
 
-
 // MemManage Fault Address Register
 struct SCB_MMFAR_fields_ {
   // Address of MemManage fault location
@@ -1185,7 +1170,6 @@ struct SCB_MMFAR : ftl::mmio::Register<
     SCB_MMFAR_fields_::ADDRESS> {
   using ADDRESS = SCB_MMFAR_fields_::ADDRESS;
 };
-
 
 // BusFault Address Register
 struct SCB_BFAR_fields_ {
@@ -1202,10 +1186,8 @@ struct SCB_BFAR : ftl::mmio::Register<
   using ADDRESS = SCB_BFAR_fields_::ADDRESS;
 };
 
-
 // Processor Feature Register 0
 struct SCB_ID_PFR0_fields_ {
-
   enum class eSTATE0 : std::uint32_t {
     // ARMv7-M unused
     eSTATE0_0 = 0,
@@ -1223,6 +1205,7 @@ struct SCB_ID_PFR0_fields_ {
     // ARMv7-M unused
     eSTATE1_1 = 1,
   };
+
   // ARM instruction set support
   using STATE0 = ftl::mmio::Field<4, 0, eSTATE0, ftl::mmio::RO, ftl::mmio::Normal>;
   // Thumb instruction set support
@@ -1251,16 +1234,15 @@ struct SCB_ID_PFR0 : ftl::mmio::Register<
   using STATE3 = SCB_ID_PFR0_fields_::STATE3;
 };
 
-
 // Processor Feature Register 1
 struct SCB_ID_PFR1_fields_ {
-
   enum class ePROGMODEL : std::uint32_t {
     // ARMv7-M unused
     ePROGMODEL_0 = 0,
     // Two-stack programmers' model supported
     ePROGMODEL_2 = 2,
   };
+
   // M profile programmers' model
   using PROGMODEL = ftl::mmio::Field<4, 8, ePROGMODEL, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct SCB_ID_PFR1_fields_
@@ -1277,16 +1259,15 @@ struct SCB_ID_PFR1 : ftl::mmio::Register<
   using PROGMODEL = SCB_ID_PFR1_fields_::PROGMODEL;
 };
 
-
 // Debug Feature Register
 struct SCB_ID_DFR0_fields_ {
-
   enum class eDEBUGMODEL : std::uint32_t {
     // Not supported
     eDEBUGMODEL_0 = 0,
     // Support for M profile Debug architecture, with memory-mapped access.
     eDEBUGMODEL_1 = 1,
   };
+
   // Support for memory-mapped debug model for M profile processors
   using DEBUGMODEL = ftl::mmio::Field<4, 20, eDEBUGMODEL, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct SCB_ID_DFR0_fields_
@@ -1302,7 +1283,6 @@ struct SCB_ID_DFR0 : ftl::mmio::Register<
   using eDEBUGMODEL = SCB_ID_DFR0_fields_::eDEBUGMODEL;
   using DEBUGMODEL = SCB_ID_DFR0_fields_::DEBUGMODEL;
 };
-
 
 // Auxiliary Feature Register
 struct SCB_ID_AFR0_fields_ {
@@ -1332,10 +1312,8 @@ struct SCB_ID_AFR0 : ftl::mmio::Register<
   using IMPLEMENTATION_DEFINED3 = SCB_ID_AFR0_fields_::IMPLEMENTATION_DEFINED3;
 };
 
-
 // Memory Model Feature Register 0
 struct SCB_ID_MMFR0_fields_ {
-
   enum class ePMSASUPPORT : std::uint32_t {
     // Not supported
     ePMSASUPPORT_0 = 0,
@@ -1406,6 +1384,7 @@ struct SCB_ID_MMFR0_fields_ {
     // ARMv7-M unused
     eAUXILIARY_REGISTERS_2 = 2,
   };
+
   // Indicates support for a PMSA
   using PMSASUPPORT = ftl::mmio::Field<4, 4, ePMSASUPPORT, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicates the outermost shareability domain implemented
@@ -1442,7 +1421,6 @@ struct SCB_ID_MMFR0 : ftl::mmio::Register<
   using AUXILIARY_REGISTERS = SCB_ID_MMFR0_fields_::AUXILIARY_REGISTERS;
 };
 
-
 // Memory Model Feature Register 1
 struct SCB_ID_MMFR1_fields_ {
   // Gives information about the implemented memory model and memory management support.
@@ -1458,16 +1436,15 @@ struct SCB_ID_MMFR1 : ftl::mmio::Register<
   using ID_MMFR1 = SCB_ID_MMFR1_fields_::ID_MMFR1;
 };
 
-
 // Memory Model Feature Register 2
 struct SCB_ID_MMFR2_fields_ {
-
   enum class eWFI_STALL : std::uint32_t {
     // Not supported
     eWFI_STALL_0 = 0,
     // Support for WFI stalling
     eWFI_STALL_1 = 1,
   };
+
   // Indicates the support for Wait For Interrupt (WFI) stalling
   using WFI_STALL = ftl::mmio::Field<4, 24, eWFI_STALL, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct SCB_ID_MMFR2_fields_
@@ -1484,7 +1461,6 @@ struct SCB_ID_MMFR2 : ftl::mmio::Register<
   using WFI_STALL = SCB_ID_MMFR2_fields_::WFI_STALL;
 };
 
-
 // Memory Model Feature Register 3
 struct SCB_ID_MMFR3_fields_ {
   // Gives information about the implemented memory model and memory management support.
@@ -1500,10 +1476,8 @@ struct SCB_ID_MMFR3 : ftl::mmio::Register<
   using ID_MMFR3 = SCB_ID_MMFR3_fields_::ID_MMFR3;
 };
 
-
 // Instruction Set Attributes Register 0
 struct SCB_ID_ISAR0_fields_ {
-
   enum class eBITCOUNT_INSTRS : std::uint32_t {
     // None supported, ARMv7-M unused
     eBITCOUNT_INSTRS_0 = 0,
@@ -1551,6 +1525,7 @@ struct SCB_ID_ISAR0_fields_ {
     // Adds support for the SDIV and UDIV instructions
     eDIVIDE_INSTRS_1 = 1,
   };
+
   // Indicates the supported Bit Counting instructions
   using BITCOUNT_INSTRS = ftl::mmio::Field<4, 4, eBITCOUNT_INSTRS, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicates the supported BitField instructions
@@ -1592,10 +1567,8 @@ struct SCB_ID_ISAR0 : ftl::mmio::Register<
   using DIVIDE_INSTRS = SCB_ID_ISAR0_fields_::DIVIDE_INSTRS;
 };
 
-
 // Instruction Set Attributes Register 1
 struct SCB_ID_ISAR1_fields_ {
-
   enum class eEXTEND_INSTRS : std::uint32_t {
     // None supported, ARMv7-M unused
     eEXTEND_INSTRS_0 = 0,
@@ -1629,6 +1602,7 @@ struct SCB_ID_ISAR1_fields_ {
     // ARMv7-M unused
     eINTERWORK_INSTRS_3 = 3,
   };
+
   // Indicates the supported Extend instructions
   using EXTEND_INSTRS = ftl::mmio::Field<4, 12, eEXTEND_INSTRS, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicates the supported IfThen instructions
@@ -1660,10 +1634,8 @@ struct SCB_ID_ISAR1 : ftl::mmio::Register<
   using INTERWORK_INSTRS = SCB_ID_ISAR1_fields_::INTERWORK_INSTRS;
 };
 
-
 // Instruction Set Attributes Register 2
 struct SCB_ID_ISAR2_fields_ {
-
   enum class eLOADSTORE_INSTRS : std::uint32_t {
     // None supported, ARMv7-M unused
     eLOADSTORE_INSTRS_0 = 0,
@@ -1728,6 +1700,7 @@ struct SCB_ID_ISAR2_fields_ {
     // As for 1, and adds support for the RBIT instruction.
     eREVERSAL_INSTRS_2 = 2,
   };
+
   // Indicates the supported additional load and store instructions
   using LOADSTORE_INSTRS = ftl::mmio::Field<4, 0, eLOADSTORE_INSTRS, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicates the supported Memory Hint instructions
@@ -1773,10 +1746,8 @@ struct SCB_ID_ISAR2 : ftl::mmio::Register<
   using REVERSAL_INSTRS = SCB_ID_ISAR2_fields_::REVERSAL_INSTRS;
 };
 
-
 // Instruction Set Attributes Register 3
 struct SCB_ID_ISAR3_fields_ {
-
   enum class eSATURATE_INSTRS : std::uint32_t {
     // None supported
     eSATURATE_INSTRS_0 = 0,
@@ -1820,6 +1791,7 @@ struct SCB_ID_ISAR3_fields_ {
     // Adds support for encoding T1 of the MOV (register) instruction copying from a low register to a low register.
     eTRUENOP_INSTRS_1 = 1,
   };
+
   // Indicates the supported Saturate instructions
   using SATURATE_INSTRS = ftl::mmio::Field<4, 0, eSATURATE_INSTRS, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicates the supported SIMD instructions
@@ -1864,10 +1836,8 @@ struct SCB_ID_ISAR3 : ftl::mmio::Register<
   using TRUENOP_INSTRS = SCB_ID_ISAR3_fields_::TRUENOP_INSTRS;
 };
 
-
 // Instruction Set Attributes Register 4
 struct SCB_ID_ISAR4_fields_ {
-
   enum class eUNPRIV_INSTRS : std::uint32_t {
     // None supported, ARMv7-M unused.
     eUNPRIV_INSTRS_0 = 0,
@@ -1908,6 +1878,7 @@ struct SCB_ID_ISAR4_fields_ {
     // Adds support for the M-profile forms of the CPS, MRS, and MSR instructions, to access the PSRs.
     ePSR_M_INSTRS_1 = 1,
   };
+
   // Indicates the supported unprivileged instructions. These are the instruction variants indicated by a T suffix.
   using UNPRIV_INSTRS = ftl::mmio::Field<4, 0, eUNPRIV_INSTRS, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicates the support for instructions with shifts
@@ -1948,10 +1919,8 @@ struct SCB_ID_ISAR4 : ftl::mmio::Register<
   using PSR_M_INSTRS = SCB_ID_ISAR4_fields_::PSR_M_INSTRS;
 };
 
-
 // Cache Level ID register
 struct SCB_CLIDR_fields_ {
-
   enum class eCL1 : std::uint32_t {
     // No cache
     eCL1_0 = 0,
@@ -2099,6 +2068,7 @@ struct SCB_CLIDR_fields_ {
     // 7
     eLOU_7 = 7,
   };
+
   // Indicate the type of cache implemented at level 1.
   using CL1 = ftl::mmio::Field<3, 0, eCL1, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicate the type of cache implemented at level 2.
@@ -2159,14 +2129,13 @@ struct SCB_CLIDR : ftl::mmio::Register<
   using LOU = SCB_CLIDR_fields_::LOU;
 };
 
-
 // Cache Type register
 struct SCB_CTR_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // ARMv7 format.
     eFORMAT_4 = 4,
   };
+
   // Log2 of the number of words in the smallest cache line of all the instruction caches that are controlled by the processor.
   using IMINLINE = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Log2 of the number of words in the smallest cache line of all the data caches and unified caches that are controlled by the processor.
@@ -2199,10 +2168,8 @@ struct SCB_CTR : ftl::mmio::Register<
   using FORMAT = SCB_CTR_fields_::FORMAT;
 };
 
-
 // Cache Size ID Register
 struct SCB_CCSIDR_fields_ {
-
   enum class eLINESIZE : std::uint32_t {
     // The line length of 4 words.
     eLINESIZE_0 = 0,
@@ -2249,6 +2216,7 @@ struct SCB_CCSIDR_fields_ {
     // Feature supported
     eWT_1 = 1,
   };
+
   // (Log2(Number of words in cache line)) - 2.
   using LINESIZE = ftl::mmio::Field<3, 0, eLINESIZE, ftl::mmio::RO, ftl::mmio::Normal>;
   // (Associativity of cache) - 1, therefore a value of 0 indicates an associativity of 1. The associativity does not have to be a power of 2.
@@ -2291,10 +2259,8 @@ struct SCB_CCSIDR : ftl::mmio::Register<
   using WT = SCB_CCSIDR_fields_::WT;
 };
 
-
 // Cache Size Selection Register
 struct SCB_CSSELR_fields_ {
-
   enum class eIND : std::uint32_t {
     // Data or unified cache.
     eIND_0 = 0,
@@ -2318,6 +2284,7 @@ struct SCB_CSSELR_fields_ {
     // Level 7 cache.
     eLEVEL_6 = 6,
   };
+
   // Instruction not data bit
   using IND = ftl::mmio::Field<1, 0, eIND, ftl::mmio::RW, ftl::mmio::Normal>;
   // Cache level of required cache
@@ -2338,10 +2305,8 @@ struct SCB_CSSELR : ftl::mmio::Register<
   using LEVEL = SCB_CSSELR_fields_::LEVEL;
 };
 
-
 // Coprocessor Access Control Register
 struct SCB_CPACR_fields_ {
-
   enum class eCP0 : std::uint32_t {
     // Access denied. Any attempted access generates a NOCP UsageFault.
     eCP0_0 = 0,
@@ -2431,6 +2396,7 @@ struct SCB_CPACR_fields_ {
     // Full access.
     eCP11_3 = 3,
   };
+
   // Access privileges for coprocessor 0.
   using CP0 = ftl::mmio::Field<2, 0, eCP0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Access privileges for coprocessor 1.
@@ -2492,7 +2458,6 @@ struct SCB_CPACR : ftl::mmio::Register<
   using CP11 = SCB_CPACR_fields_::CP11;
 };
 
-
 // Instruction cache invalidate all to Point of Unification (PoU)
 struct SCB_STIR_fields_ {
   // Indicates the interrupt to be triggered
@@ -2509,7 +2474,6 @@ struct SCB_STIR : ftl::mmio::Register<
   using INTID = SCB_STIR_fields_::INTID;
 };
 
-
 // Instruction cache invalidate all to Point of Unification (PoU)
 struct SCB_ICIALLU_fields_ {
   // I-cache invalidate all to PoU
@@ -2524,7 +2488,6 @@ struct SCB_ICIALLU : ftl::mmio::Register<
     SCB_ICIALLU_fields_::ICIALLU> {
   using ICIALLU = SCB_ICIALLU_fields_::ICIALLU;
 };
-
 
 // Instruction cache invalidate by address to PoU
 struct SCB_ICIMVAU_fields_ {
@@ -2541,7 +2504,6 @@ struct SCB_ICIMVAU : ftl::mmio::Register<
   using ICIMVAU = SCB_ICIMVAU_fields_::ICIMVAU;
 };
 
-
 // Data cache invalidate by address to Point of Coherency (PoC)
 struct SCB_DCIMVAC_fields_ {
   // D-cache invalidate by MVA to PoC
@@ -2556,7 +2518,6 @@ struct SCB_DCIMVAC : ftl::mmio::Register<
     SCB_DCIMVAC_fields_::DCIMVAC> {
   using DCIMVAC = SCB_DCIMVAC_fields_::DCIMVAC;
 };
-
 
 // Data cache invalidate by set/way
 struct SCB_DCISW_fields_ {
@@ -2573,7 +2534,6 @@ struct SCB_DCISW : ftl::mmio::Register<
   using DCISW = SCB_DCISW_fields_::DCISW;
 };
 
-
 // Data cache by address to PoU
 struct SCB_DCCMVAU_fields_ {
   // D-cache clean by MVA to PoU
@@ -2588,7 +2548,6 @@ struct SCB_DCCMVAU : ftl::mmio::Register<
     SCB_DCCMVAU_fields_::DCCMVAU> {
   using DCCMVAU = SCB_DCCMVAU_fields_::DCCMVAU;
 };
-
 
 // Data cache clean by address to PoC
 struct SCB_DCCMVAC_fields_ {
@@ -2605,7 +2564,6 @@ struct SCB_DCCMVAC : ftl::mmio::Register<
   using DCCMVAC = SCB_DCCMVAC_fields_::DCCMVAC;
 };
 
-
 // Data cache clean by set/way
 struct SCB_DCCSW_fields_ {
   // D-cache clean by set-way
@@ -2620,7 +2578,6 @@ struct SCB_DCCSW : ftl::mmio::Register<
     SCB_DCCSW_fields_::DCCSW> {
   using DCCSW = SCB_DCCSW_fields_::DCCSW;
 };
-
 
 // Data cache clean and invalidate by address to PoC
 struct SCB_DCCIMVAC_fields_ {
@@ -2637,7 +2594,6 @@ struct SCB_DCCIMVAC : ftl::mmio::Register<
   using DCCIMVAC = SCB_DCCIMVAC_fields_::DCCIMVAC;
 };
 
-
 // Data cache clean and invalidate by set/way
 struct SCB_DCCISW_fields_ {
   // D-cache clean and invalidate by set-way
@@ -2653,10 +2609,8 @@ struct SCB_DCCISW : ftl::mmio::Register<
   using DCCISW = SCB_DCCISW_fields_::DCCISW;
 };
 
-
 // Instruction Tightly-Coupled Memory Control Register
 struct SCB_CM7_ITCMCR_fields_ {
-
   enum class eEN : std::uint32_t {
     // TCM disabled.
     eEN_0 = 0,
@@ -2708,6 +2662,7 @@ struct SCB_CM7_ITCMCR_fields_ {
     // 16MB.
     eSZ_15 = 15,
   };
+
   // TCM enable. When a TCM is disabled all accesses are made to the AXIM interface.
   using EN = ftl::mmio::Field<1, 0, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Read-Modify-Write (RMW) enable. Indicates that all writes to TCM, that are not the full width of the TCM RAM, use a RMW sequence.
@@ -2738,10 +2693,8 @@ struct SCB_CM7_ITCMCR : ftl::mmio::Register<
   using SZ = SCB_CM7_ITCMCR_fields_::SZ;
 };
 
-
 // Data Tightly-Coupled Memory Control Register
 struct SCB_CM7_DTCMCR_fields_ {
-
   enum class eEN : std::uint32_t {
     // TCM disabled.
     eEN_0 = 0,
@@ -2793,6 +2746,7 @@ struct SCB_CM7_DTCMCR_fields_ {
     // 16MB.
     eSZ_15 = 15,
   };
+
   // TCM enable. When a TCM is disabled all accesses are made to the AXIM interface.
   using EN = ftl::mmio::Field<1, 0, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Read-Modify-Write (RMW) enable. Indicates that all writes to TCM, that are not the full width of the TCM RAM, use a RMW sequence.
@@ -2823,10 +2777,8 @@ struct SCB_CM7_DTCMCR : ftl::mmio::Register<
   using SZ = SCB_CM7_DTCMCR_fields_::SZ;
 };
 
-
 // AHBP Control Register
 struct SCB_CM7_AHBPCR_fields_ {
-
   enum class eEN : std::uint32_t {
     // AHBP disabled. When disabled all accesses are made to the AXIM interface.
     eEN_0 = 0,
@@ -2846,6 +2798,7 @@ struct SCB_CM7_AHBPCR_fields_ {
     // 512MB.
     eSZ_4 = 4,
   };
+
   // AHBP enable.
   using EN = ftl::mmio::Field<1, 0, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // AHBP size.
@@ -2866,10 +2819,8 @@ struct SCB_CM7_AHBPCR : ftl::mmio::Register<
   using SZ = SCB_CM7_AHBPCR_fields_::SZ;
 };
 
-
 // L1 Cache Control Register
 struct SCB_CM7_CACR_fields_ {
-
   enum class eSIWT : std::uint32_t {
     // Normal Cacheable Shared locations are treated as being Non-cacheable. Default mode of operation for Shared memory.
     eSIWT_0 = 0,
@@ -2890,6 +2841,7 @@ struct SCB_CM7_CACR_fields_ {
     // Enables Force Write-Through. All Cacheable memory regions are treated as Write-Through.
     eFORCEWT_1 = 1,
   };
+
   // Shared cacheable-is-WT for data cache. Enables limited cache coherency usage.
   using SIWT = ftl::mmio::Field<1, 0, eSIWT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enables ECC in the instruction and data cache.
@@ -2915,10 +2867,8 @@ struct SCB_CM7_CACR : ftl::mmio::Register<
   using FORCEWT = SCB_CM7_CACR_fields_::FORCEWT;
 };
 
-
 // AHB Slave Control Register
 struct SCB_CM7_AHBSCR_fields_ {
-
   enum class eCTL : std::uint32_t {
     // AHBS access priority demoted. This is the reset value.
     eCTL_0 = 0,
@@ -2929,6 +2879,7 @@ struct SCB_CM7_AHBSCR_fields_ {
     // AHBSPRI signal has control of access priority.
     eCTL_3 = 3,
   };
+
   // AHBS prioritization control.
   using CTL = ftl::mmio::Field<2, 0, eCTL, ftl::mmio::RW, ftl::mmio::Normal>;
   // Threshold execution priority for AHBS traffic demotion.
@@ -2952,10 +2903,8 @@ struct SCB_CM7_AHBSCR : ftl::mmio::Register<
   using INITCOUNT = SCB_CM7_AHBSCR_fields_::INITCOUNT;
 };
 
-
 // Auxiliary Bus Fault Status Register
 struct SCB_CM7_ABFSR_fields_ {
-
   enum class eAXIMTYPE : std::uint32_t {
     // OKAY.
     eAXIMTYPE_0 = 0,
@@ -2966,6 +2915,7 @@ struct SCB_CM7_ABFSR_fields_ {
     // DECERR.
     eAXIMTYPE_3 = 3,
   };
+
   // Asynchronous fault on ITCM interface.
   using ITCM = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Asynchronous fault on DTCM interface.

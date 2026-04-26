@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::ips_domain {
 
-
 // Slot Control Register
 struct SLOT_CTRL_fields_ {
-
   enum class eDOMAIN_LOCK : std::uint32_t {
     // Do not lock the domain ID
     eUNLOCK = 0,
@@ -39,6 +37,7 @@ struct SLOT_CTRL_fields_ {
     // Lock the control register of this slot
     eLOCK = 1,
   };
+
   // Domain ID of the slot to be locked
   using LOCKED_DOMAIN_ID = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock domain ID of this slot

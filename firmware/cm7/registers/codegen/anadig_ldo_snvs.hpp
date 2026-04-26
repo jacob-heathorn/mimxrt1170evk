@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::anadig_ldo_snvs {
 
-
 // PMU_LDO_LPSR_ANA_REGISTER
 struct PMU_LDO_LPSR_ANA_fields_ {
-
   enum class eLPSR_ANA_CONTROL_MODE : std::uint32_t {
     // SW Control
     esw = 0,
@@ -25,6 +23,7 @@ struct PMU_LDO_LPSR_ANA_fields_ {
     // Switch preparation
     eSWITCH = 1,
   };
+
   // reg_lp_en
   using REG_LP_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // reg_disable
@@ -76,7 +75,6 @@ struct PMU_LDO_LPSR_ANA : ftl::mmio::Register<
   using PULL_DOWN_20UA_EN = PMU_LDO_LPSR_ANA_fields_::PULL_DOWN_20UA_EN;
 };
 
-
 // PMU_LDO_LPSR_DIG_2_REGISTER
 struct PMU_LDO_LPSR_DIG_2_fields_ {
   // voltage_step_inc
@@ -93,10 +91,8 @@ struct PMU_LDO_LPSR_DIG_2 : ftl::mmio::Register<
   using VOLTAGE_STEP_INC = PMU_LDO_LPSR_DIG_2_fields_::VOLTAGE_STEP_INC;
 };
 
-
 // PMU_LDO_LPSR_DIG_REGISTER
 struct PMU_LDO_LPSR_DIG_fields_ {
-
   enum class eLPSR_DIG_CONTROL_MODE : std::uint32_t {
     // SW Control
     esw = 0,
@@ -170,6 +166,7 @@ struct PMU_LDO_LPSR_DIG_fields_ {
     // Stable Voltage (range)
     ebitval31 = 31,
   };
+
   // ENABLE_ILIMIT
   using REG_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // LPSR_DIG_CONTROL_MODE

@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::iee__iee_rt1170 {
 
-
 // IEE Global Configuration
 struct GCFG_fields_ {
-
   enum class eRL0 : std::uint32_t {
     // Unlocked.
     eRL0_0 = 0,
@@ -109,6 +107,7 @@ struct GCFG_fields_ {
     // Reset IEE.
     eRST_1 = 1,
   };
+
   // Region lock 0 bit
   using RL0 = ftl::mmio::Field<1, 0, eRL0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Region lock 1 bit
@@ -192,10 +191,8 @@ struct GCFG : ftl::mmio::Register<
   using RST = GCFG_fields_::RST;
 };
 
-
 // IEE Status
 struct STA_fields_ {
-
   enum class eDSR : std::uint32_t {
     // No seed request present
     eDSR_0 = 0,
@@ -209,6 +206,7 @@ struct STA_fields_ {
     // Fault detected
     eAFD_1 = 1,
   };
+
   // DPA seed request bit
   using DSR = ftl::mmio::Field<1, 0, eDSR, ftl::mmio::RO, ftl::mmio::Normal>;
   // AES fault detected bit
@@ -230,10 +228,8 @@ struct STA : ftl::mmio::Register<
   using AFD = STA_fields_::AFD;
 };
 
-
 // IEE Test Mode Register
 struct TSTMD_fields_ {
-
   enum class eTMRDY : std::uint32_t {
     // Not Ready.
     eTMRDY_0 = 0,
@@ -268,6 +264,7 @@ struct TSTMD_fields_ {
     // Test Done.
     eTMDONE_1 = 1,
   };
+
   // Test mode ready bit. All AXI transactions have stopped and test can begin.
   using TMRDY = ftl::mmio::Field<1, 0, eTMRDY, ftl::mmio::RO, ftl::mmio::Normal>;
   // Test mode run bit
@@ -308,7 +305,6 @@ struct TSTMD : ftl::mmio::Register<
   using TMLEN = TSTMD_fields_::TMLEN;
 };
 
-
 // AES Mask Generation Seed
 struct DPAMS_fields_ {
   // DPA mask seed
@@ -323,7 +319,6 @@ struct DPAMS : ftl::mmio::Register<
     DPAMS_fields_::DPAMS> {
   using value_ = DPAMS_fields_::DPAMS;
 };
-
 
 // Performance Counter, AES Slave Latency Threshold Value
 struct PC_S_LT_fields_ {
@@ -343,7 +338,6 @@ struct PC_S_LT : ftl::mmio::Register<
   using SW_LT = PC_S_LT_fields_::SW_LT;
   using SR_LT = PC_S_LT_fields_::SR_LT;
 };
-
 
 // Performance Counter, AES Master Latency Threshold
 struct PC_M_LT_fields_ {
@@ -366,7 +360,6 @@ struct PC_M_LT : ftl::mmio::Register<
   using MR_LT = PC_M_LT_fields_::MR_LT;
 };
 
-
 // Performance Counter, Number of AES Block Encryptions
 struct PC_BLK_ENC_fields_ {
   // Number of AES block encryptions. Does not roll over if value maxes out.
@@ -381,7 +374,6 @@ struct PC_BLK_ENC : ftl::mmio::Register<
     PC_BLK_ENC_fields_::BLK_ENC> {
   using BLK_ENC = PC_BLK_ENC_fields_::BLK_ENC;
 };
-
 
 // Performance Counter, Number of AES Block Decryptions
 struct PC_BLK_DEC_fields_ {
@@ -398,7 +390,6 @@ struct PC_BLK_DEC : ftl::mmio::Register<
   using BLK_DEC = PC_BLK_DEC_fields_::BLK_DEC;
 };
 
-
 // Performance Counter, Number of AXI Slave Read Transactions
 struct PC_SR_TRANS_fields_ {
   // Number of slave read transactions.
@@ -413,7 +404,6 @@ struct PC_SR_TRANS : ftl::mmio::Register<
     PC_SR_TRANS_fields_::SR_TRANS> {
   using SR_TRANS = PC_SR_TRANS_fields_::SR_TRANS;
 };
-
 
 // Performance Counter, Number of AXI Slave Write Transactions
 struct PC_SW_TRANS_fields_ {
@@ -430,7 +420,6 @@ struct PC_SW_TRANS : ftl::mmio::Register<
   using SW_TRANS = PC_SW_TRANS_fields_::SW_TRANS;
 };
 
-
 // Performance Counter, Number of AXI Master Read Transactions
 struct PC_MR_TRANS_fields_ {
   // Number of master read transactions.
@@ -445,7 +434,6 @@ struct PC_MR_TRANS : ftl::mmio::Register<
     PC_MR_TRANS_fields_::MR_TRANS> {
   using MR_TRANS = PC_MR_TRANS_fields_::MR_TRANS;
 };
-
 
 // Performance Counter, Number of AXI Master Write Transactions
 struct PC_MW_TRANS_fields_ {
@@ -462,7 +450,6 @@ struct PC_MW_TRANS : ftl::mmio::Register<
   using MW_TRANS = PC_MW_TRANS_fields_::MW_TRANS;
 };
 
-
 // Performance Counter, Number of AXI Master Merge Buffer Read Transactions
 struct PC_M_MBR_fields_ {
   // Number of master merge buffer read transactions.
@@ -477,7 +464,6 @@ struct PC_M_MBR : ftl::mmio::Register<
     PC_M_MBR_fields_::M_MBR> {
   using M_MBR = PC_M_MBR_fields_::M_MBR;
 };
-
 
 // Performance Counter, Upper Slave Read Transactions Byte Count
 struct PC_SR_TBC_U_fields_ {
@@ -495,7 +481,6 @@ struct PC_SR_TBC_U : ftl::mmio::Register<
   using SR_TBC = PC_SR_TBC_U_fields_::SR_TBC;
 };
 
-
 // Performance Counter, Lower Slave Read Transactions Byte Count
 struct PC_SR_TBC_L_fields_ {
   // Number of bytes in slave read transactions. Lower 32 bits of SR_TBC[47:0].
@@ -510,7 +495,6 @@ struct PC_SR_TBC_L : ftl::mmio::Register<
     PC_SR_TBC_L_fields_::SR_TBC> {
   using SR_TBC = PC_SR_TBC_L_fields_::SR_TBC;
 };
-
 
 // Performance Counter, Upper Slave Write Transactions Byte Count
 struct PC_SW_TBC_U_fields_ {
@@ -528,7 +512,6 @@ struct PC_SW_TBC_U : ftl::mmio::Register<
   using SW_TBC = PC_SW_TBC_U_fields_::SW_TBC;
 };
 
-
 // Performance Counter, Lower Slave Write Transactions Byte Count
 struct PC_SW_TBC_L_fields_ {
   // Number of bytes in slave write transactions. Lower 32 bits of SW_TBC[47:0].
@@ -543,7 +526,6 @@ struct PC_SW_TBC_L : ftl::mmio::Register<
     PC_SW_TBC_L_fields_::SW_TBC> {
   using SW_TBC = PC_SW_TBC_L_fields_::SW_TBC;
 };
-
 
 // Performance Counter, Upper Master Read Transactions Byte Count
 struct PC_MR_TBC_U_fields_ {
@@ -560,7 +542,6 @@ struct PC_MR_TBC_U : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using MR_TBC = PC_MR_TBC_U_fields_::MR_TBC;
 };
-
 
 // Performance Counter, Lower Master Read Transactions Byte Count
 struct PC_MR_TBC_L_fields_ {
@@ -581,7 +562,6 @@ struct PC_MR_TBC_L : ftl::mmio::Register<
   using MR_TBC = PC_MR_TBC_L_fields_::MR_TBC;
 };
 
-
 // Performance Counter, Upper Master Write Transactions Byte Count
 struct PC_MW_TBC_U_fields_ {
   // Number of bytes in master write transactions. 44 MSBs. Upper 16 bits of MW_TBC[43:0].
@@ -597,7 +577,6 @@ struct PC_MW_TBC_U : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using MW_TBC = PC_MW_TBC_U_fields_::MW_TBC;
 };
-
 
 // Performance Counter, Lower Master Write Transactions Byte Count
 struct PC_MW_TBC_L_fields_ {
@@ -618,7 +597,6 @@ struct PC_MW_TBC_L : ftl::mmio::Register<
   using MW_TBC = PC_MW_TBC_L_fields_::MW_TBC;
 };
 
-
 // Performance Counter, Number of AXI Slave Read Transactions with Latency Greater than the
 // Threshold
 struct PC_SR_TLGTT_fields_ {
@@ -634,7 +612,6 @@ struct PC_SR_TLGTT : ftl::mmio::Register<
     PC_SR_TLGTT_fields_::SR_TLGTT> {
   using SR_TLGTT = PC_SR_TLGTT_fields_::SR_TLGTT;
 };
-
 
 // Performance Counter, Number of AXI Slave Write Transactions with Latency Greater than the
 // Threshold
@@ -652,7 +629,6 @@ struct PC_SW_TLGTT : ftl::mmio::Register<
   using SW_TLGTT = PC_SW_TLGTT_fields_::SW_TLGTT;
 };
 
-
 // Performance Counter, Number of AXI Master Read Transactions with Latency Greater than the
 // Threshold
 struct PC_MR_TLGTT_fields_ {
@@ -668,7 +644,6 @@ struct PC_MR_TLGTT : ftl::mmio::Register<
     PC_MR_TLGTT_fields_::MR_TLGTT> {
   using MR_TLGTT = PC_MR_TLGTT_fields_::MR_TLGTT;
 };
-
 
 // Performance Counter, Number of AXI Master Write Transactions with Latency Greater than the
 // Threshold
@@ -686,7 +661,6 @@ struct PC_MW_TLGTT : ftl::mmio::Register<
   using MW_TGTT = PC_MW_TLGTT_fields_::MW_TGTT;
 };
 
-
 // Performance Counter, Upper Slave Read Latency Count
 struct PC_SR_TLAT_U_fields_ {
   // Total slave read latency in AXI clock cycles. Upper 16 bits of SR_TLAT[47:0].
@@ -703,7 +677,6 @@ struct PC_SR_TLAT_U : ftl::mmio::Register<
   using SR_TLAT = PC_SR_TLAT_U_fields_::SR_TLAT;
 };
 
-
 // Performance Counter, Lower Slave Read Latency Count
 struct PC_SR_TLAT_L_fields_ {
   // Total slave read latency in AXI clock cycles. Lower 32 bits of SR_TLAT[47:0].
@@ -718,7 +691,6 @@ struct PC_SR_TLAT_L : ftl::mmio::Register<
     PC_SR_TLAT_L_fields_::SR_TLAT> {
   using SR_TLAT = PC_SR_TLAT_L_fields_::SR_TLAT;
 };
-
 
 // Performance Counter, Upper Slave Write Latency Count
 struct PC_SW_TLAT_U_fields_ {
@@ -736,7 +708,6 @@ struct PC_SW_TLAT_U : ftl::mmio::Register<
   using SW_TLAT = PC_SW_TLAT_U_fields_::SW_TLAT;
 };
 
-
 // Performance Counter, Lower Slave Write Latency Count
 struct PC_SW_TLAT_L_fields_ {
   // Total slave write latency in AXI clock cycles. Lower 32 bits of SW_TLAT[47:0].
@@ -751,7 +722,6 @@ struct PC_SW_TLAT_L : ftl::mmio::Register<
     PC_SW_TLAT_L_fields_::SW_TLAT> {
   using SW_TLAT = PC_SW_TLAT_L_fields_::SW_TLAT;
 };
-
 
 // Performance Counter, Upper Master Read Latency Count
 struct PC_MR_TLAT_U_fields_ {
@@ -769,7 +739,6 @@ struct PC_MR_TLAT_U : ftl::mmio::Register<
   using MR_TLAT = PC_MR_TLAT_U_fields_::MR_TLAT;
 };
 
-
 // Performance Counter, Lower Master Read Latency Count
 struct PC_MR_TLAT_L_fields_ {
   // Total master read latency in AXI clock cycles. Lower 32 bits of MR_TLAT[47:0].
@@ -784,7 +753,6 @@ struct PC_MR_TLAT_L : ftl::mmio::Register<
     PC_MR_TLAT_L_fields_::MR_TLAT> {
   using MR_TLAT = PC_MR_TLAT_L_fields_::MR_TLAT;
 };
-
 
 // Performance Counter, Upper Master Write Latency Count
 struct PC_MW_TLAT_U_fields_ {
@@ -802,7 +770,6 @@ struct PC_MW_TLAT_U : ftl::mmio::Register<
   using MW_TLAT = PC_MW_TLAT_U_fields_::MW_TLAT;
 };
 
-
 // Performance Counter, Lower Master Write Latency Count
 struct PC_MW_TLAT_L_fields_ {
   // Total master write latency in AXI clock cycles. Lower 32 bits of MW_TLAT[47:0].
@@ -817,7 +784,6 @@ struct PC_MW_TLAT_L : ftl::mmio::Register<
     PC_MW_TLAT_L_fields_::MW_TLAT> {
   using MW_TLAT = PC_MW_TLAT_L_fields_::MW_TLAT;
 };
-
 
 // Performance Counter, Upper Slave Read Total Non-Responding Time
 struct PC_SR_TNRT_U_fields_ {
@@ -835,7 +801,6 @@ struct PC_SR_TNRT_U : ftl::mmio::Register<
   using SR_TNRT = PC_SR_TNRT_U_fields_::SR_TNRT;
 };
 
-
 // Performance Counter, Lower Slave Read Total Non-Responding Time
 struct PC_SR_TNRT_L_fields_ {
   // Total slave read non-responding time in AXI clock cycles. Lower 32 bits of SR_TNRT[47:0].
@@ -850,7 +815,6 @@ struct PC_SR_TNRT_L : ftl::mmio::Register<
     PC_SR_TNRT_L_fields_::SR_TNRT> {
   using SR_TNRT = PC_SR_TNRT_L_fields_::SR_TNRT;
 };
-
 
 // Performance Counter, Upper Slave Write Total Non-Responding Time
 struct PC_SW_TNRT_U_fields_ {
@@ -868,7 +832,6 @@ struct PC_SW_TNRT_U : ftl::mmio::Register<
   using SW_TNRT = PC_SW_TNRT_U_fields_::SW_TNRT;
 };
 
-
 // Performance Counter, Lower Slave Write Total Non-Responding Time
 struct PC_SW_TNRT_L_fields_ {
   // Total slave write non-responding time in AXI clock cycles. Lower 32 bits of SW_TNRT[47:0].
@@ -883,7 +846,6 @@ struct PC_SW_TNRT_L : ftl::mmio::Register<
     PC_SW_TNRT_L_fields_::SW_TNRT> {
   using SW_TNRT = PC_SW_TNRT_L_fields_::SW_TNRT;
 };
-
 
 // IEE Version ID Register 1
 struct VIDR1_fields_ {
@@ -908,7 +870,6 @@ struct VIDR1 : ftl::mmio::Register<
   using IP_ID = VIDR1_fields_::IP_ID;
 };
 
-
 // IEE AES Version ID Register
 struct AESVID_fields_ {
   // AES revision number.
@@ -929,7 +890,6 @@ struct AESVID : ftl::mmio::Register<
   using value_ = AESVID_fields_::AESVID;
 };
 
-
 // IEE AES Test Mode Data Buffer
 struct AES_TST_DB_fields_ {
   // AES test mode data buffer.
@@ -947,10 +907,8 @@ struct AES_TST_DB : ftl::mmio::Register<
   using AES_TST_DB0 = AES_TST_DB_fields_::AES_TST_DB0;
 };
 
-
 // IEE Region REGION Attribute Register.
 struct REGATTR_fields_ {
-
   enum class eKS : std::uint32_t {
     // 128 bits (CTR), 256 bits (XTS).
     eKS_0 = 0,
@@ -983,6 +941,7 @@ struct REGATTR_fields_ {
     // Bypass AES, no encrypt/decrypt
     eBYP_1 = 1,
   };
+
   // AES key size.
   using KS = ftl::mmio::Field<1, 0, eKS, ftl::mmio::RW, ftl::mmio::Normal>;
   // AES Mode.
@@ -1011,7 +970,6 @@ struct REGATTR : ftl::mmio::Register<
   using BYP = REGATTR_fields_::BYP;
 };
 
-
 // IEE Region REGION Page Offset Register
 struct REGPO_fields_ {
   // This field represents a 4Kb page offset
@@ -1030,7 +988,6 @@ struct REGPO : ftl::mmio::Register<
   using PGOFF = REGPO_fields_::PGOFF;
 };
 
-
 // IEE Region REGION Key 1 Register
 struct REGKEY1__fields_ {
   // Key 1.
@@ -1048,7 +1005,6 @@ struct REGKEY1_ : ftl::mmio::Register<
   static_assert(ArrayIndex < 8u, "REGKEY1_: ArrayIndex out of range");
   using KEY1 = REGKEY1__fields_::KEY1;
 };
-
 
 // IEE Region REGION Key 2 Register
 struct REGKEY2__fields_ {

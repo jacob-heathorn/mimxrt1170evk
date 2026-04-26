@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::gpc_set_point_ctrl {
 
-
 // SP Authentication Control
 struct SP_AUTHEN_CTRL_fields_ {
-
   enum class eUSER : std::uint32_t {
     // Allow only privilege mode to access setpoint control registers
     eb0 = 0,
@@ -25,6 +23,7 @@ struct SP_AUTHEN_CTRL_fields_ {
     // Allow both secure and non-secure mode to access setpoint control registers
     eb1 = 1,
   };
+
   // Allow user mode access
   using USER = ftl::mmio::Field<1, 0, eUSER, ftl::mmio::RW, ftl::mmio::Normal>;
   // Allow non-secure mode access
@@ -64,7 +63,6 @@ struct SP_AUTHEN_CTRL : ftl::mmio::Register<
   using LOCK_CFG = SP_AUTHEN_CTRL_fields_::LOCK_CFG;
 };
 
-
 // SP Interrupt Control
 struct SP_INT_CTRL_fields_ {
   // no_allowed_set_point interrupt enable
@@ -84,7 +82,6 @@ struct SP_INT_CTRL : ftl::mmio::Register<
   using NO_ALLOWED_SP_INT_EN = SP_INT_CTRL_fields_::NO_ALLOWED_SP_INT_EN;
   using NO_ALLOWED_SP_INT = SP_INT_CTRL_fields_::NO_ALLOWED_SP_INT;
 };
-
 
 // CPU SP Request
 struct SP_CPU_REQ_fields_ {
@@ -129,7 +126,6 @@ struct SP_CPU_REQ : ftl::mmio::Register<
   using SP_ACCEPTED_CPU3 = SP_CPU_REQ_fields_::SP_ACCEPTED_CPU3;
 };
 
-
 // SP System Status
 struct SP_SYS_STAT_fields_ {
   // Allowed Setpoints by all current CPU Setpoint requests
@@ -158,7 +154,6 @@ struct SP_SYS_STAT : ftl::mmio::Register<
   using SYS_SP_PREVIOUS = SP_SYS_STAT_fields_::SYS_SP_PREVIOUS;
 };
 
-
 // SP ROSC Control
 struct SP_ROSC_CTRL_fields_ {
   // Allow shutting off the ROSC
@@ -174,7 +169,6 @@ struct SP_ROSC_CTRL : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using SP_ALLOW_ROSC_OFF = SP_ROSC_CTRL_fields_::SP_ALLOW_ROSC_OFF;
 };
-
 
 // SP0~7 Priority
 struct SP_PRIORITY_0_7_fields_ {
@@ -219,7 +213,6 @@ struct SP_PRIORITY_0_7 : ftl::mmio::Register<
   using SYS_SP7_PRIORITY = SP_PRIORITY_0_7_fields_::SYS_SP7_PRIORITY;
 };
 
-
 // SP8~15 Priority
 struct SP_PRIORITY_8_15_fields_ {
   // priority of Setpoint 8
@@ -263,10 +256,8 @@ struct SP_PRIORITY_8_15 : ftl::mmio::Register<
   using SYS_SP15_PRIORITY = SP_PRIORITY_8_15_fields_::SYS_SP15_PRIORITY;
 };
 
-
 // SP SSAR save control
 struct SP_SSAR_SAVE_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -277,6 +268,7 @@ struct SP_SSAR_SAVE_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -301,10 +293,8 @@ struct SP_SSAR_SAVE_CTRL : ftl::mmio::Register<
   using DISABLE = SP_SSAR_SAVE_CTRL_fields_::DISABLE;
 };
 
-
 // SP LPCG off control
 struct SP_LPCG_OFF_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -315,6 +305,7 @@ struct SP_LPCG_OFF_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -339,10 +330,8 @@ struct SP_LPCG_OFF_CTRL : ftl::mmio::Register<
   using DISABLE = SP_LPCG_OFF_CTRL_fields_::DISABLE;
 };
 
-
 // SP group down control
 struct SP_GROUP_DOWN_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -353,6 +342,7 @@ struct SP_GROUP_DOWN_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -377,10 +367,8 @@ struct SP_GROUP_DOWN_CTRL : ftl::mmio::Register<
   using DISABLE = SP_GROUP_DOWN_CTRL_fields_::DISABLE;
 };
 
-
 // SP root down control
 struct SP_ROOT_DOWN_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -391,6 +379,7 @@ struct SP_ROOT_DOWN_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -415,10 +404,8 @@ struct SP_ROOT_DOWN_CTRL : ftl::mmio::Register<
   using DISABLE = SP_ROOT_DOWN_CTRL_fields_::DISABLE;
 };
 
-
 // SP PLL off control
 struct SP_PLL_OFF_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -429,6 +416,7 @@ struct SP_PLL_OFF_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -453,10 +441,8 @@ struct SP_PLL_OFF_CTRL : ftl::mmio::Register<
   using DISABLE = SP_PLL_OFF_CTRL_fields_::DISABLE;
 };
 
-
 // SP ISO on control
 struct SP_ISO_ON_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -467,6 +453,7 @@ struct SP_ISO_ON_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -491,10 +478,8 @@ struct SP_ISO_ON_CTRL : ftl::mmio::Register<
   using DISABLE = SP_ISO_ON_CTRL_fields_::DISABLE;
 };
 
-
 // SP reset early control
 struct SP_RESET_EARLY_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -505,6 +490,7 @@ struct SP_RESET_EARLY_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -529,10 +515,8 @@ struct SP_RESET_EARLY_CTRL : ftl::mmio::Register<
   using DISABLE = SP_RESET_EARLY_CTRL_fields_::DISABLE;
 };
 
-
 // SP power off control
 struct SP_POWER_OFF_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -543,6 +527,7 @@ struct SP_POWER_OFF_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -567,10 +552,8 @@ struct SP_POWER_OFF_CTRL : ftl::mmio::Register<
   using DISABLE = SP_POWER_OFF_CTRL_fields_::DISABLE;
 };
 
-
 // SP bias off control
 struct SP_BIAS_OFF_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -581,6 +564,7 @@ struct SP_BIAS_OFF_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -605,10 +589,8 @@ struct SP_BIAS_OFF_CTRL : ftl::mmio::Register<
   using DISABLE = SP_BIAS_OFF_CTRL_fields_::DISABLE;
 };
 
-
 // SP bandgap and PLL_LDO off control
 struct SP_BG_PLDO_OFF_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -619,6 +601,7 @@ struct SP_BG_PLDO_OFF_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -643,10 +626,8 @@ struct SP_BG_PLDO_OFF_CTRL : ftl::mmio::Register<
   using DISABLE = SP_BG_PLDO_OFF_CTRL_fields_::DISABLE;
 };
 
-
 // SP LDO pre control
 struct SP_LDO_PRE_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -657,6 +638,7 @@ struct SP_LDO_PRE_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -681,10 +663,8 @@ struct SP_LDO_PRE_CTRL : ftl::mmio::Register<
   using DISABLE = SP_LDO_PRE_CTRL_fields_::DISABLE;
 };
 
-
 // SP DCDC down control
 struct SP_DCDC_DOWN_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -695,6 +675,7 @@ struct SP_DCDC_DOWN_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -719,10 +700,8 @@ struct SP_DCDC_DOWN_CTRL : ftl::mmio::Register<
   using DISABLE = SP_DCDC_DOWN_CTRL_fields_::DISABLE;
 };
 
-
 // SP DCDC up control
 struct SP_DCDC_UP_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -733,6 +712,7 @@ struct SP_DCDC_UP_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -757,10 +737,8 @@ struct SP_DCDC_UP_CTRL : ftl::mmio::Register<
   using DISABLE = SP_DCDC_UP_CTRL_fields_::DISABLE;
 };
 
-
 // SP LDO post control
 struct SP_LDO_POST_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -771,6 +749,7 @@ struct SP_LDO_POST_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -795,10 +774,8 @@ struct SP_LDO_POST_CTRL : ftl::mmio::Register<
   using DISABLE = SP_LDO_POST_CTRL_fields_::DISABLE;
 };
 
-
 // SP bandgap and PLL_LDO on control
 struct SP_BG_PLDO_ON_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -809,6 +786,7 @@ struct SP_BG_PLDO_ON_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -833,10 +811,8 @@ struct SP_BG_PLDO_ON_CTRL : ftl::mmio::Register<
   using DISABLE = SP_BG_PLDO_ON_CTRL_fields_::DISABLE;
 };
 
-
 // SP bias on control
 struct SP_BIAS_ON_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -847,6 +823,7 @@ struct SP_BIAS_ON_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -871,10 +848,8 @@ struct SP_BIAS_ON_CTRL : ftl::mmio::Register<
   using DISABLE = SP_BIAS_ON_CTRL_fields_::DISABLE;
 };
 
-
 // SP power on control
 struct SP_POWER_ON_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -885,6 +860,7 @@ struct SP_POWER_ON_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -909,10 +885,8 @@ struct SP_POWER_ON_CTRL : ftl::mmio::Register<
   using DISABLE = SP_POWER_ON_CTRL_fields_::DISABLE;
 };
 
-
 // SP reset late control
 struct SP_RESET_LATE_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -923,6 +897,7 @@ struct SP_RESET_LATE_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -947,10 +922,8 @@ struct SP_RESET_LATE_CTRL : ftl::mmio::Register<
   using DISABLE = SP_RESET_LATE_CTRL_fields_::DISABLE;
 };
 
-
 // SP ISO off control
 struct SP_ISO_OFF_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -961,6 +934,7 @@ struct SP_ISO_OFF_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -985,10 +959,8 @@ struct SP_ISO_OFF_CTRL : ftl::mmio::Register<
   using DISABLE = SP_ISO_OFF_CTRL_fields_::DISABLE;
 };
 
-
 // SP PLL on control
 struct SP_PLL_ON_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -999,6 +971,7 @@ struct SP_PLL_ON_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -1023,10 +996,8 @@ struct SP_PLL_ON_CTRL : ftl::mmio::Register<
   using DISABLE = SP_PLL_ON_CTRL_fields_::DISABLE;
 };
 
-
 // SP root up control
 struct SP_ROOT_UP_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -1037,6 +1008,7 @@ struct SP_ROOT_UP_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -1061,10 +1033,8 @@ struct SP_ROOT_UP_CTRL : ftl::mmio::Register<
   using DISABLE = SP_ROOT_UP_CTRL_fields_::DISABLE;
 };
 
-
 // SP group up control
 struct SP_GROUP_UP_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -1075,6 +1045,7 @@ struct SP_GROUP_UP_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -1099,10 +1070,8 @@ struct SP_GROUP_UP_CTRL : ftl::mmio::Register<
   using DISABLE = SP_GROUP_UP_CTRL_fields_::DISABLE;
 };
 
-
 // SP LPCG on control
 struct SP_LPCG_ON_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -1113,6 +1082,7 @@ struct SP_LPCG_ON_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode
@@ -1137,10 +1107,8 @@ struct SP_LPCG_ON_CTRL : ftl::mmio::Register<
   using DISABLE = SP_LPCG_ON_CTRL_fields_::DISABLE;
 };
 
-
 // SP SSAR restore control
 struct SP_SSAR_RESTORE_CTRL_fields_ {
-
   enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
@@ -1151,6 +1119,7 @@ struct SP_SSAR_RESTORE_CTRL_fields_ {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
+
   // Step count, useage is depending on CNT_MODE
   using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Count mode

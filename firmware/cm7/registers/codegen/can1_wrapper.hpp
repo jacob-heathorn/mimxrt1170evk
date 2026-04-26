@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::can1_wrapper {
 
-
 // Glitch Filter Width Register
 struct GFWR_fields_ {
   // Glitch Filter Width

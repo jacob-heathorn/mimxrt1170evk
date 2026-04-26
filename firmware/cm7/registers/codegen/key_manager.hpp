@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::key_manager {
 
-
 // CSR Master Key Control Register
 struct MASTER_KEY_CTRL_fields_ {
-
   enum class eSELECT : std::uint32_t {
     // select key from UDF
     eSELECT_FROM_UDF = 0,
@@ -25,6 +23,7 @@ struct MASTER_KEY_CTRL_fields_ {
     // locked
     eLOCK = 1,
   };
+
   // Key select for SNVS OTPMK. Default value comes from FUSE_MASTER_KEY_SEL.
   using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
   // lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
@@ -46,10 +45,8 @@ struct MASTER_KEY_CTRL : ftl::mmio::Register<
   using LOCK = MASTER_KEY_CTRL_fields_::LOCK;
 };
 
-
 // CSR OTFAD-1 Key Control
 struct OTFAD1_KEY_CTRL_fields_ {
-
   enum class eSELECT : std::uint32_t {
     // Select key from OCOTP USER_KEY5
     eSELECT_FROM_USER_KEY5 = 0,
@@ -63,6 +60,7 @@ struct OTFAD1_KEY_CTRL_fields_ {
     // locked
     eLOCK = 1,
   };
+
   // key select for OTFAD-1. Default value comes from FUSE_OTFAD1_KEY_SEL.
   using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
   // lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
@@ -84,10 +82,8 @@ struct OTFAD1_KEY_CTRL : ftl::mmio::Register<
   using LOCK = OTFAD1_KEY_CTRL_fields_::LOCK;
 };
 
-
 // CSR OTFAD-2 Key Control
 struct OTFAD2_KEY_CTRL_fields_ {
-
   enum class eSELECT : std::uint32_t {
     // select key from OCOTP USER_KEY5
     eSELECT_FROM_USER_KEY5 = 0,
@@ -101,6 +97,7 @@ struct OTFAD2_KEY_CTRL_fields_ {
     // locked
     eLOCK = 1,
   };
+
   // key select for OTFAD-2. Default value comes from FUSE_OTFAD1_KEY_SEL.
   using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
   // lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
@@ -122,16 +119,15 @@ struct OTFAD2_KEY_CTRL : ftl::mmio::Register<
   using LOCK = OTFAD2_KEY_CTRL_fields_::LOCK;
 };
 
-
 // CSR IEE Key Control
 struct IEE_KEY_CTRL_fields_ {
-
   enum class eRELOAD : std::uint32_t {
     // Do nothing
     eIDLE = 0,
     // Restart IEE key load flow
     eRESTART = 1,
   };
+
   // Restart load key signal for IEE
   using RELOAD = ftl::mmio::Field<1, 0, eRELOAD, ftl::mmio::RW, ftl::mmio::OneToSet>;
 };  // struct IEE_KEY_CTRL_fields_
@@ -147,16 +143,15 @@ struct IEE_KEY_CTRL : ftl::mmio::Register<
   using RELOAD = IEE_KEY_CTRL_fields_::RELOAD;
 };
 
-
 // CSR PUF Key Control
 struct PUF_KEY_CTRL_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // Do not lock the key select
     eUNLOCK = 0,
     // Lock the key select to select key from PUF, otherwise bypass key from OCOPT and do not lock. Once it has been set to 1, it cannot be reset manually. It will be set to 0 when the IEE key reload operation is done.
     eLOCK = 1,
   };
+
   // Lock signal for key select
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct PUF_KEY_CTRL_fields_
@@ -172,10 +167,8 @@ struct PUF_KEY_CTRL : ftl::mmio::Register<
   using LOCK = PUF_KEY_CTRL_fields_::LOCK;
 };
 
-
 // Slot 0 Control
 struct SLOT0_CTRL_fields_ {
-
   enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
@@ -203,6 +196,7 @@ struct SLOT0_CTRL_fields_ {
     // Lock the control register of this slot
     eLOCK = 1,
   };
+
   // Whitelist
   using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock whitelist
@@ -238,10 +232,8 @@ struct SLOT0_CTRL : ftl::mmio::Register<
   using LOCK_CONTROL = SLOT0_CTRL_fields_::LOCK_CONTROL;
 };
 
-
 // Slot1 Control
 struct SLOT1_CTRL_fields_ {
-
   enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
@@ -269,6 +261,7 @@ struct SLOT1_CTRL_fields_ {
     // Lock the control register of this slot
     eLOCK = 1,
   };
+
   // Whitelist
   using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock whitelist
@@ -304,10 +297,8 @@ struct SLOT1_CTRL : ftl::mmio::Register<
   using LOCK_CONTROL = SLOT1_CTRL_fields_::LOCK_CONTROL;
 };
 
-
 // Slot2 Control
 struct SLOT2_CTRL_fields_ {
-
   enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
@@ -335,6 +326,7 @@ struct SLOT2_CTRL_fields_ {
     // Lock the control register of this slot
     eLOCK = 1,
   };
+
   // Whitelist
   using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock whitelist
@@ -370,10 +362,8 @@ struct SLOT2_CTRL : ftl::mmio::Register<
   using LOCK_CONTROL = SLOT2_CTRL_fields_::LOCK_CONTROL;
 };
 
-
 // Slot3 Control
 struct SLOT3_CTRL_fields_ {
-
   enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
@@ -401,6 +391,7 @@ struct SLOT3_CTRL_fields_ {
     // Lock the control register of this slot
     eLOCK = 1,
   };
+
   // Whitelist
   using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock whitelist
@@ -436,10 +427,8 @@ struct SLOT3_CTRL : ftl::mmio::Register<
   using LOCK_CONTROL = SLOT3_CTRL_fields_::LOCK_CONTROL;
 };
 
-
 // Slot 4 Control
 struct SLOT4_CTRL_fields_ {
-
   enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
@@ -467,6 +456,7 @@ struct SLOT4_CTRL_fields_ {
     // Lock the control register of this slot
     eLOCK = 1,
   };
+
   // Whitelist
   using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock whitelist

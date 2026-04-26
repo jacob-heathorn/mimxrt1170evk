@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::lcdifv2 {
 
-
 // LCDIFv2 display control Register
 struct CTRL_fields_ {
-
   enum class eINV_HS : std::uint32_t {
     // HSYNC signal not inverted (active HIGH)
     ebf_val0 = 0,
@@ -53,6 +51,7 @@ struct CTRL_fields_ {
     // All LCDIFv2 internal registers are forced into their reset state. User registers are not affected
     ebf_val1 = 1,
   };
+
   // Invert Horizontal synchronization signal
   using INV_HS = ftl::mmio::Field<1, 0, eINV_HS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Invert Vertical synchronization signal
@@ -93,7 +92,6 @@ struct CTRL : ftl::mmio::Register<
   using SW_RESET = CTRL_fields_::SW_RESET;
 };
 
-
 // LCDIFv2 display control Register
 struct CTRL_SET_fields_ {
   // Invert Horizontal synchronization signal
@@ -129,7 +127,6 @@ struct CTRL_SET : ftl::mmio::Register<
   using NEG = CTRL_SET_fields_::NEG;
   using SW_RESET = CTRL_SET_fields_::SW_RESET;
 };
-
 
 // LCDIFv2 display control Register
 struct CTRL_CLR_fields_ {
@@ -167,7 +164,6 @@ struct CTRL_CLR : ftl::mmio::Register<
   using SW_RESET = CTRL_CLR_fields_::SW_RESET;
 };
 
-
 // LCDIFv2 display control Register
 struct CTRL_TOG_fields_ {
   // Invert Horizontal synchronization signal
@@ -204,10 +200,8 @@ struct CTRL_TOG : ftl::mmio::Register<
   using SW_RESET = CTRL_TOG_fields_::SW_RESET;
 };
 
-
 // Display Parameter Register
 struct DISP_PARA_fields_ {
-
   enum class eDISP_MODE : std::uint32_t {
     // Normal mode. Panel content controlled by layer configuration
     ebf_val0 = 0,
@@ -240,6 +234,7 @@ struct DISP_PARA_fields_ {
     // Display On
     ebf_val1 = 1,
   };
+
   // Blue component of the default color displayed in the sectors where no layer is active
   using BGND_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Green component of the default color displayed in the sectors where no layer is active
@@ -277,7 +272,6 @@ struct DISP_PARA : ftl::mmio::Register<
   using DISP_ON = DISP_PARA_fields_::DISP_ON;
 };
 
-
 // Display Size Register
 struct DISP_SIZE_fields_ {
   // Sets the display size horizontal resolution in pixels
@@ -298,7 +292,6 @@ struct DISP_SIZE : ftl::mmio::Register<
   using DELTA_X = DISP_SIZE_fields_::DELTA_X;
   using DELTA_Y = DISP_SIZE_fields_::DELTA_Y;
 };
-
 
 // Horizontal Sync Parameter Register
 struct HSYN_PARA_fields_ {
@@ -326,7 +319,6 @@ struct HSYN_PARA : ftl::mmio::Register<
   using BP_H = HSYN_PARA_fields_::BP_H;
 };
 
-
 // Vertical Sync Parameter Register
 struct VSYN_PARA_fields_ {
   // VSYNC front-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
@@ -353,10 +345,8 @@ struct VSYN_PARA : ftl::mmio::Register<
   using BP_V = VSYN_PARA_fields_::BP_V;
 };
 
-
 // Interrupt Status Register for domain 0
 struct INT_STATUS_D0_fields_ {
-
   enum class eVSYNC : std::uint32_t {
     // VSYNC has not started
     ebf_val0 = 0,
@@ -377,6 +367,7 @@ struct INT_STATUS_D0_fields_ {
     // Vertical blanking period has started
     ebf_val1 = 1,
   };
+
   // Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
   using VSYNC = ftl::mmio::Field<1, 0, eVSYNC, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Interrupt flag to indicate the output buffer underrun condition
@@ -414,10 +405,8 @@ struct INT_STATUS_D0 : ftl::mmio::Register<
   using FIFO_EMPTY = INT_STATUS_D0_fields_::FIFO_EMPTY;
 };
 
-
 // Interrupt Enable Register for domain 0
 struct INT_ENABLE_D0_fields_ {
-
   enum class eVSYNC_EN : std::uint32_t {
     // VSYNC interrupt disable
     ebf_val0 = 0,
@@ -438,6 +427,7 @@ struct INT_ENABLE_D0_fields_ {
     // Vertical blanking start interrupt enable
     ebf_val1 = 1,
   };
+
   // Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
   using VSYNC_EN = ftl::mmio::Field<1, 0, eVSYNC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable Interrupt flag to indicate the output buffer underrun condition
@@ -475,7 +465,6 @@ struct INT_ENABLE_D0 : ftl::mmio::Register<
   using FIFO_EMPTY_EN = INT_ENABLE_D0_fields_::FIFO_EMPTY_EN;
 };
 
-
 // Interrupt Status Register for domain 1
 struct INT_STATUS_D1_fields_ {
   // Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
@@ -511,7 +500,6 @@ struct INT_STATUS_D1 : ftl::mmio::Register<
   using DMA_DONE = INT_STATUS_D1_fields_::DMA_DONE;
   using FIFO_EMPTY = INT_STATUS_D1_fields_::FIFO_EMPTY;
 };
-
 
 // Interrupt Enable Register for domain 1
 struct INT_ENABLE_D1_fields_ {
@@ -549,7 +537,6 @@ struct INT_ENABLE_D1 : ftl::mmio::Register<
   using FIFO_EMPTY_EN = INT_ENABLE_D1_fields_::FIFO_EMPTY_EN;
 };
 
-
 // Reserved
 struct PDI_PARA_fields_ {
 };  // struct PDI_PARA_fields_
@@ -561,7 +548,6 @@ struct PDI_PARA : ftl::mmio::Register<
     ftl::mmio::RW,
     ftl::mmio::Reserved<32, 0>> {
 };
-
 
 // Control Descriptor Layer 1 Register
 struct CTRLDESCL0_1_fields_ {
@@ -584,7 +570,6 @@ struct CTRLDESCL0_1 : ftl::mmio::Register<
   using HEIGHT = CTRLDESCL0_1_fields_::HEIGHT;
 };
 
-
 // Control Descriptor Layer 2 Register
 struct CTRLDESCL0_2_fields_ {
   // POS X
@@ -606,7 +591,6 @@ struct CTRLDESCL0_2 : ftl::mmio::Register<
   using POSY = CTRLDESCL0_2_fields_::POSY;
 };
 
-
 // Control Descriptor Layer 3 Register
 struct CTRLDESCL0_3_fields_ {
   // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
@@ -623,7 +607,6 @@ struct CTRLDESCL0_3 : ftl::mmio::Register<
   using PITCH = CTRLDESCL0_3_fields_::PITCH;
 };
 
-
 // Control Descriptor Layer 4 Register
 struct CTRLDESCL0_4_fields_ {
   // Address of layer data in the memory. The address programmed should be 64-bit aligned
@@ -639,10 +622,8 @@ struct CTRLDESCL0_4 : ftl::mmio::Register<
   using ADDR = CTRLDESCL0_4_fields_::ADDR;
 };
 
-
 // Control Descriptor Layer 5 Register
 struct CTRLDESCL0_5_fields_ {
-
   enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
@@ -739,6 +720,7 @@ struct CTRLDESCL0_5_fields_ {
     // ON
     ebf_val1 = 1,
   };
+
   // Alpha Blending Mode
   using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Porter Duff factor mode
@@ -804,7 +786,6 @@ struct CTRLDESCL0_5 : ftl::mmio::Register<
   using EN = CTRLDESCL0_5_fields_::EN;
 };
 
-
 // Control Descriptor Layer 6 Register
 struct CTRLDESCL0_6_fields_ {
   // Background B component value
@@ -829,10 +810,8 @@ struct CTRLDESCL0_6 : ftl::mmio::Register<
   using BCLR_R = CTRLDESCL0_6_fields_::BCLR_R;
 };
 
-
 // Color Space Conversion Coefficient Register 0
 struct CSC0_COEF0_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // The CSC is bypassed and the input pixels are RGB data already
     ebf_val0 = 0,
@@ -846,6 +825,7 @@ struct CSC0_COEF0_fields_ {
     // Converting YCbCr to RGB data
     ebf_val1 = 1,
   };
+
   // Y OFFSET
   using Y_OFFSET = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // UV OFFSET
@@ -878,7 +858,6 @@ struct CSC0_COEF0 : ftl::mmio::Register<
   using YCBCR_MODE = CSC0_COEF0_fields_::YCBCR_MODE;
 };
 
-
 // Color Space Conversion Coefficient Register 1
 struct CSC0_COEF1_fields_ {
   // Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
@@ -899,7 +878,6 @@ struct CSC0_COEF1 : ftl::mmio::Register<
   using C4 = CSC0_COEF1_fields_::C4;
   using C1 = CSC0_COEF1_fields_::C1;
 };
-
 
 // Color Space Conversion Coefficient Register 2
 struct CSC0_COEF2_fields_ {
@@ -922,7 +900,6 @@ struct CSC0_COEF2 : ftl::mmio::Register<
   using C2 = CSC0_COEF2_fields_::C2;
 };
 
-
 // Control Descriptor Layer 1 Register
 struct CTRLDESCL1_1_fields_ {
   // Width of the layer in pixels
@@ -943,7 +920,6 @@ struct CTRLDESCL1_1 : ftl::mmio::Register<
   using WIDTH = CTRLDESCL1_1_fields_::WIDTH;
   using HEIGHT = CTRLDESCL1_1_fields_::HEIGHT;
 };
-
 
 // Control Descriptor Layer 2 Register
 struct CTRLDESCL1_2_fields_ {
@@ -966,7 +942,6 @@ struct CTRLDESCL1_2 : ftl::mmio::Register<
   using POSY = CTRLDESCL1_2_fields_::POSY;
 };
 
-
 // Control Descriptor Layer 3 Register
 struct CTRLDESCL1_3_fields_ {
   // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
@@ -983,7 +958,6 @@ struct CTRLDESCL1_3 : ftl::mmio::Register<
   using PITCH = CTRLDESCL1_3_fields_::PITCH;
 };
 
-
 // Control Descriptor Layer 4 Register
 struct CTRLDESCL1_4_fields_ {
   // Address of layer data in the memory. The address programmed should be 64-bit aligned
@@ -999,10 +973,8 @@ struct CTRLDESCL1_4 : ftl::mmio::Register<
   using ADDR = CTRLDESCL1_4_fields_::ADDR;
 };
 
-
 // Control Descriptor Layer 5 Register
 struct CTRLDESCL1_5_fields_ {
-
   enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
@@ -1099,6 +1071,7 @@ struct CTRLDESCL1_5_fields_ {
     // ON
     ebf_val1 = 1,
   };
+
   // Alpha Blending Mode
   using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Porter Duff factor mode
@@ -1164,7 +1137,6 @@ struct CTRLDESCL1_5 : ftl::mmio::Register<
   using EN = CTRLDESCL1_5_fields_::EN;
 };
 
-
 // Control Descriptor Layer 6 Register
 struct CTRLDESCL1_6_fields_ {
   // Background B component value
@@ -1189,10 +1161,8 @@ struct CTRLDESCL1_6 : ftl::mmio::Register<
   using BCLR_R = CTRLDESCL1_6_fields_::BCLR_R;
 };
 
-
 // Color Space Conversion Coefficient Register 0
 struct CSC1_COEF0_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // The CSC is bypassed and the input pixels are RGB data already
     ebf_val0 = 0,
@@ -1206,6 +1176,7 @@ struct CSC1_COEF0_fields_ {
     // Converting YCbCr to RGB data
     ebf_val1 = 1,
   };
+
   // Y OFFSET
   using Y_OFFSET = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // UV OFFSET
@@ -1238,7 +1209,6 @@ struct CSC1_COEF0 : ftl::mmio::Register<
   using YCBCR_MODE = CSC1_COEF0_fields_::YCBCR_MODE;
 };
 
-
 // Color Space Conversion Coefficient Register 1
 struct CSC1_COEF1_fields_ {
   // Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
@@ -1259,7 +1229,6 @@ struct CSC1_COEF1 : ftl::mmio::Register<
   using C4 = CSC1_COEF1_fields_::C4;
   using C1 = CSC1_COEF1_fields_::C1;
 };
-
 
 // Color Space Conversion Coefficient Register 2
 struct CSC1_COEF2_fields_ {
@@ -1282,7 +1251,6 @@ struct CSC1_COEF2 : ftl::mmio::Register<
   using C2 = CSC1_COEF2_fields_::C2;
 };
 
-
 // Control Descriptor Layer 1 Register
 struct CTRLDESCL2_1_fields_ {
   // Width of the layer in pixels
@@ -1303,7 +1271,6 @@ struct CTRLDESCL2_1 : ftl::mmio::Register<
   using WIDTH = CTRLDESCL2_1_fields_::WIDTH;
   using HEIGHT = CTRLDESCL2_1_fields_::HEIGHT;
 };
-
 
 // Control Descriptor Layer 2 Register
 struct CTRLDESCL2_2_fields_ {
@@ -1326,7 +1293,6 @@ struct CTRLDESCL2_2 : ftl::mmio::Register<
   using POSY = CTRLDESCL2_2_fields_::POSY;
 };
 
-
 // Control Descriptor Layer 3 Register
 struct CTRLDESCL2_3_fields_ {
   // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
@@ -1343,7 +1309,6 @@ struct CTRLDESCL2_3 : ftl::mmio::Register<
   using PITCH = CTRLDESCL2_3_fields_::PITCH;
 };
 
-
 // Control Descriptor Layer 4 Register
 struct CTRLDESCL2_4_fields_ {
   // Address of layer data in the memory. The address programmed should be 64-bit aligned
@@ -1359,10 +1324,8 @@ struct CTRLDESCL2_4 : ftl::mmio::Register<
   using ADDR = CTRLDESCL2_4_fields_::ADDR;
 };
 
-
 // Control Descriptor Layer 5 Register
 struct CTRLDESCL2_5_fields_ {
-
   enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
@@ -1459,6 +1422,7 @@ struct CTRLDESCL2_5_fields_ {
     // ON
     ebf_val1 = 1,
   };
+
   // Alpha Blending Mode
   using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Porter Duff factor mode
@@ -1524,7 +1488,6 @@ struct CTRLDESCL2_5 : ftl::mmio::Register<
   using EN = CTRLDESCL2_5_fields_::EN;
 };
 
-
 // Control Descriptor Layer 6 Register
 struct CTRLDESCL2_6_fields_ {
   // Background B component value
@@ -1549,7 +1512,6 @@ struct CTRLDESCL2_6 : ftl::mmio::Register<
   using BCLR_R = CTRLDESCL2_6_fields_::BCLR_R;
 };
 
-
 // Control Descriptor Layer 1 Register
 struct CTRLDESCL3_1_fields_ {
   // Width of the layer in pixels
@@ -1570,7 +1532,6 @@ struct CTRLDESCL3_1 : ftl::mmio::Register<
   using WIDTH = CTRLDESCL3_1_fields_::WIDTH;
   using HEIGHT = CTRLDESCL3_1_fields_::HEIGHT;
 };
-
 
 // Control Descriptor Layer 2 Register
 struct CTRLDESCL3_2_fields_ {
@@ -1593,7 +1554,6 @@ struct CTRLDESCL3_2 : ftl::mmio::Register<
   using POSY = CTRLDESCL3_2_fields_::POSY;
 };
 
-
 // Control Descriptor Layer 3 Register
 struct CTRLDESCL3_3_fields_ {
   // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
@@ -1610,7 +1570,6 @@ struct CTRLDESCL3_3 : ftl::mmio::Register<
   using PITCH = CTRLDESCL3_3_fields_::PITCH;
 };
 
-
 // Control Descriptor Layer 4 Register
 struct CTRLDESCL3_4_fields_ {
   // Address of layer data in the memory. The address programmed should be 64-bit aligned
@@ -1626,10 +1585,8 @@ struct CTRLDESCL3_4 : ftl::mmio::Register<
   using ADDR = CTRLDESCL3_4_fields_::ADDR;
 };
 
-
 // Control Descriptor Layer 5 Register
 struct CTRLDESCL3_5_fields_ {
-
   enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
@@ -1726,6 +1683,7 @@ struct CTRLDESCL3_5_fields_ {
     // ON
     ebf_val1 = 1,
   };
+
   // Alpha Blending Mode
   using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Porter Duff factor mode
@@ -1791,7 +1749,6 @@ struct CTRLDESCL3_5 : ftl::mmio::Register<
   using EN = CTRLDESCL3_5_fields_::EN;
 };
 
-
 // Control Descriptor Layer 6 Register
 struct CTRLDESCL3_6_fields_ {
   // Background B component value
@@ -1816,7 +1773,6 @@ struct CTRLDESCL3_6 : ftl::mmio::Register<
   using BCLR_R = CTRLDESCL3_6_fields_::BCLR_R;
 };
 
-
 // Control Descriptor Layer 1 Register
 struct CTRLDESCL4_1_fields_ {
   // Width of the layer in pixels
@@ -1837,7 +1793,6 @@ struct CTRLDESCL4_1 : ftl::mmio::Register<
   using WIDTH = CTRLDESCL4_1_fields_::WIDTH;
   using HEIGHT = CTRLDESCL4_1_fields_::HEIGHT;
 };
-
 
 // Control Descriptor Layer 2 Register
 struct CTRLDESCL4_2_fields_ {
@@ -1860,7 +1815,6 @@ struct CTRLDESCL4_2 : ftl::mmio::Register<
   using POSY = CTRLDESCL4_2_fields_::POSY;
 };
 
-
 // Control Descriptor Layer 3 Register
 struct CTRLDESCL4_3_fields_ {
   // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
@@ -1877,7 +1831,6 @@ struct CTRLDESCL4_3 : ftl::mmio::Register<
   using PITCH = CTRLDESCL4_3_fields_::PITCH;
 };
 
-
 // Control Descriptor Layer 4 Register
 struct CTRLDESCL4_4_fields_ {
   // Address of layer data in the memory. The address programmed should be 64-bit aligned
@@ -1893,10 +1846,8 @@ struct CTRLDESCL4_4 : ftl::mmio::Register<
   using ADDR = CTRLDESCL4_4_fields_::ADDR;
 };
 
-
 // Control Descriptor Layer 5 Register
 struct CTRLDESCL4_5_fields_ {
-
   enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
@@ -1993,6 +1944,7 @@ struct CTRLDESCL4_5_fields_ {
     // ON
     ebf_val1 = 1,
   };
+
   // Alpha Blending Mode
   using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Porter Duff factor mode
@@ -2058,7 +2010,6 @@ struct CTRLDESCL4_5 : ftl::mmio::Register<
   using EN = CTRLDESCL4_5_fields_::EN;
 };
 
-
 // Control Descriptor Layer 6 Register
 struct CTRLDESCL4_6_fields_ {
   // Background B component value
@@ -2083,7 +2034,6 @@ struct CTRLDESCL4_6 : ftl::mmio::Register<
   using BCLR_R = CTRLDESCL4_6_fields_::BCLR_R;
 };
 
-
 // Control Descriptor Layer 1 Register
 struct CTRLDESCL5_1_fields_ {
   // Width of the layer in pixels
@@ -2104,7 +2054,6 @@ struct CTRLDESCL5_1 : ftl::mmio::Register<
   using WIDTH = CTRLDESCL5_1_fields_::WIDTH;
   using HEIGHT = CTRLDESCL5_1_fields_::HEIGHT;
 };
-
 
 // Control Descriptor Layer 2 Register
 struct CTRLDESCL5_2_fields_ {
@@ -2127,7 +2076,6 @@ struct CTRLDESCL5_2 : ftl::mmio::Register<
   using POSY = CTRLDESCL5_2_fields_::POSY;
 };
 
-
 // Control Descriptor Layer 3 Register
 struct CTRLDESCL5_3_fields_ {
   // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
@@ -2144,7 +2092,6 @@ struct CTRLDESCL5_3 : ftl::mmio::Register<
   using PITCH = CTRLDESCL5_3_fields_::PITCH;
 };
 
-
 // Control Descriptor Layer 4 Register
 struct CTRLDESCL5_4_fields_ {
   // Address of layer data in the memory. The address programmed should be 64-bit aligned
@@ -2160,10 +2107,8 @@ struct CTRLDESCL5_4 : ftl::mmio::Register<
   using ADDR = CTRLDESCL5_4_fields_::ADDR;
 };
 
-
 // Control Descriptor Layer 5 Register
 struct CTRLDESCL5_5_fields_ {
-
   enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
@@ -2260,6 +2205,7 @@ struct CTRLDESCL5_5_fields_ {
     // ON
     ebf_val1 = 1,
   };
+
   // Alpha Blending Mode
   using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Porter Duff factor mode
@@ -2325,7 +2271,6 @@ struct CTRLDESCL5_5 : ftl::mmio::Register<
   using EN = CTRLDESCL5_5_fields_::EN;
 };
 
-
 // Control Descriptor Layer 6 Register
 struct CTRLDESCL5_6_fields_ {
   // Background B component value
@@ -2350,7 +2295,6 @@ struct CTRLDESCL5_6 : ftl::mmio::Register<
   using BCLR_R = CTRLDESCL5_6_fields_::BCLR_R;
 };
 
-
 // Control Descriptor Layer 1 Register
 struct CTRLDESCL6_1_fields_ {
   // Width of the layer in pixels
@@ -2371,7 +2315,6 @@ struct CTRLDESCL6_1 : ftl::mmio::Register<
   using WIDTH = CTRLDESCL6_1_fields_::WIDTH;
   using HEIGHT = CTRLDESCL6_1_fields_::HEIGHT;
 };
-
 
 // Control Descriptor Layer 2 Register
 struct CTRLDESCL6_2_fields_ {
@@ -2394,7 +2337,6 @@ struct CTRLDESCL6_2 : ftl::mmio::Register<
   using POSY = CTRLDESCL6_2_fields_::POSY;
 };
 
-
 // Control Descriptor Layer 3 Register
 struct CTRLDESCL6_3_fields_ {
   // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
@@ -2411,7 +2353,6 @@ struct CTRLDESCL6_3 : ftl::mmio::Register<
   using PITCH = CTRLDESCL6_3_fields_::PITCH;
 };
 
-
 // Control Descriptor Layer 4 Register
 struct CTRLDESCL6_4_fields_ {
   // Address of layer data in the memory. The address programmed should be 64-bit aligned
@@ -2427,10 +2368,8 @@ struct CTRLDESCL6_4 : ftl::mmio::Register<
   using ADDR = CTRLDESCL6_4_fields_::ADDR;
 };
 
-
 // Control Descriptor Layer 5 Register
 struct CTRLDESCL6_5_fields_ {
-
   enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
@@ -2527,6 +2466,7 @@ struct CTRLDESCL6_5_fields_ {
     // ON
     ebf_val1 = 1,
   };
+
   // Alpha Blending Mode
   using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Porter Duff factor mode
@@ -2592,7 +2532,6 @@ struct CTRLDESCL6_5 : ftl::mmio::Register<
   using EN = CTRLDESCL6_5_fields_::EN;
 };
 
-
 // Control Descriptor Layer 6 Register
 struct CTRLDESCL6_6_fields_ {
   // Background B component value
@@ -2617,7 +2556,6 @@ struct CTRLDESCL6_6 : ftl::mmio::Register<
   using BCLR_R = CTRLDESCL6_6_fields_::BCLR_R;
 };
 
-
 // Control Descriptor Layer 1 Register
 struct CTRLDESCL7_1_fields_ {
   // Width of the layer in pixels
@@ -2638,7 +2576,6 @@ struct CTRLDESCL7_1 : ftl::mmio::Register<
   using WIDTH = CTRLDESCL7_1_fields_::WIDTH;
   using HEIGHT = CTRLDESCL7_1_fields_::HEIGHT;
 };
-
 
 // Control Descriptor Layer 2 Register
 struct CTRLDESCL7_2_fields_ {
@@ -2661,7 +2598,6 @@ struct CTRLDESCL7_2 : ftl::mmio::Register<
   using POSY = CTRLDESCL7_2_fields_::POSY;
 };
 
-
 // Control Descriptor Layer 3 Register
 struct CTRLDESCL7_3_fields_ {
   // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
@@ -2678,7 +2614,6 @@ struct CTRLDESCL7_3 : ftl::mmio::Register<
   using PITCH = CTRLDESCL7_3_fields_::PITCH;
 };
 
-
 // Control Descriptor Layer 4 Register
 struct CTRLDESCL7_4_fields_ {
   // Address of layer data in the memory. The address programmed should be 64-bit aligned
@@ -2694,10 +2629,8 @@ struct CTRLDESCL7_4 : ftl::mmio::Register<
   using ADDR = CTRLDESCL7_4_fields_::ADDR;
 };
 
-
 // Control Descriptor Layer 5 Register
 struct CTRLDESCL7_5_fields_ {
-
   enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
@@ -2794,6 +2727,7 @@ struct CTRLDESCL7_5_fields_ {
     // ON
     ebf_val1 = 1,
   };
+
   // Alpha Blending Mode
   using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Porter Duff factor mode
@@ -2859,7 +2793,6 @@ struct CTRLDESCL7_5 : ftl::mmio::Register<
   using EN = CTRLDESCL7_5_fields_::EN;
 };
 
-
 // Control Descriptor Layer 6 Register
 struct CTRLDESCL7_6_fields_ {
   // Background B component value
@@ -2883,7 +2816,6 @@ struct CTRLDESCL7_6 : ftl::mmio::Register<
   using BCLR_G = CTRLDESCL7_6_fields_::BCLR_G;
   using BCLR_R = CTRLDESCL7_6_fields_::BCLR_R;
 };
-
 
 // LCDIFv2 CLUT load Register
 struct CLUT_LOAD_fields_ {

@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::sema4 {
 
-
 // Semaphores Gate n Register
 struct Gate_fields_ {
-
   enum class eGTFSM : std::uint32_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
@@ -22,6 +20,7 @@ struct Gate_fields_ {
     // This state encoding is never used and therefore reserved. Attempted writes of 0x03 are treated as "no operation" and do not affect the gate state machine.
     eGTFSM_3 = 3,
   };
+
   // Gate Finite State Machine.
   using GTFSM = ftl::mmio::Field<2, 0, eGTFSM, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct Gate_fields_
@@ -39,10 +38,8 @@ struct Gate : ftl::mmio::Register<
   using GTFSM = Gate_fields_::GTFSM;
 };
 
-
 // Semaphores Processor n IRQ Notification Enable
 struct CPINE_fields_ {
-
   enum class eINE7 : std::uint32_t {
     // The generation of the notification interrupt is disabled.
     eINE7_0 = 0,
@@ -154,6 +151,7 @@ struct CPINE_fields_ {
     // The generation of the notification interrupt is enabled.
     eINE8_1 = 1,
   };
+
   // Interrupt Request Notification Enable 7. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 7.
   using INE7 = ftl::mmio::Field<1, 0, eINE7, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Request Notification Enable 6. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 6.
@@ -245,7 +243,6 @@ struct CPINE : ftl::mmio::Register<
   using INE8 = CPINE_fields_::INE8;
 };
 
-
 // Semaphores Processor n IRQ Notification
 struct CPNTF_fields_ {
   // Gate 7 Notification
@@ -323,7 +320,6 @@ struct CPNTF : ftl::mmio::Register<
   using GN8 = CPNTF_fields_::GN8;
 };
 
-
 // Semaphores (Secure) Reset Gate n
 struct SEMA4_RSTGT_fields_ {
   // This field contains sub-fields that vary depending on whether it is being read or written
@@ -342,7 +338,6 @@ struct SEMA4_RSTGT : ftl::mmio::Register<
   using RSTGSM_RSTGMS_RSTGDP = SEMA4_RSTGT_fields_::RSTGSM_RSTGMS_RSTGDP;
   using RSTGTN = SEMA4_RSTGT_fields_::RSTGTN;
 };
-
 
 // Semaphores (Secure) Reset IRQ Notification
 struct SEMA4_RSTNTF_fields_ {

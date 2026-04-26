@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::iee_apc {
 
-
 // End address of IEE region (n)
 struct REGION0_TOP_ADDR_fields_ {
   // End address of IEE region
@@ -24,7 +23,6 @@ struct REGION0_TOP_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<3, 29>> {
   using TOP_ADDR = REGION0_TOP_ADDR_fields_::TOP_ADDR;
 };
-
 
 // Start address of IEE region (n)
 struct REGION0_BOT_ADDR_fields_ {
@@ -42,10 +40,8 @@ struct REGION0_BOT_ADDR : ftl::mmio::Register<
   using BOT_ADDR = REGION0_BOT_ADDR_fields_::BOT_ADDR;
 };
 
-
 // Region control of core domain 0 for region (n)
 struct REGION0_RDC_D0_fields_ {
-
   enum class eRDC_D0_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -59,6 +55,7 @@ struct REGION0_RDC_D0_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D0_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D0_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -79,10 +76,8 @@ struct REGION0_RDC_D0 : ftl::mmio::Register<
   using RDC_D0_LOCK = REGION0_RDC_D0_fields_::RDC_D0_LOCK;
 };
 
-
 // Region control of core domain 1 for region (n)
 struct REGION0_RDC_D1_fields_ {
-
   enum class eRDC_D1_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -96,6 +91,7 @@ struct REGION0_RDC_D1_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D1_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D1_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -116,7 +112,6 @@ struct REGION0_RDC_D1 : ftl::mmio::Register<
   using RDC_D1_LOCK = REGION0_RDC_D1_fields_::RDC_D1_LOCK;
 };
 
-
 // End address of IEE region (n)
 struct REGION1_TOP_ADDR_fields_ {
   // End address of IEE region
@@ -132,7 +127,6 @@ struct REGION1_TOP_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<3, 29>> {
   using TOP_ADDR = REGION1_TOP_ADDR_fields_::TOP_ADDR;
 };
-
 
 // Start address of IEE region (n)
 struct REGION1_BOT_ADDR_fields_ {
@@ -150,10 +144,8 @@ struct REGION1_BOT_ADDR : ftl::mmio::Register<
   using BOT_ADDR = REGION1_BOT_ADDR_fields_::BOT_ADDR;
 };
 
-
 // Region control of core domain 0 for region (n)
 struct REGION1_RDC_D0_fields_ {
-
   enum class eRDC_D0_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -167,6 +159,7 @@ struct REGION1_RDC_D0_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D0_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D0_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -187,10 +180,8 @@ struct REGION1_RDC_D0 : ftl::mmio::Register<
   using RDC_D0_LOCK = REGION1_RDC_D0_fields_::RDC_D0_LOCK;
 };
 
-
 // Region control of core domain 1 for region (n)
 struct REGION1_RDC_D1_fields_ {
-
   enum class eRDC_D1_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -204,6 +195,7 @@ struct REGION1_RDC_D1_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D1_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D1_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -224,7 +216,6 @@ struct REGION1_RDC_D1 : ftl::mmio::Register<
   using RDC_D1_LOCK = REGION1_RDC_D1_fields_::RDC_D1_LOCK;
 };
 
-
 // End address of IEE region (n)
 struct REGION2_TOP_ADDR_fields_ {
   // End address of IEE region
@@ -240,7 +231,6 @@ struct REGION2_TOP_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<3, 29>> {
   using TOP_ADDR = REGION2_TOP_ADDR_fields_::TOP_ADDR;
 };
-
 
 // Start address of IEE region (n)
 struct REGION2_BOT_ADDR_fields_ {
@@ -258,10 +248,8 @@ struct REGION2_BOT_ADDR : ftl::mmio::Register<
   using BOT_ADDR = REGION2_BOT_ADDR_fields_::BOT_ADDR;
 };
 
-
 // Region control of core domain 0 for region (n)
 struct REGION2_RDC_D0_fields_ {
-
   enum class eRDC_D0_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -275,6 +263,7 @@ struct REGION2_RDC_D0_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D0_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D0_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -295,10 +284,8 @@ struct REGION2_RDC_D0 : ftl::mmio::Register<
   using RDC_D0_LOCK = REGION2_RDC_D0_fields_::RDC_D0_LOCK;
 };
 
-
 // Region control of core domain 1 for region (n)
 struct REGION2_RDC_D1_fields_ {
-
   enum class eRDC_D1_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -312,6 +299,7 @@ struct REGION2_RDC_D1_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D1_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D1_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -332,7 +320,6 @@ struct REGION2_RDC_D1 : ftl::mmio::Register<
   using RDC_D1_LOCK = REGION2_RDC_D1_fields_::RDC_D1_LOCK;
 };
 
-
 // End address of IEE region (n)
 struct REGION3_TOP_ADDR_fields_ {
   // End address of IEE region
@@ -348,7 +335,6 @@ struct REGION3_TOP_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<3, 29>> {
   using TOP_ADDR = REGION3_TOP_ADDR_fields_::TOP_ADDR;
 };
-
 
 // Start address of IEE region (n)
 struct REGION3_BOT_ADDR_fields_ {
@@ -366,10 +352,8 @@ struct REGION3_BOT_ADDR : ftl::mmio::Register<
   using BOT_ADDR = REGION3_BOT_ADDR_fields_::BOT_ADDR;
 };
 
-
 // Region control of core domain 0 for region (n)
 struct REGION3_RDC_D0_fields_ {
-
   enum class eRDC_D0_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -383,6 +367,7 @@ struct REGION3_RDC_D0_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D0_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D0_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -403,10 +388,8 @@ struct REGION3_RDC_D0 : ftl::mmio::Register<
   using RDC_D0_LOCK = REGION3_RDC_D0_fields_::RDC_D0_LOCK;
 };
 
-
 // Region control of core domain 1 for region (n)
 struct REGION3_RDC_D1_fields_ {
-
   enum class eRDC_D1_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -420,6 +403,7 @@ struct REGION3_RDC_D1_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D1_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D1_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -440,7 +424,6 @@ struct REGION3_RDC_D1 : ftl::mmio::Register<
   using RDC_D1_LOCK = REGION3_RDC_D1_fields_::RDC_D1_LOCK;
 };
 
-
 // End address of IEE region (n)
 struct REGION4_TOP_ADDR_fields_ {
   // End address of IEE region
@@ -456,7 +439,6 @@ struct REGION4_TOP_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<3, 29>> {
   using TOP_ADDR = REGION4_TOP_ADDR_fields_::TOP_ADDR;
 };
-
 
 // Start address of IEE region (n)
 struct REGION4_BOT_ADDR_fields_ {
@@ -474,10 +456,8 @@ struct REGION4_BOT_ADDR : ftl::mmio::Register<
   using BOT_ADDR = REGION4_BOT_ADDR_fields_::BOT_ADDR;
 };
 
-
 // Region control of core domain 0 for region (n)
 struct REGION4_RDC_D0_fields_ {
-
   enum class eRDC_D0_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -491,6 +471,7 @@ struct REGION4_RDC_D0_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D0_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D0_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -511,10 +492,8 @@ struct REGION4_RDC_D0 : ftl::mmio::Register<
   using RDC_D0_LOCK = REGION4_RDC_D0_fields_::RDC_D0_LOCK;
 };
 
-
 // Region control of core domain 1 for region (n)
 struct REGION4_RDC_D1_fields_ {
-
   enum class eRDC_D1_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -528,6 +507,7 @@ struct REGION4_RDC_D1_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D1_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D1_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -548,7 +528,6 @@ struct REGION4_RDC_D1 : ftl::mmio::Register<
   using RDC_D1_LOCK = REGION4_RDC_D1_fields_::RDC_D1_LOCK;
 };
 
-
 // End address of IEE region (n)
 struct REGION5_TOP_ADDR_fields_ {
   // End address of IEE region
@@ -564,7 +543,6 @@ struct REGION5_TOP_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<3, 29>> {
   using TOP_ADDR = REGION5_TOP_ADDR_fields_::TOP_ADDR;
 };
-
 
 // Start address of IEE region (n)
 struct REGION5_BOT_ADDR_fields_ {
@@ -582,10 +560,8 @@ struct REGION5_BOT_ADDR : ftl::mmio::Register<
   using BOT_ADDR = REGION5_BOT_ADDR_fields_::BOT_ADDR;
 };
 
-
 // Region control of core domain 0 for region (n)
 struct REGION5_RDC_D0_fields_ {
-
   enum class eRDC_D0_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -599,6 +575,7 @@ struct REGION5_RDC_D0_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D0_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D0_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -619,10 +596,8 @@ struct REGION5_RDC_D0 : ftl::mmio::Register<
   using RDC_D0_LOCK = REGION5_RDC_D0_fields_::RDC_D0_LOCK;
 };
 
-
 // Region control of core domain 1 for region (n)
 struct REGION5_RDC_D1_fields_ {
-
   enum class eRDC_D1_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -636,6 +611,7 @@ struct REGION5_RDC_D1_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D1_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D1_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -656,7 +632,6 @@ struct REGION5_RDC_D1 : ftl::mmio::Register<
   using RDC_D1_LOCK = REGION5_RDC_D1_fields_::RDC_D1_LOCK;
 };
 
-
 // End address of IEE region (n)
 struct REGION6_TOP_ADDR_fields_ {
   // End address of IEE region
@@ -672,7 +647,6 @@ struct REGION6_TOP_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<3, 29>> {
   using TOP_ADDR = REGION6_TOP_ADDR_fields_::TOP_ADDR;
 };
-
 
 // Start address of IEE region (n)
 struct REGION6_BOT_ADDR_fields_ {
@@ -690,10 +664,8 @@ struct REGION6_BOT_ADDR : ftl::mmio::Register<
   using BOT_ADDR = REGION6_BOT_ADDR_fields_::BOT_ADDR;
 };
 
-
 // Region control of core domain 0 for region (n)
 struct REGION6_RDC_D0_fields_ {
-
   enum class eRDC_D0_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -707,6 +679,7 @@ struct REGION6_RDC_D0_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D0_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D0_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -727,10 +700,8 @@ struct REGION6_RDC_D0 : ftl::mmio::Register<
   using RDC_D0_LOCK = REGION6_RDC_D0_fields_::RDC_D0_LOCK;
 };
 
-
 // Region control of core domain 1 for region (n)
 struct REGION6_RDC_D1_fields_ {
-
   enum class eRDC_D1_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -744,6 +715,7 @@ struct REGION6_RDC_D1_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D1_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D1_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -764,7 +736,6 @@ struct REGION6_RDC_D1 : ftl::mmio::Register<
   using RDC_D1_LOCK = REGION6_RDC_D1_fields_::RDC_D1_LOCK;
 };
 
-
 // End address of IEE region (n)
 struct REGION7_TOP_ADDR_fields_ {
   // End address of IEE region
@@ -780,7 +751,6 @@ struct REGION7_TOP_ADDR : ftl::mmio::Register<
     ftl::mmio::Reserved<3, 29>> {
   using TOP_ADDR = REGION7_TOP_ADDR_fields_::TOP_ADDR;
 };
-
 
 // Start address of IEE region (n)
 struct REGION7_BOT_ADDR_fields_ {
@@ -798,10 +768,8 @@ struct REGION7_BOT_ADDR : ftl::mmio::Register<
   using BOT_ADDR = REGION7_BOT_ADDR_fields_::BOT_ADDR;
 };
 
-
 // Region control of core domain 0 for region (n)
 struct REGION7_RDC_D0_fields_ {
-
   enum class eRDC_D0_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -815,6 +783,7 @@ struct REGION7_RDC_D0_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D0_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D0_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0
@@ -835,10 +804,8 @@ struct REGION7_RDC_D0 : ftl::mmio::Register<
   using RDC_D0_LOCK = REGION7_RDC_D0_fields_::RDC_D0_LOCK;
 };
 
-
 // Region control of core domain 1 for region (n)
 struct REGION7_RDC_D1_fields_ {
-
   enum class eRDC_D1_WRITE_DIS : std::uint32_t {
     // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eENABLE = 0,
@@ -852,6 +819,7 @@ struct REGION7_RDC_D1_fields_ {
     // Bit 0 is locked
     eLOCK = 1,
   };
+
   // Write disable of core domain 1
   using RDC_D1_WRITE_DIS = ftl::mmio::Field<1, 0, eRDC_D1_WRITE_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock bit for bit 0

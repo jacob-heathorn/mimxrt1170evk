@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::pxp {
 
-
 // Control Register 0
 struct PXP_CTRL_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // PXP is disabled
     eDisabled = 0,
@@ -85,6 +83,7 @@ struct PXP_CTRL_fields_ {
     // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
     eDisabled = 1,
   };
+
   // Enables PXP operation with specified parameters
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
@@ -157,10 +156,8 @@ struct PXP_CTRL : ftl::mmio::Register<
   using SFTRST = PXP_CTRL_fields_::SFTRST;
 };
 
-
 // Control Register 0
 struct PXP_CTRL_SET_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // PXP is disabled
     eDisabled = 0,
@@ -234,6 +231,7 @@ struct PXP_CTRL_SET_fields_ {
     // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
     eDisabled = 1,
   };
+
   // Enables PXP operation with specified parameters
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
@@ -306,10 +304,8 @@ struct PXP_CTRL_SET : ftl::mmio::Register<
   using SFTRST = PXP_CTRL_SET_fields_::SFTRST;
 };
 
-
 // Control Register 0
 struct PXP_CTRL_CLR_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // PXP is disabled
     eDisabled = 0,
@@ -383,6 +379,7 @@ struct PXP_CTRL_CLR_fields_ {
     // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
     eDisabled = 1,
   };
+
   // Enables PXP operation with specified parameters
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
@@ -455,10 +452,8 @@ struct PXP_CTRL_CLR : ftl::mmio::Register<
   using SFTRST = PXP_CTRL_CLR_fields_::SFTRST;
 };
 
-
 // Control Register 0
 struct PXP_CTRL_TOG_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // PXP is disabled
     eDisabled = 0,
@@ -532,6 +527,7 @@ struct PXP_CTRL_TOG_fields_ {
     // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
     eDisabled = 1,
   };
+
   // Enables PXP operation with specified parameters
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
@@ -604,10 +600,8 @@ struct PXP_CTRL_TOG : ftl::mmio::Register<
   using SFTRST = PXP_CTRL_TOG_fields_::SFTRST;
 };
 
-
 // Status Register
 struct PXP_STAT_fields_ {
-
   enum class eIRQ : std::uint32_t {
     // No interrupt
     eIRQ_0 = 0,
@@ -635,6 +629,7 @@ struct PXP_STAT_fields_ {
     // LUT DMA LOAD transfer is complete
     eComplete = 1,
   };
+
   // Indicates current PXP interrupt status
   using IRQ = ftl::mmio::Field<1, 0, eIRQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates PXP encountered an AXI write error and processing has been terminated.
@@ -681,10 +676,8 @@ struct PXP_STAT : ftl::mmio::Register<
   using BLOCKX = PXP_STAT_fields_::BLOCKX;
 };
 
-
 // Status Register
 struct PXP_STAT_SET_fields_ {
-
   enum class eIRQ : std::uint32_t {
     // No interrupt
     eIRQ_0 = 0,
@@ -712,6 +705,7 @@ struct PXP_STAT_SET_fields_ {
     // LUT DMA LOAD transfer is complete
     eComplete = 1,
   };
+
   // Indicates current PXP interrupt status
   using IRQ = ftl::mmio::Field<1, 0, eIRQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates PXP encountered an AXI write error and processing has been terminated.
@@ -758,10 +752,8 @@ struct PXP_STAT_SET : ftl::mmio::Register<
   using BLOCKX = PXP_STAT_SET_fields_::BLOCKX;
 };
 
-
 // Status Register
 struct PXP_STAT_CLR_fields_ {
-
   enum class eIRQ : std::uint32_t {
     // No interrupt
     eIRQ_0 = 0,
@@ -789,6 +781,7 @@ struct PXP_STAT_CLR_fields_ {
     // LUT DMA LOAD transfer is complete
     eComplete = 1,
   };
+
   // Indicates current PXP interrupt status
   using IRQ = ftl::mmio::Field<1, 0, eIRQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates PXP encountered an AXI write error and processing has been terminated.
@@ -835,10 +828,8 @@ struct PXP_STAT_CLR : ftl::mmio::Register<
   using BLOCKX = PXP_STAT_CLR_fields_::BLOCKX;
 };
 
-
 // Status Register
 struct PXP_STAT_TOG_fields_ {
-
   enum class eIRQ : std::uint32_t {
     // No interrupt
     eIRQ_0 = 0,
@@ -866,6 +857,7 @@ struct PXP_STAT_TOG_fields_ {
     // LUT DMA LOAD transfer is complete
     eComplete = 1,
   };
+
   // Indicates current PXP interrupt status
   using IRQ = ftl::mmio::Field<1, 0, eIRQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates PXP encountered an AXI write error and processing has been terminated.
@@ -912,10 +904,8 @@ struct PXP_STAT_TOG : ftl::mmio::Register<
   using BLOCKX = PXP_STAT_TOG_fields_::BLOCKX;
 };
 
-
 // Output Buffer Control Register
 struct PXP_OUT_CTRL_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // 32-bit pixels
     eARGB8888 = 0,
@@ -970,6 +960,7 @@ struct PXP_OUT_CTRL_fields_ {
     // Overwritten
     eOverwritten = 1,
   };
+
   // Output framebuffer format
   using FORMAT = ftl::mmio::Field<5, 0, eFORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Determines how the PXP writes it's output data
@@ -1000,10 +991,8 @@ struct PXP_OUT_CTRL : ftl::mmio::Register<
   using ALPHA = PXP_OUT_CTRL_fields_::ALPHA;
 };
 
-
 // Output Buffer Control Register
 struct PXP_OUT_CTRL_SET_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // 32-bit pixels
     eARGB8888 = 0,
@@ -1058,6 +1047,7 @@ struct PXP_OUT_CTRL_SET_fields_ {
     // Overwritten
     eOverwritten = 1,
   };
+
   // Output framebuffer format
   using FORMAT = ftl::mmio::Field<5, 0, eFORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Determines how the PXP writes it's output data
@@ -1088,10 +1078,8 @@ struct PXP_OUT_CTRL_SET : ftl::mmio::Register<
   using ALPHA = PXP_OUT_CTRL_SET_fields_::ALPHA;
 };
 
-
 // Output Buffer Control Register
 struct PXP_OUT_CTRL_CLR_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // 32-bit pixels
     eARGB8888 = 0,
@@ -1146,6 +1134,7 @@ struct PXP_OUT_CTRL_CLR_fields_ {
     // Overwritten
     eOverwritten = 1,
   };
+
   // Output framebuffer format
   using FORMAT = ftl::mmio::Field<5, 0, eFORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Determines how the PXP writes it's output data
@@ -1176,10 +1165,8 @@ struct PXP_OUT_CTRL_CLR : ftl::mmio::Register<
   using ALPHA = PXP_OUT_CTRL_CLR_fields_::ALPHA;
 };
 
-
 // Output Buffer Control Register
 struct PXP_OUT_CTRL_TOG_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // 32-bit pixels
     eARGB8888 = 0,
@@ -1234,6 +1221,7 @@ struct PXP_OUT_CTRL_TOG_fields_ {
     // Overwritten
     eOverwritten = 1,
   };
+
   // Output framebuffer format
   using FORMAT = ftl::mmio::Field<5, 0, eFORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Determines how the PXP writes it's output data
@@ -1264,7 +1252,6 @@ struct PXP_OUT_CTRL_TOG : ftl::mmio::Register<
   using ALPHA = PXP_OUT_CTRL_TOG_fields_::ALPHA;
 };
 
-
 // Output Frame Buffer Pointer
 struct PXP_OUT_BUF_fields_ {
   // Current address pointer for the output frame buffer
@@ -1279,7 +1266,6 @@ struct PXP_OUT_BUF : ftl::mmio::Register<
     PXP_OUT_BUF_fields_::ADDR> {
   using ADDR = PXP_OUT_BUF_fields_::ADDR;
 };
-
 
 // Output Frame Buffer Pointer #2
 struct PXP_OUT_BUF2_fields_ {
@@ -1296,7 +1282,6 @@ struct PXP_OUT_BUF2 : ftl::mmio::Register<
   using ADDR = PXP_OUT_BUF2_fields_::ADDR;
 };
 
-
 // Output Buffer Pitch
 struct PXP_OUT_PITCH_fields_ {
   // Indicates the number of bytes in memory between two vertically adjacent pixels.
@@ -1312,7 +1297,6 @@ struct PXP_OUT_PITCH : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using PITCH = PXP_OUT_PITCH_fields_::PITCH;
 };
-
 
 // Output Surface Lower Right Coordinate
 struct PXP_OUT_LRC_fields_ {
@@ -1335,7 +1319,6 @@ struct PXP_OUT_LRC : ftl::mmio::Register<
   using X = PXP_OUT_LRC_fields_::X;
 };
 
-
 // Processed Surface Upper Left Coordinate
 struct PXP_OUT_PS_ULC_fields_ {
   // This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output buffer
@@ -1356,7 +1339,6 @@ struct PXP_OUT_PS_ULC : ftl::mmio::Register<
   using Y = PXP_OUT_PS_ULC_fields_::Y;
   using X = PXP_OUT_PS_ULC_fields_::X;
 };
-
 
 // Processed Surface Lower Right Coordinate
 struct PXP_OUT_PS_LRC_fields_ {
@@ -1379,7 +1361,6 @@ struct PXP_OUT_PS_LRC : ftl::mmio::Register<
   using X = PXP_OUT_PS_LRC_fields_::X;
 };
 
-
 // Alpha Surface Upper Left Coordinate
 struct PXP_OUT_AS_ULC_fields_ {
   // This field indicates the upper left Y-coordinate (in pixels) of the alpha surface in the output frame buffer
@@ -1400,7 +1381,6 @@ struct PXP_OUT_AS_ULC : ftl::mmio::Register<
   using Y = PXP_OUT_AS_ULC_fields_::Y;
   using X = PXP_OUT_AS_ULC_fields_::X;
 };
-
 
 // Alpha Surface Lower Right Coordinate
 struct PXP_OUT_AS_LRC_fields_ {
@@ -1423,10 +1403,8 @@ struct PXP_OUT_AS_LRC : ftl::mmio::Register<
   using X = PXP_OUT_AS_LRC_fields_::X;
 };
 
-
 // Processed Surface (PS) Control Register
 struct PXP_PS_CTRL_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
     eRGB888_ARGB8888 = 4,
@@ -1494,6 +1472,7 @@ struct PXP_PS_CTRL_fields_ {
     // Decimate PS by 8.
     eDECX8 = 3,
   };
+
   // PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
   using FORMAT = ftl::mmio::Field<6, 0, eFORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
@@ -1525,10 +1504,8 @@ struct PXP_PS_CTRL : ftl::mmio::Register<
   using DECX = PXP_PS_CTRL_fields_::DECX;
 };
 
-
 // Processed Surface (PS) Control Register
 struct PXP_PS_CTRL_SET_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
     eRGB888_ARGB8888 = 4,
@@ -1596,6 +1573,7 @@ struct PXP_PS_CTRL_SET_fields_ {
     // Decimate PS by 8.
     eDECX8 = 3,
   };
+
   // PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
   using FORMAT = ftl::mmio::Field<6, 0, eFORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
@@ -1627,10 +1605,8 @@ struct PXP_PS_CTRL_SET : ftl::mmio::Register<
   using DECX = PXP_PS_CTRL_SET_fields_::DECX;
 };
 
-
 // Processed Surface (PS) Control Register
 struct PXP_PS_CTRL_CLR_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
     eRGB888_ARGB8888 = 4,
@@ -1698,6 +1674,7 @@ struct PXP_PS_CTRL_CLR_fields_ {
     // Decimate PS by 8.
     eDECX8 = 3,
   };
+
   // PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
   using FORMAT = ftl::mmio::Field<6, 0, eFORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
@@ -1729,10 +1706,8 @@ struct PXP_PS_CTRL_CLR : ftl::mmio::Register<
   using DECX = PXP_PS_CTRL_CLR_fields_::DECX;
 };
 
-
 // Processed Surface (PS) Control Register
 struct PXP_PS_CTRL_TOG_fields_ {
-
   enum class eFORMAT : std::uint32_t {
     // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
     eRGB888_ARGB8888 = 4,
@@ -1800,6 +1775,7 @@ struct PXP_PS_CTRL_TOG_fields_ {
     // Decimate PS by 8.
     eDECX8 = 3,
   };
+
   // PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
   using FORMAT = ftl::mmio::Field<6, 0, eFORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
   // Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
@@ -1831,7 +1807,6 @@ struct PXP_PS_CTRL_TOG : ftl::mmio::Register<
   using DECX = PXP_PS_CTRL_TOG_fields_::DECX;
 };
 
-
 // PS Input Buffer Address
 struct PXP_PS_BUF_fields_ {
   // Address pointer for the PS RGB or Y (luma) input buffer.
@@ -1846,7 +1821,6 @@ struct PXP_PS_BUF : ftl::mmio::Register<
     PXP_PS_BUF_fields_::ADDR> {
   using ADDR = PXP_PS_BUF_fields_::ADDR;
 };
-
 
 // PS U/Cb or 2 Plane UV Input Buffer Address
 struct PXP_PS_UBUF_fields_ {
@@ -1863,7 +1837,6 @@ struct PXP_PS_UBUF : ftl::mmio::Register<
   using ADDR = PXP_PS_UBUF_fields_::ADDR;
 };
 
-
 // PS V/Cr Input Buffer Address
 struct PXP_PS_VBUF_fields_ {
   // Address pointer for the PS V/Cr Chroma input buffer.
@@ -1878,7 +1851,6 @@ struct PXP_PS_VBUF : ftl::mmio::Register<
     PXP_PS_VBUF_fields_::ADDR> {
   using ADDR = PXP_PS_VBUF_fields_::ADDR;
 };
-
 
 // Processed Surface Pitch
 struct PXP_PS_PITCH_fields_ {
@@ -1896,7 +1868,6 @@ struct PXP_PS_PITCH : ftl::mmio::Register<
   using PITCH = PXP_PS_PITCH_fields_::PITCH;
 };
 
-
 // PS Background Color
 struct PXP_PS_BACKGROUND_fields_ {
   // Background color (in 24bpp format) for any pixels not within the buffer range specified by the PS ULC/LRC
@@ -1912,7 +1883,6 @@ struct PXP_PS_BACKGROUND : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using COLOR = PXP_PS_BACKGROUND_fields_::COLOR;
 };
-
 
 // PS Scale Factor Register
 struct PXP_PS_SCALE_fields_ {
@@ -1935,7 +1905,6 @@ struct PXP_PS_SCALE : ftl::mmio::Register<
   using YSCALE = PXP_PS_SCALE_fields_::YSCALE;
 };
 
-
 // PS Scale Offset Register
 struct PXP_PS_OFFSET_fields_ {
   // This is a 12 bit fractional representation (0
@@ -1957,7 +1926,6 @@ struct PXP_PS_OFFSET : ftl::mmio::Register<
   using YOFFSET = PXP_PS_OFFSET_fields_::YOFFSET;
 };
 
-
 // PS Color Key Low
 struct PXP_PS_CLRKEYLOW_fields_ {
   // Low range of color key applied to PS buffer
@@ -1973,7 +1941,6 @@ struct PXP_PS_CLRKEYLOW : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using PIXEL = PXP_PS_CLRKEYLOW_fields_::PIXEL;
 };
-
 
 // PS Color Key High
 struct PXP_PS_CLRKEYHIGH_fields_ {
@@ -1991,10 +1958,8 @@ struct PXP_PS_CLRKEYHIGH : ftl::mmio::Register<
   using PIXEL = PXP_PS_CLRKEYHIGH_fields_::PIXEL;
 };
 
-
 // Alpha Surface Control
 struct PXP_AS_CTRL_fields_ {
-
   enum class eALPHA_CTRL : std::uint32_t {
     // Indicates that the AS pixel alpha value will be used to blend the AS with PS. The ALPHA field is ignored.
     eEmbedded = 0,
@@ -2069,6 +2034,7 @@ struct PXP_AS_CTRL_fields_ {
     // Inverted
     eInverted = 1,
   };
+
   // Determines how the alpha value is constructed for this alpha surface
   using ALPHA_CTRL = ftl::mmio::Field<2, 1, eALPHA_CTRL, ftl::mmio::RW, ftl::mmio::Normal>;
   // Indicates that colorkey functionality is enabled for this alpha surface
@@ -2109,7 +2075,6 @@ struct PXP_AS_CTRL : ftl::mmio::Register<
   using ALPHA_INVERT = PXP_AS_CTRL_fields_::ALPHA_INVERT;
 };
 
-
 // Alpha Surface Buffer Pointer
 struct PXP_AS_BUF_fields_ {
   // Address pointer for the alpha surface 0 buffer.
@@ -2124,7 +2089,6 @@ struct PXP_AS_BUF : ftl::mmio::Register<
     PXP_AS_BUF_fields_::ADDR> {
   using ADDR = PXP_AS_BUF_fields_::ADDR;
 };
-
 
 // Alpha Surface Pitch
 struct PXP_AS_PITCH_fields_ {
@@ -2142,7 +2106,6 @@ struct PXP_AS_PITCH : ftl::mmio::Register<
   using PITCH = PXP_AS_PITCH_fields_::PITCH;
 };
 
-
 // Overlay Color Key Low
 struct PXP_AS_CLRKEYLOW_fields_ {
   // Low range of RGB color key applied to AS buffer. Each overlay has an independent colorkey enable.
@@ -2158,7 +2121,6 @@ struct PXP_AS_CLRKEYLOW : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using PIXEL = PXP_AS_CLRKEYLOW_fields_::PIXEL;
 };
-
 
 // Overlay Color Key High
 struct PXP_AS_CLRKEYHIGH_fields_ {
@@ -2176,16 +2138,15 @@ struct PXP_AS_CLRKEYHIGH : ftl::mmio::Register<
   using PIXEL = PXP_AS_CLRKEYHIGH_fields_::PIXEL;
 };
 
-
 // Color Space Conversion Coefficient Register 0
 struct PXP_CSC1_COEF0_fields_ {
-
   enum class eYCBCR_MODE : std::uint32_t {
     // YUV to RGB
     eYCBCR_MODE_0 = 0,
     // YCbCr to RGB
     eYCBCR_MODE_1 = 1,
   };
+
   // Two's compliment amplitude offset implicit in the Y data
   using Y_OFFSET = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Two's compliment phase offset implicit for CbCr data
@@ -2217,7 +2178,6 @@ struct PXP_CSC1_COEF0 : ftl::mmio::Register<
   using YCBCR_MODE = PXP_CSC1_COEF0_fields_::YCBCR_MODE;
 };
 
-
 // Color Space Conversion Coefficient Register 1
 struct PXP_CSC1_COEF1_fields_ {
   // Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
@@ -2238,7 +2198,6 @@ struct PXP_CSC1_COEF1 : ftl::mmio::Register<
   using C4 = PXP_CSC1_COEF1_fields_::C4;
   using C1 = PXP_CSC1_COEF1_fields_::C1;
 };
-
 
 // Color Space Conversion Coefficient Register 2
 struct PXP_CSC1_COEF2_fields_ {
@@ -2261,10 +2220,8 @@ struct PXP_CSC1_COEF2 : ftl::mmio::Register<
   using C2 = PXP_CSC1_COEF2_fields_::C2;
 };
 
-
 // PXP Power Control Register
 struct PXP_POWER_fields_ {
-
   enum class eROT_MEM_LP_STATE : std::uint32_t {
     // Memory is not in low power state.
     eNONE = 0,
@@ -2275,6 +2232,7 @@ struct PXP_POWER_fields_ {
     // Shut Down Mode. Shut Down periphery and core, no memory retention.
     eSD = 4,
   };
+
   // Select the low power state of the Rotation (ROT) memory.
   using ROT_MEM_LP_STATE = ftl::mmio::Field<3, 9, eROT_MEM_LP_STATE, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct PXP_POWER_fields_
@@ -2290,7 +2248,6 @@ struct PXP_POWER : ftl::mmio::Register<
   using eROT_MEM_LP_STATE = PXP_POWER_fields_::eROT_MEM_LP_STATE;
   using ROT_MEM_LP_STATE = PXP_POWER_fields_::ROT_MEM_LP_STATE;
 };
-
 
 // Next Frame Pointer
 struct PXP_NEXT_fields_ {
@@ -2312,10 +2269,8 @@ struct PXP_NEXT : ftl::mmio::Register<
   using POINTER = PXP_NEXT_fields_::POINTER;
 };
 
-
 // PXP Alpha Engine A Control Register.
 struct PXP_PORTER_DUFF_CTRL_fields_ {
-
   enum class ePORTER_DUFF_ENABLE : std::uint32_t {
     // Disabled
     eDisabled = 0,
@@ -2394,6 +2349,7 @@ struct PXP_PORTER_DUFF_CTRL_fields_ {
     // Scaled pixel
     eS1_COLOR_MODE_1 = 1,
   };
+
   // Porter-Duff Enable
   using PORTER_DUFF_ENABLE = ftl::mmio::Field<1, 0, ePORTER_DUFF_ENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // s0 to s1 factor mode

@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::rdc {
 
-
 // Version Information
 struct RDC_VIR_fields_ {
   // Number of Domains
@@ -37,16 +36,15 @@ struct RDC_VIR : ftl::mmio::Register<
   using NRGN = RDC_VIR_fields_::NRGN;
 };
 
-
 // Status
 struct RDC_STAT_fields_ {
-
   enum class ePDS : std::uint32_t {
     // Power Down Domain is OFF
     ePDS_0 = 0,
     // Power Down Domain is ON
     ePDS_1 = 1,
   };
+
   // Domain ID
   using DID = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Power Domain Status
@@ -67,16 +65,15 @@ struct RDC_STAT : ftl::mmio::Register<
   using PDS = RDC_STAT_fields_::PDS;
 };
 
-
 // Interrupt and Control
 struct RDC_INTCTRL_fields_ {
-
   enum class eRCI_EN : std::uint32_t {
     // Interrupt Disabled
     eRCI_EN_0 = 0,
     // Interrupt Enabled
     eRCI_EN_1 = 1,
   };
+
   // Restoration Complete Interrupt
   using RCI_EN = ftl::mmio::Field<1, 0, eRCI_EN, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct RDC_INTCTRL_fields_
@@ -92,16 +89,15 @@ struct RDC_INTCTRL : ftl::mmio::Register<
   using RCI_EN = RDC_INTCTRL_fields_::RCI_EN;
 };
 
-
 // Interrupt Status
 struct RDC_INTSTAT_fields_ {
-
   enum class eINT : std::uint32_t {
     // No Interrupt Pending
     eINT_0 = 0,
     // Interrupt Pending
     eINT_1 = 1,
   };
+
   // Interrupt Status
   using INT = ftl::mmio::Field<1, 0, eINT, ftl::mmio::RW, ftl::mmio::OneToClear>;
 };  // struct RDC_INTSTAT_fields_
@@ -117,10 +113,8 @@ struct RDC_INTSTAT : ftl::mmio::Register<
   using INT = RDC_INTSTAT_fields_::INT;
 };
 
-
 // Master Domain Assignment
 struct MDA_fields_ {
-
   enum class eDID : std::uint32_t {
     // Master assigned to Processing Domain 0
     eDID_0 = 0,
@@ -134,6 +128,7 @@ struct MDA_fields_ {
     // Locked
     eLCK_1 = 1,
   };
+
   // Domain ID
   using DID = ftl::mmio::Field<2, 0, eDID, ftl::mmio::RW, ftl::mmio::Normal>;
   // Assignment Lock
@@ -156,10 +151,8 @@ struct MDA : ftl::mmio::Register<
   using LCK = MDA_fields_::LCK;
 };
 
-
 // Peripheral Domain Access Permissions
 struct PDAP_fields_ {
-
   enum class eD0W : std::uint32_t {
     // No Write Access
     eD0W_0 = 0,
@@ -201,6 +194,7 @@ struct PDAP_fields_ {
     // Locked
     eLCK_1 = 1,
   };
+
   // Domain 0 Write Access
   using D0W = ftl::mmio::Field<1, 0, eD0W, ftl::mmio::RW, ftl::mmio::Normal>;
   // Domain 0 Read Access
@@ -243,7 +237,6 @@ struct PDAP : ftl::mmio::Register<
   using LCK = PDAP_fields_::LCK;
 };
 
-
 // Memory Region Start Address
 struct MRSA_fields_ {
   // Start address for memory region
@@ -261,7 +254,6 @@ struct MRSA : ftl::mmio::Register<
   static_assert(Index < 59u, "MRSA: Index out of range");
   using SADR = MRSA_fields_::SADR;
 };
-
 
 // Memory Region End Address
 struct MREA_fields_ {
@@ -281,10 +273,8 @@ struct MREA : ftl::mmio::Register<
   using EADR = MREA_fields_::EADR;
 };
 
-
 // Memory Region Control
 struct MRC_fields_ {
-
   enum class eD0W : std::uint32_t {
     // Processing Domain 0 does not have Write access to the memory region
     eD0W_0 = 0,
@@ -326,6 +316,7 @@ struct MRC_fields_ {
     // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
     eLCK_1 = 1,
   };
+
   // Domain 0 Write Access to Region
   using D0W = ftl::mmio::Field<1, 0, eD0W, ftl::mmio::RW, ftl::mmio::Normal>;
   // Domain 0 Read Access to Region
@@ -368,16 +359,15 @@ struct MRC : ftl::mmio::Register<
   using LCK = MRC_fields_::LCK;
 };
 
-
 // Memory Region Violation Status
 struct MRVS_fields_ {
-
   enum class eVDID : std::uint32_t {
     // Processing Domain 0
     eVDID_0 = 0,
     // Processing Domain 1
     eVDID_1 = 1,
   };
+
   // Violating Domain ID
   using VDID = ftl::mmio::Field<2, 0, eVDID, ftl::mmio::RO, ftl::mmio::Normal>;
   // Access Denied

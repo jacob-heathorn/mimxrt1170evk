@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::semc {
 
-
 // Module Control Register
 struct MCR_fields_ {
-
   enum class eSWRST : std::uint32_t {
     // No reset
     eno_reset = 0,
@@ -55,6 +53,7 @@ struct MCR_fields_ {
     // 255*2^31
     ebto_1f = 31,
   };
+
   // Software Reset
   using SWRST = ftl::mmio::Field<1, 0, eSWRST, ftl::mmio::RW, ftl::mmio::Normal>;
   // Module Disable
@@ -101,10 +100,8 @@ struct MCR : ftl::mmio::Register<
   using BTO = MCR_fields_::BTO;
 };
 
-
 // IO MUX Control Register
 struct IOCR_fields_ {
-
   enum class eMUX_A8 : std::uint32_t {
     // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
     esdram8_norsram24_03_0 = 0,
@@ -350,6 +347,7 @@ struct IOCR_fields_ {
     // SEMC_CLKX1 is always on
     ealways_on = 1,
   };
+
   // SEMC_ADDR08 output selection
   using MUX_A8 = ftl::mmio::Field<4, 0, eMUX_A8, ftl::mmio::RW, ftl::mmio::Normal>;
   // SEMC_CSX0 output selection
@@ -410,7 +408,6 @@ struct IOCR : ftl::mmio::Register<
   using CLKX1_AO = IOCR_fields_::CLKX1_AO;
 };
 
-
 // Bus (AXI) Master Control Register 0
 struct BMCR0_fields_ {
   // Weight of QOS
@@ -438,7 +435,6 @@ struct BMCR0 : ftl::mmio::Register<
   using WSH = BMCR0_fields_::WSH;
   using WRWS = BMCR0_fields_::WRWS;
 };
-
 
 // Bus (AXI) Master Control Register 1
 struct BMCR1_fields_ {
@@ -471,10 +467,8 @@ struct BMCR1 : ftl::mmio::Register<
   using WBR = BMCR1_fields_::WBR;
 };
 
-
 // Base Register n
 struct BR_fields_ {
-
   enum class eVLD : std::uint32_t {
     // The memory is invalid, can not be accessed.
     einvalid = 0,
@@ -548,6 +542,7 @@ struct BR_fields_ {
     // 4GB
     esize_4gb_31 = 31,
   };
+
   // Valid
   using VLD = ftl::mmio::Field<1, 0, eVLD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Memory size
@@ -574,10 +569,8 @@ struct BR : ftl::mmio::Register<
   using BA = BR_fields_::BA;
 };
 
-
 // DLL Control Register
 struct DLLCR_fields_ {
-
   enum class eDLLEN : std::uint32_t {
     // DLL calibration is disabled.
     ecal_disable = 0,
@@ -598,6 +591,7 @@ struct DLLCR_fields_ {
     // The delay cell number is overridden.
     eoverride = 1,
   };
+
   // DLL calibration enable
   using DLLEN = ftl::mmio::Field<1, 0, eDLLEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // DLL Reset
@@ -633,10 +627,8 @@ struct DLLCR : ftl::mmio::Register<
   using OVRDVAL = DLLCR_fields_::OVRDVAL;
 };
 
-
 // Interrupt Enable Register
 struct INTEN_fields_ {
-
   enum class eIPCMDDONEEN : std::uint32_t {
     // Interrupt is disabled
     einterrupt_disable = 0,
@@ -678,6 +670,7 @@ struct INTEN_fields_ {
     // Interrupt is enabled
     einterrupt_enable = 1,
   };
+
   // IP command done interrupt enable
   using IPCMDDONEEN = ftl::mmio::Field<1, 0, eIPCMDDONEEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // IP command error interrupt enable
@@ -718,10 +711,8 @@ struct INTEN : ftl::mmio::Register<
   using NDNOPENDEN = INTEN_fields_::NDNOPENDEN;
 };
 
-
 // Interrupt Register
 struct INTR_fields_ {
-
   enum class eIPCMDDONE : std::uint32_t {
     // IP command is not done.
     enot_done = 0,
@@ -763,6 +754,7 @@ struct INTR_fields_ {
     // All NAND AXI write pending transactions are finished.
     ewrite = 1,
   };
+
   // IP command normal done interrupt
   using IPCMDDONE = ftl::mmio::Field<1, 0, eIPCMDDONE, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // IP command error done interrupt
@@ -803,10 +795,8 @@ struct INTR : ftl::mmio::Register<
   using NDNOPEND = INTR_fields_::NDNOPEND;
 };
 
-
 // SDRAM Control Register 0
 struct SDRAMCR0_fields_ {
-
   enum class ePS : std::uint32_t {
     // 8bit
     eps_8bit = 0,
@@ -870,6 +860,7 @@ struct SDRAMCR0_fields_ {
     // SDRAM device has 2 banks.
     ebank2 = 1,
   };
+
   // Port Size
   using PS = ftl::mmio::Field<2, 0, ePS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Burst Length
@@ -912,7 +903,6 @@ struct SDRAMCR0 : ftl::mmio::Register<
   using BANK2 = SDRAMCR0_fields_::BANK2;
 };
 
-
 // SDRAM Control Register 1
 struct SDRAMCR1_fields_ {
   // PRECHARGE to ACTIVE/REFRESH command wait time
@@ -949,10 +939,8 @@ struct SDRAMCR1 : ftl::mmio::Register<
   using ACT2PRE = SDRAMCR1_fields_::ACT2PRE;
 };
 
-
 // SDRAM Control Register 2
 struct SDRAMCR2_fields_ {
-
   enum class eITO : std::uint32_t {
     // IDLE timeout period is 256*Prescale period.
     eprescalex256 = 0,
@@ -975,6 +963,7 @@ struct SDRAMCR2_fields_ {
     // IDLE timeout period is ITO*Prescale period.
     eprescalexito_9 = 9,
   };
+
   // SELF REFRESH recovery time
   using SRRC = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // REFRESH to REFRESH delay
@@ -1001,10 +990,8 @@ struct SDRAMCR2 : ftl::mmio::Register<
   using ITO = SDRAMCR2_fields_::ITO;
 };
 
-
 // SDRAM Control Register 3
 struct SDRAMCR3_fields_ {
-
   enum class eREN : std::uint32_t {
     // The SEMC does not send AUTO REFRESH command automatically
     eno_auto_refresh = 0,
@@ -1099,6 +1086,7 @@ struct SDRAMCR3_fields_ {
     // UT*(Prescaler period)
     eprescalexut_9 = 9,
   };
+
   // Refresh enable
   using REN = ftl::mmio::Field<1, 0, eREN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Refresh burst length
@@ -1134,10 +1122,8 @@ struct SDRAMCR3 : ftl::mmio::Register<
   using UT = SDRAMCR3_fields_::UT;
 };
 
-
 // NAND Control Register 0
 struct NANDCR0_fields_ {
-
   enum class ePS : std::uint32_t {
     // 8bit
     eps_8bit = 0,
@@ -1196,6 +1182,7 @@ struct NANDCR0_fields_ {
     // 9
     ebit9 = 7,
   };
+
   // Port Size
   using PS = ftl::mmio::Field<1, 0, ePS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Synchronous Mode Enable
@@ -1231,7 +1218,6 @@ struct NANDCR0 : ftl::mmio::Register<
   using EDO = NANDCR0_fields_::EDO;
   using COL = NANDCR0_fields_::COL;
 };
-
 
 // NAND Control Register 1
 struct NANDCR1_fields_ {
@@ -1276,7 +1262,6 @@ struct NANDCR1 : ftl::mmio::Register<
   using CEITV = NANDCR1_fields_::CEITV;
 };
 
-
 // NAND Control Register 2
 struct NANDCR2_fields_ {
   // WE# high to RE# low time
@@ -1308,7 +1293,6 @@ struct NANDCR2 : ftl::mmio::Register<
   using TRR = NANDCR2_fields_::TRR;
   using TWB = NANDCR2_fields_::TWB;
 };
-
 
 // NAND Control Register 3
 struct NANDCR3_fields_ {
@@ -1354,10 +1338,8 @@ struct NANDCR3 : ftl::mmio::Register<
   using WDH = NANDCR3_fields_::WDH;
 };
 
-
 // NOR Control Register 0
 struct NORCR0_fields_ {
-
   enum class ePS : std::uint32_t {
     // 8bit
     eps_8bit = 0,
@@ -1450,6 +1432,7 @@ struct NORCR0_fields_ {
     // 12 Bits
     ebitwidth12_f = 15,
   };
+
   // Port Size
   using PS = ftl::mmio::Field<1, 0, ePS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Synchronous Mode Enable
@@ -1497,7 +1480,6 @@ struct NORCR0 : ftl::mmio::Register<
   using COL = NORCR0_fields_::COL;
 };
 
-
 // NOR Control Register 1
 struct NORCR1_fields_ {
   // CE setup time
@@ -1541,7 +1523,6 @@ struct NORCR1 : ftl::mmio::Register<
   using REH = NORCR1_fields_::REH;
 };
 
-
 // NOR Control Register 2
 struct NORCR2_fields_ {
   // Turnaround time
@@ -1578,7 +1559,6 @@ struct NORCR2 : ftl::mmio::Register<
   using RDH = NORCR2_fields_::RDH;
 };
 
-
 // NOR Control Register 3
 struct NORCR3_fields_ {
   // Address setup time for SYNC read
@@ -1599,10 +1579,8 @@ struct NORCR3 : ftl::mmio::Register<
   using AHSR = NORCR3_fields_::AHSR;
 };
 
-
 // SRAM Control Register 0
 struct SRAMCR0_fields_ {
-
   enum class ePS : std::uint32_t {
     // 8bit
     eps_8bit = 0,
@@ -1709,6 +1687,7 @@ struct SRAMCR0_fields_ {
     // 12 Bits
     ebitwidth12_f = 15,
   };
+
   // Port Size
   using PS = ftl::mmio::Field<1, 0, ePS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Synchronous Mode Enable
@@ -1765,7 +1744,6 @@ struct SRAMCR0 : ftl::mmio::Register<
   using COL = SRAMCR0_fields_::COL;
 };
 
-
 // SRAM Control Register 1
 struct SRAMCR1_fields_ {
   // CE setup time
@@ -1808,7 +1786,6 @@ struct SRAMCR1 : ftl::mmio::Register<
   using REL = SRAMCR1_fields_::REL;
   using REH = SRAMCR1_fields_::REH;
 };
-
 
 // SRAM Control Register 2
 struct SRAMCR2_fields_ {
@@ -1853,7 +1830,6 @@ struct SRAMCR2 : ftl::mmio::Register<
   using RDH = SRAMCR2_fields_::RDH;
 };
 
-
 // SRAM Control Register 3
 struct SRAMCR3_fields_ {
 };  // struct SRAMCR3_fields_
@@ -1866,10 +1842,8 @@ struct SRAMCR3 : ftl::mmio::Register<
     ftl::mmio::Reserved<32, 0>> {
 };
 
-
 // DBI-B Control Register 0
 struct DBICR0_fields_ {
-
   enum class ePS : std::uint32_t {
     // 8bit
     eps_8bit = 0,
@@ -1930,6 +1904,7 @@ struct DBICR0_fields_ {
     // 12 Bits
     ebitwidth12_f = 15,
   };
+
   // Port Size
   using PS = ftl::mmio::Field<1, 0, ePS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Burst Length
@@ -1956,7 +1931,6 @@ struct DBICR0 : ftl::mmio::Register<
   using BL = DBICR0_fields_::BL;
   using COL = DBICR0_fields_::COL;
 };
-
 
 // DBI-B Control Register 1
 struct DBICR1_fields_ {
@@ -1995,7 +1969,6 @@ struct DBICR1 : ftl::mmio::Register<
   using REH = DBICR1_fields_::REH;
 };
 
-
 // DBI-B Control Register 2
 struct DBICR2_fields_ {
   // CSX interval time
@@ -2012,7 +1985,6 @@ struct DBICR2 : ftl::mmio::Register<
   using CEITV = DBICR2_fields_::CEITV;
 };
 
-
 // IP Command Control Register 0
 struct IPCR0_fields_ {
   // Slave address
@@ -2028,10 +2000,8 @@ struct IPCR0 : ftl::mmio::Register<
   using SA = IPCR0_fields_::SA;
 };
 
-
 // IP Command Control Register 1
 struct IPCR1_fields_ {
-
   enum class eDATSZ : std::uint32_t {
     // 4
     edatasz_4byte = 0,
@@ -2050,6 +2020,7 @@ struct IPCR1_fields_ {
     // 4
     edatasz_4byte_7 = 7,
   };
+
   // Data Size in Byte
   using DATSZ = ftl::mmio::Field<3, 0, eDATSZ, ftl::mmio::RW, ftl::mmio::Normal>;
   // NAND Extended Address
@@ -2070,10 +2041,8 @@ struct IPCR1 : ftl::mmio::Register<
   using NAND_EXT_ADDR = IPCR1_fields_::NAND_EXT_ADDR;
 };
 
-
 // IP Command Control Register 2
 struct IPCR2_fields_ {
-
   enum class eBM0 : std::uint32_t {
     // Byte is unmasked
     eunmasked = 0,
@@ -2101,6 +2070,7 @@ struct IPCR2_fields_ {
     // Byte is masked
     emasked = 1,
   };
+
   // Byte Mask for Byte 0 (IPTXDAT bit 7:0)
   using BM0 = ftl::mmio::Field<1, 0, eBM0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Byte Mask for Byte 1 (IPTXDAT bit 15:8)
@@ -2131,7 +2101,6 @@ struct IPCR2 : ftl::mmio::Register<
   using BM3 = IPCR2_fields_::BM3;
 };
 
-
 // IP Command Register
 struct IPCMD_fields_ {
   // SDRAM Commands: 0x8: Read 0x9: Write 0xA: Mode Register Set 0xB: Active 0xC: Auto Refresh 0xD: Self Refresh 0xE: Precharge 0xF: Precharge All Others: Reserved Self Refresh is sent to all SDRAM devices because they share the same SEMC_CLK pin
@@ -2151,7 +2120,6 @@ struct IPCMD : ftl::mmio::Register<
   using KEY = IPCMD_fields_::KEY;
 };
 
-
 // TX DATA Register
 struct IPTXDAT_fields_ {
   // Data value to use for an IP write command
@@ -2166,7 +2134,6 @@ struct IPTXDAT : ftl::mmio::Register<
     IPTXDAT_fields_::DAT> {
   using DAT = IPTXDAT_fields_::DAT;
 };
-
 
 // RX DATA Register
 struct IPRXDAT_fields_ {
@@ -2183,16 +2150,15 @@ struct IPRXDAT : ftl::mmio::Register<
   using DAT = IPRXDAT_fields_::DAT;
 };
 
-
 // Status Register 0
 struct STS0_fields_ {
-
   enum class eNARDY : std::uint32_t {
     // NAND device is not ready
     enotready = 0,
     // NAND device is ready
     eready = 1,
   };
+
   // Indicating whether the SEMC is in idle state.
   using IDLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
   // Indicating NAND device Ready/WAIT# pin level.
@@ -2212,7 +2178,6 @@ struct STS0 : ftl::mmio::Register<
   using NARDY = STS0_fields_::NARDY;
 };
 
-
 // Status Register 1
 struct STS1_fields_ {
 };  // struct STS1_fields_
@@ -2225,16 +2190,15 @@ struct STS1 : ftl::mmio::Register<
     ftl::mmio::Reserved<32, 0>> {
 };
 
-
 // Status Register 2
 struct STS2_fields_ {
-
   enum class eNDWRPEND : std::uint32_t {
     // No pending
     eno_pending = 0,
     // Pending
     epending = 1,
   };
+
   // This field indicating whether there is pending AXI command (write) to NAND device.
   using NDWRPEND = ftl::mmio::Field<1, 3, eNDWRPEND, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct STS2_fields_
@@ -2251,7 +2215,6 @@ struct STS2 : ftl::mmio::Register<
   using NDWRPEND = STS2_fields_::NDWRPEND;
 };
 
-
 // Status Register 3
 struct STS3_fields_ {
 };  // struct STS3_fields_
@@ -2263,7 +2226,6 @@ struct STS3 : ftl::mmio::Register<
     ftl::mmio::RO,
     ftl::mmio::Reserved<32, 0>> {
 };
-
 
 // Status Register 4
 struct STS4_fields_ {
@@ -2277,7 +2239,6 @@ struct STS4 : ftl::mmio::Register<
     ftl::mmio::Reserved<32, 0>> {
 };
 
-
 // Status Register 5
 struct STS5_fields_ {
 };  // struct STS5_fields_
@@ -2289,7 +2250,6 @@ struct STS5 : ftl::mmio::Register<
     ftl::mmio::RO,
     ftl::mmio::Reserved<32, 0>> {
 };
-
 
 // Status Register 6
 struct STS6_fields_ {
@@ -2303,7 +2263,6 @@ struct STS6 : ftl::mmio::Register<
     ftl::mmio::Reserved<32, 0>> {
 };
 
-
 // Status Register 7
 struct STS7_fields_ {
 };  // struct STS7_fields_
@@ -2315,7 +2274,6 @@ struct STS7 : ftl::mmio::Register<
     ftl::mmio::RO,
     ftl::mmio::Reserved<32, 0>> {
 };
-
 
 // Status Register 8
 struct STS8_fields_ {
@@ -2329,7 +2287,6 @@ struct STS8 : ftl::mmio::Register<
     ftl::mmio::Reserved<32, 0>> {
 };
 
-
 // Status Register 9
 struct STS9_fields_ {
 };  // struct STS9_fields_
@@ -2341,7 +2298,6 @@ struct STS9 : ftl::mmio::Register<
     ftl::mmio::RO,
     ftl::mmio::Reserved<32, 0>> {
 };
-
 
 // Status Register 10
 struct STS10_fields_ {
@@ -2355,7 +2311,6 @@ struct STS10 : ftl::mmio::Register<
     ftl::mmio::Reserved<32, 0>> {
 };
 
-
 // Status Register 11
 struct STS11_fields_ {
 };  // struct STS11_fields_
@@ -2367,7 +2322,6 @@ struct STS11 : ftl::mmio::Register<
     ftl::mmio::RO,
     ftl::mmio::Reserved<32, 0>> {
 };
-
 
 // Status Register 12
 struct STS12_fields_ {
@@ -2384,10 +2338,8 @@ struct STS12 : ftl::mmio::Register<
   using NDADDR = STS12_fields_::NDADDR;
 };
 
-
 // Status Register 13
 struct STS13_fields_ {
-
   enum class eSLVLOCK : std::uint32_t {
     // Slave delay line is not locked.
     enot_locked = 0,
@@ -2401,6 +2353,7 @@ struct STS13_fields_ {
     // Reference delay line is locked.
     elocked = 1,
   };
+
   // Sample clock slave delay line locked.
   using SLVLOCK = ftl::mmio::Field<1, 0, eSLVLOCK, ftl::mmio::RO, ftl::mmio::Normal>;
   // Sample clock reference delay line locked.
@@ -2429,7 +2382,6 @@ struct STS13 : ftl::mmio::Register<
   using REFSEL = STS13_fields_::REFSEL;
 };
 
-
 // Status Register 14
 struct STS14_fields_ {
 };  // struct STS14_fields_
@@ -2441,7 +2393,6 @@ struct STS14 : ftl::mmio::Register<
     ftl::mmio::RO,
     ftl::mmio::Reserved<32, 0>> {
 };
-
 
 // Status Register 15
 struct STS15_fields_ {
@@ -2455,10 +2406,8 @@ struct STS15 : ftl::mmio::Register<
     ftl::mmio::Reserved<32, 0>> {
 };
 
-
 // Base Register 9
 struct BR9_fields_ {
-
   enum class eVLD : std::uint32_t {
     // The memory is invalid, can not be accessed.
     einvalid = 0,
@@ -2532,6 +2481,7 @@ struct BR9_fields_ {
     // 4GB
     esize_4gb_31 = 31,
   };
+
   // Valid
   using VLD = ftl::mmio::Field<1, 0, eVLD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Memory size
@@ -2556,10 +2506,8 @@ struct BR9 : ftl::mmio::Register<
   using BA = BR9_fields_::BA;
 };
 
-
 // Base Register 10
 struct BR10_fields_ {
-
   enum class eVLD : std::uint32_t {
     // The memory is invalid, can not be accessed.
     einvalid = 0,
@@ -2633,6 +2581,7 @@ struct BR10_fields_ {
     // 4GB
     esize_4gb_31 = 31,
   };
+
   // Valid
   using VLD = ftl::mmio::Field<1, 0, eVLD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Memory size
@@ -2657,10 +2606,8 @@ struct BR10 : ftl::mmio::Register<
   using BA = BR10_fields_::BA;
 };
 
-
 // Base Register 11
 struct BR11_fields_ {
-
   enum class eVLD : std::uint32_t {
     // The memory is invalid, can not be accessed.
     einvalid = 0,
@@ -2734,6 +2681,7 @@ struct BR11_fields_ {
     // 4GB
     esize_4gb_31 = 31,
   };
+
   // Valid
   using VLD = ftl::mmio::Field<1, 0, eVLD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Memory size
@@ -2758,10 +2706,8 @@ struct BR11 : ftl::mmio::Register<
   using BA = BR11_fields_::BA;
 };
 
-
 // SRAM Control Register 4
 struct SRAMCR4_fields_ {
-
   enum class ePS : std::uint32_t {
     // 8bit
     eps_8bit = 0,
@@ -2868,6 +2814,7 @@ struct SRAMCR4_fields_ {
     // 12 Bits
     ebitwidth12_f = 15,
   };
+
   // Port Size
   using PS = ftl::mmio::Field<1, 0, ePS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Synchronous Mode Enable
@@ -2924,7 +2871,6 @@ struct SRAMCR4 : ftl::mmio::Register<
   using COL = SRAMCR4_fields_::COL;
 };
 
-
 // SRAM Control Register 5
 struct SRAMCR5_fields_ {
   // CE setup time
@@ -2967,7 +2913,6 @@ struct SRAMCR5 : ftl::mmio::Register<
   using REL = SRAMCR5_fields_::REL;
   using REH = SRAMCR5_fields_::REH;
 };
-
 
 // SRAM Control Register 6
 struct SRAMCR6_fields_ {
@@ -3012,10 +2957,8 @@ struct SRAMCR6 : ftl::mmio::Register<
   using RDH = SRAMCR6_fields_::RDH;
 };
 
-
 // Delay Chain Control Register
 struct DCCR_fields_ {
-
   enum class eSDRAMEN : std::uint32_t {
     // Delay chain is not inserted.
     eno_dly_chain = 0,
@@ -3043,6 +2986,7 @@ struct DCCR_fields_ {
     // Delay chain is inserted.
     edly_chain = 1,
   };
+
   // Delay chain insertion enable for SRAM device.
   using SDRAMEN = ftl::mmio::Field<1, 0, eSDRAMEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clock delay line delay cell number selection value for SDRAM device.

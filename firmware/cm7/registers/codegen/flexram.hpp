@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::flexram {
 
-
 // TCM CRTL Register
 struct TCM_CTRL_fields_ {
-
   enum class eTCM_WWAIT_EN : std::uint32_t {
     // TCM write fast mode: Write RAM accesses are expected to be finished in 1-cycle.
     eTCM_WWAIT_EN_0 = 0,
@@ -25,6 +23,7 @@ struct TCM_CTRL_fields_ {
     // TCM read wait mode: Read RAM accesses are expected to be finished in 2-cycles.
     eTCM_RWAIT_EN_1 = 1,
   };
+
   // TCM Write Wait Mode Enable
   using TCM_WWAIT_EN = ftl::mmio::Field<1, 0, eTCM_WWAIT_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // TCM Read Wait Mode Enable
@@ -52,16 +51,15 @@ struct TCM_CTRL : ftl::mmio::Register<
   using Reserved = TCM_CTRL_fields_::Reserved;
 };
 
-
 // OCRAM Magic Address Register
 struct OCRAM_MAGIC_ADDR_fields_ {
-
   enum class eOCRAM_WR_RD_SEL : std::uint32_t {
     // When OCRAM read access hits magic address, it will generate interrupt.
     eOCRAM_WR_RD_SEL_0 = 0,
     // When OCRAM write access hits magic address, it will generate interrupt.
     eOCRAM_WR_RD_SEL_1 = 1,
   };
+
   // OCRAM Write Read Select
   using OCRAM_WR_RD_SEL = ftl::mmio::Field<1, 0, eOCRAM_WR_RD_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
   // OCRAM Magic Address
@@ -84,16 +82,15 @@ struct OCRAM_MAGIC_ADDR : ftl::mmio::Register<
   using Reserved = OCRAM_MAGIC_ADDR_fields_::Reserved;
 };
 
-
 // DTCM Magic Address Register
 struct DTCM_MAGIC_ADDR_fields_ {
-
   enum class eDTCM_WR_RD_SEL : std::uint32_t {
     // When DTCM read access hits magic address, it will generate interrupt.
     eDTCM_WR_RD_SEL_0 = 0,
     // When DTCM write access hits magic address, it will generate interrupt.
     eDTCM_WR_RD_SEL_1 = 1,
   };
+
   // DTCM Write Read Select
   using DTCM_WR_RD_SEL = ftl::mmio::Field<1, 0, eDTCM_WR_RD_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
   // DTCM Magic Address
@@ -116,16 +113,15 @@ struct DTCM_MAGIC_ADDR : ftl::mmio::Register<
   using Reserved = DTCM_MAGIC_ADDR_fields_::Reserved;
 };
 
-
 // ITCM Magic Address Register
 struct ITCM_MAGIC_ADDR_fields_ {
-
   enum class eITCM_WR_RD_SEL : std::uint32_t {
     // When ITCM read access hits magic address, it will generate interrupt.
     eITCM_WR_RD_SEL_0 = 0,
     // When ITCM write access hits magic address, it will generate interrupt.
     eITCM_WR_RD_SEL_1 = 1,
   };
+
   // ITCM Write Read Select
   using ITCM_WR_RD_SEL = ftl::mmio::Field<1, 0, eITCM_WR_RD_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
   // ITCM Magic Address
@@ -148,10 +144,8 @@ struct ITCM_MAGIC_ADDR : ftl::mmio::Register<
   using Reserved = ITCM_MAGIC_ADDR_fields_::Reserved;
 };
 
-
 // Interrupt Status Register
 struct INT_STATUS_fields_ {
-
   enum class eITCM_MAM_STATUS : std::uint32_t {
     // ITCM did not access magic address.
     eITCM_MAM_STATUS_0 = 0,
@@ -277,6 +271,7 @@ struct INT_STATUS_fields_ {
     // OCRAM Partial Write happens.
     eOCRAM_PARTIAL_WR_INT_S_1 = 1,
   };
+
   // ITCM Magic Address Match Status
   using ITCM_MAM_STATUS = ftl::mmio::Field<1, 0, eITCM_MAM_STATUS, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // DTCM Magic Address Match Status
@@ -380,10 +375,8 @@ struct INT_STATUS : ftl::mmio::Register<
   using Reserved = INT_STATUS_fields_::Reserved;
 };
 
-
 // Interrupt Status Enable Register
 struct INT_STAT_EN_fields_ {
-
   enum class eITCM_MAM_STAT_EN : std::uint32_t {
     // Masked
     eITCM_MAM_STAT_EN_0 = 0,
@@ -509,6 +502,7 @@ struct INT_STAT_EN_fields_ {
     // Enabled
     eOCRAM_PARTIAL_WR_INT_S_EN_1 = 1,
   };
+
   // ITCM Magic Address Match Status Enable
   using ITCM_MAM_STAT_EN = ftl::mmio::Field<1, 0, eITCM_MAM_STAT_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // DTCM Magic Address Match Status Enable
@@ -612,10 +606,8 @@ struct INT_STAT_EN : ftl::mmio::Register<
   using Reserved = INT_STAT_EN_fields_::Reserved;
 };
 
-
 // Interrupt Enable Register
 struct INT_SIG_EN_fields_ {
-
   enum class eITCM_MAM_SIG_EN : std::uint32_t {
     // Masked
     eITCM_MAM_SIG_EN_0 = 0,
@@ -741,6 +733,7 @@ struct INT_SIG_EN_fields_ {
     // Enabled
     eOCRAM_PARTIAL_WR_INT_SIG_EN_1 = 1,
   };
+
   // ITCM Magic Address Match Interrupt Enable
   using ITCM_MAM_SIG_EN = ftl::mmio::Field<1, 0, eITCM_MAM_SIG_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // DTCM Magic Address Match Interrupt Enable
@@ -844,7 +837,6 @@ struct INT_SIG_EN : ftl::mmio::Register<
   using Reserved = INT_SIG_EN_fields_::Reserved;
 };
 
-
 // OCRAM single-bit ECC Error Information Register
 struct OCRAM_ECC_SINGLE_ERROR_INFO_fields_ {
   // corresponding ECC cipher of OCRAM single-bit ECC error
@@ -868,7 +860,6 @@ struct OCRAM_ECC_SINGLE_ERROR_INFO : ftl::mmio::Register<
   using Reserved = OCRAM_ECC_SINGLE_ERROR_INFO_fields_::Reserved;
 };
 
-
 // OCRAM single-bit ECC Error Address Register
 struct OCRAM_ECC_SINGLE_ERROR_ADDR_fields_ {
   // OCRAM single-bit ECC error address
@@ -883,7 +874,6 @@ struct OCRAM_ECC_SINGLE_ERROR_ADDR : ftl::mmio::Register<
     OCRAM_ECC_SINGLE_ERROR_ADDR_fields_::OCRAM_ECCS_ERRED_ADDR> {
   using OCRAM_ECCS_ERRED_ADDR = OCRAM_ECC_SINGLE_ERROR_ADDR_fields_::OCRAM_ECCS_ERRED_ADDR;
 };
-
 
 // OCRAM single-bit ECC Error Data Register
 struct OCRAM_ECC_SINGLE_ERROR_DATA_LSB_fields_ {
@@ -900,7 +890,6 @@ struct OCRAM_ECC_SINGLE_ERROR_DATA_LSB : ftl::mmio::Register<
   using OCRAM_ECCS_ERRED_DATA_LSB = OCRAM_ECC_SINGLE_ERROR_DATA_LSB_fields_::OCRAM_ECCS_ERRED_DATA_LSB;
 };
 
-
 // OCRAM single-bit ECC Error Data Register
 struct OCRAM_ECC_SINGLE_ERROR_DATA_MSB_fields_ {
   // OCRAM single-bit ECC error data [63:32]
@@ -915,7 +904,6 @@ struct OCRAM_ECC_SINGLE_ERROR_DATA_MSB : ftl::mmio::Register<
     OCRAM_ECC_SINGLE_ERROR_DATA_MSB_fields_::OCRAM_ECCS_ERRED_DATA_MSB> {
   using OCRAM_ECCS_ERRED_DATA_MSB = OCRAM_ECC_SINGLE_ERROR_DATA_MSB_fields_::OCRAM_ECCS_ERRED_DATA_MSB;
 };
-
 
 // OCRAM multi-bit ECC Error Information Register
 struct OCRAM_ECC_MULTI_ERROR_INFO_fields_ {
@@ -936,7 +924,6 @@ struct OCRAM_ECC_MULTI_ERROR_INFO : ftl::mmio::Register<
   using Reserved = OCRAM_ECC_MULTI_ERROR_INFO_fields_::Reserved;
 };
 
-
 // OCRAM multi-bit ECC Error Address Register
 struct OCRAM_ECC_MULTI_ERROR_ADDR_fields_ {
   // OCRAM multi-bit ECC error address
@@ -951,7 +938,6 @@ struct OCRAM_ECC_MULTI_ERROR_ADDR : ftl::mmio::Register<
     OCRAM_ECC_MULTI_ERROR_ADDR_fields_::OCRAM_ECCM_ERRED_ADDR> {
   using OCRAM_ECCM_ERRED_ADDR = OCRAM_ECC_MULTI_ERROR_ADDR_fields_::OCRAM_ECCM_ERRED_ADDR;
 };
-
 
 // OCRAM multi-bit ECC Error Data Register
 struct OCRAM_ECC_MULTI_ERROR_DATA_LSB_fields_ {
@@ -968,7 +954,6 @@ struct OCRAM_ECC_MULTI_ERROR_DATA_LSB : ftl::mmio::Register<
   using OCRAM_ECCM_ERRED_DATA_LSB = OCRAM_ECC_MULTI_ERROR_DATA_LSB_fields_::OCRAM_ECCM_ERRED_DATA_LSB;
 };
 
-
 // OCRAM multi-bit ECC Error Data Register
 struct OCRAM_ECC_MULTI_ERROR_DATA_MSB_fields_ {
   // OCRAM multi-bit ECC error data [63:32]
@@ -983,7 +968,6 @@ struct OCRAM_ECC_MULTI_ERROR_DATA_MSB : ftl::mmio::Register<
     OCRAM_ECC_MULTI_ERROR_DATA_MSB_fields_::OCRAM_ECCM_ERRED_DATA_MSB> {
   using OCRAM_ECCM_ERRED_DATA_MSB = OCRAM_ECC_MULTI_ERROR_DATA_MSB_fields_::OCRAM_ECCM_ERRED_DATA_MSB;
 };
-
 
 // ITCM single-bit ECC Error Information Register
 struct ITCM_ECC_SINGLE_ERROR_INFO_fields_ {
@@ -1020,7 +1004,6 @@ struct ITCM_ECC_SINGLE_ERROR_INFO : ftl::mmio::Register<
   using Reserved = ITCM_ECC_SINGLE_ERROR_INFO_fields_::Reserved;
 };
 
-
 // ITCM single-bit ECC Error Address Register
 struct ITCM_ECC_SINGLE_ERROR_ADDR_fields_ {
   // ITCM single-bit ECC error address
@@ -1035,7 +1018,6 @@ struct ITCM_ECC_SINGLE_ERROR_ADDR : ftl::mmio::Register<
     ITCM_ECC_SINGLE_ERROR_ADDR_fields_::ITCM_ECCS_ERRED_ADDR> {
   using ITCM_ECCS_ERRED_ADDR = ITCM_ECC_SINGLE_ERROR_ADDR_fields_::ITCM_ECCS_ERRED_ADDR;
 };
-
 
 // ITCM single-bit ECC Error Data Register
 struct ITCM_ECC_SINGLE_ERROR_DATA_LSB_fields_ {
@@ -1052,7 +1034,6 @@ struct ITCM_ECC_SINGLE_ERROR_DATA_LSB : ftl::mmio::Register<
   using ITCM_ECCS_ERRED_DATA_LSB = ITCM_ECC_SINGLE_ERROR_DATA_LSB_fields_::ITCM_ECCS_ERRED_DATA_LSB;
 };
 
-
 // ITCM single-bit ECC Error Data Register
 struct ITCM_ECC_SINGLE_ERROR_DATA_MSB_fields_ {
   // ITCM single-bit ECC error data [63:32]
@@ -1067,7 +1048,6 @@ struct ITCM_ECC_SINGLE_ERROR_DATA_MSB : ftl::mmio::Register<
     ITCM_ECC_SINGLE_ERROR_DATA_MSB_fields_::ITCM_ECCS_ERRED_DATA_MSB> {
   using ITCM_ECCS_ERRED_DATA_MSB = ITCM_ECC_SINGLE_ERROR_DATA_MSB_fields_::ITCM_ECCS_ERRED_DATA_MSB;
 };
-
 
 // ITCM multi-bit ECC Error Information Register
 struct ITCM_ECC_MULTI_ERROR_INFO_fields_ {
@@ -1104,7 +1084,6 @@ struct ITCM_ECC_MULTI_ERROR_INFO : ftl::mmio::Register<
   using Reserved = ITCM_ECC_MULTI_ERROR_INFO_fields_::Reserved;
 };
 
-
 // ITCM multi-bit ECC Error Address Register
 struct ITCM_ECC_MULTI_ERROR_ADDR_fields_ {
   // ITCM multi-bit ECC error address
@@ -1119,7 +1098,6 @@ struct ITCM_ECC_MULTI_ERROR_ADDR : ftl::mmio::Register<
     ITCM_ECC_MULTI_ERROR_ADDR_fields_::ITCM_ECCM_ERRED_ADDR> {
   using ITCM_ECCM_ERRED_ADDR = ITCM_ECC_MULTI_ERROR_ADDR_fields_::ITCM_ECCM_ERRED_ADDR;
 };
-
 
 // ITCM multi-bit ECC Error Data Register
 struct ITCM_ECC_MULTI_ERROR_DATA_LSB_fields_ {
@@ -1136,7 +1114,6 @@ struct ITCM_ECC_MULTI_ERROR_DATA_LSB : ftl::mmio::Register<
   using ITCM_ECCM_ERRED_DATA_LSB = ITCM_ECC_MULTI_ERROR_DATA_LSB_fields_::ITCM_ECCM_ERRED_DATA_LSB;
 };
 
-
 // ITCM multi-bit ECC Error Data Register
 struct ITCM_ECC_MULTI_ERROR_DATA_MSB_fields_ {
   // ITCM multi-bit ECC error data [63:32]
@@ -1151,7 +1128,6 @@ struct ITCM_ECC_MULTI_ERROR_DATA_MSB : ftl::mmio::Register<
     ITCM_ECC_MULTI_ERROR_DATA_MSB_fields_::ITCM_ECCM_ERRED_DATA_MSB> {
   using ITCM_ECCM_ERRED_DATA_MSB = ITCM_ECC_MULTI_ERROR_DATA_MSB_fields_::ITCM_ECCM_ERRED_DATA_MSB;
 };
-
 
 // D0TCM single-bit ECC Error Information Register
 struct D0TCM_ECC_SINGLE_ERROR_INFO_fields_ {
@@ -1188,7 +1164,6 @@ struct D0TCM_ECC_SINGLE_ERROR_INFO : ftl::mmio::Register<
   using Reserved = D0TCM_ECC_SINGLE_ERROR_INFO_fields_::Reserved;
 };
 
-
 // D0TCM single-bit ECC Error Address Register
 struct D0TCM_ECC_SINGLE_ERROR_ADDR_fields_ {
   // D0TCM single-bit ECC error address
@@ -1204,7 +1179,6 @@ struct D0TCM_ECC_SINGLE_ERROR_ADDR : ftl::mmio::Register<
   using D0TCM_ECCS_ERRED_ADDR = D0TCM_ECC_SINGLE_ERROR_ADDR_fields_::D0TCM_ECCS_ERRED_ADDR;
 };
 
-
 // D0TCM single-bit ECC Error Data Register
 struct D0TCM_ECC_SINGLE_ERROR_DATA_fields_ {
   // D0TCM single-bit ECC error data
@@ -1219,7 +1193,6 @@ struct D0TCM_ECC_SINGLE_ERROR_DATA : ftl::mmio::Register<
     D0TCM_ECC_SINGLE_ERROR_DATA_fields_::D0TCM_ECCS_ERRED_DATA> {
   using D0TCM_ECCS_ERRED_DATA = D0TCM_ECC_SINGLE_ERROR_DATA_fields_::D0TCM_ECCS_ERRED_DATA;
 };
-
 
 // D0TCM multi-bit ECC Error Information Register
 struct D0TCM_ECC_MULTI_ERROR_INFO_fields_ {
@@ -1256,7 +1229,6 @@ struct D0TCM_ECC_MULTI_ERROR_INFO : ftl::mmio::Register<
   using Reserved = D0TCM_ECC_MULTI_ERROR_INFO_fields_::Reserved;
 };
 
-
 // D0TCM multi-bit ECC Error Address Register
 struct D0TCM_ECC_MULTI_ERROR_ADDR_fields_ {
   // D0TCM multi-bit ECC error address
@@ -1272,7 +1244,6 @@ struct D0TCM_ECC_MULTI_ERROR_ADDR : ftl::mmio::Register<
   using D0TCM_ECCM_ERRED_ADDR = D0TCM_ECC_MULTI_ERROR_ADDR_fields_::D0TCM_ECCM_ERRED_ADDR;
 };
 
-
 // D0TCM multi-bit ECC Error Data Register
 struct D0TCM_ECC_MULTI_ERROR_DATA_fields_ {
   // D0TCM multi-bit ECC error data
@@ -1287,7 +1258,6 @@ struct D0TCM_ECC_MULTI_ERROR_DATA : ftl::mmio::Register<
     D0TCM_ECC_MULTI_ERROR_DATA_fields_::D0TCM_ECCM_ERRED_DATA> {
   using D0TCM_ECCM_ERRED_DATA = D0TCM_ECC_MULTI_ERROR_DATA_fields_::D0TCM_ECCM_ERRED_DATA;
 };
-
 
 // D1TCM single-bit ECC Error Information Register
 struct D1TCM_ECC_SINGLE_ERROR_INFO_fields_ {
@@ -1324,7 +1294,6 @@ struct D1TCM_ECC_SINGLE_ERROR_INFO : ftl::mmio::Register<
   using Reserved = D1TCM_ECC_SINGLE_ERROR_INFO_fields_::Reserved;
 };
 
-
 // D1TCM single-bit ECC Error Address Register
 struct D1TCM_ECC_SINGLE_ERROR_ADDR_fields_ {
   // D1TCM single-bit ECC error address
@@ -1340,7 +1309,6 @@ struct D1TCM_ECC_SINGLE_ERROR_ADDR : ftl::mmio::Register<
   using D1TCM_ECCS_ERRED_ADDR = D1TCM_ECC_SINGLE_ERROR_ADDR_fields_::D1TCM_ECCS_ERRED_ADDR;
 };
 
-
 // D1TCM single-bit ECC Error Data Register
 struct D1TCM_ECC_SINGLE_ERROR_DATA_fields_ {
   // D1TCM single-bit ECC error data
@@ -1355,7 +1323,6 @@ struct D1TCM_ECC_SINGLE_ERROR_DATA : ftl::mmio::Register<
     D1TCM_ECC_SINGLE_ERROR_DATA_fields_::D1TCM_ECCS_ERRED_DATA> {
   using D1TCM_ECCS_ERRED_DATA = D1TCM_ECC_SINGLE_ERROR_DATA_fields_::D1TCM_ECCS_ERRED_DATA;
 };
-
 
 // D1TCM multi-bit ECC Error Information Register
 struct D1TCM_ECC_MULTI_ERROR_INFO_fields_ {
@@ -1392,7 +1359,6 @@ struct D1TCM_ECC_MULTI_ERROR_INFO : ftl::mmio::Register<
   using Reserved = D1TCM_ECC_MULTI_ERROR_INFO_fields_::Reserved;
 };
 
-
 // D1TCM multi-bit ECC Error Address Register
 struct D1TCM_ECC_MULTI_ERROR_ADDR_fields_ {
   // D1TCM multi-bit ECC error address
@@ -1408,7 +1374,6 @@ struct D1TCM_ECC_MULTI_ERROR_ADDR : ftl::mmio::Register<
   using D1TCM_ECCM_ERRED_ADDR = D1TCM_ECC_MULTI_ERROR_ADDR_fields_::D1TCM_ECCM_ERRED_ADDR;
 };
 
-
 // D1TCM multi-bit ECC Error Data Register
 struct D1TCM_ECC_MULTI_ERROR_DATA_fields_ {
   // D1TCM multi-bit ECC error data
@@ -1423,7 +1388,6 @@ struct D1TCM_ECC_MULTI_ERROR_DATA : ftl::mmio::Register<
     D1TCM_ECC_MULTI_ERROR_DATA_fields_::D1TCM_ECCM_ERRED_DATA> {
   using D1TCM_ECCM_ERRED_DATA = D1TCM_ECC_MULTI_ERROR_DATA_fields_::D1TCM_ECCM_ERRED_DATA;
 };
-
 
 // FlexRAM feature Control register
 struct FLEXRAM_CTRL_fields_ {
@@ -1463,7 +1427,6 @@ struct FLEXRAM_CTRL : ftl::mmio::Register<
   using TCM_ECC_EN = FLEXRAM_CTRL_fields_::TCM_ECC_EN;
   using Reserved = FLEXRAM_CTRL_fields_::Reserved;
 };
-
 
 // OCRAM Pipeline Status register
 struct OCRAM_PIPELINE_STATUS_fields_ {

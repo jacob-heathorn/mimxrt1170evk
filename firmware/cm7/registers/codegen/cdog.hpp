@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::cdog {
 
-
 // Control
 struct CONTROL_fields_ {
-
   enum class eLOCK_CTRL : std::uint32_t {
     // Locked
     eLOCKED = 1,
@@ -84,6 +82,7 @@ struct CONTROL_fields_ {
     // Stop the timer
     ePAUSE_TIMER = 2,
   };
+
   // Lock control
   using LOCK_CTRL = ftl::mmio::Field<2, 0, eLOCK_CTRL, ftl::mmio::RW, ftl::mmio::Normal>;
   // TIMEOUT fault control
@@ -139,7 +138,6 @@ struct CONTROL : ftl::mmio::Register<
   using DEBUG_HALT_CTRL = CONTROL_fields_::DEBUG_HALT_CTRL;
 };
 
-
 // Instruction Timer reload
 struct RELOAD_fields_ {
   // Instruction Timer reload value
@@ -154,7 +152,6 @@ struct RELOAD : ftl::mmio::Register<
     RELOAD_fields_::RLOAD> {
   using RLOAD = RELOAD_fields_::RLOAD;
 };
-
 
 // Instruction Timer
 struct INSTRUCTION_TIMER_fields_ {
@@ -171,7 +168,6 @@ struct INSTRUCTION_TIMER : ftl::mmio::Register<
   using INSTIM = INSTRUCTION_TIMER_fields_::INSTIM;
 };
 
-
 // Secure Counter
 struct SECURE_COUNTER_fields_ {
   // Secure Counter
@@ -186,7 +182,6 @@ struct SECURE_COUNTER : ftl::mmio::Register<
     SECURE_COUNTER_fields_::SECCNT> {
   using SECCNT = SECURE_COUNTER_fields_::SECCNT;
 };
-
 
 // Status 1
 struct STATUS_fields_ {
@@ -216,7 +211,6 @@ struct STATUS : ftl::mmio::Register<
   using CURST = STATUS_fields_::CURST;
 };
 
-
 // Status 2
 struct STATUS2_fields_ {
   // Number of CONTROL faults since the last POR
@@ -241,10 +235,8 @@ struct STATUS2 : ftl::mmio::Register<
   using NUMILLA = STATUS2_fields_::NUMILLA;
 };
 
-
 // Flags
 struct FLAGS_fields_ {
-
   enum class eTO_FLAG : std::uint32_t {
     // A TIMEOUT fault has not occurred
     eNO_FLAG = 0,
@@ -293,6 +285,7 @@ struct FLAGS_fields_ {
     // A Power-on reset event has occurred
     eFLAG = 1,
   };
+
   // TIMEOUT fault flag
   using TO_FLAG = ftl::mmio::Field<1, 0, eTO_FLAG, ftl::mmio::RW, ftl::mmio::Normal>;
   // MISCOMPARE fault flag
@@ -339,7 +332,6 @@ struct FLAGS : ftl::mmio::Register<
   using POR_FLAG = FLAGS_fields_::POR_FLAG;
 };
 
-
 // Persistent Data Storage
 struct PERSISTENT_fields_ {
   // Persistent Storage
@@ -354,7 +346,6 @@ struct PERSISTENT : ftl::mmio::Register<
     PERSISTENT_fields_::PERSIS> {
   using PERSIS = PERSISTENT_fields_::PERSIS;
 };
-
 
 // START Command
 struct START_fields_ {
@@ -371,7 +362,6 @@ struct START : ftl::mmio::Register<
   using STRT = START_fields_::STRT;
 };
 
-
 // STOP Command
 struct STOP_fields_ {
   // Stop command
@@ -386,7 +376,6 @@ struct STOP : ftl::mmio::Register<
     STOP_fields_::STP> {
   using STP = STOP_fields_::STP;
 };
-
 
 // RESTART Command
 struct RESTART_fields_ {
@@ -403,7 +392,6 @@ struct RESTART : ftl::mmio::Register<
   using RSTRT = RESTART_fields_::RSTRT;
 };
 
-
 // ADD Command
 struct ADD_fields_ {
   // ADD Write Value
@@ -418,7 +406,6 @@ struct ADD : ftl::mmio::Register<
     ADD_fields_::AD> {
   using AD = ADD_fields_::AD;
 };
-
 
 // ADD1 Command
 struct ADD1_fields_ {
@@ -435,7 +422,6 @@ struct ADD1 : ftl::mmio::Register<
   using AD1 = ADD1_fields_::AD1;
 };
 
-
 // ADD16 Command
 struct ADD16_fields_ {
   // ADD 16
@@ -450,7 +436,6 @@ struct ADD16 : ftl::mmio::Register<
     ADD16_fields_::AD16> {
   using AD16 = ADD16_fields_::AD16;
 };
-
 
 // ADD256 Command
 struct ADD256_fields_ {
@@ -467,7 +452,6 @@ struct ADD256 : ftl::mmio::Register<
   using AD256 = ADD256_fields_::AD256;
 };
 
-
 // SUB Command
 struct SUB_fields_ {
   // Subtract Write Value
@@ -482,7 +466,6 @@ struct SUB : ftl::mmio::Register<
     SUB_fields_::S0B> {
   using S0B = SUB_fields_::S0B;
 };
-
 
 // SUB1 Command
 struct SUB1_fields_ {
@@ -499,7 +482,6 @@ struct SUB1 : ftl::mmio::Register<
   using S1B = SUB1_fields_::S1B;
 };
 
-
 // SUB16 Command
 struct SUB16_fields_ {
   // Subtract 16
@@ -514,7 +496,6 @@ struct SUB16 : ftl::mmio::Register<
     SUB16_fields_::SB16> {
   using SB16 = SUB16_fields_::SB16;
 };
-
 
 // SUB256 Command
 struct SUB256_fields_ {

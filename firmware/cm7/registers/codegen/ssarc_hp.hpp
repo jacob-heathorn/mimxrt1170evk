@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::ssarc_hp {
 
-
 // Description Address Register
 struct SRAM0__fields_ {
   // Address field
@@ -25,7 +24,6 @@ struct SRAM0_ : ftl::mmio::Register<
   static_assert(ClusterIndex < 1024u, "SRAM0_: ClusterIndex out of range");
   using ADDR = SRAM0__fields_::ADDR;
 };
-
 
 // Description Data Register
 struct SRAM1__fields_ {
@@ -44,10 +42,8 @@ struct SRAM1_ : ftl::mmio::Register<
   using DATA = SRAM1__fields_::DATA;
 };
 
-
 // Description Control Register
 struct SRAM2__fields_ {
-
   enum class eTYPE : std::uint32_t {
     // SR
     eSR = 0,
@@ -87,6 +83,7 @@ struct SRAM2__fields_ {
     // 32-bit
     esize_2 = 2,
   };
+
   // Type field
   using TYPE = ftl::mmio::Field<3, 0, eTYPE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Save Enable

@@ -8,14 +8,13 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::sai1 {
 
-
 // Version ID
 struct VERID_fields_ {
-
   enum class eFEATURE : std::uint32_t {
     // Standard feature set.
     eSTD = 0,
   };
+
   // Feature Specification Number
   using FEATURE = ftl::mmio::Field<16, 0, eFEATURE, ftl::mmio::RO, ftl::mmio::Normal>;
   // Minor Version Number
@@ -37,7 +36,6 @@ struct VERID : ftl::mmio::Register<
   using MINOR = VERID_fields_::MINOR;
   using MAJOR = VERID_fields_::MAJOR;
 };
-
 
 // Parameter
 struct PARAM_fields_ {
@@ -65,10 +63,8 @@ struct PARAM : ftl::mmio::Register<
   using FRAME = PARAM_fields_::FRAME;
 };
 
-
 // Transmit Control
 struct TCSR_fields_ {
-
   enum class eFRDE : std::uint32_t {
     // Disables the DMA request.
     eDISABLE = 0,
@@ -194,6 +190,7 @@ struct TCSR_fields_ {
     // Transmitter is enabled, or transmitter has been disabled and has not yet reached end of frame.
     eENABLE = 1,
   };
+
   // FIFO Request DMA Enable
   using FRDE = ftl::mmio::Field<1, 0, eFRDE, ftl::mmio::RW, ftl::mmio::Normal>;
   // FIFO Warning DMA Enable
@@ -297,7 +294,6 @@ struct TCSR : ftl::mmio::Register<
   using TE = TCSR_fields_::TE;
 };
 
-
 // Transmit Configuration 1
 struct TCR1_fields_ {
   // Transmit FIFO Watermark
@@ -314,10 +310,8 @@ struct TCR1 : ftl::mmio::Register<
   using TFW = TCR1_fields_::TFW;
 };
 
-
 // Transmit Configuration 2
 struct TCR2_fields_ {
-
   enum class eBYP : std::uint32_t {
     // Internal bit clock is generated from bit clock divider.
     eDISABLE = 0,
@@ -370,6 +364,7 @@ struct TCR2_fields_ {
     // Synchronous with receiver.
     eSYNC_W_RX = 1,
   };
+
   // Bit Clock Divide
   using DIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Bit Clock Bypass
@@ -420,7 +415,6 @@ struct TCR2 : ftl::mmio::Register<
   using SYNC = TCR2_fields_::SYNC;
 };
 
-
 // Transmit Configuration 3
 struct TCR3_fields_ {
   // Word Flag Configuration
@@ -447,10 +441,8 @@ struct TCR3 : ftl::mmio::Register<
   using CFR = TCR3_fields_::CFR;
 };
 
-
 // Transmit Configuration 4
 struct TCR4_fields_ {
-
   enum class eFSD : std::uint32_t {
     // Frame sync is generated externally in Slave mode.
     eEXT_IN_SLAVE_MODE = 0,
@@ -519,6 +511,7 @@ struct TCR4_fields_ {
     // On FIFO error, the SAI will continue from the same word that caused the FIFO error to set after the FIFO warning flag has been cleared.
     eENABLE = 1,
   };
+
   // Frame Sync Direction
   using FSD = ftl::mmio::Field<1, 0, eFSD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Frame Sync Polarity
@@ -585,7 +578,6 @@ struct TCR4 : ftl::mmio::Register<
   using FCONT = TCR4_fields_::FCONT;
 };
 
-
 // Transmit Configuration 5
 struct TCR5_fields_ {
   // First Bit Shifted
@@ -613,7 +605,6 @@ struct TCR5 : ftl::mmio::Register<
   using WNW = TCR5_fields_::WNW;
 };
 
-
 // Transmit Data
 struct TDR_fields_ {
   // Transmit Data Register
@@ -631,16 +622,15 @@ struct TDR : ftl::mmio::Register<
   using value_ = TDR_fields_::TDR;
 };
 
-
 // Transmit FIFO
 struct TFR_fields_ {
-
   enum class eWCP : std::uint32_t {
     // No effect.
     eDISABLE = 0,
     // FIFO combine is enabled for FIFO writes and this FIFO will be written on the next FIFO write.
     eENABLE = 1,
   };
+
   // Read FIFO Pointer
   using RFP = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Write FIFO Pointer
@@ -667,16 +657,15 @@ struct TFR : ftl::mmio::Register<
   using WCP = TFR_fields_::WCP;
 };
 
-
 // Transmit Mask
 struct TMR_fields_ {
-
   enum class eTWM : std::uint32_t {
     // Word N is enabled.
     eWORD_N_ENABLED = 0,
     // Word N is masked. The transmit data pins are tri-stated or drive zero when masked.
     eWORD_N_MASKED = 1,
   };
+
   // Transmit Word Mask
   using TWM = ftl::mmio::Field<32, 0, eTWM, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct TMR_fields_
@@ -691,10 +680,8 @@ struct TMR : ftl::mmio::Register<
   using TWM = TMR_fields_::TWM;
 };
 
-
 // Receive Control
 struct RCSR_fields_ {
-
   enum class eFRDE : std::uint32_t {
     // Disables the DMA request.
     eDISABLE = 0,
@@ -820,6 +807,7 @@ struct RCSR_fields_ {
     // Receiver is enabled, or receiver has been disabled and has not yet reached end of frame.
     eENABLE = 1,
   };
+
   // FIFO Request DMA Enable
   using FRDE = ftl::mmio::Field<1, 0, eFRDE, ftl::mmio::RW, ftl::mmio::Normal>;
   // FIFO Warning DMA Enable
@@ -923,7 +911,6 @@ struct RCSR : ftl::mmio::Register<
   using RE = RCSR_fields_::RE;
 };
 
-
 // Receive Configuration 1
 struct RCR1_fields_ {
   // Receive FIFO Watermark
@@ -940,10 +927,8 @@ struct RCR1 : ftl::mmio::Register<
   using RFW = RCR1_fields_::RFW;
 };
 
-
 // Receive Configuration 2
 struct RCR2_fields_ {
-
   enum class eBYP : std::uint32_t {
     // Internal bit clock is generated from bit clock divider.
     eDISABLE = 0,
@@ -996,6 +981,7 @@ struct RCR2_fields_ {
     // Synchronous with transmitter.
     eSYNC_W_TX = 1,
   };
+
   // Bit Clock Divide
   using DIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Bit Clock Bypass
@@ -1046,7 +1032,6 @@ struct RCR2 : ftl::mmio::Register<
   using SYNC = RCR2_fields_::SYNC;
 };
 
-
 // Receive Configuration 3
 struct RCR3_fields_ {
   // Word Flag Configuration
@@ -1073,10 +1058,8 @@ struct RCR3 : ftl::mmio::Register<
   using CFR = RCR3_fields_::CFR;
 };
 
-
 // Receive Configuration 4
 struct RCR4_fields_ {
-
   enum class eFSD : std::uint32_t {
     // Frame Sync is generated externally in Slave mode.
     eEXT_SLAVE_MODE = 0,
@@ -1138,6 +1121,7 @@ struct RCR4_fields_ {
     // On FIFO error, the SAI will continue from the same word that caused the FIFO error to set after the FIFO warning flag has been cleared.
     eENABLE = 1,
   };
+
   // Frame Sync Direction
   using FSD = ftl::mmio::Field<1, 0, eFSD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Frame Sync Polarity
@@ -1199,7 +1183,6 @@ struct RCR4 : ftl::mmio::Register<
   using FCONT = RCR4_fields_::FCONT;
 };
 
-
 // Receive Configuration 5
 struct RCR5_fields_ {
   // First Bit Shifted
@@ -1227,7 +1210,6 @@ struct RCR5 : ftl::mmio::Register<
   using WNW = RCR5_fields_::WNW;
 };
 
-
 // Receive Data
 struct RDR_fields_ {
   // Receive Data Register
@@ -1245,16 +1227,15 @@ struct RDR : ftl::mmio::Register<
   using value_ = RDR_fields_::RDR;
 };
 
-
 // Receive FIFO
 struct RFR_fields_ {
-
   enum class eRCP : std::uint32_t {
     // No effect.
     eDISABLE = 0,
     // FIFO combine is enabled for FIFO reads and this FIFO will be read on the next FIFO read.
     eENABLE = 1,
   };
+
   // Read FIFO Pointer
   using RFP = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Receive Channel Pointer
@@ -1281,16 +1262,15 @@ struct RFR : ftl::mmio::Register<
   using WFP = RFR_fields_::WFP;
 };
 
-
 // Receive Mask
 struct RMR_fields_ {
-
   enum class eRWM : std::uint32_t {
     // Word N is enabled.
     eWORD_N_ENABLED = 0,
     // Word N is masked.
     eWORD_N_MASKED = 1,
   };
+
   // Receive Word Mask
   using RWM = ftl::mmio::Field<32, 0, eRWM, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct RMR_fields_

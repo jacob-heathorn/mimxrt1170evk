@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::cm7_mcm {
 
-
 // Interrupt Status and Control Register
 struct ISCR_fields_ {
-
   enum class eWABS : std::uint32_t {
     // No abort
     enoabort = 0,
@@ -116,6 +114,7 @@ struct ISCR_fields_ {
     // Enable interrupt
     eENABLE = 1,
   };
+
   // Write Abort on Slave
   using WABS = ftl::mmio::Field<1, 5, eWABS, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Write Abort on Slave Overrun

@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::anadig_ldo_snvs_dig {
 
-
 // PMU_LDO_SNVS_DIG_REGISTER
 struct PMU_LDO_SNVS_DIG_fields_ {
   // REG_LP_EN

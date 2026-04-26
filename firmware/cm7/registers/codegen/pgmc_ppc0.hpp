@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::pgmc_ppc0 {
 
-
 // PPC Authentication Control
 struct PPC_AUTHEN_CTRL_fields_ {
   // Allow user mode access
@@ -48,10 +47,8 @@ struct PPC_AUTHEN_CTRL : ftl::mmio::Register<
   using LOCK_CFG = PPC_AUTHEN_CTRL_fields_::LOCK_CFG;
 };
 
-
 // PPC Mode
 struct PPC_MODE_fields_ {
-
   enum class eCTRL_MODE : std::uint32_t {
     // Not affected by any low power mode
     eCTRL_MODE_0 = 0,
@@ -71,6 +68,7 @@ struct PPC_MODE_fields_ {
     // Domain 3
     ed3 = 3,
   };
+
   // Control mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
   using CTRL_MODE = ftl::mmio::Field<2, 0, eCTRL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Domain assignment of the BPC
@@ -91,7 +89,6 @@ struct PPC_MODE : ftl::mmio::Register<
   using CTRL_MODE = PPC_MODE_fields_::CTRL_MODE;
   using DOMAIN_ASSIGN = PPC_MODE_fields_::DOMAIN_ASSIGN;
 };
-
 
 // PPC standby CPU mode control
 struct PPC_STBY_CM_CTRL_fields_ {
@@ -126,7 +123,6 @@ struct PPC_STBY_CM_CTRL : ftl::mmio::Register<
   using STBY_ON_SOFT = PPC_STBY_CM_CTRL_fields_::STBY_ON_SOFT;
   using STBY_OFF_SOFT = PPC_STBY_CM_CTRL_fields_::STBY_OFF_SOFT;
 };
-
 
 // PPC standby Setpoint control
 struct PPC_STBY_SP_CTRL_fields_ {

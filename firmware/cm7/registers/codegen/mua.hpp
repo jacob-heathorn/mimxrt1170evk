@@ -8,7 +8,6 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::mua {
 
-
 // Processor A Transmit Register 0
 struct TR0_fields_ {
   // TR0
@@ -23,7 +22,6 @@ struct TR0 : ftl::mmio::Register<
     TR0_fields_::DATA> {
   using DATA = TR0_fields_::DATA;
 };
-
 
 // Processor A Transmit Register 1
 struct TR1_fields_ {
@@ -40,7 +38,6 @@ struct TR1 : ftl::mmio::Register<
   using DATA = TR1_fields_::DATA;
 };
 
-
 // Processor A Transmit Register 2
 struct TR2_fields_ {
   // TR2
@@ -55,7 +52,6 @@ struct TR2 : ftl::mmio::Register<
     TR2_fields_::DATA> {
   using DATA = TR2_fields_::DATA;
 };
-
 
 // Processor A Transmit Register 3
 struct TR3_fields_ {
@@ -72,7 +68,6 @@ struct TR3 : ftl::mmio::Register<
   using DATA = TR3_fields_::DATA;
 };
 
-
 // Processor A Receive Register 0
 struct RR0_fields_ {
   // RR0
@@ -87,7 +82,6 @@ struct RR0 : ftl::mmio::Register<
     RR0_fields_::DATA> {
   using DATA = RR0_fields_::DATA;
 };
-
 
 // Processor A Receive Register 1
 struct RR1_fields_ {
@@ -104,7 +98,6 @@ struct RR1 : ftl::mmio::Register<
   using DATA = RR1_fields_::DATA;
 };
 
-
 // Processor A Receive Register 2
 struct RR2_fields_ {
   // RR2
@@ -119,7 +112,6 @@ struct RR2 : ftl::mmio::Register<
     RR2_fields_::DATA> {
   using DATA = RR2_fields_::DATA;
 };
-
 
 // Processor A Receive Register 3
 struct RR3_fields_ {
@@ -136,10 +128,8 @@ struct RR3 : ftl::mmio::Register<
   using DATA = RR3_fields_::DATA;
 };
 
-
 // Processor A Status Register
 struct SR_fields_ {
-
   enum class eFn : std::uint32_t {
     // BAFn bit in MUB.CR register is written 0 (default).
     ezero = 0,
@@ -188,6 +178,7 @@ struct SR_fields_ {
     // Processor A general purpose interrupt n is pending.
     epending = 1,
   };
+
   // Fn
   using Fn = ftl::mmio::Field<3, 0, eFn, ftl::mmio::RO, ftl::mmio::Normal>;
   // EP
@@ -235,10 +226,8 @@ struct SR : ftl::mmio::Register<
   using GIPn = SR_fields_::GIPn;
 };
 
-
 // Processor A Control Register
 struct CR_fields_ {
-
   enum class eFn : std::uint32_t {
     // N/A. Self clearing bit (default).
     enot_appl = 0,
@@ -280,6 +269,7 @@ struct CR_fields_ {
     // Enables Processor A General Interrupt n.
     eenable = 1,
   };
+
   // Fn
   using Fn = ftl::mmio::Field<3, 0, eFn, ftl::mmio::RW, ftl::mmio::Normal>;
   // MUR

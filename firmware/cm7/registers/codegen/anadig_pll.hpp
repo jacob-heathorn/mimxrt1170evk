@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::anadig_pll {
 
-
 // ARM_PLL_CTRL_REGISTER
 struct ARM_PLL_CTRL_fields_ {
-
   enum class eHOLD_RING_OFF : std::uint32_t {
     // Normal operation
     eNORMAL = 0,
@@ -71,6 +69,7 @@ struct ARM_PLL_CTRL_fields_ {
     // GPC Mode
     eGPC = 1,
   };
+
   // DIV_SELECT
   using DIV_SELECT = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // PLL Start up initialization
@@ -126,10 +125,8 @@ struct ARM_PLL_CTRL : ftl::mmio::Register<
   using ARM_PLL_CONTROL_MODE = ARM_PLL_CTRL_fields_::ARM_PLL_CONTROL_MODE;
 };
 
-
 // SYS_PLL3_CTRL_REGISTER
 struct SYS_PLL3_CTRL_fields_ {
-
   enum class eHOLD_RING_OFF : std::uint32_t {
     // Normal operation
     eNORMAL = 0,
@@ -178,6 +175,7 @@ struct SYS_PLL3_CTRL_fields_ {
     // GPC Mode
     eGPC = 1,
   };
+
   // SYS PLL3 DIV2 gate
   using SYS_PLL3_DIV2 = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Enable Internal PLL Regulator
@@ -240,10 +238,8 @@ struct SYS_PLL3_CTRL : ftl::mmio::Register<
   using SYS_PLL3_CONTROL_MODE = SYS_PLL3_CTRL_fields_::SYS_PLL3_CONTROL_MODE;
 };
 
-
 // SYS_PLL3_UPDATE_REGISTER
 struct SYS_PLL3_UPDATE_fields_ {
-
   enum class ePFD0_CONTROL_MODE : std::uint32_t {
     // Software Mode (Default)
     eSW = 0,
@@ -271,6 +267,7 @@ struct SYS_PLL3_UPDATE_fields_ {
     // GPC Mode
     eGPC = 1,
   };
+
   // PFD0_OVERRIDE
   using PFD0_UPDATE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // PFD1_OVERRIDE
@@ -318,10 +315,8 @@ struct SYS_PLL3_UPDATE : ftl::mmio::Register<
   using PFD3_CONTROL_MODE = SYS_PLL3_UPDATE_fields_::PFD3_CONTROL_MODE;
 };
 
-
 // SYS_PLL3_PFD_REGISTER
 struct SYS_PLL3_PFD_fields_ {
-
   enum class ePFD0_DIV1_CLKGATE : std::uint32_t {
     // ref_pfd0 fractional divider clock is enabled
     eON = 0,
@@ -349,6 +344,7 @@ struct SYS_PLL3_PFD_fields_ {
     // Fractional divider clock (reference ref_pfd3) is off (power savings)
     eOFF = 1,
   };
+
   // PFD0_FRAC
   using PFD0_FRAC = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // PFD0_STABLE
@@ -410,10 +406,8 @@ struct SYS_PLL3_PFD : ftl::mmio::Register<
   using PFD3_DIV1_CLKGATE = SYS_PLL3_PFD_fields_::PFD3_DIV1_CLKGATE;
 };
 
-
 // SYS_PLL2_CTRL_REGISTER
 struct SYS_PLL2_CTRL_fields_ {
-
   enum class eHOLD_RING_OFF : std::uint32_t {
     // Normal operation
     eNORMAL = 0,
@@ -462,6 +456,7 @@ struct SYS_PLL2_CTRL_fields_ {
     // GPC Mode
     eGPC = 1,
   };
+
   // Enable Internal PLL Regulator
   using PLL_REG_EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // PLL Start up initialization
@@ -528,10 +523,8 @@ struct SYS_PLL2_CTRL : ftl::mmio::Register<
   using SYS_PLL2_CONTROL_MODE = SYS_PLL2_CTRL_fields_::SYS_PLL2_CONTROL_MODE;
 };
 
-
 // SYS_PLL2_UPDATE_REGISTER
 struct SYS_PLL2_UPDATE_fields_ {
-
   enum class ePFD0_CONTROL_MODE : std::uint32_t {
     // Software Mode (Default)
     eSW = 0,
@@ -559,6 +552,7 @@ struct SYS_PLL2_UPDATE_fields_ {
     // GPC Mode
     eGPC = 1,
   };
+
   // PFD0_UPDATE
   using PFD0_UPDATE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // PFD1_UPDATE
@@ -606,16 +600,15 @@ struct SYS_PLL2_UPDATE : ftl::mmio::Register<
   using PFD3_CONTROL_MODE = SYS_PLL2_UPDATE_fields_::PFD3_CONTROL_MODE;
 };
 
-
 // SYS_PLL2_SS_REGISTER
 struct SYS_PLL2_SS_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // Disable Spread Spectrum
     eDISABLE = 0,
     // Enable Spread Spectrum
     eENABLE = 1,
   };
+
   // STEP
   using STEP = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // ENABLE
@@ -637,7 +630,6 @@ struct SYS_PLL2_SS : ftl::mmio::Register<
   using ENABLE = SYS_PLL2_SS_fields_::ENABLE;
   using STOP = SYS_PLL2_SS_fields_::STOP;
 };
-
 
 // SYS_PLL2_PFD_REGISTER
 struct SYS_PLL2_PFD_fields_ {
@@ -698,7 +690,6 @@ struct SYS_PLL2_PFD : ftl::mmio::Register<
   using PFD3_DIV1_CLKGATE = SYS_PLL2_PFD_fields_::PFD3_DIV1_CLKGATE;
 };
 
-
 // SYS_PLL2_MFD_REGISTER
 struct SYS_PLL2_MFD_fields_ {
   // Denominator
@@ -715,16 +706,15 @@ struct SYS_PLL2_MFD : ftl::mmio::Register<
   using MFD = SYS_PLL2_MFD_fields_::MFD;
 };
 
-
 // SYS_PLL1_SS_REGISTER
 struct SYS_PLL1_SS_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // Disable Spread Spectrum
     eDISABLE = 0,
     // Enable Spread Spectrum
     eENABLE = 1,
   };
+
   // STEP
   using STEP = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // ENABLE
@@ -747,10 +737,8 @@ struct SYS_PLL1_SS : ftl::mmio::Register<
   using STOP = SYS_PLL1_SS_fields_::STOP;
 };
 
-
 // SYS_PLL1_CTRL_REGISTER
 struct SYS_PLL1_CTRL_fields_ {
-
   enum class eSYS_PLL1_GATE : std::uint32_t {
     // No gate
     eNOGATE = 0,
@@ -778,6 +766,7 @@ struct SYS_PLL1_CTRL_fields_ {
     // GPC Mode
     eGPC = 1,
   };
+
   // ENABLE_CLK
   using ENABLE_CLK = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // SYS_PLL1_GATE
@@ -829,7 +818,6 @@ struct SYS_PLL1_CTRL : ftl::mmio::Register<
   using SYS_PLL1_CONTROL_MODE = SYS_PLL1_CTRL_fields_::SYS_PLL1_CONTROL_MODE;
 };
 
-
 // SYS_PLL1_DENOMINATOR_REGISTER
 struct SYS_PLL1_DENOMINATOR_fields_ {
   // DENOM
@@ -845,7 +833,6 @@ struct SYS_PLL1_DENOMINATOR : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using DENOM = SYS_PLL1_DENOMINATOR_fields_::DENOM;
 };
-
 
 // SYS_PLL1_NUMERATOR_REGISTER
 struct SYS_PLL1_NUMERATOR_fields_ {
@@ -863,7 +850,6 @@ struct SYS_PLL1_NUMERATOR : ftl::mmio::Register<
   using NUM = SYS_PLL1_NUMERATOR_fields_::NUM;
 };
 
-
 // SYS_PLL1_DIV_SELECT_REGISTER
 struct SYS_PLL1_DIV_SELECT_fields_ {
   // DIV_SELECT
@@ -880,10 +866,8 @@ struct SYS_PLL1_DIV_SELECT : ftl::mmio::Register<
   using DIV_SELECT = SYS_PLL1_DIV_SELECT_fields_::DIV_SELECT;
 };
 
-
 // PLL_AUDIO_CTRL_REGISTER
 struct PLL_AUDIO_CTRL_fields_ {
-
   enum class ePLL_AUDIO_GATE : std::uint32_t {
     // No gate
     eNOGATE = 0,
@@ -897,6 +881,7 @@ struct PLL_AUDIO_CTRL_fields_ {
     // GPC Mode
     eGPC = 1,
   };
+
   // ENABLE_CLK
   using ENABLE_CLK = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // PLL_AUDIO_GATE
@@ -930,16 +915,15 @@ struct PLL_AUDIO_CTRL : ftl::mmio::Register<
   using PLL_AUDIO_CONTROL_MODE = PLL_AUDIO_CTRL_fields_::PLL_AUDIO_CONTROL_MODE;
 };
 
-
 // PLL_AUDIO_SS_REGISTER
 struct PLL_AUDIO_SS_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // Disable Spread Spectrum
     eDISABLE = 0,
     // Enable Spread Spectrum
     eENABLE = 1,
   };
+
   // STEP
   using STEP = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // ENABLE
@@ -962,7 +946,6 @@ struct PLL_AUDIO_SS : ftl::mmio::Register<
   using STOP = PLL_AUDIO_SS_fields_::STOP;
 };
 
-
 // PLL_AUDIO_DENOMINATOR_REGISTER
 struct PLL_AUDIO_DENOMINATOR_fields_ {
   // DENOM
@@ -978,7 +961,6 @@ struct PLL_AUDIO_DENOMINATOR : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using DENOM = PLL_AUDIO_DENOMINATOR_fields_::DENOM;
 };
-
 
 // PLL_AUDIO_NUMERATOR_REGISTER
 struct PLL_AUDIO_NUMERATOR_fields_ {
@@ -996,7 +978,6 @@ struct PLL_AUDIO_NUMERATOR : ftl::mmio::Register<
   using NUM = PLL_AUDIO_NUMERATOR_fields_::NUM;
 };
 
-
 // PLL_AUDIO_DIV_SELECT_REGISTER
 struct PLL_AUDIO_DIV_SELECT_fields_ {
   // PLL_AUDIO_DIV_SELECT
@@ -1013,10 +994,8 @@ struct PLL_AUDIO_DIV_SELECT : ftl::mmio::Register<
   using value_ = PLL_AUDIO_DIV_SELECT_fields_::PLL_AUDIO_DIV_SELECT;
 };
 
-
 // PLL_VIDEO_CTRL_REGISTER
 struct PLL_VIDEO_CTRL_fields_ {
-
   enum class ePLL_VIDEO_GATE : std::uint32_t {
     // No gate
     eNOGATE = 0,
@@ -1030,6 +1009,7 @@ struct PLL_VIDEO_CTRL_fields_ {
     // GPC Mode
     eGPC = 1,
   };
+
   // ENABLE_CLK
   using ENABLE_CLK = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // PLL_VIDEO_GATE
@@ -1068,16 +1048,15 @@ struct PLL_VIDEO_CTRL : ftl::mmio::Register<
   using PLL_VIDEO_CONTROL_MODE = PLL_VIDEO_CTRL_fields_::PLL_VIDEO_CONTROL_MODE;
 };
 
-
 // PLL_VIDEO_SS_REGISTER
 struct PLL_VIDEO_SS_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // Disable Spread Spectrum
     eDISABLE = 0,
     // Enable Spread Spectrum
     eENABLE = 1,
   };
+
   // STEP
   using STEP = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // ENABLE
@@ -1100,7 +1079,6 @@ struct PLL_VIDEO_SS : ftl::mmio::Register<
   using STOP = PLL_VIDEO_SS_fields_::STOP;
 };
 
-
 // PLL_VIDEO_DENOMINATOR_REGISTER
 struct PLL_VIDEO_DENOMINATOR_fields_ {
   // DENOM
@@ -1117,7 +1095,6 @@ struct PLL_VIDEO_DENOMINATOR : ftl::mmio::Register<
   using DENOM = PLL_VIDEO_DENOMINATOR_fields_::DENOM;
 };
 
-
 // PLL_VIDEO_NUMERATOR_REGISTER
 struct PLL_VIDEO_NUMERATOR_fields_ {
   // NUM
@@ -1133,7 +1110,6 @@ struct PLL_VIDEO_NUMERATOR : ftl::mmio::Register<
     ftl::mmio::Reserved<2, 30>> {
   using NUM = PLL_VIDEO_NUMERATOR_fields_::NUM;
 };
-
 
 // PLL_VIDEO_DIV_SELECT_REGISTER
 struct PLL_VIDEO_DIV_SELECT_fields_ {

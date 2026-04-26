@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::phy_ldo {
 
-
 // Analog Control Register CTRL0
 struct CTRL0_fields_ {
-
   enum class eLINREG_PWRUPLOAD_DIS : std::uint32_t {
     // Internal pull-down enabled
     eLINREG_PWRUPLOAD_DIS_0 = 0,
@@ -27,6 +25,7 @@ struct CTRL0_fields_ {
     // Set output voltage to x.xV
     eLINREG_OUTPUT_TRG_31 = 31,
   };
+
   // LinrReg master enable
   using LINREG_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // LinReg power-up load disable
@@ -60,7 +59,6 @@ struct CTRL0 : ftl::mmio::Register<
   using LINREG_OUTPUT_TRG = CTRL0_fields_::LINREG_OUTPUT_TRG;
   using LINREG_PHY_ISO_B = CTRL0_fields_::LINREG_PHY_ISO_B;
 };
-
 
 // Analog Control Register CTRL0
 struct CTRL0_SET_fields_ {
@@ -96,7 +94,6 @@ struct CTRL0_SET : ftl::mmio::Register<
   using LINREG_PHY_ISO_B = CTRL0_SET_fields_::LINREG_PHY_ISO_B;
 };
 
-
 // Analog Control Register CTRL0
 struct CTRL0_CLR_fields_ {
   // LinrReg master enable
@@ -130,7 +127,6 @@ struct CTRL0_CLR : ftl::mmio::Register<
   using LINREG_OUTPUT_TRG = CTRL0_CLR_fields_::LINREG_OUTPUT_TRG;
   using LINREG_PHY_ISO_B = CTRL0_CLR_fields_::LINREG_PHY_ISO_B;
 };
-
 
 // Analog Control Register CTRL0
 struct CTRL0_TOG_fields_ {
@@ -166,7 +162,6 @@ struct CTRL0_TOG : ftl::mmio::Register<
   using LINREG_PHY_ISO_B = CTRL0_TOG_fields_::LINREG_PHY_ISO_B;
 };
 
-
 // Analog Status Register STAT0
 struct STAT0_fields_ {
   // LinReg Status Bits
@@ -182,7 +177,6 @@ struct STAT0 : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 4>> {
   using LINREG_STAT = STAT0_fields_::LINREG_STAT;
 };
-
 
 // Analog Status Register STAT0
 struct STAT0_SET_fields_ {
@@ -200,7 +194,6 @@ struct STAT0_SET : ftl::mmio::Register<
   using LINREG_STAT = STAT0_SET_fields_::LINREG_STAT;
 };
 
-
 // Analog Status Register STAT0
 struct STAT0_CLR_fields_ {
   // LinReg Status Bits
@@ -216,7 +209,6 @@ struct STAT0_CLR : ftl::mmio::Register<
     ftl::mmio::Reserved<28, 4>> {
   using LINREG_STAT = STAT0_CLR_fields_::LINREG_STAT;
 };
-
 
 // Analog Status Register STAT0
 struct STAT0_TOG_fields_ {

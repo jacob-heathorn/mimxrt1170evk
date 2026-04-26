@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::video_mux {
 
-
 // Video mux Control Register
 struct VID_MUX_CTRL_fields_ {
-
   enum class eCSI_SEL : std::uint32_t {
     // CSI sensor data is from Parallel CSI
     ePARALLEL_CSI = 0,
@@ -39,6 +37,7 @@ struct VID_MUX_CTRL_fields_ {
     // Parallel LCDIF video data is from LCDIFv2
     eMIPI_CSI = 1,
   };
+
   // CSI sensor data input mux selector
   using CSI_SEL = ftl::mmio::Field<1, 0, eCSI_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
   // LCDIF2 sensor data input mux selector
@@ -69,7 +68,6 @@ struct VID_MUX_CTRL : ftl::mmio::Register<
   using PARA_LCD_SEL = VID_MUX_CTRL_fields_::PARA_LCD_SEL;
 };
 
-
 // Video mux Control Register
 struct VID_MUX_CTRL_SET_fields_ {
   // CSI sensor data input mux selector
@@ -97,7 +95,6 @@ struct VID_MUX_CTRL_SET : ftl::mmio::Register<
   using MIPI_DSI_SEL = VID_MUX_CTRL_SET_fields_::MIPI_DSI_SEL;
   using PARA_LCD_SEL = VID_MUX_CTRL_SET_fields_::PARA_LCD_SEL;
 };
-
 
 // Video mux Control Register
 struct VID_MUX_CTRL_CLR_fields_ {
@@ -127,7 +124,6 @@ struct VID_MUX_CTRL_CLR : ftl::mmio::Register<
   using PARA_LCD_SEL = VID_MUX_CTRL_CLR_fields_::PARA_LCD_SEL;
 };
 
-
 // Video mux Control Register
 struct VID_MUX_CTRL_TOG_fields_ {
   // CSI sensor data input mux selector
@@ -156,10 +152,8 @@ struct VID_MUX_CTRL_TOG : ftl::mmio::Register<
   using PARA_LCD_SEL = VID_MUX_CTRL_TOG_fields_::PARA_LCD_SEL;
 };
 
-
 // Pixel Link Master(PLM) Control Register
 struct PLM_CTRL_fields_ {
-
   enum class eENABLE : std::uint32_t {
     // No active HSYNC and VSYNC output
     eNO_ACTIVE = 0,
@@ -194,6 +188,7 @@ struct PLM_CTRL_fields_ {
     // Invert the polarity of HSYNC and VSYNC
     eINVERT = 1,
   };
+
   // Enable the output of HYSNC and VSYNC
   using ENABLE = ftl::mmio::Field<1, 0, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
   // VSYNC override
@@ -229,7 +224,6 @@ struct PLM_CTRL : ftl::mmio::Register<
   using POLARITY = PLM_CTRL_fields_::POLARITY;
 };
 
-
 // Pixel Link Master(PLM) Control Register
 struct PLM_CTRL_SET_fields_ {
   // Enable the output of HYSNC and VSYNC
@@ -261,7 +255,6 @@ struct PLM_CTRL_SET : ftl::mmio::Register<
   using VALID_OVERRIDE = PLM_CTRL_SET_fields_::VALID_OVERRIDE;
   using POLARITY = PLM_CTRL_SET_fields_::POLARITY;
 };
-
 
 // Pixel Link Master(PLM) Control Register
 struct PLM_CTRL_CLR_fields_ {
@@ -295,7 +288,6 @@ struct PLM_CTRL_CLR : ftl::mmio::Register<
   using POLARITY = PLM_CTRL_CLR_fields_::POLARITY;
 };
 
-
 // Pixel Link Master(PLM) Control Register
 struct PLM_CTRL_TOG_fields_ {
   // Enable the output of HYSNC and VSYNC
@@ -328,16 +320,15 @@ struct PLM_CTRL_TOG : ftl::mmio::Register<
   using POLARITY = PLM_CTRL_TOG_fields_::POLARITY;
 };
 
-
 // YUV420 Control Register
 struct YUV420_CTRL_fields_ {
-
   enum class eFST_LN_DATA_TYPE : std::uint32_t {
     // Odd (default)
     eODD = 0,
     // Even
     eEVEN = 1,
   };
+
   // Data type of First Line
   using FST_LN_DATA_TYPE = ftl::mmio::Field<1, 0, eFST_LN_DATA_TYPE, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct YUV420_CTRL_fields_
@@ -352,7 +343,6 @@ struct YUV420_CTRL : ftl::mmio::Register<
   using eFST_LN_DATA_TYPE = YUV420_CTRL_fields_::eFST_LN_DATA_TYPE;
   using FST_LN_DATA_TYPE = YUV420_CTRL_fields_::FST_LN_DATA_TYPE;
 };
-
 
 // YUV420 Control Register
 struct YUV420_CTRL_SET_fields_ {
@@ -370,7 +360,6 @@ struct YUV420_CTRL_SET : ftl::mmio::Register<
   using FST_LN_DATA_TYPE = YUV420_CTRL_SET_fields_::FST_LN_DATA_TYPE;
 };
 
-
 // YUV420 Control Register
 struct YUV420_CTRL_CLR_fields_ {
   // Data type of First Line
@@ -386,7 +375,6 @@ struct YUV420_CTRL_CLR : ftl::mmio::Register<
     ftl::mmio::Reserved<31, 1>> {
   using FST_LN_DATA_TYPE = YUV420_CTRL_CLR_fields_::FST_LN_DATA_TYPE;
 };
-
 
 // YUV420 Control Register
 struct YUV420_CTRL_TOG_fields_ {
@@ -404,7 +392,6 @@ struct YUV420_CTRL_TOG : ftl::mmio::Register<
   using FST_LN_DATA_TYPE = YUV420_CTRL_TOG_fields_::FST_LN_DATA_TYPE;
 };
 
-
 // Data Disable Register
 struct CFG_DT_DISABLE_fields_ {
   // Data Type Disable
@@ -420,7 +407,6 @@ struct CFG_DT_DISABLE : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using value_ = CFG_DT_DISABLE_fields_::CFG_DT_DISABLE;
 };
-
 
 // Data Disable Register
 struct CFG_DT_DISABLE_SET_fields_ {
@@ -438,7 +424,6 @@ struct CFG_DT_DISABLE_SET : ftl::mmio::Register<
   using CFG_DT_DISABLE = CFG_DT_DISABLE_SET_fields_::CFG_DT_DISABLE;
 };
 
-
 // Data Disable Register
 struct CFG_DT_DISABLE_CLR_fields_ {
   // Data Type Disable
@@ -454,7 +439,6 @@ struct CFG_DT_DISABLE_CLR : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using CFG_DT_DISABLE = CFG_DT_DISABLE_CLR_fields_::CFG_DT_DISABLE;
 };
-
 
 // Data Disable Register
 struct CFG_DT_DISABLE_TOG_fields_ {
@@ -472,10 +456,8 @@ struct CFG_DT_DISABLE_TOG : ftl::mmio::Register<
   using CFG_DT_DISABLE = CFG_DT_DISABLE_TOG_fields_::CFG_DT_DISABLE;
 };
 
-
 // MIPI DSI Control Register
 struct MIPI_DSI_CTRL_fields_ {
-
   enum class eDPI_SD : std::uint32_t {
     // No effect
     eNO = 0,
@@ -489,6 +471,7 @@ struct MIPI_DSI_CTRL_fields_ {
     // Low-color mode
     eLOWCLR = 1,
   };
+
   // Shut Down - Control to shutdown display (type 4 only)
   using DPI_SD = ftl::mmio::Field<1, 0, eDPI_SD, ftl::mmio::RW, ftl::mmio::Normal>;
   // Color Mode control
@@ -508,7 +491,6 @@ struct MIPI_DSI_CTRL : ftl::mmio::Register<
   using DPI_SD = MIPI_DSI_CTRL_fields_::DPI_SD;
   using DPI_CM = MIPI_DSI_CTRL_fields_::DPI_CM;
 };
-
 
 // MIPI DSI Control Register
 struct MIPI_DSI_CTRL_SET_fields_ {
@@ -530,7 +512,6 @@ struct MIPI_DSI_CTRL_SET : ftl::mmio::Register<
   using DPI_CM = MIPI_DSI_CTRL_SET_fields_::DPI_CM;
 };
 
-
 // MIPI DSI Control Register
 struct MIPI_DSI_CTRL_CLR_fields_ {
   // Shut Down - Control to shutdown display (type 4 only)
@@ -550,7 +531,6 @@ struct MIPI_DSI_CTRL_CLR : ftl::mmio::Register<
   using DPI_SD = MIPI_DSI_CTRL_CLR_fields_::DPI_SD;
   using DPI_CM = MIPI_DSI_CTRL_CLR_fields_::DPI_CM;
 };
-
 
 // MIPI DSI Control Register
 struct MIPI_DSI_CTRL_TOG_fields_ {

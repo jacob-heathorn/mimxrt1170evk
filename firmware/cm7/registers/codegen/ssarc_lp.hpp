@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::ssarc_lp {
 
-
 // Descriptor Control0 0 Register
 struct DESC_CTRL0_0_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -25,6 +23,7 @@ struct DESC_CTRL0_0_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -53,10 +52,8 @@ struct DESC_CTRL0_0 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_0_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 0 Register
 struct DESC_CTRL1_0_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -117,6 +114,7 @@ struct DESC_CTRL1_0_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -175,7 +173,6 @@ struct DESC_CTRL1_0 : ftl::mmio::Register<
   using DL = DESC_CTRL1_0_fields_::DL;
 };
 
-
 // Descriptor Address Up 0 Register
 struct DESC_ADDR_UP_0_fields_ {
   // Address field (High)
@@ -190,7 +187,6 @@ struct DESC_ADDR_UP_0 : ftl::mmio::Register<
     DESC_ADDR_UP_0_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_0_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 0 Register
 struct DESC_ADDR_DOWN_0_fields_ {
@@ -207,10 +203,8 @@ struct DESC_ADDR_DOWN_0 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_0_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 1 Register
 struct DESC_CTRL0_1_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -224,6 +218,7 @@ struct DESC_CTRL0_1_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -252,10 +247,8 @@ struct DESC_CTRL0_1 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_1_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 1 Register
 struct DESC_CTRL1_1_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -316,6 +309,7 @@ struct DESC_CTRL1_1_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -374,7 +368,6 @@ struct DESC_CTRL1_1 : ftl::mmio::Register<
   using DL = DESC_CTRL1_1_fields_::DL;
 };
 
-
 // Descriptor Address Up 1 Register
 struct DESC_ADDR_UP_1_fields_ {
   // Address field (High)
@@ -389,7 +382,6 @@ struct DESC_ADDR_UP_1 : ftl::mmio::Register<
     DESC_ADDR_UP_1_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_1_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 1 Register
 struct DESC_ADDR_DOWN_1_fields_ {
@@ -406,10 +398,8 @@ struct DESC_ADDR_DOWN_1 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_1_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 2 Register
 struct DESC_CTRL0_2_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -423,6 +413,7 @@ struct DESC_CTRL0_2_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -451,10 +442,8 @@ struct DESC_CTRL0_2 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_2_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 2 Register
 struct DESC_CTRL1_2_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -515,6 +504,7 @@ struct DESC_CTRL1_2_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -573,7 +563,6 @@ struct DESC_CTRL1_2 : ftl::mmio::Register<
   using DL = DESC_CTRL1_2_fields_::DL;
 };
 
-
 // Descriptor Address Up 2 Register
 struct DESC_ADDR_UP_2_fields_ {
   // Address field (High)
@@ -588,7 +577,6 @@ struct DESC_ADDR_UP_2 : ftl::mmio::Register<
     DESC_ADDR_UP_2_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_2_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 2 Register
 struct DESC_ADDR_DOWN_2_fields_ {
@@ -605,10 +593,8 @@ struct DESC_ADDR_DOWN_2 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_2_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 3 Register
 struct DESC_CTRL0_3_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -622,6 +608,7 @@ struct DESC_CTRL0_3_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -650,10 +637,8 @@ struct DESC_CTRL0_3 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_3_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 3 Register
 struct DESC_CTRL1_3_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -714,6 +699,7 @@ struct DESC_CTRL1_3_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -772,7 +758,6 @@ struct DESC_CTRL1_3 : ftl::mmio::Register<
   using DL = DESC_CTRL1_3_fields_::DL;
 };
 
-
 // Descriptor Address Up 3 Register
 struct DESC_ADDR_UP_3_fields_ {
   // Address field (High)
@@ -787,7 +772,6 @@ struct DESC_ADDR_UP_3 : ftl::mmio::Register<
     DESC_ADDR_UP_3_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_3_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 3 Register
 struct DESC_ADDR_DOWN_3_fields_ {
@@ -804,10 +788,8 @@ struct DESC_ADDR_DOWN_3 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_3_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 4 Register
 struct DESC_CTRL0_4_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -821,6 +803,7 @@ struct DESC_CTRL0_4_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -849,10 +832,8 @@ struct DESC_CTRL0_4 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_4_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 4 Register
 struct DESC_CTRL1_4_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -913,6 +894,7 @@ struct DESC_CTRL1_4_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -971,7 +953,6 @@ struct DESC_CTRL1_4 : ftl::mmio::Register<
   using DL = DESC_CTRL1_4_fields_::DL;
 };
 
-
 // Descriptor Address Up 4 Register
 struct DESC_ADDR_UP_4_fields_ {
   // Address field (High)
@@ -986,7 +967,6 @@ struct DESC_ADDR_UP_4 : ftl::mmio::Register<
     DESC_ADDR_UP_4_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_4_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 4 Register
 struct DESC_ADDR_DOWN_4_fields_ {
@@ -1003,10 +983,8 @@ struct DESC_ADDR_DOWN_4 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_4_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 5 Register
 struct DESC_CTRL0_5_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -1020,6 +998,7 @@ struct DESC_CTRL0_5_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -1048,10 +1027,8 @@ struct DESC_CTRL0_5 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_5_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 5 Register
 struct DESC_CTRL1_5_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -1112,6 +1089,7 @@ struct DESC_CTRL1_5_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -1170,7 +1148,6 @@ struct DESC_CTRL1_5 : ftl::mmio::Register<
   using DL = DESC_CTRL1_5_fields_::DL;
 };
 
-
 // Descriptor Address Up 5 Register
 struct DESC_ADDR_UP_5_fields_ {
   // Address field (High)
@@ -1185,7 +1162,6 @@ struct DESC_ADDR_UP_5 : ftl::mmio::Register<
     DESC_ADDR_UP_5_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_5_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 5 Register
 struct DESC_ADDR_DOWN_5_fields_ {
@@ -1202,10 +1178,8 @@ struct DESC_ADDR_DOWN_5 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_5_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 6 Register
 struct DESC_CTRL0_6_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -1219,6 +1193,7 @@ struct DESC_CTRL0_6_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -1247,10 +1222,8 @@ struct DESC_CTRL0_6 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_6_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 6 Register
 struct DESC_CTRL1_6_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -1311,6 +1284,7 @@ struct DESC_CTRL1_6_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -1369,7 +1343,6 @@ struct DESC_CTRL1_6 : ftl::mmio::Register<
   using DL = DESC_CTRL1_6_fields_::DL;
 };
 
-
 // Descriptor Address Up 6 Register
 struct DESC_ADDR_UP_6_fields_ {
   // Address field (High)
@@ -1384,7 +1357,6 @@ struct DESC_ADDR_UP_6 : ftl::mmio::Register<
     DESC_ADDR_UP_6_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_6_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 6 Register
 struct DESC_ADDR_DOWN_6_fields_ {
@@ -1401,10 +1373,8 @@ struct DESC_ADDR_DOWN_6 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_6_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 7 Register
 struct DESC_CTRL0_7_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -1418,6 +1388,7 @@ struct DESC_CTRL0_7_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -1446,10 +1417,8 @@ struct DESC_CTRL0_7 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_7_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 7 Register
 struct DESC_CTRL1_7_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -1510,6 +1479,7 @@ struct DESC_CTRL1_7_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -1568,7 +1538,6 @@ struct DESC_CTRL1_7 : ftl::mmio::Register<
   using DL = DESC_CTRL1_7_fields_::DL;
 };
 
-
 // Descriptor Address Up 7 Register
 struct DESC_ADDR_UP_7_fields_ {
   // Address field (High)
@@ -1583,7 +1552,6 @@ struct DESC_ADDR_UP_7 : ftl::mmio::Register<
     DESC_ADDR_UP_7_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_7_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 7 Register
 struct DESC_ADDR_DOWN_7_fields_ {
@@ -1600,10 +1568,8 @@ struct DESC_ADDR_DOWN_7 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_7_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 8 Register
 struct DESC_CTRL0_8_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -1617,6 +1583,7 @@ struct DESC_CTRL0_8_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -1645,10 +1612,8 @@ struct DESC_CTRL0_8 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_8_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 8 Register
 struct DESC_CTRL1_8_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -1709,6 +1674,7 @@ struct DESC_CTRL1_8_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -1767,7 +1733,6 @@ struct DESC_CTRL1_8 : ftl::mmio::Register<
   using DL = DESC_CTRL1_8_fields_::DL;
 };
 
-
 // Descriptor Address Up 8 Register
 struct DESC_ADDR_UP_8_fields_ {
   // Address field (High)
@@ -1782,7 +1747,6 @@ struct DESC_ADDR_UP_8 : ftl::mmio::Register<
     DESC_ADDR_UP_8_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_8_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 8 Register
 struct DESC_ADDR_DOWN_8_fields_ {
@@ -1799,10 +1763,8 @@ struct DESC_ADDR_DOWN_8 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_8_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 9 Register
 struct DESC_CTRL0_9_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -1816,6 +1778,7 @@ struct DESC_CTRL0_9_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -1844,10 +1807,8 @@ struct DESC_CTRL0_9 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_9_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 9 Register
 struct DESC_CTRL1_9_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -1908,6 +1869,7 @@ struct DESC_CTRL1_9_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -1966,7 +1928,6 @@ struct DESC_CTRL1_9 : ftl::mmio::Register<
   using DL = DESC_CTRL1_9_fields_::DL;
 };
 
-
 // Descriptor Address Up 9 Register
 struct DESC_ADDR_UP_9_fields_ {
   // Address field (High)
@@ -1981,7 +1942,6 @@ struct DESC_ADDR_UP_9 : ftl::mmio::Register<
     DESC_ADDR_UP_9_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_9_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 9 Register
 struct DESC_ADDR_DOWN_9_fields_ {
@@ -1998,10 +1958,8 @@ struct DESC_ADDR_DOWN_9 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_9_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 10 Register
 struct DESC_CTRL0_10_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -2015,6 +1973,7 @@ struct DESC_CTRL0_10_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -2043,10 +2002,8 @@ struct DESC_CTRL0_10 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_10_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 10 Register
 struct DESC_CTRL1_10_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -2107,6 +2064,7 @@ struct DESC_CTRL1_10_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -2165,7 +2123,6 @@ struct DESC_CTRL1_10 : ftl::mmio::Register<
   using DL = DESC_CTRL1_10_fields_::DL;
 };
 
-
 // Descriptor Address Up 10 Register
 struct DESC_ADDR_UP_10_fields_ {
   // Address field (High)
@@ -2180,7 +2137,6 @@ struct DESC_ADDR_UP_10 : ftl::mmio::Register<
     DESC_ADDR_UP_10_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_10_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 10 Register
 struct DESC_ADDR_DOWN_10_fields_ {
@@ -2197,10 +2153,8 @@ struct DESC_ADDR_DOWN_10 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_10_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 11 Register
 struct DESC_CTRL0_11_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -2214,6 +2168,7 @@ struct DESC_CTRL0_11_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -2242,10 +2197,8 @@ struct DESC_CTRL0_11 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_11_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 11 Register
 struct DESC_CTRL1_11_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -2306,6 +2259,7 @@ struct DESC_CTRL1_11_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -2364,7 +2318,6 @@ struct DESC_CTRL1_11 : ftl::mmio::Register<
   using DL = DESC_CTRL1_11_fields_::DL;
 };
 
-
 // Descriptor Address Up 11 Register
 struct DESC_ADDR_UP_11_fields_ {
   // Address field (High)
@@ -2379,7 +2332,6 @@ struct DESC_ADDR_UP_11 : ftl::mmio::Register<
     DESC_ADDR_UP_11_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_11_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 11 Register
 struct DESC_ADDR_DOWN_11_fields_ {
@@ -2396,10 +2348,8 @@ struct DESC_ADDR_DOWN_11 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_11_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 12 Register
 struct DESC_CTRL0_12_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -2413,6 +2363,7 @@ struct DESC_CTRL0_12_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -2441,10 +2392,8 @@ struct DESC_CTRL0_12 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_12_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 12 Register
 struct DESC_CTRL1_12_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -2505,6 +2454,7 @@ struct DESC_CTRL1_12_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -2563,7 +2513,6 @@ struct DESC_CTRL1_12 : ftl::mmio::Register<
   using DL = DESC_CTRL1_12_fields_::DL;
 };
 
-
 // Descriptor Address Up 12 Register
 struct DESC_ADDR_UP_12_fields_ {
   // Address field (High)
@@ -2578,7 +2527,6 @@ struct DESC_ADDR_UP_12 : ftl::mmio::Register<
     DESC_ADDR_UP_12_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_12_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 12 Register
 struct DESC_ADDR_DOWN_12_fields_ {
@@ -2595,10 +2543,8 @@ struct DESC_ADDR_DOWN_12 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_12_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 13 Register
 struct DESC_CTRL0_13_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -2612,6 +2558,7 @@ struct DESC_CTRL0_13_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -2640,10 +2587,8 @@ struct DESC_CTRL0_13 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_13_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 13 Register
 struct DESC_CTRL1_13_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -2704,6 +2649,7 @@ struct DESC_CTRL1_13_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -2762,7 +2708,6 @@ struct DESC_CTRL1_13 : ftl::mmio::Register<
   using DL = DESC_CTRL1_13_fields_::DL;
 };
 
-
 // Descriptor Address Up 13 Register
 struct DESC_ADDR_UP_13_fields_ {
   // Address field (High)
@@ -2777,7 +2722,6 @@ struct DESC_ADDR_UP_13 : ftl::mmio::Register<
     DESC_ADDR_UP_13_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_13_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 13 Register
 struct DESC_ADDR_DOWN_13_fields_ {
@@ -2794,10 +2738,8 @@ struct DESC_ADDR_DOWN_13 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_13_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 14 Register
 struct DESC_CTRL0_14_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -2811,6 +2753,7 @@ struct DESC_CTRL0_14_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -2839,10 +2782,8 @@ struct DESC_CTRL0_14 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_14_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 14 Register
 struct DESC_CTRL1_14_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -2903,6 +2844,7 @@ struct DESC_CTRL1_14_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -2961,7 +2903,6 @@ struct DESC_CTRL1_14 : ftl::mmio::Register<
   using DL = DESC_CTRL1_14_fields_::DL;
 };
 
-
 // Descriptor Address Up 14 Register
 struct DESC_ADDR_UP_14_fields_ {
   // Address field (High)
@@ -2976,7 +2917,6 @@ struct DESC_ADDR_UP_14 : ftl::mmio::Register<
     DESC_ADDR_UP_14_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_14_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 14 Register
 struct DESC_ADDR_DOWN_14_fields_ {
@@ -2993,10 +2933,8 @@ struct DESC_ADDR_DOWN_14 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_14_fields_::ADDR_DOWN;
 };
 
-
 // Descriptor Control0 15 Register
 struct DESC_CTRL0_15_fields_ {
-
   enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
@@ -3010,6 +2948,7 @@ struct DESC_CTRL0_15_fields_ {
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
+
   // Start index
   using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // End index
@@ -3038,10 +2977,8 @@ struct DESC_CTRL0_15 : ftl::mmio::Register<
   using RT_ORDER = DESC_CTRL0_15_fields_::RT_ORDER;
 };
 
-
 // Descriptor Control1 15 Register
 struct DESC_CTRL1_15_fields_ {
-
   enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
@@ -3102,6 +3039,7 @@ struct DESC_CTRL1_15_fields_ {
     // Lock
     eD_LOCK = 1,
   };
+
   // Software trigger save
   using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software trigger restore
@@ -3160,7 +3098,6 @@ struct DESC_CTRL1_15 : ftl::mmio::Register<
   using DL = DESC_CTRL1_15_fields_::DL;
 };
 
-
 // Descriptor Address Up 15 Register
 struct DESC_ADDR_UP_15_fields_ {
   // Address field (High)
@@ -3175,7 +3112,6 @@ struct DESC_ADDR_UP_15 : ftl::mmio::Register<
     DESC_ADDR_UP_15_fields_::ADDR_UP> {
   using ADDR_UP = DESC_ADDR_UP_15_fields_::ADDR_UP;
 };
-
 
 // Descriptor Address Down 15 Register
 struct DESC_ADDR_DOWN_15_fields_ {
@@ -3192,16 +3128,15 @@ struct DESC_ADDR_DOWN_15 : ftl::mmio::Register<
   using ADDR_DOWN = DESC_ADDR_DOWN_15_fields_::ADDR_DOWN;
 };
 
-
 // Control Register
 struct CTRL_fields_ {
-
   enum class eDIS_HW_REQ : std::uint32_t {
     // PGMC save/restore requests enabled
     eENABLE_PGMC = 0,
     // PGMC save/restore requests disabled
     eDIS_PGMC = 1,
   };
+
   // Save/Restore request disable
   using DIS_HW_REQ = ftl::mmio::Field<1, 27, eDIS_HW_REQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Software reset
@@ -3222,10 +3157,8 @@ struct CTRL : ftl::mmio::Register<
   using SW_RESET = CTRL_fields_::SW_RESET;
 };
 
-
 // Interrupt Status Register
 struct INT_STATUS_fields_ {
-
   enum class eGROUP_CONFLICT : std::uint32_t {
     // No group conflict error
     eGRP_CONFLICT_ERR_NO = 0,
@@ -3260,6 +3193,7 @@ struct INT_STATUS_fields_ {
     // An address error has occurred
     eADDERR_ERR = 1,
   };
+
   // Error Index
   using ERR_INDEX = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // AHB Bus response field
@@ -3303,7 +3237,6 @@ struct INT_STATUS : ftl::mmio::Register<
   using ADDR_ERR = INT_STATUS_fields_::ADDR_ERR;
 };
 
-
 // HP Timeout Register
 struct HP_TIMEOUT_fields_ {
   // Time out value
@@ -3318,7 +3251,6 @@ struct HP_TIMEOUT : ftl::mmio::Register<
     HP_TIMEOUT_fields_::TIMEOUT_VALUE> {
   using TIMEOUT_VALUE = HP_TIMEOUT_fields_::TIMEOUT_VALUE;
 };
-
 
 // Hardware Request Pending Register
 struct HW_GROUP_PENDING_fields_ {
@@ -3338,7 +3270,6 @@ struct HW_GROUP_PENDING : ftl::mmio::Register<
   using HW_SAVE_PENDING = HW_GROUP_PENDING_fields_::HW_SAVE_PENDING;
   using HW_RESTORE_PENDING = HW_GROUP_PENDING_fields_::HW_RESTORE_PENDING;
 };
-
 
 // Software Request Pending Register
 struct SW_GROUP_PENDING_fields_ {

@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::enet_qos {
 
-
 // MAC Configuration Register
 struct MAC_CONFIGURATION_fields_ {
-
   enum class eRE : std::uint32_t {
     // Receiver is disabled
     eDISABLE = 0,
@@ -203,6 +201,7 @@ struct MAC_CONFIGURATION_fields_ {
     // Contents of MAC Addr-1 replaces SA field
     eMAC1_REP_SA = 7,
   };
+
   // Receiver Enable
   using RE = ftl::mmio::Field<1, 0, eRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmitter Enable
@@ -334,10 +333,8 @@ struct MAC_CONFIGURATION : ftl::mmio::Register<
   using SARC = MAC_CONFIGURATION_fields_::SARC;
 };
 
-
 // MAC Extended Configuration Register
 struct MAC_EXT_CONFIGURATION_fields_ {
-
   enum class eDCRCC : std::uint32_t {
     // CRC Checking is enabled
     eENABLE = 0,
@@ -372,6 +369,7 @@ struct MAC_EXT_CONFIGURATION_fields_ {
     // Extended Inter-Packet Gap is enabled
     eENABLE = 1,
   };
+
   // Giant Packet Size Limit
   using GPSL = ftl::mmio::Field<14, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Disable CRC Checking for Received Packets
@@ -417,10 +415,8 @@ struct MAC_EXT_CONFIGURATION : ftl::mmio::Register<
   using EIPG = MAC_EXT_CONFIGURATION_fields_::EIPG;
 };
 
-
 // MAC Packet Filter
 struct MAC_PACKET_FILTER_fields_ {
-
   enum class ePR : std::uint32_t {
     // Promiscuous Mode is disabled
     eDISABLE = 0,
@@ -522,6 +518,7 @@ struct MAC_PACKET_FILTER_fields_ {
     // Receive All is enabled
     eENABLE = 1,
   };
+
   // Promiscuous Mode
   using PR = ftl::mmio::Field<1, 0, ePR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Hash Unicast
@@ -604,10 +601,8 @@ struct MAC_PACKET_FILTER : ftl::mmio::Register<
   using RA = MAC_PACKET_FILTER_fields_::RA;
 };
 
-
 // Watchdog Timeout
 struct MAC_WATCHDOG_TIMEOUT_fields_ {
-
   enum class eWTO : std::uint32_t {
     // 2 KB
     ebf_2KBYTES = 0,
@@ -647,6 +642,7 @@ struct MAC_WATCHDOG_TIMEOUT_fields_ {
     // Programmable Watchdog is enabled
     eENABLE = 1,
   };
+
   // Watchdog Timeout
   using WTO = ftl::mmio::Field<4, 0, eWTO, ftl::mmio::RW, ftl::mmio::Normal>;
   // Programmable Watchdog Enable
@@ -668,7 +664,6 @@ struct MAC_WATCHDOG_TIMEOUT : ftl::mmio::Register<
   using PWE = MAC_WATCHDOG_TIMEOUT_fields_::PWE;
 };
 
-
 // MAC Hash Table Register 0
 struct MAC_HASH_TABLE_REG0_fields_ {
   // MAC Hash Table First 32 Bits This field contains the first 32 Bits [31:0] of the Hash table.
@@ -683,7 +678,6 @@ struct MAC_HASH_TABLE_REG0 : ftl::mmio::Register<
     MAC_HASH_TABLE_REG0_fields_::HT31T0> {
   using HT31T0 = MAC_HASH_TABLE_REG0_fields_::HT31T0;
 };
-
 
 // MAC Hash Table Register 1
 struct MAC_HASH_TABLE_REG1_fields_ {
@@ -700,10 +694,8 @@ struct MAC_HASH_TABLE_REG1 : ftl::mmio::Register<
   using HT63T32 = MAC_HASH_TABLE_REG1_fields_::HT63T32;
 };
 
-
 // MAC VLAN Tag Control
 struct MAC_VLAN_TAG_CTRL_fields_ {
-
   enum class eOB : std::uint32_t {
     // Operation Busy is disabled
     eDISABLE = 0,
@@ -788,6 +780,7 @@ struct MAC_VLAN_TAG_CTRL_fields_ {
     // Inner VLAN Tag in Rx status is enabled
     eENABLE = 1,
   };
+
   // Operation Busy
   using OB = ftl::mmio::Field<1, 0, eOB, ftl::mmio::RW, ftl::mmio::Normal>;
   // Command Type
@@ -860,10 +853,8 @@ struct MAC_VLAN_TAG_CTRL : ftl::mmio::Register<
   using EIVLRXS = MAC_VLAN_TAG_CTRL_fields_::EIVLRXS;
 };
 
-
 // MAC VLAN Tag Data
 struct MAC_VLAN_TAG_DATA_fields_ {
-
   enum class eVEN : std::uint32_t {
     // VLAN Tag is disabled
     eDISABLE = 0,
@@ -905,6 +896,7 @@ struct MAC_VLAN_TAG_DATA_fields_ {
     // DMA Channel Number is enabled
     eENABLE = 1,
   };
+
   // VLAN Tag ID
   using VID = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // VLAN Tag Enable
@@ -954,7 +946,6 @@ struct MAC_VLAN_TAG_DATA : ftl::mmio::Register<
   using DMACHN = MAC_VLAN_TAG_DATA_fields_::DMACHN;
 };
 
-
 // MAC VLAN Hash Table
 struct MAC_VLAN_HASH_TABLE_fields_ {
   // VLAN Hash Table This field contains the 16-bit VLAN Hash Table.
@@ -971,10 +962,8 @@ struct MAC_VLAN_HASH_TABLE : ftl::mmio::Register<
   using VLHT = MAC_VLAN_HASH_TABLE_fields_::VLHT;
 };
 
-
 // VLAN Tag Inclusion or Replacement
 struct MAC_VLAN_INCL_fields_ {
-
   enum class eVLC : std::uint32_t {
     // No VLAN tag deletion, insertion, or replacement
     eNONE = 0,
@@ -1027,6 +1016,7 @@ struct MAC_VLAN_INCL_fields_ {
     // Busy status detected
     eACTIVE = 1,
   };
+
   // VLAN Tag for Transmit Packets
   using VLT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // VLAN Tag Control in Transmit Packets - 2'b00: No VLAN tag deletion, insertion, or replacement - 2'b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted packets with VLAN tags.
@@ -1081,10 +1071,8 @@ struct MAC_VLAN_INCL : ftl::mmio::Register<
   using BUSY = MAC_VLAN_INCL_fields_::BUSY;
 };
 
-
 // MAC Inner VLAN Tag Inclusion or Replacement
 struct MAC_INNER_VLAN_INCL_fields_ {
-
   enum class eVLC : std::uint32_t {
     // No VLAN tag deletion, insertion, or replacement
     eNONE = 0,
@@ -1116,6 +1104,7 @@ struct MAC_INNER_VLAN_INCL_fields_ {
     // VLAN Tag Input is enabled
     eENABLE = 1,
   };
+
   // VLAN Tag for Transmit Packets
   using VLT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // VLAN Tag Control in Transmit Packets
@@ -1150,10 +1139,8 @@ struct MAC_INNER_VLAN_INCL : ftl::mmio::Register<
   using VLTI = MAC_INNER_VLAN_INCL_fields_::VLTI;
 };
 
-
 // MAC Q0 Tx Flow Control
 struct MAC_Q0_TX_FLOW_CTRL_fields_ {
-
   enum class eFCB_BPA : std::uint32_t {
     // Flow Control Busy or Backpressure Activate is disabled
     eDISABLE = 0,
@@ -1189,6 +1176,7 @@ struct MAC_Q0_TX_FLOW_CTRL_fields_ {
     // Zero-Quanta Pause packet generation is disabled
     eDISABLE = 1,
   };
+
   // Flow Control Busy or Backpressure Activate
   using FCB_BPA = ftl::mmio::Field<1, 0, eFCB_BPA, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Flow Control Enable
@@ -1224,10 +1212,8 @@ struct MAC_Q0_TX_FLOW_CTRL : ftl::mmio::Register<
   using PT = MAC_Q0_TX_FLOW_CTRL_fields_::PT;
 };
 
-
 // MAC Q1 Tx Flow Control
 struct MAC_Q1_TX_FLOW_CTRL_fields_ {
-
   enum class eFCB_BPA : std::uint32_t {
     // Flow Control Busy or Backpressure Activate is disabled
     eDISABLE = 0,
@@ -1263,6 +1249,7 @@ struct MAC_Q1_TX_FLOW_CTRL_fields_ {
     // Zero-Quanta Pause packet generation is disabled
     eDISABLE = 1,
   };
+
   // Flow Control Busy
   using FCB_BPA = ftl::mmio::Field<1, 0, eFCB_BPA, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Flow Control Enable
@@ -1298,10 +1285,8 @@ struct MAC_Q1_TX_FLOW_CTRL : ftl::mmio::Register<
   using PT = MAC_Q1_TX_FLOW_CTRL_fields_::PT;
 };
 
-
 // MAC Q2 Tx Flow Control
 struct MAC_Q2_TX_FLOW_CTRL_fields_ {
-
   enum class eFCB_BPA : std::uint32_t {
     // Flow Control Busy or Backpressure Activate is disabled
     eDISABLE = 0,
@@ -1337,6 +1322,7 @@ struct MAC_Q2_TX_FLOW_CTRL_fields_ {
     // Zero-Quanta Pause packet generation is disabled
     eDISABLE = 1,
   };
+
   // Flow Control Busy
   using FCB_BPA = ftl::mmio::Field<1, 0, eFCB_BPA, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Flow Control Enable
@@ -1372,10 +1358,8 @@ struct MAC_Q2_TX_FLOW_CTRL : ftl::mmio::Register<
   using PT = MAC_Q2_TX_FLOW_CTRL_fields_::PT;
 };
 
-
 // MAC Q3 Tx Flow Control
 struct MAC_Q3_TX_FLOW_CTRL_fields_ {
-
   enum class eFCB_BPA : std::uint32_t {
     // Flow Control Busy or Backpressure Activate is disabled
     eDISABLE = 0,
@@ -1411,6 +1395,7 @@ struct MAC_Q3_TX_FLOW_CTRL_fields_ {
     // Zero-Quanta Pause packet generation is disabled
     eDISABLE = 1,
   };
+
   // Flow Control Busy
   using FCB_BPA = ftl::mmio::Field<1, 0, eFCB_BPA, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Flow Control Enable
@@ -1446,10 +1431,8 @@ struct MAC_Q3_TX_FLOW_CTRL : ftl::mmio::Register<
   using PT = MAC_Q3_TX_FLOW_CTRL_fields_::PT;
 };
 
-
 // MAC Q4 Tx Flow Control
 struct MAC_Q4_TX_FLOW_CTRL_fields_ {
-
   enum class eFCB_BPA : std::uint32_t {
     // Flow Control Busy or Backpressure Activate is disabled
     eDISABLE = 0,
@@ -1485,6 +1468,7 @@ struct MAC_Q4_TX_FLOW_CTRL_fields_ {
     // Zero-Quanta Pause packet generation is disabled
     eDISABLE = 1,
   };
+
   // Flow Control Busy
   using FCB_BPA = ftl::mmio::Field<1, 0, eFCB_BPA, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Flow Control Enable
@@ -1520,10 +1504,8 @@ struct MAC_Q4_TX_FLOW_CTRL : ftl::mmio::Register<
   using PT = MAC_Q4_TX_FLOW_CTRL_fields_::PT;
 };
 
-
 // MAC Rx Flow Control
 struct MAC_RX_FLOW_CTRL_fields_ {
-
   enum class eRFE : std::uint32_t {
     // Receive Flow Control is disabled
     eDISABLE = 0,
@@ -1544,6 +1526,7 @@ struct MAC_RX_FLOW_CTRL_fields_ {
     // Priority Based Flow Control is enabled
     eENABLE = 1,
   };
+
   // Receive Flow Control Enable
   using RFE = ftl::mmio::Field<1, 0, eRFE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Unicast Pause Packet Detect
@@ -1570,10 +1553,8 @@ struct MAC_RX_FLOW_CTRL : ftl::mmio::Register<
   using PFCE = MAC_RX_FLOW_CTRL_fields_::PFCE;
 };
 
-
 // Receive Queue Control 4
 struct MAC_RXQ_CTRL4_fields_ {
-
   enum class eUFFQE : std::uint32_t {
     // Unicast Address Filter Fail Packets Queuing is disabled
     eDISABLE = 0,
@@ -1594,6 +1575,7 @@ struct MAC_RXQ_CTRL4_fields_ {
     // VLAN tag Filter Fail Packets Queuing is enabled
     eENABLE = 1,
   };
+
   // Unicast Address Filter Fail Packets Queuing Enable.
   using UFFQE = ftl::mmio::Field<1, 0, eUFFQE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Unicast Address Filter Fail Packets Queue.
@@ -1633,7 +1615,6 @@ struct MAC_RXQ_CTRL4 : ftl::mmio::Register<
   using VFFQ = MAC_RXQ_CTRL4_fields_::VFFQ;
 };
 
-
 // Transmit Queue Priority Mapping 0
 struct MAC_TXQ_PRTY_MAP0_fields_ {
   // Priorities Selected in Transmit Queue 0
@@ -1661,7 +1642,6 @@ struct MAC_TXQ_PRTY_MAP0 : ftl::mmio::Register<
   using PSTQ3 = MAC_TXQ_PRTY_MAP0_fields_::PSTQ3;
 };
 
-
 // Transmit Queue Priority Mapping 1
 struct MAC_TXQ_PRTY_MAP1_fields_ {
   // Priorities Selected in Transmit Queue 4
@@ -1678,10 +1658,8 @@ struct MAC_TXQ_PRTY_MAP1 : ftl::mmio::Register<
   using PSTQ4 = MAC_TXQ_PRTY_MAP1_fields_::PSTQ4;
 };
 
-
 // Receive Queue Control 0
 struct MAC_RXQ_CTRL0_fields_ {
-
   enum class eRXQ0EN : std::uint32_t {
     // Queue not enabled
     eDISABLE = 0,
@@ -1726,6 +1704,7 @@ struct MAC_RXQ_CTRL0_fields_ {
     // Queue enabled for DCB/Generic
     eEN_DCB_GEN = 2,
   };
+
   // Receive Queue 0 Enable This field indicates whether Rx Queue 0 is enabled for AV or DCB.
   using RXQ0EN = ftl::mmio::Field<2, 0, eRXQ0EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Queue 1 Enable This field is similar to the RXQ0EN field.
@@ -1761,10 +1740,8 @@ struct MAC_RXQ_CTRL0 : ftl::mmio::Register<
   using RXQ4EN = MAC_RXQ_CTRL0_fields_::RXQ4EN;
 };
 
-
 // Receive Queue Control 1
 struct MAC_RXQ_CTRL1_fields_ {
-
   enum class eAVCPQ : std::uint32_t {
     // Receive Queue 0
     eQUEUE0 = 0,
@@ -1843,6 +1820,7 @@ struct MAC_RXQ_CTRL1_fields_ {
     // Tagged AV Control Packets Queuing is enabled
     eENABLE = 1,
   };
+
   // AV Untagged Control Packets Queue
   using AVCPQ = ftl::mmio::Field<3, 0, eAVCPQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // PTP Packets Queue
@@ -1901,7 +1879,6 @@ struct MAC_RXQ_CTRL1 : ftl::mmio::Register<
   using FPRQ = MAC_RXQ_CTRL1_fields_::FPRQ;
 };
 
-
 // Receive Queue Control 2
 struct MAC_RXQ_CTRL2_fields_ {
   // Priorities Selected in the Receive Queue 0
@@ -1929,7 +1906,6 @@ struct MAC_RXQ_CTRL2 : ftl::mmio::Register<
   using PSRQ3 = MAC_RXQ_CTRL2_fields_::PSRQ3;
 };
 
-
 // Receive Queue Control 3
 struct MAC_RXQ_CTRL3_fields_ {
   // Priorities Selected in the Receive Queue 4
@@ -1946,10 +1922,8 @@ struct MAC_RXQ_CTRL3 : ftl::mmio::Register<
   using PSRQ4 = MAC_RXQ_CTRL3_fields_::PSRQ4;
 };
 
-
 // Interrupt Status
 struct MAC_INTERRUPT_STATUS_fields_ {
-
   enum class eRGSMIIIS : std::uint32_t {
     // RGMII or SMII Interrupt Status is not active
     eINACTIVE = 0,
@@ -2054,6 +2028,7 @@ struct MAC_INTERRUPT_STATUS_fields_ {
     // MMC FPE Receive Interrupt status active
     eACTIVE = 1,
   };
+
   // RGMII or SMII Interrupt Status
   using RGSMIIIS = ftl::mmio::Field<1, 0, eRGSMIIIS, ftl::mmio::RO, ftl::mmio::Normal>;
   // PHY Interrupt
@@ -2142,10 +2117,8 @@ struct MAC_INTERRUPT_STATUS : ftl::mmio::Register<
   using MFRIS = MAC_INTERRUPT_STATUS_fields_::MFRIS;
 };
 
-
 // Interrupt Enable
 struct MAC_INTERRUPT_ENABLE_fields_ {
-
   enum class eRGSMIIIE : std::uint32_t {
     // RGMII or SMII Interrupt is disabled
     eDISABLE = 0,
@@ -2208,6 +2181,7 @@ struct MAC_INTERRUPT_ENABLE_fields_ {
     // MDIO Interrupt is enabled
     eENABLE = 1,
   };
+
   // RGMII or SMII Interrupt Enable When this bit is set, it enables the assertion of the interrupt signal because of the setting of RGSMIIIS bit in MAC_INTERRUPT_STATUS register.
   using RGSMIIIE = ftl::mmio::Field<1, 0, eRGSMIIIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // PHY Interrupt Enable When this bit is set, it enables the assertion of the interrupt signal because of the setting of MAC_INTERRUPT_STATUS[PHYIS].
@@ -2266,10 +2240,8 @@ struct MAC_INTERRUPT_ENABLE : ftl::mmio::Register<
   using MDIOIE = MAC_INTERRUPT_ENABLE_fields_::MDIOIE;
 };
 
-
 // Receive Transmit Status
 struct MAC_RX_TX_STATUS_fields_ {
-
   enum class eTJT : std::uint32_t {
     // No Transmit Jabber Timeout
     eINACTIVE = 0,
@@ -2318,6 +2290,7 @@ struct MAC_RX_TX_STATUS_fields_ {
     // Receive watchdog timed out
     eACTIVE = 1,
   };
+
   // Transmit Jabber Timeout This bit indicates that the Transmit Jabber Timer expired which happens when the packet size exceeds 2,048 bytes (10,240 bytes when the Jumbo packet is enabled) and JD bit is reset in the MAC_CONFIGURATION register.
   using TJT = ftl::mmio::Field<1, 0, eTJT, ftl::mmio::RO, ftl::mmio::Normal>;
   // No Carrier When the DTXSTS bit is set in the MAC_OPERATION_MODE register, this bit indicates that the carrier signal from the PHY is not present at the end of preamble transmission.
@@ -2364,10 +2337,8 @@ struct MAC_RX_TX_STATUS : ftl::mmio::Register<
   using RWT = MAC_RX_TX_STATUS_fields_::RWT;
 };
 
-
 // PMT Control and Status
 struct MAC_PMT_CONTROL_STATUS_fields_ {
-
   enum class ePWRDWN : std::uint32_t {
     // Power down is disabled
     eDISABLE = 0,
@@ -2423,6 +2394,7 @@ struct MAC_PMT_CONTROL_STATUS_fields_ {
     // Remote Wake-Up Packet Filter Register Pointer is Reset
     eENABLE = 1,
   };
+
   // Power Down When this bit is set, the MAC receiver drops all received packets until it receives the expected magic packet or remote wake-up packet.
   using PWRDWN = ftl::mmio::Field<1, 0, ePWRDWN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Magic Packet Enable When this bit is set, a power management event is generated when the MAC receives a magic packet.
@@ -2480,7 +2452,6 @@ struct MAC_PMT_CONTROL_STATUS : ftl::mmio::Register<
   using RWKFILTRST = MAC_PMT_CONTROL_STATUS_fields_::RWKFILTRST;
 };
 
-
 // Remote Wakeup Filter
 struct MAC_RWK_PACKET_FILTER_fields_ {
   // RWK Packet Filter This field contains the various controls of RWK Packet filter.
@@ -2496,10 +2467,8 @@ struct MAC_RWK_PACKET_FILTER : ftl::mmio::Register<
   using WKUPFRMFTR = MAC_RWK_PACKET_FILTER_fields_::WKUPFRMFTR;
 };
 
-
 // LPI Control and Status
 struct MAC_LPI_CONTROL_STATUS_fields_ {
-
   enum class eTLPIEN : std::uint32_t {
     // Transmit LPI entry not detected
     eINACTIVE = 0,
@@ -2583,6 +2552,7 @@ struct MAC_LPI_CONTROL_STATUS_fields_ {
     // LPI Tx Clock Stop is enabled
     eENABLE = 1,
   };
+
   // Transmit LPI Entry When this bit is set, it indicates that the MAC Transmitter has entered the LPI state because of the setting of the LPIEN bit.
   using TLPIEN = ftl::mmio::Field<1, 0, eTLPIEN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Transmit LPI Exit When this bit is set, it indicates that the MAC transmitter exited the LPI state after the application cleared the LPIEN bit and the LPI TW Timer has expired.
@@ -2655,7 +2625,6 @@ struct MAC_LPI_CONTROL_STATUS : ftl::mmio::Register<
   using LPITCSE = MAC_LPI_CONTROL_STATUS_fields_::LPITCSE;
 };
 
-
 // LPI Timers Control
 struct MAC_LPI_TIMERS_CONTROL_fields_ {
   // LPI TW Timer This field specifies the minimum time (in microseconds) for which the MAC waits after it stops transmitting the LPI pattern to the PHY and before it resumes the normal transmission.
@@ -2676,7 +2645,6 @@ struct MAC_LPI_TIMERS_CONTROL : ftl::mmio::Register<
   using LST = MAC_LPI_TIMERS_CONTROL_fields_::LST;
 };
 
-
 // Tx LPI Entry Timer Control
 struct MAC_LPI_ENTRY_TIMER_fields_ {
   // LPI Entry Timer This field specifies the time in microseconds the MAC waits to enter LPI mode, after it has transmitted all the frames.
@@ -2694,7 +2662,6 @@ struct MAC_LPI_ENTRY_TIMER : ftl::mmio::Register<
   using LPIET = MAC_LPI_ENTRY_TIMER_fields_::LPIET;
 };
 
-
 // One-microsecond Reference Timer
 struct MAC_ONEUS_TIC_COUNTER_fields_ {
   // 1US TIC Counter The application must program this counter so that the number of clock cycles of CSR clock is 1us.
@@ -2711,10 +2678,8 @@ struct MAC_ONEUS_TIC_COUNTER : ftl::mmio::Register<
   using TIC_1US_CNTR = MAC_ONEUS_TIC_COUNTER_fields_::TIC_1US_CNTR;
 };
 
-
 // PHY Interface Control and Status
 struct MAC_PHYIF_CONTROL_STATUS_fields_ {
-
   enum class eTC : std::uint32_t {
     // Disable Transmit Configuration in RGMII, SGMII, or SMII
     eDISABLE = 0,
@@ -2751,6 +2716,7 @@ struct MAC_PHYIF_CONTROL_STATUS_fields_ {
     // Link up
     eACTIVE = 1,
   };
+
   // Transmit Configuration in RGMII, SGMII, or SMII When set, this bit enables the transmission of duplex mode, link speed, and link up or down information to the PHY in the RGMII, SMII, or SGMII port.
   using TC = ftl::mmio::Field<1, 0, eTC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Link Up or Down This bit indicates whether the link is up or down during transmission of configuration in the RGMII, SGMII, or SMII interface.
@@ -2787,7 +2753,6 @@ struct MAC_PHYIF_CONTROL_STATUS : ftl::mmio::Register<
   using LNKSTS = MAC_PHYIF_CONTROL_STATUS_fields_::LNKSTS;
 };
 
-
 // MAC Version
 struct MAC_VERSION_fields_ {
   // Synopsys-defined Version
@@ -2808,10 +2773,8 @@ struct MAC_VERSION : ftl::mmio::Register<
   using USERVER = MAC_VERSION_fields_::USERVER;
 };
 
-
 // MAC Debug
 struct MAC_DEBUG_fields_ {
-
   enum class eRPESTS : std::uint32_t {
     // MAC GMII or MII Receive Protocol Engine Status not detected
     eINACTIVE = 0,
@@ -2836,6 +2799,7 @@ struct MAC_DEBUG_fields_ {
     // Transferring input packet for transmission
     eTRNSFR = 3,
   };
+
   // MAC GMII or MII Receive Protocol Engine Status When this bit is set, it indicates that the MAC GMII or MII receive protocol engine is actively receiving data, and it is not in the Idle state.
   using RPESTS = ftl::mmio::Field<1, 0, eRPESTS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MAC Receive Packet Controller FIFO Status When this bit is set, this field indicates the active state of the small FIFO Read and Write controllers of the MAC Receive Packet Controller module.
@@ -2866,10 +2830,8 @@ struct MAC_DEBUG : ftl::mmio::Register<
   using TFCSTS = MAC_DEBUG_fields_::TFCSTS;
 };
 
-
 // Optional Features or Functions 0
 struct MAC_HW_FEATURE0_fields_ {
-
   enum class eMIISEL : std::uint32_t {
     // No 10 or 100 Mbps support
     eINACTIVE = 0,
@@ -3016,6 +2978,7 @@ struct MAC_HW_FEATURE0_fields_ {
     // RevMII
     eREVMIII = 7,
   };
+
   // 10 or 100 Mbps Support This bit is set to 1 when 10/100 Mbps is selected as the Mode of Operation
   using MIISEL = ftl::mmio::Field<1, 0, eMIISEL, ftl::mmio::RO, ftl::mmio::Normal>;
   // 1000 Mbps Support This bit is set to 1 when 1000 Mbps is selected as the Mode of Operation
@@ -3128,10 +3091,8 @@ struct MAC_HW_FEATURE0 : ftl::mmio::Register<
   using ACTPHYSEL = MAC_HW_FEATURE0_fields_::ACTPHYSEL;
 };
 
-
 // Optional Features or Functions 1
 struct MAC_HW_FEATURE1_fields_ {
-
   enum class eRXFIFOSIZE : std::uint32_t {
     // 128 bytes
     ebf_128B = 0,
@@ -3301,6 +3262,7 @@ struct MAC_HW_FEATURE1_fields_ {
     // 8 L3 or L4 Filters
     ebf_8FILT = 8,
   };
+
   // MTL Receive FIFO Size This field contains the configured value of MTL Rx FIFO in bytes expressed as Log to base 2 minus 7, that is, Log2(RXFIFO_SIZE) -7:
   using RXFIFOSIZE = ftl::mmio::Field<5, 0, eRXFIFOSIZE, ftl::mmio::RO, ftl::mmio::Normal>;
   // Single Port RAM Enable This bit is set to 1 when the Use single port RAM Feature is selected.
@@ -3393,10 +3355,8 @@ struct MAC_HW_FEATURE1 : ftl::mmio::Register<
   using L3L4FNUM = MAC_HW_FEATURE1_fields_::L3L4FNUM;
 };
 
-
 // Optional Features or Functions 2
 struct MAC_HW_FEATURE2_fields_ {
-
   enum class eRXQCNT : std::uint32_t {
     // 1 MTL Rx Queue
     ebf_1RXQ = 0,
@@ -3474,6 +3434,7 @@ struct MAC_HW_FEATURE2_fields_ {
     // 4 auxiliary input
     ebf_4_AUXI = 4,
   };
+
   // Number of MTL Receive Queues This field indicates the number of MTL Receive queues:
   using RXQCNT = ftl::mmio::Field<4, 0, eRXQCNT, ftl::mmio::RO, ftl::mmio::Normal>;
   // Number of MTL Transmit Queues This field indicates the number of MTL Transmit queues:
@@ -3519,10 +3480,8 @@ struct MAC_HW_FEATURE2 : ftl::mmio::Register<
   using AUXSNAPNUM = MAC_HW_FEATURE2_fields_::AUXSNAPNUM;
 };
 
-
 // Optional Features or Functions 3
 struct MAC_HW_FEATURE3_fields_ {
-
   enum class eNRVF : std::uint32_t {
     // No Extended Rx VLAN Filters
     eNO_ERVLAN = 0,
@@ -3641,6 +3600,7 @@ struct MAC_HW_FEATURE3_fields_ {
     // All the Automotive Safety features are selected with the "Parity Port Enable for external interface" feature
     eAS_PPE = 3,
   };
+
   // Number of Extended VLAN Tag Filters Enabled This field indicates the Number of Extended VLAN Tag Filters selected:
   using NRVF = ftl::mmio::Field<3, 0, eNRVF, ftl::mmio::RO, ftl::mmio::Normal>;
   // Queue/Channel based VLAN tag insertion on Tx Enable This bit is set to 1 when the Enable Queue/Channel based VLAN tag insertion on Tx Feature is selected.
@@ -3720,10 +3680,8 @@ struct MAC_HW_FEATURE3 : ftl::mmio::Register<
   using ASP = MAC_HW_FEATURE3_fields_::ASP;
 };
 
-
 // MDIO Address
 struct MAC_MDIO_ADDRESS_fields_ {
-
   enum class eGB : std::uint32_t {
     // GMII Busy is disabled
     eDISABLE = 0,
@@ -3772,6 +3730,7 @@ struct MAC_MDIO_ADDRESS_fields_ {
     // Preamble Suppression enabled
     eENABLE = 1,
   };
+
   // GMII Busy The application sets this bit to instruct the SMA to initiate a Read or Write access to the MDIO slave.
   using GB = ftl::mmio::Field<1, 0, eGB, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clause 45 PHY Enable When this bit is set, Clause 45 capable PHY is connected to MDIO.
@@ -3835,7 +3794,6 @@ struct MAC_MDIO_ADDRESS : ftl::mmio::Register<
   using PSE = MAC_MDIO_ADDRESS_fields_::PSE;
 };
 
-
 // MAC MDIO Data
 struct MAC_MDIO_DATA_fields_ {
   // GMII Data This field contains the 16-bit data value read from the PHY or RevMII after a Management Read operation or the 16-bit data value to be written to the PHY or RevMII before a Management Write operation.
@@ -3855,16 +3813,15 @@ struct MAC_MDIO_DATA : ftl::mmio::Register<
   using RA = MAC_MDIO_DATA_fields_::RA;
 };
 
-
 // CSR Software Control
 struct MAC_CSR_SW_CTRL_fields_ {
-
   enum class eRCWE : std::uint32_t {
     // Register Clear on Write 1 is disabled
     eDISABLE = 0,
     // Register Clear on Write 1 is enabled
     eENABLE = 1,
   };
+
   // Register Clear on Write 1 Enable When this bit is set, the access mode of some register fields changes to Clear on Write 1, the application needs to set that respective bit to 1 to clear it.
   using RCWE = ftl::mmio::Field<1, 0, eRCWE, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct MAC_CSR_SW_CTRL_fields_
@@ -3880,10 +3837,8 @@ struct MAC_CSR_SW_CTRL : ftl::mmio::Register<
   using RCWE = MAC_CSR_SW_CTRL_fields_::RCWE;
 };
 
-
 // Frame Preemption Control
 struct MAC_FPE_CTRL_STS_fields_ {
-
   enum class eEFPE : std::uint32_t {
     // Tx Frame Preemption is disabled
     eDISABLE = 0,
@@ -3932,6 +3887,7 @@ struct MAC_FPE_CTRL_STS_fields_ {
     // transmitted Respond Frame
     eACTIVE = 1,
   };
+
   // Enable Tx Frame Preemption When set Frame Preemption Tx functionality is enabled.
   using EFPE = ftl::mmio::Field<1, 0, eEFPE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Send Verify mPacket When set indicates hardware to send a verify mPacket.
@@ -3982,7 +3938,6 @@ struct MAC_FPE_CTRL_STS : ftl::mmio::Register<
   using TRSP = MAC_FPE_CTRL_STS_fields_::TRSP;
 };
 
-
 // 32-bit Binary Rollover Equivalent Time
 struct MAC_PRESN_TIME_NS_fields_ {
   // MAC 1722 Presentation Time in ns These bits indicate the value of the 32-bit binary rollover equivalent time of the PTP System Time in ns
@@ -3997,7 +3952,6 @@ struct MAC_PRESN_TIME_NS : ftl::mmio::Register<
     MAC_PRESN_TIME_NS_fields_::MPTN> {
   using MPTN = MAC_PRESN_TIME_NS_fields_::MPTN;
 };
-
 
 // MAC 1722 Presentation Time
 struct MAC_PRESN_TIME_UPDT_fields_ {
@@ -4014,16 +3968,15 @@ struct MAC_PRESN_TIME_UPDT : ftl::mmio::Register<
   using MPTU = MAC_PRESN_TIME_UPDT_fields_::MPTU;
 };
 
-
 // MAC Address0 High
 struct MAC_ADDRESS0_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // INVALID : This bit must be always set to 1
     eDISABLE = 0,
     // This bit is always set to 1
     eENABLE = 1,
   };
+
   // MAC Address0[47:32] This field contains the upper 16 bits [47:32] of the first 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address0 content is routed.
@@ -4047,7 +4000,6 @@ struct MAC_ADDRESS0_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS0_HIGH_fields_::AE;
 };
 
-
 // MAC Address0 Low
 struct MAC_ADDRESS0_LOW_fields_ {
   // MAC Address0[31:0] This field contains the lower 32 bits of the first 6-byte MAC address.
@@ -4063,10 +4015,8 @@ struct MAC_ADDRESS0_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS0_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address1 High
 struct MAC_ADDRESS1_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4080,6 +4030,7 @@ struct MAC_ADDRESS1_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4112,7 +4063,6 @@ struct MAC_ADDRESS1_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS1_HIGH_fields_::AE;
 };
 
-
 // MAC Address1 Low
 struct MAC_ADDRESS1_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4128,10 +4078,8 @@ struct MAC_ADDRESS1_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS1_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address2 High
 struct MAC_ADDRESS2_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4145,6 +4093,7 @@ struct MAC_ADDRESS2_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4177,7 +4126,6 @@ struct MAC_ADDRESS2_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS2_HIGH_fields_::AE;
 };
 
-
 // MAC Address2 Low
 struct MAC_ADDRESS2_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4193,10 +4141,8 @@ struct MAC_ADDRESS2_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS2_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address3 High
 struct MAC_ADDRESS3_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4210,6 +4156,7 @@ struct MAC_ADDRESS3_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4242,7 +4189,6 @@ struct MAC_ADDRESS3_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS3_HIGH_fields_::AE;
 };
 
-
 // MAC Address3 Low
 struct MAC_ADDRESS3_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4258,10 +4204,8 @@ struct MAC_ADDRESS3_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS3_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address4 High
 struct MAC_ADDRESS4_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4275,6 +4219,7 @@ struct MAC_ADDRESS4_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4307,7 +4252,6 @@ struct MAC_ADDRESS4_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS4_HIGH_fields_::AE;
 };
 
-
 // MAC Address4 Low
 struct MAC_ADDRESS4_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4323,10 +4267,8 @@ struct MAC_ADDRESS4_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS4_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address5 High
 struct MAC_ADDRESS5_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4340,6 +4282,7 @@ struct MAC_ADDRESS5_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4372,7 +4315,6 @@ struct MAC_ADDRESS5_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS5_HIGH_fields_::AE;
 };
 
-
 // MAC Address5 Low
 struct MAC_ADDRESS5_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4388,10 +4330,8 @@ struct MAC_ADDRESS5_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS5_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address6 High
 struct MAC_ADDRESS6_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4405,6 +4345,7 @@ struct MAC_ADDRESS6_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4437,7 +4378,6 @@ struct MAC_ADDRESS6_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS6_HIGH_fields_::AE;
 };
 
-
 // MAC Address6 Low
 struct MAC_ADDRESS6_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4453,10 +4393,8 @@ struct MAC_ADDRESS6_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS6_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address7 High
 struct MAC_ADDRESS7_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4470,6 +4408,7 @@ struct MAC_ADDRESS7_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4502,7 +4441,6 @@ struct MAC_ADDRESS7_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS7_HIGH_fields_::AE;
 };
 
-
 // MAC Address7 Low
 struct MAC_ADDRESS7_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4518,10 +4456,8 @@ struct MAC_ADDRESS7_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS7_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address8 High
 struct MAC_ADDRESS8_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4535,6 +4471,7 @@ struct MAC_ADDRESS8_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4567,7 +4504,6 @@ struct MAC_ADDRESS8_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS8_HIGH_fields_::AE;
 };
 
-
 // MAC Address8 Low
 struct MAC_ADDRESS8_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4583,10 +4519,8 @@ struct MAC_ADDRESS8_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS8_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address9 High
 struct MAC_ADDRESS9_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4600,6 +4534,7 @@ struct MAC_ADDRESS9_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4632,7 +4567,6 @@ struct MAC_ADDRESS9_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS9_HIGH_fields_::AE;
 };
 
-
 // MAC Address9 Low
 struct MAC_ADDRESS9_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4648,10 +4582,8 @@ struct MAC_ADDRESS9_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS9_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address10 High
 struct MAC_ADDRESS10_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4665,6 +4597,7 @@ struct MAC_ADDRESS10_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4697,7 +4630,6 @@ struct MAC_ADDRESS10_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS10_HIGH_fields_::AE;
 };
 
-
 // MAC Address10 Low
 struct MAC_ADDRESS10_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4713,10 +4645,8 @@ struct MAC_ADDRESS10_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS10_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address11 High
 struct MAC_ADDRESS11_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4730,6 +4660,7 @@ struct MAC_ADDRESS11_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4762,7 +4693,6 @@ struct MAC_ADDRESS11_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS11_HIGH_fields_::AE;
 };
 
-
 // MAC Address11 Low
 struct MAC_ADDRESS11_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4778,10 +4708,8 @@ struct MAC_ADDRESS11_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS11_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address12 High
 struct MAC_ADDRESS12_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4795,6 +4723,7 @@ struct MAC_ADDRESS12_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4827,7 +4756,6 @@ struct MAC_ADDRESS12_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS12_HIGH_fields_::AE;
 };
 
-
 // MAC Address12 Low
 struct MAC_ADDRESS12_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4843,10 +4771,8 @@ struct MAC_ADDRESS12_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS12_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address13 High
 struct MAC_ADDRESS13_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4860,6 +4786,7 @@ struct MAC_ADDRESS13_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4892,7 +4819,6 @@ struct MAC_ADDRESS13_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS13_HIGH_fields_::AE;
 };
 
-
 // MAC Address13 Low
 struct MAC_ADDRESS13_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4908,10 +4834,8 @@ struct MAC_ADDRESS13_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS13_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address14 High
 struct MAC_ADDRESS14_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4925,6 +4849,7 @@ struct MAC_ADDRESS14_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -4957,7 +4882,6 @@ struct MAC_ADDRESS14_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS14_HIGH_fields_::AE;
 };
 
-
 // MAC Address14 Low
 struct MAC_ADDRESS14_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -4973,10 +4897,8 @@ struct MAC_ADDRESS14_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS14_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address15 High
 struct MAC_ADDRESS15_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -4990,6 +4912,7 @@ struct MAC_ADDRESS15_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5022,7 +4945,6 @@ struct MAC_ADDRESS15_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS15_HIGH_fields_::AE;
 };
 
-
 // MAC Address15 Low
 struct MAC_ADDRESS15_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5038,10 +4960,8 @@ struct MAC_ADDRESS15_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS15_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address16 High
 struct MAC_ADDRESS16_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5055,6 +4975,7 @@ struct MAC_ADDRESS16_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5087,7 +5008,6 @@ struct MAC_ADDRESS16_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS16_HIGH_fields_::AE;
 };
 
-
 // MAC Address16 Low
 struct MAC_ADDRESS16_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5103,10 +5023,8 @@ struct MAC_ADDRESS16_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS16_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address17 High
 struct MAC_ADDRESS17_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5120,6 +5038,7 @@ struct MAC_ADDRESS17_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5152,7 +5071,6 @@ struct MAC_ADDRESS17_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS17_HIGH_fields_::AE;
 };
 
-
 // MAC Address17 Low
 struct MAC_ADDRESS17_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5168,10 +5086,8 @@ struct MAC_ADDRESS17_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS17_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address18 High
 struct MAC_ADDRESS18_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5185,6 +5101,7 @@ struct MAC_ADDRESS18_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5217,7 +5134,6 @@ struct MAC_ADDRESS18_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS18_HIGH_fields_::AE;
 };
 
-
 // MAC Address18 Low
 struct MAC_ADDRESS18_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5233,10 +5149,8 @@ struct MAC_ADDRESS18_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS18_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address19 High
 struct MAC_ADDRESS19_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5250,6 +5164,7 @@ struct MAC_ADDRESS19_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5282,7 +5197,6 @@ struct MAC_ADDRESS19_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS19_HIGH_fields_::AE;
 };
 
-
 // MAC Address19 Low
 struct MAC_ADDRESS19_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5298,10 +5212,8 @@ struct MAC_ADDRESS19_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS19_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address20 High
 struct MAC_ADDRESS20_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5315,6 +5227,7 @@ struct MAC_ADDRESS20_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5347,7 +5260,6 @@ struct MAC_ADDRESS20_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS20_HIGH_fields_::AE;
 };
 
-
 // MAC Address20 Low
 struct MAC_ADDRESS20_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5363,10 +5275,8 @@ struct MAC_ADDRESS20_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS20_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address21 High
 struct MAC_ADDRESS21_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5380,6 +5290,7 @@ struct MAC_ADDRESS21_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5412,7 +5323,6 @@ struct MAC_ADDRESS21_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS21_HIGH_fields_::AE;
 };
 
-
 // MAC Address21 Low
 struct MAC_ADDRESS21_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5428,10 +5338,8 @@ struct MAC_ADDRESS21_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS21_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address22 High
 struct MAC_ADDRESS22_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5445,6 +5353,7 @@ struct MAC_ADDRESS22_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5477,7 +5386,6 @@ struct MAC_ADDRESS22_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS22_HIGH_fields_::AE;
 };
 
-
 // MAC Address22 Low
 struct MAC_ADDRESS22_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5493,10 +5401,8 @@ struct MAC_ADDRESS22_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS22_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address23 High
 struct MAC_ADDRESS23_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5510,6 +5416,7 @@ struct MAC_ADDRESS23_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5542,7 +5449,6 @@ struct MAC_ADDRESS23_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS23_HIGH_fields_::AE;
 };
 
-
 // MAC Address23 Low
 struct MAC_ADDRESS23_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5558,10 +5464,8 @@ struct MAC_ADDRESS23_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS23_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address24 High
 struct MAC_ADDRESS24_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5575,6 +5479,7 @@ struct MAC_ADDRESS24_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5607,7 +5512,6 @@ struct MAC_ADDRESS24_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS24_HIGH_fields_::AE;
 };
 
-
 // MAC Address24 Low
 struct MAC_ADDRESS24_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5623,10 +5527,8 @@ struct MAC_ADDRESS24_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS24_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address25 High
 struct MAC_ADDRESS25_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5640,6 +5542,7 @@ struct MAC_ADDRESS25_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5672,7 +5575,6 @@ struct MAC_ADDRESS25_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS25_HIGH_fields_::AE;
 };
 
-
 // MAC Address25 Low
 struct MAC_ADDRESS25_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5688,10 +5590,8 @@ struct MAC_ADDRESS25_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS25_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address26 High
 struct MAC_ADDRESS26_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5705,6 +5605,7 @@ struct MAC_ADDRESS26_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5737,7 +5638,6 @@ struct MAC_ADDRESS26_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS26_HIGH_fields_::AE;
 };
 
-
 // MAC Address26 Low
 struct MAC_ADDRESS26_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5753,10 +5653,8 @@ struct MAC_ADDRESS26_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS26_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address27 High
 struct MAC_ADDRESS27_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5770,6 +5668,7 @@ struct MAC_ADDRESS27_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5802,7 +5701,6 @@ struct MAC_ADDRESS27_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS27_HIGH_fields_::AE;
 };
 
-
 // MAC Address27 Low
 struct MAC_ADDRESS27_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5818,10 +5716,8 @@ struct MAC_ADDRESS27_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS27_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address28 High
 struct MAC_ADDRESS28_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5835,6 +5731,7 @@ struct MAC_ADDRESS28_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5867,7 +5764,6 @@ struct MAC_ADDRESS28_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS28_HIGH_fields_::AE;
 };
 
-
 // MAC Address28 Low
 struct MAC_ADDRESS28_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5883,10 +5779,8 @@ struct MAC_ADDRESS28_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS28_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address29 High
 struct MAC_ADDRESS29_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5900,6 +5794,7 @@ struct MAC_ADDRESS29_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5932,7 +5827,6 @@ struct MAC_ADDRESS29_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS29_HIGH_fields_::AE;
 };
 
-
 // MAC Address29 Low
 struct MAC_ADDRESS29_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -5948,10 +5842,8 @@ struct MAC_ADDRESS29_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS29_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address30 High
 struct MAC_ADDRESS30_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -5965,6 +5857,7 @@ struct MAC_ADDRESS30_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -5997,7 +5890,6 @@ struct MAC_ADDRESS30_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS30_HIGH_fields_::AE;
 };
 
-
 // MAC Address30 Low
 struct MAC_ADDRESS30_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -6013,10 +5905,8 @@ struct MAC_ADDRESS30_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS30_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address31 High
 struct MAC_ADDRESS31_HIGH_fields_ {
-
   enum class eSA : std::uint32_t {
     // Compare with Destination Address
     eDA = 0,
@@ -6030,6 +5920,7 @@ struct MAC_ADDRESS31_HIGH_fields_ {
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS1 [47:32] This field contains the upper 16 bits[47:32] of the second 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select If the PDC bit of MAC_EXT_CONFIGURATION register is not set: This field contains the binary representation of the DMA Channel number to which an Rx packet whose DA matches the MAC Address(#i) content is routed.
@@ -6062,7 +5953,6 @@ struct MAC_ADDRESS31_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS31_HIGH_fields_::AE;
 };
 
-
 // MAC Address31 Low
 struct MAC_ADDRESS31_LOW_fields_ {
   // MAC ADDRESS1 [31:0] This field contains the lower 32 bits of second 6-byte MAC address.
@@ -6078,16 +5968,15 @@ struct MAC_ADDRESS31_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS31_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address32 High
 struct MAC_ADDRESS32_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6111,7 +6000,6 @@ struct MAC_ADDRESS32_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS32_HIGH_fields_::AE;
 };
 
-
 // MAC Address32 Low
 struct MAC_ADDRESS32_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6127,16 +6015,15 @@ struct MAC_ADDRESS32_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS32_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address33 High
 struct MAC_ADDRESS33_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6160,7 +6047,6 @@ struct MAC_ADDRESS33_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS33_HIGH_fields_::AE;
 };
 
-
 // MAC Address33 Low
 struct MAC_ADDRESS33_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6176,16 +6062,15 @@ struct MAC_ADDRESS33_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS33_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address34 High
 struct MAC_ADDRESS34_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6209,7 +6094,6 @@ struct MAC_ADDRESS34_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS34_HIGH_fields_::AE;
 };
 
-
 // MAC Address34 Low
 struct MAC_ADDRESS34_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6225,16 +6109,15 @@ struct MAC_ADDRESS34_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS34_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address35 High
 struct MAC_ADDRESS35_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6258,7 +6141,6 @@ struct MAC_ADDRESS35_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS35_HIGH_fields_::AE;
 };
 
-
 // MAC Address35 Low
 struct MAC_ADDRESS35_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6274,16 +6156,15 @@ struct MAC_ADDRESS35_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS35_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address36 High
 struct MAC_ADDRESS36_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6307,7 +6188,6 @@ struct MAC_ADDRESS36_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS36_HIGH_fields_::AE;
 };
 
-
 // MAC Address36 Low
 struct MAC_ADDRESS36_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6323,16 +6203,15 @@ struct MAC_ADDRESS36_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS36_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address37 High
 struct MAC_ADDRESS37_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6356,7 +6235,6 @@ struct MAC_ADDRESS37_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS37_HIGH_fields_::AE;
 };
 
-
 // MAC Address37 Low
 struct MAC_ADDRESS37_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6372,16 +6250,15 @@ struct MAC_ADDRESS37_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS37_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address38 High
 struct MAC_ADDRESS38_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6405,7 +6282,6 @@ struct MAC_ADDRESS38_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS38_HIGH_fields_::AE;
 };
 
-
 // MAC Address38 Low
 struct MAC_ADDRESS38_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6421,16 +6297,15 @@ struct MAC_ADDRESS38_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS38_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address39 High
 struct MAC_ADDRESS39_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6454,7 +6329,6 @@ struct MAC_ADDRESS39_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS39_HIGH_fields_::AE;
 };
 
-
 // MAC Address39 Low
 struct MAC_ADDRESS39_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6470,16 +6344,15 @@ struct MAC_ADDRESS39_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS39_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address40 High
 struct MAC_ADDRESS40_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6503,7 +6376,6 @@ struct MAC_ADDRESS40_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS40_HIGH_fields_::AE;
 };
 
-
 // MAC Address40 Low
 struct MAC_ADDRESS40_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6519,16 +6391,15 @@ struct MAC_ADDRESS40_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS40_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address41 High
 struct MAC_ADDRESS41_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6552,7 +6423,6 @@ struct MAC_ADDRESS41_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS41_HIGH_fields_::AE;
 };
 
-
 // MAC Address41 Low
 struct MAC_ADDRESS41_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6568,16 +6438,15 @@ struct MAC_ADDRESS41_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS41_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address42 High
 struct MAC_ADDRESS42_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6601,7 +6470,6 @@ struct MAC_ADDRESS42_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS42_HIGH_fields_::AE;
 };
 
-
 // MAC Address42 Low
 struct MAC_ADDRESS42_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6617,16 +6485,15 @@ struct MAC_ADDRESS42_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS42_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address43 High
 struct MAC_ADDRESS43_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6650,7 +6517,6 @@ struct MAC_ADDRESS43_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS43_HIGH_fields_::AE;
 };
 
-
 // MAC Address43 Low
 struct MAC_ADDRESS43_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6666,16 +6532,15 @@ struct MAC_ADDRESS43_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS43_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address44 High
 struct MAC_ADDRESS44_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6699,7 +6564,6 @@ struct MAC_ADDRESS44_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS44_HIGH_fields_::AE;
 };
 
-
 // MAC Address44 Low
 struct MAC_ADDRESS44_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6715,16 +6579,15 @@ struct MAC_ADDRESS44_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS44_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address45 High
 struct MAC_ADDRESS45_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6748,7 +6611,6 @@ struct MAC_ADDRESS45_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS45_HIGH_fields_::AE;
 };
 
-
 // MAC Address45 Low
 struct MAC_ADDRESS45_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6764,16 +6626,15 @@ struct MAC_ADDRESS45_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS45_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address46 High
 struct MAC_ADDRESS46_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6797,7 +6658,6 @@ struct MAC_ADDRESS46_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS46_HIGH_fields_::AE;
 };
 
-
 // MAC Address46 Low
 struct MAC_ADDRESS46_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6813,16 +6673,15 @@ struct MAC_ADDRESS46_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS46_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address47 High
 struct MAC_ADDRESS47_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6846,7 +6705,6 @@ struct MAC_ADDRESS47_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS47_HIGH_fields_::AE;
 };
 
-
 // MAC Address47 Low
 struct MAC_ADDRESS47_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6862,16 +6720,15 @@ struct MAC_ADDRESS47_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS47_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address48 High
 struct MAC_ADDRESS48_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6895,7 +6752,6 @@ struct MAC_ADDRESS48_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS48_HIGH_fields_::AE;
 };
 
-
 // MAC Address48 Low
 struct MAC_ADDRESS48_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6911,16 +6767,15 @@ struct MAC_ADDRESS48_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS48_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address49 High
 struct MAC_ADDRESS49_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6944,7 +6799,6 @@ struct MAC_ADDRESS49_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS49_HIGH_fields_::AE;
 };
 
-
 // MAC Address49 Low
 struct MAC_ADDRESS49_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -6960,16 +6814,15 @@ struct MAC_ADDRESS49_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS49_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address50 High
 struct MAC_ADDRESS50_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -6993,7 +6846,6 @@ struct MAC_ADDRESS50_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS50_HIGH_fields_::AE;
 };
 
-
 // MAC Address50 Low
 struct MAC_ADDRESS50_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7009,16 +6861,15 @@ struct MAC_ADDRESS50_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS50_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address51 High
 struct MAC_ADDRESS51_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7042,7 +6893,6 @@ struct MAC_ADDRESS51_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS51_HIGH_fields_::AE;
 };
 
-
 // MAC Address51 Low
 struct MAC_ADDRESS51_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7058,16 +6908,15 @@ struct MAC_ADDRESS51_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS51_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address52 High
 struct MAC_ADDRESS52_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7091,7 +6940,6 @@ struct MAC_ADDRESS52_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS52_HIGH_fields_::AE;
 };
 
-
 // MAC Address52 Low
 struct MAC_ADDRESS52_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7107,16 +6955,15 @@ struct MAC_ADDRESS52_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS52_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address53 High
 struct MAC_ADDRESS53_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7140,7 +6987,6 @@ struct MAC_ADDRESS53_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS53_HIGH_fields_::AE;
 };
 
-
 // MAC Address53 Low
 struct MAC_ADDRESS53_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7156,16 +7002,15 @@ struct MAC_ADDRESS53_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS53_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address54 High
 struct MAC_ADDRESS54_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7189,7 +7034,6 @@ struct MAC_ADDRESS54_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS54_HIGH_fields_::AE;
 };
 
-
 // MAC Address54 Low
 struct MAC_ADDRESS54_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7205,16 +7049,15 @@ struct MAC_ADDRESS54_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS54_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address55 High
 struct MAC_ADDRESS55_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7238,7 +7081,6 @@ struct MAC_ADDRESS55_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS55_HIGH_fields_::AE;
 };
 
-
 // MAC Address55 Low
 struct MAC_ADDRESS55_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7254,16 +7096,15 @@ struct MAC_ADDRESS55_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS55_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address56 High
 struct MAC_ADDRESS56_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7287,7 +7128,6 @@ struct MAC_ADDRESS56_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS56_HIGH_fields_::AE;
 };
 
-
 // MAC Address56 Low
 struct MAC_ADDRESS56_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7303,16 +7143,15 @@ struct MAC_ADDRESS56_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS56_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address57 High
 struct MAC_ADDRESS57_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7336,7 +7175,6 @@ struct MAC_ADDRESS57_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS57_HIGH_fields_::AE;
 };
 
-
 // MAC Address57 Low
 struct MAC_ADDRESS57_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7352,16 +7190,15 @@ struct MAC_ADDRESS57_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS57_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address58 High
 struct MAC_ADDRESS58_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7385,7 +7222,6 @@ struct MAC_ADDRESS58_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS58_HIGH_fields_::AE;
 };
 
-
 // MAC Address58 Low
 struct MAC_ADDRESS58_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7401,16 +7237,15 @@ struct MAC_ADDRESS58_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS58_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address59 High
 struct MAC_ADDRESS59_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7434,7 +7269,6 @@ struct MAC_ADDRESS59_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS59_HIGH_fields_::AE;
 };
 
-
 // MAC Address59 Low
 struct MAC_ADDRESS59_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7450,16 +7284,15 @@ struct MAC_ADDRESS59_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS59_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address60 High
 struct MAC_ADDRESS60_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7483,7 +7316,6 @@ struct MAC_ADDRESS60_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS60_HIGH_fields_::AE;
 };
 
-
 // MAC Address60 Low
 struct MAC_ADDRESS60_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7499,16 +7331,15 @@ struct MAC_ADDRESS60_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS60_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address61 High
 struct MAC_ADDRESS61_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7532,7 +7363,6 @@ struct MAC_ADDRESS61_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS61_HIGH_fields_::AE;
 };
 
-
 // MAC Address61 Low
 struct MAC_ADDRESS61_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7548,16 +7378,15 @@ struct MAC_ADDRESS61_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS61_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address62 High
 struct MAC_ADDRESS62_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7581,7 +7410,6 @@ struct MAC_ADDRESS62_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS62_HIGH_fields_::AE;
 };
 
-
 // MAC Address62 Low
 struct MAC_ADDRESS62_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7597,16 +7425,15 @@ struct MAC_ADDRESS62_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS62_LOW_fields_::ADDRLO;
 };
 
-
 // MAC Address63 High
 struct MAC_ADDRESS63_HIGH_fields_ {
-
   enum class eAE : std::uint32_t {
     // Address is ignored
     eDISABLE = 0,
     // Address is enabled
     eENABLE = 1,
   };
+
   // MAC ADDRESS32 [47:32] This field contains the upper 16 bits (47:32) of the 33rd 6-byte MAC address.
   using ADDRHI = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Channel Select This field contains the DMA Channel number to which an Rx packet whose DA matches the MAC ADDRESS32 content is routed.
@@ -7630,7 +7457,6 @@ struct MAC_ADDRESS63_HIGH : ftl::mmio::Register<
   using AE = MAC_ADDRESS63_HIGH_fields_::AE;
 };
 
-
 // MAC Address63 Low
 struct MAC_ADDRESS63_LOW_fields_ {
   // MAC ADDRESS32 [31:0] This field contains the lower 32 bits of the 33rd 6-byte MAC address.
@@ -7646,10 +7472,8 @@ struct MAC_ADDRESS63_LOW : ftl::mmio::Register<
   using ADDRLO = MAC_ADDRESS63_LOW_fields_::ADDRLO;
 };
 
-
 // MMC Control
 struct MAC_MMC_CONTROL_fields_ {
-
   enum class eCNTRST : std::uint32_t {
     // Counters are not reset
     eDISABLE = 0,
@@ -7698,6 +7522,7 @@ struct MAC_MMC_CONTROL_fields_ {
     // Update MMC Counters for Dropped Broadcast Packets is enabled
     eENABLE = 1,
   };
+
   // Counters Reset When this bit is set, all counters are reset.
   using CNTRST = ftl::mmio::Field<1, 0, eCNTRST, ftl::mmio::RW, ftl::mmio::Normal>;
   // Counter Stop Rollover When this bit is set, the counter does not roll over to zero after reaching the maximum value.
@@ -7744,10 +7569,8 @@ struct MAC_MMC_CONTROL : ftl::mmio::Register<
   using UCDBC = MAC_MMC_CONTROL_fields_::UCDBC;
 };
 
-
 // MMC Rx Interrupt
 struct MAC_MMC_RX_INTERRUPT_fields_ {
-
   enum class eRXGBPKTIS : std::uint32_t {
     // MMC Receive Good Bad Packet Counter Interrupt Status not detected
     eINACTIVE = 0,
@@ -7943,6 +7766,7 @@ struct MAC_MMC_RX_INTERRUPT_fields_ {
     // MMC Receive LPI transition Counter Interrupt Status detected
     eACTIVE = 1,
   };
+
   // MMC Receive Good Bad Packet Counter Interrupt Status This bit is set when the rxpacketcount_gb counter reaches half of the maximum value or the maximum value.
   using RXGBPKTIS = ftl::mmio::Field<1, 0, eRXGBPKTIS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MMC Receive Good Bad Octet Counter Interrupt Status This bit is set when the rxoctetcount_gb counter reaches half of the maximum value or the maximum value.
@@ -8093,10 +7917,8 @@ struct MAC_MMC_RX_INTERRUPT : ftl::mmio::Register<
   using RXLPITRCIS = MAC_MMC_RX_INTERRUPT_fields_::RXLPITRCIS;
 };
 
-
 // MMC Tx Interrupt
 struct MAC_MMC_TX_INTERRUPT_fields_ {
-
   enum class eTXGBOCTIS : std::uint32_t {
     // MMC Transmit Good Bad Octet Counter Interrupt Status not detected
     eINACTIVE = 0,
@@ -8292,6 +8114,7 @@ struct MAC_MMC_TX_INTERRUPT_fields_ {
     // MMC Transmit LPI transition Counter Interrupt Status detected
     eACTIVE = 1,
   };
+
   // MMC Transmit Good Bad Octet Counter Interrupt Status This bit is set when the txoctetcount_gb counter reaches half of the maximum value or the maximum value.
   using TXGBOCTIS = ftl::mmio::Field<1, 0, eTXGBOCTIS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MMC Transmit Good Bad Packet Counter Interrupt Status This bit is set when the txpacketcount_gb counter reaches half of the maximum value or the maximum value.
@@ -8442,10 +8265,8 @@ struct MAC_MMC_TX_INTERRUPT : ftl::mmio::Register<
   using TXLPITRCIS = MAC_MMC_TX_INTERRUPT_fields_::TXLPITRCIS;
 };
 
-
 // MMC Rx Interrupt Mask
 struct MAC_MMC_RX_INTERRUPT_MASK_fields_ {
-
   enum class eRXGBPKTIM : std::uint32_t {
     // MMC Receive Good Bad Packet Counter Interrupt Mask is disabled
     eDISABLE = 0,
@@ -8641,6 +8462,7 @@ struct MAC_MMC_RX_INTERRUPT_MASK_fields_ {
     // MMC Receive LPI transition counter interrupt Mask is enabled
     eENABLE = 1,
   };
+
   // MMC Receive Good Bad Packet Counter Interrupt Mask Setting this bit masks the interrupt when the rxpacketcount_gb counter reaches half of the maximum value or the maximum value.
   using RXGBPKTIM = ftl::mmio::Field<1, 0, eRXGBPKTIM, ftl::mmio::RW, ftl::mmio::Normal>;
   // MMC Receive Good Bad Octet Counter Interrupt Mask Setting this bit masks the interrupt when the rxoctetcount_gb counter reaches half of the maximum value or the maximum value.
@@ -8791,10 +8613,8 @@ struct MAC_MMC_RX_INTERRUPT_MASK : ftl::mmio::Register<
   using RXLPITRCIM = MAC_MMC_RX_INTERRUPT_MASK_fields_::RXLPITRCIM;
 };
 
-
 // MMC Tx Interrupt Mask
 struct MAC_MMC_TX_INTERRUPT_MASK_fields_ {
-
   enum class eTXGBOCTIM : std::uint32_t {
     // MMC Transmit Good Bad Octet Counter Interrupt Mask is disabled
     eDISABLE = 0,
@@ -8990,6 +8810,7 @@ struct MAC_MMC_TX_INTERRUPT_MASK_fields_ {
     // MMC Transmit LPI transition counter interrupt Mask is enabled
     eENABLE = 1,
   };
+
   // MMC Transmit Good Bad Octet Counter Interrupt Mask Setting this bit masks the interrupt when the txoctetcount_gb counter reaches half of the maximum value or the maximum value.
   using TXGBOCTIM = ftl::mmio::Field<1, 0, eTXGBOCTIM, ftl::mmio::RW, ftl::mmio::Normal>;
   // MMC Transmit Good Bad Packet Counter Interrupt Mask Setting this bit masks the interrupt when the txpacketcount_gb counter reaches half of the maximum value or the maximum value.
@@ -9140,7 +8961,6 @@ struct MAC_MMC_TX_INTERRUPT_MASK : ftl::mmio::Register<
   using TXLPITRCIM = MAC_MMC_TX_INTERRUPT_MASK_fields_::TXLPITRCIM;
 };
 
-
 // Tx Octet Count Good and Bad
 struct MAC_TX_OCTET_COUNT_GOOD_BAD_fields_ {
   // Tx Octet Count Good Bad This field indicates the number of bytes transmitted, exclusive of preamble and retried bytes, in good and bad packets.
@@ -9155,7 +8975,6 @@ struct MAC_TX_OCTET_COUNT_GOOD_BAD : ftl::mmio::Register<
     MAC_TX_OCTET_COUNT_GOOD_BAD_fields_::TXOCTGB> {
   using TXOCTGB = MAC_TX_OCTET_COUNT_GOOD_BAD_fields_::TXOCTGB;
 };
-
 
 // Tx Packet Count Good and Bad
 struct MAC_TX_PACKET_COUNT_GOOD_BAD_fields_ {
@@ -9172,7 +8991,6 @@ struct MAC_TX_PACKET_COUNT_GOOD_BAD : ftl::mmio::Register<
   using TXPKTGB = MAC_TX_PACKET_COUNT_GOOD_BAD_fields_::TXPKTGB;
 };
 
-
 // Tx Broadcast Packets Good
 struct MAC_TX_BROADCAST_PACKETS_GOOD_fields_ {
   // Tx Broadcast Packets Good This field indicates the number of good broadcast packets transmitted.
@@ -9187,7 +9005,6 @@ struct MAC_TX_BROADCAST_PACKETS_GOOD : ftl::mmio::Register<
     MAC_TX_BROADCAST_PACKETS_GOOD_fields_::TXBCASTG> {
   using TXBCASTG = MAC_TX_BROADCAST_PACKETS_GOOD_fields_::TXBCASTG;
 };
-
 
 // Tx Multicast Packets Good
 struct MAC_TX_MULTICAST_PACKETS_GOOD_fields_ {
@@ -9204,7 +9021,6 @@ struct MAC_TX_MULTICAST_PACKETS_GOOD : ftl::mmio::Register<
   using TXMCASTG = MAC_TX_MULTICAST_PACKETS_GOOD_fields_::TXMCASTG;
 };
 
-
 // Tx Good and Bad 64-Byte Packets
 struct MAC_TX_64OCTETS_PACKETS_GOOD_BAD_fields_ {
   // Tx 64Octets Packets Good_Bad This field indicates the number of good and bad packets transmitted with length 64 bytes, exclusive of preamble and retried packets.
@@ -9219,7 +9035,6 @@ struct MAC_TX_64OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_TX_64OCTETS_PACKETS_GOOD_BAD_fields_::TX64OCTGB> {
   using TX64OCTGB = MAC_TX_64OCTETS_PACKETS_GOOD_BAD_fields_::TX64OCTGB;
 };
-
 
 // Tx Good and Bad 65 to 127-Byte Packets
 struct MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_ {
@@ -9236,7 +9051,6 @@ struct MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
   using TX65_127OCTGB = MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_::TX65_127OCTGB;
 };
 
-
 // Tx Good and Bad 128 to 255-Byte Packets
 struct MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_ {
   // Tx 128To255Octets Packets Good Bad This field indicates the number of good and bad packets transmitted with length between 128 and 255 (inclusive) bytes, exclusive of preamble and retried packets.
@@ -9251,7 +9065,6 @@ struct MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_::TX128_255OCTGB> {
   using TX128_255OCTGB = MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_::TX128_255OCTGB;
 };
-
 
 // Tx Good and Bad 256 to 511-Byte Packets
 struct MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_ {
@@ -9268,7 +9081,6 @@ struct MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
   using TX256_511OCTGB = MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_::TX256_511OCTGB;
 };
 
-
 // Tx Good and Bad 512 to 1023-Byte Packets
 struct MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_ {
   // Tx 512To1023Octets Packets Good Bad This field indicates the number of good and bad packets transmitted with length between 512 and 1023 (inclusive) bytes, exclusive of preamble and retried packets.
@@ -9283,7 +9095,6 @@ struct MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_::TX512_1023OCTGB> {
   using TX512_1023OCTGB = MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_::TX512_1023OCTGB;
 };
-
 
 // Tx Good and Bad 1024 to Max-Byte Packets
 struct MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_ {
@@ -9300,7 +9111,6 @@ struct MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
   using TX1024_MAXOCTGB = MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_::TX1024_MAXOCTGB;
 };
 
-
 // Good and Bad Unicast Packets Transmitted
 struct MAC_TX_UNICAST_PACKETS_GOOD_BAD_fields_ {
   // Tx Unicast Packets Good Bad This field indicates the number of good and bad unicast packets transmitted.
@@ -9315,7 +9125,6 @@ struct MAC_TX_UNICAST_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_TX_UNICAST_PACKETS_GOOD_BAD_fields_::TXUCASTGB> {
   using TXUCASTGB = MAC_TX_UNICAST_PACKETS_GOOD_BAD_fields_::TXUCASTGB;
 };
-
 
 // Good and Bad Multicast Packets Transmitted
 struct MAC_TX_MULTICAST_PACKETS_GOOD_BAD_fields_ {
@@ -9332,7 +9141,6 @@ struct MAC_TX_MULTICAST_PACKETS_GOOD_BAD : ftl::mmio::Register<
   using TXMCASTGB = MAC_TX_MULTICAST_PACKETS_GOOD_BAD_fields_::TXMCASTGB;
 };
 
-
 // Good and Bad Broadcast Packets Transmitted
 struct MAC_TX_BROADCAST_PACKETS_GOOD_BAD_fields_ {
   // Tx Broadcast Packets Good Bad This field indicates the number of good and bad broadcast packets transmitted.
@@ -9347,7 +9155,6 @@ struct MAC_TX_BROADCAST_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_TX_BROADCAST_PACKETS_GOOD_BAD_fields_::TXBCASTGB> {
   using TXBCASTGB = MAC_TX_BROADCAST_PACKETS_GOOD_BAD_fields_::TXBCASTGB;
 };
-
 
 // Tx Packets Aborted By Underflow Error
 struct MAC_TX_UNDERFLOW_ERROR_PACKETS_fields_ {
@@ -9364,7 +9171,6 @@ struct MAC_TX_UNDERFLOW_ERROR_PACKETS : ftl::mmio::Register<
   using TXUNDRFLW = MAC_TX_UNDERFLOW_ERROR_PACKETS_fields_::TXUNDRFLW;
 };
 
-
 // Single Collision Good Packets Transmitted
 struct MAC_TX_SINGLE_COLLISION_GOOD_PACKETS_fields_ {
   // Tx Single Collision Good Packets This field indicates the number of successfully transmitted packets after a single collision in the half-duplex mode.
@@ -9379,7 +9185,6 @@ struct MAC_TX_SINGLE_COLLISION_GOOD_PACKETS : ftl::mmio::Register<
     MAC_TX_SINGLE_COLLISION_GOOD_PACKETS_fields_::TXSNGLCOLG> {
   using TXSNGLCOLG = MAC_TX_SINGLE_COLLISION_GOOD_PACKETS_fields_::TXSNGLCOLG;
 };
-
 
 // Multiple Collision Good Packets Transmitted
 struct MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS_fields_ {
@@ -9396,7 +9201,6 @@ struct MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS : ftl::mmio::Register<
   using TXMULTCOLG = MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS_fields_::TXMULTCOLG;
 };
 
-
 // Deferred Packets Transmitted
 struct MAC_TX_DEFERRED_PACKETS_fields_ {
   // Tx Deferred Packets This field indicates the number of successfully transmitted after a deferral in the half-duplex mode.
@@ -9411,7 +9215,6 @@ struct MAC_TX_DEFERRED_PACKETS : ftl::mmio::Register<
     MAC_TX_DEFERRED_PACKETS_fields_::TXDEFRD> {
   using TXDEFRD = MAC_TX_DEFERRED_PACKETS_fields_::TXDEFRD;
 };
-
 
 // Late Collision Packets Transmitted
 struct MAC_TX_LATE_COLLISION_PACKETS_fields_ {
@@ -9428,7 +9231,6 @@ struct MAC_TX_LATE_COLLISION_PACKETS : ftl::mmio::Register<
   using TXLATECOL = MAC_TX_LATE_COLLISION_PACKETS_fields_::TXLATECOL;
 };
 
-
 // Excessive Collision Packets Transmitted
 struct MAC_TX_EXCESSIVE_COLLISION_PACKETS_fields_ {
   // Tx Excessive Collision Packets This field indicates the number of packets aborted because of excessive (16) collision errors.
@@ -9443,7 +9245,6 @@ struct MAC_TX_EXCESSIVE_COLLISION_PACKETS : ftl::mmio::Register<
     MAC_TX_EXCESSIVE_COLLISION_PACKETS_fields_::TXEXSCOL> {
   using TXEXSCOL = MAC_TX_EXCESSIVE_COLLISION_PACKETS_fields_::TXEXSCOL;
 };
-
 
 // Carrier Error Packets Transmitted
 struct MAC_TX_CARRIER_ERROR_PACKETS_fields_ {
@@ -9460,7 +9261,6 @@ struct MAC_TX_CARRIER_ERROR_PACKETS : ftl::mmio::Register<
   using TXCARR = MAC_TX_CARRIER_ERROR_PACKETS_fields_::TXCARR;
 };
 
-
 // Bytes Transmitted in Good Packets
 struct MAC_TX_OCTET_COUNT_GOOD_fields_ {
   // Tx Octet Count Good This field indicates the number of bytes transmitted, exclusive of preamble, only in good packets.
@@ -9475,7 +9275,6 @@ struct MAC_TX_OCTET_COUNT_GOOD : ftl::mmio::Register<
     MAC_TX_OCTET_COUNT_GOOD_fields_::TXOCTG> {
   using TXOCTG = MAC_TX_OCTET_COUNT_GOOD_fields_::TXOCTG;
 };
-
 
 // Good Packets Transmitted
 struct MAC_TX_PACKET_COUNT_GOOD_fields_ {
@@ -9492,7 +9291,6 @@ struct MAC_TX_PACKET_COUNT_GOOD : ftl::mmio::Register<
   using TXPKTG = MAC_TX_PACKET_COUNT_GOOD_fields_::TXPKTG;
 };
 
-
 // Packets Aborted By Excessive Deferral Error
 struct MAC_TX_EXCESSIVE_DEFERRAL_ERROR_fields_ {
   // Tx Excessive Deferral Error This field indicates the number of packets aborted because of excessive deferral error (deferred for more than two max-sized packet times).
@@ -9507,7 +9305,6 @@ struct MAC_TX_EXCESSIVE_DEFERRAL_ERROR : ftl::mmio::Register<
     MAC_TX_EXCESSIVE_DEFERRAL_ERROR_fields_::TXEXSDEF> {
   using TXEXSDEF = MAC_TX_EXCESSIVE_DEFERRAL_ERROR_fields_::TXEXSDEF;
 };
-
 
 // Pause Packets Transmitted
 struct MAC_TX_PAUSE_PACKETS_fields_ {
@@ -9524,7 +9321,6 @@ struct MAC_TX_PAUSE_PACKETS : ftl::mmio::Register<
   using TXPAUSE = MAC_TX_PAUSE_PACKETS_fields_::TXPAUSE;
 };
 
-
 // Good VLAN Packets Transmitted
 struct MAC_TX_VLAN_PACKETS_GOOD_fields_ {
   // Tx VLAN Packets Good This field provides the number of good VLAN packets transmitted.
@@ -9539,7 +9335,6 @@ struct MAC_TX_VLAN_PACKETS_GOOD : ftl::mmio::Register<
     MAC_TX_VLAN_PACKETS_GOOD_fields_::TXVLANG> {
   using TXVLANG = MAC_TX_VLAN_PACKETS_GOOD_fields_::TXVLANG;
 };
-
 
 // Good Oversize Packets Transmitted
 struct MAC_TX_OSIZE_PACKETS_GOOD_fields_ {
@@ -9556,7 +9351,6 @@ struct MAC_TX_OSIZE_PACKETS_GOOD : ftl::mmio::Register<
   using TXOSIZG = MAC_TX_OSIZE_PACKETS_GOOD_fields_::TXOSIZG;
 };
 
-
 // Good and Bad Packets Received
 struct MAC_RX_PACKETS_COUNT_GOOD_BAD_fields_ {
   // Rx Packets Count Good Bad This field indicates the number of good and bad packets received.
@@ -9571,7 +9365,6 @@ struct MAC_RX_PACKETS_COUNT_GOOD_BAD : ftl::mmio::Register<
     MAC_RX_PACKETS_COUNT_GOOD_BAD_fields_::RXPKTGB> {
   using RXPKTGB = MAC_RX_PACKETS_COUNT_GOOD_BAD_fields_::RXPKTGB;
 };
-
 
 // Bytes in Good and Bad Packets Received
 struct MAC_RX_OCTET_COUNT_GOOD_BAD_fields_ {
@@ -9588,7 +9381,6 @@ struct MAC_RX_OCTET_COUNT_GOOD_BAD : ftl::mmio::Register<
   using RXOCTGB = MAC_RX_OCTET_COUNT_GOOD_BAD_fields_::RXOCTGB;
 };
 
-
 // Bytes in Good Packets Received
 struct MAC_RX_OCTET_COUNT_GOOD_fields_ {
   // Rx Octet Count Good This field indicates the number of bytes received, exclusive of preamble, only in good packets.
@@ -9603,7 +9395,6 @@ struct MAC_RX_OCTET_COUNT_GOOD : ftl::mmio::Register<
     MAC_RX_OCTET_COUNT_GOOD_fields_::RXOCTG> {
   using RXOCTG = MAC_RX_OCTET_COUNT_GOOD_fields_::RXOCTG;
 };
-
 
 // Good Broadcast Packets Received
 struct MAC_RX_BROADCAST_PACKETS_GOOD_fields_ {
@@ -9620,7 +9411,6 @@ struct MAC_RX_BROADCAST_PACKETS_GOOD : ftl::mmio::Register<
   using RXBCASTG = MAC_RX_BROADCAST_PACKETS_GOOD_fields_::RXBCASTG;
 };
 
-
 // Good Multicast Packets Received
 struct MAC_RX_MULTICAST_PACKETS_GOOD_fields_ {
   // Rx Multicast Packets Good This field indicates the number of good multicast packets received.
@@ -9635,7 +9425,6 @@ struct MAC_RX_MULTICAST_PACKETS_GOOD : ftl::mmio::Register<
     MAC_RX_MULTICAST_PACKETS_GOOD_fields_::RXMCASTG> {
   using RXMCASTG = MAC_RX_MULTICAST_PACKETS_GOOD_fields_::RXMCASTG;
 };
-
 
 // CRC Error Packets Received
 struct MAC_RX_CRC_ERROR_PACKETS_fields_ {
@@ -9652,7 +9441,6 @@ struct MAC_RX_CRC_ERROR_PACKETS : ftl::mmio::Register<
   using RXCRCERR = MAC_RX_CRC_ERROR_PACKETS_fields_::RXCRCERR;
 };
 
-
 // Alignment Error Packets Received
 struct MAC_RX_ALIGNMENT_ERROR_PACKETS_fields_ {
   // Rx Alignment Error Packets This field indicates the number of packets received with alignment (dribble) error.
@@ -9667,7 +9455,6 @@ struct MAC_RX_ALIGNMENT_ERROR_PACKETS : ftl::mmio::Register<
     MAC_RX_ALIGNMENT_ERROR_PACKETS_fields_::RXALGNERR> {
   using RXALGNERR = MAC_RX_ALIGNMENT_ERROR_PACKETS_fields_::RXALGNERR;
 };
-
 
 // Runt Error Packets Received
 struct MAC_RX_RUNT_ERROR_PACKETS_fields_ {
@@ -9684,7 +9471,6 @@ struct MAC_RX_RUNT_ERROR_PACKETS : ftl::mmio::Register<
   using RXRUNTERR = MAC_RX_RUNT_ERROR_PACKETS_fields_::RXRUNTERR;
 };
 
-
 // Jabber Error Packets Received
 struct MAC_RX_JABBER_ERROR_PACKETS_fields_ {
   // Rx Jabber Error Packets This field indicates the number of giant packets received with length (including CRC) greater than 1,518 bytes (1,522 bytes for VLAN tagged) and with CRC error.
@@ -9699,7 +9485,6 @@ struct MAC_RX_JABBER_ERROR_PACKETS : ftl::mmio::Register<
     MAC_RX_JABBER_ERROR_PACKETS_fields_::RXJABERR> {
   using RXJABERR = MAC_RX_JABBER_ERROR_PACKETS_fields_::RXJABERR;
 };
-
 
 // Good Undersize Packets Received
 struct MAC_RX_UNDERSIZE_PACKETS_GOOD_fields_ {
@@ -9716,7 +9501,6 @@ struct MAC_RX_UNDERSIZE_PACKETS_GOOD : ftl::mmio::Register<
   using RXUNDERSZG = MAC_RX_UNDERSIZE_PACKETS_GOOD_fields_::RXUNDERSZG;
 };
 
-
 // Good Oversize Packets Received
 struct MAC_RX_OVERSIZE_PACKETS_GOOD_fields_ {
   // Rx Oversize Packets Good This field indicates the number of packets received without errors, with length greater than the maxsize (1,518 bytes or 1,522 bytes for VLAN tagged packets; 2000 bytes if enabled in the S2KP bit of the MAC_CONFIGURATION register).
@@ -9731,7 +9515,6 @@ struct MAC_RX_OVERSIZE_PACKETS_GOOD : ftl::mmio::Register<
     MAC_RX_OVERSIZE_PACKETS_GOOD_fields_::RXOVERSZG> {
   using RXOVERSZG = MAC_RX_OVERSIZE_PACKETS_GOOD_fields_::RXOVERSZG;
 };
-
 
 // Good and Bad 64-Byte Packets Received
 struct MAC_RX_64OCTETS_PACKETS_GOOD_BAD_fields_ {
@@ -9748,7 +9531,6 @@ struct MAC_RX_64OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
   using RX64OCTGB = MAC_RX_64OCTETS_PACKETS_GOOD_BAD_fields_::RX64OCTGB;
 };
 
-
 // Good and Bad 64-to-127 Byte Packets Received
 struct MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_ {
   // Rx 65-127 Octets Packets Good Bad This field indicates the number of good and bad packets received with length between 65 and 127 (inclusive) bytes, exclusive of the preamble.
@@ -9763,7 +9545,6 @@ struct MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_::RX65_127OCTGB> {
   using RX65_127OCTGB = MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD_fields_::RX65_127OCTGB;
 };
-
 
 // Good and Bad 128-to-255 Byte Packets Received
 struct MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_ {
@@ -9780,7 +9561,6 @@ struct MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
   using RX128_255OCTGB = MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD_fields_::RX128_255OCTGB;
 };
 
-
 // Good and Bad 256-to-511 Byte Packets Received
 struct MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_ {
   // Rx 256-511 Octets Packets Good Bad This field indicates the number of good and bad packets received with length between 256 and 511 (inclusive) bytes, exclusive of the preamble.
@@ -9795,7 +9575,6 @@ struct MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_::RX256_511OCTGB> {
   using RX256_511OCTGB = MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD_fields_::RX256_511OCTGB;
 };
-
 
 // Good and Bad 512-to-1023 Byte Packets Received
 struct MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_ {
@@ -9812,7 +9591,6 @@ struct MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
   using RX512_1023OCTGB = MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD_fields_::RX512_1023OCTGB;
 };
 
-
 // Good and Bad 1024-to-Max Byte Packets Received
 struct MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_ {
   // Rx 1024-Max Octets Good Bad This field indicates the number of good and bad packets received with length between 1024 and maxsize (inclusive) bytes, exclusive of the preamble.
@@ -9827,7 +9605,6 @@ struct MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_::RX1024_MAXOCTGB> {
   using RX1024_MAXOCTGB = MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD_fields_::RX1024_MAXOCTGB;
 };
-
 
 // Good Unicast Packets Received
 struct MAC_RX_UNICAST_PACKETS_GOOD_fields_ {
@@ -9844,7 +9621,6 @@ struct MAC_RX_UNICAST_PACKETS_GOOD : ftl::mmio::Register<
   using RXUCASTG = MAC_RX_UNICAST_PACKETS_GOOD_fields_::RXUCASTG;
 };
 
-
 // Length Error Packets Received
 struct MAC_RX_LENGTH_ERROR_PACKETS_fields_ {
   // Rx Length Error Packets This field indicates the number of packets received with length error (Length Type field not equal to packet size), for all packets with valid length field.
@@ -9859,7 +9635,6 @@ struct MAC_RX_LENGTH_ERROR_PACKETS : ftl::mmio::Register<
     MAC_RX_LENGTH_ERROR_PACKETS_fields_::RXLENERR> {
   using RXLENERR = MAC_RX_LENGTH_ERROR_PACKETS_fields_::RXLENERR;
 };
-
 
 // Out-of-range Type Packets Received
 struct MAC_RX_OUT_OF_RANGE_TYPE_PACKETS_fields_ {
@@ -9876,7 +9651,6 @@ struct MAC_RX_OUT_OF_RANGE_TYPE_PACKETS : ftl::mmio::Register<
   using RXOUTOFRNG = MAC_RX_OUT_OF_RANGE_TYPE_PACKETS_fields_::RXOUTOFRNG;
 };
 
-
 // Pause Packets Received
 struct MAC_RX_PAUSE_PACKETS_fields_ {
   // Rx Pause Packets This field indicates the number of good and valid Pause packets received.
@@ -9891,7 +9665,6 @@ struct MAC_RX_PAUSE_PACKETS : ftl::mmio::Register<
     MAC_RX_PAUSE_PACKETS_fields_::RXPAUSEPKT> {
   using RXPAUSEPKT = MAC_RX_PAUSE_PACKETS_fields_::RXPAUSEPKT;
 };
-
 
 // Missed Packets Due to FIFO Overflow
 struct MAC_RX_FIFO_OVERFLOW_PACKETS_fields_ {
@@ -9908,7 +9681,6 @@ struct MAC_RX_FIFO_OVERFLOW_PACKETS : ftl::mmio::Register<
   using RXFIFOOVFL = MAC_RX_FIFO_OVERFLOW_PACKETS_fields_::RXFIFOOVFL;
 };
 
-
 // Good and Bad VLAN Packets Received
 struct MAC_RX_VLAN_PACKETS_GOOD_BAD_fields_ {
   // Rx VLAN Packets Good Bad This field indicates the number of good and bad VLAN packets received.
@@ -9923,7 +9695,6 @@ struct MAC_RX_VLAN_PACKETS_GOOD_BAD : ftl::mmio::Register<
     MAC_RX_VLAN_PACKETS_GOOD_BAD_fields_::RXVLANPKTGB> {
   using RXVLANPKTGB = MAC_RX_VLAN_PACKETS_GOOD_BAD_fields_::RXVLANPKTGB;
 };
-
 
 // Watchdog Error Packets Received
 struct MAC_RX_WATCHDOG_ERROR_PACKETS_fields_ {
@@ -9940,7 +9711,6 @@ struct MAC_RX_WATCHDOG_ERROR_PACKETS : ftl::mmio::Register<
   using RXWDGERR = MAC_RX_WATCHDOG_ERROR_PACKETS_fields_::RXWDGERR;
 };
 
-
 // Receive Error Packets Received
 struct MAC_RX_RECEIVE_ERROR_PACKETS_fields_ {
   // Rx Receive Error Packets This field indicates the number of packets received with Receive error or Packet Extension error on the GMII or MII interface.
@@ -9955,7 +9725,6 @@ struct MAC_RX_RECEIVE_ERROR_PACKETS : ftl::mmio::Register<
     MAC_RX_RECEIVE_ERROR_PACKETS_fields_::RXRCVERR> {
   using RXRCVERR = MAC_RX_RECEIVE_ERROR_PACKETS_fields_::RXRCVERR;
 };
-
 
 // Good Control Packets Received
 struct MAC_RX_CONTROL_PACKETS_GOOD_fields_ {
@@ -9972,7 +9741,6 @@ struct MAC_RX_CONTROL_PACKETS_GOOD : ftl::mmio::Register<
   using RXCTRLG = MAC_RX_CONTROL_PACKETS_GOOD_fields_::RXCTRLG;
 };
 
-
 // Microseconds Tx LPI Asserted
 struct MAC_TX_LPI_USEC_CNTR_fields_ {
   // Tx LPI Microseconds Counter This field indicates the number of microseconds Tx LPI is asserted.
@@ -9987,7 +9755,6 @@ struct MAC_TX_LPI_USEC_CNTR : ftl::mmio::Register<
     MAC_TX_LPI_USEC_CNTR_fields_::TXLPIUSC> {
   using TXLPIUSC = MAC_TX_LPI_USEC_CNTR_fields_::TXLPIUSC;
 };
-
 
 // Number of Times Tx LPI Asserted
 struct MAC_TX_LPI_TRAN_CNTR_fields_ {
@@ -10004,7 +9771,6 @@ struct MAC_TX_LPI_TRAN_CNTR : ftl::mmio::Register<
   using TXLPITRC = MAC_TX_LPI_TRAN_CNTR_fields_::TXLPITRC;
 };
 
-
 // Microseconds Rx LPI Sampled
 struct MAC_RX_LPI_USEC_CNTR_fields_ {
   // Rx LPI Microseconds Counter This field indicates the number of microseconds Rx LPI is asserted.
@@ -10019,7 +9785,6 @@ struct MAC_RX_LPI_USEC_CNTR : ftl::mmio::Register<
     MAC_RX_LPI_USEC_CNTR_fields_::RXLPIUSC> {
   using RXLPIUSC = MAC_RX_LPI_USEC_CNTR_fields_::RXLPIUSC;
 };
-
 
 // Number of Times Rx LPI Entered
 struct MAC_RX_LPI_TRAN_CNTR_fields_ {
@@ -10036,10 +9801,8 @@ struct MAC_RX_LPI_TRAN_CNTR : ftl::mmio::Register<
   using RXLPITRC = MAC_RX_LPI_TRAN_CNTR_fields_::RXLPITRC;
 };
 
-
 // MMC IPC Receive Interrupt Mask
 struct MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_ {
-
   enum class eRXIPV4GPIM : std::uint32_t {
     // MMC Receive IPV4 Good Packet Counter Interrupt Mask is disabled
     eDISABLE = 0,
@@ -10235,6 +9998,7 @@ struct MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_ {
     // MMC Receive ICMP Error Octet Counter Interrupt Mask is enabled
     eENABLE = 1,
   };
+
   // MMC Receive IPV4 Good Packet Counter Interrupt Mask Setting this bit masks the interrupt when the rxipv4_gd_pkts counter reaches half of the maximum value or the maximum value.
   using RXIPV4GPIM = ftl::mmio::Field<1, 0, eRXIPV4GPIM, ftl::mmio::RW, ftl::mmio::Normal>;
   // MMC Receive IPV4 Header Error Packet Counter Interrupt Mask Setting this bit masks the interrupt when the rxipv4_hdrerr_pkts counter reaches half of the maximum value or the maximum value.
@@ -10386,10 +10150,8 @@ struct MAC_MMC_IPC_RX_INTERRUPT_MASK : ftl::mmio::Register<
   using RXICMPEROIM = MAC_MMC_IPC_RX_INTERRUPT_MASK_fields_::RXICMPEROIM;
 };
 
-
 // MMC IPC Receive Interrupt
 struct MAC_MMC_IPC_RX_INTERRUPT_fields_ {
-
   enum class eRXIPV4GPIS : std::uint32_t {
     // MMC Receive IPV4 Good Packet Counter Interrupt Status not detected
     eINACTIVE = 0,
@@ -10585,6 +10347,7 @@ struct MAC_MMC_IPC_RX_INTERRUPT_fields_ {
     // MMC Receive ICMP Error Octet Counter Interrupt Status detected
     eACTIVE = 1,
   };
+
   // MMC Receive IPV4 Good Packet Counter Interrupt Status This bit is set when the rxipv4_gd_pkts counter reaches half of the maximum value or the maximum value.
   using RXIPV4GPIS = ftl::mmio::Field<1, 0, eRXIPV4GPIS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MMC Receive IPV4 Header Error Packet Counter Interrupt Status This bit is set when the rxipv4_hdrerr_pkts counter reaches half of the maximum value or the maximum value.
@@ -10736,7 +10499,6 @@ struct MAC_MMC_IPC_RX_INTERRUPT : ftl::mmio::Register<
   using RXICMPEROIS = MAC_MMC_IPC_RX_INTERRUPT_fields_::RXICMPEROIS;
 };
 
-
 // Good IPv4 Datagrams Received
 struct MAC_RXIPV4_GOOD_PACKETS_fields_ {
   // RxIPv4 Good Packets This field indicates the number of good IPv4 datagrams received with the TCP, UDP, or ICMP payload.
@@ -10751,7 +10513,6 @@ struct MAC_RXIPV4_GOOD_PACKETS : ftl::mmio::Register<
     MAC_RXIPV4_GOOD_PACKETS_fields_::RXIPV4GDPKT> {
   using RXIPV4GDPKT = MAC_RXIPV4_GOOD_PACKETS_fields_::RXIPV4GDPKT;
 };
-
 
 // IPv4 Datagrams Received with Header Errors
 struct MAC_RXIPV4_HEADER_ERROR_PACKETS_fields_ {
@@ -10768,7 +10529,6 @@ struct MAC_RXIPV4_HEADER_ERROR_PACKETS : ftl::mmio::Register<
   using RXIPV4HDRERRPKT = MAC_RXIPV4_HEADER_ERROR_PACKETS_fields_::RXIPV4HDRERRPKT;
 };
 
-
 // IPv4 Datagrams Received with No Payload
 struct MAC_RXIPV4_NO_PAYLOAD_PACKETS_fields_ {
   // RxIPv4 Payload Packets This field indicates the number of IPv4 datagram packets received that did not have a TCP, UDP, or ICMP payload.
@@ -10783,7 +10543,6 @@ struct MAC_RXIPV4_NO_PAYLOAD_PACKETS : ftl::mmio::Register<
     MAC_RXIPV4_NO_PAYLOAD_PACKETS_fields_::RXIPV4NOPAYPKT> {
   using RXIPV4NOPAYPKT = MAC_RXIPV4_NO_PAYLOAD_PACKETS_fields_::RXIPV4NOPAYPKT;
 };
-
 
 // IPv4 Datagrams Received with Fragmentation
 struct MAC_RXIPV4_FRAGMENTED_PACKETS_fields_ {
@@ -10800,7 +10559,6 @@ struct MAC_RXIPV4_FRAGMENTED_PACKETS : ftl::mmio::Register<
   using RXIPV4FRAGPKT = MAC_RXIPV4_FRAGMENTED_PACKETS_fields_::RXIPV4FRAGPKT;
 };
 
-
 // IPv4 Datagrams Received with UDP Checksum Disabled
 struct MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS_fields_ {
   // RxIPv4 UDP Checksum Disabled Packets This field indicates the number of good IPv4 datagrams received that had a UDP payload with checksum disabled.
@@ -10815,7 +10573,6 @@ struct MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS : ftl::mmio::Register<
     MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS_fields_::RXIPV4UDSBLPKT> {
   using RXIPV4UDSBLPKT = MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS_fields_::RXIPV4UDSBLPKT;
 };
-
 
 // Good IPv6 Datagrams Received
 struct MAC_RXIPV6_GOOD_PACKETS_fields_ {
@@ -10832,7 +10589,6 @@ struct MAC_RXIPV6_GOOD_PACKETS : ftl::mmio::Register<
   using RXIPV6GDPKT = MAC_RXIPV6_GOOD_PACKETS_fields_::RXIPV6GDPKT;
 };
 
-
 // IPv6 Datagrams Received with Header Errors
 struct MAC_RXIPV6_HEADER_ERROR_PACKETS_fields_ {
   // RxIPv6 Header Error Packets This field indicates the number of IPv6 datagrams received with header (length or version mismatch) errors.
@@ -10847,7 +10603,6 @@ struct MAC_RXIPV6_HEADER_ERROR_PACKETS : ftl::mmio::Register<
     MAC_RXIPV6_HEADER_ERROR_PACKETS_fields_::RXIPV6HDRERRPKT> {
   using RXIPV6HDRERRPKT = MAC_RXIPV6_HEADER_ERROR_PACKETS_fields_::RXIPV6HDRERRPKT;
 };
-
 
 // IPv6 Datagrams Received with No Payload
 struct MAC_RXIPV6_NO_PAYLOAD_PACKETS_fields_ {
@@ -10864,7 +10619,6 @@ struct MAC_RXIPV6_NO_PAYLOAD_PACKETS : ftl::mmio::Register<
   using RXIPV6NOPAYPKT = MAC_RXIPV6_NO_PAYLOAD_PACKETS_fields_::RXIPV6NOPAYPKT;
 };
 
-
 // IPv6 Datagrams Received with Good UDP
 struct MAC_RXUDP_GOOD_PACKETS_fields_ {
   // RxUDP Good Packets This field indicates the number of good IP datagrams received with a good UDP payload.
@@ -10879,7 +10633,6 @@ struct MAC_RXUDP_GOOD_PACKETS : ftl::mmio::Register<
     MAC_RXUDP_GOOD_PACKETS_fields_::RXUDPGDPKT> {
   using RXUDPGDPKT = MAC_RXUDP_GOOD_PACKETS_fields_::RXUDPGDPKT;
 };
-
 
 // IPv6 Datagrams Received with UDP Checksum Error
 struct MAC_RXUDP_ERROR_PACKETS_fields_ {
@@ -10896,7 +10649,6 @@ struct MAC_RXUDP_ERROR_PACKETS : ftl::mmio::Register<
   using RXUDPERRPKT = MAC_RXUDP_ERROR_PACKETS_fields_::RXUDPERRPKT;
 };
 
-
 // IPv6 Datagrams Received with Good TCP Payload
 struct MAC_RXTCP_GOOD_PACKETS_fields_ {
   // RxTCP Good Packets This field indicates the number of good IP datagrams received with a good TCP payload.
@@ -10911,7 +10663,6 @@ struct MAC_RXTCP_GOOD_PACKETS : ftl::mmio::Register<
     MAC_RXTCP_GOOD_PACKETS_fields_::RXTCPGDPKT> {
   using RXTCPGDPKT = MAC_RXTCP_GOOD_PACKETS_fields_::RXTCPGDPKT;
 };
-
 
 // IPv6 Datagrams Received with TCP Checksum Error
 struct MAC_RXTCP_ERROR_PACKETS_fields_ {
@@ -10928,7 +10679,6 @@ struct MAC_RXTCP_ERROR_PACKETS : ftl::mmio::Register<
   using RXTCPERRPKT = MAC_RXTCP_ERROR_PACKETS_fields_::RXTCPERRPKT;
 };
 
-
 // IPv6 Datagrams Received with Good ICMP Payload
 struct MAC_RXICMP_GOOD_PACKETS_fields_ {
   // RxICMP Good Packets This field indicates the number of good IP datagrams received with a good ICMP payload.
@@ -10943,7 +10693,6 @@ struct MAC_RXICMP_GOOD_PACKETS : ftl::mmio::Register<
     MAC_RXICMP_GOOD_PACKETS_fields_::RXICMPGDPKT> {
   using RXICMPGDPKT = MAC_RXICMP_GOOD_PACKETS_fields_::RXICMPGDPKT;
 };
-
 
 // IPv6 Datagrams Received with ICMP Checksum Error
 struct MAC_RXICMP_ERROR_PACKETS_fields_ {
@@ -10960,7 +10709,6 @@ struct MAC_RXICMP_ERROR_PACKETS : ftl::mmio::Register<
   using RXICMPERRPKT = MAC_RXICMP_ERROR_PACKETS_fields_::RXICMPERRPKT;
 };
 
-
 // Good Bytes Received in IPv4 Datagrams
 struct MAC_RXIPV4_GOOD_OCTETS_fields_ {
   // RxIPv4 Good Octets This field indicates the number of bytes received in good IPv4 datagrams encapsulating TCP, UDP, or ICMP data.
@@ -10975,7 +10723,6 @@ struct MAC_RXIPV4_GOOD_OCTETS : ftl::mmio::Register<
     MAC_RXIPV4_GOOD_OCTETS_fields_::RXIPV4GDOCT> {
   using RXIPV4GDOCT = MAC_RXIPV4_GOOD_OCTETS_fields_::RXIPV4GDOCT;
 };
-
 
 // Bytes Received in IPv4 Datagrams with Header Errors
 struct MAC_RXIPV4_HEADER_ERROR_OCTETS_fields_ {
@@ -10992,7 +10739,6 @@ struct MAC_RXIPV4_HEADER_ERROR_OCTETS : ftl::mmio::Register<
   using RXIPV4HDRERROCT = MAC_RXIPV4_HEADER_ERROR_OCTETS_fields_::RXIPV4HDRERROCT;
 };
 
-
 // Bytes Received in IPv4 Datagrams with No Payload
 struct MAC_RXIPV4_NO_PAYLOAD_OCTETS_fields_ {
   // RxIPv4 Payload Octets This field indicates the number of bytes received in IPv4 datagrams that did not have a TCP, UDP, or ICMP payload.
@@ -11007,7 +10753,6 @@ struct MAC_RXIPV4_NO_PAYLOAD_OCTETS : ftl::mmio::Register<
     MAC_RXIPV4_NO_PAYLOAD_OCTETS_fields_::RXIPV4NOPAYOCT> {
   using RXIPV4NOPAYOCT = MAC_RXIPV4_NO_PAYLOAD_OCTETS_fields_::RXIPV4NOPAYOCT;
 };
-
 
 // Bytes Received in Fragmented IPv4 Datagrams
 struct MAC_RXIPV4_FRAGMENTED_OCTETS_fields_ {
@@ -11024,7 +10769,6 @@ struct MAC_RXIPV4_FRAGMENTED_OCTETS : ftl::mmio::Register<
   using RXIPV4FRAGOCT = MAC_RXIPV4_FRAGMENTED_OCTETS_fields_::RXIPV4FRAGOCT;
 };
 
-
 // Bytes Received with UDP Checksum Disabled
 struct MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS_fields_ {
   // RxIPv4 UDP Checksum Disable Octets This field indicates the number of bytes received in a UDP segment that had the UDP checksum disabled.
@@ -11039,7 +10783,6 @@ struct MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS : ftl::mmio::Register<
     MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS_fields_::RXIPV4UDSBLOCT> {
   using RXIPV4UDSBLOCT = MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS_fields_::RXIPV4UDSBLOCT;
 };
-
 
 // Bytes Received in Good IPv6 Datagrams
 struct MAC_RXIPV6_GOOD_OCTETS_fields_ {
@@ -11056,7 +10799,6 @@ struct MAC_RXIPV6_GOOD_OCTETS : ftl::mmio::Register<
   using RXIPV6GDOCT = MAC_RXIPV6_GOOD_OCTETS_fields_::RXIPV6GDOCT;
 };
 
-
 // Bytes Received in IPv6 Datagrams with Data Errors
 struct MAC_RXIPV6_HEADER_ERROR_OCTETS_fields_ {
   // RxIPv6 Header Error Octets This field indicates the number of bytes received in IPv6 datagrams with header errors (length, version mismatch).
@@ -11071,7 +10813,6 @@ struct MAC_RXIPV6_HEADER_ERROR_OCTETS : ftl::mmio::Register<
     MAC_RXIPV6_HEADER_ERROR_OCTETS_fields_::RXIPV6HDRERROCT> {
   using RXIPV6HDRERROCT = MAC_RXIPV6_HEADER_ERROR_OCTETS_fields_::RXIPV6HDRERROCT;
 };
-
 
 // Bytes Received in IPv6 Datagrams with No Payload
 struct MAC_RXIPV6_NO_PAYLOAD_OCTETS_fields_ {
@@ -11088,7 +10829,6 @@ struct MAC_RXIPV6_NO_PAYLOAD_OCTETS : ftl::mmio::Register<
   using RXIPV6NOPAYOCT = MAC_RXIPV6_NO_PAYLOAD_OCTETS_fields_::RXIPV6NOPAYOCT;
 };
 
-
 // Bytes Received in Good UDP Segment
 struct MAC_RXUDP_GOOD_OCTETS_fields_ {
   // RxUDP Good Octets This field indicates the number of bytes received in a good UDP segment.
@@ -11103,7 +10843,6 @@ struct MAC_RXUDP_GOOD_OCTETS : ftl::mmio::Register<
     MAC_RXUDP_GOOD_OCTETS_fields_::RXUDPGDOCT> {
   using RXUDPGDOCT = MAC_RXUDP_GOOD_OCTETS_fields_::RXUDPGDOCT;
 };
-
 
 // Bytes Received in UDP Segment with Checksum Errors
 struct MAC_RXUDP_ERROR_OCTETS_fields_ {
@@ -11120,7 +10859,6 @@ struct MAC_RXUDP_ERROR_OCTETS : ftl::mmio::Register<
   using RXUDPERROCT = MAC_RXUDP_ERROR_OCTETS_fields_::RXUDPERROCT;
 };
 
-
 // Bytes Received in Good TCP Segment
 struct MAC_RXTCP_GOOD_OCTETS_fields_ {
   // RxTCP Good Octets This field indicates the number of bytes received in a good TCP segment.
@@ -11135,7 +10873,6 @@ struct MAC_RXTCP_GOOD_OCTETS : ftl::mmio::Register<
     MAC_RXTCP_GOOD_OCTETS_fields_::RXTCPGDOCT> {
   using RXTCPGDOCT = MAC_RXTCP_GOOD_OCTETS_fields_::RXTCPGDOCT;
 };
-
 
 // Bytes Received in TCP Segment with Checksum Errors
 struct MAC_RXTCP_ERROR_OCTETS_fields_ {
@@ -11152,7 +10889,6 @@ struct MAC_RXTCP_ERROR_OCTETS : ftl::mmio::Register<
   using RXTCPERROCT = MAC_RXTCP_ERROR_OCTETS_fields_::RXTCPERROCT;
 };
 
-
 // Bytes Received in Good ICMP Segment
 struct MAC_RXICMP_GOOD_OCTETS_fields_ {
   // RxICMP Good Octets This field indicates the number of bytes received in a good ICMP segment.
@@ -11167,7 +10903,6 @@ struct MAC_RXICMP_GOOD_OCTETS : ftl::mmio::Register<
     MAC_RXICMP_GOOD_OCTETS_fields_::RXICMPGDOCT> {
   using RXICMPGDOCT = MAC_RXICMP_GOOD_OCTETS_fields_::RXICMPGDOCT;
 };
-
 
 // Bytes Received in ICMP Segment with Checksum Errors
 struct MAC_RXICMP_ERROR_OCTETS_fields_ {
@@ -11184,10 +10919,8 @@ struct MAC_RXICMP_ERROR_OCTETS : ftl::mmio::Register<
   using RXICMPERROCT = MAC_RXICMP_ERROR_OCTETS_fields_::RXICMPERROCT;
 };
 
-
 // MMC FPE Transmit Interrupt
 struct MAC_MMC_FPE_TX_INTERRUPT_fields_ {
-
   enum class eFCIS : std::uint32_t {
     // MMC Tx FPE Fragment Counter Interrupt status not detected
     eINACTIVE = 0,
@@ -11201,6 +10934,7 @@ struct MAC_MMC_FPE_TX_INTERRUPT_fields_ {
     // MMC Tx Hold Request Counter Interrupt Status detected
     eACTIVE = 1,
   };
+
   // MMC Tx FPE Fragment Counter Interrupt status This bit is set when the Tx_FPE_Fragment_Cntr counter reaches half of the maximum value or the maximum value.
   using FCIS = ftl::mmio::Field<1, 0, eFCIS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MMC Tx Hold Request Counter Interrupt Status This bit is set when the Tx_Hold_Req_Cntr counter reaches half of the maximum value or the maximum value.
@@ -11221,10 +10955,8 @@ struct MAC_MMC_FPE_TX_INTERRUPT : ftl::mmio::Register<
   using HRCIS = MAC_MMC_FPE_TX_INTERRUPT_fields_::HRCIS;
 };
 
-
 // MMC FPE Transmit Mask Interrupt
 struct MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_ {
-
   enum class eFCIM : std::uint32_t {
     // MMC Transmit Fragment Counter Interrupt Mask is disabled
     eDISABLE = 0,
@@ -11238,6 +10970,7 @@ struct MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_ {
     // MMC Transmit Hold Request Counter Interrupt Mask is enabled
     eENABLE = 1,
   };
+
   // MMC Transmit Fragment Counter Interrupt Mask Setting this bit masks the interrupt when the Tx_FPE_Fragment_Cntr counter reaches half of the maximum value or the maximum value.
   using FCIM = ftl::mmio::Field<1, 0, eFCIM, ftl::mmio::RW, ftl::mmio::Normal>;
   // MMC Transmit Hold Request Counter Interrupt Mask Setting this bit masks the interrupt when the Tx_Hold_Req_Cntr counter reaches half of the maximum value or the maximum value.
@@ -11258,7 +10991,6 @@ struct MAC_MMC_FPE_TX_INTERRUPT_MASK : ftl::mmio::Register<
   using HRCIM = MAC_MMC_FPE_TX_INTERRUPT_MASK_fields_::HRCIM;
 };
 
-
 // MMC FPE Transmitted Fragment Counter
 struct MAC_MMC_TX_FPE_FRAGMENT_CNTR_fields_ {
   // Tx FPE Fragment counter This field indicates the number of additional mPackets that has been transmitted due to preemption Exists when any one of the RX/TX MMC counters are enabled during FPE Enabled configuration.
@@ -11273,7 +11005,6 @@ struct MAC_MMC_TX_FPE_FRAGMENT_CNTR : ftl::mmio::Register<
     MAC_MMC_TX_FPE_FRAGMENT_CNTR_fields_::TXFFC> {
   using TXFFC = MAC_MMC_TX_FPE_FRAGMENT_CNTR_fields_::TXFFC;
 };
-
 
 // MMC FPE Transmitted Hold Request Counter
 struct MAC_MMC_TX_HOLD_REQ_CNTR_fields_ {
@@ -11290,10 +11021,8 @@ struct MAC_MMC_TX_HOLD_REQ_CNTR : ftl::mmio::Register<
   using TXHRC = MAC_MMC_TX_HOLD_REQ_CNTR_fields_::TXHRC;
 };
 
-
 // MMC FPE Receive Interrupt
 struct MAC_MMC_FPE_RX_INTERRUPT_fields_ {
-
   enum class ePAECIS : std::uint32_t {
     // MMC Rx Packet Assembly Error Counter Interrupt Status not detected
     eINACTIVE = 0,
@@ -11321,6 +11050,7 @@ struct MAC_MMC_FPE_RX_INTERRUPT_fields_ {
     // MMC Rx FPE Fragment Counter Interrupt Status detected
     eACTIVE = 1,
   };
+
   // MMC Rx Packet Assembly Error Counter Interrupt Status This bit is set when the Rx_Packet_Assemble_Err_Cntr counter reaches half of the maximum value or the maximum value.
   using PAECIS = ftl::mmio::Field<1, 0, ePAECIS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MMC Rx Packet SMD Error Counter Interrupt Status This bit is set when the Rx_Packet_SMD_Err_Cntr counter reaches half of the maximum value or the maximum value.
@@ -11351,10 +11081,8 @@ struct MAC_MMC_FPE_RX_INTERRUPT : ftl::mmio::Register<
   using FCIS = MAC_MMC_FPE_RX_INTERRUPT_fields_::FCIS;
 };
 
-
 // MMC FPE Receive Interrupt Mask
 struct MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_ {
-
   enum class ePAECIM : std::uint32_t {
     // MMC Rx Packet Assembly Error Counter Interrupt Mask is disabled
     eDISABLE = 0,
@@ -11382,6 +11110,7 @@ struct MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_ {
     // MMC Rx FPE Fragment Counter Interrupt Mask is enabled
     eENABLE = 1,
   };
+
   // MMC Rx Packet Assembly Error Counter Interrupt Mask Setting this bit masks the interrupt when the R Rx_Packet_Assemble_Err_Cntr counter reaches half of the maximum value or the maximum value.
   using PAECIM = ftl::mmio::Field<1, 0, ePAECIM, ftl::mmio::RW, ftl::mmio::Normal>;
   // MMC Rx Packet SMD Error Counter Interrupt Mask Setting this bit masks the interrupt when the R Rx_Packet_SMD_Err_Cntr counter reaches half of the maximum value or the maximum value.
@@ -11412,7 +11141,6 @@ struct MAC_MMC_FPE_RX_INTERRUPT_MASK : ftl::mmio::Register<
   using FCIM = MAC_MMC_FPE_RX_INTERRUPT_MASK_fields_::FCIM;
 };
 
-
 // MMC Receive Packet Reassembly Error Counter
 struct MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR_fields_ {
   // Rx Packet Assembly Error Counter This field indicates the number of MAC frames with reassembly errors on the Receiver, due to mismatch in the Fragment Count value.
@@ -11427,7 +11155,6 @@ struct MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR : ftl::mmio::Register<
     MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR_fields_::PAEC> {
   using PAEC = MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR_fields_::PAEC;
 };
-
 
 // MMC Receive Packet SMD Error Counter
 struct MAC_MMC_RX_PACKET_SMD_ERR_CNTR_fields_ {
@@ -11444,7 +11171,6 @@ struct MAC_MMC_RX_PACKET_SMD_ERR_CNTR : ftl::mmio::Register<
   using PSEC = MAC_MMC_RX_PACKET_SMD_ERR_CNTR_fields_::PSEC;
 };
 
-
 // MMC Receive Packet Successful Reassembly Counter
 struct MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR_fields_ {
   // Rx Packet Assembly OK Counter This field indicates the number of MAC frames that were successfully reassembled and delivered to MAC.
@@ -11459,7 +11185,6 @@ struct MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR : ftl::mmio::Register<
     MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR_fields_::PAOC> {
   using PAOC = MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR_fields_::PAOC;
 };
-
 
 // MMC FPE Received Fragment Counter
 struct MAC_MMC_RX_FPE_FRAGMENT_CNTR_fields_ {
@@ -11476,10 +11201,8 @@ struct MAC_MMC_RX_FPE_FRAGMENT_CNTR : ftl::mmio::Register<
   using FFC = MAC_MMC_RX_FPE_FRAGMENT_CNTR_fields_::FFC;
 };
 
-
 // Layer 3 and Layer 4 Control of Filter 0
 struct MAC_L3_L4_CONTROL0_fields_ {
-
   enum class eL3PEN0 : std::uint32_t {
     // Layer 3 Protocol is disabled
     eDISABLE = 0,
@@ -11556,6 +11279,7 @@ struct MAC_L3_L4_CONTROL0_fields_ {
     // DMA Channel Select is enabled
     eENABLE = 1,
   };
+
   // Layer 3 Protocol Enable When this bit is set, the Layer 3 IP Source or Destination Address matching is enabled for IPv6 packets.
   using L3PEN0 = ftl::mmio::Field<1, 0, eL3PEN0, ftl::mmio::RW, ftl::mmio::Normal>;
   // Layer 3 IP SA Match Enable When this bit is set, the Layer 3 IP Source Address field is enabled for matching.
@@ -11637,7 +11361,6 @@ struct MAC_L3_L4_CONTROL0 : ftl::mmio::Register<
   using DMCHEN0 = MAC_L3_L4_CONTROL0_fields_::DMCHEN0;
 };
 
-
 // Layer 4 Address 0
 struct MAC_LAYER4_ADDRESS0_fields_ {
   // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
@@ -11657,7 +11380,6 @@ struct MAC_LAYER4_ADDRESS0 : ftl::mmio::Register<
   using L4DP0 = MAC_LAYER4_ADDRESS0_fields_::L4DP0;
 };
 
-
 // Layer 3 Address 0 Register 0
 struct MAC_LAYER3_ADDR0_REG0_fields_ {
   // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
@@ -11672,7 +11394,6 @@ struct MAC_LAYER3_ADDR0_REG0 : ftl::mmio::Register<
     MAC_LAYER3_ADDR0_REG0_fields_::L3A00> {
   using L3A00 = MAC_LAYER3_ADDR0_REG0_fields_::L3A00;
 };
-
 
 // Layer 3 Address 1 Register 0
 struct MAC_LAYER3_ADDR1_REG0_fields_ {
@@ -11689,7 +11410,6 @@ struct MAC_LAYER3_ADDR1_REG0 : ftl::mmio::Register<
   using L3A10 = MAC_LAYER3_ADDR1_REG0_fields_::L3A10;
 };
 
-
 // Layer 3 Address 2 Register 0
 struct MAC_LAYER3_ADDR2_REG0_fields_ {
   // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
@@ -11704,7 +11424,6 @@ struct MAC_LAYER3_ADDR2_REG0 : ftl::mmio::Register<
     MAC_LAYER3_ADDR2_REG0_fields_::L3A20> {
   using L3A20 = MAC_LAYER3_ADDR2_REG0_fields_::L3A20;
 };
-
 
 // Layer 3 Address 3 Register 0
 struct MAC_LAYER3_ADDR3_REG0_fields_ {
@@ -11721,10 +11440,8 @@ struct MAC_LAYER3_ADDR3_REG0 : ftl::mmio::Register<
   using L3A30 = MAC_LAYER3_ADDR3_REG0_fields_::L3A30;
 };
 
-
 // Layer 3 and Layer 4 Control of Filter 1
 struct MAC_L3_L4_CONTROL1_fields_ {
-
   enum class eL3PEN1 : std::uint32_t {
     // Layer 3 Protocol is disabled
     eDISABLE = 0,
@@ -11801,6 +11518,7 @@ struct MAC_L3_L4_CONTROL1_fields_ {
     // DMA Channel Select is enabled
     eENABLE = 1,
   };
+
   // Layer 3 Protocol Enable When this bit is set, the Layer 3 IP Source or Destination Address matching is enabled for IPv6 packets.
   using L3PEN1 = ftl::mmio::Field<1, 0, eL3PEN1, ftl::mmio::RW, ftl::mmio::Normal>;
   // Layer 3 IP SA Match Enable When this bit is set, the Layer 3 IP Source Address field is enabled for matching.
@@ -11882,7 +11600,6 @@ struct MAC_L3_L4_CONTROL1 : ftl::mmio::Register<
   using DMCHEN1 = MAC_L3_L4_CONTROL1_fields_::DMCHEN1;
 };
 
-
 // Layer 4 Address 0
 struct MAC_LAYER4_ADDRESS1_fields_ {
   // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
@@ -11902,7 +11619,6 @@ struct MAC_LAYER4_ADDRESS1 : ftl::mmio::Register<
   using L4DP1 = MAC_LAYER4_ADDRESS1_fields_::L4DP1;
 };
 
-
 // Layer 3 Address 0 Register 1
 struct MAC_LAYER3_ADDR0_REG1_fields_ {
   // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
@@ -11917,7 +11633,6 @@ struct MAC_LAYER3_ADDR0_REG1 : ftl::mmio::Register<
     MAC_LAYER3_ADDR0_REG1_fields_::L3A01> {
   using L3A01 = MAC_LAYER3_ADDR0_REG1_fields_::L3A01;
 };
-
 
 // Layer 3 Address 1 Register 1
 struct MAC_LAYER3_ADDR1_REG1_fields_ {
@@ -11934,7 +11649,6 @@ struct MAC_LAYER3_ADDR1_REG1 : ftl::mmio::Register<
   using L3A11 = MAC_LAYER3_ADDR1_REG1_fields_::L3A11;
 };
 
-
 // Layer 3 Address 2 Register 1
 struct MAC_LAYER3_ADDR2_REG1_fields_ {
   // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
@@ -11949,7 +11663,6 @@ struct MAC_LAYER3_ADDR2_REG1 : ftl::mmio::Register<
     MAC_LAYER3_ADDR2_REG1_fields_::L3A21> {
   using L3A21 = MAC_LAYER3_ADDR2_REG1_fields_::L3A21;
 };
-
 
 // Layer 3 Address 3 Register 1
 struct MAC_LAYER3_ADDR3_REG1_fields_ {
@@ -11966,10 +11679,8 @@ struct MAC_LAYER3_ADDR3_REG1 : ftl::mmio::Register<
   using L3A31 = MAC_LAYER3_ADDR3_REG1_fields_::L3A31;
 };
 
-
 // Layer 3 and Layer 4 Control of Filter 2
 struct MAC_L3_L4_CONTROL2_fields_ {
-
   enum class eL3PEN2 : std::uint32_t {
     // Layer 3 Protocol is disabled
     eDISABLE = 0,
@@ -12046,6 +11757,7 @@ struct MAC_L3_L4_CONTROL2_fields_ {
     // DMA Channel Select is enabled
     eENABLE = 1,
   };
+
   // Layer 3 Protocol Enable When this bit is set, the Layer 3 IP Source or Destination Address matching is enabled for IPv6 packets.
   using L3PEN2 = ftl::mmio::Field<1, 0, eL3PEN2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Layer 3 IP SA Match Enable When this bit is set, the Layer 3 IP Source Address field is enabled for matching.
@@ -12127,7 +11839,6 @@ struct MAC_L3_L4_CONTROL2 : ftl::mmio::Register<
   using DMCHEN2 = MAC_L3_L4_CONTROL2_fields_::DMCHEN2;
 };
 
-
 // Layer 4 Address 2
 struct MAC_LAYER4_ADDRESS2_fields_ {
   // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
@@ -12147,7 +11858,6 @@ struct MAC_LAYER4_ADDRESS2 : ftl::mmio::Register<
   using L4DP2 = MAC_LAYER4_ADDRESS2_fields_::L4DP2;
 };
 
-
 // Layer 3 Address 0 Register 2
 struct MAC_LAYER3_ADDR0_REG2_fields_ {
   // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
@@ -12162,7 +11872,6 @@ struct MAC_LAYER3_ADDR0_REG2 : ftl::mmio::Register<
     MAC_LAYER3_ADDR0_REG2_fields_::L3A02> {
   using L3A02 = MAC_LAYER3_ADDR0_REG2_fields_::L3A02;
 };
-
 
 // Layer 3 Address 0 Register 2
 struct MAC_LAYER3_ADDR1_REG2_fields_ {
@@ -12179,7 +11888,6 @@ struct MAC_LAYER3_ADDR1_REG2 : ftl::mmio::Register<
   using L3A12 = MAC_LAYER3_ADDR1_REG2_fields_::L3A12;
 };
 
-
 // Layer 3 Address 2 Register 2
 struct MAC_LAYER3_ADDR2_REG2_fields_ {
   // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
@@ -12194,7 +11902,6 @@ struct MAC_LAYER3_ADDR2_REG2 : ftl::mmio::Register<
     MAC_LAYER3_ADDR2_REG2_fields_::L3A22> {
   using L3A22 = MAC_LAYER3_ADDR2_REG2_fields_::L3A22;
 };
-
 
 // Layer 3 Address 3 Register 2
 struct MAC_LAYER3_ADDR3_REG2_fields_ {
@@ -12211,10 +11918,8 @@ struct MAC_LAYER3_ADDR3_REG2 : ftl::mmio::Register<
   using L3A32 = MAC_LAYER3_ADDR3_REG2_fields_::L3A32;
 };
 
-
 // Layer 3 and Layer 4 Control of Filter 3
 struct MAC_L3_L4_CONTROL3_fields_ {
-
   enum class eL3PEN3 : std::uint32_t {
     // Layer 3 Protocol is disabled
     eDISABLE = 0,
@@ -12291,6 +11996,7 @@ struct MAC_L3_L4_CONTROL3_fields_ {
     // DMA Channel Select is enabled
     eENABLE = 1,
   };
+
   // Layer 3 Protocol Enable When this bit is set, the Layer 3 IP Source or Destination Address matching is enabled for IPv6 packets.
   using L3PEN3 = ftl::mmio::Field<1, 0, eL3PEN3, ftl::mmio::RW, ftl::mmio::Normal>;
   // Layer 3 IP SA Match Enable When this bit is set, the Layer 3 IP Source Address field is enabled for matching.
@@ -12372,7 +12078,6 @@ struct MAC_L3_L4_CONTROL3 : ftl::mmio::Register<
   using DMCHEN3 = MAC_L3_L4_CONTROL3_fields_::DMCHEN3;
 };
 
-
 // Layer 4 Address 3
 struct MAC_LAYER4_ADDRESS3_fields_ {
   // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
@@ -12392,7 +12097,6 @@ struct MAC_LAYER4_ADDRESS3 : ftl::mmio::Register<
   using L4DP3 = MAC_LAYER4_ADDRESS3_fields_::L4DP3;
 };
 
-
 // Layer 3 Address 0 Register 3
 struct MAC_LAYER3_ADDR0_REG3_fields_ {
   // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
@@ -12407,7 +12111,6 @@ struct MAC_LAYER3_ADDR0_REG3 : ftl::mmio::Register<
     MAC_LAYER3_ADDR0_REG3_fields_::L3A03> {
   using L3A03 = MAC_LAYER3_ADDR0_REG3_fields_::L3A03;
 };
-
 
 // Layer 3 Address 1 Register 3
 struct MAC_LAYER3_ADDR1_REG3_fields_ {
@@ -12424,7 +12127,6 @@ struct MAC_LAYER3_ADDR1_REG3 : ftl::mmio::Register<
   using L3A13 = MAC_LAYER3_ADDR1_REG3_fields_::L3A13;
 };
 
-
 // Layer 3 Address 2 Register 3
 struct MAC_LAYER3_ADDR2_REG3_fields_ {
   // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
@@ -12439,7 +12141,6 @@ struct MAC_LAYER3_ADDR2_REG3 : ftl::mmio::Register<
     MAC_LAYER3_ADDR2_REG3_fields_::L3A23> {
   using L3A23 = MAC_LAYER3_ADDR2_REG3_fields_::L3A23;
 };
-
 
 // Layer 3 Address 3 Register 3
 struct MAC_LAYER3_ADDR3_REG3_fields_ {
@@ -12456,10 +12157,8 @@ struct MAC_LAYER3_ADDR3_REG3 : ftl::mmio::Register<
   using L3A33 = MAC_LAYER3_ADDR3_REG3_fields_::L3A33;
 };
 
-
 // Layer 3 and Layer 4 Control of Filter 4
 struct MAC_L3_L4_CONTROL4_fields_ {
-
   enum class eL3PEN4 : std::uint32_t {
     // Layer 3 Protocol is disabled
     eDISABLE = 0,
@@ -12536,6 +12235,7 @@ struct MAC_L3_L4_CONTROL4_fields_ {
     // DMA Channel Select is enabled
     eENABLE = 1,
   };
+
   // Layer 3 Protocol Enable When this bit is set, the Layer 3 IP Source or Destination Address matching is enabled for IPv6 packets.
   using L3PEN4 = ftl::mmio::Field<1, 0, eL3PEN4, ftl::mmio::RW, ftl::mmio::Normal>;
   // Layer 3 IP SA Match Enable When this bit is set, the Layer 3 IP Source Address field is enabled for matching.
@@ -12617,7 +12317,6 @@ struct MAC_L3_L4_CONTROL4 : ftl::mmio::Register<
   using DMCHEN4 = MAC_L3_L4_CONTROL4_fields_::DMCHEN4;
 };
 
-
 // Layer 4 Address 4
 struct MAC_LAYER4_ADDRESS4_fields_ {
   // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
@@ -12637,7 +12336,6 @@ struct MAC_LAYER4_ADDRESS4 : ftl::mmio::Register<
   using L4DP4 = MAC_LAYER4_ADDRESS4_fields_::L4DP4;
 };
 
-
 // Layer 3 Address 0 Register 4
 struct MAC_LAYER3_ADDR0_REG4_fields_ {
   // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
@@ -12652,7 +12350,6 @@ struct MAC_LAYER3_ADDR0_REG4 : ftl::mmio::Register<
     MAC_LAYER3_ADDR0_REG4_fields_::L3A04> {
   using L3A04 = MAC_LAYER3_ADDR0_REG4_fields_::L3A04;
 };
-
 
 // Layer 3 Address 1 Register 4
 struct MAC_LAYER3_ADDR1_REG4_fields_ {
@@ -12669,7 +12366,6 @@ struct MAC_LAYER3_ADDR1_REG4 : ftl::mmio::Register<
   using L3A14 = MAC_LAYER3_ADDR1_REG4_fields_::L3A14;
 };
 
-
 // Layer 3 Address 2 Register 4
 struct MAC_LAYER3_ADDR2_REG4_fields_ {
   // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
@@ -12684,7 +12380,6 @@ struct MAC_LAYER3_ADDR2_REG4 : ftl::mmio::Register<
     MAC_LAYER3_ADDR2_REG4_fields_::L3A24> {
   using L3A24 = MAC_LAYER3_ADDR2_REG4_fields_::L3A24;
 };
-
 
 // Layer 3 Address 3 Register 4
 struct MAC_LAYER3_ADDR3_REG4_fields_ {
@@ -12701,10 +12396,8 @@ struct MAC_LAYER3_ADDR3_REG4 : ftl::mmio::Register<
   using L3A34 = MAC_LAYER3_ADDR3_REG4_fields_::L3A34;
 };
 
-
 // Layer 3 and Layer 4 Control of Filter 5
 struct MAC_L3_L4_CONTROL5_fields_ {
-
   enum class eL3PEN5 : std::uint32_t {
     // Layer 3 Protocol is disabled
     eDISABLE = 0,
@@ -12781,6 +12474,7 @@ struct MAC_L3_L4_CONTROL5_fields_ {
     // DMA Channel Select is enabled
     eENABLE = 1,
   };
+
   // Layer 3 Protocol Enable When this bit is set, the Layer 3 IP Source or Destination Address matching is enabled for IPv6 packets.
   using L3PEN5 = ftl::mmio::Field<1, 0, eL3PEN5, ftl::mmio::RW, ftl::mmio::Normal>;
   // Layer 3 IP SA Match Enable When this bit is set, the Layer 3 IP Source Address field is enabled for matching.
@@ -12862,7 +12556,6 @@ struct MAC_L3_L4_CONTROL5 : ftl::mmio::Register<
   using DMCHEN5 = MAC_L3_L4_CONTROL5_fields_::DMCHEN5;
 };
 
-
 // Layer 4 Address 5
 struct MAC_LAYER4_ADDRESS5_fields_ {
   // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
@@ -12882,7 +12575,6 @@ struct MAC_LAYER4_ADDRESS5 : ftl::mmio::Register<
   using L4DP5 = MAC_LAYER4_ADDRESS5_fields_::L4DP5;
 };
 
-
 // Layer 3 Address 0 Register 5
 struct MAC_LAYER3_ADDR0_REG5_fields_ {
   // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
@@ -12897,7 +12589,6 @@ struct MAC_LAYER3_ADDR0_REG5 : ftl::mmio::Register<
     MAC_LAYER3_ADDR0_REG5_fields_::L3A05> {
   using L3A05 = MAC_LAYER3_ADDR0_REG5_fields_::L3A05;
 };
-
 
 // Layer 3 Address 1 Register 5
 struct MAC_LAYER3_ADDR1_REG5_fields_ {
@@ -12914,7 +12605,6 @@ struct MAC_LAYER3_ADDR1_REG5 : ftl::mmio::Register<
   using L3A15 = MAC_LAYER3_ADDR1_REG5_fields_::L3A15;
 };
 
-
 // Layer 3 Address 2 Register 5
 struct MAC_LAYER3_ADDR2_REG5_fields_ {
   // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
@@ -12929,7 +12619,6 @@ struct MAC_LAYER3_ADDR2_REG5 : ftl::mmio::Register<
     MAC_LAYER3_ADDR2_REG5_fields_::L3A25> {
   using L3A25 = MAC_LAYER3_ADDR2_REG5_fields_::L3A25;
 };
-
 
 // Layer 3 Address 3 Register 5
 struct MAC_LAYER3_ADDR3_REG5_fields_ {
@@ -12946,10 +12635,8 @@ struct MAC_LAYER3_ADDR3_REG5 : ftl::mmio::Register<
   using L3A35 = MAC_LAYER3_ADDR3_REG5_fields_::L3A35;
 };
 
-
 // Layer 3 and Layer 4 Control of Filter 6
 struct MAC_L3_L4_CONTROL6_fields_ {
-
   enum class eL3PEN6 : std::uint32_t {
     // Layer 3 Protocol is disabled
     eDISABLE = 0,
@@ -13026,6 +12713,7 @@ struct MAC_L3_L4_CONTROL6_fields_ {
     // DMA Channel Select is enabled
     eENABLE = 1,
   };
+
   // Layer 3 Protocol Enable When this bit is set, the Layer 3 IP Source or Destination Address matching is enabled for IPv6 packets.
   using L3PEN6 = ftl::mmio::Field<1, 0, eL3PEN6, ftl::mmio::RW, ftl::mmio::Normal>;
   // Layer 3 IP SA Match Enable When this bit is set, the Layer 3 IP Source Address field is enabled for matching.
@@ -13107,7 +12795,6 @@ struct MAC_L3_L4_CONTROL6 : ftl::mmio::Register<
   using DMCHEN6 = MAC_L3_L4_CONTROL6_fields_::DMCHEN6;
 };
 
-
 // Layer 4 Address 6
 struct MAC_LAYER4_ADDRESS6_fields_ {
   // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
@@ -13127,7 +12814,6 @@ struct MAC_LAYER4_ADDRESS6 : ftl::mmio::Register<
   using L4DP6 = MAC_LAYER4_ADDRESS6_fields_::L4DP6;
 };
 
-
 // Layer 3 Address 0 Register 6
 struct MAC_LAYER3_ADDR0_REG6_fields_ {
   // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
@@ -13142,7 +12828,6 @@ struct MAC_LAYER3_ADDR0_REG6 : ftl::mmio::Register<
     MAC_LAYER3_ADDR0_REG6_fields_::L3A06> {
   using L3A06 = MAC_LAYER3_ADDR0_REG6_fields_::L3A06;
 };
-
 
 // Layer 3 Address 1 Register 6
 struct MAC_LAYER3_ADDR1_REG6_fields_ {
@@ -13159,7 +12844,6 @@ struct MAC_LAYER3_ADDR1_REG6 : ftl::mmio::Register<
   using L3A16 = MAC_LAYER3_ADDR1_REG6_fields_::L3A16;
 };
 
-
 // Layer 3 Address 2 Register 6
 struct MAC_LAYER3_ADDR2_REG6_fields_ {
   // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
@@ -13174,7 +12858,6 @@ struct MAC_LAYER3_ADDR2_REG6 : ftl::mmio::Register<
     MAC_LAYER3_ADDR2_REG6_fields_::L3A26> {
   using L3A26 = MAC_LAYER3_ADDR2_REG6_fields_::L3A26;
 };
-
 
 // Layer 3 Address 3 Register 6
 struct MAC_LAYER3_ADDR3_REG6_fields_ {
@@ -13191,10 +12874,8 @@ struct MAC_LAYER3_ADDR3_REG6 : ftl::mmio::Register<
   using L3A36 = MAC_LAYER3_ADDR3_REG6_fields_::L3A36;
 };
 
-
 // Layer 3 and Layer 4 Control of Filter 0
 struct MAC_L3_L4_CONTROL7_fields_ {
-
   enum class eL3PEN7 : std::uint32_t {
     // Layer 3 Protocol is disabled
     eDISABLE = 0,
@@ -13271,6 +12952,7 @@ struct MAC_L3_L4_CONTROL7_fields_ {
     // DMA Channel Select is enabled
     eENABLE = 1,
   };
+
   // Layer 3 Protocol Enable When this bit is set, the Layer 3 IP Source or Destination Address matching is enabled for IPv6 packets.
   using L3PEN7 = ftl::mmio::Field<1, 0, eL3PEN7, ftl::mmio::RW, ftl::mmio::Normal>;
   // Layer 3 IP SA Match Enable When this bit is set, the Layer 3 IP Source Address field is enabled for matching.
@@ -13352,7 +13034,6 @@ struct MAC_L3_L4_CONTROL7 : ftl::mmio::Register<
   using DMCHEN7 = MAC_L3_L4_CONTROL7_fields_::DMCHEN7;
 };
 
-
 // Layer 4 Address 7
 struct MAC_LAYER4_ADDRESS7_fields_ {
   // Layer 4 Source Port Number Field When the L4PEN0 bit is reset and the L4SPM0 bit is set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with the TCP Source Port Number field in the IPv4 or IPv6 packets.
@@ -13372,7 +13053,6 @@ struct MAC_LAYER4_ADDRESS7 : ftl::mmio::Register<
   using L4DP7 = MAC_LAYER4_ADDRESS7_fields_::L4DP7;
 };
 
-
 // Layer 3 Address 0 Register 7
 struct MAC_LAYER3_ADDR0_REG7_fields_ {
   // Layer 3 Address 0 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[31:0] of the IP Source Address field in the IPv6 packets.
@@ -13387,7 +13067,6 @@ struct MAC_LAYER3_ADDR0_REG7 : ftl::mmio::Register<
     MAC_LAYER3_ADDR0_REG7_fields_::L3A07> {
   using L3A07 = MAC_LAYER3_ADDR0_REG7_fields_::L3A07;
 };
-
 
 // Layer 3 Address 1 Register 7
 struct MAC_LAYER3_ADDR1_REG7_fields_ {
@@ -13404,7 +13083,6 @@ struct MAC_LAYER3_ADDR1_REG7 : ftl::mmio::Register<
   using L3A17 = MAC_LAYER3_ADDR1_REG7_fields_::L3A17;
 };
 
-
 // Layer 3 Address 2 Register 7
 struct MAC_LAYER3_ADDR2_REG7_fields_ {
   // Layer 3 Address 2 Field When the L3PEN0 and L3SAM0 bits are set in the MAC_L3_L4_CONTROL0 register, this field contains the value to be matched with Bits[95:64] of the IP Source Address field in the IPv6 packets.
@@ -13419,7 +13097,6 @@ struct MAC_LAYER3_ADDR2_REG7 : ftl::mmio::Register<
     MAC_LAYER3_ADDR2_REG7_fields_::L3A27> {
   using L3A27 = MAC_LAYER3_ADDR2_REG7_fields_::L3A27;
 };
-
 
 // Layer 3 Address 3 Register 7
 struct MAC_LAYER3_ADDR3_REG7_fields_ {
@@ -13436,10 +13113,8 @@ struct MAC_LAYER3_ADDR3_REG7 : ftl::mmio::Register<
   using L3A37 = MAC_LAYER3_ADDR3_REG7_fields_::L3A37;
 };
 
-
 // Timestamp Control
 struct MAC_TIMESTAMP_CONTROL_fields_ {
-
   enum class eTSENA : std::uint32_t {
     // Timestamp is disabled
     eDISABLE = 0,
@@ -13572,6 +13247,7 @@ struct MAC_TIMESTAMP_CONTROL_fields_ {
     // AV 802.1AS Mode is enabled
     eENABLE = 1,
   };
+
   // Enable Timestamp When this bit is set, the timestamp is added for Transmit and Receive packets.
   using TSENA = ftl::mmio::Field<1, 0, eTSENA, ftl::mmio::RW, ftl::mmio::Normal>;
   // Fine or Coarse Timestamp Update When this bit is set, the Fine method is used to update system timestamp.
@@ -13685,7 +13361,6 @@ struct MAC_TIMESTAMP_CONTROL : ftl::mmio::Register<
   using AV8021ASMEN = MAC_TIMESTAMP_CONTROL_fields_::AV8021ASMEN;
 };
 
-
 // Subsecond Increment
 struct MAC_SUB_SECOND_INCREMENT_fields_ {
   // Sub-nanosecond Increment Value This field contains the sub-nanosecond increment value, represented in nanoseconds multiplied by 2^8.
@@ -13707,7 +13382,6 @@ struct MAC_SUB_SECOND_INCREMENT : ftl::mmio::Register<
   using SSINC = MAC_SUB_SECOND_INCREMENT_fields_::SSINC;
 };
 
-
 // System Time Seconds
 struct MAC_SYSTEM_TIME_SECONDS_fields_ {
   // Timestamp Second The value in this field indicates the current value in seconds of the System Time maintained by the MAC.
@@ -13722,7 +13396,6 @@ struct MAC_SYSTEM_TIME_SECONDS : ftl::mmio::Register<
     MAC_SYSTEM_TIME_SECONDS_fields_::TSS> {
   using TSS = MAC_SYSTEM_TIME_SECONDS_fields_::TSS;
 };
-
 
 // System Time Nanoseconds
 struct MAC_SYSTEM_TIME_NANOSECONDS_fields_ {
@@ -13740,7 +13413,6 @@ struct MAC_SYSTEM_TIME_NANOSECONDS : ftl::mmio::Register<
   using TSSS = MAC_SYSTEM_TIME_NANOSECONDS_fields_::TSSS;
 };
 
-
 // System Time Seconds Update
 struct MAC_SYSTEM_TIME_SECONDS_UPDATE_fields_ {
   // Timestamp Seconds The value in this field is the seconds part of the update.
@@ -13756,16 +13428,15 @@ struct MAC_SYSTEM_TIME_SECONDS_UPDATE : ftl::mmio::Register<
   using TSS = MAC_SYSTEM_TIME_SECONDS_UPDATE_fields_::TSS;
 };
 
-
 // System Time Nanoseconds Update
 struct MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_ {
-
   enum class eADDSUB : std::uint32_t {
     // Add time
     eADD = 0,
     // Subtract time
     eSUB = 1,
   };
+
   // Timestamp Sub Seconds The value in this field is the sub-seconds part of the update.
   using TSSS = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Add or Subtract Time When this bit is set, the time value is subtracted with the contents of the update register.
@@ -13784,7 +13455,6 @@ struct MAC_SYSTEM_TIME_NANOSECONDS_UPDATE : ftl::mmio::Register<
   using ADDSUB = MAC_SYSTEM_TIME_NANOSECONDS_UPDATE_fields_::ADDSUB;
 };
 
-
 // Timestamp Addend
 struct MAC_TIMESTAMP_ADDEND_fields_ {
   // Timestamp Addend Register This field indicates the 32-bit time value to be added to the Accumulator register to achieve time synchronization.
@@ -13799,7 +13469,6 @@ struct MAC_TIMESTAMP_ADDEND : ftl::mmio::Register<
     MAC_TIMESTAMP_ADDEND_fields_::TSAR> {
   using TSAR = MAC_TIMESTAMP_ADDEND_fields_::TSAR;
 };
-
 
 // System Time - Higher Word Seconds
 struct MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS_fields_ {
@@ -13817,10 +13486,8 @@ struct MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS : ftl::mmio::Register<
   using TSHWR = MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS_fields_::TSHWR;
 };
 
-
 // Timestamp Status
 struct MAC_TIMESTAMP_STATUS_fields_ {
-
   enum class eTSSOVF : std::uint32_t {
     // Timestamp Seconds Overflow status not detected
     eINACTIVE = 0,
@@ -13904,6 +13571,7 @@ struct MAC_TIMESTAMP_STATUS_fields_ {
     // Auxiliary Timestamp Snapshot Trigger Missed status detected
     eACTIVE = 1,
   };
+
   // Timestamp Seconds Overflow When this bit is set, it indicates that the seconds value of the timestamp (when supporting version 2 format) has overflowed beyond 32'hFFFF_FFFF.
   using TSSOVF = ftl::mmio::Field<1, 0, eTSSOVF, ftl::mmio::RO, ftl::mmio::Normal>;
   // Timestamp Target Time Reached When set, this bit indicates that the value of system time is greater than or equal to the value specified in the MAC_PPS0_Target_Time_Seconds and MAC_PPS0_Target_Time_Nanoseconds registers.
@@ -13984,16 +13652,15 @@ struct MAC_TIMESTAMP_STATUS : ftl::mmio::Register<
   using ATSNS = MAC_TIMESTAMP_STATUS_fields_::ATSNS;
 };
 
-
 // Transmit Timestamp Status Nanoseconds
 struct MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_ {
-
   enum class eTXTSSMIS : std::uint32_t {
     // Transmit Timestamp Status Missed status not detected
     eINACTIVE = 0,
     // Transmit Timestamp Status Missed status detected
     eACTIVE = 1,
   };
+
   // Transmit Timestamp Status Low This field contains the 31 bits of the Nanoseconds field of the Transmit packet's captured timestamp.
   using TXTSSLO = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Transmit Timestamp Status Missed When this bit is set, it indicates one of the following: - The timestamp of the current packet is ignored if TXTSSTSM bit of the TIMESTAMP_CONTROL register is reset - The timestamp of the previous packet is overwritten with timestamp of the current packet if TXTSSTSM bit of the MAC_TIMESTAMP_CONTROL register is set.
@@ -14012,7 +13679,6 @@ struct MAC_TX_TIMESTAMP_STATUS_NANOSECONDS : ftl::mmio::Register<
   using TXTSSMIS = MAC_TX_TIMESTAMP_STATUS_NANOSECONDS_fields_::TXTSSMIS;
 };
 
-
 // Transmit Timestamp Status Seconds
 struct MAC_TX_TIMESTAMP_STATUS_SECONDS_fields_ {
   // Transmit Timestamp Status High This field contains the lower 32 bits of the Seconds field of Transmit packet's captured timestamp.
@@ -14028,10 +13694,8 @@ struct MAC_TX_TIMESTAMP_STATUS_SECONDS : ftl::mmio::Register<
   using TXTSSHI = MAC_TX_TIMESTAMP_STATUS_SECONDS_fields_::TXTSSHI;
 };
 
-
 // Auxiliary Timestamp Control
 struct MAC_AUXILIARY_CONTROL_fields_ {
-
   enum class eATSFC : std::uint32_t {
     // Auxiliary Snapshot FIFO Clear is disabled
     eDISABLE = 0,
@@ -14066,6 +13730,7 @@ struct MAC_AUXILIARY_CONTROL_fields_ {
     // Auxiliary Snapshot $i is enabled
     eENABLE = 1,
   };
+
   // Auxiliary Snapshot FIFO Clear When set, this bit resets the pointers of the Auxiliary Snapshot FIFO.
   using ATSFC = ftl::mmio::Field<1, 0, eATSFC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Auxiliary Snapshot 0 Enable This bit controls the capturing of Auxiliary Snapshot Trigger 0.
@@ -14102,7 +13767,6 @@ struct MAC_AUXILIARY_CONTROL : ftl::mmio::Register<
   using ATSEN3 = MAC_AUXILIARY_CONTROL_fields_::ATSEN3;
 };
 
-
 // Auxiliary Timestamp Nanoseconds
 struct MAC_AUXILIARY_TIMESTAMP_NANOSECONDS_fields_ {
   // Auxiliary Timestamp Contains the lower 31 bits (nanoseconds field) of the auxiliary timestamp.
@@ -14119,7 +13783,6 @@ struct MAC_AUXILIARY_TIMESTAMP_NANOSECONDS : ftl::mmio::Register<
   using AUXTSLO = MAC_AUXILIARY_TIMESTAMP_NANOSECONDS_fields_::AUXTSLO;
 };
 
-
 // Auxiliary Timestamp Seconds
 struct MAC_AUXILIARY_TIMESTAMP_SECONDS_fields_ {
   // Auxiliary Timestamp Contains the lower 32 bits of the Seconds field of the auxiliary timestamp.
@@ -14134,7 +13797,6 @@ struct MAC_AUXILIARY_TIMESTAMP_SECONDS : ftl::mmio::Register<
     MAC_AUXILIARY_TIMESTAMP_SECONDS_fields_::AUXTSHI> {
   using AUXTSHI = MAC_AUXILIARY_TIMESTAMP_SECONDS_fields_::AUXTSHI;
 };
-
 
 // Timestamp Ingress Asymmetry Correction
 struct MAC_TIMESTAMP_INGRESS_ASYM_CORR_fields_ {
@@ -14151,7 +13813,6 @@ struct MAC_TIMESTAMP_INGRESS_ASYM_CORR : ftl::mmio::Register<
   using OSTIAC = MAC_TIMESTAMP_INGRESS_ASYM_CORR_fields_::OSTIAC;
 };
 
-
 // imestamp Egress Asymmetry Correction
 struct MAC_TIMESTAMP_EGRESS_ASYM_CORR_fields_ {
   // One-Step Timestamp Egress Asymmetry Correction This field contains the egress path asymmetry value to be subtracted from correctionField of Pdelay_Resp PTP packet.
@@ -14166,7 +13827,6 @@ struct MAC_TIMESTAMP_EGRESS_ASYM_CORR : ftl::mmio::Register<
     MAC_TIMESTAMP_EGRESS_ASYM_CORR_fields_::OSTEAC> {
   using OSTEAC = MAC_TIMESTAMP_EGRESS_ASYM_CORR_fields_::OSTEAC;
 };
-
 
 // Timestamp Ingress Correction Nanosecond
 struct MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_fields_ {
@@ -14183,7 +13843,6 @@ struct MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND : ftl::mmio::Register<
   using TSIC = MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_fields_::TSIC;
 };
 
-
 // Timestamp Egress Correction Nanosecond
 struct MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND_fields_ {
   // Timestamp Egress Correction This field contains the nanoseconds part of the egress path correction value as defined by the Egress Correction expression.
@@ -14198,7 +13857,6 @@ struct MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND : ftl::mmio::Register<
     MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND_fields_::TSEC> {
   using TSEC = MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND_fields_::TSEC;
 };
-
 
 // Timestamp Ingress Correction Subnanosecond
 struct MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC_fields_ {
@@ -14217,7 +13875,6 @@ struct MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC : ftl::mmio::Register<
   using TSICSNS = MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC_fields_::TSICSNS;
 };
 
-
 // Timestamp Egress Correction Subnanosecond
 struct MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC_fields_ {
   // Timestamp Egress Correction, sub-nanoseconds This field contains the sub-nanoseconds part of the egress path correction value as defined by the "Egress Correction" expression.
@@ -14234,7 +13891,6 @@ struct MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC : ftl::mmio::Register<
     ftl::mmio::Reserved<16, 16>> {
   using TSECSNS = MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC_fields_::TSECSNS;
 };
-
 
 // Timestamp Ingress Latency
 struct MAC_TIMESTAMP_INGRESS_LATENCY_fields_ {
@@ -14257,7 +13913,6 @@ struct MAC_TIMESTAMP_INGRESS_LATENCY : ftl::mmio::Register<
   using ITLNS = MAC_TIMESTAMP_INGRESS_LATENCY_fields_::ITLNS;
 };
 
-
 // Timestamp Egress Latency
 struct MAC_TIMESTAMP_EGRESS_LATENCY_fields_ {
   // Egress Timestamp Latency, in sub-nanoseconds This register holds the average latency in sub-nanoseconds between the actual point (GMII/MII) where the egress timestamp is taken and the output ports (phy_txd_o) of the MAC.
@@ -14279,10 +13934,8 @@ struct MAC_TIMESTAMP_EGRESS_LATENCY : ftl::mmio::Register<
   using ETLNS = MAC_TIMESTAMP_EGRESS_LATENCY_fields_::ETLNS;
 };
 
-
 // PPS Control
 struct MAC_PPS_CONTROL_fields_ {
-
   enum class ePPSEN0 : std::uint32_t {
     // Flexible PPS Output Mode is disabled
     eDISABLE = 0,
@@ -14346,6 +13999,7 @@ struct MAC_PPS_CONTROL_fields_ {
     // Target Time registers are programmed only for starting or stopping the PPS0 output signal generation. No interrupt is asserted
     eONLY_ST = 3,
   };
+
   // PPS Output Frequency Control This field controls the frequency of the PPS0 output (ptp_pps_o[0]) signal.
   using PPSCTRL_PPSCMD = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Flexible PPS Output Mode Enable When this bit is set, Bits[3:0] function as PPSCMD.
@@ -14418,7 +14072,6 @@ struct MAC_PPS_CONTROL : ftl::mmio::Register<
   using MCGREN3 = MAC_PPS_CONTROL_fields_::MCGREN3;
 };
 
-
 // PPS0 Target Time Seconds
 struct MAC_PPS0_TARGET_TIME_SECONDS_fields_ {
   // PPS Target Time Seconds Register This field stores the time in seconds.
@@ -14434,16 +14087,15 @@ struct MAC_PPS0_TARGET_TIME_SECONDS : ftl::mmio::Register<
   using TSTRH0 = MAC_PPS0_TARGET_TIME_SECONDS_fields_::TSTRH0;
 };
 
-
 // PPS0 Target Time Nanoseconds
 struct MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_ {
-
   enum class eTRGTBUSY0 : std::uint32_t {
     // PPS Target Time Register Busy status is not detected
     eINACTIVE = 0,
     // PPS Target Time Register Busy is detected
     eACTIVE = 1,
   };
+
   // Target Time Low for PPS Register This register stores the time in (signed) nanoseconds.
   using TTSL0 = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // PPS Target Time Register Busy The MAC sets this bit when the PPSCMD0 field in the PPS_CONTROL register is programmed to 010 or 011.
@@ -14462,7 +14114,6 @@ struct MAC_PPS0_TARGET_TIME_NANOSECONDS : ftl::mmio::Register<
   using TRGTBUSY0 = MAC_PPS0_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY0;
 };
 
-
 // PPS0 Interval
 struct MAC_PPS0_INTERVAL_fields_ {
   // PPS Output Signal Interval These bits store the interval between the rising edges of PPS0 signal output.
@@ -14477,7 +14128,6 @@ struct MAC_PPS0_INTERVAL : ftl::mmio::Register<
     MAC_PPS0_INTERVAL_fields_::PPSINT0> {
   using PPSINT0 = MAC_PPS0_INTERVAL_fields_::PPSINT0;
 };
-
 
 // PPS0 Width
 struct MAC_PPS0_WIDTH_fields_ {
@@ -14494,7 +14144,6 @@ struct MAC_PPS0_WIDTH : ftl::mmio::Register<
   using PPSWIDTH0 = MAC_PPS0_WIDTH_fields_::PPSWIDTH0;
 };
 
-
 // PPS1 Target Time Seconds
 struct MAC_PPS1_TARGET_TIME_SECONDS_fields_ {
   // PPS Target Time Seconds Register This field stores the time in seconds.
@@ -14510,16 +14159,15 @@ struct MAC_PPS1_TARGET_TIME_SECONDS : ftl::mmio::Register<
   using TSTRH1 = MAC_PPS1_TARGET_TIME_SECONDS_fields_::TSTRH1;
 };
 
-
 // PPS1 Target Time Nanoseconds
 struct MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_ {
-
   enum class eTRGTBUSY1 : std::uint32_t {
     // PPS Target Time Register Busy status is not detected
     eINACTIVE = 0,
     // PPS Target Time Register Busy is detected
     eACTIVE = 1,
   };
+
   // Target Time Low for PPS Register This register stores the time in (signed) nanoseconds.
   using TTSL1 = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // PPS Target Time Register Busy The MAC sets this bit when the PPSCMD0 field in the PPS_CONTROL register is programmed to 010 or 011.
@@ -14538,7 +14186,6 @@ struct MAC_PPS1_TARGET_TIME_NANOSECONDS : ftl::mmio::Register<
   using TRGTBUSY1 = MAC_PPS1_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY1;
 };
 
-
 // PPS1 Interval
 struct MAC_PPS1_INTERVAL_fields_ {
   // PPS Output Signal Interval These bits store the interval between the rising edges of PPS0 signal output.
@@ -14553,7 +14200,6 @@ struct MAC_PPS1_INTERVAL : ftl::mmio::Register<
     MAC_PPS1_INTERVAL_fields_::PPSINT1> {
   using PPSINT1 = MAC_PPS1_INTERVAL_fields_::PPSINT1;
 };
-
 
 // PPS1 Width
 struct MAC_PPS1_WIDTH_fields_ {
@@ -14570,7 +14216,6 @@ struct MAC_PPS1_WIDTH : ftl::mmio::Register<
   using PPSWIDTH1 = MAC_PPS1_WIDTH_fields_::PPSWIDTH1;
 };
 
-
 // PPS2 Target Time Seconds
 struct MAC_PPS2_TARGET_TIME_SECONDS_fields_ {
   // PPS Target Time Seconds Register This field stores the time in seconds.
@@ -14586,16 +14231,15 @@ struct MAC_PPS2_TARGET_TIME_SECONDS : ftl::mmio::Register<
   using TSTRH2 = MAC_PPS2_TARGET_TIME_SECONDS_fields_::TSTRH2;
 };
 
-
 // PPS2 Target Time Nanoseconds
 struct MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_ {
-
   enum class eTRGTBUSY2 : std::uint32_t {
     // PPS Target Time Register Busy status is not detected
     eINACTIVE = 0,
     // PPS Target Time Register Busy is detected
     eACTIVE = 1,
   };
+
   // Target Time Low for PPS Register This register stores the time in (signed) nanoseconds.
   using TTSL2 = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // PPS Target Time Register Busy The MAC sets this bit when the PPSCMD0 field in the PPS_CONTROL register is programmed to 010 or 011.
@@ -14614,7 +14258,6 @@ struct MAC_PPS2_TARGET_TIME_NANOSECONDS : ftl::mmio::Register<
   using TRGTBUSY2 = MAC_PPS2_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY2;
 };
 
-
 // PPS2 Interval
 struct MAC_PPS2_INTERVAL_fields_ {
   // PPS Output Signal Interval These bits store the interval between the rising edges of PPS0 signal output.
@@ -14629,7 +14272,6 @@ struct MAC_PPS2_INTERVAL : ftl::mmio::Register<
     MAC_PPS2_INTERVAL_fields_::PPSINT2> {
   using PPSINT2 = MAC_PPS2_INTERVAL_fields_::PPSINT2;
 };
-
 
 // PPS2 Width
 struct MAC_PPS2_WIDTH_fields_ {
@@ -14646,7 +14288,6 @@ struct MAC_PPS2_WIDTH : ftl::mmio::Register<
   using PPSWIDTH2 = MAC_PPS2_WIDTH_fields_::PPSWIDTH2;
 };
 
-
 // PPS3 Target Time Seconds
 struct MAC_PPS3_TARGET_TIME_SECONDS_fields_ {
   // PPS Target Time Seconds Register This field stores the time in seconds.
@@ -14662,16 +14303,15 @@ struct MAC_PPS3_TARGET_TIME_SECONDS : ftl::mmio::Register<
   using TSTRH3 = MAC_PPS3_TARGET_TIME_SECONDS_fields_::TSTRH3;
 };
 
-
 // PPS3 Target Time Nanoseconds
 struct MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_ {
-
   enum class eTRGTBUSY3 : std::uint32_t {
     // PPS Target Time Register Busy status is not detected
     eINACTIVE = 0,
     // PPS Target Time Register Busy is detected
     eACTIVE = 1,
   };
+
   // Target Time Low for PPS Register This register stores the time in (signed) nanoseconds.
   using TTSL3 = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // PPS Target Time Register Busy The MAC sets this bit when the PPSCMD0 field in the PPS_CONTROL register is programmed to 010 or 011.
@@ -14690,7 +14330,6 @@ struct MAC_PPS3_TARGET_TIME_NANOSECONDS : ftl::mmio::Register<
   using TRGTBUSY3 = MAC_PPS3_TARGET_TIME_NANOSECONDS_fields_::TRGTBUSY3;
 };
 
-
 // PPS3 Interval
 struct MAC_PPS3_INTERVAL_fields_ {
   // PPS Output Signal Interval These bits store the interval between the rising edges of PPS0 signal output.
@@ -14705,7 +14344,6 @@ struct MAC_PPS3_INTERVAL : ftl::mmio::Register<
     MAC_PPS3_INTERVAL_fields_::PPSINT3> {
   using PPSINT3 = MAC_PPS3_INTERVAL_fields_::PPSINT3;
 };
-
 
 // PPS3 Width
 struct MAC_PPS3_WIDTH_fields_ {
@@ -14722,10 +14360,8 @@ struct MAC_PPS3_WIDTH : ftl::mmio::Register<
   using PPSWIDTH3 = MAC_PPS3_WIDTH_fields_::PPSWIDTH3;
 };
 
-
 // PTP Offload Engine Control
 struct MAC_PTO_CONTROL_fields_ {
-
   enum class ePTOEN : std::uint32_t {
     // PTP Offload feature is disabled
     eDISABLE = 0,
@@ -14774,6 +14410,7 @@ struct MAC_PTO_CONTROL_fields_ {
     // Peer Delay Response response generation is disabled
     eDISABLE = 1,
   };
+
   // PTP Offload Enable When this bit is set, the PTP Offload feature is enabled.
   using PTOEN = ftl::mmio::Field<1, 0, ePTOEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Automatic PTP SYNC message Enable When this bit is set, PTP SYNC message is generated periodically based on interval programmed or trigger from application, when the MAC is programmed to be in Clock Master mode.
@@ -14824,7 +14461,6 @@ struct MAC_PTO_CONTROL : ftl::mmio::Register<
   using DN = MAC_PTO_CONTROL_fields_::DN;
 };
 
-
 // Source Port Identity 0
 struct MAC_SOURCE_PORT_IDENTITY0_fields_ {
   // Source Port Identity 0 This field indicates bits [31:0] of sourcePortIdentity of PTP node.
@@ -14840,7 +14476,6 @@ struct MAC_SOURCE_PORT_IDENTITY0 : ftl::mmio::Register<
   using SPI0 = MAC_SOURCE_PORT_IDENTITY0_fields_::SPI0;
 };
 
-
 // Source Port Identity 1
 struct MAC_SOURCE_PORT_IDENTITY1_fields_ {
   // Source Port Identity 1 This field indicates bits [63:32] of sourcePortIdentity of PTP node.
@@ -14855,7 +14490,6 @@ struct MAC_SOURCE_PORT_IDENTITY1 : ftl::mmio::Register<
     MAC_SOURCE_PORT_IDENTITY1_fields_::SPI1> {
   using SPI1 = MAC_SOURCE_PORT_IDENTITY1_fields_::SPI1;
 };
-
 
 // Source Port Identity 2
 struct MAC_SOURCE_PORT_IDENTITY2_fields_ {
@@ -14873,10 +14507,8 @@ struct MAC_SOURCE_PORT_IDENTITY2 : ftl::mmio::Register<
   using SPI2 = MAC_SOURCE_PORT_IDENTITY2_fields_::SPI2;
 };
 
-
 // Log Message Interval
 struct MAC_LOG_MESSAGE_INTERVAL_fields_ {
-
   enum class eDRSYNCR : std::uint32_t {
     // DelayReq generated for every received SYNC
     eSYNC1 = 0,
@@ -14891,6 +14523,7 @@ struct MAC_LOG_MESSAGE_INTERVAL_fields_ {
     // for every 32 SYNC messages
     eSYNC32 = 5,
   };
+
   // Log Sync Interval This field indicates the periodicity of the automatically generated SYNC message when the PTP node is Master.
   using LSI = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Delay_Req to SYNC Ratio In Slave mode, it is used for controlling frequency of Delay_Req messages transmitted.
@@ -14914,10 +14547,8 @@ struct MAC_LOG_MESSAGE_INTERVAL : ftl::mmio::Register<
   using LMPDRI = MAC_LOG_MESSAGE_INTERVAL_fields_::LMPDRI;
 };
 
-
 // MTL Operation Mode
 struct MTL_OPERATION_MODE_fields_ {
-
   enum class eDTXSTS : std::uint32_t {
     // Drop Transmit Status is disabled
     eDISABLE = 0,
@@ -14963,6 +14594,7 @@ struct MTL_OPERATION_MODE_fields_ {
     // Flexible Rx parser is enabled
     eENABLE = 1,
   };
+
   // Drop Transmit Status When this bit is set, the Tx packet status received from the MAC is dropped in the MTL.
   using DTXSTS = ftl::mmio::Field<1, 1, eDTXSTS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Arbitration Algorithm This field is used to select the arbitration algorithm for the Rx side.
@@ -15007,10 +14639,8 @@ struct MTL_OPERATION_MODE : ftl::mmio::Register<
   using FRPE = MTL_OPERATION_MODE_fields_::FRPE;
 };
 
-
 // FIFO Debug Access Control and Status
 struct MTL_DBG_CTL_fields_ {
-
   enum class eFDBGEN : std::uint32_t {
     // FIFO Debug Access is disabled
     eDISABLE = 0,
@@ -15099,6 +14729,7 @@ struct MTL_DBG_CTL_fields_ {
     // Transmit Packet Available Interrupt Status is enabled
     eENABLE = 1,
   };
+
   // FIFO Debug Access Enable When this bit is set, it indicates that the debug mode access to the FIFO is enabled.
   using FDBGEN = ftl::mmio::Field<1, 0, eFDBGEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Debug Mode Access to FIFO When this bit is set, it indicates that the current access to the FIFO is read, write, and debug access.
@@ -15166,10 +14797,8 @@ struct MTL_DBG_CTL : ftl::mmio::Register<
   using STSIE = MTL_DBG_CTL_fields_::STSIE;
 };
 
-
 // FIFO Debug Status
 struct MTL_DBG_STS_fields_ {
-
   enum class eFIFOBUSY : std::uint32_t {
     // FIFO Busy not detected
     eINACTIVE = 0,
@@ -15212,6 +14841,7 @@ struct MTL_DBG_STS_fields_ {
     // Transmit Status Available Interrupt Status detected
     eACTIVE = 1,
   };
+
   // FIFO Busy When set, this bit indicates that a FIFO operation is in progress in the MAC and content of the following fields is not valid: - All other fields of this register - All fields of the MTL_FIFO_DEBUG_DATA register
   using FIFOBUSY = ftl::mmio::Field<1, 0, eFIFOBUSY, ftl::mmio::RO, ftl::mmio::Normal>;
   // Encoded Packet State This field is used to get the control or status information of the selected FIFO.
@@ -15252,7 +14882,6 @@ struct MTL_DBG_STS : ftl::mmio::Register<
   using LOCR = MTL_DBG_STS_fields_::LOCR;
 };
 
-
 // FIFO Debug Data
 struct MTL_FIFO_DEBUG_DATA_fields_ {
   // FIFO Debug Data During debug or slave access write operation, this field contains the data to be written to the Tx FIFO, Rx FIFO, or TSO FIFO.
@@ -15268,10 +14897,8 @@ struct MTL_FIFO_DEBUG_DATA : ftl::mmio::Register<
   using FDBGDATA = MTL_FIFO_DEBUG_DATA_fields_::FDBGDATA;
 };
 
-
 // MTL Interrupt Status
 struct MTL_INTERRUPT_STATUS_fields_ {
-
   enum class eQ0IS : std::uint32_t {
     // Queue 0 Interrupt status not detected
     eINACTIVE = 0,
@@ -15327,6 +14954,7 @@ struct MTL_INTERRUPT_STATUS_fields_ {
     // MTL Rx Parser Interrupt status detected
     eACTIVE = 1,
   };
+
   // Queue 0 Interrupt status This bit indicates that there is an interrupt from Queue 0.
   using Q0IS = ftl::mmio::Field<1, 0, eQ0IS, ftl::mmio::RO, ftl::mmio::Normal>;
   // Queue 1 Interrupt status This bit indicates that there is an interrupt from Queue 1.
@@ -15379,10 +15007,8 @@ struct MTL_INTERRUPT_STATUS : ftl::mmio::Register<
   using MTLPIS = MTL_INTERRUPT_STATUS_fields_::MTLPIS;
 };
 
-
 // Receive Queue and DMA Channel Mapping 0
 struct MTL_RXQ_DMA_MAP0_fields_ {
-
   enum class eQ0DDMACH : std::uint32_t {
     // Queue 0 disabled for DA-based DMA Channel Selection
     eDISABLE = 0,
@@ -15410,6 +15036,7 @@ struct MTL_RXQ_DMA_MAP0_fields_ {
     // Queue 3 enabled for DA-based DMA Channel Selection
     eENABLE = 1,
   };
+
   // Queue 0 Mapped to DMA Channel This field controls the routing of the packet received in Queue 0 to the DMA channel: - 000: DMA Channel 0 - 001: DMA Channel 1 - 010: DMA Channel 2 - 011: DMA Channel 3 - 100: DMA Channel 4 - 101: Reserved - 110: Reserved - 111: Reserved This field is valid when the Q0DDMACH field is reset.
   using Q0MDMACH = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Queue 0 Enabled for DA-based DMA Channel Selection When set, this bit indicates that the packets received in Queue 0 are routed to a particular DMA channel as decided in the MAC Receiver based on the DMA channel number programmed in the L3-L4 filter registers, or the Ethernet DA address.
@@ -15463,16 +15090,15 @@ struct MTL_RXQ_DMA_MAP0 : ftl::mmio::Register<
   using Q3DDMACH = MTL_RXQ_DMA_MAP0_fields_::Q3DDMACH;
 };
 
-
 // Receive Queue and DMA Channel Mapping 1
 struct MTL_RXQ_DMA_MAP1_fields_ {
-
   enum class eQ4DDMACH : std::uint32_t {
     // Queue 4 disabled for DA-based DMA Channel Selection
     eDISABLE = 0,
     // Queue 4 enabled for DA-based DMA Channel Selection
     eENABLE = 1,
   };
+
   // Queue 4 Mapped to DMA Channel This field controls the routing of the packet received in Queue 4 to the DMA channel: - 000: DMA Channel 0 - 001: DMA Channel 1 - 010: DMA Channel 2 - 011: DMA Channel 3 - 100: DMA Channel 4 - 101: Reserved - 110: Reserved - 111: Reserved This field is valid when the Q4DDMACH field is reset.
   using Q4MDMACH = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Queue 4 Enabled for DA-based DMA Channel Selection When set, this bit indicates that the packets received in Queue 4 are routed to a particular DMA channel as decided in the MAC Receiver based on the DMA channel number programmed in the L3-L4 filter registers, or the Ethernet DA address.
@@ -15493,10 +15119,8 @@ struct MTL_RXQ_DMA_MAP1 : ftl::mmio::Register<
   using Q4DDMACH = MTL_RXQ_DMA_MAP1_fields_::Q4DDMACH;
 };
 
-
 // Time Based Scheduling Control
 struct MTL_TBS_CTRL_fields_ {
-
   enum class eESTM : std::uint32_t {
     // EST offset Mode is disabled
     eDISABLE = 0,
@@ -15510,6 +15134,7 @@ struct MTL_TBS_CTRL_fields_ {
     // LEOS field is valid
     eVALID = 1,
   };
+
   // EST offset Mode When this bit is set, the Launch Time value used in Time Based Scheduling is interpreted as an EST offset value and is added to the Base Time Register (BTR) of the current list.
   using ESTM = ftl::mmio::Field<1, 0, eESTM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Launch Expiry Offset Valid When set indicates the LEOS field is valid.
@@ -15539,10 +15164,8 @@ struct MTL_TBS_CTRL : ftl::mmio::Register<
   using LEOS = MTL_TBS_CTRL_fields_::LEOS;
 };
 
-
 // Enhancements to Scheduled Transmission Control
 struct MTL_EST_CONTROL_fields_ {
-
   enum class eEEST : std::uint32_t {
     // EST is disabled
     eDISABLE = 0,
@@ -15581,6 +15204,7 @@ struct MTL_EST_CONTROL_fields_ {
     // 32 iterations
     ebf_32_ITERNS = 3,
   };
+
   // Enable EST When reset, the gate control list processing is halted and all gates are assumed to be in Open state.
   using EEST = ftl::mmio::Field<1, 0, eEEST, ftl::mmio::RW, ftl::mmio::Normal>;
   // Switch to S/W owned list When set indicates that the software has programmed that list that it currently owns (SWOL) and the hardware should switch to the new list based on the new BTR.
@@ -15629,10 +15253,8 @@ struct MTL_EST_CONTROL : ftl::mmio::Register<
   using PTOV = MTL_EST_CONTROL_fields_::PTOV;
 };
 
-
 // Enhancements to Scheduled Transmission Status
 struct MTL_EST_STATUS_fields_ {
-
   enum class eSWLC : std::uint32_t {
     // Switch to S/W owned list Complete not detected
     eINACTIVE = 0,
@@ -15674,6 +15296,7 @@ struct MTL_EST_STATUS_fields_ {
     // Gate control list number "1" is owned by software
     eACTIVE = 1,
   };
+
   // Switch to S/W owned list Complete When "1" indicates the hardware has successfully switched to the SWOL, and the SWOL bit has been updated to that effect.
   using SWLC = ftl::mmio::Field<1, 0, eSWLC, ftl::mmio::RW, ftl::mmio::Normal>;
   // BTR Error When "1" indicates a programming error in the BTR of SWOL where the programmed value is less than current time.
@@ -15724,7 +15347,6 @@ struct MTL_EST_STATUS : ftl::mmio::Register<
   using CGSN = MTL_EST_STATUS_fields_::CGSN;
 };
 
-
 // EST Scheduling Error
 struct MTL_EST_SCH_ERROR_fields_ {
   // Schedule Error Queue Number The One Hot Encoded Queue Numbers that have experienced error/timeout described in HLBS field of status register.
@@ -15741,7 +15363,6 @@ struct MTL_EST_SCH_ERROR : ftl::mmio::Register<
   using SEQN = MTL_EST_SCH_ERROR_fields_::SEQN;
 };
 
-
 // EST Frame Size Error
 struct MTL_EST_FRM_SIZE_ERROR_fields_ {
   // Frame Size Error Queue Number The One Hot Encoded Queue Numbers that have experienced error described in HLBF field of status register.
@@ -15757,7 +15378,6 @@ struct MTL_EST_FRM_SIZE_ERROR : ftl::mmio::Register<
     ftl::mmio::Reserved<27, 5>> {
   using FEQN = MTL_EST_FRM_SIZE_ERROR_fields_::FEQN;
 };
-
 
 // EST Frame Size Capture
 struct MTL_EST_FRM_SIZE_CAPTURE_fields_ {
@@ -15780,10 +15400,8 @@ struct MTL_EST_FRM_SIZE_CAPTURE : ftl::mmio::Register<
   using HBFQ = MTL_EST_FRM_SIZE_CAPTURE_fields_::HBFQ;
 };
 
-
 // EST Interrupt Enable
 struct MTL_EST_INTR_ENABLE_fields_ {
-
   enum class eIECC : std::uint32_t {
     // Interrupt for Switch List is disabled
     eDISABLE = 0,
@@ -15818,6 +15436,7 @@ struct MTL_EST_INTR_ENABLE_fields_ {
     // Interrupt for CGCE is enabled
     eENABLE = 1,
   };
+
   // Interrupt Enable for Switch List When set, generates interrupt when the configuration change is successful and the hardware has switched to the new list.
   using IECC = ftl::mmio::Field<1, 0, eIECC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Enable for BTR Error When set, generates interrupt when the BTR Error occurs and is indicated in the status.
@@ -15853,10 +15472,8 @@ struct MTL_EST_INTR_ENABLE : ftl::mmio::Register<
   using CGCE = MTL_EST_INTR_ENABLE_fields_::CGCE;
 };
 
-
 // EST GCL Control
 struct MTL_EST_GCL_CONTROL_fields_ {
-
   enum class eSRWO : std::uint32_t {
     // Start Read/Write Op disabled
     eDISABLE = 0,
@@ -15916,6 +15533,7 @@ struct MTL_EST_GCL_CONTROL_fields_ {
     // Insert 1 bit error in address field
     ebf_1BIT_ADDR = 3,
   };
+
   // Start Read/Write Op When set indicates a Read/Write Op has started and is in progress.
   using SRWO = ftl::mmio::Field<1, 0, eSRWO, ftl::mmio::RW, ftl::mmio::Normal>;
   // Read '1', Write '0': When set to '1': Read Operation When set to '0': Write Operation.
@@ -15973,7 +15591,6 @@ struct MTL_EST_GCL_CONTROL : ftl::mmio::Register<
   using ESTEIEC = MTL_EST_GCL_CONTROL_fields_::ESTEIEC;
 };
 
-
 // EST GCL Data
 struct MTL_EST_GCL_DATA_fields_ {
   // Gate Control Data The data corresponding to the address selected in the MTL_GCL_CONTROL register.
@@ -15989,16 +15606,15 @@ struct MTL_EST_GCL_DATA : ftl::mmio::Register<
   using GCD = MTL_EST_GCL_DATA_fields_::GCD;
 };
 
-
 // Frame Preemption Control and Status
 struct MTL_FPE_CTRL_STS_fields_ {
-
   enum class eHRS : std::uint32_t {
     // Indicates a Set-and-Release-MAC operation was last executed and the pMAC is in Release State
     eSET_REL = 0,
     // Indicates a Set-and-Hold-MAC operation was last executed and the pMAC is in Hold State
     eSET_HOLD = 1,
   };
+
   // Additional Fragment Size used to indicate, in units of 64 bytes, the minimum number of bytes over 64 bytes required in non-final fragments of preempted frames.
   using AFSZ = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Preemption Classification When set indicates the corresponding Queue must be classified as preemptable, when '0' Queue is classified as express.
@@ -16024,7 +15640,6 @@ struct MTL_FPE_CTRL_STS : ftl::mmio::Register<
   using HRS = MTL_FPE_CTRL_STS_fields_::HRS;
 };
 
-
 // Frame Preemption Hold and Release Advance
 struct MTL_FPE_ADVANCE_fields_ {
   // Hold Advance The maximum time in nanoseconds that can elapse between issuing a HOLD to the MAC and the MAC ceasing to transmit any preemptable frame that is in the process of transmission or any preemptable frames that are queued for transmission.
@@ -16044,16 +15659,15 @@ struct MTL_FPE_ADVANCE : ftl::mmio::Register<
   using RADV = MTL_FPE_ADVANCE_fields_::RADV;
 };
 
-
 // RXP Control Status
 struct MTL_RXP_CONTROL_STATUS_fields_ {
-
   enum class eRXPI : std::uint32_t {
     // RX Parser not in Idle state
     eINACTIVE = 0,
     // RX Parser in Idle state
     eACTIVE = 1,
   };
+
   // Number of valid entries in the Instruction table This control indicates the number of valid entries in the Instruction Memory.
   using NVE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Number of parsable entries in the Instruction table This control indicates the number of parsable entries in the Instruction Memory.
@@ -16078,10 +15692,8 @@ struct MTL_RXP_CONTROL_STATUS : ftl::mmio::Register<
   using RXPI = MTL_RXP_CONTROL_STATUS_fields_::RXPI;
 };
 
-
 // RXP Interrupt Control Status
 struct MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_ {
-
   enum class eNVEOVIS : std::uint32_t {
     // Number of Valid Entries Overflow Interrupt Status not detected
     eINACTIVE = 0,
@@ -16137,6 +15749,7 @@ struct MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_ {
     // Packet Drop due to RF Interrupt is enabled
     eENABLE = 1,
   };
+
   // Number of Valid Entries Overflow Interrupt Status While parsing if the Instruction address found to be more than NVE (Number of Valid Entries in MTL_RXP_CONTROL register), then this bit is set to 1.
   using NVEOVIS = ftl::mmio::Field<1, 0, eNVEOVIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Number of Parsable Entries Overflow Interrupt Status While parsing a packet if the number of parsed entries found to be more than NPE[] (Number of Parseable Entries in MTL_RXP_CONTROL register),then this bit is set to 1.
@@ -16188,16 +15801,15 @@ struct MTL_RXP_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
   using PDRFIE = MTL_RXP_INTERRUPT_CONTROL_STATUS_fields_::PDRFIE;
 };
 
-
 // RXP Drop Count
 struct MTL_RXP_DROP_CNT_fields_ {
-
   enum class eRXPDCOVF : std::uint32_t {
     // Rx Parser Drop count overflow not occurred
     eINACTIVE = 0,
     // Rx Parser Drop count overflow occurred
     eACTIVE = 1,
   };
+
   // Rx Parser Drop count This 31-bit counter is implemented whenever a Rx Parser Drops a packet due to RF =1.
   using RXPDC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Rx Parser Drop Counter Overflow Bit When set, this bit indicates that the MTL_RXP_DROP_CNT (RXPDC) Counter field crossed the maximum limit.
@@ -16216,16 +15828,15 @@ struct MTL_RXP_DROP_CNT : ftl::mmio::Register<
   using RXPDCOVF = MTL_RXP_DROP_CNT_fields_::RXPDCOVF;
 };
 
-
 // RXP Error Count
 struct MTL_RXP_ERROR_CNT_fields_ {
-
   enum class eRXPECOVF : std::uint32_t {
     // Rx Parser Error count overflow not occurred
     eINACTIVE = 0,
     // Rx Parser Error count overflow occurred
     eACTIVE = 1,
   };
+
   // Rx Parser Error count This 31-bit counter is implemented whenever a Rx Parser encounters following Error scenarios - Entry address >= NVE[] - Number Parsed Entries >= NPE[] - Entry address > EOF data entry address The counter is cleared when the register is read.
   using RXPEC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Rx Parser Error Counter Overflow Bit When set, this bit indicates that the MTL_RXP_ERROR_CNT (RXPEC) Counter field crossed the maximum limit.
@@ -16244,10 +15855,8 @@ struct MTL_RXP_ERROR_CNT : ftl::mmio::Register<
   using RXPECOVF = MTL_RXP_ERROR_CNT_fields_::RXPECOVF;
 };
 
-
 // RXP Indirect Access Control and Status
 struct MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_ {
-
   enum class eWRRDN : std::uint32_t {
     // Read operation to the Rx Parser Memory
     eREAD = 0,
@@ -16261,6 +15870,7 @@ struct MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_ {
     // hardware is busy (Read/Write operation from/to the Rx Parser Memory)
     eACTIVE = 1,
   };
+
   // FRP Instruction Table Offset Address This field indicates the ADDR of the 32-bit entry in Rx parser instruction table.
   using ADDR = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Read Write Control When this bit is set to 1 indicates the write operation to the Rx Parser Memory.
@@ -16286,7 +15896,6 @@ struct MTL_RXP_INDIRECT_ACC_CONTROL_STATUS : ftl::mmio::Register<
   using STARTBUSY = MTL_RXP_INDIRECT_ACC_CONTROL_STATUS_fields_::STARTBUSY;
 };
 
-
 // RXP Indirect Access Data
 struct MTL_RXP_INDIRECT_ACC_DATA_fields_ {
   // FRP Instruction Table Write/Read Data Software should write this register before issuing any write command.
@@ -16302,10 +15911,8 @@ struct MTL_RXP_INDIRECT_ACC_DATA : ftl::mmio::Register<
   using DATA = MTL_RXP_INDIRECT_ACC_DATA_fields_::DATA;
 };
 
-
 // Queue 0 Transmit Operation Mode
 struct MTL_TXQ0_OPERATION_MODE_fields_ {
-
   enum class eFTQ : std::uint32_t {
     // Flush Transmit Queue is disabled
     eDISABLE = 0,
@@ -16347,6 +15954,7 @@ struct MTL_TXQ0_OPERATION_MODE_fields_ {
     // 512
     ebf_512BYTES = 7,
   };
+
   // Flush Transmit Queue When this bit is set, the Tx queue controller logic is reset to its default values.
   using FTQ = ftl::mmio::Field<1, 0, eFTQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Store and Forward When this bit is set, the transmission starts when a full packet resides in the MTL Tx queue.
@@ -16382,16 +15990,15 @@ struct MTL_TXQ0_OPERATION_MODE : ftl::mmio::Register<
   using TQS = MTL_TXQ0_OPERATION_MODE_fields_::TQS;
 };
 
-
 // Queue 0 Underflow Counter
 struct MTL_TXQ0_UNDERFLOW_fields_ {
-
   enum class eUFCNTOVF : std::uint32_t {
     // Overflow not detected for Underflow Packet Counter
     eINACTIVE = 0,
     // Overflow detected for Underflow Packet Counter
     eACTIVE = 1,
   };
+
   // Underflow Packet Counter This field indicates the number of packets aborted by the controller because of Tx Queue Underflow.
   using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
@@ -16411,10 +16018,8 @@ struct MTL_TXQ0_UNDERFLOW : ftl::mmio::Register<
   using UFCNTOVF = MTL_TXQ0_UNDERFLOW_fields_::UFCNTOVF;
 };
 
-
 // Queue 0 Transmit Debug
 struct MTL_TXQ0_DEBUG_fields_ {
-
   enum class eTXQPAUSED : std::uint32_t {
     // Transmit Queue in Pause status is not detected
     eINACTIVE = 0,
@@ -16453,6 +16058,7 @@ struct MTL_TXQ0_DEBUG_fields_ {
     // MTL Tx Status FIFO Full status is detected
     eACTIVE = 1,
   };
+
   // Transmit Queue in Pause When this bit is high and the Rx flow control is enabled, it indicates that the Tx Queue is in the Pause condition (in the full-duplex only mode) because of the following: - Reception of the PFC packet for the priorities assigned to the Tx Queue when PFC is enabled - Reception of 802.
   using TXQPAUSED = ftl::mmio::Field<1, 0, eTXQPAUSED, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Tx Queue Read Controller Status This field indicates the state of the Tx Queue Read Controller:
@@ -16498,7 +16104,6 @@ struct MTL_TXQ0_DEBUG : ftl::mmio::Register<
   using STXSTSF = MTL_TXQ0_DEBUG_fields_::STXSTSF;
 };
 
-
 // Queue 0 ETS Status
 struct MTL_TXQ0_ETS_STATUS_fields_ {
   // Average Bits per Slot This field contains the average transmitted bits per slot.
@@ -16514,7 +16119,6 @@ struct MTL_TXQ0_ETS_STATUS : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using ABS = MTL_TXQ0_ETS_STATUS_fields_::ABS;
 };
-
 
 // Queue 0 Quantum or Weights
 struct MTL_TXQ0_QUANTUM_WEIGHT_fields_ {
@@ -16532,10 +16136,8 @@ struct MTL_TXQ0_QUANTUM_WEIGHT : ftl::mmio::Register<
   using ISCQW = MTL_TXQ0_QUANTUM_WEIGHT_fields_::ISCQW;
 };
 
-
 // Queue 0 Interrupt Control Status
 struct MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_ {
-
   enum class eTXUNFIS : std::uint32_t {
     // Transmit Queue Underflow Interrupt Status not detected
     eINACTIVE = 0,
@@ -16577,6 +16179,7 @@ struct MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_ {
     // Receive Queue Overflow Interrupt is enabled
     eENABLE = 1,
   };
+
   // Transmit Queue Underflow Interrupt Status This bit indicates that the Transmit Queue had an underflow while transmitting the packet.
   using TXUNFIS = ftl::mmio::Field<1, 0, eTXUNFIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Average Bits Per Slot Interrupt Status When set, this bit indicates that the MAC has updated the ABS value.
@@ -16620,10 +16223,8 @@ struct MTL_Q0_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
   using RXOIE = MTL_Q0_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
 };
 
-
 // Queue 0 Receive Operation Mode
 struct MTL_RXQ0_OPERATION_MODE_fields_ {
-
   enum class eRTC : std::uint32_t {
     // 64
     ebf_64BYTE = 0,
@@ -16669,6 +16270,7 @@ struct MTL_RXQ0_OPERATION_MODE_fields_ {
     // Hardware Flow Control is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Threshold Control These bits control the threshold level of the MTL Rx queue (in bytes): The received packet is transferred to the application or DMA when the packet size within the MTL Rx queue is larger than the threshold.
   using RTC = ftl::mmio::Field<2, 0, eRTC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Forward Undersized Good Packets When this bit is set, the Rx queue forwards the undersized good packets (packets with no error and length less than 64 bytes), including pad-bytes and CRC.
@@ -16724,10 +16326,8 @@ struct MTL_RXQ0_OPERATION_MODE : ftl::mmio::Register<
   using RQS = MTL_RXQ0_OPERATION_MODE_fields_::RQS;
 };
 
-
 // Queue 0 Missed Packet and Overflow Counter
 struct MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_ {
-
   enum class eOVFCNTOVF : std::uint32_t {
     // Overflow Counter overflow not detected
     eINACTIVE = 0,
@@ -16741,6 +16341,7 @@ struct MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_ {
     // Missed Packet Counter overflow detected
     eACTIVE = 1,
   };
+
   // Overflow Packet Counter This field indicates the number of packets discarded by the DWC_ether_qos because of Receive queue overflow.
   using OVFPKTCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Counter Overflow Bit When set, this bit indicates that the Rx Queue Overflow Packet Counter field crossed the maximum limit.
@@ -16770,10 +16371,8 @@ struct MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
   using MISCNTOVF = MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
 };
 
-
 // Queue 0 Receive Debug
 struct MTL_RXQ0_DEBUG_fields_ {
-
   enum class eRWCSTS : std::uint32_t {
     // MTL Rx Queue Write Controller Active Status not detected
     eINACTIVE = 0,
@@ -16802,6 +16401,7 @@ struct MTL_RXQ0_DEBUG_fields_ {
     // Rx Queue full
     eFULL = 3,
   };
+
   // MTL Rx Queue Write Controller Active Status When high, this bit indicates that the MTL Rx queue Write controller is active, and it is transferring a received packet to the Rx Queue.
   using RWCSTS = ftl::mmio::Field<1, 0, eRWCSTS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Rx Queue Read Controller State This field gives the state of the Rx queue Read controller:
@@ -16833,16 +16433,15 @@ struct MTL_RXQ0_DEBUG : ftl::mmio::Register<
   using PRXQ = MTL_RXQ0_DEBUG_fields_::PRXQ;
 };
 
-
 // Queue 0 Receive Control
 struct MTL_RXQ0_CONTROL_fields_ {
-
   enum class eRXQ_FRM_ARBIT : std::uint32_t {
     // Receive Queue Packet Arbitration is disabled
     eDISABLE = 0,
     // Receive Queue Packet Arbitration is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Weight This field indicates the weight assigned to the Rx Queue 0.
   using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
@@ -16862,10 +16461,8 @@ struct MTL_RXQ0_CONTROL : ftl::mmio::Register<
   using RXQ_FRM_ARBIT = MTL_RXQ0_CONTROL_fields_::RXQ_FRM_ARBIT;
 };
 
-
 // Queue 1 Transmit Operation Mode
 struct MTL_TXQ1_OPERATION_MODE_fields_ {
-
   enum class eFTQ : std::uint32_t {
     // Flush Transmit Queue is disabled
     eDISABLE = 0,
@@ -16907,6 +16504,7 @@ struct MTL_TXQ1_OPERATION_MODE_fields_ {
     // 512
     ebf_512BYTES = 7,
   };
+
   // Flush Transmit Queue When this bit is set, the Tx queue controller logic is reset to its default values.
   using FTQ = ftl::mmio::Field<1, 0, eFTQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Store and Forward When this bit is set, the transmission starts when a full packet resides in the MTL Tx queue.
@@ -16942,16 +16540,15 @@ struct MTL_TXQ1_OPERATION_MODE : ftl::mmio::Register<
   using TQS = MTL_TXQ1_OPERATION_MODE_fields_::TQS;
 };
 
-
 // Queue 1 Underflow Counter
 struct MTL_TXQ1_UNDERFLOW_fields_ {
-
   enum class eUFCNTOVF : std::uint32_t {
     // Overflow not detected for Underflow Packet Counter
     eINACTIVE = 0,
     // Overflow detected for Underflow Packet Counter
     eACTIVE = 1,
   };
+
   // Underflow Packet Counter This field indicates the number of packets aborted by the controller because of Tx Queue Underflow.
   using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
@@ -16971,10 +16568,8 @@ struct MTL_TXQ1_UNDERFLOW : ftl::mmio::Register<
   using UFCNTOVF = MTL_TXQ1_UNDERFLOW_fields_::UFCNTOVF;
 };
 
-
 // Queue 1 Transmit Debug
 struct MTL_TXQ1_DEBUG_fields_ {
-
   enum class eTXQPAUSED : std::uint32_t {
     // Transmit Queue in Pause status is not detected
     eINACTIVE = 0,
@@ -17013,6 +16608,7 @@ struct MTL_TXQ1_DEBUG_fields_ {
     // MTL Tx Status FIFO Full status is detected
     eACTIVE = 1,
   };
+
   // Transmit Queue in Pause When this bit is high and the Rx flow control is enabled, it indicates that the Tx Queue is in the Pause condition (in the full-duplex only mode) because of the following: - Reception of the PFC packet for the priorities assigned to the Tx Queue when PFC is enabled - Reception of 802.
   using TXQPAUSED = ftl::mmio::Field<1, 0, eTXQPAUSED, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Tx Queue Read Controller Status This field indicates the state of the Tx Queue Read Controller:
@@ -17058,10 +16654,8 @@ struct MTL_TXQ1_DEBUG : ftl::mmio::Register<
   using STXSTSF = MTL_TXQ1_DEBUG_fields_::STXSTSF;
 };
 
-
 // Queue 1 ETS Control
 struct MTL_TXQ1_ETS_CONTROL_fields_ {
-
   enum class eAVALG : std::uint32_t {
     // CBS Algorithm is disabled
     eDISABLE = 0,
@@ -17088,6 +16682,7 @@ struct MTL_TXQ1_ETS_CONTROL_fields_ {
     // 16 slots
     ebf_16_SLOT = 4,
   };
+
   // AV Algorithm When Queue 1 is programmed for AV, this field configures the scheduling algorithm for this queue: This bit when set, indicates credit based shaper algorithm (CBS) is selected for Queue 1 traffic.
   using AVALG = ftl::mmio::Field<1, 2, eAVALG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Credit Control When this bit is set, the accumulated credit parameter in the credit-based shaper algorithm logic is not reset to zero when there is positive credit and no packet to transmit in Channel 1.
@@ -17114,7 +16709,6 @@ struct MTL_TXQ1_ETS_CONTROL : ftl::mmio::Register<
   using SLC = MTL_TXQ1_ETS_CONTROL_fields_::SLC;
 };
 
-
 // Queue 1 ETS Status
 struct MTL_TXQ1_ETS_STATUS_fields_ {
   // Average Bits per Slot This field contains the average transmitted bits per slot.
@@ -17130,7 +16724,6 @@ struct MTL_TXQ1_ETS_STATUS : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using ABS = MTL_TXQ1_ETS_STATUS_fields_::ABS;
 };
-
 
 // Queue 1 idleSlopeCredit, Quantum or Weights
 struct MTL_TXQ1_QUANTUM_WEIGHT_fields_ {
@@ -17148,7 +16741,6 @@ struct MTL_TXQ1_QUANTUM_WEIGHT : ftl::mmio::Register<
   using ISCQW = MTL_TXQ1_QUANTUM_WEIGHT_fields_::ISCQW;
 };
 
-
 // Queue 1 sendSlopeCredit
 struct MTL_TXQ1_SENDSLOPECREDIT_fields_ {
   // sendSlopeCredit Value When AV operation is enabled, this field contains the sendSlopeCredit value required for credit-based shaper algorithm for Queue 1.
@@ -17164,7 +16756,6 @@ struct MTL_TXQ1_SENDSLOPECREDIT : ftl::mmio::Register<
     ftl::mmio::Reserved<18, 14>> {
   using SSC = MTL_TXQ1_SENDSLOPECREDIT_fields_::SSC;
 };
-
 
 // Queue 1 hiCredit
 struct MTL_TXQ1_HICREDIT_fields_ {
@@ -17182,7 +16773,6 @@ struct MTL_TXQ1_HICREDIT : ftl::mmio::Register<
   using HC = MTL_TXQ1_HICREDIT_fields_::HC;
 };
 
-
 // Queue 1 loCredit
 struct MTL_TXQ1_LOCREDIT_fields_ {
   // loCredit Value When AV operation is enabled, this field contains the loCredit value required for the credit-based shaper algorithm.
@@ -17199,10 +16789,8 @@ struct MTL_TXQ1_LOCREDIT : ftl::mmio::Register<
   using LC = MTL_TXQ1_LOCREDIT_fields_::LC;
 };
 
-
 // Queue 1 Interrupt Control Status
 struct MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_ {
-
   enum class eTXUNFIS : std::uint32_t {
     // Transmit Queue Underflow Interrupt Status not detected
     eINACTIVE = 0,
@@ -17244,6 +16832,7 @@ struct MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_ {
     // Receive Queue Overflow Interrupt is enabled
     eENABLE = 1,
   };
+
   // Transmit Queue Underflow Interrupt Status This bit indicates that the Transmit Queue had an underflow while transmitting the packet.
   using TXUNFIS = ftl::mmio::Field<1, 0, eTXUNFIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Average Bits Per Slot Interrupt Status When set, this bit indicates that the MAC has updated the ABS value.
@@ -17287,10 +16876,8 @@ struct MTL_Q1_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
   using RXOIE = MTL_Q1_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
 };
 
-
 // Queue 1 Receive Operation Mode
 struct MTL_RXQ1_OPERATION_MODE_fields_ {
-
   enum class eRTC : std::uint32_t {
     // 64
     ebf_64BYTE = 0,
@@ -17336,6 +16923,7 @@ struct MTL_RXQ1_OPERATION_MODE_fields_ {
     // Hardware Flow Control is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Threshold Control These bits control the threshold level of the MTL Rx queue (in bytes): The received packet is transferred to the application or DMA when the packet size within the MTL Rx queue is larger than the threshold.
   using RTC = ftl::mmio::Field<2, 0, eRTC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Forward Undersized Good Packets When this bit is set, the Rx queue forwards the undersized good packets (packets with no error and length less than 64 bytes), including pad-bytes and CRC.
@@ -17391,10 +16979,8 @@ struct MTL_RXQ1_OPERATION_MODE : ftl::mmio::Register<
   using RQS = MTL_RXQ1_OPERATION_MODE_fields_::RQS;
 };
 
-
 // Queue 1 Missed Packet and Overflow Counter
 struct MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_ {
-
   enum class eOVFCNTOVF : std::uint32_t {
     // Overflow Counter overflow not detected
     eINACTIVE = 0,
@@ -17408,6 +16994,7 @@ struct MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_ {
     // Missed Packet Counter overflow detected
     eACTIVE = 1,
   };
+
   // Overflow Packet Counter This field indicates the number of packets discarded by the DWC_ether_qos because of Receive queue overflow.
   using OVFPKTCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Counter Overflow Bit When set, this bit indicates that the Rx Queue Overflow Packet Counter field crossed the maximum limit.
@@ -17437,10 +17024,8 @@ struct MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
   using MISCNTOVF = MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
 };
 
-
 // Queue 1 Receive Debug
 struct MTL_RXQ1_DEBUG_fields_ {
-
   enum class eRWCSTS : std::uint32_t {
     // MTL Rx Queue Write Controller Active Status not detected
     eINACTIVE = 0,
@@ -17469,6 +17054,7 @@ struct MTL_RXQ1_DEBUG_fields_ {
     // Rx Queue full
     eFULL = 3,
   };
+
   // MTL Rx Queue Write Controller Active Status When high, this bit indicates that the MTL Rx queue Write controller is active, and it is transferring a received packet to the Rx Queue.
   using RWCSTS = ftl::mmio::Field<1, 0, eRWCSTS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Rx Queue Read Controller State This field gives the state of the Rx queue Read controller:
@@ -17500,16 +17086,15 @@ struct MTL_RXQ1_DEBUG : ftl::mmio::Register<
   using PRXQ = MTL_RXQ1_DEBUG_fields_::PRXQ;
 };
 
-
 // Queue 1 Receive Control
 struct MTL_RXQ1_CONTROL_fields_ {
-
   enum class eRXQ_FRM_ARBIT : std::uint32_t {
     // Receive Queue Packet Arbitration is disabled
     eDISABLE = 0,
     // Receive Queue Packet Arbitration is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Weight This field indicates the weight assigned to the Rx Queue 0.
   using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
@@ -17529,10 +17114,8 @@ struct MTL_RXQ1_CONTROL : ftl::mmio::Register<
   using RXQ_FRM_ARBIT = MTL_RXQ1_CONTROL_fields_::RXQ_FRM_ARBIT;
 };
 
-
 // Queue 2 Transmit Operation Mode
 struct MTL_TXQ2_OPERATION_MODE_fields_ {
-
   enum class eFTQ : std::uint32_t {
     // Flush Transmit Queue is disabled
     eDISABLE = 0,
@@ -17574,6 +17157,7 @@ struct MTL_TXQ2_OPERATION_MODE_fields_ {
     // 512
     ebf_512BYTES = 7,
   };
+
   // Flush Transmit Queue When this bit is set, the Tx queue controller logic is reset to its default values.
   using FTQ = ftl::mmio::Field<1, 0, eFTQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Store and Forward When this bit is set, the transmission starts when a full packet resides in the MTL Tx queue.
@@ -17609,16 +17193,15 @@ struct MTL_TXQ2_OPERATION_MODE : ftl::mmio::Register<
   using TQS = MTL_TXQ2_OPERATION_MODE_fields_::TQS;
 };
 
-
 // Queue 2 Underflow Counter
 struct MTL_TXQ2_UNDERFLOW_fields_ {
-
   enum class eUFCNTOVF : std::uint32_t {
     // Overflow not detected for Underflow Packet Counter
     eINACTIVE = 0,
     // Overflow detected for Underflow Packet Counter
     eACTIVE = 1,
   };
+
   // Underflow Packet Counter This field indicates the number of packets aborted by the controller because of Tx Queue Underflow.
   using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
@@ -17638,10 +17221,8 @@ struct MTL_TXQ2_UNDERFLOW : ftl::mmio::Register<
   using UFCNTOVF = MTL_TXQ2_UNDERFLOW_fields_::UFCNTOVF;
 };
 
-
 // Queue 2 Transmit Debug
 struct MTL_TXQ2_DEBUG_fields_ {
-
   enum class eTXQPAUSED : std::uint32_t {
     // Transmit Queue in Pause status is not detected
     eINACTIVE = 0,
@@ -17680,6 +17261,7 @@ struct MTL_TXQ2_DEBUG_fields_ {
     // MTL Tx Status FIFO Full status is detected
     eACTIVE = 1,
   };
+
   // Transmit Queue in Pause When this bit is high and the Rx flow control is enabled, it indicates that the Tx Queue is in the Pause condition (in the full-duplex only mode) because of the following: - Reception of the PFC packet for the priorities assigned to the Tx Queue when PFC is enabled - Reception of 802.
   using TXQPAUSED = ftl::mmio::Field<1, 0, eTXQPAUSED, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Tx Queue Read Controller Status This field indicates the state of the Tx Queue Read Controller:
@@ -17725,10 +17307,8 @@ struct MTL_TXQ2_DEBUG : ftl::mmio::Register<
   using STXSTSF = MTL_TXQ2_DEBUG_fields_::STXSTSF;
 };
 
-
 // Queue 2 ETS Control
 struct MTL_TXQ2_ETS_CONTROL_fields_ {
-
   enum class eAVALG : std::uint32_t {
     // CBS Algorithm is disabled
     eDISABLE = 0,
@@ -17755,6 +17335,7 @@ struct MTL_TXQ2_ETS_CONTROL_fields_ {
     // 16 slots
     ebf_16_SLOT = 4,
   };
+
   // AV Algorithm When Queue 1 is programmed for AV, this field configures the scheduling algorithm for this queue: This bit when set, indicates credit based shaper algorithm (CBS) is selected for Queue 1 traffic.
   using AVALG = ftl::mmio::Field<1, 2, eAVALG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Credit Control When this bit is set, the accumulated credit parameter in the credit-based shaper algorithm logic is not reset to zero when there is positive credit and no packet to transmit in Channel 1.
@@ -17781,7 +17362,6 @@ struct MTL_TXQ2_ETS_CONTROL : ftl::mmio::Register<
   using SLC = MTL_TXQ2_ETS_CONTROL_fields_::SLC;
 };
 
-
 // Queue 2 ETS Status
 struct MTL_TXQ2_ETS_STATUS_fields_ {
   // Average Bits per Slot This field contains the average transmitted bits per slot.
@@ -17797,7 +17377,6 @@ struct MTL_TXQ2_ETS_STATUS : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using ABS = MTL_TXQ2_ETS_STATUS_fields_::ABS;
 };
-
 
 // Queue 2 idleSlopeCredit, Quantum or Weights
 struct MTL_TXQ2_QUANTUM_WEIGHT_fields_ {
@@ -17815,7 +17394,6 @@ struct MTL_TXQ2_QUANTUM_WEIGHT : ftl::mmio::Register<
   using ISCQW = MTL_TXQ2_QUANTUM_WEIGHT_fields_::ISCQW;
 };
 
-
 // Queue 2 sendSlopeCredit
 struct MTL_TXQ2_SENDSLOPECREDIT_fields_ {
   // sendSlopeCredit Value When AV operation is enabled, this field contains the sendSlopeCredit value required for credit-based shaper algorithm for Queue 1.
@@ -17831,7 +17409,6 @@ struct MTL_TXQ2_SENDSLOPECREDIT : ftl::mmio::Register<
     ftl::mmio::Reserved<18, 14>> {
   using SSC = MTL_TXQ2_SENDSLOPECREDIT_fields_::SSC;
 };
-
 
 // Queue 2 hiCredit
 struct MTL_TXQ2_HICREDIT_fields_ {
@@ -17849,7 +17426,6 @@ struct MTL_TXQ2_HICREDIT : ftl::mmio::Register<
   using HC = MTL_TXQ2_HICREDIT_fields_::HC;
 };
 
-
 // Queue 2 loCredit
 struct MTL_TXQ2_LOCREDIT_fields_ {
   // loCredit Value When AV operation is enabled, this field contains the loCredit value required for the credit-based shaper algorithm.
@@ -17866,10 +17442,8 @@ struct MTL_TXQ2_LOCREDIT : ftl::mmio::Register<
   using LC = MTL_TXQ2_LOCREDIT_fields_::LC;
 };
 
-
 // Queue 2 Interrupt Control Status
 struct MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_ {
-
   enum class eTXUNFIS : std::uint32_t {
     // Transmit Queue Underflow Interrupt Status not detected
     eINACTIVE = 0,
@@ -17911,6 +17485,7 @@ struct MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_ {
     // Receive Queue Overflow Interrupt is enabled
     eENABLE = 1,
   };
+
   // Transmit Queue Underflow Interrupt Status This bit indicates that the Transmit Queue had an underflow while transmitting the packet.
   using TXUNFIS = ftl::mmio::Field<1, 0, eTXUNFIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Average Bits Per Slot Interrupt Status When set, this bit indicates that the MAC has updated the ABS value.
@@ -17954,10 +17529,8 @@ struct MTL_Q2_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
   using RXOIE = MTL_Q2_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
 };
 
-
 // Queue 2 Receive Operation Mode
 struct MTL_RXQ2_OPERATION_MODE_fields_ {
-
   enum class eRTC : std::uint32_t {
     // 64
     ebf_64BYTE = 0,
@@ -18003,6 +17576,7 @@ struct MTL_RXQ2_OPERATION_MODE_fields_ {
     // Hardware Flow Control is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Threshold Control These bits control the threshold level of the MTL Rx queue (in bytes): The received packet is transferred to the application or DMA when the packet size within the MTL Rx queue is larger than the threshold.
   using RTC = ftl::mmio::Field<2, 0, eRTC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Forward Undersized Good Packets When this bit is set, the Rx queue forwards the undersized good packets (packets with no error and length less than 64 bytes), including pad-bytes and CRC.
@@ -18058,10 +17632,8 @@ struct MTL_RXQ2_OPERATION_MODE : ftl::mmio::Register<
   using RQS = MTL_RXQ2_OPERATION_MODE_fields_::RQS;
 };
 
-
 // Queue 2 Missed Packet and Overflow Counter
 struct MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_ {
-
   enum class eOVFCNTOVF : std::uint32_t {
     // Overflow Counter overflow not detected
     eINACTIVE = 0,
@@ -18075,6 +17647,7 @@ struct MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_ {
     // Missed Packet Counter overflow detected
     eACTIVE = 1,
   };
+
   // Overflow Packet Counter This field indicates the number of packets discarded by the DWC_ether_qos because of Receive queue overflow.
   using OVFPKTCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Counter Overflow Bit When set, this bit indicates that the Rx Queue Overflow Packet Counter field crossed the maximum limit.
@@ -18104,10 +17677,8 @@ struct MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
   using MISCNTOVF = MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
 };
 
-
 // Queue 2 Receive Debug
 struct MTL_RXQ2_DEBUG_fields_ {
-
   enum class eRWCSTS : std::uint32_t {
     // MTL Rx Queue Write Controller Active Status not detected
     eINACTIVE = 0,
@@ -18136,6 +17707,7 @@ struct MTL_RXQ2_DEBUG_fields_ {
     // Rx Queue full
     eFULL = 3,
   };
+
   // MTL Rx Queue Write Controller Active Status When high, this bit indicates that the MTL Rx queue Write controller is active, and it is transferring a received packet to the Rx Queue.
   using RWCSTS = ftl::mmio::Field<1, 0, eRWCSTS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Rx Queue Read Controller State This field gives the state of the Rx queue Read controller:
@@ -18167,16 +17739,15 @@ struct MTL_RXQ2_DEBUG : ftl::mmio::Register<
   using PRXQ = MTL_RXQ2_DEBUG_fields_::PRXQ;
 };
 
-
 // Queue 2 Receive Control
 struct MTL_RXQ2_CONTROL_fields_ {
-
   enum class eRXQ_FRM_ARBIT : std::uint32_t {
     // Receive Queue Packet Arbitration is disabled
     eDISABLE = 0,
     // Receive Queue Packet Arbitration is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Weight This field indicates the weight assigned to the Rx Queue 0.
   using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
@@ -18196,10 +17767,8 @@ struct MTL_RXQ2_CONTROL : ftl::mmio::Register<
   using RXQ_FRM_ARBIT = MTL_RXQ2_CONTROL_fields_::RXQ_FRM_ARBIT;
 };
 
-
 // Queue 3 Transmit Operation Mode
 struct MTL_TXQ3_OPERATION_MODE_fields_ {
-
   enum class eFTQ : std::uint32_t {
     // Flush Transmit Queue is disabled
     eDISABLE = 0,
@@ -18241,6 +17810,7 @@ struct MTL_TXQ3_OPERATION_MODE_fields_ {
     // 512
     ebf_512BYTES = 7,
   };
+
   // Flush Transmit Queue When this bit is set, the Tx queue controller logic is reset to its default values.
   using FTQ = ftl::mmio::Field<1, 0, eFTQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Store and Forward When this bit is set, the transmission starts when a full packet resides in the MTL Tx queue.
@@ -18276,16 +17846,15 @@ struct MTL_TXQ3_OPERATION_MODE : ftl::mmio::Register<
   using TQS = MTL_TXQ3_OPERATION_MODE_fields_::TQS;
 };
 
-
 // Queue 3 Underflow Counter
 struct MTL_TXQ3_UNDERFLOW_fields_ {
-
   enum class eUFCNTOVF : std::uint32_t {
     // Overflow not detected for Underflow Packet Counter
     eINACTIVE = 0,
     // Overflow detected for Underflow Packet Counter
     eACTIVE = 1,
   };
+
   // Underflow Packet Counter This field indicates the number of packets aborted by the controller because of Tx Queue Underflow.
   using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
@@ -18305,10 +17874,8 @@ struct MTL_TXQ3_UNDERFLOW : ftl::mmio::Register<
   using UFCNTOVF = MTL_TXQ3_UNDERFLOW_fields_::UFCNTOVF;
 };
 
-
 // Queue 3 Transmit Debug
 struct MTL_TXQ3_DEBUG_fields_ {
-
   enum class eTXQPAUSED : std::uint32_t {
     // Transmit Queue in Pause status is not detected
     eINACTIVE = 0,
@@ -18347,6 +17914,7 @@ struct MTL_TXQ3_DEBUG_fields_ {
     // MTL Tx Status FIFO Full status is detected
     eACTIVE = 1,
   };
+
   // Transmit Queue in Pause When this bit is high and the Rx flow control is enabled, it indicates that the Tx Queue is in the Pause condition (in the full-duplex only mode) because of the following: - Reception of the PFC packet for the priorities assigned to the Tx Queue when PFC is enabled - Reception of 802.
   using TXQPAUSED = ftl::mmio::Field<1, 0, eTXQPAUSED, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Tx Queue Read Controller Status This field indicates the state of the Tx Queue Read Controller:
@@ -18392,10 +17960,8 @@ struct MTL_TXQ3_DEBUG : ftl::mmio::Register<
   using STXSTSF = MTL_TXQ3_DEBUG_fields_::STXSTSF;
 };
 
-
 // Queue 3 ETS Control
 struct MTL_TXQ3_ETS_CONTROL_fields_ {
-
   enum class eAVALG : std::uint32_t {
     // CBS Algorithm is disabled
     eDISABLE = 0,
@@ -18422,6 +17988,7 @@ struct MTL_TXQ3_ETS_CONTROL_fields_ {
     // 16 slots
     ebf_16_SLOT = 4,
   };
+
   // AV Algorithm When Queue 1 is programmed for AV, this field configures the scheduling algorithm for this queue: This bit when set, indicates credit based shaper algorithm (CBS) is selected for Queue 1 traffic.
   using AVALG = ftl::mmio::Field<1, 2, eAVALG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Credit Control When this bit is set, the accumulated credit parameter in the credit-based shaper algorithm logic is not reset to zero when there is positive credit and no packet to transmit in Channel 1.
@@ -18448,7 +18015,6 @@ struct MTL_TXQ3_ETS_CONTROL : ftl::mmio::Register<
   using SLC = MTL_TXQ3_ETS_CONTROL_fields_::SLC;
 };
 
-
 // Queue 3 ETS Status
 struct MTL_TXQ3_ETS_STATUS_fields_ {
   // Average Bits per Slot This field contains the average transmitted bits per slot.
@@ -18464,7 +18030,6 @@ struct MTL_TXQ3_ETS_STATUS : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using ABS = MTL_TXQ3_ETS_STATUS_fields_::ABS;
 };
-
 
 // Queue 3 idleSlopeCredit, Quantum or Weights
 struct MTL_TXQ3_QUANTUM_WEIGHT_fields_ {
@@ -18482,7 +18047,6 @@ struct MTL_TXQ3_QUANTUM_WEIGHT : ftl::mmio::Register<
   using ISCQW = MTL_TXQ3_QUANTUM_WEIGHT_fields_::ISCQW;
 };
 
-
 // Queue 3 sendSlopeCredit
 struct MTL_TXQ3_SENDSLOPECREDIT_fields_ {
   // sendSlopeCredit Value When AV operation is enabled, this field contains the sendSlopeCredit value required for credit-based shaper algorithm for Queue 1.
@@ -18498,7 +18062,6 @@ struct MTL_TXQ3_SENDSLOPECREDIT : ftl::mmio::Register<
     ftl::mmio::Reserved<18, 14>> {
   using SSC = MTL_TXQ3_SENDSLOPECREDIT_fields_::SSC;
 };
-
 
 // Queue 3 hiCredit
 struct MTL_TXQ3_HICREDIT_fields_ {
@@ -18516,7 +18079,6 @@ struct MTL_TXQ3_HICREDIT : ftl::mmio::Register<
   using HC = MTL_TXQ3_HICREDIT_fields_::HC;
 };
 
-
 // Queue 3 loCredit
 struct MTL_TXQ3_LOCREDIT_fields_ {
   // loCredit Value When AV operation is enabled, this field contains the loCredit value required for the credit-based shaper algorithm.
@@ -18533,10 +18095,8 @@ struct MTL_TXQ3_LOCREDIT : ftl::mmio::Register<
   using LC = MTL_TXQ3_LOCREDIT_fields_::LC;
 };
 
-
 // Queue 3 Interrupt Control Status
 struct MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_ {
-
   enum class eTXUNFIS : std::uint32_t {
     // Transmit Queue Underflow Interrupt Status not detected
     eINACTIVE = 0,
@@ -18578,6 +18138,7 @@ struct MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_ {
     // Receive Queue Overflow Interrupt is enabled
     eENABLE = 1,
   };
+
   // Transmit Queue Underflow Interrupt Status This bit indicates that the Transmit Queue had an underflow while transmitting the packet.
   using TXUNFIS = ftl::mmio::Field<1, 0, eTXUNFIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Average Bits Per Slot Interrupt Status When set, this bit indicates that the MAC has updated the ABS value.
@@ -18621,10 +18182,8 @@ struct MTL_Q3_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
   using RXOIE = MTL_Q3_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
 };
 
-
 // Queue 3 Receive Operation Mode
 struct MTL_RXQ3_OPERATION_MODE_fields_ {
-
   enum class eRTC : std::uint32_t {
     // 64
     ebf_64BYTE = 0,
@@ -18670,6 +18229,7 @@ struct MTL_RXQ3_OPERATION_MODE_fields_ {
     // Hardware Flow Control is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Threshold Control These bits control the threshold level of the MTL Rx queue (in bytes): The received packet is transferred to the application or DMA when the packet size within the MTL Rx queue is larger than the threshold.
   using RTC = ftl::mmio::Field<2, 0, eRTC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Forward Undersized Good Packets When this bit is set, the Rx queue forwards the undersized good packets (packets with no error and length less than 64 bytes), including pad-bytes and CRC.
@@ -18725,10 +18285,8 @@ struct MTL_RXQ3_OPERATION_MODE : ftl::mmio::Register<
   using RQS = MTL_RXQ3_OPERATION_MODE_fields_::RQS;
 };
 
-
 // Queue 3 Missed Packet and Overflow Counter
 struct MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_ {
-
   enum class eOVFCNTOVF : std::uint32_t {
     // Overflow Counter overflow not detected
     eINACTIVE = 0,
@@ -18742,6 +18300,7 @@ struct MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_ {
     // Missed Packet Counter overflow detected
     eACTIVE = 1,
   };
+
   // Overflow Packet Counter This field indicates the number of packets discarded by the DWC_ether_qos because of Receive queue overflow.
   using OVFPKTCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Counter Overflow Bit When set, this bit indicates that the Rx Queue Overflow Packet Counter field crossed the maximum limit.
@@ -18771,10 +18330,8 @@ struct MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
   using MISCNTOVF = MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
 };
 
-
 // Queue 3 Receive Debug
 struct MTL_RXQ3_DEBUG_fields_ {
-
   enum class eRWCSTS : std::uint32_t {
     // MTL Rx Queue Write Controller Active Status not detected
     eINACTIVE = 0,
@@ -18803,6 +18360,7 @@ struct MTL_RXQ3_DEBUG_fields_ {
     // Rx Queue full
     eFULL = 3,
   };
+
   // MTL Rx Queue Write Controller Active Status When high, this bit indicates that the MTL Rx queue Write controller is active, and it is transferring a received packet to the Rx Queue.
   using RWCSTS = ftl::mmio::Field<1, 0, eRWCSTS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Rx Queue Read Controller State This field gives the state of the Rx queue Read controller:
@@ -18834,16 +18392,15 @@ struct MTL_RXQ3_DEBUG : ftl::mmio::Register<
   using PRXQ = MTL_RXQ3_DEBUG_fields_::PRXQ;
 };
 
-
 // Queue 3 Receive Control
 struct MTL_RXQ3_CONTROL_fields_ {
-
   enum class eRXQ_FRM_ARBIT : std::uint32_t {
     // Receive Queue Packet Arbitration is disabled
     eDISABLE = 0,
     // Receive Queue Packet Arbitration is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Weight This field indicates the weight assigned to the Rx Queue 0.
   using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
@@ -18863,10 +18420,8 @@ struct MTL_RXQ3_CONTROL : ftl::mmio::Register<
   using RXQ_FRM_ARBIT = MTL_RXQ3_CONTROL_fields_::RXQ_FRM_ARBIT;
 };
 
-
 // Queue 4 Transmit Operation Mode
 struct MTL_TXQ4_OPERATION_MODE_fields_ {
-
   enum class eFTQ : std::uint32_t {
     // Flush Transmit Queue is disabled
     eDISABLE = 0,
@@ -18908,6 +18463,7 @@ struct MTL_TXQ4_OPERATION_MODE_fields_ {
     // 512
     ebf_512BYTES = 7,
   };
+
   // Flush Transmit Queue When this bit is set, the Tx queue controller logic is reset to its default values.
   using FTQ = ftl::mmio::Field<1, 0, eFTQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Store and Forward When this bit is set, the transmission starts when a full packet resides in the MTL Tx queue.
@@ -18943,16 +18499,15 @@ struct MTL_TXQ4_OPERATION_MODE : ftl::mmio::Register<
   using TQS = MTL_TXQ4_OPERATION_MODE_fields_::TQS;
 };
 
-
 // Queue 4 Underflow Counter
 struct MTL_TXQ4_UNDERFLOW_fields_ {
-
   enum class eUFCNTOVF : std::uint32_t {
     // Overflow not detected for Underflow Packet Counter
     eINACTIVE = 0,
     // Overflow detected for Underflow Packet Counter
     eACTIVE = 1,
   };
+
   // Underflow Packet Counter This field indicates the number of packets aborted by the controller because of Tx Queue Underflow.
   using UFFRMCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Bit for Underflow Packet Counter This bit is set every time the Tx queue Underflow Packet Counter field overflows, that is, it has crossed the maximum count.
@@ -18972,10 +18527,8 @@ struct MTL_TXQ4_UNDERFLOW : ftl::mmio::Register<
   using UFCNTOVF = MTL_TXQ4_UNDERFLOW_fields_::UFCNTOVF;
 };
 
-
 // Queue 4 Transmit Debug
 struct MTL_TXQ4_DEBUG_fields_ {
-
   enum class eTXQPAUSED : std::uint32_t {
     // Transmit Queue in Pause status is not detected
     eINACTIVE = 0,
@@ -19014,6 +18567,7 @@ struct MTL_TXQ4_DEBUG_fields_ {
     // MTL Tx Status FIFO Full status is detected
     eACTIVE = 1,
   };
+
   // Transmit Queue in Pause When this bit is high and the Rx flow control is enabled, it indicates that the Tx Queue is in the Pause condition (in the full-duplex only mode) because of the following: - Reception of the PFC packet for the priorities assigned to the Tx Queue when PFC is enabled - Reception of 802.
   using TXQPAUSED = ftl::mmio::Field<1, 0, eTXQPAUSED, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Tx Queue Read Controller Status This field indicates the state of the Tx Queue Read Controller:
@@ -19059,10 +18613,8 @@ struct MTL_TXQ4_DEBUG : ftl::mmio::Register<
   using STXSTSF = MTL_TXQ4_DEBUG_fields_::STXSTSF;
 };
 
-
 // Queue 4 ETS Control
 struct MTL_TXQ4_ETS_CONTROL_fields_ {
-
   enum class eAVALG : std::uint32_t {
     // CBS Algorithm is disabled
     eDISABLE = 0,
@@ -19089,6 +18641,7 @@ struct MTL_TXQ4_ETS_CONTROL_fields_ {
     // 16 slots
     ebf_16_SLOT = 4,
   };
+
   // AV Algorithm When Queue 1 is programmed for AV, this field configures the scheduling algorithm for this queue: This bit when set, indicates credit based shaper algorithm (CBS) is selected for Queue 1 traffic.
   using AVALG = ftl::mmio::Field<1, 2, eAVALG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Credit Control When this bit is set, the accumulated credit parameter in the credit-based shaper algorithm logic is not reset to zero when there is positive credit and no packet to transmit in Channel 1.
@@ -19115,7 +18668,6 @@ struct MTL_TXQ4_ETS_CONTROL : ftl::mmio::Register<
   using SLC = MTL_TXQ4_ETS_CONTROL_fields_::SLC;
 };
 
-
 // Queue 4 ETS Status
 struct MTL_TXQ4_ETS_STATUS_fields_ {
   // Average Bits per Slot This field contains the average transmitted bits per slot.
@@ -19131,7 +18683,6 @@ struct MTL_TXQ4_ETS_STATUS : ftl::mmio::Register<
     ftl::mmio::Reserved<8, 24>> {
   using ABS = MTL_TXQ4_ETS_STATUS_fields_::ABS;
 };
-
 
 // Queue 4 idleSlopeCredit, Quantum or Weights
 struct MTL_TXQ4_QUANTUM_WEIGHT_fields_ {
@@ -19149,7 +18700,6 @@ struct MTL_TXQ4_QUANTUM_WEIGHT : ftl::mmio::Register<
   using ISCQW = MTL_TXQ4_QUANTUM_WEIGHT_fields_::ISCQW;
 };
 
-
 // Queue 4 sendSlopeCredit
 struct MTL_TXQ4_SENDSLOPECREDIT_fields_ {
   // sendSlopeCredit Value When AV operation is enabled, this field contains the sendSlopeCredit value required for credit-based shaper algorithm for Queue 1.
@@ -19165,7 +18715,6 @@ struct MTL_TXQ4_SENDSLOPECREDIT : ftl::mmio::Register<
     ftl::mmio::Reserved<18, 14>> {
   using SSC = MTL_TXQ4_SENDSLOPECREDIT_fields_::SSC;
 };
-
 
 // Queue 4 hiCredit
 struct MTL_TXQ4_HICREDIT_fields_ {
@@ -19183,7 +18732,6 @@ struct MTL_TXQ4_HICREDIT : ftl::mmio::Register<
   using HC = MTL_TXQ4_HICREDIT_fields_::HC;
 };
 
-
 // Queue 4 loCredit
 struct MTL_TXQ4_LOCREDIT_fields_ {
   // loCredit Value When AV operation is enabled, this field contains the loCredit value required for the credit-based shaper algorithm.
@@ -19200,10 +18748,8 @@ struct MTL_TXQ4_LOCREDIT : ftl::mmio::Register<
   using LC = MTL_TXQ4_LOCREDIT_fields_::LC;
 };
 
-
 // Queue 4 Interrupt Control Status
 struct MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_ {
-
   enum class eTXUNFIS : std::uint32_t {
     // Transmit Queue Underflow Interrupt Status not detected
     eINACTIVE = 0,
@@ -19245,6 +18791,7 @@ struct MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_ {
     // Receive Queue Overflow Interrupt is enabled
     eENABLE = 1,
   };
+
   // Transmit Queue Underflow Interrupt Status This bit indicates that the Transmit Queue had an underflow while transmitting the packet.
   using TXUNFIS = ftl::mmio::Field<1, 0, eTXUNFIS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Average Bits Per Slot Interrupt Status When set, this bit indicates that the MAC has updated the ABS value.
@@ -19288,10 +18835,8 @@ struct MTL_Q4_INTERRUPT_CONTROL_STATUS : ftl::mmio::Register<
   using RXOIE = MTL_Q4_INTERRUPT_CONTROL_STATUS_fields_::RXOIE;
 };
 
-
 // Queue 4 Receive Operation Mode
 struct MTL_RXQ4_OPERATION_MODE_fields_ {
-
   enum class eRTC : std::uint32_t {
     // 64
     ebf_64BYTE = 0,
@@ -19337,6 +18882,7 @@ struct MTL_RXQ4_OPERATION_MODE_fields_ {
     // Hardware Flow Control is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Threshold Control These bits control the threshold level of the MTL Rx queue (in bytes): The received packet is transferred to the application or DMA when the packet size within the MTL Rx queue is larger than the threshold.
   using RTC = ftl::mmio::Field<2, 0, eRTC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Forward Undersized Good Packets When this bit is set, the Rx queue forwards the undersized good packets (packets with no error and length less than 64 bytes), including pad-bytes and CRC.
@@ -19392,10 +18938,8 @@ struct MTL_RXQ4_OPERATION_MODE : ftl::mmio::Register<
   using RQS = MTL_RXQ4_OPERATION_MODE_fields_::RQS;
 };
 
-
 // Queue 4 Missed Packet and Overflow Counter
 struct MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_ {
-
   enum class eOVFCNTOVF : std::uint32_t {
     // Overflow Counter overflow not detected
     eINACTIVE = 0,
@@ -19409,6 +18953,7 @@ struct MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_ {
     // Missed Packet Counter overflow detected
     eACTIVE = 1,
   };
+
   // Overflow Packet Counter This field indicates the number of packets discarded by the DWC_ether_qos because of Receive queue overflow.
   using OVFPKTCNT = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow Counter Overflow Bit When set, this bit indicates that the Rx Queue Overflow Packet Counter field crossed the maximum limit.
@@ -19438,10 +18983,8 @@ struct MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT : ftl::mmio::Register<
   using MISCNTOVF = MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT_fields_::MISCNTOVF;
 };
 
-
 // Queue 4 Receive Debug
 struct MTL_RXQ4_DEBUG_fields_ {
-
   enum class eRWCSTS : std::uint32_t {
     // MTL Rx Queue Write Controller Active Status not detected
     eINACTIVE = 0,
@@ -19470,6 +19013,7 @@ struct MTL_RXQ4_DEBUG_fields_ {
     // Rx Queue full
     eFULL = 3,
   };
+
   // MTL Rx Queue Write Controller Active Status When high, this bit indicates that the MTL Rx queue Write controller is active, and it is transferring a received packet to the Rx Queue.
   using RWCSTS = ftl::mmio::Field<1, 0, eRWCSTS, ftl::mmio::RO, ftl::mmio::Normal>;
   // MTL Rx Queue Read Controller State This field gives the state of the Rx queue Read controller:
@@ -19501,16 +19045,15 @@ struct MTL_RXQ4_DEBUG : ftl::mmio::Register<
   using PRXQ = MTL_RXQ4_DEBUG_fields_::PRXQ;
 };
 
-
 // Queue 4 Receive Control
 struct MTL_RXQ4_CONTROL_fields_ {
-
   enum class eRXQ_FRM_ARBIT : std::uint32_t {
     // Receive Queue Packet Arbitration is disabled
     eDISABLE = 0,
     // Receive Queue Packet Arbitration is enabled
     eENABLE = 1,
   };
+
   // Receive Queue Weight This field indicates the weight assigned to the Rx Queue 0.
   using RXQ_WEGT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Queue Packet Arbitration When this bit is set, the DWC_ether_qos drives the packet data to the ARI interface such that the entire packet data of currently-selected queue is transmitted before switching to other queue.
@@ -19530,10 +19073,8 @@ struct MTL_RXQ4_CONTROL : ftl::mmio::Register<
   using RXQ_FRM_ARBIT = MTL_RXQ4_CONTROL_fields_::RXQ_FRM_ARBIT;
 };
 
-
 // DMA Bus Mode
 struct DMA_MODE_fields_ {
-
   enum class eSWR : std::uint32_t {
     // Software Reset is disabled
     eDISABLE = 0,
@@ -19556,6 +19097,7 @@ struct DMA_MODE_fields_ {
     // See above description
     eMODE2 = 2,
   };
+
   // Software Reset When this bit is set, the MAC and the DMA controller reset the logic and all internal registers of the DMA, MTL, and MAC.
   using SWR = ftl::mmio::Field<1, 0, eSWR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Descriptor Posted Write When this bit is set to 0, the descriptor writes are always non-posted.
@@ -19583,10 +19125,8 @@ struct DMA_MODE : ftl::mmio::Register<
   using INTM = DMA_MODE_fields_::INTM;
 };
 
-
 // DMA System Bus Mode
 struct DMA_SYSBUS_MODE_fields_ {
-
   enum class eFB : std::uint32_t {
     // Fixed Burst Length is disabled
     eDISABLE = 0,
@@ -19649,6 +19189,7 @@ struct DMA_SYSBUS_MODE_fields_ {
     // Low Power Interface (LPI) is enabled
     eENABLE = 1,
   };
+
   // Fixed Burst Length When this bit is set to 1, the EQOS-AXI master initiates burst transfers of specified lengths as given below.
   using FB = ftl::mmio::Field<1, 0, eFB, ftl::mmio::RW, ftl::mmio::Normal>;
   // AXI Burst Length 4 When this bit is set to 1 or the FB bit is set to 0, the EQOS-AXI master can select a burst length of 4 on the AXI interface.
@@ -19716,10 +19257,8 @@ struct DMA_SYSBUS_MODE : ftl::mmio::Register<
   using EN_LPI = DMA_SYSBUS_MODE_fields_::EN_LPI;
 };
 
-
 // DMA Interrupt Status
 struct DMA_INTERRUPT_STATUS_fields_ {
-
   enum class eDC0IS : std::uint32_t {
     // DMA Channel 0 Interrupt Status not detected
     eINACTIVE = 0,
@@ -19768,6 +19307,7 @@ struct DMA_INTERRUPT_STATUS_fields_ {
     // MAC Interrupt Status detected
     eACTIVE = 1,
   };
+
   // DMA Channel 0 Interrupt Status This bit indicates an interrupt event in DMA Channel 0.
   using DC0IS = ftl::mmio::Field<1, 0, eDC0IS, ftl::mmio::RO, ftl::mmio::Normal>;
   // DMA Channel 1 Interrupt Status This bit indicates an interrupt event in DMA Channel 1.
@@ -19814,10 +19354,8 @@ struct DMA_INTERRUPT_STATUS : ftl::mmio::Register<
   using MACIS = DMA_INTERRUPT_STATUS_fields_::MACIS;
 };
 
-
 // DMA Debug Status 0
 struct DMA_DEBUG_STATUS0_fields_ {
-
   enum class eAXWHSTS : std::uint32_t {
     // AXI Master Write Channel or AHB Master Status not detected
     eINACTIVE = 0,
@@ -19933,6 +19471,7 @@ struct DMA_DEBUG_STATUS0_fields_ {
     // Running (Closing Tx Descriptor)
     eRUN_CTD = 7,
   };
+
   // AXI Master Write Channel When high, this bit indicates that the write channel of the AXI master is active, and it is transferring data.
   using AXWHSTS = ftl::mmio::Field<1, 0, eAXWHSTS, ftl::mmio::RO, ftl::mmio::Normal>;
   // AXI Master Read Channel Status When high, this bit indicates that the read channel of the AXI master is active, and it is transferring the data.
@@ -19983,10 +19522,8 @@ struct DMA_DEBUG_STATUS0 : ftl::mmio::Register<
   using TPS2 = DMA_DEBUG_STATUS0_fields_::TPS2;
 };
 
-
 // DMA Debug Status 1
 struct DMA_DEBUG_STATUS1_fields_ {
-
   enum class eRPS3 : std::uint32_t {
     // Stopped (Reset or Stop Receive Command issued)
     eSTOP = 0,
@@ -20054,6 +19591,7 @@ struct DMA_DEBUG_STATUS1_fields_ {
     // Running (Closing Tx Descriptor)
     eRUN_CTD = 7,
   };
+
   // DMA Channel 3 Receive Process State This field indicates the Rx DMA FSM state for Channel 3.
   using RPS3 = ftl::mmio::Field<4, 0, eRPS3, ftl::mmio::RO, ftl::mmio::Normal>;
   // DMA Channel 3 Transmit Process State This field indicates the Tx DMA FSM state for Channel 3.
@@ -20084,7 +19622,6 @@ struct DMA_DEBUG_STATUS1 : ftl::mmio::Register<
   using TPS4 = DMA_DEBUG_STATUS1_fields_::TPS4;
 };
 
-
 // AXI LPI Entry Interval Control
 struct DMA_AXI_LPI_ENTRY_INTERVAL_fields_ {
   // LPI Entry Interval Contains the number of system clock cycles, multiplied by 64, to wait for an activity in the DWC_ether_qos to enter into the AXI low power state 0 indicates 64 clock cycles
@@ -20101,16 +19638,15 @@ struct DMA_AXI_LPI_ENTRY_INTERVAL : ftl::mmio::Register<
   using LPIEI = DMA_AXI_LPI_ENTRY_INTERVAL_fields_::LPIEI;
 };
 
-
 // TBS Control
 struct DMA_TBS_CTRL_fields_ {
-
   enum class eFTOV : std::uint32_t {
     // Fetch Time Offset is invalid
     eINVALID = 0,
     // Fetch Time Offset is valid
     eVALID = 1,
   };
+
   // Fetch Time Offset Valid When set indicates the FTOS field is valid.
   using FTOV = ftl::mmio::Field<1, 0, eFTOV, ftl::mmio::RW, ftl::mmio::Normal>;
   // Fetch GSN Offset The number GSN slots that must be deducted from the Launch GSN to compute the Fetch GSN.
@@ -20135,16 +19671,15 @@ struct DMA_TBS_CTRL : ftl::mmio::Register<
   using FTOS = DMA_TBS_CTRL_fields_::FTOS;
 };
 
-
 // DMA Channel 0 Control
 struct DMA_CH0_CONTROL_fields_ {
-
   enum class ePBLx8 : std::uint32_t {
     // 8xPBL mode is disabled
     eDISABLE = 0,
     // 8xPBL mode is enabled
     eENABLE = 1,
   };
+
   // 8xPBL mode When this bit is set, the PBL value programmed in Bits[21:16] in DMA_CH0_TX_CONTROL and Bits[21:16] in DMA_CH0_RX_CONTROL is multiplied by eight times.
   using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
   // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
@@ -20166,10 +19701,8 @@ struct DMA_CH0_CONTROL : ftl::mmio::Register<
   using DSL = DMA_CH0_CONTROL_fields_::DSL;
 };
 
-
 // DMA Channel 0 Transmit Control
 struct DMA_CH0_TX_CONTROL_fields_ {
-
   enum class eST : std::uint32_t {
     // Stop Transmission Command
     eSTOP = 0,
@@ -20197,6 +19730,7 @@ struct DMA_CH0_TX_CONTROL_fields_ {
     // Enhanced Descriptor is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Transmission Command When this bit is set, transmission is placed in the Running state.
   using ST = ftl::mmio::Field<1, 0, eST, ftl::mmio::RW, ftl::mmio::Normal>;
   // Operate on Second Packet When this bit is set, it instructs the DMA to process the second packet of the Transmit data even before the status for the first packet is obtained.
@@ -20234,10 +19768,8 @@ struct DMA_CH0_TX_CONTROL : ftl::mmio::Register<
   using EDSE = DMA_CH0_TX_CONTROL_fields_::EDSE;
 };
 
-
 // DMA Channel 0 Receive Control
 struct DMA_CH0_RX_CONTROL_fields_ {
-
   enum class eSR : std::uint32_t {
     // Stop Receive
     eSTOP = 0,
@@ -20251,6 +19783,7 @@ struct DMA_CH0_RX_CONTROL_fields_ {
     // Rx Packet Flush is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Receive When this bit is set, the DMA tries to acquire the descriptor from the Receive list and processes the incoming packets.
   using SR = ftl::mmio::Field<1, 0, eSR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Buffer size Low RBSZ[13:0] is split into two fields RBSZ_13_y and RBSZ_x_0.
@@ -20284,7 +19817,6 @@ struct DMA_CH0_RX_CONTROL : ftl::mmio::Register<
   using RPF = DMA_CH0_RX_CONTROL_fields_::RPF;
 };
 
-
 // Channel 0 Tx Descriptor List Address register
 struct DMA_CH0_TXDESC_LIST_ADDRESS_fields_ {
   // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
@@ -20300,7 +19832,6 @@ struct DMA_CH0_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
     DMA_CH0_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
   using TDESLA = DMA_CH0_TXDESC_LIST_ADDRESS_fields_::TDESLA;
 };
-
 
 // Channel 0 Rx Descriptor List Address register
 struct DMA_CH0_RXDESC_LIST_ADDRESS_fields_ {
@@ -20318,7 +19849,6 @@ struct DMA_CH0_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
   using RDESLA = DMA_CH0_RXDESC_LIST_ADDRESS_fields_::RDESLA;
 };
 
-
 // Channel 0 Tx Descriptor Tail Pointer
 struct DMA_CH0_TXDESC_TAIL_POINTER_fields_ {
   // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
@@ -20334,7 +19864,6 @@ struct DMA_CH0_TXDESC_TAIL_POINTER : ftl::mmio::Register<
     DMA_CH0_TXDESC_TAIL_POINTER_fields_::TDTP> {
   using TDTP = DMA_CH0_TXDESC_TAIL_POINTER_fields_::TDTP;
 };
-
 
 // Channel 0 Rx Descriptor Tail Pointer
 struct DMA_CH0_RXDESC_TAIL_POINTER_fields_ {
@@ -20352,7 +19881,6 @@ struct DMA_CH0_RXDESC_TAIL_POINTER : ftl::mmio::Register<
   using RDTP = DMA_CH0_RXDESC_TAIL_POINTER_fields_::RDTP;
 };
 
-
 // Channel 0 Tx Descriptor Ring Length
 struct DMA_CH0_TXDESC_RING_LENGTH_fields_ {
   // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
@@ -20368,7 +19896,6 @@ struct DMA_CH0_TXDESC_RING_LENGTH : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using TDRL = DMA_CH0_TXDESC_RING_LENGTH_fields_::TDRL;
 };
-
 
 // Channel 0 Rx Descriptor Ring Length
 struct DMA_CH0_RXDESC_RING_LENGTH_fields_ {
@@ -20386,10 +19913,8 @@ struct DMA_CH0_RXDESC_RING_LENGTH : ftl::mmio::Register<
   using RDRL = DMA_CH0_RXDESC_RING_LENGTH_fields_::RDRL;
 };
 
-
 // Channel 0 Interrupt Enable
 struct DMA_CH0_INTERRUPT_ENABLE_fields_ {
-
   enum class eTIE : std::uint32_t {
     // Transmit Interrupt is disabled
     eDISABLE = 0,
@@ -20480,6 +20005,7 @@ struct DMA_CH0_INTERRUPT_ENABLE_fields_ {
     // Normal Interrupt Summary is enabled
     eENABLE = 1,
   };
+
   // Transmit Interrupt Enable When this bit is set along with the NIE bit, the Transmit Interrupt is enabled.
   using TIE = ftl::mmio::Field<1, 0, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Stopped Enable When this bit is set along with the AIE bit, the Transmission Stopped interrupt is enabled.
@@ -20556,7 +20082,6 @@ struct DMA_CH0_INTERRUPT_ENABLE : ftl::mmio::Register<
   using NIE = DMA_CH0_INTERRUPT_ENABLE_fields_::NIE;
 };
 
-
 // Channel 0 Receive Interrupt Watchdog Timer
 struct DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
   // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
@@ -20578,10 +20103,8 @@ struct DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
   using RWTU = DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
 };
 
-
 // Channel 0 Slot Function Control and Status
 struct DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
-
   enum class eESC : std::uint32_t {
     // Slot Comparison is disabled
     eDISABLE = 0,
@@ -20595,6 +20118,7 @@ struct DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
     // Advance Slot Check is enabled
     eENABLE = 1,
   };
+
   // Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
   using ESC = ftl::mmio::Field<1, 0, eESC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Advance Slot Check When set, this bit enables the DMA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is - equal to the reference slot number given in the RSN field or - ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
@@ -20624,7 +20148,6 @@ struct DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
   using RSN = DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
 };
 
-
 // Channel 0 Current Application Transmit Descriptor
 struct DMA_CH0_CURRENT_APP_TXDESC_fields_ {
   // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
@@ -20639,7 +20162,6 @@ struct DMA_CH0_CURRENT_APP_TXDESC : ftl::mmio::Register<
     DMA_CH0_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
   using CURTDESAPTR = DMA_CH0_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
 };
-
 
 // Channel 0 Current Application Receive Descriptor
 struct DMA_CH0_CURRENT_APP_RXDESC_fields_ {
@@ -20656,7 +20178,6 @@ struct DMA_CH0_CURRENT_APP_RXDESC : ftl::mmio::Register<
   using CURRDESAPTR = DMA_CH0_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
 };
 
-
 // Channel 0 Current Application Transmit Buffer Address
 struct DMA_CH0_CURRENT_APP_TXBUFFER_fields_ {
   // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
@@ -20671,7 +20192,6 @@ struct DMA_CH0_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
     DMA_CH0_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
   using CURTBUFAPTR = DMA_CH0_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
 };
-
 
 // Channel 0 Current Application Receive Buffer Address
 struct DMA_CH0_CURRENT_APP_RXBUFFER_fields_ {
@@ -20688,10 +20208,8 @@ struct DMA_CH0_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
   using CURRBUFAPTR = DMA_CH0_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
 };
 
-
 // DMA Channel 0 Status
 struct DMA_CH0_STATUS_fields_ {
-
   enum class eTI : std::uint32_t {
     // Transmit Interrupt status not detected
     eINACTIVE = 0,
@@ -20782,6 +20300,7 @@ struct DMA_CH0_STATUS_fields_ {
     // Normal Interrupt Summary status detected
     eACTIVE = 1,
   };
+
   // Transmit Interrupt This bit indicates that the packet transmission is complete.
   using TI = ftl::mmio::Field<1, 0, eTI, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Process Stopped This bit is set when the transmission is stopped.
@@ -20866,16 +20385,15 @@ struct DMA_CH0_STATUS : ftl::mmio::Register<
   using REB = DMA_CH0_STATUS_fields_::REB;
 };
 
-
 // Channel 0 Missed Frame Counter
 struct DMA_CH0_MISS_FRAME_CNT_fields_ {
-
   enum class eMFCO : std::uint32_t {
     // Miss Frame Counter overflow not occurred
     eINACTIVE = 0,
     // Miss Frame Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Dropped Packet Counters This counter indicates the number of packet counters that are dropped by the DMA either because of bus error or because of programming RPF field in DMA_CH0_RX_CONTROL register.
   using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
@@ -20896,16 +20414,15 @@ struct DMA_CH0_MISS_FRAME_CNT : ftl::mmio::Register<
   using MFCO = DMA_CH0_MISS_FRAME_CNT_fields_::MFCO;
 };
 
-
 // Channel 0 RXP Frames Accepted Counter
 struct DMA_CH0_RXP_ACCEPT_CNT_fields_ {
-
   enum class eRXPACOF : std::uint32_t {
     // Rx Parser Accept Counter overflow not occurred
     eINACTIVE = 0,
     // Rx Parser Accept Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Rx Parser Accept Counter This 31-bit counter is implemented whenever a Rx Parser Accept a packet due to AF =1.
   using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
@@ -20924,7 +20441,6 @@ struct DMA_CH0_RXP_ACCEPT_CNT : ftl::mmio::Register<
   using RXPACOF = DMA_CH0_RXP_ACCEPT_CNT_fields_::RXPACOF;
 };
 
-
 // Channel 0 Receive ERI Counter
 struct DMA_CH0_RX_ERI_CNT_fields_ {
   // ERI Counter When ERIC bit of RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
@@ -20941,16 +20457,15 @@ struct DMA_CH0_RX_ERI_CNT : ftl::mmio::Register<
   using ECNT = DMA_CH0_RX_ERI_CNT_fields_::ECNT;
 };
 
-
 // DMA Channel 1 Control
 struct DMA_CH1_CONTROL_fields_ {
-
   enum class ePBLx8 : std::uint32_t {
     // 8xPBL mode is disabled
     eDISABLE = 0,
     // 8xPBL mode is enabled
     eENABLE = 1,
   };
+
   // 8xPBL mode When this bit is set, the PBL value programmed in Bits[21:16] in TX_CONTROL and Bits[21:16] in DMA_CH1_RX_CONTROL is multiplied by eight times.
   using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
   // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
@@ -20972,10 +20487,8 @@ struct DMA_CH1_CONTROL : ftl::mmio::Register<
   using DSL = DMA_CH1_CONTROL_fields_::DSL;
 };
 
-
 // DMA Channel 1 Transmit Control
 struct DMA_CH1_TX_CONTROL_fields_ {
-
   enum class eST : std::uint32_t {
     // Stop Transmission Command
     eSTOP = 0,
@@ -21003,6 +20516,7 @@ struct DMA_CH1_TX_CONTROL_fields_ {
     // Enhanced Descriptor is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Transmission Command When this bit is set, transmission is placed in the Running state.
   using ST = ftl::mmio::Field<1, 0, eST, ftl::mmio::RW, ftl::mmio::Normal>;
   // Operate on Second Packet When this bit is set, it instructs the DMA to process the second packet of the Transmit data even before the status for the first packet is obtained.
@@ -21040,10 +20554,8 @@ struct DMA_CH1_TX_CONTROL : ftl::mmio::Register<
   using EDSE = DMA_CH1_TX_CONTROL_fields_::EDSE;
 };
 
-
 // DMA Channel 1 Receive Control
 struct DMA_CH1_RX_CONTROL_fields_ {
-
   enum class eSR : std::uint32_t {
     // Stop Receive
     eSTOP = 0,
@@ -21057,6 +20569,7 @@ struct DMA_CH1_RX_CONTROL_fields_ {
     // Rx Packet Flush is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Receive When this bit is set, the DMA tries to acquire the descriptor from the Receive list and processes the incoming packets.
   using SR = ftl::mmio::Field<1, 0, eSR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Buffer size Low RBSZ[13:0] is split into two fields RBSZ_13_y and RBSZ_x_0.
@@ -21090,7 +20603,6 @@ struct DMA_CH1_RX_CONTROL : ftl::mmio::Register<
   using RPF = DMA_CH1_RX_CONTROL_fields_::RPF;
 };
 
-
 // Channel 1 Tx Descriptor List Address
 struct DMA_CH1_TXDESC_LIST_ADDRESS_fields_ {
   // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
@@ -21106,7 +20618,6 @@ struct DMA_CH1_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
     DMA_CH1_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
   using TDESLA = DMA_CH1_TXDESC_LIST_ADDRESS_fields_::TDESLA;
 };
-
 
 // Channel 1 Rx Descriptor List Address
 struct DMA_CH1_RXDESC_LIST_ADDRESS_fields_ {
@@ -21124,7 +20635,6 @@ struct DMA_CH1_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
   using RDESLA = DMA_CH1_RXDESC_LIST_ADDRESS_fields_::RDESLA;
 };
 
-
 // Channel 1 Tx Descriptor Tail Pointer
 struct DMA_CH1_TXDESC_TAIL_POINTER_fields_ {
   // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
@@ -21140,7 +20650,6 @@ struct DMA_CH1_TXDESC_TAIL_POINTER : ftl::mmio::Register<
     DMA_CH1_TXDESC_TAIL_POINTER_fields_::TDTP> {
   using TDTP = DMA_CH1_TXDESC_TAIL_POINTER_fields_::TDTP;
 };
-
 
 // Channel 1 Rx Descriptor Tail Pointer
 struct DMA_CH1_RXDESC_TAIL_POINTER_fields_ {
@@ -21158,7 +20667,6 @@ struct DMA_CH1_RXDESC_TAIL_POINTER : ftl::mmio::Register<
   using RDTP = DMA_CH1_RXDESC_TAIL_POINTER_fields_::RDTP;
 };
 
-
 // Channel 1 Tx Descriptor Ring Length
 struct DMA_CH1_TXDESC_RING_LENGTH_fields_ {
   // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
@@ -21174,7 +20682,6 @@ struct DMA_CH1_TXDESC_RING_LENGTH : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using TDRL = DMA_CH1_TXDESC_RING_LENGTH_fields_::TDRL;
 };
-
 
 // Channel 1 Rx Descriptor Ring Length
 struct DMA_CH1_RXDESC_RING_LENGTH_fields_ {
@@ -21192,10 +20699,8 @@ struct DMA_CH1_RXDESC_RING_LENGTH : ftl::mmio::Register<
   using RDRL = DMA_CH1_RXDESC_RING_LENGTH_fields_::RDRL;
 };
 
-
 // Channel 1 Interrupt Enable
 struct DMA_CH1_INTERRUPT_ENABLE_fields_ {
-
   enum class eTIE : std::uint32_t {
     // Transmit Interrupt is disabled
     eDISABLE = 0,
@@ -21286,6 +20791,7 @@ struct DMA_CH1_INTERRUPT_ENABLE_fields_ {
     // Normal Interrupt Summary is enabled
     eENABLE = 1,
   };
+
   // Transmit Interrupt Enable When this bit is set along with the NIE bit, the Transmit Interrupt is enabled.
   using TIE = ftl::mmio::Field<1, 0, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Stopped Enable When this bit is set along with the AIE bit, the Transmission Stopped interrupt is enabled.
@@ -21362,7 +20868,6 @@ struct DMA_CH1_INTERRUPT_ENABLE : ftl::mmio::Register<
   using NIE = DMA_CH1_INTERRUPT_ENABLE_fields_::NIE;
 };
 
-
 // Channel 1 Receive Interrupt Watchdog Timer
 struct DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
   // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
@@ -21384,10 +20889,8 @@ struct DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
   using RWTU = DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
 };
 
-
 // Channel 1 Slot Function Control and Status
 struct DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
-
   enum class eESC : std::uint32_t {
     // Slot Comparison is disabled
     eDISABLE = 0,
@@ -21401,6 +20904,7 @@ struct DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
     // Advance Slot Check is enabled
     eENABLE = 1,
   };
+
   // Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
   using ESC = ftl::mmio::Field<1, 0, eESC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Advance Slot Check When set, this bit enables the DMA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is - equal to the reference slot number given in the RSN field or - ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
@@ -21430,7 +20934,6 @@ struct DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
   using RSN = DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
 };
 
-
 // Channel 1 Current Application Transmit Descriptor
 struct DMA_CH1_CURRENT_APP_TXDESC_fields_ {
   // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
@@ -21445,7 +20948,6 @@ struct DMA_CH1_CURRENT_APP_TXDESC : ftl::mmio::Register<
     DMA_CH1_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
   using CURTDESAPTR = DMA_CH1_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
 };
-
 
 // Channel 1 Current Application Receive Descriptor
 struct DMA_CH1_CURRENT_APP_RXDESC_fields_ {
@@ -21462,7 +20964,6 @@ struct DMA_CH1_CURRENT_APP_RXDESC : ftl::mmio::Register<
   using CURRDESAPTR = DMA_CH1_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
 };
 
-
 // Channel 1 Current Application Transmit Buffer Address
 struct DMA_CH1_CURRENT_APP_TXBUFFER_fields_ {
   // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
@@ -21477,7 +20978,6 @@ struct DMA_CH1_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
     DMA_CH1_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
   using CURTBUFAPTR = DMA_CH1_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
 };
-
 
 // Channel 1 Current Application Receive Buffer Address
 struct DMA_CH1_CURRENT_APP_RXBUFFER_fields_ {
@@ -21494,10 +20994,8 @@ struct DMA_CH1_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
   using CURRBUFAPTR = DMA_CH1_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
 };
 
-
 // DMA Channel 1 Status
 struct DMA_CH1_STATUS_fields_ {
-
   enum class eTI : std::uint32_t {
     // Transmit Interrupt status not detected
     eINACTIVE = 0,
@@ -21588,6 +21086,7 @@ struct DMA_CH1_STATUS_fields_ {
     // Normal Interrupt Summary status detected
     eACTIVE = 1,
   };
+
   // Transmit Interrupt This bit indicates that the packet transmission is complete.
   using TI = ftl::mmio::Field<1, 0, eTI, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Process Stopped This bit is set when the transmission is stopped.
@@ -21672,16 +21171,15 @@ struct DMA_CH1_STATUS : ftl::mmio::Register<
   using REB = DMA_CH1_STATUS_fields_::REB;
 };
 
-
 // Channel 1 Missed Frame Counter
 struct DMA_CH1_MISS_FRAME_CNT_fields_ {
-
   enum class eMFCO : std::uint32_t {
     // Miss Frame Counter overflow not occurred
     eINACTIVE = 0,
     // Miss Frame Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Dropped Packet Counters This counter indicates the number of packet counters that are dropped by the DMA either because of bus error or because of programming RPF field in RX_CONTROL register.
   using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
@@ -21702,16 +21200,15 @@ struct DMA_CH1_MISS_FRAME_CNT : ftl::mmio::Register<
   using MFCO = DMA_CH1_MISS_FRAME_CNT_fields_::MFCO;
 };
 
-
 // Channel 1 RXP Frames Accepted Counter
 struct DMA_CH1_RXP_ACCEPT_CNT_fields_ {
-
   enum class eRXPACOF : std::uint32_t {
     // Rx Parser Accept Counter overflow not occurred
     eINACTIVE = 0,
     // Rx Parser Accept Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Rx Parser Accept Counter This 31-bit counter is implemented whenever a Rx Parser Accept a packet due to AF =1.
   using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
@@ -21730,7 +21227,6 @@ struct DMA_CH1_RXP_ACCEPT_CNT : ftl::mmio::Register<
   using RXPACOF = DMA_CH1_RXP_ACCEPT_CNT_fields_::RXPACOF;
 };
 
-
 // Channel 1 Receive ERI Counter
 struct DMA_CH1_RX_ERI_CNT_fields_ {
   // ERI Counter When ERIC bit of RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
@@ -21747,16 +21243,15 @@ struct DMA_CH1_RX_ERI_CNT : ftl::mmio::Register<
   using ECNT = DMA_CH1_RX_ERI_CNT_fields_::ECNT;
 };
 
-
 // DMA Channel 2 Control
 struct DMA_CH2_CONTROL_fields_ {
-
   enum class ePBLx8 : std::uint32_t {
     // 8xPBL mode is disabled
     eDISABLE = 0,
     // 8xPBL mode is enabled
     eENABLE = 1,
   };
+
   // 8xPBL mode When this bit is set, the PBL value programmed in Bits[21:16] in DMA_CH2_TX_CONTROL and Bits[21:16] in DMA_CH2_RX_CONTROL is multiplied by eight times.
   using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
   // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
@@ -21778,10 +21273,8 @@ struct DMA_CH2_CONTROL : ftl::mmio::Register<
   using DSL = DMA_CH2_CONTROL_fields_::DSL;
 };
 
-
 // DMA Channel 2 Transmit Control
 struct DMA_CH2_TX_CONTROL_fields_ {
-
   enum class eST : std::uint32_t {
     // Stop Transmission Command
     eSTOP = 0,
@@ -21809,6 +21302,7 @@ struct DMA_CH2_TX_CONTROL_fields_ {
     // Enhanced Descriptor is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Transmission Command When this bit is set, transmission is placed in the Running state.
   using ST = ftl::mmio::Field<1, 0, eST, ftl::mmio::RW, ftl::mmio::Normal>;
   // Operate on Second Packet When this bit is set, it instructs the DMA to process the second packet of the Transmit data even before the status for the first packet is obtained.
@@ -21846,10 +21340,8 @@ struct DMA_CH2_TX_CONTROL : ftl::mmio::Register<
   using EDSE = DMA_CH2_TX_CONTROL_fields_::EDSE;
 };
 
-
 // DMA Channel 2 Receive Control
 struct DMA_CH2_RX_CONTROL_fields_ {
-
   enum class eSR : std::uint32_t {
     // Stop Receive
     eSTOP = 0,
@@ -21863,6 +21355,7 @@ struct DMA_CH2_RX_CONTROL_fields_ {
     // Rx Packet Flush is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Receive When this bit is set, the DMA tries to acquire the descriptor from the Receive list and processes the incoming packets.
   using SR = ftl::mmio::Field<1, 0, eSR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Buffer size Low RBSZ[13:0] is split into two fields RBSZ_13_y and RBSZ_x_0.
@@ -21896,7 +21389,6 @@ struct DMA_CH2_RX_CONTROL : ftl::mmio::Register<
   using RPF = DMA_CH2_RX_CONTROL_fields_::RPF;
 };
 
-
 // Channel 2 Tx Descriptor List Address
 struct DMA_CH2_TXDESC_LIST_ADDRESS_fields_ {
   // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
@@ -21912,7 +21404,6 @@ struct DMA_CH2_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
     DMA_CH2_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
   using TDESLA = DMA_CH2_TXDESC_LIST_ADDRESS_fields_::TDESLA;
 };
-
 
 // Channel 2 Rx Descriptor List Address
 struct DMA_CH2_RXDESC_LIST_ADDRESS_fields_ {
@@ -21930,7 +21421,6 @@ struct DMA_CH2_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
   using RDESLA = DMA_CH2_RXDESC_LIST_ADDRESS_fields_::RDESLA;
 };
 
-
 // Channel 2 Tx Descriptor Tail Pointer
 struct DMA_CH2_TXDESC_TAIL_POINTER_fields_ {
   // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
@@ -21946,7 +21436,6 @@ struct DMA_CH2_TXDESC_TAIL_POINTER : ftl::mmio::Register<
     DMA_CH2_TXDESC_TAIL_POINTER_fields_::TDTP> {
   using TDTP = DMA_CH2_TXDESC_TAIL_POINTER_fields_::TDTP;
 };
-
 
 // Channel 2 Rx Descriptor Tail Pointer
 struct DMA_CH2_RXDESC_TAIL_POINTER_fields_ {
@@ -21964,7 +21453,6 @@ struct DMA_CH2_RXDESC_TAIL_POINTER : ftl::mmio::Register<
   using RDTP = DMA_CH2_RXDESC_TAIL_POINTER_fields_::RDTP;
 };
 
-
 // Channel 2 Tx Descriptor Ring Length
 struct DMA_CH2_TXDESC_RING_LENGTH_fields_ {
   // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
@@ -21980,7 +21468,6 @@ struct DMA_CH2_TXDESC_RING_LENGTH : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using TDRL = DMA_CH2_TXDESC_RING_LENGTH_fields_::TDRL;
 };
-
 
 // Channel 2 Rx Descriptor Ring Length
 struct DMA_CH2_RXDESC_RING_LENGTH_fields_ {
@@ -21998,10 +21485,8 @@ struct DMA_CH2_RXDESC_RING_LENGTH : ftl::mmio::Register<
   using RDRL = DMA_CH2_RXDESC_RING_LENGTH_fields_::RDRL;
 };
 
-
 // Channel 2 Interrupt Enable
 struct DMA_CH2_INTERRUPT_ENABLE_fields_ {
-
   enum class eTIE : std::uint32_t {
     // Transmit Interrupt is disabled
     eDISABLE = 0,
@@ -22092,6 +21577,7 @@ struct DMA_CH2_INTERRUPT_ENABLE_fields_ {
     // Normal Interrupt Summary is enabled
     eENABLE = 1,
   };
+
   // Transmit Interrupt Enable When this bit is set along with the NIE bit, the Transmit Interrupt is enabled.
   using TIE = ftl::mmio::Field<1, 0, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Stopped Enable When this bit is set along with the AIE bit, the Transmission Stopped interrupt is enabled.
@@ -22168,7 +21654,6 @@ struct DMA_CH2_INTERRUPT_ENABLE : ftl::mmio::Register<
   using NIE = DMA_CH2_INTERRUPT_ENABLE_fields_::NIE;
 };
 
-
 // Channel 2 Receive Interrupt Watchdog Timer
 struct DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
   // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
@@ -22190,10 +21675,8 @@ struct DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
   using RWTU = DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
 };
 
-
 // Channel 2 Slot Function Control and Status
 struct DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
-
   enum class eESC : std::uint32_t {
     // Slot Comparison is disabled
     eDISABLE = 0,
@@ -22207,6 +21690,7 @@ struct DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
     // Advance Slot Check is enabled
     eENABLE = 1,
   };
+
   // Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
   using ESC = ftl::mmio::Field<1, 0, eESC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Advance Slot Check When set, this bit enables the DMA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is - equal to the reference slot number given in the RSN field or - ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
@@ -22236,7 +21720,6 @@ struct DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
   using RSN = DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
 };
 
-
 // Channel 2 Current Application Transmit Descriptor
 struct DMA_CH2_CURRENT_APP_TXDESC_fields_ {
   // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
@@ -22251,7 +21734,6 @@ struct DMA_CH2_CURRENT_APP_TXDESC : ftl::mmio::Register<
     DMA_CH2_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
   using CURTDESAPTR = DMA_CH2_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
 };
-
 
 // Channel 2 Current Application Receive Descriptor
 struct DMA_CH2_CURRENT_APP_RXDESC_fields_ {
@@ -22268,7 +21750,6 @@ struct DMA_CH2_CURRENT_APP_RXDESC : ftl::mmio::Register<
   using CURRDESAPTR = DMA_CH2_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
 };
 
-
 // Channel 2 Current Application Transmit Buffer Address
 struct DMA_CH2_CURRENT_APP_TXBUFFER_fields_ {
   // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
@@ -22283,7 +21764,6 @@ struct DMA_CH2_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
     DMA_CH2_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
   using CURTBUFAPTR = DMA_CH2_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
 };
-
 
 // Channel 2 Current Application Receive Buffer Address
 struct DMA_CH2_CURRENT_APP_RXBUFFER_fields_ {
@@ -22300,10 +21780,8 @@ struct DMA_CH2_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
   using CURRBUFAPTR = DMA_CH2_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
 };
 
-
 // DMA Channel 2 Status
 struct DMA_CH2_STATUS_fields_ {
-
   enum class eTI : std::uint32_t {
     // Transmit Interrupt status not detected
     eINACTIVE = 0,
@@ -22394,6 +21872,7 @@ struct DMA_CH2_STATUS_fields_ {
     // Normal Interrupt Summary status detected
     eACTIVE = 1,
   };
+
   // Transmit Interrupt This bit indicates that the packet transmission is complete.
   using TI = ftl::mmio::Field<1, 0, eTI, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Process Stopped This bit is set when the transmission is stopped.
@@ -22478,16 +21957,15 @@ struct DMA_CH2_STATUS : ftl::mmio::Register<
   using REB = DMA_CH2_STATUS_fields_::REB;
 };
 
-
 // Channel 2 Missed Frame Counter
 struct DMA_CH2_MISS_FRAME_CNT_fields_ {
-
   enum class eMFCO : std::uint32_t {
     // Miss Frame Counter overflow not occurred
     eINACTIVE = 0,
     // Miss Frame Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Dropped Packet Counters This counter indicates the number of packet counters that are dropped by the DMA either because of bus error or because of programming RPF field in DMA_CH2_RX_CONTROL register.
   using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
@@ -22508,16 +21986,15 @@ struct DMA_CH2_MISS_FRAME_CNT : ftl::mmio::Register<
   using MFCO = DMA_CH2_MISS_FRAME_CNT_fields_::MFCO;
 };
 
-
 // Channel 2 RXP Frames Accepted Counter
 struct DMA_CH2_RXP_ACCEPT_CNT_fields_ {
-
   enum class eRXPACOF : std::uint32_t {
     // Rx Parser Accept Counter overflow not occurred
     eINACTIVE = 0,
     // Rx Parser Accept Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Rx Parser Accept Counter This 31-bit counter is implemented whenever a Rx Parser Accept a packet due to AF =1.
   using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
@@ -22536,7 +22013,6 @@ struct DMA_CH2_RXP_ACCEPT_CNT : ftl::mmio::Register<
   using RXPACOF = DMA_CH2_RXP_ACCEPT_CNT_fields_::RXPACOF;
 };
 
-
 // Channel 2 Receive ERI Counter
 struct DMA_CH2_RX_ERI_CNT_fields_ {
   // ERI Counter When ERIC bit of DMA_CH2_RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
@@ -22553,16 +22029,15 @@ struct DMA_CH2_RX_ERI_CNT : ftl::mmio::Register<
   using ECNT = DMA_CH2_RX_ERI_CNT_fields_::ECNT;
 };
 
-
 // DMA Channel 3 Control
 struct DMA_CH3_CONTROL_fields_ {
-
   enum class ePBLx8 : std::uint32_t {
     // 8xPBL mode is disabled
     eDISABLE = 0,
     // 8xPBL mode is enabled
     eENABLE = 1,
   };
+
   // 8xPBL mode When this bit is set, the PBL value programmed in Bits[21:16] in DMA_CH3_TX_CONTROL and Bits[21:16] in DMA_CH3_RX_CONTROL is multiplied by eight times.
   using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
   // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
@@ -22584,10 +22059,8 @@ struct DMA_CH3_CONTROL : ftl::mmio::Register<
   using DSL = DMA_CH3_CONTROL_fields_::DSL;
 };
 
-
 // DMA Channel 3 Transmit Control
 struct DMA_CH3_TX_CONTROL_fields_ {
-
   enum class eST : std::uint32_t {
     // Stop Transmission Command
     eSTOP = 0,
@@ -22615,6 +22088,7 @@ struct DMA_CH3_TX_CONTROL_fields_ {
     // Enhanced Descriptor is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Transmission Command When this bit is set, transmission is placed in the Running state.
   using ST = ftl::mmio::Field<1, 0, eST, ftl::mmio::RW, ftl::mmio::Normal>;
   // Operate on Second Packet When this bit is set, it instructs the DMA to process the second packet of the Transmit data even before the status for the first packet is obtained.
@@ -22652,10 +22126,8 @@ struct DMA_CH3_TX_CONTROL : ftl::mmio::Register<
   using EDSE = DMA_CH3_TX_CONTROL_fields_::EDSE;
 };
 
-
 // DMA Channel 3 Receive Control
 struct DMA_CH3_RX_CONTROL_fields_ {
-
   enum class eSR : std::uint32_t {
     // Stop Receive
     eSTOP = 0,
@@ -22669,6 +22141,7 @@ struct DMA_CH3_RX_CONTROL_fields_ {
     // Rx Packet Flush is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Receive When this bit is set, the DMA tries to acquire the descriptor from the Receive list and processes the incoming packets.
   using SR = ftl::mmio::Field<1, 0, eSR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Buffer size Low RBSZ[13:0] is split into two fields RBSZ_13_y and RBSZ_x_0.
@@ -22702,7 +22175,6 @@ struct DMA_CH3_RX_CONTROL : ftl::mmio::Register<
   using RPF = DMA_CH3_RX_CONTROL_fields_::RPF;
 };
 
-
 // Channel 3 Tx Descriptor List Address
 struct DMA_CH3_TXDESC_LIST_ADDRESS_fields_ {
   // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
@@ -22718,7 +22190,6 @@ struct DMA_CH3_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
     DMA_CH3_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
   using TDESLA = DMA_CH3_TXDESC_LIST_ADDRESS_fields_::TDESLA;
 };
-
 
 // Channel 3 Rx Descriptor List Address
 struct DMA_CH3_RXDESC_LIST_ADDRESS_fields_ {
@@ -22736,7 +22207,6 @@ struct DMA_CH3_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
   using RDESLA = DMA_CH3_RXDESC_LIST_ADDRESS_fields_::RDESLA;
 };
 
-
 // Channel 3 Tx Descriptor Tail Pointer
 struct DMA_CH3_TXDESC_TAIL_POINTER_fields_ {
   // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
@@ -22752,7 +22222,6 @@ struct DMA_CH3_TXDESC_TAIL_POINTER : ftl::mmio::Register<
     DMA_CH3_TXDESC_TAIL_POINTER_fields_::TDTP> {
   using TDTP = DMA_CH3_TXDESC_TAIL_POINTER_fields_::TDTP;
 };
-
 
 // Channel 3 Rx Descriptor Tail Pointer
 struct DMA_CH3_RXDESC_TAIL_POINTER_fields_ {
@@ -22770,7 +22239,6 @@ struct DMA_CH3_RXDESC_TAIL_POINTER : ftl::mmio::Register<
   using RDTP = DMA_CH3_RXDESC_TAIL_POINTER_fields_::RDTP;
 };
 
-
 // Channel 3 Tx Descriptor Ring Length
 struct DMA_CH3_TXDESC_RING_LENGTH_fields_ {
   // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
@@ -22786,7 +22254,6 @@ struct DMA_CH3_TXDESC_RING_LENGTH : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using TDRL = DMA_CH3_TXDESC_RING_LENGTH_fields_::TDRL;
 };
-
 
 // Channel 3 Rx Descriptor Ring Length
 struct DMA_CH3_RXDESC_RING_LENGTH_fields_ {
@@ -22804,10 +22271,8 @@ struct DMA_CH3_RXDESC_RING_LENGTH : ftl::mmio::Register<
   using RDRL = DMA_CH3_RXDESC_RING_LENGTH_fields_::RDRL;
 };
 
-
 // Channel 3 Interrupt Enable
 struct DMA_CH3_INTERRUPT_ENABLE_fields_ {
-
   enum class eTIE : std::uint32_t {
     // Transmit Interrupt is disabled
     eDISABLE = 0,
@@ -22898,6 +22363,7 @@ struct DMA_CH3_INTERRUPT_ENABLE_fields_ {
     // Normal Interrupt Summary is enabled
     eENABLE = 1,
   };
+
   // Transmit Interrupt Enable When this bit is set along with the NIE bit, the Transmit Interrupt is enabled.
   using TIE = ftl::mmio::Field<1, 0, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Stopped Enable When this bit is set along with the AIE bit, the Transmission Stopped interrupt is enabled.
@@ -22974,7 +22440,6 @@ struct DMA_CH3_INTERRUPT_ENABLE : ftl::mmio::Register<
   using NIE = DMA_CH3_INTERRUPT_ENABLE_fields_::NIE;
 };
 
-
 // Channel 3 Receive Interrupt Watchdog Time
 struct DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
   // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
@@ -22996,10 +22461,8 @@ struct DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
   using RWTU = DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
 };
 
-
 // Channel 3 Slot Function Control and Status
 struct DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
-
   enum class eESC : std::uint32_t {
     // Slot Comparison is disabled
     eDISABLE = 0,
@@ -23013,6 +22476,7 @@ struct DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
     // Advance Slot Check is enabled
     eENABLE = 1,
   };
+
   // Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
   using ESC = ftl::mmio::Field<1, 0, eESC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Advance Slot Check When set, this bit enables the DMA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is - equal to the reference slot number given in the RSN field or - ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
@@ -23042,7 +22506,6 @@ struct DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
   using RSN = DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
 };
 
-
 // Channel 3 Current Application Transmit Descriptor
 struct DMA_CH3_CURRENT_APP_TXDESC_fields_ {
   // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
@@ -23057,7 +22520,6 @@ struct DMA_CH3_CURRENT_APP_TXDESC : ftl::mmio::Register<
     DMA_CH3_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
   using CURTDESAPTR = DMA_CH3_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
 };
-
 
 // Channel 3 Current Application Receive Descriptor
 struct DMA_CH3_CURRENT_APP_RXDESC_fields_ {
@@ -23074,7 +22536,6 @@ struct DMA_CH3_CURRENT_APP_RXDESC : ftl::mmio::Register<
   using CURRDESAPTR = DMA_CH3_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
 };
 
-
 // Channel 3 Current Application Transmit Buffer Address
 struct DMA_CH3_CURRENT_APP_TXBUFFER_fields_ {
   // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
@@ -23089,7 +22550,6 @@ struct DMA_CH3_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
     DMA_CH3_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
   using CURTBUFAPTR = DMA_CH3_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
 };
-
 
 // Channel 3 Current Application Receive Buffer Address
 struct DMA_CH3_CURRENT_APP_RXBUFFER_fields_ {
@@ -23106,10 +22566,8 @@ struct DMA_CH3_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
   using CURRBUFAPTR = DMA_CH3_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
 };
 
-
 // DMA Channel 3 Status
 struct DMA_CH3_STATUS_fields_ {
-
   enum class eTI : std::uint32_t {
     // Transmit Interrupt status not detected
     eINACTIVE = 0,
@@ -23200,6 +22658,7 @@ struct DMA_CH3_STATUS_fields_ {
     // Normal Interrupt Summary status detected
     eACTIVE = 1,
   };
+
   // Transmit Interrupt This bit indicates that the packet transmission is complete.
   using TI = ftl::mmio::Field<1, 0, eTI, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Process Stopped This bit is set when the transmission is stopped.
@@ -23284,16 +22743,15 @@ struct DMA_CH3_STATUS : ftl::mmio::Register<
   using REB = DMA_CH3_STATUS_fields_::REB;
 };
 
-
 // Channel 3 Missed Frame Counter
 struct DMA_CH3_MISS_FRAME_CNT_fields_ {
-
   enum class eMFCO : std::uint32_t {
     // Miss Frame Counter overflow not occurred
     eINACTIVE = 0,
     // Miss Frame Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Dropped Packet Counters This counter indicates the number of packet counters that are dropped by the DMA either because of bus error or because of programming RPF field in RX_CONTROL register.
   using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
@@ -23314,16 +22772,15 @@ struct DMA_CH3_MISS_FRAME_CNT : ftl::mmio::Register<
   using MFCO = DMA_CH3_MISS_FRAME_CNT_fields_::MFCO;
 };
 
-
 // Channel 3 RXP Frames Accepted Counter
 struct DMA_CH3_RXP_ACCEPT_CNT_fields_ {
-
   enum class eRXPACOF : std::uint32_t {
     // Rx Parser Accept Counter overflow not occurred
     eINACTIVE = 0,
     // Rx Parser Accept Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Rx Parser Accept Counter This 31-bit counter is implemented whenever a Rx Parser Accept a packet due to AF =1.
   using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
@@ -23342,7 +22799,6 @@ struct DMA_CH3_RXP_ACCEPT_CNT : ftl::mmio::Register<
   using RXPACOF = DMA_CH3_RXP_ACCEPT_CNT_fields_::RXPACOF;
 };
 
-
 // Channel 3 Receive ERI Counter
 struct DMA_CH3_RX_ERI_CNT_fields_ {
   // ERI Counter When ERIC bit of DMA_CH3_RX_CONTROL register is set, this counter increments for burst transfer completed by the Rx DMA from the start of packet transfer.
@@ -23359,16 +22815,15 @@ struct DMA_CH3_RX_ERI_CNT : ftl::mmio::Register<
   using ECNT = DMA_CH3_RX_ERI_CNT_fields_::ECNT;
 };
 
-
 // DMA Channel 4 Control
 struct DMA_CH4_CONTROL_fields_ {
-
   enum class ePBLx8 : std::uint32_t {
     // 8xPBL mode is disabled
     eDISABLE = 0,
     // 8xPBL mode is enabled
     eENABLE = 1,
   };
+
   // 8xPBL mode When this bit is set, the PBL value programmed in Bits[21:16] in DMA_CH4_TX_CONTROL and Bits[21:16] in DMA_CH4_RX_CONTROL is multiplied by eight times.
   using PBLx8 = ftl::mmio::Field<1, 16, ePBLx8, ftl::mmio::RW, ftl::mmio::Normal>;
   // Descriptor Skip Length This bit specifies the Word, Dword, or Lword number (depending on the 32-bit, 64-bit, or 128-bit bus) to skip between two unchained descriptors.
@@ -23390,10 +22845,8 @@ struct DMA_CH4_CONTROL : ftl::mmio::Register<
   using DSL = DMA_CH4_CONTROL_fields_::DSL;
 };
 
-
 // DMA Channel 4 Transmit Control
 struct DMA_CH4_TX_CONTROL_fields_ {
-
   enum class eST : std::uint32_t {
     // Stop Transmission Command
     eSTOP = 0,
@@ -23421,6 +22874,7 @@ struct DMA_CH4_TX_CONTROL_fields_ {
     // Enhanced Descriptor is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Transmission Command When this bit is set, transmission is placed in the Running state.
   using ST = ftl::mmio::Field<1, 0, eST, ftl::mmio::RW, ftl::mmio::Normal>;
   // Operate on Second Packet When this bit is set, it instructs the DMA to process the second packet of the Transmit data even before the status for the first packet is obtained.
@@ -23458,10 +22912,8 @@ struct DMA_CH4_TX_CONTROL : ftl::mmio::Register<
   using EDSE = DMA_CH4_TX_CONTROL_fields_::EDSE;
 };
 
-
 // DMA Channel 4 Receive Control
 struct DMA_CH4_RX_CONTROL_fields_ {
-
   enum class eSR : std::uint32_t {
     // Stop Receive
     eSTOP = 0,
@@ -23475,6 +22927,7 @@ struct DMA_CH4_RX_CONTROL_fields_ {
     // Rx Packet Flush is enabled
     eENABLE = 1,
   };
+
   // Start or Stop Receive When this bit is set, the DMA tries to acquire the descriptor from the Receive list and processes the incoming packets.
   using SR = ftl::mmio::Field<1, 0, eSR, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Buffer size Low RBSZ[13:0] is split into two fields RBSZ_13_y and RBSZ_x_0.
@@ -23508,7 +22961,6 @@ struct DMA_CH4_RX_CONTROL : ftl::mmio::Register<
   using RPF = DMA_CH4_RX_CONTROL_fields_::RPF;
 };
 
-
 // Channel 4 Tx Descriptor List Address
 struct DMA_CH4_TXDESC_LIST_ADDRESS_fields_ {
   // Start of Transmit List This field contains the base address of the first descriptor in the Transmit descriptor list.
@@ -23524,7 +22976,6 @@ struct DMA_CH4_TXDESC_LIST_ADDRESS : ftl::mmio::Register<
     DMA_CH4_TXDESC_LIST_ADDRESS_fields_::TDESLA> {
   using TDESLA = DMA_CH4_TXDESC_LIST_ADDRESS_fields_::TDESLA;
 };
-
 
 // Channel 4 Rx Descriptor List Address
 struct DMA_CH4_RXDESC_LIST_ADDRESS_fields_ {
@@ -23542,7 +22993,6 @@ struct DMA_CH4_RXDESC_LIST_ADDRESS : ftl::mmio::Register<
   using RDESLA = DMA_CH4_RXDESC_LIST_ADDRESS_fields_::RDESLA;
 };
 
-
 // Channel 4 Tx Descriptor Tail Pointer
 struct DMA_CH4_TXDESC_TAIL_POINTER_fields_ {
   // Transmit Descriptor Tail Pointer This field contains the tail pointer for the Tx descriptor ring.
@@ -23558,7 +23008,6 @@ struct DMA_CH4_TXDESC_TAIL_POINTER : ftl::mmio::Register<
     DMA_CH4_TXDESC_TAIL_POINTER_fields_::TDTP> {
   using TDTP = DMA_CH4_TXDESC_TAIL_POINTER_fields_::TDTP;
 };
-
 
 // Channel 4 Rx Descriptor Tail Pointer
 struct DMA_CH4_RXDESC_TAIL_POINTER_fields_ {
@@ -23576,7 +23025,6 @@ struct DMA_CH4_RXDESC_TAIL_POINTER : ftl::mmio::Register<
   using RDTP = DMA_CH4_RXDESC_TAIL_POINTER_fields_::RDTP;
 };
 
-
 // Channel 4 Tx Descriptor Ring Length
 struct DMA_CH4_TXDESC_RING_LENGTH_fields_ {
   // Transmit Descriptor Ring Length This field sets the maximum number of Tx descriptors in the circular descriptor ring.
@@ -23592,7 +23040,6 @@ struct DMA_CH4_TXDESC_RING_LENGTH : ftl::mmio::Register<
     ftl::mmio::Reserved<22, 10>> {
   using TDRL = DMA_CH4_TXDESC_RING_LENGTH_fields_::TDRL;
 };
-
 
 // Channel 4 Rx Descriptor Ring Length
 struct DMA_CH4_RXDESC_RING_LENGTH_fields_ {
@@ -23610,10 +23057,8 @@ struct DMA_CH4_RXDESC_RING_LENGTH : ftl::mmio::Register<
   using RDRL = DMA_CH4_RXDESC_RING_LENGTH_fields_::RDRL;
 };
 
-
 // Channel 4 Interrupt Enable
 struct DMA_CH4_INTERRUPT_ENABLE_fields_ {
-
   enum class eTIE : std::uint32_t {
     // Transmit Interrupt is disabled
     eDISABLE = 0,
@@ -23704,6 +23149,7 @@ struct DMA_CH4_INTERRUPT_ENABLE_fields_ {
     // Normal Interrupt Summary is enabled
     eENABLE = 1,
   };
+
   // Transmit Interrupt Enable When this bit is set along with the NIE bit, the Transmit Interrupt is enabled.
   using TIE = ftl::mmio::Field<1, 0, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Stopped Enable When this bit is set along with the AIE bit, the Transmission Stopped interrupt is enabled.
@@ -23780,7 +23226,6 @@ struct DMA_CH4_INTERRUPT_ENABLE : ftl::mmio::Register<
   using NIE = DMA_CH4_INTERRUPT_ENABLE_fields_::NIE;
 };
 
-
 // Channel 4 Receive Interrupt Watchdog Timer
 struct DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER_fields_ {
   // Receive Interrupt Watchdog Timer Count This field indicates the number of system clock cycles, multiplied by factor indicated in RWTU field, for which the watchdog timer is set.
@@ -23802,10 +23247,8 @@ struct DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER : ftl::mmio::Register<
   using RWTU = DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER_fields_::RWTU;
 };
 
-
 // Channel 4 Slot Function Control and Status
 struct DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
-
   enum class eESC : std::uint32_t {
     // Slot Comparison is disabled
     eDISABLE = 0,
@@ -23819,6 +23262,7 @@ struct DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_ {
     // Advance Slot Check is enabled
     eENABLE = 1,
   };
+
   // Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
   using ESC = ftl::mmio::Field<1, 0, eESC, ftl::mmio::RW, ftl::mmio::Normal>;
   // Advance Slot Check When set, this bit enables the DMA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is - equal to the reference slot number given in the RSN field or - ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
@@ -23848,7 +23292,6 @@ struct DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS : ftl::mmio::Register<
   using RSN = DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS_fields_::RSN;
 };
 
-
 // Channel 4 Current Application Transmit Descriptor
 struct DMA_CH4_CURRENT_APP_TXDESC_fields_ {
   // Application Transmit Descriptor Address Pointer The DMA updates this pointer during Tx operation.
@@ -23863,7 +23306,6 @@ struct DMA_CH4_CURRENT_APP_TXDESC : ftl::mmio::Register<
     DMA_CH4_CURRENT_APP_TXDESC_fields_::CURTDESAPTR> {
   using CURTDESAPTR = DMA_CH4_CURRENT_APP_TXDESC_fields_::CURTDESAPTR;
 };
-
 
 // Channel 4 Current Application Receive Descriptor
 struct DMA_CH4_CURRENT_APP_RXDESC_fields_ {
@@ -23880,7 +23322,6 @@ struct DMA_CH4_CURRENT_APP_RXDESC : ftl::mmio::Register<
   using CURRDESAPTR = DMA_CH4_CURRENT_APP_RXDESC_fields_::CURRDESAPTR;
 };
 
-
 // Channel 4 Current Application Transmit Buffer Address
 struct DMA_CH4_CURRENT_APP_TXBUFFER_fields_ {
   // Application Transmit Buffer Address Pointer The DMA updates this pointer during Tx operation.
@@ -23895,7 +23336,6 @@ struct DMA_CH4_CURRENT_APP_TXBUFFER : ftl::mmio::Register<
     DMA_CH4_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR> {
   using CURTBUFAPTR = DMA_CH4_CURRENT_APP_TXBUFFER_fields_::CURTBUFAPTR;
 };
-
 
 // Channel 4 Current Application Receive Buffer Address
 struct DMA_CH4_CURRENT_APP_RXBUFFER_fields_ {
@@ -23912,10 +23352,8 @@ struct DMA_CH4_CURRENT_APP_RXBUFFER : ftl::mmio::Register<
   using CURRBUFAPTR = DMA_CH4_CURRENT_APP_RXBUFFER_fields_::CURRBUFAPTR;
 };
 
-
 // DMA Channel 4 Status
 struct DMA_CH4_STATUS_fields_ {
-
   enum class eTI : std::uint32_t {
     // Transmit Interrupt status not detected
     eINACTIVE = 0,
@@ -24006,6 +23444,7 @@ struct DMA_CH4_STATUS_fields_ {
     // Normal Interrupt Summary status detected
     eACTIVE = 1,
   };
+
   // Transmit Interrupt This bit indicates that the packet transmission is complete.
   using TI = ftl::mmio::Field<1, 0, eTI, ftl::mmio::RW, ftl::mmio::Normal>;
   // Transmit Process Stopped This bit is set when the transmission is stopped.
@@ -24090,16 +23529,15 @@ struct DMA_CH4_STATUS : ftl::mmio::Register<
   using REB = DMA_CH4_STATUS_fields_::REB;
 };
 
-
 // Channel 4 Missed Frame Counter
 struct DMA_CH4_MISS_FRAME_CNT_fields_ {
-
   enum class eMFCO : std::uint32_t {
     // Miss Frame Counter overflow not occurred
     eINACTIVE = 0,
     // Miss Frame Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Dropped Packet Counters This counter indicates the number of packet counters that are dropped by the DMA either because of bus error or because of programming RPF field in RX_CONTROL register.
   using MFC = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Overflow status of the MFC Counter When this bit is set then the MFC counter does not get incremented further.
@@ -24120,16 +23558,15 @@ struct DMA_CH4_MISS_FRAME_CNT : ftl::mmio::Register<
   using MFCO = DMA_CH4_MISS_FRAME_CNT_fields_::MFCO;
 };
 
-
 // Channel 4 RXP Frames Accepted Counter
 struct DMA_CH4_RXP_ACCEPT_CNT_fields_ {
-
   enum class eRXPACOF : std::uint32_t {
     // Rx Parser Accept Counter overflow not occurred
     eINACTIVE = 0,
     // Rx Parser Accept Counter overflow occurred
     eACTIVE = 1,
   };
+
   // Rx Parser Accept Counter This 31-bit counter is implemented whenever a Rx Parser Accept a packet due to AF =1.
   using RXPAC = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Rx Parser Accept Counter Overflow Bit When set, this bit indicates that the RXPAC Counter field crossed the maximum limit.
@@ -24147,7 +23584,6 @@ struct DMA_CH4_RXP_ACCEPT_CNT : ftl::mmio::Register<
   using RXPAC = DMA_CH4_RXP_ACCEPT_CNT_fields_::RXPAC;
   using RXPACOF = DMA_CH4_RXP_ACCEPT_CNT_fields_::RXPACOF;
 };
-
 
 // Channel 4 Receive ERI Counter
 struct DMA_CH4_RX_ERI_CNT_fields_ {

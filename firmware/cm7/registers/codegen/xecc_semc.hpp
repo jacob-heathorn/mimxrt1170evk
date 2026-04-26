@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::xecc_semc {
 
-
 // ECC Control Register
 struct ECC_CTRL_fields_ {
-
   enum class eECC_EN : std::uint32_t {
     // Disable
     eECC_EN_0 = 0,
@@ -39,6 +37,7 @@ struct ECC_CTRL_fields_ {
     // Enable
     eSWAP_EN_1 = 1,
   };
+
   // ECC Function Enable
   using ECC_EN = ftl::mmio::Field<1, 0, eECC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Write ECC Encode Function Enable
@@ -69,10 +68,8 @@ struct ECC_CTRL : ftl::mmio::Register<
   using SWAP_EN = ECC_CTRL_fields_::SWAP_EN;
 };
 
-
 // Error Interrupt Status Register
 struct ERR_STATUS_fields_ {
-
   enum class eSINGLE_ERR : std::uint32_t {
     // Single bit error does not happen.
     eSINGLE_ERR_0 = 0,
@@ -86,6 +83,7 @@ struct ERR_STATUS_fields_ {
     // Multiple bits error happens.
     eMULTI_ERR_1 = 1,
   };
+
   // Single Bit Error
   using SINGLE_ERR = ftl::mmio::Field<1, 0, eSINGLE_ERR, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Multiple Bits Error
@@ -109,10 +107,8 @@ struct ERR_STATUS : ftl::mmio::Register<
   using Reserved1 = ERR_STATUS_fields_::Reserved1;
 };
 
-
 // Error Interrupt Status Enable Register
 struct ERR_STAT_EN_fields_ {
-
   enum class eSINGLE_ERR_STAT_EN : std::uint32_t {
     // Masked
     eSINGLE_ERR_STAT_EN_0 = 0,
@@ -126,6 +122,7 @@ struct ERR_STAT_EN_fields_ {
     // Enabled
     eMULIT_ERR_STAT_EN_1 = 1,
   };
+
   // Single Bit Error Status Enable
   using SINGLE_ERR_STAT_EN = ftl::mmio::Field<1, 0, eSINGLE_ERR_STAT_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Multiple Bits Error Status Enable
@@ -149,10 +146,8 @@ struct ERR_STAT_EN : ftl::mmio::Register<
   using Reserved1 = ERR_STAT_EN_fields_::Reserved1;
 };
 
-
 // Error Interrupt Enable Register
 struct ERR_SIG_EN_fields_ {
-
   enum class eSINGLE_ERR_SIG_EN : std::uint32_t {
     // Masked
     eSINGLE_ERR_SIG_EN_0 = 0,
@@ -166,6 +161,7 @@ struct ERR_SIG_EN_fields_ {
     // Enabled
     eMULTI_ERR_SIG_EN_1 = 1,
   };
+
   // Single Bit Error Interrupt Enable
   using SINGLE_ERR_SIG_EN = ftl::mmio::Field<1, 0, eSINGLE_ERR_SIG_EN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Multiple Bits Error Interrupt Enable
@@ -189,7 +185,6 @@ struct ERR_SIG_EN : ftl::mmio::Register<
   using Reserved1 = ERR_SIG_EN_fields_::Reserved1;
 };
 
-
 // Error Injection On Write Data
 struct ERR_DATA_INJ_fields_ {
   // Error Injection On Write Data
@@ -204,7 +199,6 @@ struct ERR_DATA_INJ : ftl::mmio::Register<
     ERR_DATA_INJ_fields_::ERR_DATA_INJ> {
   using value_ = ERR_DATA_INJ_fields_::ERR_DATA_INJ;
 };
-
 
 // Error Injection On ECC Code of Write Data
 struct ERR_ECC_INJ_fields_ {
@@ -221,7 +215,6 @@ struct ERR_ECC_INJ : ftl::mmio::Register<
   using value_ = ERR_ECC_INJ_fields_::ERR_ECC_INJ;
 };
 
-
 // Single Error Address
 struct SINGLE_ERR_ADDR_fields_ {
   // Single Error Address
@@ -236,7 +229,6 @@ struct SINGLE_ERR_ADDR : ftl::mmio::Register<
     SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR> {
   using value_ = SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR;
 };
-
 
 // Single Error Read Data
 struct SINGLE_ERR_DATA_fields_ {
@@ -253,7 +245,6 @@ struct SINGLE_ERR_DATA : ftl::mmio::Register<
   using value_ = SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA;
 };
 
-
 // Single Error ECC Code
 struct SINGLE_ERR_ECC_fields_ {
   // Single Error ECC code
@@ -269,7 +260,6 @@ struct SINGLE_ERR_ECC : ftl::mmio::Register<
   using value_ = SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC;
 };
 
-
 // Single Error Bit Position
 struct SINGLE_ERR_POS_fields_ {
   // Single Error bit Position
@@ -284,7 +274,6 @@ struct SINGLE_ERR_POS : ftl::mmio::Register<
     SINGLE_ERR_POS_fields_::SINGLE_ERR_POS> {
   using value_ = SINGLE_ERR_POS_fields_::SINGLE_ERR_POS;
 };
-
 
 // Single Error Bit Field
 struct SINGLE_ERR_BIT_FIELD_fields_ {
@@ -305,7 +294,6 @@ struct SINGLE_ERR_BIT_FIELD : ftl::mmio::Register<
   using Reserved1 = SINGLE_ERR_BIT_FIELD_fields_::Reserved1;
 };
 
-
 // Multiple Error Address
 struct MULTI_ERR_ADDR_fields_ {
   // Multiple Error Address
@@ -320,7 +308,6 @@ struct MULTI_ERR_ADDR : ftl::mmio::Register<
     MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR> {
   using value_ = MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR;
 };
-
 
 // Multiple Error Read Data
 struct MULTI_ERR_DATA_fields_ {
@@ -337,7 +324,6 @@ struct MULTI_ERR_DATA : ftl::mmio::Register<
   using value_ = MULTI_ERR_DATA_fields_::MULTI_ERR_DATA;
 };
 
-
 // Multiple Error ECC code
 struct MULTI_ERR_ECC_fields_ {
   // Multiple Error ECC code
@@ -352,7 +338,6 @@ struct MULTI_ERR_ECC : ftl::mmio::Register<
     MULTI_ERR_ECC_fields_::MULTI_ERR_ECC> {
   using value_ = MULTI_ERR_ECC_fields_::MULTI_ERR_ECC;
 };
-
 
 // Multiple Error Bit Field
 struct MULTI_ERR_BIT_FIELD_fields_ {
@@ -373,7 +358,6 @@ struct MULTI_ERR_BIT_FIELD : ftl::mmio::Register<
   using Reserved1 = MULTI_ERR_BIT_FIELD_fields_::Reserved1;
 };
 
-
 // ECC Region 0 Base Address
 struct ECC_BASE_ADDR0_fields_ {
   // ECC Region 0 Base Address
@@ -388,7 +372,6 @@ struct ECC_BASE_ADDR0 : ftl::mmio::Register<
     ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0> {
   using value_ = ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0;
 };
-
 
 // ECC Region 0 End Address
 struct ECC_END_ADDR0_fields_ {
@@ -405,7 +388,6 @@ struct ECC_END_ADDR0 : ftl::mmio::Register<
   using value_ = ECC_END_ADDR0_fields_::ECC_END_ADDR0;
 };
 
-
 // ECC Region 1 Base Address
 struct ECC_BASE_ADDR1_fields_ {
   // ECC Region 1 Base Address
@@ -420,7 +402,6 @@ struct ECC_BASE_ADDR1 : ftl::mmio::Register<
     ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1> {
   using value_ = ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1;
 };
-
 
 // ECC Region 1 End Address
 struct ECC_END_ADDR1_fields_ {
@@ -437,7 +418,6 @@ struct ECC_END_ADDR1 : ftl::mmio::Register<
   using value_ = ECC_END_ADDR1_fields_::ECC_END_ADDR1;
 };
 
-
 // ECC Region 2 Base Address
 struct ECC_BASE_ADDR2_fields_ {
   // ECC Region 2 Base Address
@@ -452,7 +432,6 @@ struct ECC_BASE_ADDR2 : ftl::mmio::Register<
     ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2> {
   using value_ = ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2;
 };
-
 
 // ECC Region 2 End Address
 struct ECC_END_ADDR2_fields_ {
@@ -469,7 +448,6 @@ struct ECC_END_ADDR2 : ftl::mmio::Register<
   using value_ = ECC_END_ADDR2_fields_::ECC_END_ADDR2;
 };
 
-
 // ECC Region 3 Base Address
 struct ECC_BASE_ADDR3_fields_ {
   // ECC Region 3 Base Address
@@ -484,7 +462,6 @@ struct ECC_BASE_ADDR3 : ftl::mmio::Register<
     ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3> {
   using value_ = ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3;
 };
-
 
 // ECC Region 3 End Address
 struct ECC_END_ADDR3_fields_ {

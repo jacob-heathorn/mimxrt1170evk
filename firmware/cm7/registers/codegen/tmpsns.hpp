@@ -8,14 +8,13 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::tmpsns {
 
-
 // Temperature Sensor Control Register 0
 struct CTRL0_fields_ {
-
   enum class eV_SEL : std::uint32_t {
     // Normal temperature measuring mode
     eV_SEL_0 = 0,
   };
+
   // Ramp slope calibration control
   using SLOPE_CAL = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Voltage Select
@@ -40,7 +39,6 @@ struct CTRL0 : ftl::mmio::Register<
   using V_SEL = CTRL0_fields_::V_SEL;
   using IBIAS_TRIM = CTRL0_fields_::IBIAS_TRIM;
 };
-
 
 // Temperature Sensor Control Register 0
 struct CTRL0_SET_fields_ {
@@ -68,7 +66,6 @@ struct CTRL0_SET : ftl::mmio::Register<
   using IBIAS_TRIM = CTRL0_SET_fields_::IBIAS_TRIM;
 };
 
-
 // Temperature Sensor Control Register 0
 struct CTRL0_CLR_fields_ {
   // Ramp slope calibration control
@@ -94,7 +91,6 @@ struct CTRL0_CLR : ftl::mmio::Register<
   using V_SEL = CTRL0_CLR_fields_::V_SEL;
   using IBIAS_TRIM = CTRL0_CLR_fields_::IBIAS_TRIM;
 };
-
 
 // Temperature Sensor Control Register 0
 struct CTRL0_TOG_fields_ {
@@ -122,10 +118,8 @@ struct CTRL0_TOG : ftl::mmio::Register<
   using IBIAS_TRIM = CTRL0_TOG_fields_::IBIAS_TRIM;
 };
 
-
 // Temperature Sensor Control Register 1
 struct CTRL1_fields_ {
-
   enum class eFREQ : std::uint32_t {
     // Single Reading Mode. New reading available every time CTRL1[START] bit is set to 1 from 0.
     eFREQ_0 = 0,
@@ -197,6 +191,7 @@ struct CTRL1_fields_ {
     // Sensor is powered down
     ePWD_FULL_1 = 1,
   };
+
   // Temperature Measurement Frequency
   using FREQ = ftl::mmio::Field<16, 0, eFREQ, ftl::mmio::RW, ftl::mmio::Normal>;
   // Measurement finished interrupt enable
@@ -251,7 +246,6 @@ struct CTRL1 : ftl::mmio::Register<
   using PWD_FULL = CTRL1_fields_::PWD_FULL;
 };
 
-
 // Temperature Sensor Control Register 1
 struct CTRL1_SET_fields_ {
   // Temperature Measurement Frequency
@@ -299,7 +293,6 @@ struct CTRL1_SET : ftl::mmio::Register<
   using RFU = CTRL1_SET_fields_::RFU;
   using PWD_FULL = CTRL1_SET_fields_::PWD_FULL;
 };
-
 
 // Temperature Sensor Control Register 1
 struct CTRL1_CLR_fields_ {
@@ -349,7 +342,6 @@ struct CTRL1_CLR : ftl::mmio::Register<
   using PWD_FULL = CTRL1_CLR_fields_::PWD_FULL;
 };
 
-
 // Temperature Sensor Control Register 1
 struct CTRL1_TOG_fields_ {
   // Temperature Measurement Frequency
@@ -398,7 +390,6 @@ struct CTRL1_TOG : ftl::mmio::Register<
   using PWD_FULL = CTRL1_TOG_fields_::PWD_FULL;
 };
 
-
 // Temperature Sensor Range Register 0
 struct RANGE0_fields_ {
   // Low temperature threshold value
@@ -419,7 +410,6 @@ struct RANGE0 : ftl::mmio::Register<
   using LOW_TEMP_VAL = RANGE0_fields_::LOW_TEMP_VAL;
   using HIGH_TEMP_VAL = RANGE0_fields_::HIGH_TEMP_VAL;
 };
-
 
 // Temperature Sensor Range Register 0
 struct RANGE0_SET_fields_ {
@@ -442,7 +432,6 @@ struct RANGE0_SET : ftl::mmio::Register<
   using HIGH_TEMP_VAL = RANGE0_SET_fields_::HIGH_TEMP_VAL;
 };
 
-
 // Temperature Sensor Range Register 0
 struct RANGE0_CLR_fields_ {
   // Low temperature threshold value
@@ -463,7 +452,6 @@ struct RANGE0_CLR : ftl::mmio::Register<
   using LOW_TEMP_VAL = RANGE0_CLR_fields_::LOW_TEMP_VAL;
   using HIGH_TEMP_VAL = RANGE0_CLR_fields_::HIGH_TEMP_VAL;
 };
-
 
 // Temperature Sensor Range Register 0
 struct RANGE0_TOG_fields_ {
@@ -486,7 +474,6 @@ struct RANGE0_TOG : ftl::mmio::Register<
   using HIGH_TEMP_VAL = RANGE0_TOG_fields_::HIGH_TEMP_VAL;
 };
 
-
 // Temperature Sensor Range Register 1
 struct RANGE1_fields_ {
   // Panic temperature threshold value
@@ -502,7 +489,6 @@ struct RANGE1 : ftl::mmio::Register<
     ftl::mmio::Reserved<20, 12>> {
   using PANIC_TEMP_VAL = RANGE1_fields_::PANIC_TEMP_VAL;
 };
-
 
 // Temperature Sensor Range Register 1
 struct RANGE1_SET_fields_ {
@@ -520,7 +506,6 @@ struct RANGE1_SET : ftl::mmio::Register<
   using PANIC_TEMP_VAL = RANGE1_SET_fields_::PANIC_TEMP_VAL;
 };
 
-
 // Temperature Sensor Range Register 1
 struct RANGE1_CLR_fields_ {
   // Panic temperature threshold value
@@ -536,7 +521,6 @@ struct RANGE1_CLR : ftl::mmio::Register<
     ftl::mmio::Reserved<20, 12>> {
   using PANIC_TEMP_VAL = RANGE1_CLR_fields_::PANIC_TEMP_VAL;
 };
-
 
 // Temperature Sensor Range Register 1
 struct RANGE1_TOG_fields_ {
@@ -554,10 +538,8 @@ struct RANGE1_TOG : ftl::mmio::Register<
   using PANIC_TEMP_VAL = RANGE1_TOG_fields_::PANIC_TEMP_VAL;
 };
 
-
 // Temperature Sensor Status Register 0
 struct STATUS0_fields_ {
-
   enum class eFINISH : std::uint32_t {
     // Temperature sensor is busy (if CTRL1[START] = 1)or no new reading has been initiated (if CTRL1[START] = 0)
     eFINISH_0 = 0,
@@ -585,6 +567,7 @@ struct STATUS0_fields_ {
     // Panic temperature alert
     ePANIC_TEMP_1 = 1,
   };
+
   // Measured temperature value
   using TEMP_VAL = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Temperature measurement complete

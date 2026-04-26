@@ -8,16 +8,15 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::dsi_host_dphy_intfc {
 
-
 // PD_TX
 struct PD_TX_fields_ {
-
   enum class ePD_TX : std::uint32_t {
     // Power Up
     ePD_TX_0 = 0,
     // Power Down
     ePD_TX_1 = 1,
   };
+
   // Power Down input for D-PHY
   using PD_TX = ftl::mmio::Field<1, 0, ePD_TX, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct PD_TX_fields_
@@ -32,7 +31,6 @@ struct PD_TX : ftl::mmio::Register<
   using ePD_TX = PD_TX_fields_::ePD_TX;
   using value_ = PD_TX_fields_::PD_TX;
 };
-
 
 // M_PRG_HS_PREPARE
 struct M_PRG_HS_PREPARE_fields_ {
@@ -50,7 +48,6 @@ struct M_PRG_HS_PREPARE : ftl::mmio::Register<
   using value_ = M_PRG_HS_PREPARE_fields_::M_PRG_HS_PREPARE;
 };
 
-
 // MC_PRG_HS_PREPARE
 struct MC_PRG_HS_PREPARE_fields_ {
   // DPHY mc_PRG_HS_PREPARE input
@@ -66,7 +63,6 @@ struct MC_PRG_HS_PREPARE : ftl::mmio::Register<
     ftl::mmio::Reserved<31, 1>> {
   using value_ = MC_PRG_HS_PREPARE_fields_::MC_PRG_HS_PREPARE;
 };
-
 
 // M_PRG_HS_ZERO
 struct M_PRG_HS_ZERO_fields_ {
@@ -84,7 +80,6 @@ struct M_PRG_HS_ZERO : ftl::mmio::Register<
   using value_ = M_PRG_HS_ZERO_fields_::M_PRG_HS_ZERO;
 };
 
-
 // MC_PRG_HS_ZERO
 struct MC_PRG_HS_ZERO_fields_ {
   // DPHY mc_PRG_HS_ZERO input
@@ -100,7 +95,6 @@ struct MC_PRG_HS_ZERO : ftl::mmio::Register<
     ftl::mmio::Reserved<26, 6>> {
   using value_ = MC_PRG_HS_ZERO_fields_::MC_PRG_HS_ZERO;
 };
-
 
 // M_PRG_HS_TRAIL
 struct M_PRG_HS_TRAIL_fields_ {
@@ -118,7 +112,6 @@ struct M_PRG_HS_TRAIL : ftl::mmio::Register<
   using value_ = M_PRG_HS_TRAIL_fields_::M_PRG_HS_TRAIL;
 };
 
-
 // MC_PRG_HS_TRAIL
 struct MC_PRG_HS_TRAIL_fields_ {
   // DPHY mc_PRG_HS_TRAIL input
@@ -135,16 +128,15 @@ struct MC_PRG_HS_TRAIL : ftl::mmio::Register<
   using value_ = MC_PRG_HS_TRAIL_fields_::MC_PRG_HS_TRAIL;
 };
 
-
 // PD_PLL
 struct PD_PLL_fields_ {
-
   enum class ePD_PLL : std::uint32_t {
     // Power up PLL
     ePD_PLL_0 = 0,
     // Power down PLL
     ePD_PLL_1 = 1,
   };
+
   // Power-down signal
   using PD_PLL = ftl::mmio::Field<1, 0, ePD_PLL, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct PD_PLL_fields_
@@ -159,7 +151,6 @@ struct PD_PLL : ftl::mmio::Register<
   using ePD_PLL = PD_PLL_fields_::ePD_PLL;
   using value_ = PD_PLL_fields_::PD_PLL;
 };
-
 
 // TST
 struct TST_fields_ {
@@ -177,7 +168,6 @@ struct TST : ftl::mmio::Register<
   using value_ = TST_fields_::TST;
 };
 
-
 // CN
 struct CN_fields_ {
   // Control N divider
@@ -193,7 +183,6 @@ struct CN : ftl::mmio::Register<
     ftl::mmio::Reserved<27, 5>> {
   using value_ = CN_fields_::CN;
 };
-
 
 // CM
 struct CM_fields_ {
@@ -211,10 +200,8 @@ struct CM : ftl::mmio::Register<
   using value_ = CM_fields_::CM;
 };
 
-
 // CO
 struct CO_fields_ {
-
   enum class eCO : std::uint32_t {
     // Divide by 1
     eCO_0 = 0,
@@ -225,6 +212,7 @@ struct CO_fields_ {
     // Divide by 8
     eCO_3 = 3,
   };
+
   // Control O divider
   using CO = ftl::mmio::Field<2, 0, eCO, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct CO_fields_
@@ -240,16 +228,15 @@ struct CO : ftl::mmio::Register<
   using value_ = CO_fields_::CO;
 };
 
-
 // LOCK
 struct LOCK_fields_ {
-
   enum class eLOCK : std::uint32_t {
     // PLL not locked
     eLOCK_0 = 0,
     // PLL has achieved frequency lock
     eLOCK_1 = 1,
   };
+
   // Lock Detect output
   using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RO, ftl::mmio::Normal>;
 };  // struct LOCK_fields_
@@ -265,16 +252,15 @@ struct LOCK : ftl::mmio::Register<
   using value_ = LOCK_fields_::LOCK;
 };
 
-
 // LOCK_BYP
 struct LOCK_BYP_fields_ {
-
   enum class eLOCK_BYP : std::uint32_t {
     // PLL LOCK signal will gate TxByteClkHS clock
     eGATE = 0,
     // PLL LOCK signal will not gate TxByteClkHS clock, CIL based counter will be used to gate the TxByteClkHS
     eNOGATE = 1,
   };
+
   // DPHY LOCK_BYP input
   using LOCK_BYP = ftl::mmio::Field<1, 0, eLOCK_BYP, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct LOCK_BYP_fields_
@@ -290,10 +276,8 @@ struct LOCK_BYP : ftl::mmio::Register<
   using value_ = LOCK_BYP_fields_::LOCK_BYP;
 };
 
-
 // TX_RCAL
 struct TX_RCAL_fields_ {
-
   enum class eTX_RCAL : std::uint32_t {
     // 20% higher than mid-range. Highest impedance setting
     eTX_RCAL_0 = 0,
@@ -304,6 +288,7 @@ struct TX_RCAL_fields_ {
     // 25% lower than mid-range. Lowest impedance setting
     eTX_RCAL_3 = 3,
   };
+
   // On-chip termination control bits for manual calibration of HS-TX
   using TX_RCAL = ftl::mmio::Field<2, 0, eTX_RCAL, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct TX_RCAL_fields_
@@ -319,16 +304,15 @@ struct TX_RCAL : ftl::mmio::Register<
   using value_ = TX_RCAL_fields_::TX_RCAL;
 };
 
-
 // AUTO_PD_EN
 struct AUTO_PD_EN_fields_ {
-
   enum class eAUTO_PD_EN : std::uint32_t {
     // Inactive lanes are powered up and driving LP11
     ePWR_UP = 0,
     // inactive lanes are powered down
     ePWR_DWN = 1,
   };
+
   // DPHY AUTO_PD_EN input
   using AUTO_PD_EN = ftl::mmio::Field<1, 0, eAUTO_PD_EN, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct AUTO_PD_EN_fields_
@@ -343,7 +327,6 @@ struct AUTO_PD_EN : ftl::mmio::Register<
   using eAUTO_PD_EN = AUTO_PD_EN_fields_::eAUTO_PD_EN;
   using value_ = AUTO_PD_EN_fields_::AUTO_PD_EN;
 };
-
 
 // RXLPRP
 struct RXLPRP_fields_ {
@@ -361,10 +344,8 @@ struct RXLPRP : ftl::mmio::Register<
   using value_ = RXLPRP_fields_::RXLPRP;
 };
 
-
 // RXCDRP
 struct RXCDRP_fields_ {
-
   enum class eRXCDRP : std::uint32_t {
     // 344mV
     eRXCDRP_0 = 0,
@@ -375,6 +356,7 @@ struct RXCDRP_fields_ {
     // Invalid
     eRXCDRP_3 = 3,
   };
+
   // DPHY RXCDRP input
   using RXCDRP = ftl::mmio::Field<2, 0, eRXCDRP, ftl::mmio::RW, ftl::mmio::Normal>;
 };  // struct RXCDRP_fields_

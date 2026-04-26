@@ -8,10 +8,8 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::kpp {
 
-
 // Keypad Control Register
 struct KPCR_fields_ {
-
   enum class eKRE : std::uint32_t {
     // Row is not included in the keypad key press detect.
     eKRE_0 = 0,
@@ -25,6 +23,7 @@ struct KPCR_fields_ {
     // Column strobe output is open drain.
     eOPEN_DRAIN = 1,
   };
+
   // KRE
   using KRE = ftl::mmio::Field<8, 0, eKRE, ftl::mmio::RW, ftl::mmio::Normal>;
   // KCO
@@ -44,10 +43,8 @@ struct KPCR : ftl::mmio::Register<
   using KCO = KPCR_fields_::KCO;
 };
 
-
 // Keypad Status Register
 struct KPSR_fields_ {
-
   enum class eKPKD : std::uint32_t {
     // No key presses detected
     eKPKD_0 = 0,
@@ -89,6 +86,7 @@ struct KPSR_fields_ {
     // An interrupt request is generated when KPKR is set.
     eKRIE_1 = 1,
   };
+
   // KPKD
   using KPKD = ftl::mmio::Field<1, 0, eKPKD, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // KPKR
@@ -130,10 +128,8 @@ struct KPSR : ftl::mmio::Register<
   using KRIE = KPSR_fields_::KRIE;
 };
 
-
 // Keypad Data Direction Register
 struct KDDR_fields_ {
-
   enum class eKRDD : std::uint32_t {
     // ROWn pin configured as an input.
     eINPUT = 0,
@@ -147,6 +143,7 @@ struct KDDR_fields_ {
     // COLn pin is configured as an output.
     eOUTPUT = 1,
   };
+
   // KRDD
   using KRDD = ftl::mmio::Field<8, 0, eKRDD, ftl::mmio::RW, ftl::mmio::Normal>;
   // KCDD
@@ -165,7 +162,6 @@ struct KDDR : ftl::mmio::Register<
   using KRDD = KDDR_fields_::KRDD;
   using KCDD = KDDR_fields_::KCDD;
 };
-
 
 // Keypad Data Register
 struct KPDR_fields_ {
