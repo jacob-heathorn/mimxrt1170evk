@@ -26,11 +26,15 @@ build:cm7 --platforms=//platforms:cm7
 
 # Build mode: cmake's debug preset uses -O0 -g. Apply globally for now;
 # split into --config=dbg / --config=opt later when we add release.
-# -flto=auto deliberately omitted: under bazel ld's single-pass archive
-# scan can't resolve cross-archive cycles (mcmgr → drivers → utilities)
-# without --start-group/--end-group around user libs. See TODO.md.
-build --copt=-O2
+build --copt=-O0
 build --copt=-g
+
+# -flto=auto is intentionally off. The cmake build had it, but it's
+# fundamentally incompatible with bazel's per-cc_library archives under
+# arm-none-eabi-gcc + GNU bfd ld: the LTO plugin's claim model runs once
+# and ld's --start-group archive iteration can't re-feed it (binutils
+# bug 12758, won't-fix). Re-enabling LTO requires either swapping to
+# clang+lld or merging the HAL into a single cc_library. See TODO.
 
 # Allow a developer overlay (gitignored).
 try-import %workspace%/user.bazelrc
