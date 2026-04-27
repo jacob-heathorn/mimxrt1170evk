@@ -14,12 +14,6 @@ HAL_COPTS = [
     "-Wno-shadow",
 ]
 
-# Vendored NXP HAL libraries are linked unconditionally — under LTO +
-# --gc-sections the linker would otherwise drop functions that are only
-# called via vector tables, weak overrides, or LTO-promoted indirect
-# calls. cmake's build linked the .c objects directly (PUBLIC sources)
-# which has the same effect.
-HAL_ALWAYSLINK = True
 
 # ARM CMSIS core (header-only).
 cc_library(
@@ -35,7 +29,6 @@ cc_library(
     hdrs = glob(["device/*.h"]),
     includes = ["device"],
     copts = HAL_COPTS,
-    alwayslink = HAL_ALWAYSLINK,
     deps = [":cmsis"],
 )
 
@@ -46,7 +39,6 @@ cc_library(
     hdrs = glob(["drivers/*.h"]),
     includes = ["drivers"],
     copts = HAL_COPTS,
-    alwayslink = HAL_ALWAYSLINK,
     deps = [":device"],
 )
 
@@ -57,7 +49,6 @@ cc_library(
     hdrs = glob(["component/uart/*.h"]),
     includes = ["component/uart"],
     copts = HAL_COPTS,
-    alwayslink = HAL_ALWAYSLINK,
     deps = [
         ":device",
         ":drivers",
@@ -74,7 +65,6 @@ cc_library(
     hdrs = glob(["utilities/*.h"]),
     includes = ["utilities"],
     copts = HAL_COPTS,
-    alwayslink = HAL_ALWAYSLINK,
     deps = [
         ":device",
         ":drivers",
@@ -89,7 +79,6 @@ cc_library(
     hdrs = glob(["board/*.h"]),
     includes = ["board"],
     copts = HAL_COPTS,
-    alwayslink = HAL_ALWAYSLINK,
     deps = [
         ":drivers",
         ":utilities",

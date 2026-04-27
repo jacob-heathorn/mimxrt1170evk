@@ -54,18 +54,41 @@ Items captured mid-conversation, to revisit between sessions.
 
 ## Build flags
 
-- [ ] **Re-enable `-flto=auto`** to match cmake. Current state: `-flto=auto`
-      added to `.bazelrc:cm4/cm7` link line caused undefined references for
-      symbols inside HAL archives (MCMGR_*, SDK_DelayAtLeastUs, MU_*,
-      SystemInit, CLOCK_GetFreq, BOARD_ConfigMPU, SystemCoreClock). cmake
-      avoided this by linking those translation units' .o files directly
-      (PUBLIC sources hack with the "TODO MUA_IRQHandler" comment in
-      mcmgr/CMakeLists.txt). I applied `alwayslink = True` on every cm4
-      HAL cc_library and on cm7's mcmgr — fixes the gc-sections case but
-      not LTO. Likely needed: extending cc_toolchain_config with an `lto`
-      feature that emits the right `-fuse-linker-plugin` /
-      `-flinker-output=…` flags so the linker picks up archived LTO IR.
-      Verify by `cmp` against `.bin/cm4-debug/.../hello-world-cm4.bin`.
+- [ ] **Re-enable `-flto=auto`** to match cmake's debug build.
+
+      Investigation summary (so we don't repeat the dead ends):
+
+      * cmake's link line passes each user archive **multiple times** so
+        ld's single-pass archive scan iterates across cross-archive
+        cycles (e.g. mcmgr's `MU_Init` lives in drivers; mcmgr's archive
+        comes earlier in the link order). It does *not* use
+        `--start-group`/`--end-group` for user libs, just repetition.
+      * bazel passes each archive **once**, in dep-graph order, with
+        `--whole-archive` only around `alwayslink = True` libs. Under
+        `-flto=auto`, undefined references appear for cross-archive
+        callees because ld's LTO plugin walks archives once and gives up.
+      * Setting `alwayslink = True` on every HAL lib makes it link, but
+        defeats `--gc-sections` (the binary inflates ~3.6× from 18 KB to
+        66 KB — `BOARD_BootClockRUN`, `LPUART_Init`, four LTO-private
+        copies of `s_clockSourceName`, etc., all retained).
+
+      The clean fix is one of:
+
+      * Add a cc_toolchain feature that emits `-Wl,--start-group` /
+        `-Wl,--end-group` around user archives during link. Bazel has no
+        stock feature for this (`supports_start_end_lib` is gold-linker
+        only). Means writing a `flag_set` for the `cpp_link_executable`
+        action that positions group markers around `linker_input`.
+      * Or write a wrapper script for the linker that injects start/end
+        group markers, registered as the `ld` tool path.
+      * Or move HAL libraries to source-list filegroups so cc_binary
+        consumes the .o files directly (no archive). This matches how
+        cmake handled mcmgr (PUBLIC sources) — would require restructuring
+        every HAL cc_library.
+
+      Until one of those lands, `-flto=auto` is off. The non-LTO bazel
+      .bin is ~92 bytes off cmake's; `cmp` is non-zero, but `objdump -d`
+      shows the same code paths.
 
 ## Toolchain
 

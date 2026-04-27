@@ -45,9 +45,13 @@ build:cm4 --copt=-DDEBUG
 # release config, move these into a debug-only block.
 build:cm4 --copt=-O0
 build:cm4 --copt=-g
-# TODO: re-enable -flto=auto. cmake's debug build uses it; bazel needs
-# alwayslink + likely a custom link feature that exposes the LTO plugin
-# correctly to the linker so archived symbols aren't dropped. See TODO.md.
+# -flto=auto deliberately omitted. cmake's debug build enables it; under
+# bazel the link fails because user archives aren't wrapped in
+# --start-group/--end-group, so ld's single-pass archive scan can't
+# resolve cross-archive cycles (e.g. mcmgr → drivers → utilities). See
+# TODO.md for the full investigation. Without LTO the .bin differs from
+# cmake by ~92 bytes (vs ~3.6× larger when alwayslink-on-everything
+# papers over the link order).
 
 # Freestanding C/C++ for embedded.
 build:cm4 --copt=-ffunction-sections
