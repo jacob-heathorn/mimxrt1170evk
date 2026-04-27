@@ -1,0 +1,23 @@
+module(
+    name = "mimxrt1170evk",
+    version = "0.1.0",
+)
+
+bazel_dep(name = "rules_cc", version = "0.2.17")
+bazel_dep(name = "platforms", version = "0.0.10")
+
+# Forge — gordion-managed sibling. The actual path varies per workstation
+# (sibling checkout vs gordion-private cache) so we don't `local_path_override`
+# here; the //tools:bazel wrapper resolves it via `gordion -f forge` and
+# injects `--override_module=forge=<path>` into user.bazelrc on every
+# invocation. Result: plain `bazel test //...` works regardless of layout.
+bazel_dep(name = "forge", version = "0.1.0")
+
+# arm-none-eabi-gcc toolchain. Resolved from PATH at module-evaluation
+# time — same compiler that the CMake build used (currently nix's
+# gcc-arm-embedded-13; any apt/system install also works). Bazel needs a
+# `cc_toolchain` definition pointing at the binaries; the extension below
+# discovers the install and writes that definition.
+arm_gcc = use_extension("//bazel/arm_gcc:extension.bzl", "arm_gcc")
+use_repo(arm_gcc, "arm_gcc")
+register_toolchains("@arm_gcc//:cm4_toolchain")

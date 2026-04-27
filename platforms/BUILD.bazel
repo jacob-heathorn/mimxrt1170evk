@@ -1,0 +1,8 @@
+platform(
+    name = "cm4",
+    constraint_values = [
+        "@platforms//cpu:armv7e-m",
+        "@platforms//os:none",
+    ],
+    visibility = ["//visibility:public"],
+)

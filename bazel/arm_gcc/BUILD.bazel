@@ -1,0 +1,2 @@
+# Empty package — the cc_toolchain wiring lives in extension.bzl,
+# materialized into @arm_gcc by the module extension.

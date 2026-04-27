@@ -1,0 +1,34 @@
+build --enable_bzlmod
+build --incompatible_strict_action_env
+
+# Tuck convenience symlinks under one hidden dir so the repo root stays
+# uncluttered. Same convention as forge.
+build --symlink_prefix=.bazel/
+
+# Test output: show errors immediately rather than burying them in log files.
+test --test_output=errors
+
+# Treat external-repo headers as system headers so our -Werror set doesn't
+# fire inside vendored NXP SDK / forge / etl code.
+build --features=external_include_paths
+
+# C++20 across the build.
+build --cxxopt=-std=c++20
+build --host_cxxopt=-std=c++20
+
+# Cortex-M4 cross-compile config. Picks the arm-none-eabi toolchain via
+# --platforms and adds the CPU-specific flags. Use as:
+#   bazel build --config=cm4 //...
+build:cm4 --platforms=//platforms:cm4
+build:cm4 --copt=-mcpu=cortex-m4
+build:cm4 --copt=-mfpu=fpv4-sp-d16
+build:cm4 --copt=-mfloat-abi=hard
+build:cm4 --copt=-mthumb
+build:cm4 --copt=-mapcs
+build:cm4 --linkopt=-mcpu=cortex-m4
+build:cm4 --linkopt=-mfpu=fpv4-sp-d16
+build:cm4 --linkopt=-mfloat-abi=hard
+build:cm4 --linkopt=-mthumb
+
+# Allow a developer overlay (gitignored).
+try-import %workspace%/user.bazelrc
