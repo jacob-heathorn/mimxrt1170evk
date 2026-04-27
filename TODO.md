@@ -52,43 +52,80 @@ Items captured mid-conversation, to revisit between sessions.
       `-Wno-unused-variable # TODO remove` in the old hello-world
       CMakeLists). Audit and drop ones that don't fire.
 
-## Build flags
+## Toolchain upgrade: clang + lld to enable LTO
 
-- [ ] **Re-enable `-flto=auto`** to match cmake's debug build.
+- [ ] **Migrate the embedded toolchain from `arm-none-eabi-gcc` + GNU
+      bfd ld to `clang --target=arm-none-eabi` + lld** (LLVM Embedded
+      Toolchain for ARM). This unlocks `-flto=auto` (and ThinLTO),
+      which currently can't be enabled under our setup.
 
-      Investigation summary (so we don't repeat the dead ends):
+      **Why this is more than cosmetic.** The FOC application
+      (`firmware/cm7/application/foc/`) runs control loops at 10–100 kHz.
+      Without LTO every Park / Clarke / SVPWM step is a separate function
+      call across translation units, costing 10–20 % of the ISR budget.
+      With LTO the math chain inlines into one ISR — fewer cycles, more
+      deterministic timing. Hello-world doesn't care; motor control does.
 
-      * cmake's link line passes each user archive **multiple times** so
-        ld's single-pass archive scan iterates across cross-archive
-        cycles (e.g. mcmgr's `MU_Init` lives in drivers; mcmgr's archive
-        comes earlier in the link order). It does *not* use
-        `--start-group`/`--end-group` for user libs, just repetition.
-      * bazel passes each archive **once**, in dep-graph order, with
-        `--whole-archive` only around `alwayslink = True` libs. Under
-        `-flto=auto`, undefined references appear for cross-archive
-        callees because ld's LTO plugin walks archives once and gives up.
-      * Setting `alwayslink = True` on every HAL lib makes it link, but
-        defeats `--gc-sections` (the binary inflates ~3.6× from 18 KB to
-        66 KB — `BOARD_BootClockRUN`, `LPUART_Init`, four LTO-private
-        copies of `s_clockSourceName`, etc., all retained).
+      **Why we can't just toggle `-flto=auto` under gcc.** Documented
+      architectural mismatch:
 
-      The clean fix is one of:
+      * GNU bfd ld + GCC's LTO plugin: plugin runs once over claimed
+        objects; ld's `--start-group` archive iteration can't re-feed
+        it. binutils bug 12758 (filed 2011) — won't-fix.
+      * Bazel passes each `cc_library` archive once in dep-graph order.
+        NXP MCUXpresso HAL has cross-module symbol cycles
+        (mcmgr → drivers/MU_Init, mcmgr → utilities/SDK_DelayAtLeastUs);
+        cmake worked around it by listing each archive 2–3× in the link
+        line (no `--start-group`).
+      * `alwayslink = True` everywhere "fixes" the link but defeats
+        `--gc-sections` under LTO (binary inflates 3.6× — every clock-
+        config function and four LTO-private clones of `s_clockSourceName`
+        stick because `--whole-archive` semantically forbids dropping).
+      * GCC 14 / 15 release notes: no plan to fix the plugin model.
+        `-fuse-ld=lld` doesn't help because lld can't read GCC's GIMPLE
+        bitcode (LLVM #41791).
 
-      * Add a cc_toolchain feature that emits `-Wl,--start-group` /
-        `-Wl,--end-group` around user archives during link. Bazel has no
-        stock feature for this (`supports_start_end_lib` is gold-linker
-        only). Means writing a `flag_set` for the `cpp_link_executable`
-        action that positions group markers around `linker_input`.
-      * Or write a wrapper script for the linker that injects start/end
-        group markers, registered as the `ld` tool path.
-      * Or move HAL libraries to source-list filegroups so cc_binary
-        consumes the .o files directly (no archive). This matches how
-        cmake handled mcmgr (PUBLIC sources) — would require restructuring
-        every HAL cc_library.
+      **Why clang + lld solves it.** lld supports `--start-lib` /
+      `--end-lib` (Bazel's `supports_start_end_lib` toolchain feature),
+      which gives `cc_library` outputs archive-like semantics *without*
+      bfd-ld's archive-scanning quirk. Bazel auto-emits these around
+      `cc_library` outputs and ThinLTO works cleanly out of the box.
+      It's the path Pigweed recommends for new Bazel embedded projects
+      and what the LLVM Embedded Toolchain for ARM is designed for.
 
-      Until one of those lands, `-flto=auto` is off. The non-LTO bazel
-      .bin is ~92 bytes off cmake's; `cmp` is non-zero, but `objdump -d`
-      shows the same code paths.
+      **Plan when ready:**
+
+      1. Add `bazel/arm_clang/extension.bzl`, mirror of `bazel/arm_gcc/`
+         but pointing at LLVM Embedded Toolchain for ARM. Either pull
+         the upstream tarball via `repository_ctx.download_and_extract`
+         or `repository_ctx.which("clang")` from a system install.
+      2. Toolchain features set `--target=arm-none-eabi`,
+         `-mcpu=cortex-m{4,7}`, `-mfpu=...`, the same NXP defines.
+      3. Keep newlib-nano via `--specs=nano.specs --specs=nosys.specs`
+         (lld respects them when invoked through clang as the driver).
+      4. Enable `supports_start_end_lib` feature in the cc_toolchain.
+      5. Re-enable `-flto=auto` (or step up to `-flto=thin`) in
+         `.bazelrc`.
+      6. Validate: NXP MCUXpresso HAL builds (a few `fsl_*.c` may need
+         `-Wno-...` for clang-only diagnostics on inline asm), the
+         hello-world-cm7 banner still prints, FOC still runs and meets
+         timing.
+      7. Confirm by disasm of the FOC ISR with/without LTO that the
+         math chain actually inlined.
+
+      **Trade-off.** Migrating to clang touches every compile and may
+      surface clang-vs-gcc diagnostic differences in vendored NXP code.
+      It's a contained project — best done after the bazel migration
+      stabilizes, not as part of it. Until then the cm4/cm7 `.bin`s are
+      ~92 bytes off cmake's (`objdump -d` shows equivalent code paths).
+
+      **Alternative if we want to stay on gcc:** merge the entire HAL
+      (drivers / board / mcmgr / utilities / cmsis / device) into a
+      single `cc_library` per core (Pigweed's `pw_build_mcuxpresso`
+      pattern). All TUs in one library = no archive cycles = LTO
+      works under gcc. Loses per-module visibility but vendor HAL is a
+      single conceptual unit anyway. Less invasive than swapping the
+      compiler.
 
 ## Toolchain
 
