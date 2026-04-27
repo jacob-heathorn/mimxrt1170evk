@@ -77,12 +77,12 @@ def _flash(elf_path: str) -> None:
     time.sleep(0.3)
 
     print(f"Flashing {elf_path}...", flush=True)
-    # Drop the cmake-era `--no-boot`: that left the chip halted after flash
-    # and required a manual reset-button press to actually run. Without it,
-    # LinkServer releases the cores so hello world starts streaming as soon
-    # as the serial loop opens.
+    # `--no-boot` here means "don't update/boot the LPC-Link2 probe
+    # firmware" — not "don't run the target". Skipping the probe-firmware
+    # check lets the target start cleanly so the printf burst lands on
+    # serial without the resets that otherwise corrupt early output.
     subprocess.check_call(
-        [_LINK_SERVER, "flash", _TARGET, "load", elf_path]
+        [_LINK_SERVER, "flash", "--no-boot", _TARGET, "load", elf_path]
     )
     print("Flash complete.", flush=True)
 

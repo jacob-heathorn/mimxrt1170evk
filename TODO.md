@@ -52,50 +52,6 @@ Items captured mid-conversation, to revisit between sessions.
       `-Wno-unused-variable # TODO remove` in the old hello-world
       CMakeLists). Audit and drop ones that don't fire.
 
-## cm7 hello-world prints incomplete output on hardware
-
-`bazel run //test/cm7/hello_world:hello-world-cm7` deploys to the EVK and
-the chip starts running, but only `\r\nHello .\r\n` lands on the serial
-console (vs. cmake's full message set: "Hello World from the Primary
-Core!\r\n", "Address of main: ...", "Copy Secondary core image...",
-"Starting Secondary core.", "The secondary core application has been
-started."). Confirmed:
-
-* the bazel `:hello-world-cm7` runnable correctly flashes + opens serial
-  end-to-end against the cmake-built ELF (full output captured),
-* our ELF runs (chip boots; some chars do come through),
-* `_write` in our ELF correctly chains `_write → ConsoleUart::instance()
-  → ConsoleUart::write` (was a newlib nosys stub before — fixed by
-  `alwayslink = True` on `//firmware/cm7:cm7-platform`),
-* `__pre_main_init` exists, calls setvbuf + MCMGR_Init + BOARD_ConfigMPU
-  + BoardInitPins + BOARD_BootClockRUN + Singleton::create() chain, and
-  is invoked from Reset_Handler,
-* cmake's binary works under the same `LinkServer flash` command (no
-  `--no-boot`).
-
-Embedding the real cm4 .bin.cpp instead of the stub did not change the
-behavior — the truncation happens before the cm4 boot path.
-
-Remaining differences vs cmake to investigate:
-
-* `NonCacheable` section is empty in our ELF (cmake has 1016 B). Comes
-  from netxduo's `nx_driver_imxrt.c` and the cm4 uart adapter
-  (`fsl_adapter_lpuart.c`) — neither is linked in our build. UART output
-  shouldn't need ENET DMA buffers, but worth confirming MPU setup
-  doesn't expect that section.
-* cmake binary is built with `-flto=auto`; ours isn't. LTO inlining
-  could change DMA-config timing inside `ConsoleUart::write`.
-* setvbuf line-buffering is configured (verified in disassembly) but
-  printf output suggests buffer flushing is misbehaving — possibly a
-  DMA TX completion race in `ConsoleUart::write` (it polls `Csr::DONE`
-  and `Lpuart1::STAT::TC`).
-
-Next-step plan: write a stripped-down `hello_minimal.cpp` that does
-just `printf("ABC\n"); while(1);` with the same firmware deps, deploy,
-and see whether ABC comes through. If it does, narrow down which line
-of the real hello_world_cm7 trips up. If not, the ConsoleUart DMA
-path is broken under our build and we dig there.
-
 ## Build flags
 
 - [ ] **Re-enable `-flto=auto`** to match cmake's debug build.

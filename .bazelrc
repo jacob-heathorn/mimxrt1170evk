@@ -29,7 +29,7 @@ build:cm7 --platforms=//platforms:cm7
 # -flto=auto deliberately omitted: under bazel ld's single-pass archive
 # scan can't resolve cross-archive cycles (mcmgr → drivers → utilities)
 # without --start-group/--end-group around user libs. See TODO.md.
-build --copt=-O0
+build --copt=-O2
 build --copt=-g
 
 # Allow a developer overlay (gitignored).
