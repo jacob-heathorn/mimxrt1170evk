@@ -1,0 +1,12 @@
+load("@rules_python//python:defs.bzl", "py_library")
+
+exports_files(["flash_and_run.py"])
+
+# Library used by per-target `:hello-world-*` deploy py_binary wrappers.
+# pyserial comes in transitively through @forge//scripts/package:forge.
+py_library(
+    name = "flash_and_run_lib",
+    srcs = ["flash_and_run.py"],
+    deps = ["@forge//scripts/package:forge"],
+    visibility = ["//visibility:public"],
+)

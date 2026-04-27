@@ -30,4 +30,13 @@ firmware_image(
         "//firmware/cm7/startup:rt1170-startup-cm7",
     ],
     visibility = ["//visibility:public"],
+    # `deploy = True` makes `:hello-world-cm7` a runnable that flashes
+    # the board and streams serial. The cc_binary moves to
+    # `:hello-world-cm7.elf`. With target_platform set, the wrapper
+    # transitions its elf data dep to cm7 so the user can run from a
+    # host config — `bazel run :hello-world-cm7` (no --config) flashes
+    # and streams. CPU flags are still resolved per-platform via the
+    # toolchain bound to //platforms:cm7_core.
+    deploy = True,
+    target_platform = "//platforms:cm7",
 )

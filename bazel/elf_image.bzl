@@ -7,14 +7,22 @@ arm-none-eabi-objcopy. The output filename equals the rule name.
 binary as a C++ array via xxd -i, suitable for embedding in a sibling
 firmware image (e.g. cm7 image holding the cm4 binary).
 
-`firmware_image(name, srcs, deps)` wraps cc_binary + both post-processors,
-producing:
-    <name>             cc_binary (.elf)
-    <name>.bin         flat binary
-    <name>.bin.cpp     C++ source declaring the binary as a const array
+`firmware_image(name, srcs, deps, ..., deploy = False)` is the
+user-facing macro. It produces:
+
+    <name>.elf       cc_binary (the actual ARM ELF)
+    <name>.bin       flat binary
+    <name>.bin.cpp   C++ source declaring the binary as a const array
+    <name>           if deploy=True: py_binary that flashes <name>.elf
+                     and streams serial; if deploy=False: alias of .elf
+                     so `bazel build :<name>` still works.
+
+So `bazel run //path:hello-world-cm7` flashes + runs when deploy=True,
+and `bazel build //path:hello-world-cm7` always produces the binary.
 """
 
 load("@rules_cc//cc:defs.bzl", "cc_binary")
+load("//bazel:flash.bzl", "flash_wrapper")
 
 def _elf_to_bin_impl(ctx):
     out = ctx.actions.declare_file(ctx.attr.name)
@@ -62,9 +70,23 @@ bin_to_cpp = rule(
     },
 )
 
-def firmware_image(name, srcs, deps = [], copts = [], linkopts = [], visibility = None, **kwargs):
+def firmware_image(
+        name,
+        srcs,
+        deps = [],
+        copts = [],
+        linkopts = [],
+        deploy = False,
+        target_platform = None,
+        visibility = None,
+        **kwargs):
+    if deploy and not target_platform:
+        fail("firmware_image(deploy = True) requires target_platform " +
+             "(e.g. //platforms:cm7) so the flash wrapper builds the elf " +
+             "for the right core regardless of the host's bazel config.")
+    elf = name + ".elf"
     cc_binary(
-        name = name,
+        name = elf,
         srcs = srcs,
         deps = deps,
         copts = copts,
@@ -74,7 +96,7 @@ def firmware_image(name, srcs, deps = [], copts = [], linkopts = [], visibility 
     )
     elf_to_bin(
         name = name + ".bin",
-        elf = ":" + name,
+        elf = ":" + elf,
         visibility = visibility,
     )
     bin_to_cpp(
@@ -83,3 +105,16 @@ def firmware_image(name, srcs, deps = [], copts = [], linkopts = [], visibility 
         symbol = name.replace("-", "_"),
         visibility = visibility,
     )
+    if deploy:
+        flash_wrapper(
+            name = name,
+            elf = ":" + elf,
+            target_platform = target_platform,
+            visibility = visibility,
+        )
+    else:
+        native.alias(
+            name = name,
+            actual = ":" + elf,
+            visibility = visibility,
+        )

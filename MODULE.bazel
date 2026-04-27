@@ -4,7 +4,15 @@ module(
 )
 
 bazel_dep(name = "rules_cc", version = "0.2.17")
+bazel_dep(name = "rules_python", version = "1.7.0")
 bazel_dep(name = "platforms", version = "0.0.10")
+
+# Hermetic Python interpreter for tooling targets (flash/run wrappers etc.).
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+python.toolchain(
+    python_version = "3.12",
+    is_default = True,
+)
 
 # Forge — gordion-managed sibling. The actual path varies per workstation
 # (sibling checkout vs gordion-private cache) so we don't `local_path_override`
