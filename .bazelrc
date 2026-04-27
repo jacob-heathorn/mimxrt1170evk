@@ -30,5 +30,43 @@ build:cm4 --linkopt=-mfpu=fpv4-sp-d16
 build:cm4 --linkopt=-mfloat-abi=hard
 build:cm4 --linkopt=-mthumb
 
+# NXP MIMXRT1176 CM4 defines (mirrors the cmake build).
+build:cm4 --copt=-DCPU_MIMXRT1176DVMAA_cm4
+build:cm4 --copt=-DMCUXPRESSO_SDK
+build:cm4 --copt=-DMULTICORE_APP=1
+build:cm4 --copt=-DMCMGR_HANDLE_EXCEPTIONS=1
+build:cm4 --copt=-DFLEXSPI_IN_USE
+build:cm4 --copt=-D__SEMIHOST_HARDFAULT_DISABLE=1
+build:cm4 --copt=-D__STARTUP_CLEAR_BSS
+build:cm4 --copt=-D__STARTUP_INITIALIZE_NONCACHEDATA
+build:cm4 --copt=-DDEBUG
+
+# Freestanding C/C++ for embedded.
+build:cm4 --copt=-ffunction-sections
+build:cm4 --copt=-fdata-sections
+build:cm4 --copt=-fno-common
+build:cm4 --copt=-ffreestanding
+build:cm4 --copt=-fno-builtin
+build:cm4 --cxxopt=-fno-exceptions
+build:cm4 --cxxopt=-fno-rtti
+build:cm4 --cxxopt=-fno-use-cxa-atexit
+
+# Match cmake's link group + nano/nosys specs.
+build:cm4 --linkopt=--specs=nano.specs
+build:cm4 --linkopt=--specs=nosys.specs
+build:cm4 --linkopt=-Wl,--start-group
+build:cm4 --linkopt=-lm
+build:cm4 --linkopt=-lc
+build:cm4 --linkopt=-lgcc
+build:cm4 --linkopt=-lnosys
+build:cm4 --linkopt=-Wl,--end-group
+build:cm4 --linkopt=-Wl,--gc-sections
+build:cm4 --linkopt=-Wl,--print-memory-usage
+build:cm4 --linkopt=-static
+build:cm4 --linkopt=-Xlinker
+build:cm4 --linkopt=-z
+build:cm4 --linkopt=-Xlinker
+build:cm4 --linkopt=muldefs
+
 # Allow a developer overlay (gitignored).
 try-import %workspace%/user.bazelrc

@@ -1,0 +1,1 @@
+# Empty package marker so labels like //bazel:elf_image.bzl resolve.

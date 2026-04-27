@@ -1,0 +1,24 @@
+load("//bazel:elf_image.bzl", "firmware_image")
+
+# `firmware_image` produces three sibling artifacts off one binary:
+#   :hello-world-cm4          .elf (cc_binary)
+#   :hello-world-cm4.bin      flat binary via arm-none-eabi-objcopy
+#   :hello-world-cm4_bin      C++ source declaring the binary as a const
+#                             array, ready for the cm7 image to #include.
+firmware_image(
+    name = "hello-world-cm4",
+    srcs = ["hello_world_cm4.cpp"],
+    deps = [
+        "//firmware/cm4:board",
+        "//firmware/cm4:cm4-platform",
+        "//firmware/cm4:device",
+        "//firmware/cm4:drivers",
+        "//firmware/cm4:drivers_new",
+        "//firmware/cm4:mcmgr",
+        "//firmware/cm4:registers",
+        "//firmware/cm4:utilities",
+        "//firmware/cm4/startup:rt1170-startup-cm4",
+    ],
+    visibility = ["//visibility:public"],
+)
+

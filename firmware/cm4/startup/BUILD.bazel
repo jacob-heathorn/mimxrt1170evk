@@ -1,0 +1,31 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+HAL_COPTS = ["-Wno-sign-conversion"]
+
+# Clock + system init split out so it compiles as C (the .c file is
+# CMSIS-style and includes the device header).
+cc_library(
+    name = "system_init",
+    srcs = ["system_init/system_MIMXRT1176_cm4.c"],
+    hdrs = glob(["system_init/*.h"]),
+    includes = ["system_init"],
+    copts = HAL_COPTS,
+    deps = [
+        "//firmware/cm4:cmsis",
+        "//firmware/cm4:device",
+    ],
+)
+
+# Reset_Handler + interrupt vector table (assembly) and the linker script.
+# alwayslink keeps Reset_Handler in the final image even though no code
+# references it directly; the linker pulls it in via the entry point.
+# The linker script is propagated to consumers via linkopts.
+cc_library(
+    name = "rt1170-startup-cm4",
+    srcs = ["startup_MIMXRT1176_cm4.S"],
+    additional_linker_inputs = ["MIMXRT1176xxxxx_cm4_ram.ld"],
+    linkopts = ["-T$(execpath MIMXRT1176xxxxx_cm4_ram.ld)"],
+    alwayslink = True,
+    deps = [":system_init"],
+    visibility = ["//visibility:public"],
+)

@@ -13,6 +13,27 @@ def _arm_gcc_repo_impl(repository_ctx):
         fail("arm-none-eabi-gcc not found on PATH. Install gcc-arm-none-eabi " +
              "(apt: `gcc-arm-none-eabi`; nix: `gcc-arm-embedded-13`).")
 
+    # Ask gcc itself where it looks for system headers. Output looks like:
+    #   ...
+    #   #include <...> search starts here:
+    #    /path/to/arm-none-eabi/include
+    #    /path/to/lib/gcc/arm-none-eabi/13.3.1/include
+    #   End of search list.
+    probe = repository_ctx.execute(
+        [str(gcc), "-E", "-Wp,-v", "-xc++", "/dev/null"],
+    )
+    builtin_includes = []
+    in_search = False
+    for line in probe.stderr.split("\n"):
+        if "search starts here:" in line:
+            in_search = True
+            continue
+        if "End of search list" in line:
+            in_search = False
+            continue
+        if in_search and line.startswith(" "):
+            builtin_includes.append(line.strip())
+
     # Resolve sibling binaries from the same install (gcc, g++, ar, ld, etc.).
     bin_dir = str(gcc).rsplit("/", 1)[0]
     tools = {
@@ -27,6 +48,7 @@ def _arm_gcc_repo_impl(repository_ctx):
         "objcopy": "{}/arm-none-eabi-objcopy".format(bin_dir),
     }
 
+    builtin_includes_lit = "[" + ", ".join(['"' + p + '"' for p in builtin_includes]) + "]"
     repository_ctx.file("BUILD.bazel", _BUILD_TEMPLATE.format(
         gcc = tools["gcc"],
         ld = tools["ld"],
@@ -37,6 +59,7 @@ def _arm_gcc_repo_impl(repository_ctx):
         objdump = tools["objdump"],
         strip = tools["strip"],
         objcopy = tools["objcopy"],
+        builtin_includes = builtin_includes_lit,
     ))
     repository_ctx.file("toolchain_config.bzl", _CONFIG_BZL)
 
@@ -62,6 +85,7 @@ arm_cc_toolchain_config(
     objdump_path = "{objdump}",
     strip_path = "{strip}",
     objcopy_path = "{objcopy}",
+    builtin_include_dirs = {builtin_includes},
 )
 
 cc_toolchain(
@@ -139,36 +163,11 @@ def _impl(ctx):
         tool_path(name = "objcopy", path = ctx.attr.objcopy_path),
     ]
 
-    # Default flags applied to every compile/link. CPU-specific flags
-    # (-mcpu, -mfpu, -mthumb, -mfloat-abi) come from .bazelrc's per-config
-    # --copt/--linkopt so the toolchain itself stays CPU-neutral.
-    default_compile_flags = feature(
-        name = "default_compile_flags",
-        enabled = True,
-        flag_sets = [flag_set(
-            actions = ALL_COMPILE_ACTIONS,
-            flag_groups = [flag_group(flags = [
-                "-ffunction-sections",
-                "-fdata-sections",
-                "-fno-common",
-            ])],
-        )],
-    )
-
-    default_link_flags = feature(
-        name = "default_link_flags",
-        enabled = True,
-        flag_sets = [flag_set(
-            actions = ALL_LINK_ACTIONS,
-            flag_groups = [flag_group(flags = [
-                "--specs=nano.specs",
-                "--specs=nosys.specs",
-                "-Wl,--gc-sections",
-                "-Wl,--print-memory-usage",
-            ])],
-        )],
-    )
-
+    # CPU/specs/link flags come entirely from .bazelrc's per-config block
+    # (e.g. build:cm4) so the toolchain stays CPU-agnostic. Adding flags
+    # here would duplicate them and trip "attempt to rename spec" linker
+    # errors. Keep this empty unless something is universally true for
+    # arm-none-eabi.
     return cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
         toolchain_identifier = "arm-none-eabi-" + ctx.attr.cpu_flag,
@@ -180,24 +179,26 @@ def _impl(ctx):
         abi_version = "unknown",
         abi_libc_version = "unknown",
         tool_paths = tool_paths,
-        features = [default_compile_flags, default_link_flags],
+        features = [],
+        cxx_builtin_include_directories = ctx.attr.builtin_include_dirs,
     )
 
 arm_cc_toolchain_config = rule(
     implementation = _impl,
     attrs = {
-        "cpu_flag":     attr.string(mandatory = True),
-        "fpu_flag":     attr.string(mandatory = True),
-        "target_cpu":   attr.string(mandatory = True),
-        "gcc_path":     attr.string(mandatory = True),
-        "ld_path":      attr.string(mandatory = True),
-        "ar_path":      attr.string(mandatory = True),
-        "cpp_path":     attr.string(mandatory = True),
-        "gcov_path":    attr.string(mandatory = True),
-        "nm_path":      attr.string(mandatory = True),
-        "objdump_path": attr.string(mandatory = True),
-        "strip_path":   attr.string(mandatory = True),
-        "objcopy_path": attr.string(mandatory = True),
+        "cpu_flag":             attr.string(mandatory = True),
+        "fpu_flag":             attr.string(mandatory = True),
+        "target_cpu":           attr.string(mandatory = True),
+        "gcc_path":             attr.string(mandatory = True),
+        "ld_path":              attr.string(mandatory = True),
+        "ar_path":              attr.string(mandatory = True),
+        "cpp_path":             attr.string(mandatory = True),
+        "gcov_path":            attr.string(mandatory = True),
+        "nm_path":              attr.string(mandatory = True),
+        "objdump_path":         attr.string(mandatory = True),
+        "strip_path":           attr.string(mandatory = True),
+        "objcopy_path":         attr.string(mandatory = True),
+        "builtin_include_dirs": attr.string_list(),
     },
     provides = [CcToolchainConfigInfo],
 )
