@@ -1,0 +1,78 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+# Same shape as firmware/cm4/BUILD.bazel — vendored NXP HAL libraries.
+# CPU flags come from .bazelrc:cm7 so this file is structurally identical
+# to the cm4 setup.
+HAL_COPTS = [
+    "-Wno-sign-conversion",
+    "-Wno-unused-parameter",
+    "-Wno-null-dereference",
+    "-Wno-switch-enum",
+    "-Wno-missing-field-initializers",
+    "-Wno-shadow",
+]
+
+cc_library(
+    name = "cmsis",
+    hdrs = glob(["cmsis/*.h"]),
+    includes = ["cmsis"],
+)
+
+cc_library(
+    name = "device",
+    srcs = glob(["device/*.c"]),
+    hdrs = glob(["device/*.h"]),
+    includes = ["device"],
+    copts = HAL_COPTS,
+    deps = [":cmsis"],
+)
+
+cc_library(
+    name = "drivers",
+    srcs = glob(["drivers/*.c"]),
+    hdrs = glob(["drivers/*.h"]),
+    includes = ["drivers"],
+    copts = HAL_COPTS,
+    deps = [":device"],
+)
+
+cc_library(
+    name = "utilities",
+    srcs = glob([
+        "utilities/*.c",
+        "utilities/*.S",
+    ]),
+    hdrs = glob(["utilities/*.h"]),
+    includes = ["utilities"],
+    copts = HAL_COPTS,
+    deps = [
+        ":device",
+        ":drivers",
+    ],
+)
+
+cc_library(
+    name = "board",
+    srcs = glob(["board/*.c"]),
+    hdrs = glob(["board/*.h"]),
+    includes = ["board"],
+    copts = HAL_COPTS,
+    deps = [
+        ":drivers",
+        ":utilities",
+    ],
+)
+
+cc_library(
+    name = "mcmgr",
+    srcs = glob(["mcmgr/*.c"]),
+    hdrs = glob(["mcmgr/*.h"]),
+    includes = ["mcmgr"],
+    copts = HAL_COPTS + ["-Wno-cast-align"],
+    deps = [
+        ":device",
+        ":drivers",
+    ],
+)

@@ -1,8 +1,37 @@
+# Both Cortex-M4 and Cortex-M7 are ARMv7E-M architecturally; we need a
+# custom constraint to differentiate them so toolchain resolution picks
+# the right -mcpu/-mfpu set per target.
+
+constraint_setting(name = "core")
+
+constraint_value(
+    name = "cm4_core",
+    constraint_setting = ":core",
+    visibility = ["//visibility:public"],
+)
+
+constraint_value(
+    name = "cm7_core",
+    constraint_setting = ":core",
+    visibility = ["//visibility:public"],
+)
+
 platform(
     name = "cm4",
     constraint_values = [
         "@platforms//cpu:armv7e-m",
         "@platforms//os:none",
+        ":cm4_core",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+platform(
+    name = "cm7",
+    constraint_values = [
+        "@platforms//cpu:armv7e-m",
+        "@platforms//os:none",
+        ":cm7_core",
     ],
     visibility = ["//visibility:public"],
 )

@@ -1,0 +1,33 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:elf_image.bzl", "firmware_image")
+
+# Stub for the cm4 binary symbols hello_world_cm7.cpp expects. Lets us
+# build the cm7 firmware standalone for now; the proper cross-core wiring
+# (cm7 image embedding the cm4 .bin.cpp via configuration transition) is
+# a follow-up. See TODO.md "Multi-core build orchestration".
+cc_library(
+    name = "cm4_image_stub",
+    srcs = ["cm4_image_stub.cpp"],
+)
+
+firmware_image(
+    name = "hello-world-cm7",
+    srcs = ["hello_world_cm7.cpp"],
+    copts = [
+        "-Wno-shadow",
+        "-Wno-deprecated-declarations",  # std::char_traits / printf %p
+    ],
+    deps = [
+        ":cm4_image_stub",
+        "//firmware/cm7:cm7-platform",
+        "//firmware/cm7:registers",
+        "//firmware/cm7:utils",
+        "//firmware/cm7/legacy:board",
+        "//firmware/cm7/legacy:cmsis",
+        "//firmware/cm7/legacy:drivers",
+        "//firmware/cm7/legacy:mcmgr",
+        "//firmware/cm7/legacy:utilities",
+        "//firmware/cm7/startup:rt1170-startup-cm7",
+    ],
+    visibility = ["//visibility:public"],
+)

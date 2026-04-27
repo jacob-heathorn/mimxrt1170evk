@@ -1,0 +1,53 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+# Generated MMIO register headers for cm7 (separate set from cm4 — the
+# parts of the SoC visible to each core differ slightly).
+cc_library(
+    name = "registers",
+    hdrs = glob(["registers/**/*.hpp"]),
+    includes = ["."],
+    deps = ["@forge//firmware/ftl"],
+)
+
+# Local C++ utilities (DTCM/OCRAM allocators). Header-only.
+cc_library(
+    name = "utils",
+    hdrs = glob(["utils/*.hpp"]),
+    includes = ["."],
+)
+
+# Platform: MPU init, C++ new/delete overrides, fault handlers, syscalls.
+# C++ driver wrappers (gpio, lpi2c) under firmware/cm7/drivers/.
+cc_library(
+    name = "drivers",
+    srcs = glob(["drivers/*.cpp"]),
+    hdrs = glob(["drivers/*.hpp"]),
+    includes = ["."],
+    deps = [
+        ":registers",
+        "//firmware/cm7/legacy:drivers",
+    ],
+)
+
+cc_library(
+    name = "cm7-platform",
+    srcs = glob(["platform/*.cpp"]),
+    hdrs = glob(["platform/include/**/*.hpp"]),
+    # `platform/include/` for `#include "platform/console_uart.hpp"` from
+    # consumers. `.` for assert.cpp's `#include "legacy/cmsis/cmsis_gcc.h"`
+    # which uses a firmware/cm7-relative path.
+    includes = [
+        ".",
+        "platform/include",
+    ],
+    deps = [
+        ":drivers",
+        ":registers",
+        ":utils",
+        "//firmware/cm7/legacy:board",
+        "//firmware/cm7/legacy:cmsis",
+        "//firmware/cm7/legacy:utilities",
+    ],
+)

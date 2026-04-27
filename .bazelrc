@@ -68,5 +68,55 @@ build:cm4 --linkopt=-z
 build:cm4 --linkopt=-Xlinker
 build:cm4 --linkopt=muldefs
 
+# Cortex-M7 cross-compile config (mirrors cmake/cm7/platform.cmake).
+build:cm7 --platforms=//platforms:cm7
+build:cm7 --copt=-mcpu=cortex-m7
+build:cm7 --copt=-mfpu=fpv5-d16
+build:cm7 --copt=-mfloat-abi=hard
+build:cm7 --copt=-mthumb
+build:cm7 --copt=-mapcs
+build:cm7 --linkopt=-mcpu=cortex-m7
+build:cm7 --linkopt=-mfpu=fpv5-d16
+build:cm7 --linkopt=-mfloat-abi=hard
+build:cm7 --linkopt=-mthumb
+
+# CM7 defines.
+build:cm7 --copt=-DCPU_MIMXRT1176DVMAA_cm7
+build:cm7 --copt=-DMCUXPRESSO_SDK
+build:cm7 --copt=-DMULTICORE_APP=1
+build:cm7 --copt=-DMCMGR_HANDLE_EXCEPTIONS=1
+build:cm7 --copt=-DFLEXSPI_IN_USE
+build:cm7 --copt=-DXIP_BOOT_HEADER_ENABLE=1
+build:cm7 --copt=-DXIP_EXTERNAL_FLASH=1
+build:cm7 --copt=-D__SEMIHOST_HARDFAULT_DISABLE=1
+build:cm7 --copt=-D__STARTUP_CLEAR_BSS
+build:cm7 --copt=-D__STARTUP_INITIALIZE_NONCACHEDATA
+build:cm7 --copt=-DDEBUG
+
+build:cm7 --copt=-ffunction-sections
+build:cm7 --copt=-fdata-sections
+build:cm7 --copt=-fno-common
+build:cm7 --copt=-ffreestanding
+build:cm7 --copt=-fno-builtin
+build:cm7 --cxxopt=-fno-exceptions
+build:cm7 --cxxopt=-fno-rtti
+build:cm7 --cxxopt=-fno-use-cxa-atexit
+
+build:cm7 --linkopt=--specs=nano.specs
+build:cm7 --linkopt=--specs=nosys.specs
+build:cm7 --linkopt=-Wl,--start-group
+build:cm7 --linkopt=-lm
+build:cm7 --linkopt=-lc
+build:cm7 --linkopt=-lgcc
+build:cm7 --linkopt=-lnosys
+build:cm7 --linkopt=-Wl,--end-group
+build:cm7 --linkopt=-Wl,--gc-sections
+build:cm7 --linkopt=-Wl,--print-memory-usage
+build:cm7 --linkopt=-static
+build:cm7 --linkopt=-Xlinker
+build:cm7 --linkopt=-z
+build:cm7 --linkopt=-Xlinker
+build:cm7 --linkopt=muldefs
+
 # Allow a developer overlay (gitignored).
 try-import %workspace%/user.bazelrc

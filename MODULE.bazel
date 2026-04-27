@@ -20,4 +20,7 @@ bazel_dep(name = "forge", version = "0.1.0")
 # discovers the install and writes that definition.
 arm_gcc = use_extension("//bazel/arm_gcc:extension.bzl", "arm_gcc")
 use_repo(arm_gcc, "arm_gcc")
-register_toolchains("@arm_gcc//:cm4_toolchain")
+register_toolchains(
+    "//bazel/arm_gcc:cm4_toolchain",
+    "//bazel/arm_gcc:cm7_toolchain",
+)

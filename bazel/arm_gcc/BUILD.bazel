@@ -1,2 +1,26 @@
-# Empty package — the cc_toolchain wiring lives in extension.bzl,
-# materialized into @arm_gcc by the module extension.
+# Toolchain bindings: pair @arm_gcc//:cc_toolchain with the cm4/cm7
+# platform constraints declared in //platforms. We register from this
+# package (not from inside the @arm_gcc external repo) so the constraint
+# labels are reachable via the main repo.
+
+toolchain(
+    name = "cm4_toolchain",
+    toolchain = "@arm_gcc//:cc_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+    target_compatible_with = [
+        "@platforms//cpu:armv7e-m",
+        "@platforms//os:none",
+        "//platforms:cm4_core",
+    ],
+)
+
+toolchain(
+    name = "cm7_toolchain",
+    toolchain = "@arm_gcc//:cc_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+    target_compatible_with = [
+        "@platforms//cpu:armv7e-m",
+        "@platforms//os:none",
+        "//platforms:cm7_core",
+    ],
+)

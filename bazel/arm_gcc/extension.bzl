@@ -5,6 +5,11 @@ The compiler binary itself comes from whatever `arm-none-eabi-gcc` is on
 PATH — same install the CMake build used. The repository_rule resolves
 the install root via `which` and embeds absolute paths into the toolchain
 config so Bazel doesn't depend on PATH at execution time.
+
+The actual `toolchain(...)` binding (with target_compatible_with on
+//platforms:cm4_core etc.) lives in //bazel/arm_gcc:BUILD.bazel where
+the main repo's constraint labels are reachable. This file just provides
+cc_toolchain targets that //bazel/arm_gcc references.
 """
 
 def _arm_gcc_repo_impl(repository_ctx):
@@ -13,12 +18,7 @@ def _arm_gcc_repo_impl(repository_ctx):
         fail("arm-none-eabi-gcc not found on PATH. Install gcc-arm-none-eabi " +
              "(apt: `gcc-arm-none-eabi`; nix: `gcc-arm-embedded-13`).")
 
-    # Ask gcc itself where it looks for system headers. Output looks like:
-    #   ...
-    #   #include <...> search starts here:
-    #    /path/to/arm-none-eabi/include
-    #    /path/to/lib/gcc/arm-none-eabi/13.3.1/include
-    #   End of search list.
+    # Ask gcc itself where it looks for system headers.
     probe = repository_ctx.execute(
         [str(gcc), "-E", "-Wp,-v", "-xc++", "/dev/null"],
     )
@@ -34,11 +34,10 @@ def _arm_gcc_repo_impl(repository_ctx):
         if in_search and line.startswith(" "):
             builtin_includes.append(line.strip())
 
-    # Resolve sibling binaries from the same install (gcc, g++, ar, ld, etc.).
     bin_dir = str(gcc).rsplit("/", 1)[0]
     tools = {
         "gcc": "{}/arm-none-eabi-gcc".format(bin_dir),
-        "ld": "{}/arm-none-eabi-gcc".format(bin_dir),  # gcc as linker driver
+        "ld": "{}/arm-none-eabi-gcc".format(bin_dir),
         "ar": "{}/arm-none-eabi-ar".format(bin_dir),
         "cpp": "{}/arm-none-eabi-cpp".format(bin_dir),
         "gcov": "/bin/false",
@@ -47,8 +46,8 @@ def _arm_gcc_repo_impl(repository_ctx):
         "strip": "{}/arm-none-eabi-strip".format(bin_dir),
         "objcopy": "{}/arm-none-eabi-objcopy".format(bin_dir),
     }
-
     builtin_includes_lit = "[" + ", ".join(['"' + p + '"' for p in builtin_includes]) + "]"
+
     repository_ctx.file("BUILD.bazel", _BUILD_TEMPLATE.format(
         gcc = tools["gcc"],
         ld = tools["ld"],
@@ -63,6 +62,9 @@ def _arm_gcc_repo_impl(repository_ctx):
     ))
     repository_ctx.file("toolchain_config.bzl", _CONFIG_BZL)
 
+# Same cc_toolchain for both cm4 and cm7 — only the CPU flags from
+# .bazelrc differ. The toolchain-resolution layer (//bazel/arm_gcc) picks
+# this single toolchain for either platform.
 _BUILD_TEMPLATE = """
 load("@rules_cc//cc:defs.bzl", "cc_toolchain")
 load(":toolchain_config.bzl", "arm_cc_toolchain_config")
@@ -72,9 +74,7 @@ package(default_visibility = ["//visibility:public"])
 filegroup(name = "empty")
 
 arm_cc_toolchain_config(
-    name = "cm4_config",
-    cpu_flag = "cortex-m4",
-    fpu_flag = "fpv4-sp-d16",
+    name = "config",
     target_cpu = "armv7e-m",
     gcc_path = "{gcc}",
     ld_path = "{ld}",
@@ -89,8 +89,8 @@ arm_cc_toolchain_config(
 )
 
 cc_toolchain(
-    name = "cm4_cc_toolchain",
-    toolchain_config = ":cm4_config",
+    name = "cc_toolchain",
+    toolchain_config = ":config",
     all_files = ":empty",
     compiler_files = ":empty",
     dwp_files = ":empty",
@@ -99,25 +99,14 @@ cc_toolchain(
     strip_files = ":empty",
     supports_param_files = 0,
 )
-
-toolchain(
-    name = "cm4_toolchain",
-    toolchain = ":cm4_cc_toolchain",
-    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
-    target_compatible_with = [
-        "@platforms//cpu:armv7e-m",
-        "@platforms//os:none",
-    ],
-)
 """
 
 _CONFIG_BZL = '''
 """Minimal cc_toolchain_config for arm-none-eabi-gcc.
 
-We don't pre-bake CPU flags here — those come from `.bazelrc`'s
-`build:cm4` config so the same toolchain can serve cortex-m4 / cortex-m7
-variants once we add them. This config just tells Bazel where the tools
-live and provides a baseline feature set.
+CPU/FPU/specs/link flags live in .bazelrc per-config (build:cm4 /
+build:cm7). This config only carries tool paths and the system include
+dirs gcc reports.
 """
 
 load("@rules_cc//cc/common:cc_common.bzl", "cc_common")
@@ -125,30 +114,6 @@ load("@rules_cc//cc:cc_toolchain_config_lib.bzl",
      "feature", "flag_group", "flag_set", "tool_path")
 load("@rules_cc//cc/toolchains:cc_toolchain_config_info.bzl",
      "CcToolchainConfigInfo")
-load("@rules_cc//cc:action_names.bzl",
-     "ASSEMBLE_ACTION_NAME",
-     "C_COMPILE_ACTION_NAME",
-     "CPP_COMPILE_ACTION_NAME",
-     "CPP_LINK_EXECUTABLE_ACTION_NAME",
-     "CPP_LINK_DYNAMIC_LIBRARY_ACTION_NAME",
-     "CPP_LINK_NODEPS_DYNAMIC_LIBRARY_ACTION_NAME",
-     "CPP_LINK_STATIC_LIBRARY_ACTION_NAME",
-     "LINKSTAMP_COMPILE_ACTION_NAME",
-     "PREPROCESS_ASSEMBLE_ACTION_NAME")
-
-ALL_COMPILE_ACTIONS = [
-    C_COMPILE_ACTION_NAME,
-    CPP_COMPILE_ACTION_NAME,
-    ASSEMBLE_ACTION_NAME,
-    PREPROCESS_ASSEMBLE_ACTION_NAME,
-    LINKSTAMP_COMPILE_ACTION_NAME,
-]
-
-ALL_LINK_ACTIONS = [
-    CPP_LINK_EXECUTABLE_ACTION_NAME,
-    CPP_LINK_DYNAMIC_LIBRARY_ACTION_NAME,
-    CPP_LINK_NODEPS_DYNAMIC_LIBRARY_ACTION_NAME,
-]
 
 def _impl(ctx):
     tool_paths = [
@@ -162,15 +127,9 @@ def _impl(ctx):
         tool_path(name = "strip",   path = ctx.attr.strip_path),
         tool_path(name = "objcopy", path = ctx.attr.objcopy_path),
     ]
-
-    # CPU/specs/link flags come entirely from .bazelrc's per-config block
-    # (e.g. build:cm4) so the toolchain stays CPU-agnostic. Adding flags
-    # here would duplicate them and trip "attempt to rename spec" linker
-    # errors. Keep this empty unless something is universally true for
-    # arm-none-eabi.
     return cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
-        toolchain_identifier = "arm-none-eabi-" + ctx.attr.cpu_flag,
+        toolchain_identifier = "arm-none-eabi",
         host_system_name = "local",
         target_system_name = "arm-none-eabi",
         target_cpu = ctx.attr.target_cpu,
@@ -186,8 +145,6 @@ def _impl(ctx):
 arm_cc_toolchain_config = rule(
     implementation = _impl,
     attrs = {
-        "cpu_flag":             attr.string(mandatory = True),
-        "fpu_flag":             attr.string(mandatory = True),
         "target_cpu":           attr.string(mandatory = True),
         "gcc_path":             attr.string(mandatory = True),
         "ld_path":              attr.string(mandatory = True),
