@@ -16,123 +16,21 @@ build --features=external_include_paths
 build --cxxopt=-std=c++20
 build --host_cxxopt=-std=c++20
 
-# Cortex-M4 cross-compile config. Picks the arm-none-eabi toolchain via
-# --platforms and adds the CPU-specific flags. Use as:
-#   bazel build --config=cm4 //...
+# CPU/FPU flags + NXP defines + nano/nosys link group are baked into the
+# per-core cc_toolchain features (see bazel/arm_gcc/extension.bzl), so
+# selecting a platform alone gives the right flags. The cm4/cm7 configs
+# below just flip the platform — handy alias for users who type
+# `--config=cm4` instead of `--platforms=//platforms:cm4`.
 build:cm4 --platforms=//platforms:cm4
-build:cm4 --copt=-mcpu=cortex-m4
-build:cm4 --copt=-mfpu=fpv4-sp-d16
-build:cm4 --copt=-mfloat-abi=hard
-build:cm4 --copt=-mthumb
-build:cm4 --copt=-mapcs
-build:cm4 --linkopt=-mcpu=cortex-m4
-build:cm4 --linkopt=-mfpu=fpv4-sp-d16
-build:cm4 --linkopt=-mfloat-abi=hard
-build:cm4 --linkopt=-mthumb
-
-# NXP MIMXRT1176 CM4 defines (mirrors the cmake build).
-build:cm4 --copt=-DCPU_MIMXRT1176DVMAA_cm4
-build:cm4 --copt=-DMCUXPRESSO_SDK
-build:cm4 --copt=-DMULTICORE_APP=1
-build:cm4 --copt=-DMCMGR_HANDLE_EXCEPTIONS=1
-build:cm4 --copt=-DFLEXSPI_IN_USE
-build:cm4 --copt=-D__SEMIHOST_HARDFAULT_DISABLE=1
-build:cm4 --copt=-D__STARTUP_CLEAR_BSS
-build:cm4 --copt=-D__STARTUP_INITIALIZE_NONCACHEDATA
-build:cm4 --copt=-DDEBUG
-
-# Match cmake's debug preset: -O0 -g -flto=auto. Once we split a separate
-# release config, move these into a debug-only block.
-build:cm4 --copt=-O0
-build:cm4 --copt=-g
-# -flto=auto deliberately omitted. cmake's debug build enables it; under
-# bazel the link fails because user archives aren't wrapped in
-# --start-group/--end-group, so ld's single-pass archive scan can't
-# resolve cross-archive cycles (e.g. mcmgr → drivers → utilities). See
-# TODO.md for the full investigation. Without LTO the .bin differs from
-# cmake by ~92 bytes (vs ~3.6× larger when alwayslink-on-everything
-# papers over the link order).
-
-# Freestanding C/C++ for embedded.
-build:cm4 --copt=-ffunction-sections
-build:cm4 --copt=-fdata-sections
-build:cm4 --copt=-fno-common
-build:cm4 --copt=-ffreestanding
-build:cm4 --copt=-fno-builtin
-build:cm4 --cxxopt=-fno-exceptions
-build:cm4 --cxxopt=-fno-rtti
-build:cm4 --cxxopt=-fno-use-cxa-atexit
-
-# Match cmake's link group + nano/nosys specs.
-build:cm4 --linkopt=--specs=nano.specs
-build:cm4 --linkopt=--specs=nosys.specs
-build:cm4 --linkopt=-Wl,--start-group
-build:cm4 --linkopt=-lm
-build:cm4 --linkopt=-lc
-build:cm4 --linkopt=-lgcc
-build:cm4 --linkopt=-lnosys
-build:cm4 --linkopt=-Wl,--end-group
-build:cm4 --linkopt=-Wl,--gc-sections
-build:cm4 --linkopt=-Wl,--print-memory-usage
-build:cm4 --linkopt=-static
-build:cm4 --linkopt=-Xlinker
-build:cm4 --linkopt=-z
-build:cm4 --linkopt=-Xlinker
-build:cm4 --linkopt=muldefs
-
-# Cortex-M7 cross-compile config (mirrors cmake/cm7/platform.cmake).
 build:cm7 --platforms=//platforms:cm7
-build:cm7 --copt=-mcpu=cortex-m7
-build:cm7 --copt=-mfpu=fpv5-d16
-build:cm7 --copt=-mfloat-abi=hard
-build:cm7 --copt=-mthumb
-build:cm7 --copt=-mapcs
-build:cm7 --linkopt=-mcpu=cortex-m7
-build:cm7 --linkopt=-mfpu=fpv5-d16
-build:cm7 --linkopt=-mfloat-abi=hard
-build:cm7 --linkopt=-mthumb
 
-# CM7 defines.
-build:cm7 --copt=-DCPU_MIMXRT1176DVMAA_cm7
-build:cm7 --copt=-DMCUXPRESSO_SDK
-build:cm7 --copt=-DMULTICORE_APP=1
-build:cm7 --copt=-DMCMGR_HANDLE_EXCEPTIONS=1
-build:cm7 --copt=-DFLEXSPI_IN_USE
-build:cm7 --copt=-DXIP_BOOT_HEADER_ENABLE=1
-build:cm7 --copt=-DXIP_EXTERNAL_FLASH=1
-build:cm7 --copt=-D__SEMIHOST_HARDFAULT_DISABLE=1
-build:cm7 --copt=-D__STARTUP_CLEAR_BSS
-build:cm7 --copt=-D__STARTUP_INITIALIZE_NONCACHEDATA
-build:cm7 --copt=-DDEBUG
-
-build:cm7 --copt=-O0
-build:cm7 --copt=-g
-# TODO: re-enable -flto=auto. See cm4 note above.
-
-build:cm7 --copt=-ffunction-sections
-build:cm7 --copt=-fdata-sections
-build:cm7 --copt=-fno-common
-build:cm7 --copt=-ffreestanding
-build:cm7 --copt=-fno-builtin
-build:cm7 --cxxopt=-fno-exceptions
-build:cm7 --cxxopt=-fno-rtti
-build:cm7 --cxxopt=-fno-use-cxa-atexit
-
-build:cm7 --linkopt=--specs=nano.specs
-build:cm7 --linkopt=--specs=nosys.specs
-build:cm7 --linkopt=-Wl,--start-group
-build:cm7 --linkopt=-lm
-build:cm7 --linkopt=-lc
-build:cm7 --linkopt=-lgcc
-build:cm7 --linkopt=-lnosys
-build:cm7 --linkopt=-Wl,--end-group
-build:cm7 --linkopt=-Wl,--gc-sections
-build:cm7 --linkopt=-Wl,--print-memory-usage
-build:cm7 --linkopt=-static
-build:cm7 --linkopt=-Xlinker
-build:cm7 --linkopt=-z
-build:cm7 --linkopt=-Xlinker
-build:cm7 --linkopt=muldefs
+# Build mode: cmake's debug preset uses -O0 -g. Apply globally for now;
+# split into --config=dbg / --config=opt later when we add release.
+# -flto=auto deliberately omitted: under bazel ld's single-pass archive
+# scan can't resolve cross-archive cycles (mcmgr → drivers → utilities)
+# without --start-group/--end-group around user libs. See TODO.md.
+build --copt=-O0
+build --copt=-g
 
 # Allow a developer overlay (gitignored).
 try-import %workspace%/user.bazelrc

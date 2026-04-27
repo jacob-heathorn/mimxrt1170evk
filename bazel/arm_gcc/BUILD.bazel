@@ -1,11 +1,12 @@
-# Toolchain bindings: pair @arm_gcc//:cc_toolchain with the cm4/cm7
-# platform constraints declared in //platforms. We register from this
-# package (not from inside the @arm_gcc external repo) so the constraint
-# labels are reachable via the main repo.
+# Toolchain bindings: pair @arm_gcc//:cm{4,7}_cc_toolchain with the
+# corresponding platform constraint. Each cc_toolchain has its own
+# CPU/FPU/define feature set baked in (see @arm_gcc/toolchain_config.bzl)
+# so building with --platforms=//platforms:cm{4,7} alone gives the
+# right flags — no --config=cm{4,7} required for correctness.
 
 toolchain(
     name = "cm4_toolchain",
-    toolchain = "@arm_gcc//:cc_toolchain",
+    toolchain = "@arm_gcc//:cm4_cc_toolchain",
     toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
     target_compatible_with = [
         "@platforms//cpu:armv7e-m",
@@ -16,7 +17,7 @@ toolchain(
 
 toolchain(
     name = "cm7_toolchain",
-    toolchain = "@arm_gcc//:cc_toolchain",
+    toolchain = "@arm_gcc//:cm7_cc_toolchain",
     toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
     target_compatible_with = [
         "@platforms//cpu:armv7e-m",
