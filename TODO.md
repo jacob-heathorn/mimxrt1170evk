@@ -52,6 +52,21 @@ Items captured mid-conversation, to revisit between sessions.
       `-Wno-unused-variable # TODO remove` in the old hello-world
       CMakeLists). Audit and drop ones that don't fire.
 
+## Build flags
+
+- [ ] **Re-enable `-flto=auto`** to match cmake. Current state: `-flto=auto`
+      added to `.bazelrc:cm4/cm7` link line caused undefined references for
+      symbols inside HAL archives (MCMGR_*, SDK_DelayAtLeastUs, MU_*,
+      SystemInit, CLOCK_GetFreq, BOARD_ConfigMPU, SystemCoreClock). cmake
+      avoided this by linking those translation units' .o files directly
+      (PUBLIC sources hack with the "TODO MUA_IRQHandler" comment in
+      mcmgr/CMakeLists.txt). I applied `alwayslink = True` on every cm4
+      HAL cc_library and on cm7's mcmgr — fixes the gc-sections case but
+      not LTO. Likely needed: extending cc_toolchain_config with an `lto`
+      feature that emits the right `-fuse-linker-plugin` /
+      `-flinker-output=…` flags so the linker picks up archived LTO IR.
+      Verify by `cmp` against `.bin/cm4-debug/.../hello-world-cm4.bin`.
+
 ## Toolchain
 
 - [ ] **Hermetic ARM toolchain (managed by bazel, not nix).** Currently

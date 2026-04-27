@@ -41,6 +41,14 @@ build:cm4 --copt=-D__STARTUP_CLEAR_BSS
 build:cm4 --copt=-D__STARTUP_INITIALIZE_NONCACHEDATA
 build:cm4 --copt=-DDEBUG
 
+# Match cmake's debug preset: -O0 -g -flto=auto. Once we split a separate
+# release config, move these into a debug-only block.
+build:cm4 --copt=-O0
+build:cm4 --copt=-g
+# TODO: re-enable -flto=auto. cmake's debug build uses it; bazel needs
+# alwayslink + likely a custom link feature that exposes the LTO plugin
+# correctly to the linker so archived symbols aren't dropped. See TODO.md.
+
 # Freestanding C/C++ for embedded.
 build:cm4 --copt=-ffunction-sections
 build:cm4 --copt=-fdata-sections
@@ -92,6 +100,10 @@ build:cm7 --copt=-D__SEMIHOST_HARDFAULT_DISABLE=1
 build:cm7 --copt=-D__STARTUP_CLEAR_BSS
 build:cm7 --copt=-D__STARTUP_INITIALIZE_NONCACHEDATA
 build:cm7 --copt=-DDEBUG
+
+build:cm7 --copt=-O0
+build:cm7 --copt=-g
+# TODO: re-enable -flto=auto. See cm4 note above.
 
 build:cm7 --copt=-ffunction-sections
 build:cm7 --copt=-fdata-sections

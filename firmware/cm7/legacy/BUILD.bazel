@@ -71,6 +71,7 @@ cc_library(
     hdrs = glob(["mcmgr/*.h"]),
     includes = ["mcmgr"],
     copts = HAL_COPTS + ["-Wno-cast-align"],
+    alwayslink = True,
     deps = [
         ":device",
         ":drivers",
