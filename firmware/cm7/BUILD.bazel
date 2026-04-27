@@ -42,6 +42,13 @@ cc_library(
         ".",
         "platform/include",
     ],
+    # syscalls.cpp here defines _write/_read/etc. that override newlib's
+    # nosys stubs and route printf to the LPUART console. As an archive
+    # member, ld would pick up newlib's stub first and our version would
+    # be dead. alwayslink forces our objects in via --whole-archive so
+    # the override wins. cmake handled this by listing the .o files as
+    # PUBLIC sources — same intent.
+    alwayslink = True,
     deps = [
         ":drivers",
         ":registers",

@@ -47,11 +47,25 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    # Open serial first so we don't miss the boot-time printf burst — the
+    # chip auto-runs as soon as LinkServer releases it after flash, which
+    # is faster than we can re-open the port. Then start flashing.
+    serial_handle = None
+    if not args.no_serial:
+        serial_handle = SerialTerminal(args.serial_device, args.baud)
+        serial_handle.read_background()
+
     if not args.no_flash:
         _flash(args.elf)
 
-    if not args.no_serial:
-        _serial(args.serial_device, args.baud)
+    if serial_handle is not None:
+        # read_background spawns a daemon thread; block here so the main
+        # thread stays alive to keep stdout flushing until Ctrl-C.
+        try:
+            while True:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            print("\nExiting.", flush=True)
 
 
 def _flash(elf_path: str) -> None:
@@ -63,22 +77,14 @@ def _flash(elf_path: str) -> None:
     time.sleep(0.3)
 
     print(f"Flashing {elf_path}...", flush=True)
+    # Drop the cmake-era `--no-boot`: that left the chip halted after flash
+    # and required a manual reset-button press to actually run. Without it,
+    # LinkServer releases the cores so hello world starts streaming as soon
+    # as the serial loop opens.
     subprocess.check_call(
-        [_LINK_SERVER, "flash", "--no-boot", _TARGET, "load", elf_path]
+        [_LINK_SERVER, "flash", _TARGET, "load", elf_path]
     )
     print("Flash complete.", flush=True)
-
-
-def _serial(device: str, baud: int) -> None:
-    print(f"Opening {device} @ {baud} baud (Ctrl-C to exit)...", flush=True)
-    terminal = SerialTerminal(device, baud)
-    try:
-        terminal.read_background()
-        # read_background spawns a thread; block on it.
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        print("\nExiting.", flush=True)
 
 
 if __name__ == "__main__":

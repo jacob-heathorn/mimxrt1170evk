@@ -35,20 +35,15 @@ cc_library(
 )
 
 # Reset_Handler + interrupt vector table + linker script. Consumers link
-# this and inherit the linker script via linkopts.
+# this and inherit the linker script via linkopts. `:boot` is included
+# transitively (alwayslink=True on that target already forces its
+# objects in via --whole-archive — no explicit linkopt needed; doing it
+# twice would duplicate the IVT/flash_config sections).
 cc_library(
     name = "rt1170-startup-cm7",
     srcs = ["startup_mimxrt1176_cm7.S"],
     additional_linker_inputs = ["mimxrt1176_cm7_flexspi_nor.ld"],
-    linkopts = [
-        "-T$(execpath mimxrt1176_cm7_flexspi_nor.ld)",
-        # `boot` provides FlexSPI flash header data referenced by symbol
-        # but not by any code; force the linker to keep it.
-        "-Wl,--whole-archive",
-        "$(execpaths //firmware/cm7/startup:boot)",
-        "-Wl,--no-whole-archive",
-    ],
-    additional_compiler_inputs = [],
+    linkopts = ["-T$(execpath mimxrt1176_cm7_flexspi_nor.ld)"],
     alwayslink = True,
     deps = [
         ":boot",
