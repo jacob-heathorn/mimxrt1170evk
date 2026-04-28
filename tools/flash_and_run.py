@@ -59,13 +59,10 @@ def main() -> None:
         _flash(args.elf)
 
     if serial_handle is not None:
-        # read_background spawns a daemon thread; block here so the main
-        # thread stays alive to keep stdout flushing until Ctrl-C.
-        try:
-            while True:
-                time.sleep(1)
-        except KeyboardInterrupt:
-            print("\nExiting.", flush=True)
+        # SerialTerminal handles Ctrl-C and exits the process; block here
+        # so its background read thread keeps streaming until then.
+        while True:
+            time.sleep(1)
 
 
 def _flash(elf_path: str) -> None:
