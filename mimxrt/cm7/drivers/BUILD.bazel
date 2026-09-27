@@ -1,0 +1,13 @@
+load("//bazel:cores.bzl", "cm7_library")
+
+# C++ drivers (GPIO, LPI2C) over the generated registers.
+cm7_library(
+    name = "drivers",
+    srcs = glob(["*.cpp"]),
+    hdrs = glob(["*.hpp"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        "//mimxrt/cm7/registers",
+        "//nxp/cm7:drivers",
+    ],
+)

@@ -38,6 +38,8 @@ _CPU_FLAGS = {
 
 _COMPILE_FLAGS = [
     "-mapcs",
+    # Keep system header paths as given, so headers reached through symlinks stay bazel-relative.
+    "-fno-canonical-system-headers",
     "-ffunction-sections",
     "-fdata-sections",
     "-fno-common",

@@ -31,37 +31,49 @@ This has only been tested in Ubuntu 24.04.
 
 Bazel fetches the compiler, Python and every dependency itself. Each firmware
 image is built for its own core; there is no per-core config to select.
-`hello-world-cm7` embeds the cm4 image, so one command builds both. Builds are
+`hello_world` embeds the cm4 image, so one command builds both. Builds are
 debug by default; `bazel build -c opt //...` is the release build.
 
 # Run
-`bazel run //test/cm7/hello_world:hello-world-cm7.flash`
+`bazel run //apps/hello_world:hello_world.flash`
 
 Flashes the cm7 image (with the cm4 image inside it) and streams the serial
 console until Ctrl-C. Add `-- --no-console` to only flash, `-c opt` to flash
 the release build. `bazel run //tools:console` attaches to a running board.
-Every image has a `.flash` target: `bazel query 'kind(py_binary, //...)'`
-lists them, including `//test/cm7:echo.flash`, `:hello-threadx.flash`,
-`:hello-netx.flash`, `:hello-publisher.flash`, `:hello-subscriber.flash` and
-`//firmware/cm7/application/foc:foc.flash`.
+Every image under `apps/` has a `.flash` target: `//apps:echo.flash`,
+`//apps:hello_threadx.flash`, `//apps:hello_netx.flash`, `//apps:hello_publisher.flash`,
+`//apps:hello_subscriber.flash` and `//apps:foc.flash`.
 
 # Test
-`bazel test //test/cm7:ut-simple //test/cm7:ut-memory //test/cm7:ut-threadx`
+`bazel test //mimxrt/cm7/platform:mpu_test //mimxrt/cm7/utils:utils_test //mimxrt/cm7/rtos/threadx:concurrency_test`
 
-Each test flashes a pigweed test image to the connected board and passes or
-fails on its console summary. They are excluded from `bazel test //...` because
-they need the hardware.
+Tests live next to the code they test. Each flashes a pigweed test image to the
+connected board and passes or fails on its console summary. They are excluded
+from `bazel test //...` because they need the hardware.
 
 # Serial Terminal
 device: `/dev/ttyACM0`
 baud: `115200`
 
-# Build files
-Our code uses `cm7_library`, `cm4_library`, `cm7_image` and `cm4_image` from `bazel/cores.bzl`:
-a `cc_library` or firmware image that builds for one core with forge's warnings and `-Werror`.
-Vendored code is a plain `cc_library`: NXP's SDK under `firmware/*/legacy` with `HAL_COPTS`, and
-ThreadX and NetX Duo fetched by bazel with BUILD files in `3p/`. Our code sees the SDK's
-headers as system headers, so its warnings do not fire inside them.
+# Layout
+Headers, sources and tests live together; a header's include path is its repo path, e.g.
+`#include "mimxrt/cm7/platform/mpu.hpp"`.
+
+```
+mimxrt/cm7/   platform, drivers, utils, network, rtos glue, startup, generated registers
+mimxrt/cm4/   the same for the cm4
+nxp/          the vendored NXP SDK for each core
+apps/         the images, each with a .flash target
+3p/           BUILD files for the archives bazel fetches (ThreadX, NetX Duo)
+bazel/        cores.bzl (cm7_library, cm7_image, cm7_test, ...), platforms, toolchain
+tools/        flash and console tools, multicore packaging
+```
+
+Our code uses `cm7_library`, `cm4_library`, `cm7_image`, `cm4_image` and `cm7_test` from
+`bazel/cores.bzl`: a `cc_library`, image or on-target test built for one core with forge's
+warnings and `-Werror`. Vendored code is a plain `cc_library`: NXP's SDK under `nxp/` with
+`HAL_COPTS`, and ThreadX and NetX Duo fetched by bazel with BUILD files in `3p/`. Our code sees
+the SDK's headers as system headers, so its warnings do not fire inside them.
 
 # Dependencies
 forge and microcyphal are managed by gordion: `gordion.yaml` pins them, `gor -u` checks them out,

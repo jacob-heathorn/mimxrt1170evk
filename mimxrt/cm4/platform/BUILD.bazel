@@ -1,0 +1,10 @@
+load("//bazel:cores.bzl", "cm4_library")
+
+# MPU setup and C++ new/delete.
+cm4_library(
+    name = "platform",
+    srcs = ["new_delete.cpp"],
+    hdrs = ["mpu.hpp"],
+    visibility = ["//visibility:public"],
+    deps = ["//mimxrt/cm4/registers"],
+)

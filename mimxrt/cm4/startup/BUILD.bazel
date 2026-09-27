@@ -1,0 +1,30 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:cores.bzl", "CM4")
+load("//bazel:hal.bzl", "HAL_COPTS")
+
+# NXP clock and system initialization.
+cc_library(
+    name = "system_init",
+    srcs = ["system_init/system_MIMXRT1176_cm4.c"],
+    hdrs = glob(["system_init/*.h"]),
+    copts = HAL_COPTS,
+    includes = ["system_init"],
+    target_compatible_with = CM4,
+    deps = [
+        "//nxp/cm4:cmsis",
+        "//nxp/cm4:device",
+    ],
+)
+
+# NXP vector table, Reset_Handler and the RAM linker script. Reset_Handler is reached only through
+# the entry point, so keep it linked.
+cc_library(
+    name = "startup",
+    srcs = ["startup_MIMXRT1176_cm4.S"],
+    additional_linker_inputs = ["MIMXRT1176xxxxx_cm4_ram.ld"],
+    linkopts = ["-T$(execpath MIMXRT1176xxxxx_cm4_ram.ld)"],
+    target_compatible_with = CM4,
+    visibility = ["//visibility:public"],
+    deps = [":system_init"],
+    alwayslink = True,
+)

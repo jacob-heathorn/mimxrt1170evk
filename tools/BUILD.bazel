@@ -9,7 +9,7 @@ exports_files([
 py_binary(
     name = "console",
     srcs = ["console.py"],
-    deps = ["@forge//scripts/package:forge"],
+    deps = ["@forge//tools:forge"],
 )
 
 py_binary(

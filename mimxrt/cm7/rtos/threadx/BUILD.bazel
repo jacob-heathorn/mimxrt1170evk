@@ -1,0 +1,64 @@
+load("//bazel:cores.bzl", "cm7_library", "cm7_test")
+
+package(default_visibility = ["//visibility:public"])
+
+# Our ThreadX configuration, included by the kernel as tx_user.h.
+cm7_library(
+    name = "tx_user",
+    hdrs = ["tx_user.h"],
+    includes = ["."],
+)
+
+# Port glue: SysTick setup and the stack overflow handler. The kernel archive references these, so
+# they must already be linked when it is scanned.
+cm7_library(
+    name = "threadx",
+    srcs = [
+        "tx_initialize_low_level.c",
+        "tx_thread_stack_error.cpp",
+    ],
+    deps = [
+        "//nxp/cm7:drivers",
+        "@forge//forge/threadx",
+        "@threadx",
+    ],
+    alwayslink = True,
+)
+
+# main() for pigweed test images: runs the tests in a ThreadX thread.
+cm7_library(
+    name = "pw_ut_main",
+    srcs = ["pw_ut_main.cpp"],
+    deps = [
+        ":threadx",
+        "//mimxrt/cm7/utils",
+        "@forge//forge/ftl",
+        "@forge//forge/pw_unit_test",
+        "@forge//forge/threadx",
+    ],
+    alwayslink = True,
+)
+
+# Checks that the pigweed test framework runs on the board.
+cm7_test(
+    name = "simple_test",
+    srcs = ["simple_test.cpp"],
+    deps = [
+        ":pw_ut_main",
+        "//mimxrt/cm7:runtime",
+    ],
+)
+
+# Mutexes and threads under ThreadX.
+cm7_test(
+    name = "concurrency_test",
+    srcs = ["concurrency_test.cpp"],
+    deps = [
+        ":pw_ut_main",
+        ":threadx",
+        "//mimxrt/cm7:runtime",
+        "//mimxrt/cm7/utils",
+        "@forge//forge/ftl",
+        "@forge//forge/threadx",
+    ],
+)

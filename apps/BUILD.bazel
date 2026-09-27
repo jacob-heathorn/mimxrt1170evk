@@ -1,0 +1,72 @@
+load("//bazel:cores.bzl", "cm7_image")
+
+# Echoes UART input back.
+cm7_image(
+    name = "echo",
+    srcs = ["echo.cpp"],
+    deps = ["//mimxrt/cm7:runtime"],
+)
+
+# Two ThreadX threads taking turns.
+cm7_image(
+    name = "hello_threadx",
+    srcs = ["hello_threadx.cpp"],
+    copts = ["-Wno-write-strings"],
+    deps = [
+        "//mimxrt/cm7:runtime",
+        "//mimxrt/cm7/rtos/threadx",
+        "@forge//forge/ftl",
+        "@forge//forge/threadx",
+    ],
+)
+
+# UDP echo over gigabit ethernet.
+cm7_image(
+    name = "hello_netx",
+    srcs = ["hello_netx.cpp"],
+    deps = [
+        "//mimxrt/cm7:runtime",
+        "//mimxrt/cm7/network",
+        "//mimxrt/cm7/rtos/threadx",
+        "@forge//forge/ftl",
+        "@forge//forge/threadx",
+    ],
+)
+
+# Cyphal/UDP heartbeat publisher.
+cm7_image(
+    name = "hello_publisher",
+    srcs = ["hello_publisher.cpp"],
+    deps = [
+        "//mimxrt/cm7:runtime",
+        "//mimxrt/cm7/network",
+        "//mimxrt/cm7/rtos/threadx",
+        "@forge//forge/ftl",
+        "@forge//forge/threadx",
+        "@microcyphal//cyphal",
+    ],
+)
+
+# Cyphal/UDP heartbeat subscriber.
+cm7_image(
+    name = "hello_subscriber",
+    srcs = ["hello_subscriber.cpp"],
+    deps = [
+        "//mimxrt/cm7:runtime",
+        "//mimxrt/cm7/network",
+        "//mimxrt/cm7/rtos/threadx",
+        "@forge//forge/ftl",
+        "@forge//forge/threadx",
+        "@microcyphal//cyphal",
+    ],
+)
+
+# Field-oriented motor control with an AS5600 encoder over LPI2C.
+cm7_image(
+    name = "foc",
+    srcs = ["foc.cpp"],
+    deps = [
+        "//mimxrt/cm7:runtime",
+        "//mimxrt/cm7/drivers",
+    ],
+)

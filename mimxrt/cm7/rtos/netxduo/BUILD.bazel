@@ -1,0 +1,33 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:cores.bzl", "CM7", "cm7_library")
+load("//bazel:hal.bzl", "HAL_COPTS")
+
+package(default_visibility = ["//visibility:public"])
+
+# Our NetX Duo configuration, included by the stack as nx_user.h.
+cm7_library(
+    name = "nx_user",
+    hdrs = ["nx_user.h"],
+    includes = ["."],
+)
+
+# NXP's NetX Duo driver for the RT1170's ENET controllers. Its interrupt handlers are reached only
+# through the vector table, so keep them linked.
+cc_library(
+    name = "netxduo",
+    srcs = [
+        "nx_driver_imxrt.c",
+        "nx_driver_imxrt_irq.c",
+    ],
+    hdrs = ["nx_driver_imxrt.h"],
+    copts = HAL_COPTS,
+    includes = ["."],
+    target_compatible_with = CM7,
+    deps = [
+        "//mimxrt/cm7/rtos/threadx",
+        "//nxp/cm7:board",
+        "//nxp/cm7:drivers",
+        "@netxduo",
+    ],
+    alwayslink = True,
+)

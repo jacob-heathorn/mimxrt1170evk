@@ -1,0 +1,9 @@
+load("//bazel:cores.bzl", "cm4_library")
+
+# C++ peripheral wrappers over the generated registers.
+cm4_library(
+    name = "drivers",
+    hdrs = glob(["*.hpp"]),
+    visibility = ["//visibility:public"],
+    deps = ["//mimxrt/cm4/registers"],
+)

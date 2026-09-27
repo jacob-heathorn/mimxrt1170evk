@@ -26,5 +26,5 @@ def on_target_test(name, image):
             "manual",
         ],
         size = "small",
-        deps = ["@forge//scripts/package:forge"],
+        deps = ["@forge//tools:forge"],
     )

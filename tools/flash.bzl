@@ -13,5 +13,5 @@ def flash(name, image):
         main = "//tools:flash.py",
         args = ["--elf", "$(rootpath {})".format(image)],
         data = [image],
-        deps = ["@forge//scripts/package:forge"],
+        deps = ["@forge//tools:forge"],
     )

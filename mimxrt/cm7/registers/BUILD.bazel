@@ -1,0 +1,12 @@
+load("@forge//bazel:svd.bzl", "svd_cc_library")
+load("//bazel:cores.bzl", "CM7")
+
+# Register headers generated from NXP's SVD, included as "mimxrt/cm7/registers/<peripheral>.hpp".
+svd_cc_library(
+    name = "registers",
+    include_prefix = "mimxrt/cm7/registers",
+    svd = "@mimxrt1176_cm7_svd//file",
+    target_compatible_with = CM7,
+    visibility = ["//visibility:public"],
+    deps = ["@forge//forge/ftl"],
+)

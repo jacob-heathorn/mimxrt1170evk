@@ -35,5 +35,5 @@ cc_library(
         core: ["ports/{}/gnu/inc".format(arch)]
         for core, arch in _ARCH.items()
     }),
-    deps = ["@mimxrt1170evk//firmware/cm7/rtos/threadx:tx_user"],
+    deps = ["@mimxrt1170evk//mimxrt/cm7/rtos/threadx:tx_user"],
 )

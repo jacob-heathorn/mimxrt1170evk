@@ -1,0 +1,41 @@
+load("//bazel:cores.bzl", "cm4_image", "cm7_image")
+load("//tools:multicore.bzl", "embedded_image")
+
+# The cm4 side: blinks an LED once the cm7 has started it.
+cm4_image(
+    name = "hello_world_cm4",
+    srcs = ["hello_world_cm4.cpp"],
+    deps = [
+        "//mimxrt/cm4/drivers",
+        "//mimxrt/cm4/platform",
+        "//mimxrt/cm4/registers",
+        "//mimxrt/cm4/startup",
+        "//nxp/cm4:board",
+        "//nxp/cm4:device",
+        "//nxp/cm4:drivers",
+        "//nxp/cm4:mcmgr",
+        "//nxp/cm4:utilities",
+    ],
+)
+
+# The cm4 image as a C array for the cm7 image to copy into RAM and start.
+embedded_image(
+    name = "cm4_image",
+    image = ":hello_world_cm4",
+    platform = "//bazel/platforms:cm4",
+    symbol = "hello_world_cm4_bin",
+)
+
+# The cm7 side: prints a banner, then boots the cm4.
+cm7_image(
+    name = "hello_world",
+    srcs = [
+        "hello_world_cm7.cpp",
+        ":cm4_image",
+    ],
+    copts = [
+        "-Wno-deprecated-declarations",
+        "-Wno-shadow",
+    ],
+    deps = ["//mimxrt/cm7:runtime"],
+)

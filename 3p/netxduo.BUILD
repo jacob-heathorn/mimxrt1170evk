@@ -23,7 +23,7 @@ cc_library(
         for core, arch in _ARCH.items()
     }),
     deps = [
-        "@mimxrt1170evk//firmware/cm7/rtos/netxduo:nx_user",
+        "@mimxrt1170evk//mimxrt/cm7/rtos/netxduo:nx_user",
         "@threadx",
     ],
 )

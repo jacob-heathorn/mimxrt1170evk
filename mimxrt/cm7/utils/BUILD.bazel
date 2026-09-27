@@ -1,0 +1,24 @@
+load("//bazel:cores.bzl", "cm7_library", "cm7_test")
+
+# Allocators over the DTCM and OCRAM regions.
+cm7_library(
+    name = "utils",
+    hdrs = glob(["*.hpp"]),
+    visibility = ["//visibility:public"],
+    deps = ["@forge//forge/ftl"],
+)
+
+# The region allocators and a bump pool on top of one, checked on the board.
+cm7_test(
+    name = "utils_test",
+    srcs = [
+        "allocators_test.cpp",
+        "bump_pool_test.cpp",
+    ],
+    deps = [
+        ":utils",
+        "//mimxrt/cm7:runtime",
+        "//mimxrt/cm7/rtos/threadx:pw_ut_main",
+        "@forge//forge/ftl",
+    ],
+)

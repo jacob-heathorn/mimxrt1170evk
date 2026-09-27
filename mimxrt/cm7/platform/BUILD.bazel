@@ -1,0 +1,38 @@
+load("//bazel:cores.bzl", "cm7_library", "cm7_test")
+
+# MPU setup, fault handlers, C++ new/delete and the printf syscalls. syscalls.cpp must be linked
+# ahead of newlib's nosys stubs to route printf to the console.
+cm7_library(
+    name = "platform",
+    srcs = [
+        "assert.cpp",
+        "fault_handlers.cpp",
+        "new_delete.cpp",
+        "syscalls.cpp",
+    ],
+    hdrs = [
+        "assert_led.hpp",
+        "console_uart.hpp",
+        "mpu.hpp",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//mimxrt/cm7/drivers",
+        "//mimxrt/cm7/registers",
+        "//mimxrt/cm7/utils",
+        "//nxp/cm7:board",
+        "//nxp/cm7:cmsis",
+        "//nxp/cm7:utilities",
+    ],
+    alwayslink = True,
+)
+
+# The MPU regions and cache configuration, checked on the board.
+cm7_test(
+    name = "mpu_test",
+    srcs = ["mpu_test.cpp"],
+    deps = [
+        "//mimxrt/cm7:runtime",
+        "//mimxrt/cm7/rtos/threadx:pw_ut_main",
+    ],
+)

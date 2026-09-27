@@ -1,0 +1,17 @@
+load("//bazel:cores.bzl", "cm7_library")
+
+# Ethernet interface and UDP socket over NetX Duo.
+cm7_library(
+    name = "network",
+    srcs = glob(["*.cpp"]),
+    hdrs = glob(["*.hpp"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        "//mimxrt/cm7/rtos/netxduo",
+        "//mimxrt/cm7/rtos/threadx",
+        "//mimxrt/cm7/utils",
+        "//nxp/cm7:drivers",
+        "@forge//forge/ftl",
+        "@forge//forge/threadx",
+    ],
+)
