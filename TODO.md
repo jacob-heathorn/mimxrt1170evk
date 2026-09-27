@@ -11,15 +11,14 @@ NetX Duo, the NXP SVDs and the Cyphal DSDL itself. Here: nix and cmake are
 gone, register headers and DSDL types are generated in the build, every image
 builds for its own core via `firmware_image` (no `--config`), `-c opt` selects
 the release build, `hello-world-cm7` embeds the real cm4 image, and each image
-has a `.flash` target. Gordion checkouts override `git_override` pins via
+has a `.flash` target, verified on the EVK. Gordion checkouts override `git_override` pins via
 `tools/bazel` and `gor bazelrc`; `gor commit` bumps both pins.
 
 ## In priority order
 
-1. **Hardware check.** Flash each image and confirm the banners: hello-world,
-   echo, hello-threadx, hello-netx, hello-publisher, hello-subscriber, foc.
-   Everything since the last flash built byte-identical images until
-   `--undefined=_sbrk` and `-fno-threadsafe-statics` restored cmake parity.
+1. **Network demos end to end.** hello-netx, hello-publisher and
+   hello-subscriber boot and bring up the PHY but were checked without a
+   cable; run them against a host with `socat` / `yakut` per the README.
 
 2. **On-target tests.** `test/cm7/ut_*.cpp` and `rtos/threadx/pw_ut_main.cpp`
    are the cmake-era pigweed tests. Make them `bazel test` targets with a
