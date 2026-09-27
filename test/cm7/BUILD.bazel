@@ -1,6 +1,4 @@
-load("//bazel:cores.bzl", "cm7_image")
-load("//tools:flash.bzl", "flash")
-load("//tools:on_target_test.bzl", "on_target_test")
+load("//bazel:cores.bzl", "cm7_image", "cm7_test")
 
 # Echoes UART input back.
 cm7_image(
@@ -35,73 +33,76 @@ cm7_image(
     ],
 )
 
-# Cyphal/UDP heartbeat publisher and subscriber.
-[
-    cm7_image(
-        name = name,
-        srcs = [name.replace("-", "_") + ".cpp"],
-        deps = [
-            "//firmware/cm7:runtime",
-            "//firmware/cm7/network",
-            "//firmware/cm7/rtos/threadx",
-            "@forge//firmware/ftl",
-            "@forge//firmware/threadx:ftl-threadx",
-            "@microcyphal//firmware:microcyphal",
-        ],
-    )
-    for name in [
-        "hello-publisher",
-        "hello-subscriber",
-    ]
-]
+# Cyphal/UDP heartbeat publisher.
+cm7_image(
+    name = "hello-publisher",
+    srcs = ["hello_publisher.cpp"],
+    deps = [
+        "//firmware/cm7:runtime",
+        "//firmware/cm7/network",
+        "//firmware/cm7/rtos/threadx",
+        "@forge//firmware/ftl",
+        "@forge//firmware/threadx:ftl-threadx",
+        "@microcyphal//firmware:microcyphal",
+    ],
+)
 
-# `bazel run` targets that program the board with each image.
-[
-    flash(
-        name = image + ".flash",
-        image = ":" + image,
-    )
-    for image in [
-        "echo",
-        "hello-threadx",
-        "hello-netx",
-        "hello-publisher",
-        "hello-subscriber",
-    ]
-]
+# Cyphal/UDP heartbeat subscriber.
+cm7_image(
+    name = "hello-subscriber",
+    srcs = ["hello_subscriber.cpp"],
+    deps = [
+        "//firmware/cm7:runtime",
+        "//firmware/cm7/network",
+        "//firmware/cm7/rtos/threadx",
+        "@forge//firmware/ftl",
+        "@forge//firmware/threadx:ftl-threadx",
+        "@microcyphal//firmware:microcyphal",
+    ],
+)
 
-# Pigweed unit tests that run on the board.
-_TESTS = {
-    "ut-simple": ["ut_simple.cpp"],
-    "ut-memory": [
+# Checks that the pigweed test framework runs on the board.
+cm7_test(
+    name = "ut-simple",
+    srcs = ["ut_simple.cpp"],
+    deps = [
+        "//firmware/cm7:runtime",
+        "//firmware/cm7/rtos/threadx",
+        "//firmware/cm7/rtos/threadx:pw_ut_main",
+        "@forge//firmware/ftl",
+        "@forge//firmware/pw_unit_test",
+        "@forge//firmware/threadx:ftl-threadx",
+    ],
+)
+
+# The allocators, the bump pool and the MPU regions.
+cm7_test(
+    name = "ut-memory",
+    srcs = [
         "ut_bump_allocators.cpp",
         "ut_bump_pool.cpp",
         "ut_mpu.cpp",
     ],
-    "ut-threadx": ["ut_concurrency.cpp"],
-}
+    deps = [
+        "//firmware/cm7:runtime",
+        "//firmware/cm7/rtos/threadx",
+        "//firmware/cm7/rtos/threadx:pw_ut_main",
+        "@forge//firmware/ftl",
+        "@forge//firmware/pw_unit_test",
+        "@forge//firmware/threadx:ftl-threadx",
+    ],
+)
 
-[
-    cm7_image(
-        name = name,
-        srcs = srcs,
-        deps = [
-            "//firmware/cm7:runtime",
-            "//firmware/cm7/rtos/threadx",
-            "//firmware/cm7/rtos/threadx:pw_ut_main",
-            "@forge//firmware/ftl",
-            "@forge//firmware/pw_unit_test",
-            "@forge//firmware/threadx:ftl-threadx",
-        ],
-    )
-    for name, srcs in _TESTS.items()
-]
-
-# `bazel test` targets that flash each test image and read its result.
-[
-    on_target_test(
-        name = name + ".test",
-        image = ":" + name,
-    )
-    for name in _TESTS
-]
+# Mutexes and threads under ThreadX.
+cm7_test(
+    name = "ut-threadx",
+    srcs = ["ut_concurrency.cpp"],
+    deps = [
+        "//firmware/cm7:runtime",
+        "//firmware/cm7/rtos/threadx",
+        "//firmware/cm7/rtos/threadx:pw_ut_main",
+        "@forge//firmware/ftl",
+        "@forge//firmware/pw_unit_test",
+        "@forge//firmware/threadx:ftl-threadx",
+    ],
+)

@@ -4,7 +4,6 @@ load("@rules_python//python:defs.bzl", "py_binary")
 
 def flash(name, image):
     """Flashes the .elf of a firmware_image."""
-    elf = image + ".elf"
     py_binary(
         name = name,
         srcs = [
@@ -12,7 +11,7 @@ def flash(name, image):
             "//tools:flash.py",
         ],
         main = "//tools:flash.py",
-        args = ["--elf", "$(rootpath {})".format(elf)],
-        data = [elf],
+        args = ["--elf", "$(rootpath {})".format(image)],
+        data = [image],
         deps = ["@forge//scripts/package:forge"],
     )

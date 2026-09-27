@@ -1,5 +1,4 @@
 load("//bazel:cores.bzl", "cm7_image")
-load("//tools:flash.bzl", "flash")
 
 # Field-oriented motor control with an AS5600 encoder over LPI2C.
 cm7_image(
@@ -9,9 +8,4 @@ cm7_image(
         "//firmware/cm7:drivers",
         "//firmware/cm7:runtime",
     ],
-)
-
-flash(
-    name = "foc.flash",
-    image = ":foc",
 )

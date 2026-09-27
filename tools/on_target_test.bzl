@@ -7,7 +7,6 @@ def on_target_test(name, image):
 
     Excluded from wildcards; run it by name with the board attached.
     """
-    elf = image + ".elf"
     py_test(
         name = name,
         srcs = [
@@ -16,10 +15,13 @@ def on_target_test(name, image):
             "//tools:on_target_test.py",
         ],
         main = "//tools:on_target_test.py",
-        args = ["--elf", "$(rootpath {})".format(elf)],
-        data = [elf],
+        args = ["--elf", "$(rootpath {})".format(image)],
+        data = [image],
+        # exclusive: one board, one test at a time. external: never cache a result from hardware.
+        # local: the serial port is not in the sandbox. manual: wildcards must not flash the board.
         tags = [
             "exclusive",
+            "external",
             "local",
             "manual",
         ],

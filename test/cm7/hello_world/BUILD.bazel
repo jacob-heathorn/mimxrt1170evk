@@ -1,5 +1,4 @@
 load("//bazel:cores.bzl", "cm7_image")
-load("//tools:flash.bzl", "flash")
 load("//tools:multicore.bzl", "embedded_image")
 
 # The cm4 image as a C array for the cm7 image to copy into RAM and start.
@@ -22,9 +21,4 @@ cm7_image(
         "-Wno-shadow",
     ],
     deps = ["//firmware/cm7:runtime"],
-)
-
-flash(
-    name = "hello-world-cm7.flash",
-    image = ":hello-world-cm7",
 )
