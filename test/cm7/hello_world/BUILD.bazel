@@ -14,13 +14,13 @@ firmware_image(
     platform = "@forge//bazel/platforms:cm7",
     deps = [
         "//firmware/cm7:cm7-platform",
-        "//firmware/cm7:registers",
         "//firmware/cm7:utils",
         "//firmware/cm7/legacy:board",
         "//firmware/cm7/legacy:cmsis",
         "//firmware/cm7/legacy:drivers",
         "//firmware/cm7/legacy:mcmgr",
         "//firmware/cm7/legacy:utilities",
+        "//firmware/cm7/registers",
         "//firmware/cm7/startup:rt1170-startup-cm7",
     ],
 )

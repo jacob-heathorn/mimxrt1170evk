@@ -7,9 +7,23 @@ bazel_dep(name = "forge", version = "0.1.0")
 # Gordion checkouts in the workspace take precedence via tools/bazel; see gordion's README.
 git_override(
     module_name = "forge",
-    commit = "f5bb0ded7e85ec821121203f7cdb195660cc1346",
+    commit = "59c16e79775064e40bf531d934e94f040b3faea5",
     remote = "https://github.com/jacob-heathorn/forge.git",
 )
+
+http_file = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+
+[
+    http_file(
+        name = "mimxrt1176_{}_svd".format(core),
+        sha256 = sha256,
+        url = "https://raw.githubusercontent.com/nxp-mcuxpresso/mcux-soc-svd/MCUX_2.16.100/MIMXRT1176/MIMXRT1176_{}.xml".format(core),
+    )
+    for core, sha256 in [
+        ("cm4", "2c1acd622b12c18a887d75ec291c628756daef22272d6f986f9980c45f10251f"),
+        ("cm7", "8daeb97c4a787edc6bd9a755e83e2fec889f58758c33940bddd422081c29e0ab"),
+    ]
+]
 
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
 python.toolchain(

@@ -3,9 +3,9 @@
 #include <cassert>
 #include <cstdint>
 
-#include "registers/codegen/ccm.hpp"
-#include "registers/codegen/gpio.hpp"
-#include "registers/codegen/iomuxc.hpp"
+#include "registers/ccm.hpp"
+#include "registers/gpio.hpp"
+#include "registers/iomuxc.hpp"
 
 // ================================================================================================
 // Generic Gpio class definition

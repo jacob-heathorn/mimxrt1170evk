@@ -90,21 +90,12 @@ cc_library(
     alwayslink = True,
 )
 
-# Committed SVD codegen output; see TODO.md for generating it in the build.
-cc_library(
-    name = "registers",
-    hdrs = glob(["registers/**/*.hpp"]),
-    includes = ["."],
-    target_compatible_with = CM4,
-    deps = ["@forge//firmware/ftl"],
-)
-
 cc_library(
     name = "drivers_new",
     hdrs = glob(["drivers_new/*.hpp"]),
     includes = ["."],
     target_compatible_with = CM4,
-    deps = [":registers"],
+    deps = ["//firmware/cm4/registers"],
 )
 
 cc_library(
@@ -113,5 +104,5 @@ cc_library(
     hdrs = ["platform/mpu.hpp"],
     includes = ["."],
     target_compatible_with = CM4,
-    deps = [":registers"],
+    deps = ["//firmware/cm4/registers"],
 )

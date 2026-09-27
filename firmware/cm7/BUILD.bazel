@@ -3,15 +3,6 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 
 package(default_visibility = ["//visibility:public"])
 
-# Committed SVD codegen output; see TODO.md for generating it in the build.
-cc_library(
-    name = "registers",
-    hdrs = glob(["registers/**/*.hpp"]),
-    includes = ["."],
-    target_compatible_with = CM7,
-    deps = ["@forge//firmware/ftl"],
-)
-
 cc_library(
     name = "utils",
     hdrs = glob(["utils/*.hpp"]),
@@ -26,8 +17,8 @@ cc_library(
     includes = ["."],
     target_compatible_with = CM7,
     deps = [
-        ":registers",
         "//firmware/cm7/legacy:drivers",
+        "//firmware/cm7/registers",
     ],
 )
 
@@ -43,11 +34,11 @@ cc_library(
     target_compatible_with = CM7,
     deps = [
         ":drivers",
-        ":registers",
         ":utils",
         "//firmware/cm7/legacy:board",
         "//firmware/cm7/legacy:cmsis",
         "//firmware/cm7/legacy:utilities",
+        "//firmware/cm7/registers",
     ],
     alwayslink = True,
 )

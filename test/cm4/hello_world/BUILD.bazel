@@ -12,8 +12,8 @@ firmware_image(
         "//firmware/cm4:drivers",
         "//firmware/cm4:drivers_new",
         "//firmware/cm4:mcmgr",
-        "//firmware/cm4:registers",
         "//firmware/cm4:utilities",
+        "//firmware/cm4/registers",
         "//firmware/cm4/startup:rt1170-startup-cm4",
     ],
 )

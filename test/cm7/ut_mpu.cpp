@@ -2,14 +2,14 @@
 #include "clock_config.h"
 #include "board.h"
 #include "mcmgr.h"
-#include "registers/codegen/iomuxc.hpp"
-#include "registers/codegen/ccm.hpp"
+#include "registers/iomuxc.hpp"
+#include "registers/ccm.hpp"
 #include "core_cm7.h"
 #include "cachel1_armv7.h"
 #include <cstdio>
 
-#include "registers/codegen/dma0.hpp"
-#include "registers/codegen/dmamux0.hpp"
+#include "registers/dma0.hpp"
+#include "registers/dmamux0.hpp"
 
 namespace {
 using Dma0 = regs::Dma0;

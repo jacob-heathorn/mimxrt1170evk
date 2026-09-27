@@ -4,11 +4,11 @@
 #include <cstdio>
 #include <cstring>
 
-#include "registers/codegen/iomuxc.hpp"
-#include "registers/codegen/ccm.hpp"
-#include "registers/codegen/lpuart.hpp"
-#include "registers/codegen/dma0.hpp"
-#include "registers/codegen/dmamux0.hpp"
+#include "registers/iomuxc.hpp"
+#include "registers/ccm.hpp"
+#include "registers/lpuart.hpp"
+#include "registers/dma0.hpp"
+#include "registers/dmamux0.hpp"
 
 #include "etl/singleton.h"
 #include "utils/ocram2_allocator.hpp"

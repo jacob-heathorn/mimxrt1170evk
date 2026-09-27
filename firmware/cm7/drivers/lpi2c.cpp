@@ -1,8 +1,8 @@
 #include "drivers/lpi2c.hpp"
 
-#include "registers/codegen/ccm.hpp"
-#include "registers/codegen/iomuxc_lpsr.hpp"
-#include "registers/codegen/lpi2c.hpp"
+#include "registers/ccm.hpp"
+#include "registers/iomuxc_lpsr.hpp"
+#include "registers/lpi2c.hpp"
 
 namespace {
 
