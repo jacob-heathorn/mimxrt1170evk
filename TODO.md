@@ -1,152 +1,76 @@
-# Claude
+# Bazel migration
 
-TODO: 
+Why: register codegen runs in the build (SVD or generator change → headers
+regenerate, per-header deps); one `bazel run` builds cm4 + cm7 and flashes
+the right target; bzlmod replaces nix for deps; tests are fast and cached.
 
-Items captured mid-conversation, to revisit between sessions.
+Done so far: forge on bazel (cmake/nix/nox removed there). Here: both HALs,
+startup, platform layers, hello-world-cm4, hello-world-cm7 with a flash
+wrapper (`bazel run //test/cm7/hello_world:hello-world-cm7`, no config).
 
-## Build configurations
+## In priority order
 
-- [ ] **Debug vs release builds.** Mirror the cmake presets `cm4-debug`,
-      `cm4-release`, `cm7-debug`, `cm7-release` as bazel configs. Currently
-      `--config=cm4` is one-size-fits-all. Add `build:dbg`/`build:opt` like
-      forge has (`-Og -ggdb` vs `-O3 -DNDEBUG`), composable with cm4/cm7 so
-      `--config=cm4 --config=dbg` matches the old `cm4-debug` preset.
+1. **cm7 embeds the real cm4 image.** `hello-world-cm7` links a stub today.
+   Give the cm4 `.bin.cpp` dep a `cfg = cm4_transition` in
+   `bazel/elf_image.bzl` so one cm7 build produces both cores.
 
-## Multi-core build orchestration
+2. **Debug / release configs.** `.bazelrc` hard-codes `-O0 -g`. Add
+   `build:dbg` / `build:opt` (as in forge) composable with `cm4` / `cm7`
+   to mirror the four cmake presets.
 
-- [ ] **One-shot cm4 + cm7 build.** cmake's `find_cm4()` reads the cm4
-      `.bin.cpp` from `.bin/cm4-debug/` (written by a prior cmake run). The
-      bazel-native equivalent is a configuration transition: cm7's dep on the
-      cm4 .bin.cpp uses `cfg = cm4_transition` so a single
-      `bazel build //test/cm7/hello_world:hello-world-cm7` builds both cores.
-      `bazel/elf_image.bzl` will need to grow that transition.
+3. **cm4 deploy parity.** `hello-world-cm4` lacks `deploy = True`, so
+   building it without `--config=cm4` picks host gcc and fails. Match cm7.
 
-## Debugging
+4. **Generate register headers, stop checking them in.** 230 `.hpp` under
+   `firmware/*/registers/codegen/` are committed today. Make them
+   `genrule`/custom-rule outputs of the SVD + forge generator; consumers
+   depend on individual header targets.
 
-- [ ] **gdb / JLink / SWO workflow.** cmake had `rip -d preset:target`
-      generating `.vscode/launch.json` from a jinja template and shelling out
-      to JLinkGDBServer. Reproduce as:
-        - `bazel run //test/cm7/hello_world:flash` — `sh_binary` wrapping
-          JLinkExe with the `.bin` as a runtime dep.
-        - `bazel run //test/cm7/hello_world:debug` — gdb-server + gdb on the
-          elf.
-        - Generate `.vscode/launch.json` from a bazel rule so it tracks the
-          actual built target.
+5. **Remaining deps.** Unblocks `echo`, `hello-threadx`, `hello-netx`,
+   `hello-publisher`, `hello-subscriber`, and the FOC app.
+   * threadx, netxduo: vendored `cc_library` with hand-written BUILD files
+     (rules_foreign_cc is too much friction for header-heavy SDKs).
+   * microcyphal: same pattern as forge — bazel migration in its own
+     commit, then `bazel_dep` here and add it to `GORDION_MODULES` in
+     `tools/bazel`. Its `bazel` branch exists but has no MODULE.bazel yet.
 
-## Tooling
+6. **Remove cmake, nix, nox from this repo.** forge already did.
+   * Hermetic ARM toolchain first: `arm-none-eabi-gcc` comes from nix's
+     PATH today. Have `bazel/arm_gcc/extension.bzl` `download_and_extract`
+     the Arm GNU tarball (or adopt `toolchains_arm_gnu` once it works on
+     bazel 9; BCR 1.1.0 fails with `provides=[None]`).
+   * Python: rules_python already supplies the interpreter. Check whether
+     nox / uv still have a role or go away entirely.
+   * Then delete `CMakeLists.txt`, `CMakePresets.json`, `flake.nix`,
+     `noxfile.py`, and the nix bits of `.envrc`.
 
-- [ ] **clangd / compile_commands.json.** Bazel doesn't emit
-      `compile_commands.json` natively. Add `hedron_compile_commands` so IDEs
-      see the right per-target include/define set. Becomes important once we
-      have multiple platforms (cm4 / cm7 / host) compiling with different
-      flags.
+7. **Warnings.** Route application targets through a macro that adds
+   forge's `FORGE_COPTS` (`-Werror`); keep `HAL_COPTS` `-Wno-*` scoped to
+   vendored NXP code. Audit and drop `-Wno-*` hacks copied from cmake.
 
-## Code quality / parity
+8. **compile_commands.json.** Bazel doesn't emit it. Add
+   `hedron_compile_commands`; point `.vscode/settings.json` at it instead
+   of `.bin/cm7-debug/`.
 
-- [ ] **`-Werror` reinstated for application code.** I scoped `HAL_COPTS`
-      `-Wno-…` to vendored NXP libs only, but haven't wired forge's
-      `FORGE_COPTS` (which has `-Werror`) onto application targets. The
-      hello-world-cm4 binary currently builds without the strict set. Once
-      the dep tree settles, route application targets through a macro that
-      adds `FORGE_COPTS`.
+9. **Debug workflow.** `bazel run //...:flash` and `:debug` targets
+   wrapping JLink/LinkServer + gdb, SWO, and a generated
+   `.vscode/launch.json` that tracks the built target.
 
-- [ ] **Strip leftover `-Wno-*` hacks** copied from cmake (e.g.
-      `-Wno-unused-variable # TODO remove` in the old hello-world
-      CMakeLists). Audit and drop ones that don't fire.
+10. **clang + lld, then LTO.** Deferred until the migration is stable.
+    gcc + bfd ld can't LTO across bazel's per-library archives (binutils
+    12758, won't-fix; `alwayslink` defeats `--gc-sections`, 3.6× bloat).
+    lld's `--start-lib/--end-lib` fixes it. Matters for FOC ISR timing
+    (10–20 % budget lost to cross-TU calls), not for hello-world.
+    Full investigation: commit `9b80ea2`. Alternative if staying on gcc:
+    merge the whole HAL into one `cc_library` per core.
 
-## Toolchain upgrade: clang + lld to enable LTO
+## Gordion + bazel
 
-- [ ] **Migrate the embedded toolchain from `arm-none-eabi-gcc` + GNU
-      bfd ld to `clang --target=arm-none-eabi` + lld** (LLVM Embedded
-      Toolchain for ARM). This unlocks `-flto=auto` (and ThinLTO),
-      which currently can't be enabled under our setup.
+Solved: gordion may place a dep as a sibling or in its private cache, so
+`tools/bazel` (picked up by bazelisk from the repo root) resolves each
+`GORDION_MODULES` entry via `gordion -f` and writes
+`--override_module=<name>=<path>` into the gitignored `user.bazelrc`.
 
-      **Why this is more than cosmetic.** The FOC application
-      (`firmware/cm7/application/foc/`) runs control loops at 10–100 kHz.
-      Without LTO every Park / Clarke / SVPWM step is a separate function
-      call across translation units, costing 10–20 % of the ISR budget.
-      With LTO the math chain inlines into one ISR — fewer cycles, more
-      deterministic timing. Hello-world doesn't care; motor control does.
-
-      **Why we can't just toggle `-flto=auto` under gcc.** Documented
-      architectural mismatch:
-
-      * GNU bfd ld + GCC's LTO plugin: plugin runs once over claimed
-        objects; ld's `--start-group` archive iteration can't re-feed
-        it. binutils bug 12758 (filed 2011) — won't-fix.
-      * Bazel passes each `cc_library` archive once in dep-graph order.
-        NXP MCUXpresso HAL has cross-module symbol cycles
-        (mcmgr → drivers/MU_Init, mcmgr → utilities/SDK_DelayAtLeastUs);
-        cmake worked around it by listing each archive 2–3× in the link
-        line (no `--start-group`).
-      * `alwayslink = True` everywhere "fixes" the link but defeats
-        `--gc-sections` under LTO (binary inflates 3.6× — every clock-
-        config function and four LTO-private clones of `s_clockSourceName`
-        stick because `--whole-archive` semantically forbids dropping).
-      * GCC 14 / 15 release notes: no plan to fix the plugin model.
-        `-fuse-ld=lld` doesn't help because lld can't read GCC's GIMPLE
-        bitcode (LLVM #41791).
-
-      **Why clang + lld solves it.** lld supports `--start-lib` /
-      `--end-lib` (Bazel's `supports_start_end_lib` toolchain feature),
-      which gives `cc_library` outputs archive-like semantics *without*
-      bfd-ld's archive-scanning quirk. Bazel auto-emits these around
-      `cc_library` outputs and ThinLTO works cleanly out of the box.
-      It's the path Pigweed recommends for new Bazel embedded projects
-      and what the LLVM Embedded Toolchain for ARM is designed for.
-
-      **Plan when ready:**
-
-      1. Add `bazel/arm_clang/extension.bzl`, mirror of `bazel/arm_gcc/`
-         but pointing at LLVM Embedded Toolchain for ARM. Either pull
-         the upstream tarball via `repository_ctx.download_and_extract`
-         or `repository_ctx.which("clang")` from a system install.
-      2. Toolchain features set `--target=arm-none-eabi`,
-         `-mcpu=cortex-m{4,7}`, `-mfpu=...`, the same NXP defines.
-      3. Keep newlib-nano via `--specs=nano.specs --specs=nosys.specs`
-         (lld respects them when invoked through clang as the driver).
-      4. Enable `supports_start_end_lib` feature in the cc_toolchain.
-      5. Re-enable `-flto=auto` (or step up to `-flto=thin`) in
-         `.bazelrc`.
-      6. Validate: NXP MCUXpresso HAL builds (a few `fsl_*.c` may need
-         `-Wno-...` for clang-only diagnostics on inline asm), the
-         hello-world-cm7 banner still prints, FOC still runs and meets
-         timing.
-      7. Confirm by disasm of the FOC ISR with/without LTO that the
-         math chain actually inlined.
-
-      **Trade-off.** Migrating to clang touches every compile and may
-      surface clang-vs-gcc diagnostic differences in vendored NXP code.
-      It's a contained project — best done after the bazel migration
-      stabilizes, not as part of it. Until then the cm4/cm7 `.bin`s are
-      ~92 bytes off cmake's (`objdump -d` shows equivalent code paths).
-
-      **Alternative if we want to stay on gcc:** merge the entire HAL
-      (drivers / board / mcmgr / utilities / cmsis / device) into a
-      single `cc_library` per core (Pigweed's `pw_build_mcuxpresso`
-      pattern). All TUs in one library = no archive cycles = LTO
-      works under gcc. Loses per-module visibility but vendor HAL is a
-      single conceptual unit anyway. Less invasive than swapping the
-      compiler.
-
-## Toolchain
-
-- [ ] **Hermetic ARM toolchain (managed by bazel, not nix).** Currently
-      `arm-none-eabi-gcc` is system-resolved from PATH (nix-supplied today).
-      Goal: bazel owns the compiler so removing nix is a no-op for builds.
-      Best path: watch upstream `toolchains_arm_gnu` for a Bazel-9-compatible
-      release, then swap `bazel/arm_gcc/extension.bzl` to use it. (BCR 1.1.0
-      fails on bazel 9 due to `provides=[None]`.) Alternative: have the
-      module extension `download_and_extract` the Arm GNU toolchain tarball
-      directly (the URL pattern is stable per release) and point tool_paths
-      at the extracted tree — fewer moving parts than a third-party module.
-
-## Downstream
-
-- [ ] **microcyphal repo.** Skipped per user direction. When ready: same
-      pattern as forge — bazel migration in its own commit, gordion sibling
-      layout, register as a `bazel_dep` from mimxrt's MODULE.bazel.
-
-- [ ] **threadx, netxduo.** Larger pieces. Likely vendored as `cc_library`
-      with hand-written BUILD files (rules_foreign_cc adds too much friction
-      for header-heavy SDKs). Postpone until cm7 hello-world is solid.
+Verify: a real `bazel` binary invoked without bazelisk skips the wrapper
+and uses a stale `user.bazelrc`; a dep gordion can't find only warns and
+is not overridden. Decide whether either should hard-fail.
