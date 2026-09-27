@@ -1,0 +1,28 @@
+load("//bazel:cores.bzl", "CORES")
+
+package(default_visibility = ["//visibility:public"])
+
+# Both cores are armv7e-m, so this constraint is what tells them apart.
+constraint_setting(name = "core")
+
+# One constraint value per core, e.g. //bazel/platforms:cm7_core.
+[
+    constraint_value(
+        name = core + "_core",
+        constraint_setting = ":core",
+    )
+    for core in CORES
+]
+
+# One platform per core, e.g. //bazel/platforms:cm7. Building for it selects that core's toolchain.
+[
+    platform(
+        name = core,
+        constraint_values = [
+            "@platforms//cpu:armv7e-m",
+            "@platforms//os:none",
+            ":" + core + "_core",
+        ],
+    )
+    for core in CORES
+]

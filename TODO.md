@@ -21,26 +21,22 @@ the board via `bazel test`. Gordion checkouts override `git_override` pins via
    hello-subscriber boot and bring up the PHY but were checked without a
    cable; run them against a host with `socat` / `yakut` per the README.
 
-2. **Warnings.** Route application targets through forge's `FORGE_COPTS`
-   (`-Werror`); `HAL_COPTS` stays on vendored NXP code. Drop `-Wno-*`
-   suppressions that no longer fire.
-
-3. **compile_commands.json.** Add `hedron_compile_commands` and point
+2. **compile_commands.json.** Add `hedron_compile_commands` and point
    `.vscode/settings.json` at it.
 
-4. **Debug workflow.** `:debug` targets wrapping LinkServer + gdb, SWO, and
+3. **Debug workflow.** `:debug` targets wrapping LinkServer + gdb, SWO, and
    a generated `.vscode/launch.json`. A cm4 `flash` target once the
    LinkServer core selection for cm4 is known.
 
-5. **Hermetic host toolchain.** forge's native tests use the system gcc.
+4. **Hermetic host toolchain.** forge's native tests use the system gcc.
    `toolchains_llvm` would pin it, and the same clang can later serve the
-   Cortex-M targets (item 7). The Arm toolchain download is x86_64 Linux
+   Cortex-M targets (item 6). The Arm toolchain download is x86_64 Linux
    only; add macOS/arm64 URLs when needed.
 
-6. **MODULE.bazel.lock.** Gitignored today. Commit it once overrides stop
+5. **MODULE.bazel.lock.** Gitignored today. Commit it once overrides stop
    churning it, so registry resolution is pinned.
 
-7. **clang + lld, then LTO.** Deferred until the migration is stable.
+6. **clang + lld, then LTO.** Deferred until the migration is stable.
    gcc + bfd ld can't LTO across bazel's per-library archives (binutils
    12758, won't-fix; `alwayslink` defeats `--gc-sections`, 3.6× bloat).
    lld's `--start-lib/--end-lib` fixes it. Matters for FOC ISR timing,

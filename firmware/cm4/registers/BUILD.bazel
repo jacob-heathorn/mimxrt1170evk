@@ -1,6 +1,7 @@
 load("@forge//bazel:svd.bzl", "svd_cc_library")
-load("@forge//bazel/platforms:cores.bzl", "CM4")
+load("//bazel:cores.bzl", "CM4")
 
+# Register headers generated from NXP's SVD, included as "registers/<peripheral>.hpp".
 svd_cc_library(
     name = "registers",
     include_prefix = "registers",

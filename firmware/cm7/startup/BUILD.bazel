@@ -1,10 +1,10 @@
-load("@forge//bazel/platforms:cores.bzl", "CM7")
 load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:cores.bzl", "CM7", "cm7_library")
 load("//firmware:hal.bzl", "HAL_COPTS")
 
 package(default_visibility = ["//visibility:public"])
 
-# The boot header is found by flash offset, not by reference, so keep it linked.
+# NXP FlexSPI boot header. The ROM finds it by flash offset, not by reference, so keep it linked.
 cc_library(
     name = "boot",
     srcs = [
@@ -18,25 +18,26 @@ cc_library(
     copts = HAL_COPTS,
     includes = ["boot"],
     target_compatible_with = CM7,
-    deps = ["//firmware/cm7/legacy:drivers"],
+    deps = ["@nxp_cm7//:drivers"],
     alwayslink = True,
 )
 
-cc_library(
+# Our SystemInitHook: MPU, caches and the cm4 handshake before main().
+cm7_library(
     name = "system_init",
     srcs = ["system_init/system_init_hook.cpp"],
-    target_compatible_with = CM7,
     deps = [
         "//firmware/cm7:cm7-platform",
         "//firmware/cm7:utils",
-        "//firmware/cm7/legacy:board",
-        "//firmware/cm7/legacy:mcmgr",
-        "//firmware/cm7/legacy:utilities",
         "//firmware/cm7/registers",
+        "@nxp_cm7//:board",
+        "@nxp_cm7//:mcmgr",
+        "@nxp_cm7//:utilities",
     ],
 )
 
-# Reset_Handler is reached only through the entry point, so keep it linked.
+# NXP vector table, Reset_Handler and the flash linker script. Reset_Handler is reached only through
+# the entry point, so keep it linked.
 cc_library(
     name = "rt1170-startup-cm7",
     srcs = ["startup_mimxrt1176_cm7.S"],

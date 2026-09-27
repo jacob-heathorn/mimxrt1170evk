@@ -1,10 +1,10 @@
-load("@forge//bazel:firmware.bzl", "firmware_image")
+load("//bazel:cores.bzl", "cm7_image")
 load("//tools:flash.bzl", "flash")
 
-firmware_image(
+# Field-oriented motor control with an AS5600 encoder over LPI2C.
+cm7_image(
     name = "foc",
     srcs = ["main.cpp"],
-    platform = "@forge//bazel/platforms:cm7",
     deps = [
         "//firmware/cm7:drivers",
         "//firmware/cm7:runtime",

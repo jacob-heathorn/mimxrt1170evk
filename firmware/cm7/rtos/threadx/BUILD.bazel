@@ -1,36 +1,34 @@
-load("@forge//bazel/platforms:cores.bzl", "CM7")
-load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:cores.bzl", "cm7_library")
 
 package(default_visibility = ["//visibility:public"])
 
-cc_library(
+# Our ThreadX configuration, included by the kernel as tx_user.h.
+cm7_library(
     name = "tx_user",
     hdrs = ["tx_user.h"],
     includes = ["."],
-    target_compatible_with = CM7,
 )
 
-# The kernel archive references these, so they must already be linked when it is scanned.
-cc_library(
+# Our port glue: SysTick setup and the stack overflow handler. The kernel archive references
+# these, so they must already be linked when it is scanned.
+cm7_library(
     name = "threadx",
     srcs = [
         "tx_initialize_low_level.c",
         "tx_thread_stack_error.cpp",
     ],
-    target_compatible_with = CM7,
     deps = [
-        "//firmware/cm7/legacy:drivers",
         "@forge//firmware/threadx:ftl-threadx",
+        "@nxp_cm7//:drivers",
         "@threadx",
     ],
     alwayslink = True,
 )
 
 # main() for pigweed test images: runs the tests in a ThreadX thread.
-cc_library(
+cm7_library(
     name = "pw_ut_main",
     srcs = ["pw_ut_main.cpp"],
-    target_compatible_with = CM7,
     deps = [
         ":threadx",
         "//firmware/cm7:utils",

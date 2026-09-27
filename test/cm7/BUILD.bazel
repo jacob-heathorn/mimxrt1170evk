@@ -1,19 +1,19 @@
-load("@forge//bazel:firmware.bzl", "firmware_image")
+load("//bazel:cores.bzl", "cm7_image")
 load("//tools:flash.bzl", "flash")
 load("//tools:on_target_test.bzl", "on_target_test")
 
-firmware_image(
+# Echoes UART input back.
+cm7_image(
     name = "echo",
     srcs = ["echo.cpp"],
-    platform = "@forge//bazel/platforms:cm7",
     deps = ["//firmware/cm7:runtime"],
 )
 
-firmware_image(
+# Two ThreadX threads taking turns.
+cm7_image(
     name = "hello-threadx",
     srcs = ["hello_threadx.cpp"],
     copts = ["-Wno-write-strings"],
-    platform = "@forge//bazel/platforms:cm7",
     deps = [
         "//firmware/cm7:runtime",
         "//firmware/cm7/rtos/threadx",
@@ -22,10 +22,10 @@ firmware_image(
     ],
 )
 
-firmware_image(
+# UDP echo over gigabit ethernet.
+cm7_image(
     name = "hello-netx",
     srcs = ["hello_netx.cpp"],
-    platform = "@forge//bazel/platforms:cm7",
     deps = [
         "//firmware/cm7:runtime",
         "//firmware/cm7/network",
@@ -35,11 +35,11 @@ firmware_image(
     ],
 )
 
+# Cyphal/UDP heartbeat publisher and subscriber.
 [
-    firmware_image(
+    cm7_image(
         name = name,
         srcs = [name.replace("-", "_") + ".cpp"],
-        platform = "@forge//bazel/platforms:cm7",
         deps = [
             "//firmware/cm7:runtime",
             "//firmware/cm7/network",
@@ -55,6 +55,7 @@ firmware_image(
     ]
 ]
 
+# `bazel run` targets that program the board with each image.
 [
     flash(
         name = image + ".flash",
@@ -69,6 +70,7 @@ firmware_image(
     ]
 ]
 
+# Pigweed unit tests that run on the board.
 _TESTS = {
     "ut-simple": ["ut_simple.cpp"],
     "ut-memory": [
@@ -80,10 +82,9 @@ _TESTS = {
 }
 
 [
-    firmware_image(
+    cm7_image(
         name = name,
         srcs = srcs,
-        platform = "@forge//bazel/platforms:cm7",
         deps = [
             "//firmware/cm7:runtime",
             "//firmware/cm7/rtos/threadx",
@@ -96,6 +97,7 @@ _TESTS = {
     for name, srcs in _TESTS.items()
 ]
 
+# `bazel test` targets that flash each test image and read its result.
 [
     on_target_test(
         name = name + ".test",

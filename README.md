@@ -56,6 +56,12 @@ because they need the hardware.
 device: `/dev/ttyACM0`
 baud: `115200`
 
+# Build files
+Our code uses `cm7_library`, `cm4_library`, `cm7_image` and `cm4_image` from `bazel/cores.bzl`:
+a `cc_library` or firmware image that builds for one core with forge's warnings and `-Werror`.
+Vendored code (NXP's SDK under `firmware/*/legacy`, ThreadX, NetX Duo) is a plain `cc_library`
+in `third_party/`, compiled as an external repository so its headers are system headers.
+
 # Dependencies
 Repositories under development (forge, microcyphal) are managed by gordion and
 pinned in `gordion.yaml`; ThreadX, NetX Duo and NXP's SVDs are fetched by bazel; `tools/bazel` points bazel at whichever of them are

@@ -200,7 +200,7 @@ public:
             if (c == '\r' || c == '\n') break;  // Stop on Enter key
         }
         buffer[i++] = '\0';  // Null-terminate string
-        return i;
+        return static_cast<int>(i);
     }
 
     uint8_t read_byte()

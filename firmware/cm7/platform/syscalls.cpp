@@ -11,6 +11,7 @@ extern "C" {
 
     int _read(int fd, char* ptr, int len) {
         (void)fd;  // Ignore file descriptor
+        (void)len;
         *ptr = ConsoleUart::instance().read_byte();
         
         // Convert \r to \n for the expected stop condition.

@@ -22,7 +22,7 @@ public:
         UINT status = nx_udp_socket_create(
             interface_.Ip(),            // NX_IP*
             &socket_,                   // NX_UDP_SOCKET*
-            name_,                      // socket name
+            const_cast<CHAR*>(kName),   // socket name
             NX_IP_NORMAL,               // type‐of‐service
             NX_DONT_FRAGMENT,           // fragmentation
             NX_IP_TIME_TO_LIVE,         // default TTL
@@ -125,5 +125,5 @@ public:
 private:
     NxEthernetInterface &interface_;
     NX_UDP_SOCKET       socket_{};
-    char*               name_ = "NxUdpSocket";
+    static constexpr char kName[] = "NxUdpSocket";
 };

@@ -1,16 +1,19 @@
-load("@forge//bazel/platforms:cores.bzl", "CM7")
+load("@mimxrt1170evk//firmware:hal.bzl", "DEBUG_DEFINES", "HAL_COPTS", "SDK_DEFINES")
 load("@rules_cc//cc:defs.bzl", "cc_library")
-load("//firmware:hal.bzl", "DEBUG_DEFINES", "HAL_COPTS", "SDK_DEFINES")
 
 package(default_visibility = ["//visibility:public"])
 
+_CM7 = ["@mimxrt1170evk//bazel/platforms:cm7_core"]
+
+# ARM CMSIS core headers.
 cc_library(
     name = "cmsis",
     hdrs = glob(["cmsis/*.h"]),
     includes = ["cmsis"],
-    target_compatible_with = CM7,
+    target_compatible_with = _CM7,
 )
 
+# Device headers and system init; carries the SDK configuration for everything above it.
 cc_library(
     name = "device",
     srcs = glob(["device/*.c"]),
@@ -22,20 +25,22 @@ cc_library(
         "XIP_EXTERNAL_FLASH=1",
     ] + SDK_DEFINES + DEBUG_DEFINES,
     includes = ["device"],
-    target_compatible_with = CM7,
+    target_compatible_with = _CM7,
     deps = [":cmsis"],
 )
 
+# Peripheral drivers (fsl_*).
 cc_library(
     name = "drivers",
     srcs = glob(["drivers/*.c"]),
     hdrs = glob(["drivers/*.h"]),
     copts = HAL_COPTS,
     includes = ["drivers"],
-    target_compatible_with = CM7,
+    target_compatible_with = _CM7,
     deps = [":device"],
 )
 
+# Debug console, asserts and the _sbrk heap hook.
 cc_library(
     name = "utilities",
     srcs = glob([
@@ -47,34 +52,36 @@ cc_library(
     includes = ["utilities"],
     # Resolve _sbrk from fsl_sbrk.c rather than the nosys stub, so malloc has a heap.
     linkopts = ["-Wl,--undefined=_sbrk"],
-    target_compatible_with = CM7,
+    target_compatible_with = _CM7,
     deps = [
         ":device",
         ":drivers",
     ],
 )
 
+# Board support: clocks and pin mux for the EVK.
 cc_library(
     name = "board",
     srcs = glob(["board/*.c"]),
     hdrs = glob(["board/*.h"]),
     copts = HAL_COPTS,
     includes = ["board"],
-    target_compatible_with = CM7,
+    target_compatible_with = _CM7,
     deps = [
         ":drivers",
         ":utilities",
     ],
 )
 
-# Its interrupt handlers are reached only through the vector table, so keep them linked.
+# Multicore manager. Its interrupt handlers are reached only through the vector table, so keep them
+# linked.
 cc_library(
     name = "mcmgr",
     srcs = glob(["mcmgr/*.c"]),
     hdrs = glob(["mcmgr/*.h"]),
     copts = HAL_COPTS + ["-Wno-cast-align"],
     includes = ["mcmgr"],
-    target_compatible_with = CM7,
+    target_compatible_with = _CM7,
     deps = [
         ":device",
         ":drivers",

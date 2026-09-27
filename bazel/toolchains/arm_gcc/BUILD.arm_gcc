@@ -1,0 +1,43 @@
+load("@mimxrt1170evk//bazel:cores.bzl", "CORES")
+load("@mimxrt1170evk//bazel/toolchains/arm_gcc:config.bzl", "arm_gcc_toolchain_config")
+load("@rules_cc//cc:defs.bzl", "cc_toolchain")
+
+package(default_visibility = ["//visibility:public"])
+
+# Every file of the downloaded toolchain, so actions can run its binaries in the sandbox.
+filegroup(
+    name = "all",
+    srcs = glob(
+        ["**"],
+        exclude = ["share/**"],
+    ),
+)
+
+# The compiler flags for each core.
+[
+    arm_gcc_toolchain_config(
+        name = core + "_config",
+        bin_dir = "bin",
+        core = core,
+        system_include_dirs = %{include_dirs},
+    )
+    for core in CORES
+]
+
+# The toolchain for each core: those flags plus the downloaded binaries.
+[
+    cc_toolchain(
+        name = core,
+        all_files = ":all",
+        ar_files = ":all",
+        as_files = ":all",
+        compiler_files = ":all",
+        dwp_files = ":all",
+        linker_files = ":all",
+        objcopy_files = ":all",
+        strip_files = ":all",
+        supports_param_files = 0,
+        toolchain_config = ":" + core + "_config",
+    )
+    for core in CORES
+]

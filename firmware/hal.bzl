@@ -1,15 +1,15 @@
-"""Build settings shared by the vendored NXP MCUXpresso SDK libraries."""
+"""Build settings for the vendored NXP MCUXpresso SDK."""
 
 # The SDK does not compile cleanly under forge's warning set.
 HAL_COPTS = [
     "-Wno-sign-conversion",
     "-Wno-unused-parameter",
-    "-Wno-null-dereference",
     "-Wno-switch-enum",
     "-Wno-missing-field-initializers",
     "-Wno-shadow",
 ]
 
+# SDK configuration shared by both cores.
 SDK_DEFINES = [
     "MCUXPRESSO_SDK",
     "MULTICORE_APP=1",
@@ -20,6 +20,7 @@ SDK_DEFINES = [
     "__STARTUP_INITIALIZE_NONCACHEDATA",
 ]
 
+# The SDK's own assert switch, on in debug builds only.
 DEBUG_DEFINES = select({
     "@forge//bazel:dbg": ["DEBUG"],
     "//conditions:default": [],

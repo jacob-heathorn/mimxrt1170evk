@@ -2,7 +2,7 @@
 #include <stdint.h>
 
 extern "C" {
-#include "legacy/cmsis/cmsis_gcc.h"
+#include "cmsis_gcc.h"
 }
 
 #include "platform/assert_led.hpp"

@@ -27,7 +27,7 @@ NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::
   // Create a packet pool.
   void* packet_pool_area = Ocram2Allocator::instance().allocate(NxEthernetInterface::kPacketPoolSize, 64);
   assert(packet_pool_area != nullptr);
-  status = nx_packet_pool_create(&pool_, "NetX Main Packet Pool", NxEthernetInterface::kMaxPacketSize,
+  status = nx_packet_pool_create(&pool_, const_cast<CHAR*>("NetX Main Packet Pool"), NxEthernetInterface::kMaxPacketSize,
     (ULONG *)(((int)packet_pool_area + 15) & ~15), NxEthernetInterface::kPacketPoolSize);
 
   // Check for pool creation error.
@@ -39,7 +39,7 @@ NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::
   void *ip_thread_stack = DtcmAllocator::instance().allocate(NxEthernetInterface::kIpThreadStackSize);
   std::memset(ip_thread_stack, 0, NxEthernetInterface::kIpThreadStackSize);
 
-  status = nx_ip_create(&ip_, "NetX IP Instance 0",
+  status = nx_ip_create(&ip_, const_cast<CHAR*>("NetX IP Instance 0"),
     address.ToUint32(), mask.ToUint32(), &pool_, nx_link_driver,
       ip_thread_stack, NxEthernetInterface::kIpThreadStackSize, 1);
 

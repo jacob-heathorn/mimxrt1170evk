@@ -1,19 +1,18 @@
-load("@forge//bazel/platforms:cores.bzl", "CM7")
-load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:cores.bzl", "cm7_library")
 
-cc_library(
+# Our ethernet interface and UDP socket over NetX Duo.
+cm7_library(
     name = "network",
     srcs = glob(["*.cpp"]),
     hdrs = glob(["include/network/*.hpp"]),
     includes = ["include"],
-    target_compatible_with = CM7,
     visibility = ["//visibility:public"],
     deps = [
         "//firmware/cm7:utils",
-        "//firmware/cm7/legacy:drivers",
         "//firmware/cm7/rtos/netxduo",
         "//firmware/cm7/rtos/threadx",
         "@forge//firmware/ftl",
         "@forge//firmware/threadx:ftl-threadx",
+        "@nxp_cm7//:drivers",
     ],
 )

@@ -57,7 +57,7 @@ int main(void)
         L1CACHE_CleanInvalidateSystemCacheByRange((uint32_t)CORE1_BOOT_ADDRESS, core1_image_size);
     }
 #endif /* APP_INVALIDATE_CACHE_FOR_SECONDARY_CORE_IMAGE_MEMORY*/
-    SCB_CleanInvalidateDCache_by_Addr((void *)CORE1_BOOT_ADDRESS, core1_image_size);
+    SCB_CleanInvalidateDCache_by_Addr((void *)CORE1_BOOT_ADDRESS, static_cast<int32_t>(core1_image_size));
 
     /* Boot Secondary core application */
     std::printf("Starting Secondary core.\r\n");

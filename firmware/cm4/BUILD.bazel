@@ -1,110 +1,20 @@
-load("@forge//bazel/platforms:cores.bzl", "CM4")
-load("@rules_cc//cc:defs.bzl", "cc_library")
-load("//firmware:hal.bzl", "DEBUG_DEFINES", "HAL_COPTS", "SDK_DEFINES")
+load("//bazel:cores.bzl", "cm4_library")
 
 package(default_visibility = ["//visibility:public"])
 
-cc_library(
-    name = "cmsis",
-    hdrs = glob(["cmsis/*.h"]),
-    includes = ["cmsis"],
-    target_compatible_with = CM4,
-)
-
-cc_library(
-    name = "device",
-    srcs = glob(["device/*.c"]),
-    hdrs = glob(["device/*.h"]),
-    copts = HAL_COPTS,
-    defines = ["CPU_MIMXRT1176DVMAA_cm4"] + SDK_DEFINES + DEBUG_DEFINES,
-    includes = ["device"],
-    target_compatible_with = CM4,
-    deps = [":cmsis"],
-)
-
-cc_library(
-    name = "drivers",
-    srcs = glob(["drivers/*.c"]),
-    hdrs = glob(["drivers/*.h"]),
-    copts = HAL_COPTS,
-    includes = ["drivers"],
-    target_compatible_with = CM4,
-    deps = [":device"],
-)
-
-cc_library(
-    name = "uart",
-    srcs = glob(["component/uart/*.c"]),
-    hdrs = glob(["component/uart/*.h"]),
-    copts = HAL_COPTS,
-    includes = ["component/uart"],
-    target_compatible_with = CM4,
-    deps = [
-        ":device",
-        ":drivers",
-    ],
-)
-
-cc_library(
-    name = "utilities",
-    srcs = glob([
-        "utilities/*.c",
-        "utilities/*.S",
-    ]),
-    hdrs = glob(["utilities/*.h"]),
-    copts = HAL_COPTS,
-    includes = ["utilities"],
-    # Resolve _sbrk from fsl_sbrk.c rather than the nosys stub, so malloc has a heap.
-    linkopts = ["-Wl,--undefined=_sbrk"],
-    target_compatible_with = CM4,
-    deps = [
-        ":device",
-        ":drivers",
-        ":uart",
-    ],
-)
-
-cc_library(
-    name = "board",
-    srcs = glob(["board/*.c"]),
-    hdrs = glob(["board/*.h"]),
-    copts = HAL_COPTS,
-    includes = ["board"],
-    target_compatible_with = CM4,
-    deps = [
-        ":drivers",
-        ":utilities",
-    ],
-)
-
-# Its interrupt handlers are reached only through the vector table, so keep them linked.
-cc_library(
-    name = "mcmgr",
-    srcs = glob(["mcmgr/*.c"]),
-    hdrs = glob(["mcmgr/*.h"]),
-    copts = HAL_COPTS + ["-Wno-cast-align"],
-    includes = ["mcmgr"],
-    target_compatible_with = CM4,
-    deps = [
-        ":device",
-        ":drivers",
-    ],
-    alwayslink = True,
-)
-
-cc_library(
+# Our C++ peripheral wrappers over the generated registers.
+cm4_library(
     name = "drivers_new",
     hdrs = glob(["drivers_new/*.hpp"]),
     includes = ["."],
-    target_compatible_with = CM4,
     deps = ["//firmware/cm4/registers"],
 )
 
-cc_library(
+# Our MPU setup and C++ new/delete.
+cm4_library(
     name = "cm4-platform",
     srcs = ["platform/new_delete.cpp"],
     hdrs = ["platform/mpu.hpp"],
     includes = ["."],
-    target_compatible_with = CM4,
     deps = ["//firmware/cm4/registers"],
 )

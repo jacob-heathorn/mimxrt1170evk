@@ -72,9 +72,9 @@ int main(void)
     {
         //SDK_DelayAtLeastUs(500000U, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
 
-        for (int i = 0; i < 1000000; ++i)
+        for (int n = 0; n < 1000000; ++n)
         {
-            int y = i * 3 / 2;
+            int y = n * 3 / 2;
             (void)y;
         }
         led.toggle();
@@ -84,9 +84,9 @@ int main(void)
     {
         //SDK_DelayAtLeastUs(500000U, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
 
-        for (int i = 0; i < 10000000; ++i)
+        for (int n = 0; n < 10000000; ++n)
         {
-            int y = i * 3 / 2;
+            int y = n * 3 / 2;
             (void)y;
         }
         led.toggle();

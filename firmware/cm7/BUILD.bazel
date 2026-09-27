@@ -1,61 +1,56 @@
-load("@forge//bazel/platforms:cores.bzl", "CM7")
-load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:cores.bzl", "cm7_library")
 
 package(default_visibility = ["//visibility:public"])
 
-cc_library(
+# Our allocators over the DTCM and OCRAM regions.
+cm7_library(
     name = "utils",
     hdrs = glob(["utils/*.hpp"]),
     includes = ["."],
-    target_compatible_with = CM7,
 )
 
-cc_library(
+# Our C++ drivers (GPIO, LPI2C) over the generated registers.
+cm7_library(
     name = "drivers",
     srcs = glob(["drivers/*.cpp"]),
     hdrs = glob(["drivers/*.hpp"]),
     includes = ["."],
-    target_compatible_with = CM7,
     deps = [
-        "//firmware/cm7/legacy:drivers",
         "//firmware/cm7/registers",
+        "@nxp_cm7//:drivers",
     ],
 )
 
-# syscalls.cpp must be linked ahead of newlib's nosys stubs to route printf to the console.
-cc_library(
+# Our MPU setup, fault handlers, C++ new/delete and the printf syscalls. syscalls.cpp must be linked
+# ahead of newlib's nosys stubs to route printf to the console.
+cm7_library(
     name = "cm7-platform",
     srcs = glob(["platform/*.cpp"]),
     hdrs = glob(["platform/include/**/*.hpp"]),
-    includes = [
-        ".",
-        "platform/include",
-    ],
-    target_compatible_with = CM7,
+    includes = ["platform/include"],
     deps = [
         ":drivers",
         ":utils",
-        "//firmware/cm7/legacy:board",
-        "//firmware/cm7/legacy:cmsis",
-        "//firmware/cm7/legacy:utilities",
         "//firmware/cm7/registers",
+        "@nxp_cm7//:board",
+        "@nxp_cm7//:cmsis",
+        "@nxp_cm7//:utilities",
     ],
     alwayslink = True,
 )
 
 # Everything a cm7 image needs to boot and print.
-cc_library(
+cm7_library(
     name = "runtime",
-    target_compatible_with = CM7,
     deps = [
         ":cm7-platform",
         ":utils",
-        "//firmware/cm7/legacy:board",
-        "//firmware/cm7/legacy:cmsis",
-        "//firmware/cm7/legacy:drivers",
-        "//firmware/cm7/legacy:mcmgr",
-        "//firmware/cm7/legacy:utilities",
         "//firmware/cm7/registers",
         "//firmware/cm7/startup:rt1170-startup-cm7",
+        "@nxp_cm7//:board",
+        "@nxp_cm7//:cmsis",
+        "@nxp_cm7//:drivers",
+        "@nxp_cm7//:mcmgr",
+        "@nxp_cm7//:utilities",
     ],
 )

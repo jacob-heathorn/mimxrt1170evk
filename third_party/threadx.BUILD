@@ -3,8 +3,8 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 package(default_visibility = ["//visibility:public"])
 
 _ARCH = {
-    "@forge//bazel/platforms:cm4_core": "cortex_m4",
-    "@forge//bazel/platforms:cm7_core": "cortex_m7",
+    "@mimxrt1170evk//bazel/platforms:cm4_core": "cortex_m4",
+    "@mimxrt1170evk//bazel/platforms:cm7_core": "cortex_m7",
 }
 
 _PORT_SRCS = [

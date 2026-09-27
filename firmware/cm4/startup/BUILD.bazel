@@ -1,7 +1,8 @@
-load("@forge//bazel/platforms:cores.bzl", "CM4")
 load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:cores.bzl", "CM4")
 load("//firmware:hal.bzl", "HAL_COPTS")
 
+# NXP clock and system initialization.
 cc_library(
     name = "system_init",
     srcs = ["system_init/system_MIMXRT1176_cm4.c"],
@@ -10,12 +11,13 @@ cc_library(
     includes = ["system_init"],
     target_compatible_with = CM4,
     deps = [
-        "//firmware/cm4:cmsis",
-        "//firmware/cm4:device",
+        "@nxp_cm4//:cmsis",
+        "@nxp_cm4//:device",
     ],
 )
 
-# Reset_Handler is reached only through the entry point, so keep it linked.
+# NXP vector table, Reset_Handler and the RAM linker script. Reset_Handler is reached only through
+# the entry point, so keep it linked.
 cc_library(
     name = "rt1170-startup-cm4",
     srcs = ["startup_MIMXRT1176_cm4.S"],

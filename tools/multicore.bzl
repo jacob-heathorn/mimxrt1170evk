@@ -1,6 +1,6 @@
 """Packaging for the RT1170's dual-core boot: the cm7 image carries the cm4 image as a C array."""
 
-load("@forge//bazel:firmware.bzl", "to_platform")
+load("//bazel:firmware.bzl", "to_platform")
 
 def _embedded_image_impl(ctx):
     cc = ctx.toolchains["@bazel_tools//tools/cpp:toolchain_type"].cc
