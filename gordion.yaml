@@ -1,9 +1,9 @@
 repositories:
   forge:
-    tag: 59c16e79775064e40bf531d934e94f040b3faea5
+    tag: a25637bf44abf8809be3af1a0ef6c49cfc39a479
     url: https://github.com/jacob-heathorn/forge.git
   microcyphal:
-    tag: efcd22c35beaf04c1a40593ef06b3abf455a83f1
+    tag: 5e0297923b6860433602cb3c06d47202dd09a845
     url: https://github.com/jacob-heathorn/microcyphal.git
   netxduo:
     tag: v6.4.2_rel
