@@ -1,6 +1,6 @@
 load("@forge//bazel/platforms:cores.bzl", "CM7")
 load("@rules_cc//cc:defs.bzl", "cc_library")
-load("//firmware:hal.bzl", "HAL_COPTS", "SDK_DEFINES")
+load("//firmware:hal.bzl", "DEBUG_DEFINES", "HAL_COPTS", "SDK_DEFINES")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -20,7 +20,7 @@ cc_library(
         "CPU_MIMXRT1176DVMAA_cm7",
         "XIP_BOOT_HEADER_ENABLE=1",
         "XIP_EXTERNAL_FLASH=1",
-    ] + SDK_DEFINES,
+    ] + SDK_DEFINES + DEBUG_DEFINES,
     includes = ["device"],
     target_compatible_with = CM7,
     deps = [":cmsis"],

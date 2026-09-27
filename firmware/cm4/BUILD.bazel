@@ -1,6 +1,6 @@
 load("@forge//bazel/platforms:cores.bzl", "CM4")
 load("@rules_cc//cc:defs.bzl", "cc_library")
-load("//firmware:hal.bzl", "HAL_COPTS", "SDK_DEFINES")
+load("//firmware:hal.bzl", "DEBUG_DEFINES", "HAL_COPTS", "SDK_DEFINES")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -16,7 +16,7 @@ cc_library(
     srcs = glob(["device/*.c"]),
     hdrs = glob(["device/*.h"]),
     copts = HAL_COPTS,
-    defines = ["CPU_MIMXRT1176DVMAA_cm4"] + SDK_DEFINES,
+    defines = ["CPU_MIMXRT1176DVMAA_cm4"] + SDK_DEFINES + DEBUG_DEFINES,
     includes = ["device"],
     target_compatible_with = CM4,
     deps = [":cmsis"],

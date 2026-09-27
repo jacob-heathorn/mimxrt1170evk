@@ -19,3 +19,8 @@ SDK_DEFINES = [
     "__STARTUP_CLEAR_BSS",
     "__STARTUP_INITIALIZE_NONCACHEDATA",
 ]
+
+DEBUG_DEFINES = select({
+    "@forge//bazel:dbg": ["DEBUG"],
+    "//conditions:default": [],
+})

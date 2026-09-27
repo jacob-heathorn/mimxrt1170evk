@@ -31,13 +31,15 @@ This has only been tested in Ubuntu 24.04.
 
 Bazel fetches the compiler, Python and every dependency itself. Each firmware
 image is built for its own core; there is no per-core config to select.
-`hello-world-cm7` embeds the cm4 image, so one command builds both.
+`hello-world-cm7` embeds the cm4 image, so one command builds both. Builds are
+debug by default; `bazel build -c opt //...` is the release build.
 
 # Run
 `bazel run //test/cm7/hello_world:flash`
 
 Flashes the cm7 image (with the cm4 image inside it) and streams the serial
-console. Ctrl-C exits.
+console until Ctrl-C. Add `-- --no-console` to only flash, `-c opt` to flash
+the release build. `bazel run //tools:console` attaches to a running board.
 
 # Serial Terminal
 device: `/dev/ttyACM0`
