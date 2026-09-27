@@ -9,10 +9,10 @@ cm7_library(
     visibility = ["//visibility:public"],
     deps = [
         "//firmware/cm7:utils",
+        "//firmware/cm7/legacy:drivers",
         "//firmware/cm7/rtos/netxduo",
         "//firmware/cm7/rtos/threadx",
         "@forge//firmware/ftl",
         "@forge//firmware/threadx:ftl-threadx",
-        "@nxp_cm7//:drivers",
     ],
 )

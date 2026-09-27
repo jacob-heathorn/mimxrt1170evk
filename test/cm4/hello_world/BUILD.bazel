@@ -8,12 +8,12 @@ cm4_image(
     deps = [
         "//firmware/cm4:cm4-platform",
         "//firmware/cm4:drivers_new",
+        "//firmware/cm4/legacy:board",
+        "//firmware/cm4/legacy:device",
+        "//firmware/cm4/legacy:drivers",
+        "//firmware/cm4/legacy:mcmgr",
+        "//firmware/cm4/legacy:utilities",
         "//firmware/cm4/registers",
         "//firmware/cm4/startup:rt1170-startup-cm4",
-        "@nxp_cm4//:board",
-        "@nxp_cm4//:device",
-        "@nxp_cm4//:drivers",
-        "@nxp_cm4//:mcmgr",
-        "@nxp_cm4//:utilities",
     ],
 )

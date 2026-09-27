@@ -59,8 +59,9 @@ baud: `115200`
 # Build files
 Our code uses `cm7_library`, `cm4_library`, `cm7_image` and `cm4_image` from `bazel/cores.bzl`:
 a `cc_library` or firmware image that builds for one core with forge's warnings and `-Werror`.
-Vendored code (NXP's SDK under `firmware/*/legacy`, ThreadX, NetX Duo) is a plain `cc_library`
-in `third_party/`, compiled as an external repository so its headers are system headers.
+Vendored code is a plain `cc_library`: NXP's SDK under `firmware/*/legacy` with `HAL_COPTS`, and
+ThreadX and NetX Duo fetched by bazel with BUILD files in `3p/`. Our code sees the SDK's
+headers as system headers, so its warnings do not fire inside them.
 
 # Dependencies
 Repositories under development (forge, microcyphal) are managed by gordion and

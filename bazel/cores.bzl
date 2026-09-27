@@ -3,6 +3,7 @@
 load("@forge//bazel:copts.bzl", "FORGE_COPTS", "FORGE_CXXOPTS")
 load("@rules_cc//cc:defs.bzl", "cc_library")
 load("//bazel:firmware.bzl", "firmware_image")
+load("//bazel:hal.bzl", "sdk_system_includes")
 
 CORES = ["cm4", "cm7"]
 
@@ -26,7 +27,7 @@ def cm7_image(name, **kwargs):
 def _library(core, name, copts = [], cxxopts = [], **kwargs):
     cc_library(
         name = name,
-        copts = FORGE_COPTS + copts,
+        copts = FORGE_COPTS + sdk_system_includes(core) + copts,
         cxxopts = FORGE_CXXOPTS + cxxopts,
         target_compatible_with = ["//bazel/platforms:%s_core" % core],
         **kwargs
@@ -37,7 +38,7 @@ def _image(core, name, copts = [], cxxopts = [], **kwargs):
     firmware_image(
         name = name,
         platform = "//bazel/platforms:" + core,
-        copts = FORGE_COPTS + copts,
+        copts = FORGE_COPTS + sdk_system_includes(core) + copts,
         cxxopts = FORGE_CXXOPTS + cxxopts,
         **kwargs
     )

@@ -1,4 +1,18 @@
-"""Build settings for the vendored NXP MCUXpresso SDK."""
+"""Build settings for the vendored NXP MCUXpresso SDK under firmware/<core>/legacy."""
+
+_SDK_DIRS = [
+    "board",
+    "cmsis",
+    "component/uart",
+    "device",
+    "drivers",
+    "mcmgr",
+    "utilities",
+]
+
+# -isystem flags for the SDK's headers, so our warnings do not fire inside them.
+def sdk_system_includes(core):
+    return ["-isystemfirmware/{}/legacy/{}".format(core, dir) for dir in _SDK_DIRS]
 
 # The SDK does not compile cleanly under forge's warning set.
 HAL_COPTS = [

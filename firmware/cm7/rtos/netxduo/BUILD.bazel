@@ -1,6 +1,6 @@
 load("@rules_cc//cc:defs.bzl", "cc_library")
 load("//bazel:cores.bzl", "CM7", "cm7_library")
-load("//firmware:hal.bzl", "HAL_COPTS")
+load("//bazel:hal.bzl", "HAL_COPTS")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -24,10 +24,10 @@ cc_library(
     includes = ["."],
     target_compatible_with = CM7,
     deps = [
+        "//firmware/cm7/legacy:board",
+        "//firmware/cm7/legacy:drivers",
         "//firmware/cm7/rtos/threadx",
         "@netxduo",
-        "@nxp_cm7//:board",
-        "@nxp_cm7//:drivers",
     ],
     alwayslink = True,
 )

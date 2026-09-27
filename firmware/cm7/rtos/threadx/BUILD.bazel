@@ -18,8 +18,8 @@ cm7_library(
         "tx_thread_stack_error.cpp",
     ],
     deps = [
+        "//firmware/cm7/legacy:drivers",
         "@forge//firmware/threadx:ftl-threadx",
-        "@nxp_cm7//:drivers",
         "@threadx",
     ],
     alwayslink = True,

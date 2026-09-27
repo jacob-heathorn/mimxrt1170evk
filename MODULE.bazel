@@ -9,13 +9,13 @@ bazel_dep(name = "microcyphal", version = "0.1.0")
 # Gordion checkouts in the workspace take precedence via tools/bazel; see gordion's README.
 git_override(
     module_name = "forge",
-    commit = "db4d0697b834e9ccfc0dea6b0838388e83c1fcab",
+    commit = "d5266fac79e1efe1cf9b21e211e02e0ebd12d328",
     remote = "https://github.com/jacob-heathorn/forge.git",
 )
 
 git_override(
     module_name = "microcyphal",
-    commit = "7014a7b1f2a5db51a4ef03c85cd8ee623b9e728f",
+    commit = "951e65db012a1804c9d1593e41c0a3447d1aa718",
     remote = "https://github.com/jacob-heathorn/microcyphal.git",
 )
 
@@ -25,27 +25,11 @@ use_repo(arm_gcc, "arm_gcc")
 
 register_toolchains("//bazel/toolchains/arm_gcc:all")
 
-# The vendored NXP SDK for each core, as external repositories so their headers count as system
-# headers and our warnings do not fire inside them.
-new_local_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:local.bzl", "new_local_repository")
-
-[
-    new_local_repository(
-        name = "nxp_" + core,
-        build_file = "//third_party:nxp_{}.BUILD".format(core),
-        path = "firmware/{}/legacy".format(core),
-    )
-    for core in [
-        "cm4",
-        "cm7",
-    ]
-]
-
 http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "threadx",
-    build_file = "//third_party:threadx.BUILD",
+    build_file = "//3p:threadx.BUILD",
     sha256 = "0a9a07a94d654d8589277edeaf874905b372da64d1dc7b6d9ec5d4136c7ed098",
     strip_prefix = "threadx-6.4.2_rel",
     urls = ["https://github.com/eclipse-threadx/threadx/archive/refs/tags/v6.4.2_rel.tar.gz"],
@@ -53,7 +37,7 @@ http_archive(
 
 http_archive(
     name = "netxduo",
-    build_file = "//third_party:netxduo.BUILD",
+    build_file = "//3p:netxduo.BUILD",
     sha256 = "301f26f536bde1ab51ad221dde6268f5375ce9c6ed44cf836ca004265d3708b7",
     strip_prefix = "netxduo-6.4.2_rel",
     urls = ["https://github.com/eclipse-threadx/netxduo/archive/refs/tags/v6.4.2_rel.tar.gz"],

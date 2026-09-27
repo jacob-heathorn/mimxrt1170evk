@@ -1,7 +1,7 @@
 repositories:
   forge:
-    tag: db4d0697b834e9ccfc0dea6b0838388e83c1fcab
+    tag: d5266fac79e1efe1cf9b21e211e02e0ebd12d328
     url: https://github.com/jacob-heathorn/forge.git
   microcyphal:
-    tag: 7014a7b1f2a5db51a4ef03c85cd8ee623b9e728f
+    tag: 951e65db012a1804c9d1593e41c0a3447d1aa718
     url: https://github.com/jacob-heathorn/microcyphal.git

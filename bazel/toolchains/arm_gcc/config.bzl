@@ -67,6 +67,7 @@ _LINK_FLAGS = [
     "-lnosys",
     "-Wl,--end-group",
     "-Wl,--gc-sections",
+    "-Wl,--no-warn-rwx-segments",
     "-Wl,--print-memory-usage",
     "-static",
     "-Xlinker",

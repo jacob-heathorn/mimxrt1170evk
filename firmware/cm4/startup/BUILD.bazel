@@ -1,6 +1,6 @@
 load("@rules_cc//cc:defs.bzl", "cc_library")
 load("//bazel:cores.bzl", "CM4")
-load("//firmware:hal.bzl", "HAL_COPTS")
+load("//bazel:hal.bzl", "HAL_COPTS")
 
 # NXP clock and system initialization.
 cc_library(
@@ -11,8 +11,8 @@ cc_library(
     includes = ["system_init"],
     target_compatible_with = CM4,
     deps = [
-        "@nxp_cm4//:cmsis",
-        "@nxp_cm4//:device",
+        "//firmware/cm4/legacy:cmsis",
+        "//firmware/cm4/legacy:device",
     ],
 )
 
