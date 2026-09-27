@@ -3,21 +3,10 @@ module(name = "mimxrt1170evk")
 bazel_dep(name = "rules_cc", version = "0.2.17")
 bazel_dep(name = "rules_python", version = "1.7.0")
 bazel_dep(name = "platforms", version = "0.0.10")
-bazel_dep(name = "forge", version = "0.1.0")
-bazel_dep(name = "microcyphal", version = "0.1.0")
 
-# Gordion checkouts in the workspace take precedence via tools/bazel; see gordion's README.
-git_override(
-    module_name = "forge",
-    commit = "d5266fac79e1efe1cf9b21e211e02e0ebd12d328",
-    remote = "https://github.com/jacob-heathorn/forge.git",
-)
-
-git_override(
-    module_name = "microcyphal",
-    commit = "951e65db012a1804c9d1593e41c0a3447d1aa718",
-    remote = "https://github.com/jacob-heathorn/microcyphal.git",
-)
+# Gordion-managed: tools/bazel points bazel at gordion's checkout, and gordion.yaml holds the pin.
+bazel_dep(name = "forge")
+bazel_dep(name = "microcyphal")
 
 # Downloads the Arm GNU Toolchain; //bazel/toolchains/arm_gcc turns it into a toolchain per core.
 arm_gcc = use_extension("//bazel/toolchains/arm_gcc:extension.bzl", "arm_gcc")

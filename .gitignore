@@ -5,4 +5,5 @@
 /.vscode/launch.json
 /.vscode/tasks.json
 /MODULE.bazel.lock
+/gordion.bazelrc
 /user.bazelrc

@@ -64,10 +64,9 @@ ThreadX and NetX Duo fetched by bazel with BUILD files in `3p/`. Our code sees t
 headers as system headers, so its warnings do not fire inside them.
 
 # Dependencies
-Repositories under development (forge, microcyphal) are managed by gordion and
-pinned in `gordion.yaml`; ThreadX, NetX Duo and NXP's SVDs are fetched by bazel; `tools/bazel` points bazel at whichever of them are
-checked out in the workspace, and bazel fetches the rest from the
-`git_override` pins in `MODULE.bazel`. `gor commit` keeps both pins in step.
+forge and microcyphal are managed by gordion: `gordion.yaml` pins them, `gor -u` checks them out,
+and `tools/bazel` points bazel at those checkouts on every command. ThreadX, NetX Duo and NXP's
+SVDs are archives bazel fetches itself, pinned in `MODULE.bazel`.
 
 # Host setup for the network demos
 
