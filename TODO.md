@@ -29,7 +29,7 @@ checkouts override `git_override` pins via `tools/bazel` and `gor bazelrc`;
 3. **Remove cmake and nox from this repo.** The cmake build is already dead
    (forge has no cmake). Delete `CMakeLists.txt`, `CMakePresets.json`,
    `cmake/`, `noxfile.py`, `scripts/`, and the cmake parts of
-   `.vscode/settings.json`. Needs item 3 so no build definition is lost.
+   `.vscode/settings.json`. Needs item 2 so no build definition is lost.
 
 4. **Warnings.** Route application targets through forge's `FORGE_COPTS`
    (`-Werror`); `HAL_COPTS` stays on vendored NXP code. Drop `-Wno-*`
@@ -44,7 +44,7 @@ checkouts override `git_override` pins via `tools/bazel` and `gor bazelrc`;
 
 7. **Hermetic host toolchain.** forge's native tests use the system gcc.
    `toolchains_llvm` would pin it, and the same clang can later serve the
-   Cortex-M targets (item 10). The Arm toolchain download is x86_64 Linux
+   Cortex-M targets (item 9). The Arm toolchain download is x86_64 Linux
    only; add macOS/arm64 URLs when needed.
 
 8. **MODULE.bazel.lock.** Gitignored today. Commit it once overrides stop
