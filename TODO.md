@@ -26,10 +26,9 @@ checkouts override `git_override` pins via `tools/bazel` and `gor bazelrc`;
    * microcyphal: add a MODULE.bazel on its `bazel` branch, then
      `bazel_dep` + `git_override` here.
 
-3. **Remove cmake and nox from this repo.** The cmake build is already dead
-   (forge has no cmake). Delete `CMakeLists.txt`, `CMakePresets.json`,
-   `cmake/`, `noxfile.py`, `scripts/`, and the cmake parts of
-   `.vscode/settings.json`. Needs item 2 so no build definition is lost.
+3. **Delete the last cmake files.** The dead cmake build is gone except the
+   `CMakeLists.txt` kept as porting references for FOC, `network`, `rtos/`
+   and `test/cm7`. Delete each with the target it describes (item 2).
 
 4. **Warnings.** Route application targets through forge's `FORGE_COPTS`
    (`-Werror`); `HAL_COPTS` stays on vendored NXP code. Drop `-Wno-*`

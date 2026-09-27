@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Only executes LinkServer command if one is not already running
-if pgrep -x "LinkServer" > /dev/null
-then
-    echo "Process is already running."
-else
-    exec $LINK_SERVER ${@}
-fi

@@ -1,5 +1,2 @@
-.bin
 .direnv
 .git
-.nox
-.pycache

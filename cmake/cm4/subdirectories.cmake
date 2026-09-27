@@ -1,9 +1,0 @@
-include_guard(GLOBAL)
-add_subdirectory(
-  $ENV{MIMXRT1170EVK_ROOT}/firmware/cm4
-  ${CMAKE_BINARY_DIR}/mimxrt1170evk/firmware
-)
-add_subdirectory(
-  $ENV{MIMXRT1170EVK_ROOT}/test/cm4 
-  ${CMAKE_BINARY_DIR}/mimxrt1170evk/test
-)
