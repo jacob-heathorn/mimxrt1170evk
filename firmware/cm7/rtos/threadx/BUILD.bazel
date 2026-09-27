@@ -1,0 +1,27 @@
+load("@forge//bazel/platforms:cores.bzl", "CM7")
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "tx_user",
+    hdrs = ["tx_user.h"],
+    includes = ["."],
+    target_compatible_with = CM7,
+)
+
+# The kernel archive references these, so they must already be linked when it is scanned.
+cc_library(
+    name = "threadx",
+    srcs = [
+        "tx_initialize_low_level.c",
+        "tx_thread_stack_error.cpp",
+    ],
+    target_compatible_with = CM7,
+    deps = [
+        "//firmware/cm7/legacy:drivers",
+        "@forge//firmware/threadx:ftl-threadx",
+        "@threadx",
+    ],
+    alwayslink = True,
+)

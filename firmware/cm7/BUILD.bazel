@@ -42,3 +42,20 @@ cc_library(
     ],
     alwayslink = True,
 )
+
+# Everything a cm7 image needs to boot and print.
+cc_library(
+    name = "runtime",
+    target_compatible_with = CM7,
+    deps = [
+        ":cm7-platform",
+        ":utils",
+        "//firmware/cm7/legacy:board",
+        "//firmware/cm7/legacy:cmsis",
+        "//firmware/cm7/legacy:drivers",
+        "//firmware/cm7/legacy:mcmgr",
+        "//firmware/cm7/legacy:utilities",
+        "//firmware/cm7/registers",
+        "//firmware/cm7/startup:rt1170-startup-cm7",
+    ],
+)

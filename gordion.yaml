@@ -1,13 +1,7 @@
 repositories:
   forge:
-    tag: e04701e881de11ac43dd50753764d58883597975
+    tag: 7ed68c036ff151669fe3d2af59265afe5204bd44
     url: https://github.com/jacob-heathorn/forge.git
   microcyphal:
-    tag: 17b4ad335ba1fca5a69d2a2884b01da3ec2fc60a
+    tag: 62202f0f875fa8cf95285b5848e654b9ab4416a6
     url: https://github.com/jacob-heathorn/microcyphal.git
-  netxduo:
-    tag: v6.4.2_rel
-    url: https://github.com/eclipse-threadx/netxduo.git
-  threadx:
-    tag: v6.4.2_rel
-    url: https://github.com/eclipse-threadx/threadx.git

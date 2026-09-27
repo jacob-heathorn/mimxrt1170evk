@@ -35,11 +35,15 @@ image is built for its own core; there is no per-core config to select.
 debug by default; `bazel build -c opt //...` is the release build.
 
 # Run
-`bazel run //test/cm7/hello_world:flash`
+`bazel run //test/cm7/hello_world:hello-world-cm7.flash`
 
 Flashes the cm7 image (with the cm4 image inside it) and streams the serial
 console until Ctrl-C. Add `-- --no-console` to only flash, `-c opt` to flash
 the release build. `bazel run //tools:console` attaches to a running board.
+Every image has a `.flash` target: `bazel query 'kind(py_binary, //...)'`
+lists them, including `//test/cm7:echo.flash`, `:hello-threadx.flash`,
+`:hello-netx.flash`, `:hello-publisher.flash`, `:hello-subscriber.flash` and
+`//firmware/cm7/application/foc:foc.flash`.
 
 # Serial Terminal
 device: `/dev/ttyACM0`
@@ -47,14 +51,11 @@ baud: `115200`
 
 # Dependencies
 Repositories under development (forge, microcyphal) are managed by gordion and
-pinned in `gordion.yaml`; `tools/bazel` points bazel at whichever of them are
+pinned in `gordion.yaml`; ThreadX, NetX Duo and NXP's SVDs are fetched by bazel; `tools/bazel` points bazel at whichever of them are
 checked out in the workspace, and bazel fetches the rest from the
 `git_override` pins in `MODULE.bazel`. `gor commit` keeps both pins in step.
 
-# Not yet ported to bazel
-The echo, ThreadX, NetX and Cyphal pub/sub demos, gdb debugging, and SVD
-register generation are tracked in `TODO.md`. The host-side setup below still
-applies once they return.
+# Host setup for the network demos
 
 ## NetX host setup
 ```bash

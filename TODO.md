@@ -4,29 +4,26 @@ Why: register codegen runs in the build (SVD or generator change → headers
 regenerate, per-header deps); one `bazel run` builds cm4 + cm7 and flashes
 the right target; bzlmod replaces nix for deps; tests are fast and cached.
 
-Done: forge on bazel with cmake/nix/nox removed; shared rules, Cortex-M
-platforms and the arm-none-eabi toolchain live in `@forge//bazel`, and bazel
-downloads the Arm GNU Toolchain and ETL itself. Here: nix is gone, register
-headers are generated from NXP's pinned SVDs by forge's `svd_cc_library`, both
-HALs, startup and platform layers build for their own core via `firmware_image`
-(no `--config`), `hello-world-cm7` embeds the real cm4 image, and
-`bazel run //test/cm7/hello_world:flash` programs the board; `-c opt` selects the
-release build. Gordion
-checkouts override `git_override` pins via `tools/bazel` and `gor bazelrc`;
-`gor commit` bumps both pins.
+Done: forge and microcyphal are bazel modules with cmake/nix/nox removed;
+shared rules, Cortex-M platforms and the arm-none-eabi toolchain live in
+`@forge//bazel`, and bazel downloads the Arm GNU Toolchain, ETL, ThreadX,
+NetX Duo, the NXP SVDs and the Cyphal DSDL itself. Here: nix and cmake are
+gone, register headers and DSDL types are generated in the build, every image
+builds for its own core via `firmware_image` (no `--config`), `-c opt` selects
+the release build, `hello-world-cm7` embeds the real cm4 image, and each image
+has a `.flash` target. Gordion checkouts override `git_override` pins via
+`tools/bazel` and `gor bazelrc`; `gor commit` bumps both pins.
 
 ## In priority order
 
-1. **Remaining deps.** Unblocks `echo`, `hello-threadx`, `hello-netx`,
-   `hello-publisher`, `hello-subscriber`, and the FOC app.
-   * threadx, netxduo: `http_archive` in forge with hand-written BUILD
-     files, like ETL. Drop them from `gordion.yaml` once done.
-   * microcyphal: add a MODULE.bazel on its `bazel` branch, then
-     `bazel_dep` + `git_override` here.
+1. **Hardware check.** Flash each image and confirm the banners: hello-world,
+   echo, hello-threadx, hello-netx, hello-publisher, hello-subscriber, foc.
+   Everything since the last flash built byte-identical images until
+   `--undefined=_sbrk` and `-fno-threadsafe-statics` restored cmake parity.
 
-2. **Delete the last cmake files.** The dead cmake build is gone except the
-   `CMakeLists.txt` kept as porting references for FOC, `network`, `rtos/`
-   and `test/cm7`. Delete each with the target it describes (item 1).
+2. **On-target tests.** `test/cm7/ut_*.cpp` and `rtos/threadx/pw_ut_main.cpp`
+   are the cmake-era pigweed tests. Make them `bazel test` targets with a
+   runner that flashes and parses the console.
 
 3. **Warnings.** Route application targets through forge's `FORGE_COPTS`
    (`-Werror`); `HAL_COPTS` stays on vendored NXP code. Drop `-Wno-*`
@@ -48,8 +45,8 @@ checkouts override `git_override` pins via `tools/bazel` and `gor bazelrc`;
    churning it, so registry resolution is pinned.
 
 8. **clang + lld, then LTO.** Deferred until the migration is stable.
-    gcc + bfd ld can't LTO across bazel's per-library archives (binutils
-    12758, won't-fix; `alwayslink` defeats `--gc-sections`, 3.6× bloat).
-    lld's `--start-lib/--end-lib` fixes it. Matters for FOC ISR timing,
-    not for hello-world. Full investigation: commit `9b80ea2`.
-    Alternative on gcc: merge the whole HAL into one `cc_library` per core.
+   gcc + bfd ld can't LTO across bazel's per-library archives (binutils
+   12758, won't-fix; `alwayslink` defeats `--gc-sections`, 3.6× bloat).
+   lld's `--start-lib/--end-lib` fixes it. Matters for FOC ISR timing,
+   not for hello-world. Full investigation: commit `9b80ea2`.
+   Alternative on gcc: merge the whole HAL into one `cc_library` per core.

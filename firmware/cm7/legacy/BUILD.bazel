@@ -45,6 +45,8 @@ cc_library(
     hdrs = glob(["utilities/*.h"]),
     copts = HAL_COPTS,
     includes = ["utilities"],
+    # Resolve _sbrk from fsl_sbrk.c rather than the nosys stub, so malloc has a heap.
+    linkopts = ["-Wl,--undefined=_sbrk"],
     target_compatible_with = CM7,
     deps = [
         ":device",

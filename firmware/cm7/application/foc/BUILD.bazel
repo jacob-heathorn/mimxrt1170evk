@@ -1,0 +1,17 @@
+load("@forge//bazel:firmware.bzl", "firmware_image")
+load("//tools:flash.bzl", "flash")
+
+firmware_image(
+    name = "foc",
+    srcs = ["main.cpp"],
+    platform = "@forge//bazel/platforms:cm7",
+    deps = [
+        "//firmware/cm7:drivers",
+        "//firmware/cm7:runtime",
+    ],
+)
+
+flash(
+    name = "foc.flash",
+    image = ":foc",
+)

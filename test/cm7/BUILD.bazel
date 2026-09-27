@@ -1,0 +1,69 @@
+load("@forge//bazel:firmware.bzl", "firmware_image")
+load("//tools:flash.bzl", "flash")
+
+firmware_image(
+    name = "echo",
+    srcs = ["echo.cpp"],
+    platform = "@forge//bazel/platforms:cm7",
+    deps = ["//firmware/cm7:runtime"],
+)
+
+firmware_image(
+    name = "hello-threadx",
+    srcs = ["hello_threadx.cpp"],
+    copts = ["-Wno-write-strings"],
+    platform = "@forge//bazel/platforms:cm7",
+    deps = [
+        "//firmware/cm7:runtime",
+        "//firmware/cm7/rtos/threadx",
+        "@forge//firmware/ftl",
+        "@forge//firmware/threadx:ftl-threadx",
+    ],
+)
+
+firmware_image(
+    name = "hello-netx",
+    srcs = ["hello_netx.cpp"],
+    platform = "@forge//bazel/platforms:cm7",
+    deps = [
+        "//firmware/cm7:runtime",
+        "//firmware/cm7/network",
+        "//firmware/cm7/rtos/threadx",
+        "@forge//firmware/ftl",
+        "@forge//firmware/threadx:ftl-threadx",
+    ],
+)
+
+[
+    firmware_image(
+        name = name,
+        srcs = [name.replace("-", "_") + ".cpp"],
+        platform = "@forge//bazel/platforms:cm7",
+        deps = [
+            "//firmware/cm7:runtime",
+            "//firmware/cm7/network",
+            "//firmware/cm7/rtos/threadx",
+            "@forge//firmware/ftl",
+            "@forge//firmware/threadx:ftl-threadx",
+            "@microcyphal//firmware:microcyphal",
+        ],
+    )
+    for name in [
+        "hello-publisher",
+        "hello-subscriber",
+    ]
+]
+
+[
+    flash(
+        name = image + ".flash",
+        image = ":" + image,
+    )
+    for image in [
+        "echo",
+        "hello-threadx",
+        "hello-netx",
+        "hello-publisher",
+        "hello-subscriber",
+    ]
+]
