@@ -11,7 +11,8 @@ NetX Duo, the NXP SVDs and the Cyphal DSDL itself. Here: nix and cmake are
 gone, register headers and DSDL types are generated in the build, every image
 builds for its own core via `firmware_image` (no `--config`), `-c opt` selects
 the release build, `hello-world-cm7` embeds the real cm4 image, and each image
-has a `.flash` target, verified on the EVK. Gordion checkouts override `git_override` pins via
+has a `.flash` target, verified on the EVK, and the pigweed test images run on
+the board via `bazel test`. Gordion checkouts override `git_override` pins via
 `tools/bazel` and `gor bazelrc`; `gor commit` bumps both pins.
 
 ## In priority order
@@ -20,30 +21,26 @@ has a `.flash` target, verified on the EVK. Gordion checkouts override `git_over
    hello-subscriber boot and bring up the PHY but were checked without a
    cable; run them against a host with `socat` / `yakut` per the README.
 
-2. **On-target tests.** `test/cm7/ut_*.cpp` and `rtos/threadx/pw_ut_main.cpp`
-   are the cmake-era pigweed tests. Make them `bazel test` targets with a
-   runner that flashes and parses the console.
-
-3. **Warnings.** Route application targets through forge's `FORGE_COPTS`
+2. **Warnings.** Route application targets through forge's `FORGE_COPTS`
    (`-Werror`); `HAL_COPTS` stays on vendored NXP code. Drop `-Wno-*`
    suppressions that no longer fire.
 
-4. **compile_commands.json.** Add `hedron_compile_commands` and point
+3. **compile_commands.json.** Add `hedron_compile_commands` and point
    `.vscode/settings.json` at it.
 
-5. **Debug workflow.** `:debug` targets wrapping LinkServer + gdb, SWO, and
+4. **Debug workflow.** `:debug` targets wrapping LinkServer + gdb, SWO, and
    a generated `.vscode/launch.json`. A cm4 `flash` target once the
    LinkServer core selection for cm4 is known.
 
-6. **Hermetic host toolchain.** forge's native tests use the system gcc.
+5. **Hermetic host toolchain.** forge's native tests use the system gcc.
    `toolchains_llvm` would pin it, and the same clang can later serve the
-   Cortex-M targets (item 8). The Arm toolchain download is x86_64 Linux
+   Cortex-M targets (item 7). The Arm toolchain download is x86_64 Linux
    only; add macOS/arm64 URLs when needed.
 
-7. **MODULE.bazel.lock.** Gitignored today. Commit it once overrides stop
+6. **MODULE.bazel.lock.** Gitignored today. Commit it once overrides stop
    churning it, so registry resolution is pinned.
 
-8. **clang + lld, then LTO.** Deferred until the migration is stable.
+7. **clang + lld, then LTO.** Deferred until the migration is stable.
    gcc + bfd ld can't LTO across bazel's per-library archives (binutils
    12758, won't-fix; `alwayslink` defeats `--gc-sections`, 3.6× bloat).
    lld's `--start-lib/--end-lib` fixes it. Matters for FOC ISR timing,

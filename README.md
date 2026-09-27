@@ -45,6 +45,13 @@ lists them, including `//test/cm7:echo.flash`, `:hello-threadx.flash`,
 `:hello-netx.flash`, `:hello-publisher.flash`, `:hello-subscriber.flash` and
 `//firmware/cm7/application/foc:foc.flash`.
 
+# Test
+`bazel test //test/cm7:ut-simple.test //test/cm7:ut-memory.test //test/cm7:ut-threadx.test`
+
+Each `.test` target flashes a pigweed test image to the connected board and
+passes or fails on its console summary. They are excluded from `bazel test //...`
+because they need the hardware.
+
 # Serial Terminal
 device: `/dev/ttyACM0`
 baud: `115200`

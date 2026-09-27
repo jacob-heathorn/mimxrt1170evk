@@ -1,5 +1,6 @@
 load("@forge//bazel:firmware.bzl", "firmware_image")
 load("//tools:flash.bzl", "flash")
+load("//tools:on_target_test.bzl", "on_target_test")
 
 firmware_image(
     name = "echo",
@@ -66,4 +67,39 @@ firmware_image(
         "hello-publisher",
         "hello-subscriber",
     ]
+]
+
+_TESTS = {
+    "ut-simple": ["ut_simple.cpp"],
+    "ut-memory": [
+        "ut_bump_allocators.cpp",
+        "ut_bump_pool.cpp",
+        "ut_mpu.cpp",
+    ],
+    "ut-threadx": ["ut_concurrency.cpp"],
+}
+
+[
+    firmware_image(
+        name = name,
+        srcs = srcs,
+        platform = "@forge//bazel/platforms:cm7",
+        deps = [
+            "//firmware/cm7:runtime",
+            "//firmware/cm7/rtos/threadx",
+            "//firmware/cm7/rtos/threadx:pw_ut_main",
+            "@forge//firmware/ftl",
+            "@forge//firmware/pw_unit_test",
+            "@forge//firmware/threadx:ftl-threadx",
+        ],
+    )
+    for name, srcs in _TESTS.items()
+]
+
+[
+    on_target_test(
+        name = name + ".test",
+        image = ":" + name,
+    )
+    for name in _TESTS
 ]

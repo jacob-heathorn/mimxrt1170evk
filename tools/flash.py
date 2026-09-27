@@ -23,12 +23,13 @@ def main() -> None:
   # Open the console before flashing so the boot-time output is not missed.
   if not args.no_console:
     console.open_console(args.device, args.baud)
-  _flash(args.elf)
+  flash(args.elf)
   if not args.no_console:
     console.wait()
 
 
-def _flash(elf: str) -> None:
+def flash(elf: str) -> None:
+  """Programs elf with LinkServer and resets the target."""
   if not os.path.exists(_LINK_SERVER):
     sys.exit(f"LinkServer not found at {_LINK_SERVER}. Set $LINK_SERVER.")
   subprocess.call(["pkill", "LinkServer"])  # An orphaned instance locks the probe.
