@@ -7,7 +7,7 @@ bazel_dep(name = "forge", version = "0.1.0")
 # Gordion checkouts in the workspace take precedence via tools/bazel; see gordion's README.
 git_override(
     module_name = "forge",
-    commit = "554a1ebfaf345ff519c39b27cff36e1a686b0598",
+    commit = "276cbd205832a1338d091b13cf4121e5572e48a7",
     remote = "https://github.com/jacob-heathorn/forge.git",
 )
 
