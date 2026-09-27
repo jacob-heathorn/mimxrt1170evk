@@ -17,11 +17,8 @@ This has only been tested in Ubuntu 24.04.
    It fetches the bazel version pinned in `.bazelversion`.
 3) Install gordion: `pipx install gordion`
 4) Materialize the gordion dependencies: `gor -u`
-5) Install direnv and nix, which currently supply `arm-none-eabi-gcc` (see TODO.md):
-  * `sudo apt install direnv`
-  * Add the following to your .bashrc: `eval "$(direnv hook bash)"`
-  * `sh <(curl -L https://nixos.org/nix/install) --daemon`
-  * Open a new terminal, change directory to here, and run `direnv allow .`
+5) Optional, for the dev shell (`.envrc`): `sudo apt install direnv`, add
+   `eval "$(direnv hook bash)"` to your .bashrc, then `direnv allow .` here.
 6) Install LinkServer from NXP:
   * Download:
     https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER
@@ -32,8 +29,9 @@ This has only been tested in Ubuntu 24.04.
 # Build
 `bazel build //...`
 
-Every firmware image is built for its own core; there is no per-core config to
-select. `hello-world-cm7` embeds the cm4 image, so one command builds both.
+Bazel fetches the compiler, Python and every dependency itself. Each firmware
+image is built for its own core; there is no per-core config to select.
+`hello-world-cm7` embeds the cm4 image, so one command builds both.
 
 # Run
 `bazel run //test/cm7/hello_world:flash`
