@@ -1,54 +1,46 @@
+load("@forge//bazel/platforms:cores.bzl", "CM7")
 load("@rules_cc//cc:defs.bzl", "cc_library")
 
 package(default_visibility = ["//visibility:public"])
 
-# Generated MMIO register headers for cm7 (separate set from cm4 — the
-# parts of the SoC visible to each core differ slightly).
+# Committed SVD codegen output; see TODO.md for generating it in the build.
 cc_library(
     name = "registers",
     hdrs = glob(["registers/**/*.hpp"]),
     includes = ["."],
+    target_compatible_with = CM7,
     deps = ["@forge//firmware/ftl"],
 )
 
-# Local C++ utilities (DTCM/OCRAM allocators). Header-only.
 cc_library(
     name = "utils",
     hdrs = glob(["utils/*.hpp"]),
     includes = ["."],
+    target_compatible_with = CM7,
 )
 
-# Platform: MPU init, C++ new/delete overrides, fault handlers, syscalls.
-# C++ driver wrappers (gpio, lpi2c) under firmware/cm7/drivers/.
 cc_library(
     name = "drivers",
     srcs = glob(["drivers/*.cpp"]),
     hdrs = glob(["drivers/*.hpp"]),
     includes = ["."],
+    target_compatible_with = CM7,
     deps = [
         ":registers",
         "//firmware/cm7/legacy:drivers",
     ],
 )
 
+# syscalls.cpp must be linked ahead of newlib's nosys stubs to route printf to the console.
 cc_library(
     name = "cm7-platform",
     srcs = glob(["platform/*.cpp"]),
     hdrs = glob(["platform/include/**/*.hpp"]),
-    # `platform/include/` for `#include "platform/console_uart.hpp"` from
-    # consumers. `.` for assert.cpp's `#include "legacy/cmsis/cmsis_gcc.h"`
-    # which uses a firmware/cm7-relative path.
     includes = [
         ".",
         "platform/include",
     ],
-    # syscalls.cpp here defines _write/_read/etc. that override newlib's
-    # nosys stubs and route printf to the LPUART console. As an archive
-    # member, ld would pick up newlib's stub first and our version would
-    # be dead. alwayslink forces our objects in via --whole-archive so
-    # the override wins. cmake handled this by listing the .o files as
-    # PUBLIC sources — same intent.
-    alwayslink = True,
+    target_compatible_with = CM7,
     deps = [
         ":drivers",
         ":registers",
@@ -57,4 +49,5 @@ cc_library(
         "//firmware/cm7/legacy:cmsis",
         "//firmware/cm7/legacy:utilities",
     ],
+    alwayslink = True,
 )

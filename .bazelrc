@@ -1,40 +1,13 @@
-build --enable_bzlmod
 build --incompatible_strict_action_env
-
-# Tuck convenience symlinks under one hidden dir so the repo root stays
-# uncluttered. Same convention as forge.
 build --symlink_prefix=.bazel/
-
-# Test output: show errors immediately rather than burying them in log files.
-test --test_output=errors
-
-# Treat external-repo headers as system headers so our -Werror set doesn't
-# fire inside vendored NXP SDK / forge / etl code.
-build --features=external_include_paths
-
-# C++20 across the build.
 build --cxxopt=-std=c++20
 build --host_cxxopt=-std=c++20
+build --features=external_include_paths
+test --test_output=errors
 
-# CPU/FPU flags + NXP defines + nano/nosys link group are baked into the
-# per-core cc_toolchain features (see bazel/arm_gcc/extension.bzl), so
-# selecting a platform alone gives the right flags. The cm4/cm7 configs
-# below just flip the platform — handy alias for users who type
-# `--config=cm4` instead of `--platforms=//platforms:cm4`.
-build:cm4 --platforms=//platforms:cm4
-build:cm7 --platforms=//platforms:cm7
-
-# Build mode: cmake's debug preset uses -O0 -g. Apply globally for now;
-# split into --config=dbg / --config=opt later when we add release.
+# The cmake debug preset, until dbg/opt configs exist.
 build --copt=-O0
 build --copt=-g
+build --copt=-DDEBUG
 
-# -flto=auto is intentionally off. The cmake build had it, but it's
-# fundamentally incompatible with bazel's per-cc_library archives under
-# arm-none-eabi-gcc + GNU bfd ld: the LTO plugin's claim model runs once
-# and ld's --start-group archive iteration can't re-feed it (binutils
-# bug 12758, won't-fix). Re-enabling LTO requires either swapping to
-# clang+lld or merging the HAL into a single cc_library. See TODO.
-
-# Allow a developer overlay (gitignored).
 try-import %workspace%/user.bazelrc

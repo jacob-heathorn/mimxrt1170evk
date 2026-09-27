@@ -1,62 +1,50 @@
+load("@forge//bazel/platforms:cores.bzl", "CM4")
 load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//firmware:hal.bzl", "HAL_COPTS", "SDK_DEFINES")
 
 package(default_visibility = ["//visibility:public"])
 
-# Vendored NXP HAL ships with warnings our forge -Werror set would catch.
-# Disable them on the HAL libraries only — application code (hello-world,
-# etc.) still gets the strict set.
-HAL_COPTS = [
-    "-Wno-sign-conversion",
-    "-Wno-unused-parameter",
-    "-Wno-null-dereference",
-    "-Wno-switch-enum",
-    "-Wno-missing-field-initializers",
-    "-Wno-shadow",
-]
-
-
-# ARM CMSIS core (header-only).
 cc_library(
     name = "cmsis",
     hdrs = glob(["cmsis/*.h"]),
     includes = ["cmsis"],
+    target_compatible_with = CM4,
 )
 
-
-# NXP MIMXRT1176 device headers + system init source.
 cc_library(
     name = "device",
     srcs = glob(["device/*.c"]),
     hdrs = glob(["device/*.h"]),
-    includes = ["device"],
     copts = HAL_COPTS,
+    defines = ["CPU_MIMXRT1176DVMAA_cm4"] + SDK_DEFINES,
+    includes = ["device"],
+    target_compatible_with = CM4,
     deps = [":cmsis"],
 )
 
-# NXP fsl_* HAL drivers.
 cc_library(
     name = "drivers",
     srcs = glob(["drivers/*.c"]),
     hdrs = glob(["drivers/*.h"]),
-    includes = ["drivers"],
     copts = HAL_COPTS,
+    includes = ["drivers"],
+    target_compatible_with = CM4,
     deps = [":device"],
 )
 
-# UART adapter component.
 cc_library(
     name = "uart",
     srcs = glob(["component/uart/*.c"]),
     hdrs = glob(["component/uart/*.h"]),
-    includes = ["component/uart"],
     copts = HAL_COPTS,
+    includes = ["component/uart"],
+    target_compatible_with = CM4,
     deps = [
         ":device",
         ":drivers",
     ],
 )
 
-# Misc utilities (debug console, asserts, memcpy).
 cc_library(
     name = "utilities",
     srcs = glob([
@@ -64,8 +52,9 @@ cc_library(
         "utilities/*.S",
     ]),
     hdrs = glob(["utilities/*.h"]),
-    includes = ["utilities"],
     copts = HAL_COPTS,
+    includes = ["utilities"],
+    target_compatible_with = CM4,
     deps = [
         ":device",
         ":drivers",
@@ -73,60 +62,56 @@ cc_library(
     ],
 )
 
-# Board (clock config, pin mux).
 cc_library(
     name = "board",
     srcs = glob(["board/*.c"]),
     hdrs = glob(["board/*.h"]),
-    includes = ["board"],
     copts = HAL_COPTS,
+    includes = ["board"],
+    target_compatible_with = CM4,
     deps = [
         ":drivers",
         ":utilities",
     ],
 )
 
-# Multicore manager (MUA-based handshake between cm4 and cm7). The
-# vector-table-installed handlers (MUA_IRQHandler etc.) aren't referenced
-# from application code, so under LTO + --gc-sections the linker would
-# strip them. alwayslink keeps the archive's symbols. Same workaround as
-# the cmake build's PUBLIC-sources hack.
+# Its interrupt handlers are reached only through the vector table, so keep them linked.
 cc_library(
     name = "mcmgr",
     srcs = glob(["mcmgr/*.c"]),
     hdrs = glob(["mcmgr/*.h"]),
-    includes = ["mcmgr"],
     copts = HAL_COPTS + ["-Wno-cast-align"],
-    alwayslink = True,
+    includes = ["mcmgr"],
+    target_compatible_with = CM4,
     deps = [
         ":device",
         ":drivers",
     ],
+    alwayslink = True,
 )
 
-# C++ MMIO register wrappers (header-only). Generated from SVD; for now
-# we use the committed copies in registers/codegen/.
-# `includes = ["."]` means consumers can write `#include "registers/codegen/gpio.hpp"`.
+# Committed SVD codegen output; see TODO.md for generating it in the build.
 cc_library(
     name = "registers",
     hdrs = glob(["registers/**/*.hpp"]),
     includes = ["."],
+    target_compatible_with = CM4,
     deps = ["@forge//firmware/ftl"],
 )
 
-# C++ wrapper headers used by application code.
 cc_library(
     name = "drivers_new",
     hdrs = glob(["drivers_new/*.hpp"]),
     includes = ["."],
+    target_compatible_with = CM4,
     deps = [":registers"],
 )
 
-# Platform: MPU init, C++ new/delete overrides.
 cc_library(
     name = "cm4-platform",
     srcs = ["platform/new_delete.cpp"],
     hdrs = ["platform/mpu.hpp"],
     includes = ["."],
+    target_compatible_with = CM4,
     deps = [":registers"],
 )

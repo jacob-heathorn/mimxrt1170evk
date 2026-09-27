@@ -10,87 +10,70 @@ NOTE: This is not yet ready for safety-critical applications
 * Bump pools can be replaced by fixed pools for safety-critical memory management.
 
 # Setup Instructions
-The has only been tested in Ubuntu 24.04
+This has only been tested in Ubuntu 24.04.
 
 1) Clone this repository: `git clone https://github.com/jacob-heathorn/mimxrt1170evk.git`
-2) Install gordion: `pipx install gordion`
-3) Update the gordion dependencies: `gor -u`
-4) Install direnv:
+2) Install bazelisk: `npm i -g @bazel/bazelisk` (or `apt install bazelisk`).
+   It fetches the bazel version pinned in `.bazelversion`.
+3) Install gordion: `pipx install gordion`
+4) Materialize the gordion dependencies: `gor -u`
+5) Install direnv and nix, which currently supply `arm-none-eabi-gcc` (see TODO.md):
   * `sudo apt install direnv`
   * Add the following to your .bashrc: `eval "$(direnv hook bash)"`
-  * Open a new terminal and change directory to here.
-  * `direnv allow .`
-5) Install nix:
   * `sh <(curl -L https://nixos.org/nix/install) --daemon`
+  * Open a new terminal, change directory to here, and run `direnv allow .`
 6) Install LinkServer from NXP:
   * Download:
     https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER
   * chmod +x and run the download.
   * Confirm install location: `ls /usr/local/LinkServer/LinkServer`
-7) Install the workspace recommended VSCode extensions.
-8) Create the dev environment: `nox -s dev`
-9) Connect mimxrt1170evk to power, and USB to your computer.
+7) Connect mimxrt1170evk to power, and USB to your computer.
 
 # Build
-`cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug`
+`bazel build //...`
+
+Every firmware image is built for its own core; there is no per-core config to
+select. `hello-world-cm7` embeds the cm4 image, so one command builds both.
 
 # Run
-`rip -f0 cm7-debug:hello-world-cm7`
+`bazel run //test/cm7/hello_world:flash`
 
-# Debug
-`rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4`
-Debug in VSCode (F5)
+Flashes the cm7 image (with the cm4 image inside it) and streams the serial
+console. Ctrl-C exits.
 
-# ctest
-`cd .bin/cm7-debug`
-`ctest -V`
+# Serial Terminal
+device: `/dev/ttyACM0`
+baud: `115200`
 
-# Full Repository test suite
-`nox`
+# Dependencies
+Repositories under development (forge, microcyphal) are managed by gordion and
+pinned in `gordion.yaml`; `tools/bazel` points bazel at whichever of them are
+checked out in the workspace, and bazel fetches the rest from the
+`git_override` pins in `MODULE.bazel`. `gor commit` keeps both pins in step.
 
-# Hello World Test
+# Not yet ported to bazel
+The echo, ThreadX, NetX and Cyphal pub/sub demos, gdb debugging, and SVD
+register generation are tracked in `TODO.md`. The host-side setup below still
+applies once they return.
+
+## NetX host setup
 ```bash
-cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4 && \
-rip -f0 cm7-debug:hello-world-cm7 -s
-```
-
-# Echo test
-```bash
-cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:echo && \
-rip -f0 cm7-debug:echo
-```
-
-# Threadx test
-```bash
-cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:hello-threadx && \
-rip -f0 cm7-debug:hello-threadx -s
-```
-
-# Netx test
-```bash
-cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:hello-netx && \
-rip -f0 cm7-debug:hello-netx -s
-
 # Set up local ethernet interface (192.0.2.1) and mask (255.255.255.0)
 ping 192.0.2.149
 socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
 socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.0.2.1,fork EXEC:'/bin/cat' # echo multicast
 ```
 
-# Setup cyphal tools and wireshark
+## Cyphal tools and wireshark
 ```bash
 sudo apt update
 sudo apt install wireshark
 
-# Copy lua script 
+# Copy lua script
 # from: https://github.com/OpenCyphal/wireshark_plugins/tree/main
 # to: /usr/lib/x86_64-linux-gnu/wireshark/plugins
 
-# Instal yakut
+# Install yakut
 pipx install 'yakut[transport-udp]'
 
 # Add to .bashrc
@@ -101,43 +84,13 @@ export UAVCAN__NODE__ID=42
 # Connect ethernet from computer to dev board
 # Set the local ethernet interface to 192.0.2.1 and netmask 255.255.255.0
 
-```
-
-# Cyphal pub/sub
-```bash
-
-# See previous section for setup.
-
 # Monitor all Cyphal/UDP traffic
 yakut mon
 
-# Run Publisher
-cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:hello-publisher && \
-rip -f0 cm7-debug:hello-publisher -s
-
-# Run Subscriber
-cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:hello-subscriber && \
-rip -f0 cm7-debug:hello-subscriber -s
-
-# Or subscribe specifically to heartbeat messages
+# Subscribe to heartbeat messages
 export UAVCAN__UDP__IFACE=192.0.2.100
 export UAVCAN__NODE__ID=1000
 yakut sub uavcan.node.heartbeat
-```
-
-# Serial Terminal
-device: `/dev/ttyACM0`
-baud: `115200`
-
-# Development commands
-
-```bash
-# Generate register files from SVD
-rip generate cm4          # Regenerate all CM4 peripherals (wipes codegen/)
-rip generate cm7          # Regenerate all CM7 peripherals (wipes codegen/)
-rip generate cm7 DMA0     # Regenerate a single peripheral, leaves others intact
 ```
 
 # Copyright & Licensing

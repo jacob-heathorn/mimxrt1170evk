@@ -1,10 +1,10 @@
+load("@forge//bazel/platforms:cores.bzl", "CM7")
 load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//firmware:hal.bzl", "HAL_COPTS")
 
 package(default_visibility = ["//visibility:public"])
 
-# FlexSPI NOR boot config — referenced by name from a fixed flash offset
-# at boot. alwayslink + --whole-archive at consumer-side keeps the linker
-# from gc-ing it because no app code references it directly.
+# The boot header is found by flash offset, not by reference, so keep it linked.
 cc_library(
     name = "boot",
     srcs = [
@@ -15,8 +15,9 @@ cc_library(
         "boot/evkmimxrt1170_flexspi_nor_config.h",
         "boot/fsl_flexspi_nor_boot.h",
     ],
+    copts = HAL_COPTS,
     includes = ["boot"],
-    copts = ["-Wno-sign-conversion"],
+    target_compatible_with = CM7,
     deps = ["//firmware/cm7/legacy:drivers"],
     alwayslink = True,
 )
@@ -24,6 +25,7 @@ cc_library(
 cc_library(
     name = "system_init",
     srcs = ["system_init/system_init_hook.cpp"],
+    target_compatible_with = CM7,
     deps = [
         "//firmware/cm7:cm7-platform",
         "//firmware/cm7:registers",
@@ -34,19 +36,16 @@ cc_library(
     ],
 )
 
-# Reset_Handler + interrupt vector table + linker script. Consumers link
-# this and inherit the linker script via linkopts. `:boot` is included
-# transitively (alwayslink=True on that target already forces its
-# objects in via --whole-archive — no explicit linkopt needed; doing it
-# twice would duplicate the IVT/flash_config sections).
+# Reset_Handler is reached only through the entry point, so keep it linked.
 cc_library(
     name = "rt1170-startup-cm7",
     srcs = ["startup_mimxrt1176_cm7.S"],
     additional_linker_inputs = ["mimxrt1176_cm7_flexspi_nor.ld"],
     linkopts = ["-T$(execpath mimxrt1176_cm7_flexspi_nor.ld)"],
-    alwayslink = True,
+    target_compatible_with = CM7,
     deps = [
         ":boot",
         ":system_init",
     ],
+    alwayslink = True,
 )

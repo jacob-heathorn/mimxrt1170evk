@@ -1,31 +1,28 @@
+load("@forge//bazel/platforms:cores.bzl", "CM7")
 load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//firmware:hal.bzl", "HAL_COPTS", "SDK_DEFINES")
 
 package(default_visibility = ["//visibility:public"])
-
-# Same shape as firmware/cm4/BUILD.bazel — vendored NXP HAL libraries.
-# CPU flags come from .bazelrc:cm7 so this file is structurally identical
-# to the cm4 setup.
-HAL_COPTS = [
-    "-Wno-sign-conversion",
-    "-Wno-unused-parameter",
-    "-Wno-null-dereference",
-    "-Wno-switch-enum",
-    "-Wno-missing-field-initializers",
-    "-Wno-shadow",
-]
 
 cc_library(
     name = "cmsis",
     hdrs = glob(["cmsis/*.h"]),
     includes = ["cmsis"],
+    target_compatible_with = CM7,
 )
 
 cc_library(
     name = "device",
     srcs = glob(["device/*.c"]),
     hdrs = glob(["device/*.h"]),
-    includes = ["device"],
     copts = HAL_COPTS,
+    defines = [
+        "CPU_MIMXRT1176DVMAA_cm7",
+        "XIP_BOOT_HEADER_ENABLE=1",
+        "XIP_EXTERNAL_FLASH=1",
+    ] + SDK_DEFINES,
+    includes = ["device"],
+    target_compatible_with = CM7,
     deps = [":cmsis"],
 )
 
@@ -33,8 +30,9 @@ cc_library(
     name = "drivers",
     srcs = glob(["drivers/*.c"]),
     hdrs = glob(["drivers/*.h"]),
-    includes = ["drivers"],
     copts = HAL_COPTS,
+    includes = ["drivers"],
+    target_compatible_with = CM7,
     deps = [":device"],
 )
 
@@ -45,8 +43,9 @@ cc_library(
         "utilities/*.S",
     ]),
     hdrs = glob(["utilities/*.h"]),
-    includes = ["utilities"],
     copts = HAL_COPTS,
+    includes = ["utilities"],
+    target_compatible_with = CM7,
     deps = [
         ":device",
         ":drivers",
@@ -57,23 +56,26 @@ cc_library(
     name = "board",
     srcs = glob(["board/*.c"]),
     hdrs = glob(["board/*.h"]),
-    includes = ["board"],
     copts = HAL_COPTS,
+    includes = ["board"],
+    target_compatible_with = CM7,
     deps = [
         ":drivers",
         ":utilities",
     ],
 )
 
+# Its interrupt handlers are reached only through the vector table, so keep them linked.
 cc_library(
     name = "mcmgr",
     srcs = glob(["mcmgr/*.c"]),
     hdrs = glob(["mcmgr/*.h"]),
-    includes = ["mcmgr"],
     copts = HAL_COPTS + ["-Wno-cast-align"],
-    alwayslink = True,
+    includes = ["mcmgr"],
+    target_compatible_with = CM7,
     deps = [
         ":device",
         ":drivers",
     ],
+    alwayslink = True,
 )
