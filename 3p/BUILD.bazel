@@ -1,1 +1,5 @@
-exports_files(glob(["*.BUILD"]))
+# Lets MODULE.bazel install these BUILD files into the archives they describe.
+exports_files([
+    "netxduo.BUILD",
+    "threadx.BUILD",
+])

@@ -1,3 +1,5 @@
+# BUILD file for the netxduo archive; MODULE.bazel installs it at the archive's root.
+
 load("@rules_cc//cc:defs.bzl", "cc_library")
 
 package(default_visibility = ["//visibility:public"])
