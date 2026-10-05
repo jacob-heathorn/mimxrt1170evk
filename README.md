@@ -14,26 +14,33 @@ Tested on Ubuntu 24.04.
 
 ## Flash and run a demo
 
+Each command flashes the image and streams its console until Ctrl-C:
+
 ```
-bazel run //apps/hello_world:hello_world.flash
+bazel run //apps/hello_world:hello_world.flash     # hello from both cores
+bazel run //apps:echo.flash                        # UART echo
+bazel run //apps:hello_threadx.flash               # two ThreadX threads
+bazel run //apps:hello_netx.flash                  # UDP over ethernet
+bazel run //apps:hello_publisher.flash             # Cyphal heartbeat publisher
+bazel run //apps:hello_subscriber.flash            # Cyphal heartbeat subscriber
+bazel run //apps:foc.flash                         # motor control with an AS5600 encoder
 ```
 
-That flashes the image and streams its console until Ctrl-C. Add `-- --no-console` to only
-flash. `bazel run //tools:console` attaches to a board that is already running.
-
-| Demo | Target |
-|---|---|
-| Hello from both cores | `//apps/hello_world:hello_world.flash` |
-| UART echo | `//apps:echo.flash` |
-| Two ThreadX threads | `//apps:hello_threadx.flash` |
-| UDP over ethernet | `//apps:hello_netx.flash` |
-| Cyphal heartbeat publisher | `//apps:hello_publisher.flash` |
-| Cyphal heartbeat subscriber | `//apps:hello_subscriber.flash` |
-| Motor control with an AS5600 encoder | `//apps:foc.flash` |
+Add `-- --no-console` to only flash. `bazel run //tools:console` attaches to a board that is
+already running.
 
 For the ethernet demos, give the host's interface `192.168.144.50/24`. The board is
-`192.168.144.1`, and `hello_subscriber` is `.2`. The other end of the Cyphal demos is
-microcyphal's `bazel run //apps:hello_subscriber` or `//apps:hello_publisher`.
+`192.168.144.1`, and `hello_subscriber` is `.2`.
+
+The Cyphal demos talk to a host app from microcyphal, run in a second terminal:
+
+```
+bazel run //apps:hello_publisher.flash                 # board publishes heartbeats
+bazel run @microcyphal//apps:hello_subscriber          # host prints them
+
+bazel run //apps:hello_subscriber.flash                # board prints heartbeats
+bazel run @microcyphal//apps:hello_publisher           # host publishes them
+```
 
 ## Test
 

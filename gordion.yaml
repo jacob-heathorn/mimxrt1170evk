@@ -3,5 +3,5 @@ repositories:
     tag: b7ea9be28a21108c4de1a6c183e7be85abee4df0
     url: https://github.com/jacob-heathorn/forge.git
   microcyphal:
-    tag: 7aed8c1396f9b346472e32e8d304329f8c986e85
+    tag: bf66ece46ec0238c27935c23ff6c45350bcfef6b
     url: https://github.com/jacob-heathorn/microcyphal.git
