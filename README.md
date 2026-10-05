@@ -1,129 +1,62 @@
-# Mimxrt1170evk
+# mimxrt1170evk
 
-A modern C++ embedded software development platform on the NXP MIMXRT1170-EVK hardware.
+Modern C++ firmware for the NXP MIMXRT1170-EVK: both cores, ThreadX, NetX Duo and
+[Cyphal/UDP](https://github.com/jacob-heathorn/microcyphal), built with bazel.
 
-This platform demonstrates cyphal (https://github.com/jacob-heathorn/microcyphal) on ThreadX.
+## Setup
 
-NOTE: This is not yet ready for safety-critical applications
-* Some of the HAL still needs to be handwritten.
-* We need to implement proper error handling to replace asserts.
-* Bump pools can be replaced by fixed pools for safety-critical memory management.
+Tested on Ubuntu 24.04.
 
-# Setup Instructions
-This has only been tested in Ubuntu 24.04.
+1. Install bazelisk (`npm i -g @bazel/bazelisk`) and gordion (`pipx install gordion`).
+2. Run `gor -u` to check out forge and microcyphal.
+3. Install NXP's [LinkServer](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER) to `/usr/local/LinkServer`.
+4. Connect the board's power and debug USB.
 
-1) Clone this repository: `git clone https://github.com/jacob-heathorn/mimxrt1170evk.git`
-2) Install bazelisk: `npm i -g @bazel/bazelisk` (or `apt install bazelisk`).
-   It fetches the bazel version pinned in `.bazelversion`.
-3) Install gordion: `pipx install gordion`
-4) Materialize the gordion dependencies: `gor -u`
-5) Optional, for the dev shell (`.envrc`): `sudo apt install direnv`, add
-   `eval "$(direnv hook bash)"` to your .bashrc, then `direnv allow .` here.
-6) Install LinkServer from NXP:
-  * Download:
-    https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER
-  * chmod +x and run the download.
-  * Confirm install location: `ls /usr/local/LinkServer/LinkServer`
-7) Connect mimxrt1170evk to power, and USB to your computer.
-
-# Build
-`bazel build //...`
-
-Bazel fetches the compiler, Python and every dependency itself. Each firmware
-image is built for its own core; there is no per-core config to select.
-`hello_world` embeds the cm4 image, so one command builds both. Builds are
-debug by default; `bazel build -c opt //...` is the release build.
-
-# Run
-`bazel run //apps/hello_world:hello_world.flash`
-
-Flashes the cm7 image (with the cm4 image inside it) and streams the serial
-console until Ctrl-C. Add `-- --no-console` to only flash, `-c opt` to flash
-the release build. `bazel run //tools:console` attaches to a running board.
-Every image under `apps/` has a `.flash` target: `//apps:echo.flash`,
-`//apps:hello_threadx.flash`, `//apps:hello_netx.flash`, `//apps:hello_publisher.flash`,
-`//apps:hello_subscriber.flash` and `//apps:foc.flash`.
-
-# Test
-`bazel test //mimxrt/cm7/platform:mpu_test //mimxrt/cm7/utils:utils_test //mimxrt/cm7/rtos/threadx:concurrency_test`
-
-Tests live next to the code they test. Each flashes a pigweed test image to the
-connected board and passes or fails on its console summary. They are excluded
-from `bazel test //...` because they need the hardware.
-
-# Serial Terminal
-device: `/dev/ttyACM0`
-baud: `115200`
-
-# Layout
-Headers, sources and tests live together; a header's include path is its repo path, e.g.
-`#include "mimxrt/cm7/platform/mpu.hpp"`.
+## Flash and run a demo
 
 ```
-mimxrt/cm7/   platform, drivers, utils, network, rtos glue, startup, generated registers
-mimxrt/cm4/   the same for the cm4
-nxp/          the vendored NXP SDK for each core
-apps/         the images, each with a .flash target
-3p/           BUILD files for the archives bazel fetches (ThreadX, NetX Duo)
-bazel/        cores.bzl (cm7_library, cm7_image, cm7_test, ...), platforms, toolchain
-tools/        flash and console tools, multicore packaging
+bazel run //apps/hello_world:hello_world.flash
 ```
 
-Our code uses `cm7_library`, `cm4_library`, `cm7_image`, `cm4_image` and `cm7_test` from
-`bazel/cores.bzl`: a `cc_library`, image or on-target test built for one core with forge's
-warnings and `-Werror`. Vendored code is a plain `cc_library`: NXP's SDK under `nxp/` with
-`HAL_COPTS`, and ThreadX and NetX Duo fetched by bazel with BUILD files in `3p/`. Our code sees
-the SDK's headers as system headers, so its warnings do not fire inside them.
+That flashes the image and streams its console until Ctrl-C. Add `-- --no-console` to only
+flash. `bazel run //tools:console` attaches to a board that is already running.
 
-# Dependencies
-forge and microcyphal are managed by gordion: `gordion.yaml` pins them, `gor -u` checks them out,
-and `tools/bazel` points bazel at those checkouts on every command. ThreadX, NetX Duo and NXP's
-SVDs are archives bazel fetches itself, pinned in `MODULE.bazel`.
+| Demo | Target |
+|---|---|
+| Hello from both cores | `//apps/hello_world:hello_world.flash` |
+| UART echo | `//apps:echo.flash` |
+| Two ThreadX threads | `//apps:hello_threadx.flash` |
+| UDP over ethernet | `//apps:hello_netx.flash` |
+| Cyphal heartbeat publisher | `//apps:hello_publisher.flash` |
+| Cyphal heartbeat subscriber | `//apps:hello_subscriber.flash` |
+| Motor control with an AS5600 encoder | `//apps:foc.flash` |
 
-# Host setup for the network demos
+For the ethernet demos, give the host's interface `192.168.144.50/24`. The board is
+`192.168.144.1`, and `hello_subscriber` is `.2`. The other end of the Cyphal demos is
+microcyphal's `bazel run //apps:hello_subscriber` or `//apps:hello_publisher`.
 
-## NetX host setup
-```bash
-# Set up local ethernet interface (192.0.2.1) and mask (255.255.255.0)
-ping 192.0.2.149
-socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
-socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.0.2.1,fork EXEC:'/bin/cat' # echo multicast
+## Test
+
+Tests run on the board, so name the ones you want:
+
+```
+bazel test //mimxrt/cm7/platform:mpu_test
+bazel test //mimxrt/cm7/utils:utils_test
+bazel test //mimxrt/cm7/rtos/threadx:concurrency_test
+bazel test //mimxrt/cm7/rtos/threadx:simple_test
 ```
 
-## Cyphal tools and wireshark
-```bash
-sudo apt update
-sudo apt install wireshark
+## Debug and release
 
-# Copy lua script
-# from: https://github.com/OpenCyphal/wireshark_plugins/tree/main
-# to: /usr/lib/x86_64-linux-gnu/wireshark/plugins
+Everything is built for debug by default. Add `-c opt` to any command for the release build:
 
-# Install yakut
-pipx install 'yakut[transport-udp]'
-
-# Add to .bashrc
-export CYPHAL_PATH="$HOME/path/to/public_regulated_data_types:$CYPHAL_PATH"
-export UAVCAN__UDP__IFACE="192.0.2.2"
-export UAVCAN__NODE__ID=42
-
-# Connect ethernet from computer to dev board
-# Set the local ethernet interface to 192.0.2.1 and netmask 255.255.255.0
-
-# Monitor all Cyphal/UDP traffic
-yakut mon
-
-# Subscribe to heartbeat messages
-export UAVCAN__UDP__IFACE=192.0.2.100
-export UAVCAN__NODE__ID=1000
-yakut sub uavcan.node.heartbeat
+```
+bazel build -c opt //...
+bazel run -c opt //apps/hello_world:hello_world.flash
+bazel test -c opt //mimxrt/cm7/platform:mpu_test
 ```
 
-# Copyright & Licensing
+## License
 
-Copyright (c) 2025 Jacob Heathorn
-
-This project is released under the **Academic Use License** (see [LICENSE](./LICENSE)).
-For **commercial licensing**, please contact: <jacob.heathorn@gmail.com>.
-
-TODO: Handwrite ethernet, and other drivers to replace the NXP provided HAL.
+Copyright (c) 2025 Jacob Heathorn. Released under the **Academic Use License**, see
+[LICENSE](./LICENSE). For commercial licensing contact <jacob.heathorn@gmail.com>.

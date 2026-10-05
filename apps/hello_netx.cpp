@@ -2,6 +2,7 @@
 
 #include "stdio.h"
 #include "tx_api.h"
+#include "apps/demo_network.hpp"
 
 #include "forge/threadx/thread.hpp"
 #include "forge/ftl/allocator/bump_pool_buffer_strategy.hpp"
@@ -50,7 +51,7 @@ void echo_hello()
         // Send unicast message.
         udp::Payload msg1(strlen("Hello unicast") + 2);
         sprintf((char *)msg1.front(), "Hello unicast %d", i % 10);
-        if (!socket->send(std::move(msg1), Endpoint("192.0.2.1", 5001))) {
+        if (!socket->send(std::move(msg1), Endpoint(kHostAddress, 5001))) {
             printf("Failed to send UDP packet\r\n");
         }
 
@@ -106,7 +107,7 @@ VOID tx_application_define(void *first_unused_memory)
     static ftl::allocator::ObjAllocator<NxUdpSocket> socket_allocator(socket_strategy);
     
     // Set up the etherenet interface
-    GigabitEthernet::create("192.0.2.149", Mask{255, 255, 255, 0}, socket_allocator);
+    GigabitEthernet::create(kBoardAddress, Mask{255, 255, 255, 0}, socket_allocator);
 
     // Create hello thread.
     static ftl::TxThread thread1(

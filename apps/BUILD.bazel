@@ -23,7 +23,10 @@ cm7_image(
 # UDP echo over gigabit ethernet.
 cm7_image(
     name = "hello_netx",
-    srcs = ["hello_netx.cpp"],
+    srcs = [
+        "demo_network.hpp",
+        "hello_netx.cpp",
+    ],
     deps = [
         "//mimxrt/cm7:runtime",
         "//mimxrt/cm7/network",
@@ -36,7 +39,10 @@ cm7_image(
 # Cyphal/UDP heartbeat publisher.
 cm7_image(
     name = "hello_publisher",
-    srcs = ["hello_publisher.cpp"],
+    srcs = [
+        "demo_network.hpp",
+        "hello_publisher.cpp",
+    ],
     deps = [
         "//mimxrt/cm7:runtime",
         "//mimxrt/cm7/network",
@@ -50,7 +56,10 @@ cm7_image(
 # Cyphal/UDP heartbeat subscriber.
 cm7_image(
     name = "hello_subscriber",
-    srcs = ["hello_subscriber.cpp"],
+    srcs = [
+        "demo_network.hpp",
+        "hello_subscriber.cpp",
+    ],
     deps = [
         "//mimxrt/cm7:runtime",
         "//mimxrt/cm7/network",

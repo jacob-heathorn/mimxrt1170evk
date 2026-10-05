@@ -12,31 +12,28 @@ gone, register headers and DSDL types are generated in the build, every image
 builds for its own core via `firmware_image` (no `--config`), `-c opt` selects
 the release build, `hello-world-cm7` embeds the real cm4 image, and each image
 has a `.flash` target, verified on the EVK, and the pigweed test images run on
-the board via `bazel test`. Gordion checkouts override `git_override` pins via
+the board via `bazel test`. The ethernet demos are verified against a host on
+192.168.144.0/24: ping, unicast and multicast UDP, and Cyphal heartbeats both ways. Gordion checkouts override `git_override` pins via
 `tools/bazel` and `gor bazelrc`; `gor commit` bumps both pins.
 
 ## In priority order
 
-1. **Network demos end to end.** hello-netx, hello-publisher and
-   hello-subscriber boot and bring up the PHY but were checked without a
-   cable; run them against a host with `socat` / `yakut` per the README.
-
-2. **compile_commands.json.** Add `hedron_compile_commands` and point
+1. **compile_commands.json.** Add `hedron_compile_commands` and point
    `.vscode/settings.json` at it.
 
-3. **Debug workflow.** `:debug` targets wrapping LinkServer + gdb, SWO, and
+2. **Debug workflow.** `:debug` targets wrapping LinkServer + gdb, SWO, and
    a generated `.vscode/launch.json`. A cm4 `flash` target once the
    LinkServer core selection for cm4 is known.
 
-4. **Hermetic host toolchain.** forge's native tests use the system gcc.
+3. **Hermetic host toolchain.** forge's native tests use the system gcc.
    `toolchains_llvm` would pin it, and the same clang can later serve the
-   Cortex-M targets (item 6). The Arm toolchain download is x86_64 Linux
+   Cortex-M targets (item 5). The Arm toolchain download is x86_64 Linux
    only; add macOS/arm64 URLs when needed.
 
-5. **MODULE.bazel.lock.** Gitignored today. Commit it once overrides stop
+4. **MODULE.bazel.lock.** Gitignored today. Commit it once overrides stop
    churning it, so registry resolution is pinned.
 
-6. **clang + lld, then LTO.** Deferred until the migration is stable.
+5. **clang + lld, then LTO.** Deferred until the migration is stable.
    gcc + bfd ld can't LTO across bazel's per-library archives (binutils
    12758, won't-fix; `alwayslink` defeats `--gc-sections`, 3.6× bloat).
    lld's `--start-lib/--end-lib` fixes it. Matters for FOC ISR timing,

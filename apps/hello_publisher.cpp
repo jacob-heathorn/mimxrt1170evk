@@ -2,6 +2,7 @@
 
 #include "stdio.h"
 #include "tx_api.h"
+#include "apps/demo_network.hpp"
 
 #include "forge/threadx/thread.hpp"
 #include "forge/ftl/allocator/bump_pool_obj_strategy.hpp"
@@ -89,7 +90,7 @@ VOID tx_application_define(void *first_unused_memory)
     static ftl::allocator::ObjAllocator<NxUdpSocket> socket_allocator(socket_strategy);
     
     // Set up the ethernet interface
-    GigabitEthernet::create("192.0.2.149", Mask{255, 255, 255, 0}, socket_allocator);
+    GigabitEthernet::create(kBoardAddress, Mask{255, 255, 255, 0}, socket_allocator);
 
     // Create Cyphal publisher thread.
     static ftl::TxThread thread1(
